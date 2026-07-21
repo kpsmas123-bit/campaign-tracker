@@ -431,8 +431,14 @@
   }
 
   async function reloadTasks() {
+    var activeEl = document.activeElement;
+    var isEditing = activeEl && activeEl.closest('.task-row');
     var r = await sb.from('tasks').select('*').order('id');
-    if (!r.error) { tasks = r.data || []; renderTasks(); updateCount(); }
+    if (!r.error) {
+      tasks = r.data || [];
+      if (!isEditing) renderTasks();
+      updateCount();
+    }
   }
 
   async function reloadTeam() {
