@@ -70,6 +70,36 @@
     padding: 40px 24px 80px;
   }
 
+  /* Setup banner */
+  .setup-banner {
+    background: var(--priority-high-bg);
+    border: 1px solid var(--priority-high);
+    border-radius: 3px;
+    padding: 12px 16px;
+    margin-bottom: 24px;
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.6;
+  }
+  .setup-banner code {
+    background: var(--team-bg);
+    padding: 1px 4px;
+    border-radius: 2px;
+    font-size: 12px;
+  }
+  .setup-banner a {
+    color: var(--accent);
+  }
+
+  /* Sync indicator */
+  .sync-status {
+    font-size: 11px;
+    color: var(--text-tertiary);
+    letter-spacing: 0.03em;
+  }
+  .sync-status.connected { color: var(--priority-low); }
+  .sync-status.offline { color: var(--priority-high); }
+
   .header {
     display: flex;
     align-items: baseline;
@@ -429,9 +459,12 @@
 <body>
 
 <div class="app" id="app">
+  <div id="setupBanner"></div>
+
   <div class="header">
-    <input class="campaign-name" id="campaignName" value="City Council 2026" placeholder="Campaign name">
+    <input class="campaign-name" id="campaignName" value="" placeholder="Campaign name">
     <div class="header-right">
+      <span class="sync-status" id="syncStatus"></span>
       <span class="task-count" id="taskCount"></span>
     </div>
   </div>
@@ -476,13 +509,33 @@
   </div>
 </div>
 
-<script>
-  const STATE_KEY = 'campaign-tracker-state';
-  const PRIORITIES = ['high', 'med', 'low'];
-  const PRIORITY_LABELS = { high: 'High', med: 'Med', low: 'Low' };
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
 
-  let state = loadState();
-  let currentFilter = 'all';
+<script>
+  // ============================================================
+  // FIREBASE CONFIG — fill in your values from Firebase Console
+  // ============================================================
+  var FIREBASE_CONFIG = {
+    apiKey:            "YOUR_API_KEY",
+    authDomain:        "YOUR_PROJECT.firebaseapp.com",
+    databaseURL:       "https://YOUR_PROJECT-default-rtdb.firebaseio.com",
+    projectId:         "YOUR_PROJECT",
+    storageBucket:     "YOUR_PROJECT.appspot.com",
+    messagingSenderId: "YOUR_SENDER_ID",
+    appId:             "YOUR_APP_ID"
+  };
+  // ============================================================
+
+  var PRIORITIES = ['high', 'med', 'low'];
+  var PRIORITY_LABELS = { high: 'High', med: 'Med', low: 'Low' };
+  var currentFilter = 'all';
+  var state = null;
+  var db = null;
+  var dbRef = null;
+  var saveTimeout = null;
+  var isFirebaseConfigured = false;
 
   function defaultState() {
     return {
@@ -500,59 +553,120 @@
     };
   }
 
-  function loadState() {
+  function initFirebase() {
+    if (FIREBASE_CONFIG.apiKey === 'YOUR_API_KEY') {
+      isFirebaseConfigured = false;
+      showSetupBanner();
+      setSyncStatus('Not configured', 'offline');
+      state = defaultState();
+      renderAll();
+      return;
+    }
+
+    isFirebaseConfigured = true;
+    document.getElementById('setupBanner').innerHTML = '';
+
     try {
-      const raw = localStorage.getItem(STATE_KEY);
-      if (raw) return JSON.parse(raw);
-    } catch(e) {}
-    return defaultState();
+      firebase.initializeApp(FIREBASE_CONFIG);
+      db = firebase.database();
+      dbRef = db.ref('campaign-tracker');
+
+      db.ref('.info/connected').on('value', function(snap) {
+        if (snap.val() === true) {
+          setSyncStatus('Synced', 'connected');
+        } else {
+          setSyncStatus('Offline', 'offline');
+        }
+      });
+
+      dbRef.on('value', function(snapshot) {
+        var data = snapshot.val();
+        if (data) {
+          state = data;
+          if (!state.tasks) state.tasks = [];
+          if (!state.team) state.team = [];
+          if (!state.nextId) state.nextId = 1;
+        } else {
+          state = defaultState();
+          dbRef.set(state);
+        }
+        renderAll();
+      });
+    } catch(e) {
+      isFirebaseConfigured = false;
+      showSetupBanner();
+      setSyncStatus('Error', 'offline');
+      state = defaultState();
+      renderAll();
+    }
+  }
+
+  function showSetupBanner() {
+    document.getElementById('setupBanner').innerHTML =
+      '<div class="setup-banner">' +
+        '<strong>Firebase not configured yet.</strong> The app works locally for now. ' +
+        'To share data across your team:<br>' +
+        '1. Go to <a href="https://console.firebase.google.com" target="_blank">console.firebase.google.com</a> and create a project<br>' +
+        '2. Add a Realtime Database (start in <strong>test mode</strong>)<br>' +
+        '3. Go to Project Settings &gt; General &gt; Your Apps &gt; Web app, and copy the config<br>' +
+        '4. Paste the values into <code>FIREBASE_CONFIG</code> in index.html and redeploy' +
+      '</div>';
+  }
+
+  function setSyncStatus(text, cls) {
+    var el = document.getElementById('syncStatus');
+    el.textContent = text;
+    el.className = 'sync-status ' + cls;
   }
 
   function saveState() {
-    localStorage.setItem(STATE_KEY, JSON.stringify(state));
+    if (isFirebaseConfigured && dbRef) {
+      clearTimeout(saveTimeout);
+      saveTimeout = setTimeout(function() {
+        dbRef.set(state);
+      }, 300);
+    }
+  }
+
+  function renderAll() {
+    renderTeam();
+    renderTasks();
+    updateCount();
+    document.getElementById('campaignName').value = state.campaignName || '';
   }
 
   function getInitials(name) {
-    return name.split(/\s+/).map(w => w[0]).join('').toUpperCase().slice(0, 2);
+    return name.split(/\s+/).map(function(w) { return w[0]; }).join('').toUpperCase().slice(0, 2);
   }
 
   function isOverdue(dateStr) {
     if (!dateStr) return false;
-    const today = new Date();
+    var today = new Date();
     today.setHours(0,0,0,0);
     return new Date(dateStr + 'T00:00:00') < today;
   }
 
-  function formatDate(dateStr) {
-    if (!dateStr) return '';
-    const d = new Date(dateStr + 'T00:00:00');
-    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    return months[d.getMonth()] + ' ' + d.getDate();
-  }
-
-  function render() {
-    renderTeam();
-    renderTasks();
-    updateCount();
-    document.getElementById('campaignName').value = state.campaignName;
-    saveState();
+  function escHtml(str) {
+    var d = document.createElement('div');
+    d.textContent = str || '';
+    return d.innerHTML;
   }
 
   function renderTeam() {
-    const list = document.getElementById('teamList');
-    const avatars = document.getElementById('teamAvatars');
-    const note = document.getElementById('teamLimitNote');
+    var list = document.getElementById('teamList');
+    var avatars = document.getElementById('teamAvatars');
+    var note = document.getElementById('teamLimitNote');
 
-    list.innerHTML = state.team.map((name, i) =>
-      '<div class="team-member">' + escHtml(name) +
-      ' <span class="remove" data-idx="' + i + '">&times;</span></div>'
-    ).join('');
+    list.innerHTML = state.team.map(function(name, i) {
+      return '<div class="team-member">' + escHtml(name) +
+        ' <span class="remove" data-idx="' + i + '">&times;</span></div>';
+    }).join('');
 
-    avatars.innerHTML = state.team.map(name =>
-      '<div class="team-avatar-small">' + getInitials(name) + '</div>'
-    ).join('');
+    avatars.innerHTML = state.team.map(function(name) {
+      return '<div class="team-avatar-small">' + getInitials(name) + '</div>';
+    }).join('');
 
-    const remaining = 10 - state.team.length;
+    var remaining = 10 - state.team.length;
     if (remaining <= 0) {
       note.textContent = '10 members maximum';
       document.getElementById('addMemberRow').style.display = 'none';
@@ -567,7 +681,8 @@
         var removed = state.team[idx];
         state.team.splice(idx, 1);
         state.tasks.forEach(function(t) { if (t.assignee === removed) t.assignee = ''; });
-        render();
+        saveState();
+        renderAll();
       });
     });
   }
@@ -608,7 +723,7 @@
     container.querySelectorAll('.task-check').forEach(function(el) {
       el.addEventListener('click', function() {
         var task = findTask(parseInt(el.dataset.id));
-        if (task) { task.done = !task.done; render(); }
+        if (task) { task.done = !task.done; saveState(); renderAll(); }
       });
     });
 
@@ -622,7 +737,7 @@
     container.querySelectorAll('.task-due').forEach(function(el) {
       el.addEventListener('change', function() {
         var task = findTask(parseInt(el.dataset.id));
-        if (task) { task.due = el.value; render(); }
+        if (task) { task.due = el.value; saveState(); renderAll(); }
       });
     });
 
@@ -639,7 +754,8 @@
         if (task) {
           var idx = PRIORITIES.indexOf(task.priority);
           task.priority = PRIORITIES[(idx + 1) % PRIORITIES.length];
-          render();
+          saveState();
+          renderAll();
         }
       });
     });
@@ -648,7 +764,8 @@
       el.addEventListener('click', function() {
         var id = parseInt(el.dataset.id);
         state.tasks = state.tasks.filter(function(t) { return t.id !== id; });
-        render();
+        saveState();
+        renderAll();
       });
     });
   }
@@ -663,12 +780,7 @@
     document.getElementById('taskCount').textContent = active + ' active / ' + total + ' total';
   }
 
-  function escHtml(str) {
-    var d = document.createElement('div');
-    d.textContent = str;
-    return d.innerHTML;
-  }
-
+  // Team toggle
   document.getElementById('teamToggle').addEventListener('click', function() {
     var panel = document.getElementById('teamPanel');
     var arrow = document.getElementById('teamArrow');
@@ -676,6 +788,7 @@
     arrow.classList.toggle('open', isOpen);
   });
 
+  // Add member
   function addMember() {
     var input = document.getElementById('addMemberInput');
     var name = input.value.trim();
@@ -683,13 +796,15 @@
     if (state.team.some(function(m) { return m.toLowerCase() === name.toLowerCase(); })) return;
     state.team.push(name);
     input.value = '';
-    render();
+    saveState();
+    renderAll();
   }
   document.getElementById('addMemberBtn').addEventListener('click', addMember);
   document.getElementById('addMemberInput').addEventListener('keydown', function(e) {
     if (e.key === 'Enter') addMember();
   });
 
+  // Add task
   document.getElementById('addTaskBtn').addEventListener('click', function() {
     var newTask = {
       id: state.nextId++,
@@ -700,11 +815,13 @@
       priority: 'med',
     };
     state.tasks.push(newTask);
-    render();
+    saveState();
+    renderAll();
     var newInput = document.querySelector('.task-name-input[data-id="' + newTask.id + '"]');
     if (newInput) newInput.focus();
   });
 
+  // Filters
   document.querySelectorAll('.filter-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
       document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
@@ -714,12 +831,14 @@
     });
   });
 
+  // Campaign name
   document.getElementById('campaignName').addEventListener('input', function(e) {
     state.campaignName = e.target.value;
     saveState();
   });
 
-  render();
+  // Init
+  initFirebase();
 </script>
 </body>
 </html>
