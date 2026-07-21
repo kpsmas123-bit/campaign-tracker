@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Campaign Task Tracker</title>
+<style>
+  :root {
+    --ground: #F9F9F6;
+    --surface: #FFFFFF;
+    --text: #2A2A2E;
+    --text-secondary: #7C7C82;
+    --text-tertiary: #A8A8AC;
+    --border: #E6E6E2;
+    --border-light: #F0F0EC;
+    --accent: #4A6FA5;
+    --accent-hover: #3D5E8C;
+    --priority-high: #C45240;
+    --priority-high-bg: #C4524012;
+    --priority-medium: #C89B2A;
+    --priority-medium-bg: #C89B2A12;
+    --priority-low: #6B956B;
+    --priority-low-bg: #6B956B12;
+    --done-text: #B8B8BC;
+    --done-line: #CCCCD0;
+    --team-bg: #F2F2EE;
+    --hover: #F4F4F0;
+    --shadow: 0 1px 2px rgba(0,0,0,0.04);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #18181B;
+      --surface: #1E1E22;
+      --text: #E4E4E0;
+      --text-secondary: #8E8E92;
+      --text-tertiary: #5A5A5E;
+      --border: #2E2E32;
+      --border-light: #262628;
+      --accent: #6B8FC4;
+      --accent-hover: #7DA0D0;
+      --priority-high: #D4705F;
+      --priority-high-bg: #D4705F18;
+      --priority-medium: #D4AD4A;
+      --priority-medium-bg: #D4AD4A18;
+      --priority-low: #7DAF7D;
+      --priority-low-bg: #7DAF7D18;
+      --done-text: #4A4A4E;
+      --done-line: #3A3A3E;
+      --team-bg: #222226;
+      --hover: #24242A;
+      --shadow: 0 1px 2px rgba(0,0,0,0.2);
+    }
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--text);
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .app {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  .header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .campaign-name {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 22px;
+    font-weight: normal;
+    color: var(--text);
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0;
+    width: 100%;
+    max-width: 400px;
+  }
+  .campaign-name::placeholder { color: var(--text-tertiary); }
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+  }
+  .task-count {
+    font-size: 12px;
+    color: var(--text-tertiary);
+    letter-spacing: 0.03em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .team-section {
+    margin-bottom: 28px;
+  }
+  .team-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    user-select: none;
+    padding: 6px 0;
+    color: var(--text-secondary);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .team-toggle:hover { color: var(--text); }
+  .team-toggle .arrow {
+    display: inline-block;
+    transition: transform 0.15s ease;
+    font-size: 9px;
+  }
+  .team-toggle .arrow.open { transform: rotate(90deg); }
+  .team-avatars {
+    display: flex;
+    gap: 4px;
+    margin-left: 8px;
+  }
+  .team-avatar-small {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--team-bg);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    letter-spacing: -0.02em;
+  }
+  .team-panel {
+    display: none;
+    padding: 12px 0;
+  }
+  .team-panel.open { display: block; }
+  .team-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+  .team-member {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 10px;
+    background: var(--team-bg);
+    border: 1px solid var(--border-light);
+    border-radius: 3px;
+    font-size: 13px;
+    color: var(--text);
+    cursor: default;
+  }
+  .team-member .remove {
+    color: var(--text-tertiary);
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+    padding: 0 2px;
+  }
+  .team-member .remove:hover { color: var(--priority-high); }
+  .add-member-row {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    margin-top: 4px;
+  }
+  .add-member-input {
+    font-family: inherit;
+    font-size: 13px;
+    padding: 5px 8px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    background: var(--surface);
+    color: var(--text);
+    outline: none;
+    width: 180px;
+  }
+  .add-member-input:focus { border-color: var(--accent); }
+  .add-member-input::placeholder { color: var(--text-tertiary); }
+  .add-member-btn {
+    font-family: inherit;
+    font-size: 12px;
+    padding: 5px 10px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    background: var(--surface);
+    color: var(--text-secondary);
+    cursor: pointer;
+  }
+  .add-member-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .team-limit-note {
+    font-size: 11px;
+    color: var(--text-tertiary);
+    margin-top: 6px;
+  }
+
+  .task-list-header {
+    display: grid;
+    grid-template-columns: 28px 1fr 90px 100px 80px 28px;
+    gap: 8px;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    user-select: none;
+  }
+  .task-list-header span { cursor: pointer; }
+  .task-list-header span:hover { color: var(--text-secondary); }
+
+  .task-row {
+    display: grid;
+    grid-template-columns: 28px 1fr 90px 100px 80px 28px;
+    gap: 8px;
+    align-items: center;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border-light);
+    transition: background 0.1s ease;
+  }
+  .task-row:hover { background: var(--hover); }
+  .task-row.done .task-name-input {
+    text-decoration: line-through;
+    color: var(--done-text);
+  }
+  .task-row.done .task-due,
+  .task-row.done .task-assignee-select,
+  .task-row.done .task-priority-btn {
+    opacity: 0.4;
+  }
+
+  .task-check {
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid var(--border);
+    border-radius: 2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+    background: transparent;
+    margin: 0 auto;
+  }
+  .task-check:hover { border-color: var(--accent); }
+  .task-check.checked {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+  .task-check.checked::after {
+    content: '';
+    width: 8px;
+    height: 5px;
+    border-left: 1.5px solid #fff;
+    border-bottom: 1.5px solid #fff;
+    transform: rotate(-45deg) translateY(-1px);
+  }
+
+  .task-name-input {
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--text);
+    background: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 1px 0;
+  }
+  .task-name-input::placeholder { color: var(--text-tertiary); }
+
+  .task-due {
+    font-family: inherit;
+    font-size: 13px;
+    font-variant-numeric: tabular-nums;
+    color: var(--text-secondary);
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 2px 0;
+    position: relative;
+  }
+  .task-due::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+
+  .task-assignee-select {
+    font-family: inherit;
+    font-size: 13px;
+    color: var(--text-secondary);
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 2px 0;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+  .task-assignee-select option {
+    background: var(--surface);
+    color: var(--text);
+  }
+
+  .task-priority-btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-family: inherit;
+    font-size: 11px;
+    letter-spacing: 0.02em;
+    padding: 2px 6px;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+    background: transparent;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+  }
+  .task-priority-btn .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  }
+  .task-priority-btn[data-priority="high"] .dot { background: var(--priority-high); }
+  .task-priority-btn[data-priority="high"] { color: var(--priority-high); background: var(--priority-high-bg); }
+  .task-priority-btn[data-priority="med"] .dot { background: var(--priority-medium); }
+  .task-priority-btn[data-priority="med"] { color: var(--priority-medium); background: var(--priority-medium-bg); }
+  .task-priority-btn[data-priority="low"] .dot { background: var(--priority-low); }
+  .task-priority-btn[data-priority="low"] { color: var(--priority-low); background: var(--priority-low-bg); }
+
+  .task-delete {
+    color: var(--text-tertiary);
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.1s;
+    background: none;
+    border: none;
+    font-family: inherit;
+  }
+  .task-row:hover .task-delete { opacity: 1; }
+  .task-delete:hover { color: var(--priority-high); }
+
+  .add-task-row {
+    padding: 8px 0;
+    padding-left: 36px;
+  }
+  .add-task-btn {
+    font-family: inherit;
+    font-size: 13px;
+    color: var(--text-tertiary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px 0;
+  }
+  .add-task-btn:hover { color: var(--accent); }
+
+  .filter-bar {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .filter-btn {
+    font-family: inherit;
+    font-size: 12px;
+    color: var(--text-tertiary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 3px 0;
+    border-bottom: 1.5px solid transparent;
+    letter-spacing: 0.02em;
+  }
+  .filter-btn:hover { color: var(--text-secondary); }
+  .filter-btn.active {
+    color: var(--text);
+    border-bottom-color: var(--text);
+  }
+  .filter-sep {
+    width: 1px;
+    height: 14px;
+    background: var(--border);
+  }
+
+  .task-due.overdue { color: var(--priority-high); }
+
+  @media (max-width: 640px) {
+    .app { padding: 24px 16px 60px; }
+    .task-list-header,
+    .task-row {
+      grid-template-columns: 24px 1fr 80px 28px;
+    }
+    .task-list-header .col-assignee,
+    .task-list-header .col-priority,
+    .task-row .task-assignee-select,
+    .task-row .task-priority-btn {
+      display: none;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="app" id="app">
+  <div class="header">
+    <input class="campaign-name" id="campaignName" value="City Council 2026" placeholder="Campaign name">
+    <div class="header-right">
+      <span class="task-count" id="taskCount"></span>
+    </div>
+  </div>
+
+  <div class="team-section">
+    <div class="team-toggle" id="teamToggle">
+      <span class="arrow" id="teamArrow">&#9654;</span>
+      <span>Team</span>
+      <div class="team-avatars" id="teamAvatars"></div>
+    </div>
+    <div class="team-panel" id="teamPanel">
+      <div class="team-list" id="teamList"></div>
+      <div class="add-member-row" id="addMemberRow">
+        <input class="add-member-input" id="addMemberInput" placeholder="Name" maxlength="30">
+        <button class="add-member-btn" id="addMemberBtn">Add</button>
+      </div>
+      <div class="team-limit-note" id="teamLimitNote"></div>
+    </div>
+  </div>
+
+  <div class="filter-bar" id="filterBar">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="active">Active</button>
+    <button class="filter-btn" data-filter="done">Done</button>
+    <div class="filter-sep"></div>
+    <button class="filter-btn" data-filter="high">High</button>
+    <button class="filter-btn" data-filter="med">Medium</button>
+    <button class="filter-btn" data-filter="low">Low</button>
+  </div>
+
+  <div class="task-list-header">
+    <span></span>
+    <span class="col-name">Task</span>
+    <span class="col-due">Due</span>
+    <span class="col-assignee">Assigned</span>
+    <span class="col-priority">Priority</span>
+    <span></span>
+  </div>
+  <div id="taskList"></div>
+  <div class="add-task-row">
+    <button class="add-task-btn" id="addTaskBtn">+ Add task</button>
+  </div>
+</div>
+
+<script>
+  const STATE_KEY = 'campaign-tracker-state';
+  const PRIORITIES = ['high', 'med', 'low'];
+  const PRIORITY_LABELS = { high: 'High', med: 'Med', low: 'Low' };
+
+  let state = loadState();
+  let currentFilter = 'all';
+
+  function defaultState() {
+    return {
+      campaignName: 'City Council 2026',
+      team: ['Jordan', 'Alex', 'Morgan', 'Sam'],
+      tasks: [
+        { id: 1, name: 'Finalize yard sign locations', done: false, due: '2026-07-28', assignee: 'Jordan', priority: 'high' },
+        { id: 2, name: 'Schedule candidate forum prep', done: false, due: '2026-07-25', assignee: 'Alex', priority: 'high' },
+        { id: 3, name: 'Draft volunteer call script', done: false, due: '2026-07-30', assignee: 'Morgan', priority: 'med' },
+        { id: 4, name: 'Update social media calendar', done: false, due: '2026-07-23', assignee: 'Sam', priority: 'med' },
+        { id: 5, name: 'Order campaign mailers', done: true, due: '2026-07-20', assignee: 'Jordan', priority: 'low' },
+        { id: 6, name: 'Confirm rally venue', done: false, due: '2026-08-02', assignee: 'Alex', priority: 'high' },
+      ],
+      nextId: 7,
+    };
+  }
+
+  function loadState() {
+    try {
+      const raw = localStorage.getItem(STATE_KEY);
+      if (raw) return JSON.parse(raw);
+    } catch(e) {}
+    return defaultState();
+  }
+
+  function saveState() {
+    localStorage.setItem(STATE_KEY, JSON.stringify(state));
+  }
+
+  function getInitials(name) {
+    return name.split(/\s+/).map(w => w[0]).join('').toUpperCase().slice(0, 2);
+  }
+
+  function isOverdue(dateStr) {
+    if (!dateStr) return false;
+    const today = new Date();
+    today.setHours(0,0,0,0);
+    return new Date(dateStr + 'T00:00:00') < today;
+  }
+
+  function formatDate(dateStr) {
+    if (!dateStr) return '';
+    const d = new Date(dateStr + 'T00:00:00');
+    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    return months[d.getMonth()] + ' ' + d.getDate();
+  }
+
+  function render() {
+    renderTeam();
+    renderTasks();
+    updateCount();
+    document.getElementById('campaignName').value = state.campaignName;
+    saveState();
+  }
+
+  function renderTeam() {
+    const list = document.getElementById('teamList');
+    const avatars = document.getElementById('teamAvatars');
+    const note = document.getElementById('teamLimitNote');
+
+    list.innerHTML = state.team.map((name, i) =>
+      '<div class="team-member">' + escHtml(name) +
+      ' <span class="remove" data-idx="' + i + '">&times;</span></div>'
+    ).join('');
+
+    avatars.innerHTML = state.team.map(name =>
+      '<div class="team-avatar-small">' + getInitials(name) + '</div>'
+    ).join('');
+
+    const remaining = 10 - state.team.length;
+    if (remaining <= 0) {
+      note.textContent = '10 members maximum';
+      document.getElementById('addMemberRow').style.display = 'none';
+    } else {
+      note.textContent = remaining + ' more slot' + (remaining !== 1 ? 's' : '');
+      document.getElementById('addMemberRow').style.display = 'flex';
+    }
+
+    list.querySelectorAll('.remove').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var idx = parseInt(btn.dataset.idx);
+        var removed = state.team[idx];
+        state.team.splice(idx, 1);
+        state.tasks.forEach(function(t) { if (t.assignee === removed) t.assignee = ''; });
+        render();
+      });
+    });
+  }
+
+  function filteredTasks() {
+    return state.tasks.filter(function(t) {
+      if (currentFilter === 'active') return !t.done;
+      if (currentFilter === 'done') return t.done;
+      if (currentFilter === 'high') return t.priority === 'high' && !t.done;
+      if (currentFilter === 'med') return t.priority === 'med' && !t.done;
+      if (currentFilter === 'low') return t.priority === 'low' && !t.done;
+      return true;
+    });
+  }
+
+  function renderTasks() {
+    var container = document.getElementById('taskList');
+    var tasks = filteredTasks();
+
+    container.innerHTML = tasks.map(function(t) {
+      var overdue = !t.done && isOverdue(t.due);
+      var options = '<option value="">—</option>' +
+        state.team.map(function(m) {
+          return '<option value="' + escHtml(m) + '"' + (t.assignee === m ? ' selected' : '') + '>' + escHtml(m) + '</option>';
+        }).join('');
+
+      return '<div class="task-row' + (t.done ? ' done' : '') + '" data-id="' + t.id + '">' +
+        '<div class="task-check' + (t.done ? ' checked' : '') + '" data-id="' + t.id + '"></div>' +
+        '<input class="task-name-input" value="' + escHtml(t.name) + '" placeholder="Task name" data-id="' + t.id + '">' +
+        '<input class="task-due' + (overdue ? ' overdue' : '') + '" type="date" value="' + (t.due || '') + '" data-id="' + t.id + '">' +
+        '<select class="task-assignee-select" data-id="' + t.id + '">' + options + '</select>' +
+        '<button class="task-priority-btn" data-id="' + t.id + '" data-priority="' + t.priority + '">' +
+          '<span class="dot"></span>' + PRIORITY_LABELS[t.priority] + '</button>' +
+        '<button class="task-delete" data-id="' + t.id + '">&times;</button>' +
+      '</div>';
+    }).join('');
+
+    container.querySelectorAll('.task-check').forEach(function(el) {
+      el.addEventListener('click', function() {
+        var task = findTask(parseInt(el.dataset.id));
+        if (task) { task.done = !task.done; render(); }
+      });
+    });
+
+    container.querySelectorAll('.task-name-input').forEach(function(el) {
+      el.addEventListener('input', function() {
+        var task = findTask(parseInt(el.dataset.id));
+        if (task) { task.name = el.value; saveState(); }
+      });
+    });
+
+    container.querySelectorAll('.task-due').forEach(function(el) {
+      el.addEventListener('change', function() {
+        var task = findTask(parseInt(el.dataset.id));
+        if (task) { task.due = el.value; render(); }
+      });
+    });
+
+    container.querySelectorAll('.task-assignee-select').forEach(function(el) {
+      el.addEventListener('change', function() {
+        var task = findTask(parseInt(el.dataset.id));
+        if (task) { task.assignee = el.value; saveState(); }
+      });
+    });
+
+    container.querySelectorAll('.task-priority-btn').forEach(function(el) {
+      el.addEventListener('click', function() {
+        var task = findTask(parseInt(el.dataset.id));
+        if (task) {
+          var idx = PRIORITIES.indexOf(task.priority);
+          task.priority = PRIORITIES[(idx + 1) % PRIORITIES.length];
+          render();
+        }
+      });
+    });
+
+    container.querySelectorAll('.task-delete').forEach(function(el) {
+      el.addEventListener('click', function() {
+        var id = parseInt(el.dataset.id);
+        state.tasks = state.tasks.filter(function(t) { return t.id !== id; });
+        render();
+      });
+    });
+  }
+
+  function findTask(id) {
+    return state.tasks.find(function(t) { return t.id === id; });
+  }
+
+  function updateCount() {
+    var active = state.tasks.filter(function(t) { return !t.done; }).length;
+    var total = state.tasks.length;
+    document.getElementById('taskCount').textContent = active + ' active / ' + total + ' total';
+  }
+
+  function escHtml(str) {
+    var d = document.createElement('div');
+    d.textContent = str;
+    return d.innerHTML;
+  }
+
+  document.getElementById('teamToggle').addEventListener('click', function() {
+    var panel = document.getElementById('teamPanel');
+    var arrow = document.getElementById('teamArrow');
+    var isOpen = panel.classList.toggle('open');
+    arrow.classList.toggle('open', isOpen);
+  });
+
+  function addMember() {
+    var input = document.getElementById('addMemberInput');
+    var name = input.value.trim();
+    if (!name || state.team.length >= 10) return;
+    if (state.team.some(function(m) { return m.toLowerCase() === name.toLowerCase(); })) return;
+    state.team.push(name);
+    input.value = '';
+    render();
+  }
+  document.getElementById('addMemberBtn').addEventListener('click', addMember);
+  document.getElementById('addMemberInput').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') addMember();
+  });
+
+  document.getElementById('addTaskBtn').addEventListener('click', function() {
+    var newTask = {
+      id: state.nextId++,
+      name: '',
+      done: false,
+      due: '',
+      assignee: '',
+      priority: 'med',
+    };
+    state.tasks.push(newTask);
+    render();
+    var newInput = document.querySelector('.task-name-input[data-id="' + newTask.id + '"]');
+    if (newInput) newInput.focus();
+  });
+
+  document.querySelectorAll('.filter-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      currentFilter = btn.dataset.filter;
+      renderTasks();
+    });
+  });
+
+  document.getElementById('campaignName').addEventListener('input', function(e) {
+    state.campaignName = e.target.value;
+    saveState();
+  });
+
+  render();
+</script>
+</body>
+</html>
