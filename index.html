@@ -25,7 +25,6 @@
     --done-line: #CCCCD0;
     --team-bg: #F2F2EE;
     --hover: #F4F4F0;
-    --shadow: 0 1px 2px rgba(0,0,0,0.04);
   }
 
   @media (prefers-color-scheme: dark) {
@@ -49,7 +48,6 @@
       --done-line: #3A3A3E;
       --team-bg: #222226;
       --hover: #24242A;
-      --shadow: 0 1px 2px rgba(0,0,0,0.2);
     }
   }
 
@@ -70,7 +68,6 @@
     padding: 40px 24px 80px;
   }
 
-  /* Setup banner */
   .setup-banner {
     background: var(--priority-high-bg);
     border: 1px solid var(--priority-high);
@@ -87,18 +84,14 @@
     border-radius: 2px;
     font-size: 12px;
   }
-  .setup-banner a {
-    color: var(--accent);
-  }
 
-  /* Sync indicator */
   .sync-status {
     font-size: 11px;
-    color: var(--text-tertiary);
     letter-spacing: 0.03em;
   }
   .sync-status.connected { color: var(--priority-low); }
   .sync-status.offline { color: var(--priority-high); }
+  .sync-status.syncing { color: var(--priority-medium); }
 
   .header {
     display: flex;
@@ -134,9 +127,7 @@
     font-variant-numeric: tabular-nums;
   }
 
-  .team-section {
-    margin-bottom: 28px;
-  }
+  .team-section { margin-bottom: 28px; }
   .team-toggle {
     display: flex;
     align-items: center;
@@ -156,104 +147,51 @@
     font-size: 9px;
   }
   .team-toggle .arrow.open { transform: rotate(90deg); }
-  .team-avatars {
-    display: flex;
-    gap: 4px;
-    margin-left: 8px;
-  }
+  .team-avatars { display: flex; gap: 4px; margin-left: 8px; }
   .team-avatar-small {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: var(--team-bg);
-    border: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 9px;
-    font-weight: 600;
-    color: var(--text-secondary);
+    width: 20px; height: 20px; border-radius: 50%;
+    background: var(--team-bg); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 9px; font-weight: 600; color: var(--text-secondary);
     letter-spacing: -0.02em;
   }
-  .team-panel {
-    display: none;
-    padding: 12px 0;
-  }
+  .team-panel { display: none; padding: 12px 0; }
   .team-panel.open { display: block; }
-  .team-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 10px;
-  }
+  .team-list { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
   .team-member {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 5px 10px;
-    background: var(--team-bg);
-    border: 1px solid var(--border-light);
-    border-radius: 3px;
-    font-size: 13px;
-    color: var(--text);
-    cursor: default;
+    display: flex; align-items: center; gap: 6px;
+    padding: 5px 10px; background: var(--team-bg);
+    border: 1px solid var(--border-light); border-radius: 3px;
+    font-size: 13px; color: var(--text); cursor: default;
   }
   .team-member .remove {
-    color: var(--text-tertiary);
-    cursor: pointer;
-    font-size: 14px;
-    line-height: 1;
-    padding: 0 2px;
+    color: var(--text-tertiary); cursor: pointer;
+    font-size: 14px; line-height: 1; padding: 0 2px;
   }
   .team-member .remove:hover { color: var(--priority-high); }
-  .add-member-row {
-    display: flex;
-    gap: 6px;
-    align-items: center;
-    margin-top: 4px;
-  }
+  .add-member-row { display: flex; gap: 6px; align-items: center; margin-top: 4px; }
   .add-member-input {
-    font-family: inherit;
-    font-size: 13px;
-    padding: 5px 8px;
-    border: 1px solid var(--border);
-    border-radius: 3px;
-    background: var(--surface);
-    color: var(--text);
-    outline: none;
-    width: 180px;
+    font-family: inherit; font-size: 13px; padding: 5px 8px;
+    border: 1px solid var(--border); border-radius: 3px;
+    background: var(--surface); color: var(--text); outline: none; width: 180px;
   }
   .add-member-input:focus { border-color: var(--accent); }
   .add-member-input::placeholder { color: var(--text-tertiary); }
   .add-member-btn {
-    font-family: inherit;
-    font-size: 12px;
-    padding: 5px 10px;
-    border: 1px solid var(--border);
-    border-radius: 3px;
-    background: var(--surface);
-    color: var(--text-secondary);
-    cursor: pointer;
+    font-family: inherit; font-size: 12px; padding: 5px 10px;
+    border: 1px solid var(--border); border-radius: 3px;
+    background: var(--surface); color: var(--text-secondary); cursor: pointer;
   }
   .add-member-btn:hover { border-color: var(--accent); color: var(--accent); }
-  .team-limit-note {
-    font-size: 11px;
-    color: var(--text-tertiary);
-    margin-top: 6px;
-  }
+  .team-limit-note { font-size: 11px; color: var(--text-tertiary); margin-top: 6px; }
 
   .task-list-header {
     display: grid;
     grid-template-columns: 28px 1fr 90px 100px 80px 28px;
-    gap: 8px;
-    align-items: center;
-    padding: 8px 0;
+    gap: 8px; align-items: center; padding: 8px 0;
     border-bottom: 1px solid var(--border);
-    font-size: 11px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--text-tertiary);
-    user-select: none;
+    font-size: 11px; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--text-tertiary); user-select: none;
   }
   .task-list-header span { cursor: pointer; }
   .task-list-header span:hover { color: var(--text-secondary); }
@@ -261,119 +199,59 @@
   .task-row {
     display: grid;
     grid-template-columns: 28px 1fr 90px 100px 80px 28px;
-    gap: 8px;
-    align-items: center;
-    padding: 7px 0;
+    gap: 8px; align-items: center; padding: 7px 0;
     border-bottom: 1px solid var(--border-light);
     transition: background 0.1s ease;
   }
   .task-row:hover { background: var(--hover); }
-  .task-row.done .task-name-input {
-    text-decoration: line-through;
-    color: var(--done-text);
-  }
+  .task-row.done .task-name-input { text-decoration: line-through; color: var(--done-text); }
   .task-row.done .task-due,
   .task-row.done .task-assignee-select,
-  .task-row.done .task-priority-btn {
-    opacity: 0.4;
-  }
+  .task-row.done .task-priority-btn { opacity: 0.4; }
 
   .task-check {
-    width: 16px;
-    height: 16px;
-    border: 1.5px solid var(--border);
-    border-radius: 2px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.15s ease;
-    background: transparent;
-    margin: 0 auto;
+    width: 16px; height: 16px; border: 1.5px solid var(--border);
+    border-radius: 2px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.15s ease; background: transparent; margin: 0 auto;
   }
   .task-check:hover { border-color: var(--accent); }
-  .task-check.checked {
-    background: var(--accent);
-    border-color: var(--accent);
-  }
+  .task-check.checked { background: var(--accent); border-color: var(--accent); }
   .task-check.checked::after {
-    content: '';
-    width: 8px;
-    height: 5px;
-    border-left: 1.5px solid #fff;
-    border-bottom: 1.5px solid #fff;
+    content: ''; width: 8px; height: 5px;
+    border-left: 1.5px solid #fff; border-bottom: 1.5px solid #fff;
     transform: rotate(-45deg) translateY(-1px);
   }
 
   .task-name-input {
-    font-family: inherit;
-    font-size: 14px;
-    color: var(--text);
-    background: none;
-    border: none;
-    outline: none;
-    width: 100%;
-    padding: 1px 0;
+    font-family: inherit; font-size: 14px; color: var(--text);
+    background: none; border: none; outline: none; width: 100%; padding: 1px 0;
   }
   .task-name-input::placeholder { color: var(--text-tertiary); }
 
   .task-due {
-    font-family: inherit;
-    font-size: 13px;
-    font-variant-numeric: tabular-nums;
-    color: var(--text-secondary);
-    background: none;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 2px 0;
-    position: relative;
+    font-family: inherit; font-size: 13px; font-variant-numeric: tabular-nums;
+    color: var(--text-secondary); background: none; border: none;
+    outline: none; cursor: pointer; padding: 2px 0; position: relative;
   }
   .task-due::-webkit-calendar-picker-indicator {
-    opacity: 0;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
+    opacity: 0; position: absolute; width: 100%; height: 100%; cursor: pointer;
   }
 
   .task-assignee-select {
-    font-family: inherit;
-    font-size: 13px;
-    color: var(--text-secondary);
-    background: none;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 2px 0;
-    appearance: none;
-    -webkit-appearance: none;
+    font-family: inherit; font-size: 13px; color: var(--text-secondary);
+    background: none; border: none; outline: none; cursor: pointer;
+    padding: 2px 0; appearance: none; -webkit-appearance: none;
   }
-  .task-assignee-select option {
-    background: var(--surface);
-    color: var(--text);
-  }
+  .task-assignee-select option { background: var(--surface); color: var(--text); }
 
   .task-priority-btn {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    font-family: inherit;
-    font-size: 11px;
-    letter-spacing: 0.02em;
-    padding: 2px 6px;
-    border-radius: 2px;
-    border: none;
-    cursor: pointer;
-    background: transparent;
-    color: var(--text-secondary);
-    text-transform: uppercase;
+    display: flex; align-items: center; gap: 4px;
+    font-family: inherit; font-size: 11px; letter-spacing: 0.02em;
+    padding: 2px 6px; border-radius: 2px; border: none; cursor: pointer;
+    background: transparent; color: var(--text-secondary); text-transform: uppercase;
   }
-  .task-priority-btn .dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-  }
+  .task-priority-btn .dot { width: 6px; height: 6px; border-radius: 50%; }
   .task-priority-btn[data-priority="high"] .dot { background: var(--priority-high); }
   .task-priority-btn[data-priority="high"] { color: var(--priority-high); background: var(--priority-high-bg); }
   .task-priority-btn[data-priority="med"] .dot { background: var(--priority-medium); }
@@ -382,77 +260,40 @@
   .task-priority-btn[data-priority="low"] { color: var(--priority-low); background: var(--priority-low-bg); }
 
   .task-delete {
-    color: var(--text-tertiary);
-    cursor: pointer;
-    font-size: 14px;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.1s;
-    background: none;
-    border: none;
-    font-family: inherit;
+    color: var(--text-tertiary); cursor: pointer; font-size: 14px;
+    text-align: center; opacity: 0; transition: opacity 0.1s;
+    background: none; border: none; font-family: inherit;
   }
   .task-row:hover .task-delete { opacity: 1; }
   .task-delete:hover { color: var(--priority-high); }
 
-  .add-task-row {
-    padding: 8px 0;
-    padding-left: 36px;
-  }
+  .add-task-row { padding: 8px 0; padding-left: 36px; }
   .add-task-btn {
-    font-family: inherit;
-    font-size: 13px;
-    color: var(--text-tertiary);
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 4px 0;
+    font-family: inherit; font-size: 13px; color: var(--text-tertiary);
+    background: none; border: none; cursor: pointer; padding: 4px 0;
   }
   .add-task-btn:hover { color: var(--accent); }
 
   .filter-bar {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    margin-bottom: 16px;
-    flex-wrap: wrap;
+    display: flex; gap: 12px; align-items: center;
+    margin-bottom: 16px; flex-wrap: wrap;
   }
   .filter-btn {
-    font-family: inherit;
-    font-size: 12px;
-    color: var(--text-tertiary);
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 3px 0;
-    border-bottom: 1.5px solid transparent;
-    letter-spacing: 0.02em;
+    font-family: inherit; font-size: 12px; color: var(--text-tertiary);
+    background: none; border: none; cursor: pointer; padding: 3px 0;
+    border-bottom: 1.5px solid transparent; letter-spacing: 0.02em;
   }
   .filter-btn:hover { color: var(--text-secondary); }
-  .filter-btn.active {
-    color: var(--text);
-    border-bottom-color: var(--text);
-  }
-  .filter-sep {
-    width: 1px;
-    height: 14px;
-    background: var(--border);
-  }
+  .filter-btn.active { color: var(--text); border-bottom-color: var(--text); }
+  .filter-sep { width: 1px; height: 14px; background: var(--border); }
 
   .task-due.overdue { color: var(--priority-high); }
 
   @media (max-width: 640px) {
     .app { padding: 24px 16px 60px; }
-    .task-list-header,
-    .task-row {
-      grid-template-columns: 24px 1fr 80px 28px;
-    }
-    .task-list-header .col-assignee,
-    .task-list-header .col-priority,
-    .task-row .task-assignee-select,
-    .task-row .task-priority-btn {
-      display: none;
-    }
+    .task-list-header, .task-row { grid-template-columns: 24px 1fr 80px 28px; }
+    .task-list-header .col-assignee, .task-list-header .col-priority,
+    .task-row .task-assignee-select, .task-row .task-priority-btn { display: none; }
   }
 </style>
 </head>
@@ -509,108 +350,27 @@
   </div>
 </div>
 
-<!-- Firebase SDK -->
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 
 <script>
   // ============================================================
-  // FIREBASE CONFIG — fill in your values from Firebase Console
+  // SUPABASE CONFIG — paste your values from Dashboard > Settings > API
   // ============================================================
-  var FIREBASE_CONFIG = {
-    apiKey:            "YOUR_API_KEY",
-    authDomain:        "YOUR_PROJECT.firebaseapp.com",
-    databaseURL:       "https://YOUR_PROJECT-default-rtdb.firebaseio.com",
-    projectId:         "YOUR_PROJECT",
-    storageBucket:     "YOUR_PROJECT.appspot.com",
-    messagingSenderId: "YOUR_SENDER_ID",
-    appId:             "YOUR_APP_ID"
-  };
+  var SUPABASE_URL  = 'https://qhrtqtnrduambvchjxqw.supabase.co';
+  var SUPABASE_KEY  = 'sb_publishable_UAG7Ru6PRdNnOLCbchpQVg_8vE0jG5N';
   // ============================================================
 
   var PRIORITIES = ['high', 'med', 'low'];
   var PRIORITY_LABELS = { high: 'High', med: 'Med', low: 'Low' };
   var currentFilter = 'all';
-  var state = null;
-  var db = null;
-  var dbRef = null;
-  var saveTimeout = null;
-  var isFirebaseConfigured = false;
+  var tasks = [];
+  var team = [];
+  var campaignName = '';
+  var sb = null;
+  var nameTimeout = null;
 
-  function defaultState() {
-    return {
-      campaignName: 'City Council 2026',
-      team: ['Jordan', 'Alex', 'Morgan', 'Sam'],
-      tasks: [
-        { id: 1, name: 'Finalize yard sign locations', done: false, due: '2026-07-28', assignee: 'Jordan', priority: 'high' },
-        { id: 2, name: 'Schedule candidate forum prep', done: false, due: '2026-07-25', assignee: 'Alex', priority: 'high' },
-        { id: 3, name: 'Draft volunteer call script', done: false, due: '2026-07-30', assignee: 'Morgan', priority: 'med' },
-        { id: 4, name: 'Update social media calendar', done: false, due: '2026-07-23', assignee: 'Sam', priority: 'med' },
-        { id: 5, name: 'Order campaign mailers', done: true, due: '2026-07-20', assignee: 'Jordan', priority: 'low' },
-        { id: 6, name: 'Confirm rally venue', done: false, due: '2026-08-02', assignee: 'Alex', priority: 'high' },
-      ],
-      nextId: 7,
-    };
-  }
-
-  function initFirebase() {
-    if (FIREBASE_CONFIG.apiKey === 'YOUR_API_KEY') {
-      isFirebaseConfigured = false;
-      showSetupBanner();
-      setSyncStatus('Not configured', 'offline');
-      state = defaultState();
-      renderAll();
-      return;
-    }
-
-    isFirebaseConfigured = true;
-    document.getElementById('setupBanner').innerHTML = '';
-
-    try {
-      firebase.initializeApp(FIREBASE_CONFIG);
-      db = firebase.database();
-      dbRef = db.ref('campaign-tracker');
-
-      db.ref('.info/connected').on('value', function(snap) {
-        if (snap.val() === true) {
-          setSyncStatus('Synced', 'connected');
-        } else {
-          setSyncStatus('Offline', 'offline');
-        }
-      });
-
-      dbRef.on('value', function(snapshot) {
-        var data = snapshot.val();
-        if (data) {
-          state = data;
-          if (!state.tasks) state.tasks = [];
-          if (!state.team) state.team = [];
-          if (!state.nextId) state.nextId = 1;
-        } else {
-          state = defaultState();
-          dbRef.set(state);
-        }
-        renderAll();
-      });
-    } catch(e) {
-      isFirebaseConfigured = false;
-      showSetupBanner();
-      setSyncStatus('Error', 'offline');
-      state = defaultState();
-      renderAll();
-    }
-  }
-
-  function showSetupBanner() {
-    document.getElementById('setupBanner').innerHTML =
-      '<div class="setup-banner">' +
-        '<strong>Firebase not configured yet.</strong> The app works locally for now. ' +
-        'To share data across your team:<br>' +
-        '1. Go to <a href="https://console.firebase.google.com" target="_blank">console.firebase.google.com</a> and create a project<br>' +
-        '2. Add a Realtime Database (start in <strong>test mode</strong>)<br>' +
-        '3. Go to Project Settings &gt; General &gt; Your Apps &gt; Web app, and copy the config<br>' +
-        '4. Paste the values into <code>FIREBASE_CONFIG</code> in index.html and redeploy' +
-      '</div>';
+  function isConfigured() {
+    return SUPABASE_URL !== 'YOUR_SUPABASE_URL' && SUPABASE_KEY !== 'YOUR_ANON_KEY';
   }
 
   function setSyncStatus(text, cls) {
@@ -619,20 +379,10 @@
     el.className = 'sync-status ' + cls;
   }
 
-  function saveState() {
-    if (isFirebaseConfigured && dbRef) {
-      clearTimeout(saveTimeout);
-      saveTimeout = setTimeout(function() {
-        dbRef.set(state);
-      }, 300);
-    }
-  }
-
-  function renderAll() {
-    renderTeam();
-    renderTasks();
-    updateCount();
-    document.getElementById('campaignName').value = state.campaignName || '';
+  function escHtml(str) {
+    var d = document.createElement('div');
+    d.textContent = str || '';
+    return d.innerHTML;
   }
 
   function getInitials(name) {
@@ -646,10 +396,114 @@
     return new Date(dateStr + 'T00:00:00') < today;
   }
 
-  function escHtml(str) {
-    var d = document.createElement('div');
-    d.textContent = str || '';
-    return d.innerHTML;
+  // --- Supabase data layer ---
+
+  async function loadAll() {
+    setSyncStatus('Loading...', 'syncing');
+    var r1 = await sb.from('tasks').select('*').order('id');
+    var r2 = await sb.from('team_members').select('*').order('id');
+    var r3 = await sb.from('campaign_settings').select('*');
+
+    if (r1.error || r2.error || r3.error) {
+      setSyncStatus('Error loading', 'offline');
+      console.error(r1.error, r2.error, r3.error);
+      return;
+    }
+
+    tasks = r1.data || [];
+    team = (r2.data || []).map(function(m) { return m.name; });
+    var settings = r3.data || [];
+    var nameRow = settings.find(function(s) { return s.key === 'campaignName'; });
+    campaignName = nameRow ? nameRow.value : 'Campaign';
+
+    setSyncStatus('Synced', 'connected');
+    renderAll();
+  }
+
+  function subscribeRealtime() {
+    sb.channel('tracker')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'tasks' }, function() { reloadTasks(); })
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'team_members' }, function() { reloadTeam(); })
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'campaign_settings' }, function() { reloadSettings(); })
+      .subscribe(function(status) {
+        if (status === 'SUBSCRIBED') setSyncStatus('Live', 'connected');
+      });
+  }
+
+  async function reloadTasks() {
+    var r = await sb.from('tasks').select('*').order('id');
+    if (!r.error) { tasks = r.data || []; renderTasks(); updateCount(); }
+  }
+
+  async function reloadTeam() {
+    var r = await sb.from('team_members').select('*').order('id');
+    if (!r.error) { team = (r.data || []).map(function(m) { return m.name; }); renderTeam(); renderTasks(); }
+  }
+
+  async function reloadSettings() {
+    var r = await sb.from('campaign_settings').select('*');
+    if (!r.error) {
+      var nameRow = (r.data || []).find(function(s) { return s.key === 'campaignName'; });
+      if (nameRow) {
+        campaignName = nameRow.value;
+        var el = document.getElementById('campaignName');
+        if (document.activeElement !== el) el.value = campaignName;
+      }
+    }
+  }
+
+  // --- Mutations ---
+
+  async function addTask() {
+    var id = Date.now();
+    var newTask = { id: id, name: '', done: false, due: '', assignee: '', priority: 'med' };
+    tasks.push(newTask);
+    renderTasks();
+    var input = document.querySelector('.task-name-input[data-id="' + id + '"]');
+    if (input) input.focus();
+    await sb.from('tasks').insert(newTask);
+  }
+
+  async function updateTask(id, fields) {
+    await sb.from('tasks').update(fields).eq('id', id);
+  }
+
+  async function deleteTask(id) {
+    tasks = tasks.filter(function(t) { return t.id !== id; });
+    renderTasks();
+    updateCount();
+    await sb.from('tasks').delete().eq('id', id);
+  }
+
+  async function addTeamMember(name) {
+    if (!name || team.length >= 10) return;
+    if (team.some(function(m) { return m.toLowerCase() === name.toLowerCase(); })) return;
+    team.push(name);
+    renderTeam();
+    renderTasks();
+    await sb.from('team_members').insert({ name: name });
+  }
+
+  async function removeTeamMember(name) {
+    team = team.filter(function(m) { return m !== name; });
+    renderTeam();
+    tasks.forEach(function(t) { if (t.assignee === name) t.assignee = ''; });
+    renderTasks();
+    await sb.from('team_members').delete().eq('name', name);
+    await sb.from('tasks').update({ assignee: '' }).eq('assignee', name);
+  }
+
+  async function saveCampaignName(val) {
+    await sb.from('campaign_settings').upsert({ key: 'campaignName', value: val });
+  }
+
+  // --- Rendering ---
+
+  function renderAll() {
+    document.getElementById('campaignName').value = campaignName;
+    renderTeam();
+    renderTasks();
+    updateCount();
   }
 
   function renderTeam() {
@@ -657,16 +511,16 @@
     var avatars = document.getElementById('teamAvatars');
     var note = document.getElementById('teamLimitNote');
 
-    list.innerHTML = state.team.map(function(name, i) {
+    list.innerHTML = team.map(function(name, i) {
       return '<div class="team-member">' + escHtml(name) +
-        ' <span class="remove" data-idx="' + i + '">&times;</span></div>';
+        ' <span class="remove" data-name="' + escHtml(name) + '">&times;</span></div>';
     }).join('');
 
-    avatars.innerHTML = state.team.map(function(name) {
+    avatars.innerHTML = team.map(function(name) {
       return '<div class="team-avatar-small">' + getInitials(name) + '</div>';
     }).join('');
 
-    var remaining = 10 - state.team.length;
+    var remaining = 10 - team.length;
     if (remaining <= 0) {
       note.textContent = '10 members maximum';
       document.getElementById('addMemberRow').style.display = 'none';
@@ -676,19 +530,12 @@
     }
 
     list.querySelectorAll('.remove').forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        var idx = parseInt(btn.dataset.idx);
-        var removed = state.team[idx];
-        state.team.splice(idx, 1);
-        state.tasks.forEach(function(t) { if (t.assignee === removed) t.assignee = ''; });
-        saveState();
-        renderAll();
-      });
+      btn.addEventListener('click', function() { removeTeamMember(btn.dataset.name); });
     });
   }
 
   function filteredTasks() {
-    return state.tasks.filter(function(t) {
+    return tasks.filter(function(t) {
       if (currentFilter === 'active') return !t.done;
       if (currentFilter === 'done') return t.done;
       if (currentFilter === 'high') return t.priority === 'high' && !t.done;
@@ -700,12 +547,12 @@
 
   function renderTasks() {
     var container = document.getElementById('taskList');
-    var tasks = filteredTasks();
+    var visible = filteredTasks();
 
-    container.innerHTML = tasks.map(function(t) {
+    container.innerHTML = visible.map(function(t) {
       var overdue = !t.done && isOverdue(t.due);
       var options = '<option value="">—</option>' +
-        state.team.map(function(m) {
+        team.map(function(m) {
           return '<option value="' + escHtml(m) + '"' + (t.assignee === m ? ' selected' : '') + '>' + escHtml(m) + '</option>';
         }).join('');
 
@@ -720,67 +567,65 @@
       '</div>';
     }).join('');
 
+    // Wire events
     container.querySelectorAll('.task-check').forEach(function(el) {
       el.addEventListener('click', function() {
-        var task = findTask(parseInt(el.dataset.id));
-        if (task) { task.done = !task.done; saveState(); renderAll(); }
+        var task = tasks.find(function(t) { return t.id === parseInt(el.dataset.id); });
+        if (task) { task.done = !task.done; renderTasks(); updateCount(); updateTask(task.id, { done: task.done }); }
       });
     });
 
+    var nameTimers = {};
     container.querySelectorAll('.task-name-input').forEach(function(el) {
       el.addEventListener('input', function() {
-        var task = findTask(parseInt(el.dataset.id));
-        if (task) { task.name = el.value; saveState(); }
+        var id = parseInt(el.dataset.id);
+        var task = tasks.find(function(t) { return t.id === id; });
+        if (task) {
+          task.name = el.value;
+          clearTimeout(nameTimers[id]);
+          nameTimers[id] = setTimeout(function() { updateTask(id, { name: task.name }); }, 400);
+        }
       });
     });
 
     container.querySelectorAll('.task-due').forEach(function(el) {
       el.addEventListener('change', function() {
-        var task = findTask(parseInt(el.dataset.id));
-        if (task) { task.due = el.value; saveState(); renderAll(); }
+        var task = tasks.find(function(t) { return t.id === parseInt(el.dataset.id); });
+        if (task) { task.due = el.value; renderTasks(); updateTask(task.id, { due: task.due }); }
       });
     });
 
     container.querySelectorAll('.task-assignee-select').forEach(function(el) {
       el.addEventListener('change', function() {
-        var task = findTask(parseInt(el.dataset.id));
-        if (task) { task.assignee = el.value; saveState(); }
+        var task = tasks.find(function(t) { return t.id === parseInt(el.dataset.id); });
+        if (task) { task.assignee = el.value; updateTask(task.id, { assignee: task.assignee }); }
       });
     });
 
     container.querySelectorAll('.task-priority-btn').forEach(function(el) {
       el.addEventListener('click', function() {
-        var task = findTask(parseInt(el.dataset.id));
+        var task = tasks.find(function(t) { return t.id === parseInt(el.dataset.id); });
         if (task) {
           var idx = PRIORITIES.indexOf(task.priority);
           task.priority = PRIORITIES[(idx + 1) % PRIORITIES.length];
-          saveState();
-          renderAll();
+          renderTasks();
+          updateTask(task.id, { priority: task.priority });
         }
       });
     });
 
     container.querySelectorAll('.task-delete').forEach(function(el) {
-      el.addEventListener('click', function() {
-        var id = parseInt(el.dataset.id);
-        state.tasks = state.tasks.filter(function(t) { return t.id !== id; });
-        saveState();
-        renderAll();
-      });
+      el.addEventListener('click', function() { deleteTask(parseInt(el.dataset.id)); });
     });
   }
 
-  function findTask(id) {
-    return state.tasks.find(function(t) { return t.id === id; });
-  }
-
   function updateCount() {
-    var active = state.tasks.filter(function(t) { return !t.done; }).length;
-    var total = state.tasks.length;
-    document.getElementById('taskCount').textContent = active + ' active / ' + total + ' total';
+    var active = tasks.filter(function(t) { return !t.done; }).length;
+    document.getElementById('taskCount').textContent = active + ' active / ' + tasks.length + ' total';
   }
 
-  // Team toggle
+  // --- Event listeners ---
+
   document.getElementById('teamToggle').addEventListener('click', function() {
     var panel = document.getElementById('teamPanel');
     var arrow = document.getElementById('teamArrow');
@@ -788,40 +633,19 @@
     arrow.classList.toggle('open', isOpen);
   });
 
-  // Add member
-  function addMember() {
+  function handleAddMember() {
     var input = document.getElementById('addMemberInput');
     var name = input.value.trim();
-    if (!name || state.team.length >= 10) return;
-    if (state.team.some(function(m) { return m.toLowerCase() === name.toLowerCase(); })) return;
-    state.team.push(name);
     input.value = '';
-    saveState();
-    renderAll();
+    addTeamMember(name);
   }
-  document.getElementById('addMemberBtn').addEventListener('click', addMember);
+  document.getElementById('addMemberBtn').addEventListener('click', handleAddMember);
   document.getElementById('addMemberInput').addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') addMember();
+    if (e.key === 'Enter') handleAddMember();
   });
 
-  // Add task
-  document.getElementById('addTaskBtn').addEventListener('click', function() {
-    var newTask = {
-      id: state.nextId++,
-      name: '',
-      done: false,
-      due: '',
-      assignee: '',
-      priority: 'med',
-    };
-    state.tasks.push(newTask);
-    saveState();
-    renderAll();
-    var newInput = document.querySelector('.task-name-input[data-id="' + newTask.id + '"]');
-    if (newInput) newInput.focus();
-  });
+  document.getElementById('addTaskBtn').addEventListener('click', addTask);
 
-  // Filters
   document.querySelectorAll('.filter-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
       document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
@@ -831,14 +655,36 @@
     });
   });
 
-  // Campaign name
   document.getElementById('campaignName').addEventListener('input', function(e) {
-    state.campaignName = e.target.value;
-    saveState();
+    campaignName = e.target.value;
+    clearTimeout(nameTimeout);
+    nameTimeout = setTimeout(function() { saveCampaignName(campaignName); }, 500);
   });
 
-  // Init
-  initFirebase();
+  // --- Init ---
+
+  if (!isConfigured()) {
+    document.getElementById('setupBanner').innerHTML =
+      '<div class="setup-banner">' +
+        '<strong>Supabase not configured.</strong> Paste your project URL and anon key into ' +
+        '<code>index.html</code> and run <code>setup.sql</code> in the SQL Editor.' +
+      '</div>';
+    setSyncStatus('Not configured', 'offline');
+    tasks = [
+      { id: 1, name: 'Finalize yard sign locations', done: false, due: '2026-07-28', assignee: 'Jordan', priority: 'high' },
+      { id: 2, name: 'Schedule candidate forum prep', done: false, due: '2026-07-25', assignee: 'Alex', priority: 'high' },
+      { id: 3, name: 'Draft volunteer call script', done: false, due: '2026-07-30', assignee: 'Morgan', priority: 'med' },
+      { id: 4, name: 'Update social media calendar', done: false, due: '2026-07-23', assignee: 'Sam', priority: 'med' },
+      { id: 5, name: 'Order campaign mailers', done: true, due: '2026-07-20', assignee: 'Jordan', priority: 'low' },
+      { id: 6, name: 'Confirm rally venue', done: false, due: '2026-08-02', assignee: 'Alex', priority: 'high' },
+    ];
+    team = ['Jordan', 'Alex', 'Morgan', 'Sam'];
+    campaignName = 'City Council 2026';
+    renderAll();
+  } else {
+    sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+    loadAll().then(subscribeRealtime);
+  }
 </script>
 </body>
 </html>
