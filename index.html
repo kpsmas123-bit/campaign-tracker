@@ -455,13 +455,18 @@
   // --- Mutations ---
 
   async function addTask() {
+    addTaskAfter(tasks.length - 1);
+  }
+
+  async function addTaskAfter(idx) {
     var id = Date.now();
     var newTask = { id: id, name: '', done: false, due: '', assignee: '', priority: 'med' };
-    tasks.push(newTask);
+    tasks.splice(idx + 1, 0, newTask);
     renderTasks();
+    updateCount();
     var input = document.querySelector('.task-name-input[data-id="' + id + '"]');
     if (input) input.focus();
-    await sb.from('tasks').insert(newTask);
+    if (sb) await sb.from('tasks').insert(newTask);
   }
 
   async function updateTask(id, fields) {
@@ -616,6 +621,17 @@
 
     container.querySelectorAll('.task-delete').forEach(function(el) {
       el.addEventListener('click', function() { deleteTask(parseInt(el.dataset.id)); });
+    });
+
+    container.querySelectorAll('.task-name-input').forEach(function(el) {
+      el.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          var currentId = parseInt(el.dataset.id);
+          var idx = tasks.findIndex(function(t) { return t.id === currentId; });
+          addTaskAfter(idx);
+        }
+      });
     });
   }
 
