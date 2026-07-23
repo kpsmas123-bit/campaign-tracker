@@ -85,7 +85,7 @@ Each `data/{slug}.json` follows this structure:
     "references": [],
     "levers": [{ "tier": "authority|advocacy|unverified", "text": "..." }],
     "sources": [{ "label": "...", "url": "..." }],
-    "suggested": [{ "note": "short label", "text": "draft copy" }],
+    "suggested": [{ "note": "", "text": "draft copy" }],
     "verification": [{ "claim": "...", "result": "confirmed|refuted|unresolved", "source": "...", "date": "ISO date", "note": "..." }]
   }]
 }

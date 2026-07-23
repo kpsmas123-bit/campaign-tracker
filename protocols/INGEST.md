@@ -58,7 +58,7 @@ Run this protocol in a Claude Code session when adding a new organization's ques
    - `analysis`: research-backed context on the topic as it relates to the candidate's platform and the org's priorities
    - `levers`: array of objects with tiered tags. See CONVENTIONS.md § Lever tiering for tier definitions.
    - `sources`: array of `{ "label": "...", "url": "..." }` — verified, live links only. For jurisdiction-specific mechanics, require a primary source (city site, ordinance, budget, MOU, benefits guide).
-   - `suggested`: array of `{ "note": "short label", "text": "draft copy" }` — written per the copy rules in CONVENTIONS.md § Copy rules, with `[bracketed notes]` where firsthand detail is needed.
+   - `suggested`: array of `{ "note": "", "text": "draft copy" }` — written per the copy rules in CONVENTIONS.md § Copy rules, with `[bracketed notes]` where firsthand detail is needed. Leave `note` as an empty string (the renderer requires the field but subtitles are not used).
    - Set `status` per step 8.
 
 8. **Set status.** See CONVENTIONS.md § Status definitions for the full list. Key rule: `blocked` questions get NO suggested copy.
