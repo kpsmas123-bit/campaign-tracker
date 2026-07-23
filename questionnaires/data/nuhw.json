@@ -280,22 +280,28 @@
       "id": "s7b",
       "section": "Section 7B",
       "topic": "behavioral_health",
-      "status": "blank",
+      "status": "done",
       "question": "Steps to leverage your jurisdiction's purchasing power or CalPERS voice to improve behavioral health access?",
-      "analysis": "Blank, and this is the most concrete municipal lever on the form. Cities buy health coverage for their employees, and that contract is where you can demand behavioral-health network adequacy and timely-access standards. Tie it to the county handoff: as Berkeley moves crisis response to Alameda County, the contract terms are where standards hold or quietly erode.",
+      "analysis": "The question assumes a CalPERS relationship. Berkeley does NOT use CalPERS for health benefits — CalPERS is retirement only. Berkeley contracts directly with Kaiser Permanente and Sutter Health Plus for employee health coverage, spending $16M+/year covering ~1,600 employees. The city's EAP through Claremont Behavioral Services caps counseling at 8 authorized sessions per incident per year. Coverage terms for represented employees are bargained through MOUs. The correct answer names this directly: the question's premise does not hold as stated, and the real lever is the city's direct carrier contracts.",
       "references": [],
       "levers": [
-        { "tier": "authority", "text": "Berkeley chooses employee health coverage (its own plans or CalPERS). Contract terms can require behavioral-health network adequacy and timely access." },
-        { "tier": "authority", "text": "Berkeley's contracts with the county and service providers for crisis response are where response-time and staffing standards get set." },
-        { "tier": "advocacy", "text": "Broader CalPERS-wide leverage is shared with dozens of agencies; honest to note a single city is one voice among many." }
+        { "tier": "authority", "text": "Berkeley contracts directly with Kaiser Permanente and Sutter Health Plus (not CalPERS) for ~1,600 employees at $16M+/year. The council influences contract terms through the budget and MOU ratification." },
+        { "tier": "authority", "text": "The city's EAP (Claremont Behavioral Services) caps at 8 sessions per incident per year. Expanding that cap is a concrete negotiable item." },
+        { "tier": "authority", "text": "Berkeley's contracts with the county and service providers for crisis response set staffing and response-time standards." }
       ],
       "sources": [
+        { "label": "City of Berkeley Employee Benefits Guide (2023)", "url": "https://berkeleyca.gov" },
         { "label": "Berkeleyside: MCT + county handoff (no formal agreement yet)", "url": "https://www.berkeleyside.org/2026/07/06/mobile-crisis-team-berkeley-winter-shelter-closures" }
+      ],
+      "verification": [
+        { "claim": "Berkeley uses CalPERS for employee health coverage", "result": "refuted", "source": "City of Berkeley Employee Benefits Guide", "date": "2026-07-23", "note": "CalPERS is retirement only. Health coverage is contracted directly with Kaiser Permanente and Sutter Health Plus." },
+        { "claim": "Berkeley spends $16M+/year on employee health coverage for ~1,600 employees", "result": "confirmed", "source": "City of Berkeley Employee Benefits Guide (2023)", "date": "2026-07-23", "note": "Source is 2023 guide; flag for 2026 re-confirmation." },
+        { "claim": "EAP through Claremont Behavioral Services caps at 8 sessions/incident/year", "result": "confirmed", "source": "City of Berkeley Employee Benefits Guide (2023)", "date": "2026-07-23", "note": "" }
       ],
       "suggested": [
         {
-          "note": "Built from the real lever, honest about scope. Confirm whether Berkeley uses CalPERS or its own plans.",
-          "text": "Cities either buy their own employee health coverage or participate in CalPERS, and either way that purchasing power is real leverage. I would use it to require that any carrier we contract with meets timely-access standards for behavioral health and maintains an adequate in-network roster of clinicians, rather than pushing our employees out of network to find care, and I would resist letting carriers substitute automated tools for licensed clinical judgment. The same principle applies to our service contracts. As Berkeley shifts crisis response to Alameda County, the terms of that agreement are where our standards will either hold or quietly erode, and I would fight for staffing and response-time guarantees in writing."
+          "note": "Corrects the CalPERS premise; leads with what Berkeley actually has",
+          "text": "Berkeley does not participate in CalPERS for health — we contract directly with Kaiser Permanente and Sutter Health Plus, spending over $16 million a year to cover roughly 1,600 city employees. That is real purchasing power, and I would use it. Specifically, I would push for contract terms that require timely-access standards for behavioral health, maintain adequate in-network rosters of licensed clinicians, and resist substituting automated tools for clinical judgment. I would also work to expand our Employee Assistance Program, which currently caps counseling at eight authorized sessions per incident per year through Claremont Behavioral Services — a limit that falls far short of what many employees need. For represented employees, these terms are bargained through MOUs, and I would make behavioral health access a priority at the negotiating table. The same principle applies to our service contracts: as Berkeley shifts crisis response coordination to Alameda County, the terms of that agreement are where our standards will either hold or quietly erode, and I would fight for staffing and response-time guarantees in writing."
         }
       ]
     },
