@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Campaign Task Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
     --ground: #F9F9F6;
@@ -61,6 +64,20 @@
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
   }
+
+  .site-nav {
+    display: flex; align-items: center; gap: 2px;
+    max-width: 860px; margin: 0 auto;
+    padding: 16px 24px 0;
+  }
+  .site-nav a {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--text-tertiary); text-decoration: none;
+    padding: 5px 10px; border-bottom: 2px solid transparent;
+  }
+  .site-nav a:hover { color: var(--text-secondary); }
+  .site-nav a.active { color: var(--text); border-bottom-color: var(--accent); }
 
   .app {
     max-width: 860px;
@@ -298,6 +315,11 @@
 </style>
 </head>
 <body>
+
+<nav class="site-nav">
+  <a href="index.html" class="active">Tasks</a>
+  <a href="questionnaires/index.html">Questionnaires</a>
+</nav>
 
 <div class="app" id="app">
   <div id="setupBanner"></div>

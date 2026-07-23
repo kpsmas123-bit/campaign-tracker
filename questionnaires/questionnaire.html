@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Questionnaire Editor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ground: #F9F9F6;
+    --surface: #FFFFFF;
+    --text: #2A2A2E;
+    --text-secondary: #7C7C82;
+    --text-tertiary: #A8A8AC;
+    --border: #E6E6E2;
+    --border-light: #F0F0EC;
+    --accent: #4A6FA5;
+    --accent-hover: #3D5E8C;
+    --status-done: #6B956B;
+    --status-done-bg: #6B956B12;
+    --status-thin: #C89B2A;
+    --status-thin-bg: #C89B2A12;
+    --status-blank: #C45240;
+    --status-blank-bg: #C4524012;
+    --status-verify: #4A6FA5;
+    --status-verify-bg: #4A6FA512;
+    --hover: #F4F4F0;
+    --team-bg: #F2F2EE;
+    --draft-bg: #FDFBF5;
+    --draft-border: #E6DFC8;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #18181B;
+      --surface: #1E1E22;
+      --text: #E4E4E0;
+      --text-secondary: #8E8E92;
+      --text-tertiary: #5A5A5E;
+      --border: #2E2E32;
+      --border-light: #262628;
+      --accent: #6B8FC4;
+      --accent-hover: #7DA0D0;
+      --status-done: #7DAF7D;
+      --status-done-bg: #7DAF7D18;
+      --status-thin: #D4AD4A;
+      --status-thin-bg: #D4AD4A18;
+      --status-blank: #D4705F;
+      --status-blank-bg: #D4705F18;
+      --status-verify: #6B8FC4;
+      --status-verify-bg: #6B8FC418;
+      --hover: #24242A;
+      --team-bg: #222226;
+      --draft-bg: #22211E;
+      --draft-border: #3A382E;
+    }
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--text);
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+
+  .site-nav {
+    display: flex; align-items: center; gap: 2px;
+    max-width: 1060px; margin: 0 auto;
+    padding: 16px 24px 0;
+  }
+  .site-nav a {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--text-tertiary); text-decoration: none;
+    padding: 5px 10px; border-bottom: 2px solid transparent;
+  }
+  .site-nav a:hover { color: var(--text-secondary); }
+  .site-nav a.active { color: var(--text); border-bottom-color: var(--accent); }
+
+  .app { max-width: 1060px; margin: 0 auto; padding: 32px 24px 80px; }
+
+  /* --- Auth gate --- */
+  .auth-gate {
+    min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px;
+  }
+  .auth-card {
+    max-width: 340px; width: 100%; display: flex; flex-direction: column; gap: 14px;
+  }
+  .auth-title {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 20px; font-weight: normal;
+  }
+  .auth-sub { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+  .auth-input {
+    font-family: inherit; font-size: 14px; color: var(--text);
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 3px; padding: 10px 12px; width: 100%; outline: none;
+  }
+  .auth-input:focus { border-color: var(--accent); }
+  .auth-btn {
+    font-family: inherit; font-size: 13px; font-weight: 500;
+    color: var(--surface); background: var(--accent);
+    border: 1px solid var(--accent); border-radius: 3px;
+    padding: 10px 16px; cursor: pointer; width: 100%;
+  }
+  .auth-btn:hover { background: var(--accent-hover); }
+  .auth-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .auth-error {
+    font-size: 13px; color: var(--status-blank); line-height: 1.5;
+  }
+
+  /* --- Header --- */
+  .header {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 14px; flex-wrap: wrap;
+    margin-bottom: 20px; padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .header-left { flex: 1; min-width: 200px; }
+  .kicker {
+    font-family: "IBM Plex Mono", monospace; font-size: 11px;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--text-secondary);
+  }
+  .title {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 20px; font-weight: normal; margin-top: 2px;
+  }
+  .header-actions { display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
+  .btn {
+    font-family: "IBM Plex Mono", monospace; font-size: 12px; font-weight: 500;
+    border: 1px solid var(--border); background: var(--surface); color: var(--text-secondary);
+    border-radius: 3px; padding: 7px 12px; cursor: pointer;
+  }
+  .btn:hover { border-color: var(--accent); color: var(--accent); }
+  .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .btn.primary:hover { background: var(--accent-hover); }
+
+  /* --- Progress bar --- */
+  .prog { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+  .track { flex: 1; height: 4px; background: var(--border-light); border-radius: 2px; overflow: hidden; display: flex; }
+  .track .bar-done { height: 100%; background: var(--status-done); transition: width 0.3s ease; }
+  .track .bar-mid { height: 100%; background: var(--status-thin); transition: width 0.3s ease; }
+  .pcount {
+    font-family: "IBM Plex Mono", monospace; font-size: 11px;
+    color: var(--text-tertiary); white-space: nowrap;
+  }
+
+  /* --- Two-column stage --- */
+  .stage { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  @media (max-width: 860px) { .stage { grid-template-columns: 1fr; } }
+  .col { min-width: 0; }
+
+  /* --- Question header --- */
+  .eyebrow {
+    font-family: "IBM Plex Mono", monospace; font-size: 11px;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--text-tertiary); margin-bottom: 6px;
+    display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
+  }
+  .qn { color: var(--text-secondary); font-weight: 600; }
+  .chip {
+    font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 600;
+    letter-spacing: 0.03em; text-transform: uppercase;
+    padding: 2px 7px; border-radius: 2px;
+  }
+  .chip.done { background: var(--status-done-bg); color: var(--status-done); }
+  .chip.thin { background: var(--status-thin-bg); color: var(--status-thin); }
+  .chip.blank { background: var(--status-blank-bg); color: var(--status-blank); }
+  .chip.verify { background: var(--status-verify-bg); color: var(--status-verify); }
+  .question {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 17px; line-height: 1.35; margin: 0 0 12px;
+  }
+
+  /* --- Textarea --- */
+  textarea {
+    width: 100%; font-family: system-ui, -apple-system, sans-serif;
+    font-size: 14px; line-height: 1.55; color: var(--text);
+    padding: 12px; border: 1px solid var(--border); border-radius: 3px;
+    background: var(--surface); resize: vertical; min-height: 220px;
+  }
+  textarea:focus { outline: none; border-color: var(--accent); }
+  textarea.need { border-color: var(--status-blank); background: var(--status-blank-bg); }
+  .metarow {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 6px; gap: 8px;
+  }
+  .wcount {
+    font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--text-tertiary);
+  }
+  .abtns { display: flex; gap: 6px; flex-wrap: wrap; }
+
+  /* --- Approve row --- */
+  .approve-row {
+    display: flex; align-items: center; gap: 10px; margin-top: 10px;
+    padding: 8px 0; border-top: 1px solid var(--border-light);
+  }
+  .approve-check {
+    width: 16px; height: 16px; border: 1.5px solid var(--border);
+    border-radius: 2px; cursor: pointer; display: flex;
+    align-items: center; justify-content: center;
+    background: transparent; padding: 0; flex-shrink: 0;
+  }
+  .approve-check:hover { border-color: var(--accent); }
+  .approve-check.checked { background: var(--status-done); border-color: var(--status-done); }
+  .approve-check.checked::after {
+    content: ''; width: 8px; height: 5px;
+    border-left: 1.5px solid #fff; border-bottom: 1.5px solid #fff;
+    transform: rotate(-45deg) translateY(-1px);
+  }
+  .approve-label {
+    font-family: "IBM Plex Mono", monospace; font-size: 11px;
+    color: var(--text-secondary); cursor: pointer; user-select: none;
+  }
+  .approve-label.active { color: var(--status-done); }
+  .sig-btn {
+    font-family: "IBM Plex Mono", monospace; font-size: 10px;
+    color: var(--text-tertiary); background: none; border: 1px solid var(--border);
+    border-radius: 2px; padding: 2px 7px; cursor: pointer; margin-left: auto;
+  }
+  .sig-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .sig-btn.active { border-color: var(--status-done); color: var(--status-done); background: var(--status-done-bg); }
+
+  /* --- Info panels (right column) --- */
+  .info { display: flex; flex-direction: column; gap: 12px; max-height: calc(100vh - 180px); overflow: auto; }
+  @media (max-width: 860px) { .info { max-height: none; } }
+
+  .block { border: 1px solid var(--border); border-radius: 3px; overflow: hidden; }
+  .bhead {
+    font-family: "IBM Plex Mono", monospace; font-size: 10px;
+    letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600;
+    padding: 8px 12px; display: flex; align-items: center; gap: 7px;
+    border-bottom: 1px solid var(--border-light);
+  }
+  .bhead .dot { width: 6px; height: 6px; border-radius: 50%; }
+  .bbody { padding: 10px 12px; font-size: 13px; line-height: 1.55; }
+  .bbody p { margin: 6px 0 0; }
+
+  .block.read .bhead { background: var(--status-blank-bg); color: var(--status-blank); }
+  .block.read .dot { background: var(--status-blank); }
+  .block.levers .bhead { background: var(--status-done-bg); color: var(--status-done); }
+  .block.levers .dot { background: var(--status-done); }
+  .block.sources .bhead { background: var(--status-verify-bg); color: var(--status-verify); }
+  .block.sources .dot { background: var(--status-verify); }
+  .block.fill .bhead { background: var(--status-thin-bg); color: var(--status-thin); }
+  .block.fill .dot { background: var(--status-thin); }
+  .block.reuse .bhead { background: var(--team-bg); color: var(--text-secondary); }
+  .block.reuse .dot { background: var(--accent); }
+
+  /* Levers */
+  .lever { margin-top: 8px; display: flex; gap: 7px; }
+  .lever .tag {
+    font-family: "IBM Plex Mono", monospace; font-size: 9px; font-weight: 600;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    padding: 2px 6px; border-radius: 2px; height: fit-content;
+    white-space: nowrap; margin-top: 2px;
+  }
+  .lever.authority .tag { background: var(--status-done-bg); color: var(--status-done); }
+  .lever.advocacy .tag { background: var(--status-thin-bg); color: var(--status-thin); }
+
+  /* Sources */
+  .src { margin-top: 6px; }
+  .src a {
+    color: var(--accent); font-family: "IBM Plex Mono", monospace;
+    font-size: 11px; text-decoration: none; border-bottom: 1px solid var(--border-light);
+  }
+  .src a:hover { border-bottom-color: var(--accent); }
+
+  /* Suggested copy */
+  .draft {
+    background: var(--draft-bg); border: 1px dashed var(--draft-border);
+    border-radius: 3px; padding: 10px 12px; margin-top: 8px;
+    font-size: 13px; line-height: 1.55; white-space: pre-wrap;
+  }
+  .draft .t {
+    font-family: "IBM Plex Mono", monospace; font-size: 9px;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    color: var(--status-thin); font-weight: 600;
+    display: block; margin-bottom: 6px; white-space: normal;
+  }
+  .copybtn {
+    margin-top: 7px; font-family: "IBM Plex Mono", monospace; font-size: 11px;
+    background: transparent; border: 1px solid var(--draft-border);
+    color: var(--status-thin); border-radius: 2px; padding: 4px 8px; cursor: pointer;
+  }
+  .copybtn:hover { background: var(--status-thin-bg); }
+
+  /* Reuse chips */
+  .reuse-chip {
+    background: var(--team-bg); border: 1px solid var(--border-light);
+    border-radius: 3px; padding: 8px 10px; margin-top: 6px;
+    font-size: 12px; line-height: 1.5;
+  }
+  .reuse-chip .rc-org {
+    font-family: "IBM Plex Mono", monospace; font-size: 10px;
+    color: var(--text-tertiary); text-transform: uppercase;
+    letter-spacing: 0.04em; margin-bottom: 3px;
+  }
+  .reuse-chip .rc-text { color: var(--text-secondary); white-space: pre-wrap; }
+
+  /* --- Nav dots --- */
+  .nav {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; margin-top: 24px; padding-top: 14px;
+    border-top: 1px solid var(--border);
+  }
+  .dots { display: flex; gap: 4px; flex-wrap: wrap; justify-content: center; flex: 1; }
+  .dot-btn {
+    width: 8px; height: 8px; border-radius: 50%; border: none;
+    cursor: pointer; padding: 0; background: var(--border);
+    transition: transform 0.1s ease;
+  }
+  .dot-btn:hover { transform: scale(1.4); }
+  .dot-btn.done { background: var(--status-done); }
+  .dot-btn.thin { background: var(--status-thin); }
+  .dot-btn.blank { background: var(--status-blank); }
+  .dot-btn.verify { background: var(--status-verify); }
+  .dot-btn.cur { outline: 2px solid var(--text); outline-offset: 2px; transform: scale(1.3); }
+
+  /* --- Contact grid --- */
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 14px; }
+  @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
+  .fld { display: flex; flex-direction: column; gap: 2px; }
+  .fld label {
+    font-family: "IBM Plex Mono", monospace; font-size: 10px;
+    letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-tertiary);
+  }
+  .fld input {
+    font-family: inherit; font-size: 14px; padding: 8px 10px;
+    border: 1px solid var(--border); border-radius: 3px;
+    background: var(--surface); color: var(--text); outline: none;
+  }
+  .fld input:focus { border-color: var(--accent); }
+
+  /* --- Lead block (start screen) --- */
+  .lead {
+    font-size: 13px; color: var(--text-secondary); line-height: 1.6;
+    border: 1px solid var(--border); border-left: 3px solid var(--accent);
+    border-radius: 3px; padding: 14px 16px;
+  }
+  .lead b { color: var(--text); }
+
+  /* --- Toast --- */
+  .toast {
+    position: fixed; bottom: 22px; left: 50%;
+    transform: translateX(-50%) translateY(20px); opacity: 0;
+    background: var(--text); color: var(--ground);
+    padding: 10px 16px; border-radius: 3px;
+    font-family: "IBM Plex Mono", monospace; font-size: 12px;
+    z-index: 50; transition: all 0.2s ease;
+    pointer-events: none; max-width: 90vw;
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  /* --- Save indicator --- */
+  .save-status {
+    font-family: "IBM Plex Mono", monospace; font-size: 11px;
+    color: var(--text-tertiary); letter-spacing: 0.03em;
+  }
+  .save-status.saving { color: var(--status-thin); }
+  .save-status.saved { color: var(--status-done); }
+  .save-status.error { color: var(--status-blank); }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="../index.html">Tasks</a>
+  <a href="index.html" class="active">Questionnaires</a>
+</nav>
+
+<!-- Auth gate -->
+<div class="auth-gate" id="authGate">
+  <div class="auth-card">
+    <div class="auth-title">Questionnaire editor</div>
+    <div class="auth-sub">Enter the shared passphrase to continue.</div>
+    <input class="auth-input" id="authPass" type="password" placeholder="Passphrase" autocomplete="current-password">
+    <button class="auth-btn" id="authBtn">Sign in</button>
+    <div class="auth-error" id="authError" style="display:none"></div>
+  </div>
+</div>
+
+<!-- App (hidden until auth) -->
+<div class="app" id="appRoot" style="display:none">
+  <div class="header">
+    <div class="header-left">
+      <div class="kicker" id="kicker"></div>
+      <div class="title" id="titleEl"></div>
+    </div>
+    <div class="header-actions">
+      <span class="save-status" id="saveStatus"></span>
+      <button class="btn" id="exportBtn">Export draft</button>
+    </div>
+  </div>
+
+  <div class="prog">
+    <div class="track"><div class="bar-done" id="barDone"></div><div class="bar-mid" id="barMid"></div></div>
+    <span class="pcount mono" id="pcount"></span>
+  </div>
+
+  <div class="stage">
+    <div class="col" id="left"></div>
+    <div class="col"><div class="info" id="info"></div></div>
+  </div>
+
+  <div class="nav">
+    <button class="btn" id="prev" disabled>&larr; Prev</button>
+    <div class="dots" id="dots"></div>
+    <button class="btn primary" id="next">Next &rarr;</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+(function () {
+  var SUPABASE_URL = 'https://qhrtqtnrduambvchjxqw.supabase.co';
+  var SUPABASE_KEY = 'sb_publishable_UAG7Ru6PRdNnOLCbchpQVg_8vE0jG5N';
+  var AUTH_EMAIL = 'questionnaire@dariaforberkeley.com';
+
+  var sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+  var DATA = null;
+  var orgSlug = '';
+  var answers = {};
+  var approvals = {};
+  var reuseCache = {};
+  var cur = 0;
+  var TOTAL = 0;
+  var toastTimer = null;
+  var saveTimers = {};
+  var reuseInterval = null;
+
+  var authGate = document.getElementById('authGate');
+  var authPass = document.getElementById('authPass');
+  var authBtn = document.getElementById('authBtn');
+  var authError = document.getElementById('authError');
+  var appRoot = document.getElementById('appRoot');
+  var toastEl = document.getElementById('toast');
+
+  var LBL = { done: 'Done', thin: 'Needs work', blank: 'Blank', verify: 'Verify' };
+
+  function esc(v) {
+    return String(v == null ? '' : v)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+  function br(s) { return esc(s).replace(/\n/g, '<br>'); }
+  function words(t) { return (t.trim().match(/\S+/g) || []).length; }
+  function toast(msg) {
+    toastEl.textContent = msg;
+    toastEl.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toastEl.classList.remove('show'); }, 2000);
+  }
+  function setSaveStatus(s) {
+    var el = document.getElementById('saveStatus');
+    el.textContent = s === 'saving' ? 'Saving...' : s === 'saved' ? 'Saved' : s === 'error' ? 'Save failed' : '';
+    el.className = 'save-status ' + s;
+    if (s === 'saved') setTimeout(function () {
+      if (el.textContent === 'Saved') { el.textContent = ''; el.className = 'save-status'; }
+    }, 2000);
+  }
+
+  // --- Auth ---
+  async function doAuth() {
+    var pass = authPass.value.trim();
+    if (!pass) { showAuthError('Enter the passphrase.'); return; }
+    authBtn.disabled = true;
+    authBtn.textContent = 'Signing in...';
+    try {
+      var res = await sb.auth.signInWithPassword({ email: AUTH_EMAIL, password: pass });
+      if (res.error) throw res.error;
+      authGate.style.display = 'none';
+      appRoot.style.display = 'block';
+      boot();
+    } catch (err) {
+      authBtn.disabled = false;
+      authBtn.textContent = 'Sign in';
+      showAuthError('Wrong passphrase.');
+    }
+  }
+  function showAuthError(msg) { authError.textContent = msg; authError.style.display = 'block'; }
+  authBtn.addEventListener('click', doAuth);
+  authPass.addEventListener('keydown', function (e) { if (e.key === 'Enter') doAuth(); });
+
+  // Check for existing session
+  sb.auth.getSession().then(function (res) {
+    if (res.data && res.data.session) {
+      authGate.style.display = 'none';
+      appRoot.style.display = 'block';
+      boot();
+    }
+  });
+
+  // --- Boot ---
+  async function boot() {
+    orgSlug = new URLSearchParams(window.location.search).get('org');
+    if (!orgSlug) { document.getElementById('left').innerHTML = '<p>No org specified. Add ?org=nuhw to the URL.</p>'; return; }
+
+    try {
+      var resp = await fetch('data/' + orgSlug + '.json');
+      if (!resp.ok) throw new Error('Could not load ' + orgSlug + '.json');
+      DATA = await resp.json();
+    } catch (err) {
+      document.getElementById('left').innerHTML = '<p>' + esc(err.message) + '</p>';
+      return;
+    }
+
+    TOTAL = DATA.questions.length + 1;
+    document.getElementById('kicker').textContent = DATA.org + ' ' + DATA.cycle + ' · Endorsement Questionnaire';
+    document.getElementById('titleEl').textContent = DATA.candidate;
+
+    // Load answers from Supabase
+    try {
+      var r = await sb.from('questionnaire_answers')
+        .select('question_id,answer_text,approved,approved_at,is_signature,topic')
+        .eq('org_slug', orgSlug);
+      if (r.data) {
+        r.data.forEach(function (row) {
+          answers[row.question_id] = row.answer_text || '';
+          approvals[row.question_id] = { approved: !!row.approved, is_signature: !!row.is_signature };
+        });
+      }
+    } catch (e) { /* use defaults */ }
+
+    // Fill defaults from JSON for any answer not in Supabase
+    DATA.questions.forEach(function (q) {
+      if (answers[q.id] === undefined) answers[q.id] = '';
+    });
+
+    go(0);
+    startReuseRefresh();
+  }
+
+  // --- Autosave ---
+  function saveAnswer(qid) {
+    clearTimeout(saveTimers[qid]);
+    saveTimers[qid] = setTimeout(async function () {
+      var q = DATA.questions.find(function (x) { return x.id === qid; });
+      setSaveStatus('saving');
+      try {
+        var res = await sb.from('questionnaire_answers').upsert({
+          org_slug: orgSlug,
+          question_id: qid,
+          topic: q ? q.topic : null,
+          answer_text: answers[qid] || ''
+        }, { onConflict: 'org_slug,question_id' });
+        if (res.error) throw res.error;
+        setSaveStatus('saved');
+        refreshReuse(q ? q.topic : null);
+      } catch (e) {
+        setSaveStatus('error');
+      }
+    }, 350);
+  }
+
+  async function saveApproval(qid) {
+    var a = approvals[qid] || {};
+    setSaveStatus('saving');
+    try {
+      var q = DATA.questions.find(function (x) { return x.id === qid; });
+      var res = await sb.from('questionnaire_answers').upsert({
+        org_slug: orgSlug,
+        question_id: qid,
+        topic: q ? q.topic : null,
+        answer_text: answers[qid] || '',
+        approved: !!a.approved,
+        approved_at: a.approved ? new Date().toISOString() : null,
+        is_signature: !!a.is_signature
+      }, { onConflict: 'org_slug,question_id' });
+      if (res.error) throw res.error;
+      setSaveStatus('saved');
+    } catch (e) {
+      setSaveStatus('error');
+    }
+  }
+
+  // --- Reuse ---
+  async function refreshReuse(topic) {
+    if (!topic) return;
+    try {
+      var r = await sb.from('questionnaire_answers')
+        .select('org_slug,answer_text')
+        .eq('topic', topic)
+        .neq('org_slug', orgSlug)
+        .neq('answer_text', '');
+      reuseCache[topic] = (r.data || []);
+    } catch (e) { /* keep stale cache */ }
+  }
+
+  function startReuseRefresh() {
+    var topics = {};
+    DATA.questions.forEach(function (q) { if (q.topic) topics[q.topic] = true; });
+    Object.keys(topics).forEach(function (t) { refreshReuse(t); });
+    reuseInterval = setInterval(function () {
+      Object.keys(topics).forEach(function (t) { refreshReuse(t); });
+    }, 300000);
+  }
+
+  // --- Render: contact page ---
+  function renderContact() {
+    var L = document.getElementById('left');
+    var I = document.getElementById('info');
+    L.innerHTML = '<div class="eyebrow"><span class="qn">START</span> &middot; Section 1</div>' +
+      '<div class="question">Candidate committee information</div>';
+    var g = document.createElement('div'); g.className = 'grid';
+    (DATA.contact_fields || []).forEach(function (f) {
+      var w = document.createElement('div'); w.className = 'fld';
+      w.innerHTML = '<label>' + esc(f.label) + '</label>';
+      var inp = document.createElement('input');
+      inp.value = f.v || ''; inp.placeholder = '—'; inp.readOnly = true;
+      w.appendChild(inp); g.appendChild(w);
+    });
+    L.appendChild(g);
+
+    var blank = 0, thin = 0;
+    DATA.questions.forEach(function (q) { if (q.status === 'blank') blank++; if (q.status === 'thin') thin++; });
+    I.innerHTML = '<div class="lead">' +
+      '<p style="margin:0 0 8px"><b>Fact-checked build.</b> Your current answers are loaded. ' + blank + ' blank, ' + thin + ' thin, 1 to verify.</p>' +
+      '<p style="margin:0 0 8px"><b>Four panels per question.</b> The green <b>Real levers</b> panel tiers what a councilmember can actually do: AUTHORITY is real council power, ADVOCACY is resolutions or lobbying only. The blue <b>Sources</b> panel has live links.</p>' +
+      '<p style="margin:0"><b>Suggested copy</b> is stitched from verified research in the candidate\'s voice. Where firsthand detail is needed, there is a bracketed note. Hit <b>Use this</b> to load it into the editor.</p>' +
+      '</div>';
+  }
+
+  // --- Render: slide ---
+  function renderSlide(idx) {
+    var q = DATA.questions[idx];
+    var L = document.getElementById('left');
+    var I = document.getElementById('info');
+
+    // Left column: question + textarea
+    L.innerHTML = '<div class="eyebrow"><span class="qn">' + esc(q.section) + '</span>' +
+      '<span class="chip ' + q.status + '">' + LBL[q.status] + '</span></div>' +
+      '<div class="question">' + esc(q.question) + '</div>';
+
+    var ta = document.createElement('textarea');
+    ta.value = answers[q.id] || '';
+    if (!ta.value.trim()) { ta.classList.add('need'); ta.placeholder = 'Blank. Use the suggested copy on the right, or write fresh.'; }
+
+    var meta = document.createElement('div'); meta.className = 'metarow';
+    var cnt = document.createElement('div'); cnt.className = 'wcount';
+    var setCnt = function () { cnt.textContent = words(ta.value) + ' words'; }; setCnt();
+
+    ta.addEventListener('input', function () {
+      answers[q.id] = ta.value;
+      ta.classList.toggle('need', !ta.value.trim());
+      setCnt();
+      saveAnswer(q.id);
+    });
+
+    var abtns = document.createElement('div'); abtns.className = 'abtns';
+    var copyBtn = document.createElement('button'); copyBtn.className = 'btn'; copyBtn.textContent = 'Copy';
+    copyBtn.addEventListener('click', function () {
+      navigator.clipboard.writeText(answers[q.id] || '').then(function () { toast('Copied'); });
+    });
+    abtns.appendChild(copyBtn);
+    meta.appendChild(cnt); meta.appendChild(abtns);
+    L.appendChild(ta); L.appendChild(meta);
+
+    // Approve row
+    var appr = approvals[q.id] || { approved: false, is_signature: false };
+    var arow = document.createElement('div'); arow.className = 'approve-row';
+    var ack = document.createElement('button');
+    ack.className = 'approve-check' + (appr.approved ? ' checked' : '');
+    ack.addEventListener('click', function () {
+      appr.approved = !appr.approved;
+      approvals[q.id] = appr;
+      ack.classList.toggle('checked', appr.approved);
+      albl.classList.toggle('active', appr.approved);
+      saveApproval(q.id);
+      toast(appr.approved ? 'Approved' : 'Unapproved');
+    });
+    var albl = document.createElement('span');
+    albl.className = 'approve-label' + (appr.approved ? ' active' : '');
+    albl.textContent = 'Approved';
+    albl.addEventListener('click', function () { ack.click(); });
+
+    var sigBtn = document.createElement('button');
+    sigBtn.className = 'sig-btn' + (appr.is_signature ? ' active' : '');
+    sigBtn.textContent = appr.is_signature ? 'Signature line' : 'Mark as signature';
+    sigBtn.addEventListener('click', function () {
+      appr.is_signature = !appr.is_signature;
+      approvals[q.id] = appr;
+      sigBtn.classList.toggle('active', appr.is_signature);
+      sigBtn.textContent = appr.is_signature ? 'Signature line' : 'Mark as signature';
+      saveApproval(q.id);
+      toast(appr.is_signature ? 'Marked as signature line' : 'Unmarked');
+    });
+    arow.appendChild(ack); arow.appendChild(albl); arow.appendChild(sigBtn);
+    L.appendChild(arow);
+
+    // Right column: info panels
+    I.innerHTML = '';
+
+    var mkBlock = function (cls, title, inner) {
+      var b = document.createElement('div'); b.className = 'block ' + cls;
+      b.innerHTML = '<div class="bhead"><span class="dot"></span>' + title + '</div>' +
+        '<div class="bbody">' + inner + '</div>';
+      return b;
+    };
+
+    if (q.analysis) {
+      I.appendChild(mkBlock('read', 'Analysis', '<p>' + br(q.analysis) + '</p>'));
+    }
+
+    if (q.levers && q.levers.length) {
+      var lhtml = q.levers.map(function (l) {
+        var tier = l.tier === 'authority' ? 'authority' : 'advocacy';
+        return '<div class="lever ' + tier + '"><span class="tag">' +
+          (tier === 'authority' ? 'Authority' : 'Advocacy') +
+          '</span><span>' + esc(l.text) + '</span></div>';
+      }).join('');
+      I.appendChild(mkBlock('levers', 'Real levers (honest tiering)', lhtml));
+    }
+
+    if (q.sources && q.sources.length) {
+      var shtml = q.sources.map(function (s) {
+        return s.url
+          ? '<div class="src"><a href="' + esc(s.url) + '" target="_blank" rel="noopener">' + esc(s.label) + ' &nearr;</a></div>'
+          : '<div class="src" style="color:var(--text-tertiary);font-style:italic">' + esc(s.label) + '</div>';
+      }).join('');
+      I.appendChild(mkBlock('sources', 'Sources', shtml));
+    }
+
+    if (q.suggested && q.suggested.length) {
+      var wrap = document.createElement('div'); wrap.className = 'block fill';
+      wrap.innerHTML = '<div class="bhead"><span class="dot"></span>Suggested copy</div>';
+      var body = document.createElement('div'); body.className = 'bbody';
+      q.suggested.forEach(function (s) {
+        var d = document.createElement('div'); d.className = 'draft';
+        d.innerHTML = '<span class="t">' + esc(s.note) + '</span>' + br(s.text);
+        var cb = document.createElement('button'); cb.className = 'copybtn';
+        cb.textContent = 'Use this as my draft';
+        cb.addEventListener('click', function () {
+          answers[q.id] = s.text;
+          saveAnswer(q.id);
+          renderSlide(idx); paintDots(); paintProg();
+          toast('Loaded into the editor');
+        });
+        d.appendChild(cb); body.appendChild(d);
+      });
+      wrap.appendChild(body); I.appendChild(wrap);
+    }
+
+    // Reuse panel
+    var reuse = reuseCache[q.topic] || [];
+    if (reuse.length) {
+      var rwrap = document.createElement('div'); rwrap.className = 'block reuse';
+      rwrap.innerHTML = '<div class="bhead"><span class="dot"></span>From your other questionnaires</div>';
+      var rbody = document.createElement('div'); rbody.className = 'bbody';
+      reuse.forEach(function (r) {
+        var chip = document.createElement('div'); chip.className = 'reuse-chip';
+        chip.innerHTML = '<div class="rc-org">' + esc(r.org_slug) + '</div>' +
+          '<div class="rc-text">' + br(r.answer_text) + '</div>';
+        rbody.appendChild(chip);
+      });
+      rwrap.appendChild(rbody); I.appendChild(rwrap);
+    }
+
+    if (I.scrollTo) I.scrollTo(0, 0);
+  }
+
+  // --- Nav ---
+  function paintDots() {
+    var wrap = document.getElementById('dots'); wrap.innerHTML = '';
+    var c = document.createElement('button');
+    c.className = 'dot-btn' + (cur === 0 ? ' cur' : '');
+    c.title = 'Start';
+    c.addEventListener('click', function () { go(0); });
+    wrap.appendChild(c);
+    DATA.questions.forEach(function (q, i) {
+      var b = document.createElement('button');
+      b.className = 'dot-btn ' + q.status;
+      if (cur === i + 1) b.classList.add('cur');
+      b.title = q.section + ': ' + q.question;
+      b.addEventListener('click', function () { go(i + 1); });
+      wrap.appendChild(b);
+    });
+  }
+
+  function paintProg() {
+    var n = DATA.questions.length; var done = 0; var mid = 0;
+    DATA.questions.forEach(function (q) {
+      if (q.status === 'done') done++;
+      else if (q.status === 'thin' || q.status === 'verify') mid++;
+    });
+    document.getElementById('barDone').style.width = Math.round(done / n * 100) + '%';
+    document.getElementById('barMid').style.width = Math.round(mid / n * 100) + '%';
+    document.getElementById('pcount').textContent = done + ' done · ' + mid + ' to fix · ' + (n - done - mid) + ' blank';
+  }
+
+  function go(i) {
+    cur = Math.max(0, Math.min(TOTAL - 1, i));
+    if (cur === 0) renderContact(); else renderSlide(cur - 1);
+    document.getElementById('prev').disabled = (cur === 0);
+    document.getElementById('next').disabled = (cur === TOTAL - 1);
+    paintDots(); paintProg();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  document.getElementById('prev').addEventListener('click', function () { go(cur - 1); });
+  document.getElementById('next').addEventListener('click', function () { go(cur + 1); });
+  document.addEventListener('keydown', function (e) {
+    if (e.target.tagName === 'TEXTAREA' || e.target.tagName === 'INPUT') return;
+    if (e.key === 'ArrowRight') go(cur + 1);
+    if (e.key === 'ArrowLeft') go(cur - 1);
+  });
+
+  // --- Export ---
+  document.getElementById('exportBtn').addEventListener('click', function () {
+    if (!DATA) return;
+    var out = DATA.org.toUpperCase() + ' ' + DATA.cycle + ' QUESTIONNAIRE — ' +
+      DATA.candidate.toUpperCase() + '\n\nSECTION 1 CANDIDATE COMMITTEE INFORMATION\n';
+    (DATA.contact_fields || []).forEach(function (f) { out += f.label + ': ' + (f.v || '') + '\n'; });
+    DATA.questions.forEach(function (q) {
+      out += '\n\n' + q.section.toUpperCase() + '\n' + q.question + '\n\n' +
+        ((answers[q.id] || '').trim() || '[NOT YET ANSWERED]') + '\n';
+    });
+    navigator.clipboard.writeText(out).then(function () { toast('Full draft copied'); }, function () { toast('Copy failed'); });
+    try {
+      var b = new Blob([out], { type: 'text/plain' });
+      var u = URL.createObjectURL(b);
+      var a = document.createElement('a');
+      a.href = u; a.download = DATA.slug + '_draft.txt'; a.click();
+      setTimeout(function () { URL.revokeObjectURL(u); }, 1000);
+    } catch (e) { /* clipboard already has it */ }
+  });
+})();
+</script>
+</body>
+</html>

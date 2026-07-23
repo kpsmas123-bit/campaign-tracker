@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Questionnaires</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ground: #F9F9F6;
+    --surface: #FFFFFF;
+    --text: #2A2A2E;
+    --text-secondary: #7C7C82;
+    --text-tertiary: #A8A8AC;
+    --border: #E6E6E2;
+    --border-light: #F0F0EC;
+    --accent: #4A6FA5;
+    --accent-hover: #3D5E8C;
+    --priority-high: #C45240;
+    --priority-high-bg: #C4524012;
+    --priority-medium: #C89B2A;
+    --priority-medium-bg: #C89B2A12;
+    --priority-low: #6B956B;
+    --priority-low-bg: #6B956B12;
+    --hover: #F4F4F0;
+    --team-bg: #F2F2EE;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #18181B;
+      --surface: #1E1E22;
+      --text: #E4E4E0;
+      --text-secondary: #8E8E92;
+      --text-tertiary: #5A5A5E;
+      --border: #2E2E32;
+      --border-light: #262628;
+      --accent: #6B8FC4;
+      --accent-hover: #7DA0D0;
+      --priority-high: #D4705F;
+      --priority-high-bg: #D4705F18;
+      --priority-medium: #D4AD4A;
+      --priority-medium-bg: #D4AD4A18;
+      --priority-low: #7DAF7D;
+      --priority-low-bg: #7DAF7D18;
+      --hover: #24242A;
+      --team-bg: #222226;
+    }
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--text);
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+
+  .site-nav {
+    display: flex; align-items: center; gap: 2px;
+    max-width: 860px; margin: 0 auto;
+    padding: 16px 24px 0;
+  }
+  .site-nav a {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--text-tertiary); text-decoration: none;
+    padding: 5px 10px; border-bottom: 2px solid transparent;
+  }
+  .site-nav a:hover { color: var(--text-secondary); }
+  .site-nav a.active { color: var(--text); border-bottom-color: var(--accent); }
+
+  .app { max-width: 860px; margin: 0 auto; padding: 32px 24px 80px; }
+
+  /* --- Auth gate --- */
+  .auth-gate {
+    min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px;
+  }
+  .auth-card { max-width: 340px; width: 100%; display: flex; flex-direction: column; gap: 14px; }
+  .auth-title { font-family: Georgia, 'Times New Roman', serif; font-size: 20px; font-weight: normal; }
+  .auth-sub { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+  .auth-input {
+    font-family: inherit; font-size: 14px; color: var(--text);
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 3px; padding: 10px 12px; width: 100%; outline: none;
+  }
+  .auth-input:focus { border-color: var(--accent); }
+  .auth-btn {
+    font-family: inherit; font-size: 13px; font-weight: 500;
+    color: var(--surface); background: var(--accent);
+    border: 1px solid var(--accent); border-radius: 3px;
+    padding: 10px 16px; cursor: pointer; width: 100%;
+  }
+  .auth-btn:hover { background: var(--accent-hover); }
+  .auth-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .auth-error { font-size: 13px; color: var(--priority-high); line-height: 1.5; }
+
+  /* --- Header --- */
+  .header {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 14px; flex-wrap: wrap;
+    margin-bottom: 20px; padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .title {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 22px; font-weight: normal;
+  }
+  .header-right { display: flex; gap: 8px; align-items: center; }
+  .back-link {
+    font-family: "IBM Plex Mono", monospace; font-size: 12px;
+    color: var(--text-secondary); text-decoration: none;
+    border: 1px solid var(--border); border-radius: 3px; padding: 7px 12px;
+  }
+  .back-link:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* --- Filter row --- */
+  .filters {
+    display: flex; gap: 4px; margin-bottom: 16px; flex-wrap: wrap;
+  }
+  .fbtn {
+    font-family: "IBM Plex Mono", monospace; font-size: 11px;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    color: var(--text-tertiary); background: none;
+    border: none; padding: 4px 8px; cursor: pointer;
+    border-bottom: 2px solid transparent;
+  }
+  .fbtn:hover { color: var(--text-secondary); }
+  .fbtn.active { color: var(--text); border-bottom-color: var(--accent); }
+
+  /* --- Table --- */
+  .table { width: 100%; }
+  .thead {
+    display: grid;
+    grid-template-columns: 1fr 100px 90px 90px 80px;
+    gap: 8px; padding: 8px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .th {
+    font-family: "IBM Plex Mono", monospace; font-size: 10px;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--text-tertiary); font-weight: 600;
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 100px 90px 90px 80px;
+    gap: 8px; padding: 10px 12px; align-items: center;
+    border-bottom: 1px solid var(--border-light);
+    cursor: pointer; text-decoration: none; color: inherit;
+  }
+  .row:hover { background: var(--hover); }
+
+  .org-name { font-size: 14px; font-weight: 500; }
+  .org-sub {
+    font-family: "IBM Plex Mono", monospace; font-size: 11px;
+    color: var(--text-tertiary); margin-top: 1px;
+  }
+
+  .pill {
+    font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 600;
+    letter-spacing: 0.03em; text-transform: uppercase;
+    padding: 3px 8px; border-radius: 2px; display: inline-flex;
+    align-items: center; gap: 5px; width: fit-content;
+  }
+  .pill .dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+  .pill.high { background: var(--priority-high-bg); color: var(--priority-high); }
+  .pill.high .dot { background: var(--priority-high); }
+  .pill.medium { background: var(--priority-medium-bg); color: var(--priority-medium); }
+  .pill.medium .dot { background: var(--priority-medium); }
+  .pill.low { background: var(--priority-low-bg); color: var(--priority-low); }
+  .pill.low .dot { background: var(--priority-low); }
+
+  .cell {
+    font-family: "IBM Plex Mono", monospace; font-size: 11px;
+    color: var(--text-secondary);
+  }
+
+  .prog-bar {
+    height: 4px; background: var(--border-light); border-radius: 2px;
+    overflow: hidden; width: 60px; display: inline-block; vertical-align: middle;
+    margin-right: 6px;
+  }
+  .prog-bar .fill { height: 100%; background: var(--priority-low); border-radius: 2px; }
+
+  .empty {
+    padding: 40px 16px; text-align: center;
+    color: var(--text-tertiary); font-size: 13px;
+  }
+
+  @media (max-width: 640px) {
+    .thead, .row { grid-template-columns: 1fr 80px 70px; }
+    .thead .th:nth-child(4), .thead .th:nth-child(5),
+    .row > *:nth-child(4), .row > *:nth-child(5) { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="../index.html">Tasks</a>
+  <a href="index.html" class="active">Questionnaires</a>
+</nav>
+
+<div class="auth-gate" id="authGate">
+  <div class="auth-card">
+    <div class="auth-title">Questionnaires</div>
+    <div class="auth-sub">Enter the shared passphrase to continue.</div>
+    <input class="auth-input" id="authPass" type="password" placeholder="Passphrase" autocomplete="current-password">
+    <button class="auth-btn" id="authBtn">Sign in</button>
+    <div class="auth-error" id="authError" style="display:none"></div>
+  </div>
+</div>
+
+<div class="app" id="appRoot" style="display:none">
+  <div class="header">
+    <div class="title">Endorsement questionnaires</div>
+  </div>
+
+  <div class="filters" id="filters"></div>
+
+  <div class="table">
+    <div class="thead">
+      <div class="th">Organization</div>
+      <div class="th">Status</div>
+      <div class="th">Progress</div>
+      <div class="th">Priority</div>
+      <div class="th">Timing</div>
+    </div>
+    <div id="rows"></div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+(function () {
+  var SUPABASE_URL = 'https://qhrtqtnrduambvchjxqw.supabase.co';
+  var SUPABASE_KEY = 'sb_publishable_UAG7Ru6PRdNnOLCbchpQVg_8vE0jG5N';
+  var AUTH_EMAIL = 'questionnaire@dariaforberkeley.com';
+  var sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+  var KNOWN_ORGS = ['nuhw'];
+  var orgData = {};
+  var statusData = {};
+  var answerCounts = {};
+  var activeFilter = 'all';
+
+  var authGate = document.getElementById('authGate');
+  var authPass = document.getElementById('authPass');
+  var authBtn = document.getElementById('authBtn');
+  var authError = document.getElementById('authError');
+  var appRoot = document.getElementById('appRoot');
+
+  function esc(v) {
+    return String(v == null ? '' : v)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  // --- Auth ---
+  async function doAuth() {
+    var pass = authPass.value.trim();
+    if (!pass) { showErr('Enter the passphrase.'); return; }
+    authBtn.disabled = true; authBtn.textContent = 'Signing in...';
+    try {
+      var res = await sb.auth.signInWithPassword({ email: AUTH_EMAIL, password: pass });
+      if (res.error) throw res.error;
+      authGate.style.display = 'none'; appRoot.style.display = 'block'; boot();
+    } catch (e) {
+      authBtn.disabled = false; authBtn.textContent = 'Sign in'; showErr('Wrong passphrase.');
+    }
+  }
+  function showErr(m) { authError.textContent = m; authError.style.display = 'block'; }
+  authBtn.addEventListener('click', doAuth);
+  authPass.addEventListener('keydown', function (e) { if (e.key === 'Enter') doAuth(); });
+  sb.auth.getSession().then(function (r) {
+    if (r.data && r.data.session) { authGate.style.display = 'none'; appRoot.style.display = 'block'; boot(); }
+  });
+
+  // --- Boot ---
+  async function boot() {
+    var loads = KNOWN_ORGS.map(function (slug) {
+      return fetch('data/' + slug + '.json').then(function (r) { return r.json(); }).then(function (d) {
+        orgData[slug] = d;
+      }).catch(function () {});
+    });
+    await Promise.all(loads);
+
+    try {
+      var r = await sb.from('questionnaire_status').select('*');
+      if (r.data) r.data.forEach(function (s) { statusData[s.org_slug] = s; });
+    } catch (e) {}
+
+    try {
+      var r2 = await sb.from('questionnaire_answers')
+        .select('org_slug,question_id,answer_text,approved');
+      if (r2.data) {
+        r2.data.forEach(function (row) {
+          if (!answerCounts[row.org_slug]) answerCounts[row.org_slug] = { answered: 0, approved: 0, total: 0 };
+          if (row.answer_text && row.answer_text.trim()) answerCounts[row.org_slug].answered++;
+          if (row.approved) answerCounts[row.org_slug].approved++;
+        });
+      }
+    } catch (e) {}
+
+    KNOWN_ORGS.forEach(function (slug) {
+      if (orgData[slug] && !answerCounts[slug]) {
+        answerCounts[slug] = { answered: 0, approved: 0, total: orgData[slug].questions.length };
+      }
+      if (answerCounts[slug] && orgData[slug]) {
+        answerCounts[slug].total = orgData[slug].questions.length;
+      }
+    });
+
+    buildFilters();
+    render();
+  }
+
+  // --- Filters ---
+  function buildFilters() {
+    var cats = new Set();
+    cats.add('all');
+    Object.values(statusData).forEach(function (s) { if (s.category) cats.add(s.category); });
+    var wrap = document.getElementById('filters');
+    wrap.innerHTML = '';
+    cats.forEach(function (c) {
+      var b = document.createElement('button');
+      b.className = 'fbtn' + (c === activeFilter ? ' active' : '');
+      b.textContent = c === 'all' ? 'All' : c;
+      b.addEventListener('click', function () { activeFilter = c; buildFilters(); render(); });
+      wrap.appendChild(b);
+    });
+  }
+
+  // --- Render ---
+  function render() {
+    var wrap = document.getElementById('rows');
+    wrap.innerHTML = '';
+    var slugs = KNOWN_ORGS.filter(function (slug) {
+      if (activeFilter === 'all') return true;
+      var s = statusData[slug];
+      return s && s.category === activeFilter;
+    });
+
+    if (!slugs.length) {
+      wrap.innerHTML = '<div class="empty">No questionnaires match this filter.</div>';
+      return;
+    }
+
+    slugs.forEach(function (slug) {
+      var d = orgData[slug];
+      var st = statusData[slug] || {};
+      var ac = answerCounts[slug] || { answered: 0, approved: 0, total: 0 };
+      if (!d) return;
+
+      var row = document.createElement('a');
+      row.className = 'row';
+      row.href = 'questionnaire.html?org=' + slug;
+
+      // Org name cell
+      var c1 = document.createElement('div');
+      c1.innerHTML = '<div class="org-name">' + esc(d.org) + '</div>' +
+        '<div class="org-sub">' + esc(d.cycle) + ' · ' + esc(d.candidate) + '</div>';
+
+      // Status cell
+      var statusLabel = st.status || 'not_started';
+      var statusMap = {
+        not_started: { cls: 'high', label: 'Not started' },
+        in_progress: { cls: 'medium', label: 'In progress' },
+        submitted: { cls: 'low', label: 'Submitted' },
+        approved: { cls: 'low', label: 'Approved' }
+      };
+      var sm = statusMap[statusLabel] || statusMap.not_started;
+      var c2 = document.createElement('div');
+      c2.innerHTML = '<span class="pill ' + sm.cls + '"><span class="dot"></span>' + sm.label + '</span>';
+
+      // Progress cell
+      var pct = ac.total ? Math.round(ac.answered / ac.total * 100) : 0;
+      var c3 = document.createElement('div');
+      c3.className = 'cell';
+      c3.innerHTML = '<span class="prog-bar"><span class="fill" style="width:' + pct + '%"></span></span>' +
+        ac.answered + '/' + ac.total;
+
+      // Priority cell
+      var priMap = { high: 'high', medium: 'medium', low: 'low' };
+      var pri = st.priority || 'medium';
+      var c4 = document.createElement('div');
+      c4.innerHTML = '<span class="pill ' + (priMap[pri] || 'medium') + '"><span class="dot"></span>' + esc(pri) + '</span>';
+
+      // Timing cell
+      var c5 = document.createElement('div');
+      c5.className = 'cell';
+      c5.textContent = st.timing || '—';
+
+      row.appendChild(c1);
+      row.appendChild(c2);
+      row.appendChild(c3);
+      row.appendChild(c4);
+      row.appendChild(c5);
+      wrap.appendChild(row);
+    });
+  }
+})();
+</script>
+</body>
+</html>

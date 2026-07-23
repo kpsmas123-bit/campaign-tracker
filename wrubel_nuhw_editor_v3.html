@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f3f1ec;--panel:#fffefc;--ink:#1a1618;--ox:#8c2230;--ox-soft:#f2e2e2;
+    --steel:#2c4a5e;--steel-soft:#dde8ee;--gold:#9a7212;--gold-soft:#f4ebd4;
+    --green:#3a6b47;--green-soft:#e2ede4;--muted:#6b6668;--line:#d9d5cd;
+    --shadow:0 1px 2px rgba(26,22,24,.06),0 10px 30px rgba(26,22,24,.06);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{background:var(--paper);color:var(--ink);font-family:"Source Serif 4",Georgia,serif;font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  .mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+  .app{max-width:1120px;margin:0 auto;padding:16px 18px 40px;min-height:100vh;display:flex;flex-direction:column}
+
+  header{display:flex;gap:14px;align-items:flex-end;flex-wrap:wrap;padding-bottom:12px;border-bottom:1px solid var(--line)}
+  .brand{flex:1;min-width:200px}
+  .kicker{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ox);font-weight:600}
+  .title{font-family:"Fraunces",serif;font-weight:900;font-size:23px;margin:2px 0 0;letter-spacing:-.01em}
+  .prog{flex-basis:100%;display:flex;align-items:center;gap:10px;margin-top:10px}
+  .track{flex:1;height:5px;background:var(--ox-soft);border-radius:5px;overflow:hidden;display:flex}
+  .track i{display:block;height:100%;background:var(--green);transition:width .35s ease}
+  .track u{display:block;height:100%;background:var(--gold);transition:width .35s ease}
+  .pcount{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--muted);white-space:nowrap}
+
+  .btn{font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:500;border:1px solid var(--ox);background:var(--ox);color:#fff;border-radius:8px;padding:9px 13px;cursor:pointer;transition:transform .08s,background .15s}
+  .btn:hover{background:#731b27}.btn:active{transform:translateY(1px)}.btn:disabled{opacity:.35;cursor:not-allowed}
+  .btn.ghost{background:transparent;color:var(--ox)}.btn.ghost:hover{background:var(--ox-soft)}
+  .btn.mini{padding:6px 10px;font-size:11px}
+
+  .stage{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:18px}
+  @media(max-width:860px){.stage{grid-template-columns:1fr}}
+  .col{min-width:0}
+  .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:6px;display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+  .qn{font-family:"Fraunces",serif;font-weight:900;font-size:15px;color:var(--ox)}
+  .chip{font-family:"IBM Plex Mono",monospace;font-size:9px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:3px 8px;border-radius:20px}
+  .chip.done{background:var(--green-soft);color:#2b5236}.chip.thin{background:var(--gold-soft);color:#6b4f0c}
+  .chip.blank{background:var(--ox-soft);color:#6d1a25}.chip.verify{background:var(--steel-soft);color:#1d3444}
+  .question{font-family:"Fraunces",serif;font-weight:600;font-size:19px;line-height:1.3;margin:0 0 12px}
+
+  textarea{width:100%;font-family:"Source Serif 4",serif;font-size:15px;line-height:1.55;color:var(--ink);padding:13px 14px;border:1px solid var(--line);border-radius:10px;background:#fff;resize:vertical;min-height:250px;box-shadow:var(--shadow)}
+  textarea:focus{outline:2px solid var(--ox);outline-offset:-1px;border-color:var(--ox)}
+  textarea.need{background:#fffaf9;border-color:var(--ox-soft)}
+  .metarow{display:flex;justify-content:space-between;align-items:center;margin-top:7px;gap:10px}
+  .count{font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--muted)}
+  .abtns{display:flex;gap:7px;flex-wrap:wrap}
+
+  .info{display:flex;flex-direction:column;gap:12px;max-height:calc(100vh - 200px);overflow:auto;padding-right:4px}
+  @media(max-width:860px){.info{max-height:none}}
+  .block{background:var(--panel);border:1px solid var(--line);border-radius:11px;box-shadow:var(--shadow);overflow:hidden;flex:0 0 auto}
+  .bhead{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.11em;text-transform:uppercase;font-weight:600;padding:9px 13px;display:flex;align-items:center;gap:8px}
+  .bhead .dot{width:7px;height:7px;border-radius:50%}
+  .bbody{padding:0 13px 12px;font-size:13.5px;line-height:1.5}
+  .bbody p{margin:8px 0 0}
+  .read .bhead{background:var(--ox-soft);color:#6d1a25}.read .dot{background:var(--ox)}
+  .levers .bhead{background:var(--green-soft);color:#2b5236}.levers .dot{background:var(--green)}
+  .sources .bhead{background:var(--steel-soft);color:#1d3444}.sources .dot{background:var(--steel)}
+  .fill .bhead{background:var(--gold-soft);color:#6b4f0c}.fill .dot{background:var(--gold)}
+
+  .lever{margin-top:9px;display:flex;gap:8px}
+  .lever .tag{font-family:"IBM Plex Mono",monospace;font-size:8.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:2px 6px;border-radius:5px;height:fit-content;white-space:nowrap;margin-top:2px}
+  .lever.real .tag{background:var(--green-soft);color:#2b5236}
+  .lever.advocacy .tag{background:var(--gold-soft);color:#6b4f0c}
+  .src{margin-top:7px}
+  .src a{color:var(--steel);font-family:"IBM Plex Mono",monospace;font-size:11.5px;text-decoration:none;border-bottom:1px solid var(--steel-soft)}
+  .src a:hover{border-bottom-color:var(--steel)}
+  .src .note{color:var(--muted);font-size:11.5px;font-style:italic}
+  .draft{background:#fbf7ec;border:1px dashed var(--gold);border-radius:8px;padding:11px 12px;margin-top:9px;font-size:14px;line-height:1.55;white-space:pre-wrap}
+  .draft .t{font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:#6b4f0c;font-weight:600;display:block;margin-bottom:6px;white-space:normal}
+  .copybtn{margin-top:8px;font-family:"IBM Plex Mono",monospace;font-size:10.5px;background:transparent;border:1px solid var(--gold);color:#6b4f0c;border-radius:6px;padding:5px 9px;cursor:pointer}
+  .copybtn:hover{background:var(--gold-soft)}
+
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:20px;padding-top:14px;border-top:1px solid var(--line)}
+  .dots{display:flex;gap:5px;flex-wrap:wrap;justify-content:center;flex:1}
+  .dot-btn{width:9px;height:9px;border-radius:50%;border:none;cursor:pointer;padding:0;transition:transform .1s;background:var(--line)}
+  .dot-btn:hover{transform:scale(1.3)}
+  .dot-btn.done{background:var(--green)}.dot-btn.thin{background:var(--gold)}.dot-btn.blank{background:#d9a3a3}.dot-btn.verify{background:var(--steel)}
+  .dot-btn.cur{outline:2px solid var(--ink);outline-offset:2px;transform:scale(1.35)}
+
+  .lead{font-size:14.5px;color:#3a3639;background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--ox);border-radius:10px;padding:14px 16px;box-shadow:var(--shadow)}
+  .lead b{color:var(--ox)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 16px}
+  @media(max-width:560px){.grid{grid-template-columns:1fr}}
+  .fld{display:flex;flex-direction:column;gap:3px}
+  .fld label{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+  .fld input{font-family:"Source Serif 4",serif;font-size:14px;padding:8px 10px;border:1px solid var(--line);border-radius:7px;background:#fff}
+  .fld input:focus{outline:2px solid var(--ox);outline-offset:-1px}
+
+  .toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(20px);opacity:0;background:var(--ink);color:#fff;padding:11px 18px;border-radius:10px;font-family:"IBM Plex Mono",monospace;font-size:12.5px;z-index:50;transition:all .25s;box-shadow:0 8px 30px rgba(0,0,0,.25);pointer-events:none;max-width:90vw}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="app">
+  <header>
+    <div class="brand">
+      <div class="kicker">NUHW 2026 · Local Government Candidate Questionnaire</div>
+      <div class="title">Daria Wrubel — Berkeley D1 · v3</div>
+    </div>
+    <button class="btn" id="export">Export draft</button>
+    <div class="prog"><div class="track"><i id="bar"></i><u id="bar2"></u></div><span class="pcount mono" id="pcount"></span></div>
+  </header>
+
+  <div class="stage">
+    <div class="col" id="left"></div>
+    <div class="col"><div class="info" id="info"></div></div>
+  </div>
+
+  <div class="nav">
+    <button class="btn ghost" id="prev">← Prev</button>
+    <div class="dots" id="dots"></div>
+    <button class="btn" id="next">Next →</button>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script id="qdata" type="application/json">
+{
+ "contact":[
+  {"k":"name","label":"Name","v":"Daria Wrubel"},
+  {"k":"office","label":"Candidate for","v":"Berkeley City Council, District 1"},
+  {"k":"occ","label":"Occupation","v":"Licensed Marriage & Family Therapist"},
+  {"k":"emp","label":"Employer","v":"self-employed (Grounded Therapy)"},
+  {"k":"fppc","label":"FPPC #","v":"pending"},
+  {"k":"ein","label":"EIN","v":"42-2954370"},
+  {"k":"cons","label":"Consultant","v":"Sam Kaplan-Pettus"},
+  {"k":"web","label":"Website","v":"dariaforberkeley.com"}
+ ],
+ "slides":[
+  {"id":"b1","sec":"Background 1","st":"done","q":"List any elected office you currently hold or have held.",
+   "a":"I have not held elected office before. This is my first time running for elected office.",
+   "read":"Honest and fine. Nothing to change."},
+
+  {"id":"b2","sec":"Background 2","st":"done","q":"List any key volunteer organizational leadership roles.",
+   "a":"I coordinate the Safe Pathways to School volunteer program for Berkeley High School. I co-facilitate a Bay Resistance Pod for the 94702 zip code. I am the volunteer registrar for a summer music and arts camp, where I also founded the mediation team for conflict resolution.",
+   "read":"Strong. The Bay Resistance Pod line is your single best immigration credential and should reappear in Section 10A."},
+
+  {"id":"b3","sec":"Background 3","st":"done","q":"Provide your official bio and relevant work or educational experience.",
+   "a":"I was born and raised in Berkeley, California, by my single mom (also a Berkeley native), who worked as an elementary school secretary for Berkeley Unified. My (absentee) father was a professor in UC Berkeley's Department of Music. I attended Berkeley Public Schools through 6th grade, and attended high school in Oakland. I moved to Pennsylvania for college, where I was an urban studies major at Bryn Mawr College. My first career out of college was as a gardener, horticulturist, and eventually a garden educator. It was in that capacity that I worked for Berkeley Unified from 2009-2015. For the 2013-14 school year, I was the AFT Local 6192 Berkeley Council of Classified Employees Organizer, on a grant from the California Federation of Teachers. In 2014, I returned to school for a master's in counseling psychology, and I have been in private practice as a child and adolescent therapist since 2020.",
+   "read":"Very good. Your mother was a BUSD classified employee and you later organized that same classified unit; one clause surfaces that labor story. One consistency note across questionnaires: this bio (high school in Oakland, college in Pennsylvania) sits against the 'lifelong Berkeley resident' framing elsewhere. Both are defensible, just pick one."},
+
+  {"id":"b4","sec":"Background 4","st":"done","q":"Are you currently a union member? Which unions? What role?",
+   "a":"I am currently self-employed, and ineligible for union membership, but I was a member of AFT Local 6192, the Berkeley Council of Classified Employees, when I worked for the Berkeley Unified School District. I was a Site Representative for Thousand Oaks Elementary, and was the Union Organizer for the 2013-2014 school year.",
+   "read":"One of your strongest answers. Member, site rep, and paid organizer on a CFT grant. Leave it."},
+
+  {"id":"b5","sec":"Background 5","st":"thin","q":"What significant endorsements have you received?",
+   "a":"I am endorsed by Jennifer Shanoski, Berkeley School Director; Soli Alpert, Berkeley Rent Board President; (more coming)",
+   "read":"Jennifer Shanoski is also a longtime faculty union leader (Peralta Federation of Teachers). Naming that role makes this read as a labor endorsement, which is what this audience weighs. Group as electeds / labor / orgs as the list grows.",
+   "fill":[{"t":"Reformat, her names, add Shanoski's labor role","c":"Elected officials: Jennifer Shanoski, Berkeley School Director and Peralta Federation of Teachers leader; Soli Alpert, Berkeley Rent Board President. Additional endorsements pending. Titles listed for identification purposes only.\n\n[Verify Shanoski's exact union title before using.]"}]},
+
+  {"id":"b6","sec":"Background 6","st":"done","q":"How much money have you raised? How much do you aim to raise?",
+   "a":"I have raised over $2000 since launching my ActBlue page on July 5th, and intend to raise at least the $8667 I need to reach my maximum public financing matching for the City of Berkeley, for a total of $60,000.",
+   "read":"Good and specific. Adding contribution count and average would show grassroots depth, but not required."},
+
+  {"id":"b7","sec":"Background 7","st":"done","q":"Have you conducted a poll?",
+   "a":"I have not conducted any polling.","read":"Fine."},
+
+  {"id":"s21","sec":"Section 2.1","st":"done","q":"Why are you a candidate? What distinguishes you from your opponents?",
+   "a":"I am running for office to protect Berkeley's progressive values, and build for Berkeley's future. I am a therapist for our community's children and young adults, and before that I was a garden educator and proud union member. When my coworkers faced layoffs, I took on the fight as full-time organizer with AFT Local 6192, the Berkeley Council of Classified Employees.\n\nNow I am running as a candidate who can cut through the noise and unite rather than divide my district. Too often we're told we have to choose between a functioning city government and our progressive values, and I am running because I reject the premise of that argument. I am both pro-housing and pro-tenant. I believe in investing in public safety while rejecting surveillance and militarization. And I believe we can provide basic city services and compassion to homeowners, tenants, and our unhoused community without conflict. I have decades of relationships within the City that prove I am a community-driven, results-oriented organizer.",
+   "read":"Much stronger than the earlier draft. It now leads with the two credentials this union cares about, therapist and organizer. I cleaned the typos (layoffs, noise, our unhoused, homeowners). Solid as is."},
+
+  {"id":"s22","sec":"Section 2.2","st":"thin","q":"Briefly describe your top legislative priorities and issue areas of focus.",
+   "a":"I want to focus on livability - increasing affordability, improving city services, preserving educational and cultural excellence, focusing on public safety that doesn't jeopardize civil liberties.",
+   "read":"For a healthcare union, a priority list with no health or labor plank is a conspicuous gap. Add behavioral health, given you are a clinician and there is a live local fight (the Mobile Crisis Team closure and the county handoff).",
+   "levers":[
+    {"tier":"real","t":"The council votes on Berkeley's BHSA behavioral health plan and city staffing, which are direct authority."},
+    {"tier":"real","t":"Housing and tenant protection run through the council and the elected Rent Board."}],
+   "sources":[
+    {"label":"Berkeleyside: Mobile Crisis Team + shelter closures","url":"https://www.berkeleyside.org/2026/07/06/mobile-crisis-team-berkeley-winter-shelter-closures"}],
+   "fill":[{"t":"Her list, with a health + labor plank added in her voice","c":"My priorities center on livability: increasing affordability, improving city services, preserving our educational and cultural excellence, and investing in public safety that does not jeopardize civil liberties. I would add two that reflect my own background. First, protecting our behavioral health infrastructure. As a clinician, and with Berkeley closing its Mobile Crisis Team and handing crisis response to the county, I want to make sure residents do not lose care in the transition. Second, standing with our city workers, because how we treat the people who deliver public services is how we protect those services."}]},
+
+  {"id":"s23","sec":"Section 2.3","st":"done","q":"Why are you seeking NUHW's endorsement, and what support do you need?",
+   "a":"Coming from a union household, as a former union member and organizer, my theory of political power is grounded in the work of organized labor. I am seeking the NUHW endorsement not simply to get elected, but to begin a relationship of co-governance and collaboration.\n\nAs a mental health professional who has witnessed the impact of our mental health crisis, I stood with Kaiser Nurse Practitioners when they rallied for patient care. I want to continue to learn from and build solidarity with your membership so that when elected, I can amplify your work and bring your proposals into city hall.\n\nNUHW could be incredibly supportive with field and volunteer operations. We would love the opportunity to reach out directly to your Berkeley members and win their support as voters, volunteers, or donors.",
+   "read":"Done and strong. 'Mental health professional' here vs 'mental health clinician' in 7A; pick one across the form."},
+
+  {"id":"s24","sec":"Section 2.4","st":"done","q":"Do you work with community organizations already? Name them.",
+   "a":"I participate in Berkeley's Sanctuary City Taskforce, and am a member of the Friends of Ohlone Park. I am also a member of the Brass Liberation Orchestra, which provides musical support for aligned protests and street actions.",
+   "read":"Good. Consider adding the Bay Resistance Pod from Background 2, and any clinical professional association (CAMFT) for this audience."},
+
+  {"id":"s3a","sec":"Section 3A","st":"done","q":"Which of the nine solidarity actions would you take? (checklist)",
+   "a":"All nine boxes checked.","read":"Exactly right."},
+
+  {"id":"s3b","sec":"Section 3B","st":"done","q":"Specific examples of solidarity actions you have taken.",
+   "a":"As a member of Brass Liberation Orchestra, I have provided musical support for many labor actions, including the Richmond Teacher's Union last spring, and the Kaiser Nurse Practitioners in January. I have also met with local electeds, like Assemblymember Buffy Wicks, to advocate for NUHW priorities, like CalCare/Medicare for All.",
+   "read":"Excellent, and the Kaiser detail is a direct hit. You could add your own AFT 6192 organizing as a first-person example, but it is already strong."},
+
+  {"id":"s4a","sec":"Section 4A","st":"verify","q":"Four yes/no: card-check neutrality, equal access, ban on captive-audience meetings, short election period.",
+   "a":"[Confirm all four are marked Yes in the PDF before sending.]",
+   "read":"This is a litmus section. The extraction could not confirm which boxes are checked. Open the PDF and verify all four read Yes; a stray blank or No here is costly.",
+   "levers":[{"tier":"advocacy","t":"These are yes/no support positions, not city powers. The honest answer is a clean Yes to all four."}]},
+
+  {"id":"s5a","sec":"Section 5A","st":"done","q":"How would you advocate for the improvement of healthcare system standards?",
+   "a":"While our recent city budget cut some of Berkeley's most important public health programs, including our Mobile Crisis Team, we must protect what remains and center our workers in every decision going forward.\n\nBerkeley is one of the few cities in California that is its own behavioral health jurisdiction, receiving state Behavioral Health Services Act funding directly rather than through the county, about $10 million a year from July 2026 through June 2029. The City is finishing its first Three-Year Integrated Plan under the new BHSA for fiscal years 2027 through 2029, which the next Council will vote on, and that funding is separate from the general fund shortfall driving the recent cuts. The draft plan proposes to expand substance use disorder services, increase peer support and wellness services, and strengthen support for transition-age youth. I would work to keep those investments anchored in care that residents can actually reach.\n\nI would also seek out new funding sources and deeper collaboration with the county, and work closely with our county supervisor, Nikki Fortunato Bas, to keep our programs coordinated rather than duplicative.",
+   "read":"Strong, sourced, and honest about scope. Every figure is verified below.",
+   "levers":[
+    {"tier":"real","t":"Berkeley receives ~$10M/yr in state BHSA funds directly and the council votes on the Three-Year Integrated Plan. This is real authority and is separate from the general-fund deficit."},
+    {"tier":"real","t":"City staffing, contracting-out, and workplace safety for its own health workers are set by council-approved budgets and MOUs."},
+    {"tier":"advocacy","t":"Coordination with Alameda County and Supervisor Bas is partnership, not a council power; frame as coordinated rather than duplicative."}],
+   "sources":[
+    {"label":"City of Berkeley: Mental Health / BHSA","url":"https://berkeleyca.gov/safety-health/mental-health/mental-health-services-act"},
+    {"label":"Council agenda 4/14/26: $10M DHCS/BHSA contract (item 7)","url":"https://berkeleyca.gov/city-council-regular-meeting-eagenda-april-14-2026"},
+    {"label":"Berkeleyside: MCT + shelter closures","url":"https://www.berkeleyside.org/2026/07/06/mobile-crisis-team-berkeley-winter-shelter-closures"}]},
+
+  {"id":"s5b","sec":"Section 5B","st":"done","q":"What legislation would protect health workers, patients, and communities from widespread disease exposure?",
+   "a":"California already has the nation's only standard protecting health workers from airborne disease, the Cal/OSHA Aerosol Transmissible Diseases standard, and it was written with labor's support. The gap is usually enforcement and speed, not the rules on paper. Because Berkeley is its own public health jurisdiction, our health officer can act on an airborne threat directly rather than waiting on the county, and I would make sure we use that authority to move quickly and hold covered employers, including shelters and clinics, to that standard. At the city level, I would also protect and strengthen our local Paid Sick Leave Ordinance so that no health or care worker, including part-time and contracted staff, is ever forced to choose between a paycheck and their patients' safety. And I would use the city's own role as an employer and purchaser to require respiratory protection and maintain a stockpile of NIOSH-certified respirators, so frontline workers are never rationed protection again.",
+   "read":"Strong and expert. Note: your Paid Sick Leave Ordinance (BMC 13.100) already exists and is generous (1 hr per 30 worked, covers anyone working 2+ hrs/week in Berkeley), so 'protect and strengthen' is the right frame, not 'create.' I removed the trailing landlord/RHSP sentence you had drafted here; it fit this occupational-health question awkwardly and lands much better in 11C. It's saved in the 11C suggested copy.",
+   "levers":[
+    {"tier":"advocacy","t":"The Cal/OSHA ATD standard (8 CCR 5199) is state law already; a councilmember's role is enforcement and speed through Berkeley's own health department, not writing it."},
+    {"tier":"real","t":"Berkeley's Paid Sick Leave Ordinance (BMC 13.100) is local law the council can defend and strengthen."},
+    {"tier":"real","t":"City procurement and employer standards (PPE, respirators, ventilation in city and contracted facilities) are directly in council control."}],
+   "sources":[
+    {"label":"CDPH: ATD standard guidance for local health depts","url":"https://www.cdph.ca.gov/Programs/CCDPHP/DEODC/OHB/CDPH%20Document%20Library/ATD-Guidance.pdf"},
+    {"label":"City of Berkeley: Workforce Standards (paid sick leave)","url":"https://berkeleyca.gov/doing-business/operating-berkeley/workforce-standards-and-enforcement"},
+    {"label":"BMC 13.100.040: Paid Sick Leave accrual","url":"https://berkeley.municipal.codes/BMC/13.100.040"}]},
+
+  {"id":"s6a","sec":"Section 6A","st":"done","q":"Steps to maximize voter registration and participation among underrepresented communities.",
+   "a":"I am grateful to live in a community with strong election protections, and I would work to ensure those protections stay intact. I would fight for the continued availability of universal absentee ballots, accessible early voting sites, abundant ballot drop-off locations (with attention to equitable distribution of said sites), and the availability of ballots and voter information guides in multiple languages. I also supported the expansion of voting rights down to age 16 for school board elections, and I support extending school board voting to non-citizen parents, who are among the most directly affected stakeholders in our schools.",
+   "read":"Good, and it now answers the noncitizen-voting prompt the question names. Ready."},
+
+  {"id":"s7a","sec":"Section 7A","st":"thin","q":"Prior policy initiatives or activities to improve behavioral health access, statewide or locally?",
+   "a":"As a mental health clinician myself, I understand the importance of health care parity that treats behavioral health access as just as essential as all other kinds of health care, and I believe health care access is a human right. I worked on the Berkeley vs. Big Soda campaign back in 2014, which provided a funding source for nutrition education and health access for low-income communities in Berkeley.",
+   "read":"This is the highest-leverage answer on the form and it is underbuilt. NUHW's core mission is behavioral health parity, and you have a decade of direct clinical experience. Right now the concrete example is a 2014 soda tax. Keep the strong opening, then add what you have actually seen: waitlists, denied authorizations, referral dead ends for young clients. No one else in this race can write those sentences. This is the one answer worth over-investing in.",
+   "levers":[
+    {"tier":"real","t":"Your clinical experience is itself policy evidence. Firsthand access failures are exactly what NUHW built its Kaiser parity fight on."},
+    {"tier":"real","t":"Berkeley's BHSA plan is a live local vehicle you could name here as where you would direct access improvements."}],
+   "sources":[
+    {"label":"City of Berkeley: Mental Health / BHSA","url":"https://berkeleyca.gov/safety-health/mental-health/mental-health-services-act"}],
+   "fill":[{"t":"Your opening kept; the middle needs your firsthand detail, which I will not invent","c":"As a mental health clinician myself, I understand the importance of health care parity that treats behavioral health access as just as essential as all other kinds of health care, and I believe health care access is a human right. I have been in private practice as a child and adolescent therapist since 2020.\n\n[DARIA: two or three sentences on what you have actually seen. How long do your young clients wait for care? What happens when an authorization is denied? Where do referrals dead-end? Concrete and specific.]\n\nLocally, Berkeley is its own behavioral health jurisdiction and is writing its first Behavioral Health Services Act plan now. I would use that plan to direct funding toward the access gaps I have watched families fall through, and I would make sure the clinicians delivering that care help write it. Earlier, I worked on the 2014 Berkeley vs. Big Soda campaign, which created a funding source for health access in low-income communities."}]},
+
+  {"id":"s7b","sec":"Section 7B","st":"blank","q":"Steps to leverage your jurisdiction's purchasing power or CalPERS voice to improve behavioral health access?",
+   "a":"",
+   "read":"Blank, and this is the most concrete municipal lever on the form. Cities buy health coverage for their employees, and that contract is where you can demand behavioral-health network adequacy and timely-access standards. Tie it to the county handoff: as Berkeley moves crisis response to Alameda County, the contract terms are where standards hold or quietly erode.",
+   "levers":[
+    {"tier":"real","t":"Berkeley chooses employee health coverage (its own plans or CalPERS). Contract terms can require behavioral-health network adequacy and timely access."},
+    {"tier":"real","t":"Berkeley's contracts with the county and service providers for crisis response are where response-time and staffing standards get set."},
+    {"tier":"advocacy","t":"Broader CalPERS-wide leverage is shared with dozens of agencies; honest to note a single city is one voice among many."}],
+   "sources":[
+    {"label":"Berkeleyside: MCT + county handoff (no formal agreement yet)","url":"https://www.berkeleyside.org/2026/07/06/mobile-crisis-team-berkeley-winter-shelter-closures"}],
+   "fill":[{"t":"Built from the real lever, honest about scope. Confirm whether Berkeley uses CalPERS or its own plans.","c":"Cities either buy their own employee health coverage or participate in CalPERS, and either way that purchasing power is real leverage. I would use it to require that any carrier we contract with meets timely-access standards for behavioral health and maintains an adequate in-network roster of clinicians, rather than pushing our employees out of network to find care, and I would resist letting carriers substitute automated tools for licensed clinical judgment. The same principle applies to our service contracts. As Berkeley shifts crisis response to Alameda County, the terms of that agreement are where our standards will either hold or quietly erode, and I would fight for staffing and response-time guarantees in writing."}]},
+
+  {"id":"s8a","sec":"Section 8A","st":"thin","q":"Do you support single payer healthcare? Why or why not?",
+   "a":"Yes, I strongly support single payer healthcare, and have met with Buffy Wicks' office to advocate for such.",
+   "read":"The yes is unambiguous and the Wicks meeting is a real credential. The question asks 'why,' and the why is missing. You have one already: health care access is a human right, made specific by your clinical vantage on insurance denials.",
+   "fill":[{"t":"Her sentence, with the 'why' added in her voice","c":"Yes, I strongly support single payer healthcare, and have met with Assemblymember Wicks' office to advocate for it. I believe health care access is a human right. As a clinician, I spend real time every week on authorizations and coverage battles rather than on care, and every hour of that is an hour taken from patients. A single system would end that waste and guarantee coverage regardless of income or employment."}]},
+
+  {"id":"s8b","sec":"Section 8B","st":"blank","q":"If yes, how would you advocate to enact single payer solutions?",
+   "a":"",
+   "read":"Blank. The honest answer names the limit first: a city cannot enact single payer. Saying so, then naming the real tools (resolutions, delegation lobbying, using the seat as a platform), reads as competence. You have already done the lobbying piece with Wicks.",
+   "levers":[
+    {"tier":"advocacy","t":"A city cannot enact single payer. Real tools are council resolutions and lobbying the state delegation."},
+    {"tier":"advocacy","t":"NUHW leads Healthy California NOW, which sponsored SB 770 (2023) toward unified financing. Naming the actual vehicle shows fluency."}],
+   "fill":[{"t":"Built from what she has already done, honest about the city's limit","c":"A city council cannot enact single payer on its own, and I would rather be honest about that than promise what the seat cannot deliver. What a councilmember can do is use the platform. I would support a Berkeley council resolution backing CalCare and the unified-financing work the state began under SB 770, and I would keep meeting directly with our state delegation, as I already have with Assemblymember Wicks' office, alongside NUHW and the Healthy California NOW coalition. Local resolutions and steady pressure are how state campaigns build the momentum to win."}]},
+
+  {"id":"s9a","sec":"Section 9A","st":"blank","q":"What actions will you take to defend DEI and transgender care principles in your locality?",
+   "a":"",
+   "read":"Blank, and you have both strong adjacent material and a unique asset: as a child and adolescent therapist you almost certainly work with trans and gender-questioning young people, and gender-affirming care for minors is the exact front line under attack. California is a sanctuary state for this care under SB 107, but state law only holds if cities back it with their own resources and data practices.",
+   "levers":[
+    {"tier":"real","t":"A Berkeley resolution can bar city resources, data, or staff from aiding out-of-state investigations of gender-affirming care (the model Sacramento used to strengthen SB 107 locally)."},
+    {"tier":"real","t":"City employee health plans covering gender-affirming care without exception is a direct council commitment."},
+    {"tier":"real","t":"Data privacy and refusing surveillance contracts protect trans patients and providers; this connects to your existing civil-liberties stance."}],
+   "sources":[
+    {"label":"KQED: SB 107, CA as trans sanctuary state","url":"https://www.kqed.org/news/11929233/california-becomes-first-sanctuary-state-for-transgender-youth-seeking-medical-care"},
+    {"label":"CA Attorney General: SB 107 upheld","url":"https://oag.ca.gov/node/583699"}],
+   "fill":[{"t":"Her civil-liberties language, applied; the clinical sentence is hers to write","c":"California is a sanctuary state for gender-affirming care under SB 107, but state law only holds if local governments back it. I would support a Berkeley resolution making clear that no city resource, data, or employee will be used to help another state investigate or prosecute someone for receiving or providing gender-affirming care. I would make sure our own employee health plans cover gender-affirming care without exception, protect resident and patient data from disclosure, and refuse to let our contracts or grants be quietly rewritten to satisfy federal pressure.\n\n[DARIA: one or two sentences from your practice on what access to affirming care means for the young people you treat. That is the sentence that will land hardest here.]"}]},
+
+  {"id":"s9b","sec":"Section 9B","st":"blank","q":"Actions to promote culturally competent, high-quality care for communities of color and marginalized populations?",
+   "a":"",
+   "read":"Blank. For a clinician-heavy union, the real answer is workforce: recruiting and keeping providers who reflect the community, language capacity, and reimbursement that makes it viable to practice in underserved areas. NUHW names inadequate reimbursement and workforce development in the section preamble, so echoing those shows you read it.",
+   "levers":[
+    {"tier":"real","t":"Berkeley's BHSA plan can direct funding toward language access and workforce pipeline for clinicians of color."},
+    {"tier":"real","t":"City contracting standards can require providers we fund to serve residents in the languages they speak."},
+    {"tier":"advocacy","t":"Reimbursement rates are set by the state and Medi-Cal; a city advocates rather than sets them."}],
+   "sources":[
+    {"label":"City of Berkeley: Mental Health / BHSA","url":"https://berkeleyca.gov/safety-health/mental-health/mental-health-services-act"}],
+   "fill":[{"t":"Her principles, applied to workforce; add a practice example if you have one","c":"Access that is not culturally or linguistically competent is not real access. The core of this is workforce. We cannot recruit and keep providers who reflect our communities when reimbursement rates make it impossible to practice in underserved areas and administrative burden drives clinicians out of the field. At the city level I would push for language capacity in every public-facing health service, invest in pipeline and retention support for clinicians of color, and use our contracting standards to require that providers we fund can serve residents in the languages they actually speak. Our own Behavioral Health Services Act plan is one place we can direct funding toward exactly this.\n\n[DARIA: if you have seen culturally competent care succeed or fail in your own practice, one specific example belongs here.]"}]},
+
+  {"id":"s10a","sec":"Section 10A","st":"blank","q":"Ideas to provide local assistance to immigrants seeking a more secure future?",
+   "a":"",
+   "read":"Blank, but this should be one of your easiest and strongest answers. You already sit on Berkeley's Sanctuary City Taskforce and co-facilitate a Bay Resistance Pod for 94702, which is rapid-response work. NUHW calls itself a sanctuary union. This suggested copy is entirely your own material.",
+   "levers":[
+    {"tier":"real","t":"The council funds sanctuary infrastructure: legal defense, know-your-rights education, and city coordination with the county rapid-response network."},
+    {"tier":"real","t":"Refusing surveillance contracts and protecting city-held data is a direct, concrete immigrant-defense lever."},
+    {"tier":"advocacy","t":"County-level legal defense (ACILEP, funded through Measure W by the Board of Supervisors) is where Berkeley plugs in and advocates for more."}],
+   "sources":[
+    {"label":"Supervisor Nikki Fortunato Bas (D5, incl. Berkeley) — immigrant rights / ACILEP","url":"https://district5.alamedacountyca.gov/about/"}],
+   "fill":[{"t":"Entirely her own material, assembled","c":"This is work I already do. I serve on Berkeley's Sanctuary City Taskforce, and I co-facilitate a Bay Resistance Pod for the 94702 zip code, which means being part of the network that responds when neighbors report enforcement activity. As a councilmember I would keep Berkeley's sanctuary protections strong and fund the infrastructure that makes them real: legal defense, know-your-rights education, and coordination with the county's rapid-response network. Alameda County has invested millions in immigrant legal defense and a rapid-response hotline through the ACILEP partnership, and Berkeley should be a committed partner in it, working closely with Supervisor Nikki Fortunato Bas, not a bystander."}]},
+
+  {"id":"s10b","sec":"Section 10B","st":"blank","q":"Do you support or oppose cooperation of state and local governments with ICE, and why?",
+   "a":"",
+   "read":"Blank. This needs an unequivocal one-word opening: Oppose. Then the reasoning almost no other candidate can make, that as a clinician you know what happens when people are afraid to seek care, and NUHW's own preamble is about enforcement at hospitals and schools.",
+   "levers":[
+    {"tier":"real","t":"Berkeley can refuse to share data, decline surveillance contracts, and bar staff cooperation. These are concrete council decisions."},
+    {"tier":"advocacy","t":"The Alameda County Sheriff has already said deputies will not aid ICE; alignment reinforces the county posture."}],
+   "sources":[
+    {"label":"Supervisor Bas / county immigrant-defense posture","url":"https://district5.alamedacountyca.gov/about/"}],
+   "fill":[{"t":"Her civil-liberties frame, with the clinical reasoning she is uniquely placed to make","c":"I oppose it, without qualification. When local government cooperates with ICE, people stop going to the places that keep them safe and well. As a clinician I have seen what fear does to whether someone seeks care at all, and the federal government has made hospitals, schools, and places of worship targets. Berkeley's sanctuary protections should be enforced without exception, and that includes refusing to share data and rejecting the surveillance contracts that make sharing possible in the first place. Protecting immigrants and defending our basic civil liberties are the same fight."}]},
+
+  {"id":"s11a","sec":"Section 11A","st":"blank","q":"Definition of affordable housing, and how you would preserve or create housing workers can afford near their workplaces?",
+   "a":"",
+   "read":"Blank, but you have more usable material here than for any other blank. Note the two halves: NUHW is asking for a definition (be concrete about AMI) and a plan. The union frame is workers priced out of the communities they serve, which connects to staffing and burnout. Adding a union-labor commitment is cheap and expected in a labor questionnaire.",
+   "levers":[
+    {"tier":"real","t":"The council sets zoning, density near transit, and inclusionary/affordability requirements."},
+    {"tier":"real","t":"Berkeley's Rental Housing Safety Program (BMC 19.40) preserves existing habitable, affordable units through inspection and enforcement."},
+    {"tier":"real","t":"The council can require union labor and affordability terms on city-supported projects."}],
+   "sources":[
+    {"label":"City of Berkeley: Rental Housing Safety Program","url":"https://berkeleyca.gov/doing-business/operating-berkeley/landlords/rental-housing-safety-program-rhsp"},
+    {"label":"Berkeleyside: Golden Bear supportive housing (D1)","url":"https://www.berkeleyside.org/2021/12/15/golden-bear-inn-project-homekey-berkeley"}],
+   "fill":[{"t":"Her Sierra Club housing language, retargeted to healthcare workers","c":"I am a pro-housing and pro-tenant candidate. Affordable housing means housing a household can occupy without spending more than a third of its income on rent, defined across a real range: deeply affordable homes for our lowest-income neighbors, and middle-income housing for the nurses, therapists, teachers, and city workers now commuting in from an hour away. Responsible new housing is essential to both affordability and climate action. I support building density near transit so people can live close to where they work, preserving the affordable housing we already have through programs like our Rental Housing Safety Program, and requiring that new construction be built with union labor."}]},
+
+  {"id":"s11b","sec":"Section 11B","st":"blank","q":"Do you support rent control and the repeal of Costa-Hawkins? Why or why not?",
+   "a":"",
+   "read":"Blank, and it is a litmus question that needs Yes in the first sentence. You are already pro-tenant and endorsed by the Rent Board President. Berkeley has an elected Rent Board, so naming what you would do through it shows you know the machinery. Tie your pro-supply and pro-tenant stances together so they do not read as a contradiction: supply and protection together.",
+   "levers":[
+    {"tier":"real","t":"Berkeley's elected Rent Board administers rent stabilization; the council and Rent Board can strengthen local tenant protections within current state law."},
+    {"tier":"advocacy","t":"Costa-Hawkins repeal is a state question. Voters rejected repeal (Prop 33) in 2024, the third failure, so near-term the path is local while supporting future repeal."}],
+   "sources":[
+    {"label":"Ballotpedia: Prop 33 (2024) defeated","url":"https://ballotpedia.org/California_Proposition_33,_Prohibit_State_Limitations_on_Local_Rent_Control_Initiative_(2024)"},
+    {"label":"CalMatters: Prop 33 result and the local path","url":"https://calmatters.org/politics/2024/11/california-election-results-prop-33-rent-control/"}],
+   "fill":[{"t":"Her positions assembled, with the current Costa-Hawkins status built in","c":"Yes to both. I am a pro-housing and pro-tenant candidate, and I do not think those are in tension: we need to build far more housing and protect the people living in the housing we already have, because building alone will not help a family priced out next month. Costa-Hawkins ties the hands of cities like ours by exempting single-family homes and newer construction and letting rents reset at vacancy. California voters have declined to repeal it three times, most recently Proposition 33 in 2024, so in the near term the path is local. That same November, Berkeley voters approved new tenant protections including a rent-increase cap, and I would work with our elected Rent Board, whose president has endorsed me, to strengthen protections here while we keep pushing for repeal at the state level."}]},
+
+  {"id":"s11c","sec":"Section 11C","st":"blank","q":"Approach to homelessness, meeting immediate needs and root causes including mental health and substance use?",
+   "a":"",
+   "read":"Blank, and it is the last question they read before deciding. The prompt names mental health and substance use directly, which puts your clinical background on point, and you have a completed local example in Golden Bear. Use it in past tense; it opened in 2022. This is also the right home for the housing-habitability point you had drafted in 5B.",
+   "levers":[
+    {"tier":"real","t":"The council funds permanent supportive, transitional, and alternative housing and sets encampment policy (including whether to conduct sweeps)."},
+    {"tier":"real","t":"Behavioral health funding through the BHSA plan and the county handoff terms directly shape the mental-health half of this question."},
+    {"tier":"real","t":"The Rental Housing Safety Program keeps existing units habitable, which is upstream homelessness prevention."}],
+   "sources":[
+    {"label":"Berkeleyside: Golden Bear supportive housing (D1)","url":"https://www.berkeleyside.org/2021/12/15/golden-bear-inn-project-homekey-berkeley"},
+    {"label":"Berkeleyside: MCT + winter shelter closures","url":"https://www.berkeleyside.org/2026/07/06/mobile-crisis-team-berkeley-winter-shelter-closures"}],
+   "fill":[{"t":"Her Sierra Club language, with the clinical half and the housing-habitability point folded in","c":"We must address homelessness as the most urgent symptom of our housing crisis, through permanent supportive housing, transitional housing, and alternative sites. Berkeley has shown this works: the Golden Bear on San Pablo Avenue, here in District 1, converted a motel into permanent supportive homes that have housed formerly homeless neighbors since 2022. We should be doing far more of it.\n\nImmediate needs come first. People need shelter, sanitation, and storage now, and I do not support sweeps that take people's belongings and move them a few blocks with nowhere to go.\n\nOn root causes, housing and behavioral health are inseparable. As a clinician I know untreated mental illness and substance use both cause and follow from housing instability, and we lose people at exactly the moments they are most reachable. Berkeley just closed its Mobile Crisis Team and a winter shelter while handing crisis response to the county, and I would fight to make sure that adds up to a real system rather than a gap. Keeping existing homes safe and habitable through our Rental Housing Safety Program is part of this too, because the cheapest way to fight homelessness is to keep people housed in the first place."}]}
+ ]
+}
+</script>
+
+<script>
+(function(){
+  const DATA=JSON.parse(document.getElementById('qdata').textContent);
+  const KEY='wrubel-nuhw-v3';
+  let STATE={answers:{},contact:{}};
+  let cur=0;
+  const TOTAL=DATA.slides.length+1;
+
+  const toastEl=document.getElementById('toast');let tT;
+  const toast=m=>{toastEl.textContent=m;toastEl.classList.add('show');clearTimeout(tT);tT=setTimeout(()=>toastEl.classList.remove('show'),1900);};
+  const WORDS=t=>(t.trim().match(/\S+/g)||[]).length;
+  const esc=s=>(s||'').replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]));
+  const br=s=>esc(s).replace(/\n/g,'<br>');
+
+  async function load(){try{const r=await window.storage.get(KEY);if(r&&r.value)STATE=Object.assign(STATE,JSON.parse(r.value));}catch(e){}}
+  let sT;function save(){clearTimeout(sT);sT=setTimeout(async()=>{try{await window.storage.set(KEY,JSON.stringify(STATE));}catch(e){}},350);}
+
+  DATA.slides.forEach(s=>{if(STATE.answers[s.id]===undefined)STATE.answers[s.id]=s.a||'';});
+  DATA.contact.forEach(f=>{if(STATE.contact[f.k]===undefined)STATE.contact[f.k]=f.v;});
+
+  const LBL={done:'Looks good',thin:'Needs work',blank:'Blank',verify:'Verify'};
+
+  function askClaude(s){
+    const a=(STATE.answers[s.id]||'').trim();
+    let msg=`Please help me refine this NUHW answer for Daria.\n\nQ: ${s.q}\n\nCurrent draft:\n${a||'(blank)'}\n\nKeep her voice, no em dashes, use her own material and our verified facts.`;
+    if(typeof sendPrompt==='function'){sendPrompt(msg);toast('Sent to chat →');}
+    else navigator.clipboard.writeText(msg).then(()=>toast('Copied — paste into chat'),()=>toast('Copy failed'));
+  }
+
+  function renderContact(){
+    const L=document.getElementById('left'),I=document.getElementById('info');
+    L.innerHTML=`<div class="eyebrow"><span class="qn">START</span> · Section 1</div><div class="question">Candidate committee information</div>`;
+    const g=document.createElement('div');g.className='grid';
+    DATA.contact.forEach(f=>{
+      const w=document.createElement('div');w.className='fld';w.innerHTML=`<label>${f.label}</label>`;
+      const i=document.createElement('input');i.value=STATE.contact[f.k]||'';i.placeholder='—';
+      i.addEventListener('input',()=>{STATE.contact[f.k]=i.value;save();});
+      w.appendChild(i);g.appendChild(w);
+    });
+    L.appendChild(g);
+    let blank=0,thin=0;DATA.slides.forEach(s=>{if(s.st==='blank')blank++;if(s.st==='thin')thin++;});
+    I.innerHTML=`<div class="lead">
+      <p style="margin:0 0 8px"><b>v3, fact-checked build.</b> Your current answers are loaded (typos cleaned). ${blank} blank, ${thin} thin, 1 to verify. Dots: green done, gold needs work, red blank, blue verify.</p>
+      <p style="margin:0 0 8px"><b>Two new panels per question.</b> The green <b>Real levers</b> panel tiers what a councilmember can actually do: items tagged AUTHORITY are real council power, items tagged ADVOCACY are resolutions or lobbying only. The blue <b>Sources</b> panel has live links to verify every fact.</p>
+      <p style="margin:0"><b>Suggested copy</b> is stitched from your own writing and our verified research, in your voice, no overselling. Where an answer needs your firsthand clinical detail, there is a bracketed [DARIA: ...] note instead of an invented anecdote. Hit <b>Use this</b> to load it into the editor, then refine.</p>
+    </div>`;
+  }
+
+  function renderSlide(idx){
+    const s=DATA.slides[idx];
+    const L=document.getElementById('left'),I=document.getElementById('info');
+    L.innerHTML=`<div class="eyebrow"><span class="qn">${esc(s.sec)}</span><span class="chip ${s.st}">${LBL[s.st]}</span></div><div class="question">${esc(s.q)}</div>`;
+    const ta=document.createElement('textarea');ta.value=STATE.answers[s.id]||'';
+    if(!ta.value.trim()){ta.classList.add('need');ta.placeholder='Blank. Use the suggested copy on the right as a starting point, or write fresh.';}
+    const meta=document.createElement('div');meta.className='metarow';
+    const cnt=document.createElement('div');cnt.className='count';
+    const setCnt=()=>{cnt.textContent=WORDS(ta.value)+' words';};setCnt();
+    ta.addEventListener('input',()=>{STATE.answers[s.id]=ta.value;ta.classList.toggle('need',!ta.value.trim());setCnt();save();});
+    const abtns=document.createElement('div');abtns.className='abtns';
+    const b1=document.createElement('button');b1.className='btn mini';b1.textContent='Send to Claude';b1.onclick=()=>askClaude(s);
+    const b2=document.createElement('button');b2.className='btn ghost mini';b2.textContent='Copy';b2.onclick=()=>navigator.clipboard.writeText(STATE.answers[s.id]||'').then(()=>toast('Copied'));
+    abtns.append(b1,b2);meta.append(cnt,abtns);L.append(ta,meta);
+
+    I.innerHTML='';
+    const block=(cls,title,inner)=>{const b=document.createElement('div');b.className='block '+cls;b.innerHTML=`<div class="bhead"><span class="dot"></span>${title}</div><div class="bbody">${inner}</div>`;return b;};
+    if(s.read) I.appendChild(block('read','Analysis',`<p>${br(s.read)}</p>`));
+    if(s.levers&&s.levers.length){
+      const inner=s.levers.map(l=>`<div class="lever ${l.tier==='real'?'real':'advocacy'}"><span class="tag">${l.tier==='real'?'Authority':'Advocacy'}</span><span>${esc(l.t)}</span></div>`).join('');
+      I.appendChild(block('levers','Real levers (honest tiering)',inner));
+    }
+    if(s.sources&&s.sources.length){
+      const inner=s.sources.map(x=>x.url?`<div class="src"><a href="${x.url}" target="_blank" rel="noopener">${esc(x.label)} ↗</a></div>`:`<div class="src note">${esc(x.label)}</div>`).join('');
+      I.appendChild(block('sources','Sources & further reading',inner));
+    }
+    if(s.fill&&s.fill.length){
+      const wrap=document.createElement('div');wrap.className='block fill';
+      wrap.innerHTML=`<div class="bhead"><span class="dot"></span>Suggested copy</div>`;
+      const body=document.createElement('div');body.className='bbody';
+      s.fill.forEach(f=>{
+        const d=document.createElement('div');d.className='draft';
+        d.innerHTML=`<span class="t">${esc(f.t)}</span>${br(f.c)}`;
+        const cb=document.createElement('button');cb.className='copybtn';cb.textContent='Use this as my draft';
+        cb.onclick=()=>{STATE.answers[s.id]=f.c;save();renderSlide(idx);paintDots();paintProg();toast('Loaded into the editor');};
+        d.appendChild(cb);body.appendChild(d);
+      });
+      wrap.appendChild(body);I.appendChild(wrap);
+    }
+    I.scrollTop=0;
+  }
+
+  function paintDots(){
+    const wrap=document.getElementById('dots');wrap.innerHTML='';
+    const c=document.createElement('button');c.className='dot-btn'+(cur===0?' cur':'');c.title='Start';c.onclick=()=>go(0);wrap.appendChild(c);
+    DATA.slides.forEach((s,i)=>{
+      const b=document.createElement('button');b.className='dot-btn '+s.st;
+      if(cur===i+1)b.classList.add('cur');
+      b.title=`${s.sec}: ${s.q}`;b.onclick=()=>go(i+1);wrap.appendChild(b);
+    });
+  }
+  function paintProg(){
+    const n=DATA.slides.length;let done=0,mid=0;
+    DATA.slides.forEach(s=>{if(s.st==='done')done++;else if(s.st==='thin'||s.st==='verify')mid++;});
+    document.getElementById('bar').style.width=Math.round(done/n*100)+'%';
+    document.getElementById('bar2').style.width=Math.round(mid/n*100)+'%';
+    document.getElementById('pcount').textContent=`${done} done · ${mid} to fix · ${n-done-mid} blank`;
+  }
+
+  function go(i){
+    cur=Math.max(0,Math.min(TOTAL-1,i));
+    if(cur===0)renderContact();else renderSlide(cur-1);
+    document.getElementById('prev').disabled=(cur===0);
+    document.getElementById('next').disabled=(cur===TOTAL-1);
+    paintDots();paintProg();
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+
+  document.getElementById('prev').onclick=()=>go(cur-1);
+  document.getElementById('next').onclick=()=>go(cur+1);
+  document.addEventListener('keydown',e=>{
+    if(e.target.tagName==='TEXTAREA'||e.target.tagName==='INPUT')return;
+    if(e.key==='ArrowRight')go(cur+1);if(e.key==='ArrowLeft')go(cur-1);
+  });
+
+  document.getElementById('export').onclick=()=>{
+    let out='NUHW 2026 QUESTIONNAIRE — DARIA WRUBEL — BERKELEY CITY COUNCIL D1\n\nSECTION 1 CANDIDATE COMMITTEE INFORMATION\n';
+    DATA.contact.forEach(f=>{out+=`${f.label}: ${STATE.contact[f.k]||''}\n`;});
+    DATA.slides.forEach(s=>{out+=`\n\n${s.sec.toUpperCase()}\n${s.q}\n\n${(STATE.answers[s.id]||'').trim()||'[NOT YET ANSWERED]'}\n`;});
+    navigator.clipboard.writeText(out).then(()=>toast('Full draft copied'),()=>toast('Copy failed'));
+    try{const b=new Blob([out],{type:'text/plain'});const u=URL.createObjectURL(b);const a=document.createElement('a');a.href=u;a.download='Wrubel_NUHW_draft_v3.txt';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);}catch(e){}
+  };
+
+  load().then(()=>go(0));
+})();
+</script>
+</html>
