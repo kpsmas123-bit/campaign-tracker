@@ -124,13 +124,31 @@
     font-size: 12px;
   }
 
-  .sync-status {
-    font-size: 11px;
-    letter-spacing: 0.03em;
+  .save-indicator {
+    display: flex; align-items: center; gap: 6px;
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11px;
+    letter-spacing: 0.03em; color: var(--text-secondary);
+    opacity: 0; transition: opacity 0.2s ease;
   }
-  .sync-status.connected { color: var(--priority-low); }
-  .sync-status.offline { color: var(--priority-high); }
-  .sync-status.syncing { color: var(--priority-medium); }
+  .save-indicator.visible { opacity: 1; }
+  .save-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--text-secondary);
+    transition: background 0.2s ease;
+  }
+  .save-indicator.saving .save-dot {
+    background: var(--priority-medium);
+    animation: pulse-dot 0.8s ease-in-out infinite;
+  }
+  .save-indicator.saving { color: var(--priority-medium); }
+  .save-indicator.saved .save-dot { background: var(--priority-low); }
+  .save-indicator.saved { color: var(--priority-low); }
+  .save-indicator.error .save-dot { background: var(--priority-high); }
+  .save-indicator.error { color: var(--priority-high); }
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+  }
 
   .header {
     display: flex;
@@ -359,7 +377,7 @@
   <div class="header">
     <input class="campaign-name" id="campaignName" value="" placeholder="Campaign name">
     <div class="header-right">
-      <span class="sync-status" id="syncStatus"></span>
+      <span class="save-indicator" id="saveIndicator"><span class="save-dot"></span><span class="save-label"></span></span>
       <span class="task-count" id="taskCount"></span>
     </div>
   </div>
@@ -427,10 +445,16 @@
     return SUPABASE_URL !== 'YOUR_SUPABASE_URL' && SUPABASE_KEY !== 'YOUR_ANON_KEY';
   }
 
-  function setSyncStatus(text, cls) {
-    var el = document.getElementById('syncStatus');
-    el.textContent = text;
-    el.className = 'sync-status ' + cls;
+  var saveFadeTimer = null;
+  function setSaveStatus(s) {
+    var el = document.getElementById('saveIndicator');
+    var lbl = el.querySelector('.save-label');
+    clearTimeout(saveFadeTimer);
+    el.className = 'save-indicator visible ' + s;
+    lbl.textContent = s === 'saving' ? 'Saving' : s === 'saved' ? 'Saved' : s === 'error' ? 'Save failed' : '';
+    if (s === 'saved') saveFadeTimer = setTimeout(function () {
+      el.classList.remove('visible');
+    }, 2000);
   }
 
   function escHtml(str) {
@@ -526,18 +550,26 @@
     updateCount();
     var input = document.querySelector('.task-name-input[data-id="' + id + '"]');
     if (input) input.focus();
-    if (sb) await sb.from('tasks').insert(newTask);
+    if (sb) {
+      setSaveStatus('saving');
+      try { await sb.from('tasks').insert(newTask); setSaveStatus('saved'); }
+      catch (e) { setSaveStatus('error'); }
+    }
   }
 
   async function updateTask(id, fields) {
-    await sb.from('tasks').update(fields).eq('id', id);
+    setSaveStatus('saving');
+    try { await sb.from('tasks').update(fields).eq('id', id); setSaveStatus('saved'); }
+    catch (e) { setSaveStatus('error'); }
   }
 
   async function deleteTask(id) {
     tasks = tasks.filter(function(t) { return t.id !== id; });
     renderTasks();
     updateCount();
-    await sb.from('tasks').delete().eq('id', id);
+    setSaveStatus('saving');
+    try { await sb.from('tasks').delete().eq('id', id); setSaveStatus('saved'); }
+    catch (e) { setSaveStatus('error'); }
   }
 
   async function addTeamMember(name) {
@@ -546,7 +578,9 @@
     team.push(name);
     renderTeam();
     renderTasks();
-    await sb.from('team_members').insert({ name: name });
+    setSaveStatus('saving');
+    try { await sb.from('team_members').insert({ name: name }); setSaveStatus('saved'); }
+    catch (e) { setSaveStatus('error'); }
   }
 
   async function removeTeamMember(name) {
@@ -554,12 +588,18 @@
     renderTeam();
     tasks.forEach(function(t) { if (t.assignee === name) t.assignee = ''; });
     renderTasks();
-    await sb.from('team_members').delete().eq('name', name);
-    await sb.from('tasks').update({ assignee: '' }).eq('assignee', name);
+    setSaveStatus('saving');
+    try {
+      await sb.from('team_members').delete().eq('name', name);
+      await sb.from('tasks').update({ assignee: '' }).eq('assignee', name);
+      setSaveStatus('saved');
+    } catch (e) { setSaveStatus('error'); }
   }
 
   async function saveCampaignName(val) {
-    await sb.from('campaign_settings').upsert({ key: 'campaignName', value: val });
+    setSaveStatus('saving');
+    var { error } = await sb.from('campaign_settings').upsert({ key: 'campaignName', value: val });
+    setSaveStatus(error ? 'error' : 'saved');
   }
 
   // --- Rendering ---

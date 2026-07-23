@@ -395,13 +395,31 @@
   .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
   /* --- Save indicator --- */
-  .save-status {
+  .save-indicator {
+    display: flex; align-items: center; gap: 6px;
     font-family: "IBM Plex Mono", monospace; font-size: 11px;
-    color: var(--text-tertiary); letter-spacing: 0.03em;
+    letter-spacing: 0.03em; color: var(--text-tertiary);
+    opacity: 0; transition: opacity 0.2s ease;
   }
-  .save-status.saving { color: var(--status-thin); }
-  .save-status.saved { color: var(--status-done); }
-  .save-status.error { color: var(--status-blank); }
+  .save-indicator.visible { opacity: 1; }
+  .save-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--text-tertiary);
+    transition: background 0.2s ease;
+  }
+  .save-indicator.saving .save-dot {
+    background: var(--status-thin);
+    animation: pulse-dot 0.8s ease-in-out infinite;
+  }
+  .save-indicator.saving { color: var(--status-thin); }
+  .save-indicator.saved .save-dot { background: var(--status-done); }
+  .save-indicator.saved { color: var(--status-done); }
+  .save-indicator.error .save-dot { background: var(--status-blank); }
+  .save-indicator.error { color: var(--status-blank); }
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+  }
 
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
@@ -432,7 +450,7 @@
       <div class="title" id="titleEl"></div>
     </div>
     <div class="header-actions">
-      <span class="save-status" id="saveStatus"></span>
+      <span class="save-indicator" id="saveIndicator"><span class="save-dot"></span><span class="save-label"></span></span>
       <button class="btn" id="exportBtn">Export draft</button>
     </div>
   </div>
@@ -498,12 +516,15 @@
     clearTimeout(toastTimer);
     toastTimer = setTimeout(function () { toastEl.classList.remove('show'); }, 2000);
   }
+  var saveFadeTimer = null;
   function setSaveStatus(s) {
-    var el = document.getElementById('saveStatus');
-    el.textContent = s === 'saving' ? 'Saving...' : s === 'saved' ? 'Saved' : s === 'error' ? 'Save failed' : '';
-    el.className = 'save-status ' + s;
-    if (s === 'saved') setTimeout(function () {
-      if (el.textContent === 'Saved') { el.textContent = ''; el.className = 'save-status'; }
+    var el = document.getElementById('saveIndicator');
+    var lbl = el.querySelector('.save-label');
+    clearTimeout(saveFadeTimer);
+    el.className = 'save-indicator visible ' + s;
+    lbl.textContent = s === 'saving' ? 'Saving' : s === 'saved' ? 'Saved' : s === 'error' ? 'Save failed' : '';
+    if (s === 'saved') saveFadeTimer = setTimeout(function () {
+      el.classList.remove('visible');
     }, 2000);
   }
 
