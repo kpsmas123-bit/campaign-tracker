@@ -119,7 +119,8 @@ A lever citing a **named ordinance, program, fund, or agency** (e.g., TOPA, a sp
 
 ## Copy rules
 
-- **First person.** Suggested copy is draft text the candidate submits. Write in first person: "I support…", "I would…", "my Council seat…". Use "the candidate" or "Daria" only in analysis, levers, and other non-copy fields.
+- **First person.** Suggested copy is draft text the candidate submits. Write in first person: "I support…", "I would…", "my Council seat…". Use "the candidate" only in analysis, levers, notes, and other non-copy fields.
+- **No gendered or second-person pronouns in non-copy fields.** Analysis, levers, and `note` labels must never use "she/her/hers," "he/him/his," or "you/your." Always use "the candidate." These fields are read by the campaign team, not the candidate — second-person address is confusing and gendered pronouns are presumptuous.
 - **No hedged facts.** Suggested copy may NEVER contain an unresolved factual disjunction about the jurisdiction. Forbidden patterns: "either X or Y," "whether we use X or Y," "in most cities," and any construction that papers over something checkable. A verifiable fact is resolved, or it is omitted and flagged. It is never hedged.
 - **No AI/Claude/model references.** Use neutral labels (analysis, research, strategy).
 - **Asymmetric risk.** A blank answer costs nothing. A confidently wrong specific costs the endorsement and the credibility. When in doubt, leave it out and flag it.
@@ -155,3 +156,4 @@ GitHub Pages, served from repo root. No build step, no Actions workflow. Push to
 - Every authority lever must have a verification entry confirming the jurisdiction has that power
 - Blocked questions get no suggested copy
 - Source dates must be recorded; flag anything older than two years
+- No gendered or second-person pronouns in analysis, levers, or note fields — always "the candidate"
