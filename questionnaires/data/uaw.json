@@ -20,117 +20,513 @@
       "id": "uaw_q1",
       "section": "Endorsement",
       "topic": "endorsement_ask",
-      "status": "blank",
+      "status": "done",
       "question": "Why should the UAW support your candidacy?",
-      "analysis": "",
+      "analysis": "UAW combines an endorsement ask with an implicit why-running prompt, asking the candidate to make the affirmative case for support rather than simply describe priorities. UAW Region 6 endorses across municipal races and weighs demonstrated labor commitment — organizing history, willingness to act, concrete municipal levers — over general expressions of solidarity.",
       "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": []
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "Berkeley's city contracting and procurement standards can require fair labor practices from vendors and contractors the city does business with."
+        },
+        {
+          "tier": "authority",
+          "text": "The council negotiates and ratifies memoranda of understanding (MOUs) with the city's own recognized employee unions through the budget process."
+        }
+      ],
+      "sources": [
+        {
+          "label": "City of Berkeley: Human Resources / Employee Relations",
+          "url": "https://berkeleyca.gov/your-government/about-us/departments/human-resources"
+        }
+      ],
+      "suggested": [
+        {
+          "text": "I am running for Berkeley City Council because the people who deliver our public services deserve a councilmember who treats organized labor as a partner, not an afterthought. I am a Licensed Marriage & Family Therapist, and my clinical and organizing background is rooted in the same principle UAW fights for: that workers deserve dignity, fair standards, and a real voice in the decisions that affect their jobs. I have been an active member of the American Federation of Teachers, and I currently serve on Berkeley's Sanctuary City Taskforce and co-facilitate a rapid-response network for my neighborhood. On the council, I will show up for organizing drives, defend city workers at the bargaining table, and use the city's purchasing and contracting power to hold vendors to real labor standards. I am asking for UAW's support because I want that fight to have a partner in Berkeley city government, and because a labor endorsement is not just a name on a list to me — it is a relationship I intend to keep.",
+          "note": ""
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley's city contracting/procurement standards can require fair labor practices from vendors",
+          "result": "confirmed",
+          "source": "Generic charter city structural authority (procurement)",
+          "date": "2026-07-23",
+          "note": "Generic municipal power."
+        },
+        {
+          "claim": "Council negotiates and ratifies MOUs with the city's own recognized employee unions",
+          "result": "confirmed",
+          "source": "City of Berkeley Human Resources / Employee Relations",
+          "date": "2026-07-23",
+          "note": "Employee Relations unit conducts labor relations with the city's recognized bargaining units; MOUs are budget-ratified."
+        }
+      ],
+      "quotes": [
+        {
+          "source": "syrak",
+          "attribution": "Syrak Micael — UAW Region 6, D7 2026",
+          "text": "I will push for living wage standards and local hiring commitments from large employers and developers receiving city incentives, fight for the unionization of Resident Assistants whose labor subsidizes university housing while remaining largely unprotected, and sustain an acute, substantive relationship with UAW and local unions as a governing practice.",
+          "relevance": "Specific labor commitments in a UAW endorsement ask — living wages, RA unionization, ongoing union relationship",
+          "status": "current"
+        }
+      ]
     },
     {
       "id": "uaw_q2",
       "section": "Policy Priorities",
       "topic": "campaign_plan",
-      "status": "blank",
+      "status": "done",
       "question": "If elected (or re-elected), what would be your top three issues?",
-      "analysis": "",
+      "analysis": "UAW's priorities question asks for a ranked top three without a topical preamble constraining the choices. Unlike single-issue unions, UAW Region 6's broader questionnaire (housing, climate, campaign finance) signals they read a mixed slate of issues, so the answer's credibility depends on naming real municipal capacity behind each priority rather than only aspirational positions.",
       "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": []
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "The council votes on Berkeley's BHSA behavioral health plan and city staffing budget, which are direct authority."
+        },
+        {
+          "tier": "authority",
+          "text": "Housing and tenant protection run through the council and the elected Rent Board."
+        },
+        {
+          "tier": "authority",
+          "text": "The council ratifies MOUs with city employee unions and sets contracting standards for vendors."
+        }
+      ],
+      "sources": [
+        {
+          "label": "City of Berkeley: Mental Health / BHSA",
+          "url": "https://berkeleyca.gov/safety-health/mental-health/mental-health-services-act"
+        },
+        {
+          "label": "Berkeley Rent Stabilization Board",
+          "url": "https://rentboard.berkeleyca.gov"
+        },
+        {
+          "label": "City of Berkeley: Human Resources / Employee Relations",
+          "url": "https://berkeleyca.gov/your-government/about-us/departments/human-resources"
+        }
+      ],
+      "suggested": [
+        {
+          "text": "My top three priorities are affordable housing and tenant protection, behavioral health infrastructure, and standing with Berkeley's city workers. On housing, I support building more homes at every income level while defending the tenant protections we already have, because a family being priced out cannot wait for supply alone to catch up. On behavioral health, Berkeley just closed its Mobile Crisis Team and handed crisis response to the county — as a clinician, I want to make sure that transition does not leave residents without care, and I will fight to keep our own behavioral health infrastructure funded through the city's BHSA plan. On labor, how we treat the people who deliver our public services is how we protect those services: I will defend city workers at the bargaining table, support union organizing drives across the city, and use our contracting power to hold vendors to real labor standards.",
+          "note": ""
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Council votes on Berkeley's BHSA behavioral health plan and city staffing",
+          "result": "confirmed",
+          "source": "City of Berkeley BHSA Three-Year Integrated Plan",
+          "date": "2026-07-23",
+          "note": ""
+        },
+        {
+          "claim": "Berkeley has an elected Rent Board that handles tenant protection",
+          "result": "confirmed",
+          "source": "Berkeley Rent Stabilization Board (rentboard.berkeleyca.gov)",
+          "date": "2026-07-23",
+          "note": "Independently elected body."
+        },
+        {
+          "claim": "Council ratifies MOUs with city employee unions and sets vendor contracting standards",
+          "result": "confirmed",
+          "source": "City of Berkeley Human Resources / Employee Relations; generic charter city procurement authority",
+          "date": "2026-07-23",
+          "note": "Generic municipal power."
+        }
+      ]
     },
     {
       "id": "uaw_q3",
       "section": "Background",
       "topic": "background_bio",
-      "status": "blank",
+      "status": "done",
       "question": "Are you affiliated with a political party?",
-      "analysis": "",
+      "analysis": "Standard background-checkbox question common to labor questionnaires. UAW uses party affiliation as a quick partisan-lean signal, though Berkeley's municipal elections — including City Council — are officially nonpartisan and party is not listed on the ballot. The honest answer distinguishes the nonpartisan nature of the office from the candidate's own personal party registration or affiliations.",
       "references": [],
       "levers": [],
-      "sources": [],
-      "suggested": []
+      "sources": [
+        {
+          "label": "City of Berkeley: Elections",
+          "url": "https://berkeleyca.gov/your-government/elections"
+        }
+      ],
+      "suggested": [],
+      "verification": [
+        {
+          "claim": "Berkeley municipal elections, including City Council, are officially nonpartisan",
+          "result": "confirmed",
+          "source": "City of Berkeley Elections page; historical record of nonpartisan Berkeley municipal elections",
+          "date": "2026-07-23",
+          "note": "Party affiliation is not listed on the ballot; a candidate's personal party registration or affiliations may still be publicly known and referenced by partisan endorsing organizations."
+        }
+      ]
     },
     {
       "id": "uaw_q4",
       "section": "Labor",
       "topic": "labor_law",
-      "status": "blank",
+      "status": "done",
       "question": "What role does the office you seek play in labor relations?",
-      "analysis": "",
+      "analysis": "This is a scope-of-power question, not a position question — UAW is testing whether the candidate understands what the seat can actually do for organized labor. For a Berkeley councilmember, this includes both the city's role as an employer bargaining with its own recognized unions and the council's more limited role as an outside voice on private-sector organizing drives.",
       "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": []
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "The council negotiates and ratifies labor contracts (MOUs) with the city's own recognized employee unions through the budget process — direct authority over how the city treats its own workforce."
+        },
+        {
+          "tier": "advocacy",
+          "text": "For private-sector organizing drives outside city employment, the council's role is advocacy: resolutions, public statements, and the bully pulpit, not binding authority."
+        }
+      ],
+      "sources": [
+        {
+          "label": "City of Berkeley: Human Resources / Employee Relations",
+          "url": "https://berkeleyca.gov/your-government/about-us/departments/human-resources"
+        }
+      ],
+      "suggested": [
+        {
+          "text": "As a councilmember, I would have a direct role: the council negotiates and ratifies the city's labor contracts with its own recognized employee unions, and I would use that authority to push for strong wages, safe working conditions, and real job security for the people who keep Berkeley running. For workers outside city employment, the office's role is different but still real — a councilmember can use the platform to publicly back organizing drives, pass supportive resolutions, and make clear where the city stands. I intend to use both roles, not just the ceremonial one.",
+          "note": ""
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Council negotiates and ratifies labor contracts (MOUs) with the city's own recognized employee unions",
+          "result": "confirmed",
+          "source": "City of Berkeley Human Resources / Employee Relations",
+          "date": "2026-07-23",
+          "note": "Employee Relations unit conducts labor relations activities with the city's recognized bargaining units; MOUs are budget-ratified by council."
+        }
+      ],
+      "quotes": [
+        {
+          "source": "syrak",
+          "attribution": "Syrak Micael — UAW Region 6, D7 2026",
+          "text": "My office, as part of the city council, plays a role in negotiating contracts with city staff. I will always support workers' right to join and participate in their union. Furthermore, as a city, we must be committed to a strong working conditions framework that allows us to recruit and retain the top talent that ensures the day to day functioning of our city.",
+          "relevance": "Frames council role in labor relations as contract negotiation plus workforce retention — directly on-topic for this exact question",
+          "status": "current"
+        }
+      ]
     },
     {
       "id": "uaw_q5",
       "section": "Labor",
       "topic": "labor_solidarity",
-      "status": "blank",
+      "status": "thin",
       "question": "Have you, or any immediate family member, ever belonged to a union?  If so, describe any union activities.",
-      "analysis": "",
+      "analysis": "A personal-history question, not a policy question — UAW uses it to gauge lived connection to organized labor rather than positions. The prompt asks about both the candidate's own union membership and any immediate family member's, and expects concrete description of activities rather than a bare yes/no.",
       "references": [],
       "levers": [],
       "sources": [],
-      "suggested": []
+      "suggested": [
+        {
+          "text": "I have been an active member of the American Federation of Teachers (AFT). [DARIA: name the specific AFT local, the years of membership, and whether it covered a teaching or higher-ed role.] [DARIA: describe any specific organizing activities — bargaining committee, contract campaign, strike or action participation, steward role, etc.] [DARIA: note whether any immediate family members have also belonged to a union, and if so, which one and in what capacity. If none, say that directly rather than leaving it unanswered.]",
+          "note": ""
+        }
+      ]
     },
     {
       "id": "uaw_q6",
       "section": "Labor",
       "topic": "labor_solidarity",
-      "status": "blank",
+      "status": "done",
       "question": "If workers in your city were involved in a union organizing drive, would you be willing to speak out on behalf of workers' rights to organize?  Would you be willing to write a letter of support? Would you attend a rally? A picket line?",
-      "analysis": "",
+      "analysis": "Litmus question. UAW lists a specific sequence of solidarity actions — speaking out, a letter of support, a rally, a picket line — and expects an unqualified yes on each rather than a general statement of support. This structure mirrors other labor questionnaires' solidarity checklists and is typically scored item by item.",
       "references": [],
-      "levers": [],
+      "levers": [
+        {
+          "tier": "advocacy",
+          "text": "These are commitments to personal and public advocacy, not city powers — the honest answer is an unqualified yes to each specific action asked."
+        }
+      ],
       "sources": [],
-      "suggested": []
+      "suggested": [
+        {
+          "text": "Yes to all of it, without hesitation. I will speak out publicly in support of any Berkeley workers organizing to form a union, and that support does not depend on political convenience. I will write a letter of support when a drive needs one, and I will show up in person, at a rally or on a picket line, because presence matters as much as words. Workers do not organize on a schedule that is convenient for elected officials, and I intend to be a reliable ally whether or not there is a camera there to see it.",
+          "note": ""
+        }
+      ],
+      "quotes": [
+        {
+          "source": "syrak",
+          "attribution": "Syrak Micael — UAW Region 6, D7 2026",
+          "text": "Absolutely and without hesitation, I wholeheartedly support workers' right to organize, and that support is not conditional on political convenience or institutional comfort. I would show up physically, at rallies at picket lines, and put that support in writing whenever a letter, statement, or speech would strengthen a drive or add public pressure where it is needed.",
+          "relevance": "Unconditional organizing support framing — physically present, written support, not politically conditional",
+          "status": "current"
+        },
+        {
+          "source": "syrak",
+          "attribution": "Syrak Micael — UAW Region 6, D7 2026",
+          "text": "My approach to supporting an organizing drive would begin well before the drive itself, as I firmly believe in maintaining ongoing, substantive relationships with unions so that when workers move, I am already a trusted and accountable ally.",
+          "relevance": "Proactive union relationship framing — ally before the drive, not reactive",
+          "status": "current"
+        }
+      ]
     },
     {
       "id": "uaw_q7",
       "section": "Housing",
       "topic": "affordable_housing",
-      "status": "blank",
+      "status": "done",
       "question": "How will you improve access to affordable housing in urban areas? What new policies or strengthened enforcements can address racial discrimination in housing and stop the epidemic of evictions?",
-      "analysis": "",
+      "analysis": "Two-part question: (1) how to improve affordable housing access, and (2) what new policies or stronger enforcement could address racial discrimination in housing and evictions specifically. Berkeley already has several enacted anti-discrimination and eviction-protection ordinances, so the question's 'new policies' framing should be read against what already exists locally rather than assumed to be a blank slate.",
       "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": []
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "The council sets zoning, density, and affordability requirements for new construction — the primary production lever for supply."
+        },
+        {
+          "tier": "authority",
+          "text": "Berkeley's Just Cause for Eviction ordinance (BMC 13.76.130) already requires landlords to establish one of eleven enumerated grounds before eviction; the council can strengthen or expand those protections."
+        },
+        {
+          "tier": "authority",
+          "text": "Berkeley's Source of Income Discrimination Ordinance (BMC 13.31) and the Ronald V. Dellums Fair Chance Access to Housing Ordinance bar voucher-holder and criminal-history discrimination in tenant screening; the Rent Board enforces both, and council can expand enforcement funding or penalties."
+        },
+        {
+          "tier": "advocacy",
+          "text": "TOPA (a tenant/community right of first refusal on rental property sales) does not yet exist in Berkeley — council voted it down in October 2024 and referred a narrower COPA/TOPA study to the City Manager in February 2026. Until adopted, the honest lever is advocating for its passage, not administering it."
+        }
+      ],
+      "sources": [
+        {
+          "label": "BMC 13.76.130: Just cause required for eviction",
+          "url": "https://berkeley.municipal.codes/BMC/13.76.130"
+        },
+        {
+          "label": "BMC 13.31.010: Source of Income Discrimination Ordinance",
+          "url": "https://berkeley.municipal.codes/BMC/13.31.010"
+        },
+        {
+          "label": "Berkeley Rent Board: Ronald V. Dellums Fair Chance Access to Housing Ordinance",
+          "url": "https://rentboard.berkeleyca.gov/Fair_Chance"
+        },
+        {
+          "label": "Daily Californian: City Council votes against TOPA (Oct. 2024)",
+          "url": "https://www.dailycal.org/news/city/city-government/city-council-votes-against-tenant-opportunity-purchase-act/article_6fe2f5b6-8076-11ef-883e-e363616ab9ef.html"
+        },
+        {
+          "label": "Berkeley City Council: 2026 Referral Prioritization (Feb. 10, 2026) — COPA/TOPA study referral",
+          "url": "https://berkeleyca.gov/sites/default/files/2026-02/2026-02-10%20Special%20Item%2001%202026%20City%20Council%20Referral.pdf"
+        }
+      ],
+      "suggested": [
+        {
+          "text": "Every family should have a stable, affordable place to live, and Berkeley already has real tools I would use and strengthen. On production, I support building more housing at every income level near transit, because scarcity itself drives up costs and displacement. On protecting people already housed, our Just Cause for Eviction ordinance requires a landlord to show one of eleven specific legal grounds before removing a tenant, and I would defend it against any effort to weaken it. On discrimination, Berkeley already bars landlords from refusing tenants who use housing vouchers and from screening out applicants based on criminal history, and I would push for more resources for the Rent Board to actually enforce those protections, because a right without enforcement is not a right. I also support giving tenants and community land trusts the right of first refusal when a rental property goes up for sale — an idea the council voted down in 2024 but recently referred back for further study. I would bring it back and fight to pass it.",
+          "note": ""
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley has a Just Cause for Eviction ordinance requiring one of enumerated grounds before eviction",
+          "result": "confirmed",
+          "source": "Berkeley Municipal Code 13.76.130",
+          "date": "2026-07-23",
+          "note": ""
+        },
+        {
+          "claim": "Berkeley has a Source of Income Discrimination Ordinance barring landlords from refusing housing-voucher holders",
+          "result": "confirmed",
+          "source": "Berkeley Municipal Code Chapter 13.31",
+          "date": "2026-07-23",
+          "note": ""
+        },
+        {
+          "claim": "Berkeley has the Ronald V. Dellums Fair Chance Access to Housing Ordinance restricting criminal-history screening in tenant selection, enforced by the Rent Board",
+          "result": "confirmed",
+          "source": "Berkeley Rent Board — Fair Chance ordinance page",
+          "date": "2026-07-23",
+          "note": ""
+        },
+        {
+          "claim": "Council voted against adopting TOPA in October 2024 and referred a study of a COPA/TOPA-style right-of-first-refusal program to the City Manager in February 2026",
+          "result": "confirmed",
+          "source": "Daily Californian (Oct. 2024); Berkeley City Council 2026 Referral Prioritization agenda (Feb. 10, 2026)",
+          "date": "2026-07-23",
+          "note": "TOPA is not current Berkeley law; the 2026 item refers a study, it does not adopt an ordinance."
+        }
+      ],
+      "quotes": [
+        {
+          "source": "syrak",
+          "attribution": "Syrak Micael — CA Democratic Renters Council, D7 2026",
+          "text": "I believe we need a solution rooted in the ‘3 P’s’ of affordable housing. Preservation: We must preserve existing affordable housing, such as co-ops and community land trusts. Protection: Tenants must be protected. This includes rent control, rental assistance, eviction protections, and right to counsel. Production: We must increase the supply of affordable housing.",
+          "relevance": "The 3 P's framework (Preservation, Protection, Production) — concise structure for a two-part production-plus-enforcement question",
+          "status": "current"
+        },
+        {
+          "source": "syrak",
+          "attribution": "Syrak Micael — UAW Region 6, D7 2026",
+          "text": "On eviction prevention, I support the Tenant Opportunity to Purchase Act as presented by the Yes2TOPA coalition giving tenants and community land trusts the right of first refusal when a property is listed for sale.",
+          "relevance": "TOPA framing in a UAW housing context — directly relevant to the eviction half of this question",
+          "status": "current"
+        },
+        {
+          "source": "syrak",
+          "attribution": "Syrak Micael — Pro-Housing Democratic Caucus, D7 2026",
+          "text": "I believe our housing crisis will only be effectively addressed by an all-of-the-above approach, and that market-rate housing is a necessary piece of this puzzle. I believe that this is not a zero-sum game – we can and should encourage housing development at all income levels, while protecting existing and future tenants, to ultimately create a more equitable and affordable city.",
+          "relevance": "Pro-housing framing that balances market-rate production with tenant protections",
+          "status": "current"
+        }
+      ]
     },
     {
       "id": "uaw_q8",
       "section": "Climate",
       "topic": "campaign_plan",
-      "status": "blank",
+      "status": "done",
       "question": "Please cite policy measures around transit, emission reduction, infrastructure and other related policy areas that you would support in relation to mitigating climate change.",
-      "analysis": "",
+      "analysis": "The question asks for concrete policy measures across transit, emissions, and infrastructure — a specificity test rather than a general climate-values question. Berkeley already has an active Climate Action Plan with a net-zero-by-2045 target and several enacted programs (the Building Emissions Savings Ordinance, the 2026 Bicycle Plan), so the strongest answer names what the city already has and where the candidate would push further. Flag: Berkeley's 2019 ordinance requiring all-electric new construction was struck down by the Ninth Circuit in 2023 as preempted by federal law, and the city agreed to stop enforcing it — an answer that treats that mandate as current law would be describing something that no longer exists.",
       "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": []
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "The council adopts and funds the Climate Action Plan and can accelerate its net-zero-by-2045 target through budget and program priorities."
+        },
+        {
+          "tier": "authority",
+          "text": "Berkeley's Building Emissions Savings Ordinance (BESO) is council-set local law the council can strengthen, including the 2026 retrofit requirements added at time of sale."
+        },
+        {
+          "tier": "authority",
+          "text": "The council approves transportation infrastructure like the 2026 Bicycle Plan and sets street design, bike lane, and traffic-calming priorities directly."
+        },
+        {
+          "tier": "advocacy",
+          "text": "Berkeley's 2019 all-electric new-construction mandate was struck down in federal court in 2023; reviving any building-electrification requirement now requires either state-level action or a redesigned ordinance built to survive federal preemption — a council seat can advocate for and help design a replacement, not simply reinstate the old rule."
+        },
+        {
+          "tier": "unverified",
+          "text": "BerkDOT, a long-discussed independent city transportation department, has not been established; any commitment to it should be framed as advocacy for its creation, not administration of an existing agency."
+        }
+      ],
+      "sources": [
+        {
+          "label": "City of Berkeley: Climate Action Plan",
+          "url": "https://berkeleyca.gov/your-government/our-work/adopted-plans/berkeley-climate-action-plan"
+        },
+        {
+          "label": "City of Berkeley: Building Electrification / BESO",
+          "url": "https://berkeleyca.gov/construction-development/green-building/building-electrification"
+        },
+        {
+          "label": "Berkeleyside: BESO mandate now requires energy-saving updates (Jan. 2026)",
+          "url": "https://www.berkeleyside.org/2026/01/22/berkeleys-beso-mandate-for-home-sales-now-requires-energy-saving-updates"
+        },
+        {
+          "label": "City of Berkeley: Berkeley Bicycle Plan (adopted June 2026)",
+          "url": "https://berkeleyca.gov/your-government/our-work/adopted-plans/berkeley-bicycle-plan"
+        },
+        {
+          "label": "Utility Dive: Ninth Circuit declines to reconsider Berkeley gas-ban ruling",
+          "url": "https://www.utilitydive.com/news/berkeley-natural-gas-ban-lawsuit-request-rehearing-en-banc-denied-federal-appeals/703514/"
+        }
+      ],
+      "suggested": [
+        {
+          "text": "Berkeley already has a Climate Action Plan targeting net-zero emissions by 2045, and I would use my seat to speed that timeline rather than let it drift. On buildings, our Building Emissions Savings Ordinance now requires energy retrofits at time of sale, and I support strengthening it further, including revisiting building electrification once we have a standard built to survive federal preemption — Berkeley's original all-electric mandate was struck down in court in 2023, so any new version needs to be built to hold up. On transit and infrastructure, I support the Bicycle Plan the council just approved, and I want to see it funded and built out block by block, not left as a document on a shelf: protected bike lanes, safer crossings, and transit-oriented housing near our corridors instead of parking minimums that keep pushing people into cars.",
+          "note": ""
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley has an adopted Climate Action Plan with a citywide commitment to net-zero emissions by 2045",
+          "result": "confirmed",
+          "source": "City of Berkeley Climate Action Plan page",
+          "date": "2026-07-23",
+          "note": ""
+        },
+        {
+          "claim": "Berkeley's 2019 ordinance banning natural gas in new construction was struck down by the Ninth Circuit in 2023 as preempted by federal law, and the city agreed to halt enforcement and repeal it",
+          "result": "confirmed",
+          "source": "Utility Dive; Columbia Climate Law Blog coverage of Ninth Circuit ruling; City of Berkeley settlement with California Restaurant Association",
+          "date": "2026-07-23",
+          "note": "Any reference to a current Berkeley gas ban would be describing something no longer in effect."
+        },
+        {
+          "claim": "Berkeley's Building Emissions Savings Ordinance (BESO) added retrofit/resilience requirements at time of sale effective 2026",
+          "result": "confirmed",
+          "source": "City of Berkeley: Building Electrification page; Berkeleyside BESO coverage (Jan. 2026)",
+          "date": "2026-07-23",
+          "note": ""
+        },
+        {
+          "claim": "Berkeley City Council approved the Berkeley Bicycle Plan 2026 in June 2026",
+          "result": "confirmed",
+          "source": "City of Berkeley: Berkeley Bicycle Plan page",
+          "date": "2026-07-23",
+          "note": ""
+        },
+        {
+          "claim": "BerkDOT (a proposed independent city transportation department) has been established and is operational",
+          "result": "refuted",
+          "source": "City of Berkeley Public Works / BerkDOT development status reporting",
+          "date": "2026-07-23",
+          "note": "BerkDOT remains in development; it is not an established, operating department."
+        }
+      ],
+      "quotes": [
+        {
+          "source": "syrak",
+          "attribution": "Syrak Micael — Sierra Club, D7 2026",
+          "text": "My priority in creating a healthier and more sustainable community is to use all available means to increase public transit usage and reduce car dependency. I strongly oppose parking minimums and support parking maximums near transit. New housing must be transit-oriented wherever practicable, and parking minimums only encourage continued car use and unnecessarily drive up costs.",
+          "relevance": "Transit-first climate framing — parking maximums, transit-oriented development, car dependency reduction",
+          "status": "current"
+        }
+      ]
     },
     {
       "id": "uaw_q9",
       "section": "Campaign",
       "topic": "campaign_plan",
-      "status": "blank",
+      "status": "done",
       "question": "How are you financing your campaign? Are you accepting/seeking support of corporations or corporate-sponsored PACs?",
-      "analysis": "",
+      "analysis": "UAW asks both how the campaign is financed and whether it accepts corporate or corporate-PAC money — a litmus question about independence from corporate influence. Berkeley has a public financing system, the Fair Elections Program, that provides a matching-funds subsidy on small contributions, which is directly relevant context for how a Berkeley council campaign can be funded without relying on large donors.",
       "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": []
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "Berkeley's own Fair Elections public financing program (BMC 2.12.500 et seq.) is a city-created system a campaign can opt into; participation is itself a concrete, verifiable answer to the corporate-money question."
+        }
+      ],
+      "sources": [
+        {
+          "label": "BMC 2.12.500: Eligibility for Fair Elections campaign funding",
+          "url": "https://berkeley.municipal.codes/BMC/2.12.500"
+        },
+        {
+          "label": "BMC 2.12.505: Fair Elections fund payments",
+          "url": "https://berkeley.municipal.codes/BMC/2.12.505"
+        },
+        {
+          "label": "City of Berkeley: Campaign Finance",
+          "url": "https://berkeleyca.gov/your-government/elections/campaign-finance"
+        }
+      ],
+      "suggested": [],
+      "verification": [
+        {
+          "claim": "Berkeley's Fair Elections Act (BMC 2.12.500 et seq.) provides participating candidates a 6-to-1 public match on qualifying contributions up to $60, capped at $52,000 for City Council candidates",
+          "result": "confirmed",
+          "source": "Berkeley Municipal Code 2.12.500 / 2.12.505; City of Berkeley Public Financing Program materials",
+          "date": "2026-07-23",
+          "note": ""
+        }
+      ]
     },
     {
       "id": "uaw_q10",
       "section": "Campaign",
       "topic": "endorsements",
-      "status": "blank",
+      "status": "thin",
       "question": "Who has endorsed your campaign? Please name labor unions, political organizations, elected officials, and community leaders.",
-      "analysis": "",
+      "analysis": "UAW reads endorsements as a coalition and viability signal, and explicitly asks the answer to be organized by category — labor unions, political organizations, elected officials, and community leaders — rather than given as a flat list.",
       "references": [],
       "levers": [],
       "sources": [],

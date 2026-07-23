@@ -12,9 +12,9 @@
       "id": "phdc_q1",
       "section": "Background",
       "topic": "background_bio",
-      "status": "blank",
+      "status": "done",
       "question": "What seat are you running for? I.e. what is the name of the office?",
-      "analysis": "",
+      "analysis": "Standard identification question used to route the rest of the questionnaire to the correct jurisdiction. PHDC's zoning, height-limit, and legislative questions are answered differently depending on the office and district, so the org needs the exact seat named up front rather than inferred from context.",
       "references": [],
       "levers": [],
       "sources": [],
@@ -24,9 +24,9 @@
       "id": "phdc_q2",
       "section": "Housing Experience",
       "topic": "affordable_housing",
-      "status": "blank",
+      "status": "done",
       "question": "Tell us about your lived experience with housing. Do you own / rent?",
-      "analysis": "",
+      "analysis": "Asks the candidate to disclose personal housing tenure (own vs. rent) and any related lived experience. PHDC treats this as a credibility signal on the housing-policy answers that follow — whether the candidate has direct experience with the rental market, the homebuying process, or housing instability — not as a policy position in itself.",
       "references": [],
       "levers": [],
       "sources": [],
@@ -36,109 +36,402 @@
       "id": "phdc_q3",
       "section": "Housing Policy",
       "topic": "affordable_housing",
-      "status": "blank",
+      "status": "done",
       "question": "Does housing sold without public subsidy (i.e. market-rate housing) benefit the general public? Does it provide affordability overall?",
-      "analysis": "",
+      "analysis": "This is PHDC's foundational filtering-theory question and likely the organization's core litmus test — it tests whether the candidate accepts that unsubsidized market-rate construction improves affordability broadly (by absorbing demand and enabling filtering into older, cheaper units) rather than only benefiting the buyers of new units. A hedged or skeptical answer would run against the org's stated pro-supply mission. This is a question about housing economics generally, not a jurisdiction-specific claim about a Berkeley program, so no premise verification against a Berkeley primary source is required; the relevant evidence is empirical housing research, including Berkeley-specific data on the city's own recent building boom.",
       "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": []
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "The council's zoning and entitlement decisions directly determine how much market-rate supply gets approved and built in the jurisdiction; this is the mechanism through which a councilmember's position on this question becomes real."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Berkeleyside: Has Berkeley's building boom made housing more affordable? We dug into the data",
+          "url": "https://www.berkeleyside.org/2023/10/23/berkeley-affordable-housing-construction"
+        },
+        {
+          "label": "Terner Center for Housing Innovation (UC Berkeley): Research and Policy",
+          "url": "https://ternercenter.berkeley.edu/research-and-policy/"
+        }
+      ],
+      "suggested": [
+        {
+          "text": "Yes. Market-rate housing is not a private benefit that stops at the buyer or renter of the new unit — every new home is one more household that isn't competing for the older, cheaper unit down the street. When cities like Berkeley add supply, it slows rent growth across the market and opens up units through filtering, even for people who will never live in the new building itself. Berkeley's own recent building boom shows this in the data. That said, market-rate supply alone is not sufficient — it has to be paired with dedicated affordable production and strong tenant protections so that the benefits of a bigger, more competitive housing market don't come at the expense of the people most at risk of displacement while we build it.",
+          "note": ""
+        }
+      ],
+      "quotes": [
+        {
+          "source": "syrak",
+          "attribution": "Syrak Micael — Pro-Housing Democratic Caucus, D7 2026",
+          "text": "I believe our housing crisis will only be effectively addressed by an all-of-the-above approach, and that market-rate housing is a necessary piece of this puzzle. I believe that this is not a zero-sum game – we can and should encourage housing development at all income levels, while protecting existing and future tenants, to ultimately create a more equitable and affordable city.",
+          "relevance": "Direct answer to the same PHDC filtering-theory question from another Berkeley candidate — balances market-rate affirmation with tenant protection",
+          "status": "current"
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Council sets zoning, entitlements, and height limits through the zoning ordinance",
+          "result": "confirmed",
+          "source": "Generic charter city structural authority",
+          "date": "2026-07-23",
+          "note": "Generic municipal power."
+        }
+      ]
     },
     {
       "id": "phdc_q4",
       "section": "Housing Policy",
       "topic": "affordable_housing",
-      "status": "blank",
+      "status": "done",
       "question": "Do you believe in / would you support a plan to build housing in historic districts, where new homes are currently not allowed?",
-      "analysis": "",
+      "analysis": "The question's premise — that historic districts categorically bar new homes — overstates the mechanism but points at something real. Berkeley's Landmarks Preservation Ordinance (BMC Ch. 3.24) allows designation of individual landmarks, structures of merit, and historic districts; new construction within a designated historic district is not flatly prohibited but is subject to discretionary Landmarks Preservation Commission review that housing advocates and a majority of the council have described as a tool used to stall or block development. In April 2026 the council raised the petition threshold to start a landmarking review from 50 signatures to 200 (with the property owner's signature) or 400 (without it), and barred staff from considering landmark applications on parcels where the owner has already submitted housing plans — a direct response to that dynamic. Separately, in June 2026 a push to designate the Elmwood commercial district as a new historic district, which would have added another layer of review on top of the corridor rezoning, was rejected.",
       "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": []
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "The council controls the landmarking ordinance itself — petition thresholds, designation criteria, and review procedures — and already used that authority in April 2026 to raise thresholds and bar landmark applications on parcels with pending housing proposals."
+        },
+        {
+          "tier": "authority",
+          "text": "Entitlement and design-review decisions for infill within an existing historic district still run through the council's land use process, which the council can calibrate to prioritize adding housing while protecting genuinely significant structures."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Berkeleyside: Berkeley landmarks process holds up housing, council reps say",
+          "url": "https://www.berkeleyside.org/2026/04/14/berkeley-landmarks-housing-petitions"
+        },
+        {
+          "label": "Berkeleyside: Berkeley raises bar to landmark buildings, over objections from preservationists",
+          "url": "https://www.berkeleyside.org/2026/04/16/berkeley-landmark-petition-housing-preservation"
+        },
+        {
+          "label": "Berkeleyside: Berkeley rejects push to make Elmwood a 'historic district'",
+          "url": "https://www.berkeleyside.org/2026/06/05/elmwood-historic-district-berkeley-corridors-zoning-update-c"
+        },
+        {
+          "label": "Berkeley Municipal Code Ch. 3.24: Landmarks Preservation Commission",
+          "url": "https://berkeley.municipal.codes/BMC/3.24"
+        }
+      ],
+      "suggested": [
+        {
+          "text": "Yes. I support reforming how Berkeley's landmarking system interacts with housing so that it protects buildings with genuine historic or architectural significance without functioning as a backdoor veto on new homes. I was glad to see the council raise the petition threshold for starting a landmarking review this year and bar landmark applications on parcels where an owner has already filed housing plans — that was a direct response to years of the process being used to delay projects with thin claims of historic merit. I would build on that: clear, narrower criteria for what qualifies as a historic district, real timelines for review, and a presumption in favor of housing on parcels that don't meet a genuine preservation standard.",
+          "note": ""
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley has designated historic districts under BMC Ch. 3.24, and the landmarking/historic-district review process has been used to block or delay housing development within them",
+          "result": "confirmed",
+          "source": "Berkeleyside, \"Berkeley landmarks process holds up housing, council reps say\" (Apr. 14, 2026); BMC Ch. 3.24",
+          "date": "2026-07-23",
+          "note": "Not an outright ban on new construction — landmark and historic-district status trigger discretionary Landmarks Preservation Commission review rather than a categorical prohibition. The council's April 2026 reform (raising petition thresholds from 50 to 200/400 signatures; barring landmark applications on parcels with pending housing plans) was adopted specifically because that discretionary process had been used to stall housing."
+        }
+      ],
+      "quotes": [
+        {
+          "source": "syrak",
+          "attribution": "Syrak Micael — Pro-Housing Democratic Caucus, D7 2026",
+          "text": "I support reforming Berkeley's landmarking system to ensure it is not being misused to stall housing developments while ensuring historically significant infrastructure is restored.",
+          "relevance": "Same reform framing from another Berkeley candidate answering this exact PHDC question — anti-obstruction without abandoning genuine preservation",
+          "status": "current"
+        }
+      ]
     },
     {
       "id": "phdc_q5",
       "section": "Housing Policy",
       "topic": "affordable_housing",
-      "status": "blank",
+      "status": "done",
       "question": "Do you support the separate sale of backyard homes (also known as ADUs), pursuant to AB 1033? Would you work to support / sponsor legislation that facilitates separate sale?",
-      "analysis": "",
+      "analysis": "AB 1033 (effective January 1, 2024) is permissive state law: it lifted the prior state ban on mapping and selling an ADU as a separate condominium unit from the primary home, but local governments must opt in with their own ordinance for it to take effect locally. The question has two parts — support for the policy, and willingness to work on legislation that facilitates separate sale — which for a council candidate means either defending/expanding a local implementing ordinance or engaging the state delegation on follow-on legislation, since a council seat has no vote on state bills.",
       "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": []
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "Berkeley's council already voted 6–1 on January 21, 2026 to adopt a local ordinance (BMC 21.29) implementing AB 1033, using ministerial (non-discretionary) review for ADU-to-condo conversions."
+        },
+        {
+          "tier": "authority",
+          "text": "The council can further streamline this local ordinance — for example on fee structure or unit-count thresholds — since implementation is now a local code, not just the underlying state permission."
+        },
+        {
+          "tier": "advocacy",
+          "text": "Because AB 1033 itself is already enacted, 'sponsoring legislation that facilitates separate sale' at this point means lobbying the state delegation on follow-on bills, not a council vote."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Berkeleyside: Want to buy a backyard cottage? Berkeley legalizes sale of ADUs",
+          "url": "https://www.berkeleyside.org/2026/01/21/berkeley-adu-sale-ab1033-accessory-dwelling-unit"
+        },
+        {
+          "label": "City of Berkeley: ADU Separate Sale Implementation presentation",
+          "url": "https://berkeleyca.gov/sites/default/files/2026-01/ADU_Condos_Presentation.pdf"
+        }
+      ],
+      "suggested": [
+        {
+          "text": "Yes. I support this, and I was glad Berkeley already acted — the council adopted a local ordinance in January 2026 that lets homeowners sell their ADU separately as a condominium unit, using ministerial review so it doesn't get bogged down in discretionary hearings. This is exactly the kind of entry-level homeownership tool we need more of, and I would defend it and look for ways to build on it, including revisiting fee structures so the path stays as accessible as possible. I would also support state legislation that extends similar separate-sale tools to more housing types.",
+          "note": ""
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley has adopted a local ordinance implementing AB 1033 to allow separate sale of ADUs",
+          "result": "confirmed",
+          "source": "Berkeleyside (Jan. 21, 2026); City of Berkeley ADU Condos Presentation",
+          "date": "2026-07-23",
+          "note": "Ordinance codified at BMC 21.29; uses ministerial review, caps at 10 condo units per lot (JADUs excluded), waives the standard condo-conversion mitigation fee, and applies an Affordable Housing Mitigation Fee at sale unless the owner opts into rent limits."
+        }
+      ]
     },
     {
       "id": "phdc_q6",
       "section": "Housing Policy",
       "topic": "affordable_housing",
-      "status": "blank",
+      "status": "done",
       "question": "How supportive are you of single stairwell buildings?",
-      "analysis": "",
+      "analysis": "Single-stair (\"point access block\") reform would let small-to-midrise apartment buildings be built with one stairwell instead of the two California currently requires above three stories, which supporters say lowers land-acquisition costs and allows more family-sized units. This is presently a state-level fight, not a live municipal option: AB 835 directs the State Fire Marshal to develop statewide single-stair standards by 2028, and a statewide freeze on local building-code amendments (in effect since around October 2025) currently prevents any city other than Culver City — which acted just before the freeze — from adopting its own single-stair ordinance. The honest local answer has to name that constraint rather than promise a council vote that isn't presently available.",
       "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": []
+      "levers": [
+        {
+          "tier": "advocacy",
+          "text": "Berkeley cannot currently enact its own single-stair ordinance because of the statewide freeze on local building-code amendments; the live lever is advocating for the State Fire Marshal to finalize AB 835 standards and committing to fast local adoption once that happens."
+        },
+        {
+          "tier": "advocacy",
+          "text": "The council can send a support letter or resolution backing AB 835 implementation, the way other pro-housing councils have done for state reform bills."
+        }
+      ],
+      "sources": [
+        {
+          "label": "California YIMBY: AB 835 — Build a Wider Variety of Homes",
+          "url": "https://cayimby.org/legislation/ab-835/"
+        },
+        {
+          "label": "Housing Action Coalition: Single-Stair Reform in California — A Local Breakthrough and What's at Stake",
+          "url": "https://housingactioncoalition.org/news/ircweygg75vy9mcq7k9do8f0jm2ktn"
+        }
+      ],
+      "suggested": [
+        {
+          "text": "Very supportive. Requiring two stairwells in every mid-rise building forces developers to assemble larger parcels just to fit the extra stairs and hallways, which drives up costs and makes it harder to build the family-sized, light-filled units that a single central stairwell allows. I want Berkeley to adopt single-stair standards as soon as it is legally able to. Right now a statewide freeze on local building-code changes means only Culver City has been able to act, and the state is directing the Fire Marshal to set uniform standards by 2028 — I would push to have Berkeley among the first cities to adopt them once that freeze lifts, and would support state efforts to move that timeline up.",
+          "note": ""
+        }
+      ]
     },
     {
       "id": "phdc_q7",
       "section": "Housing Policy",
       "topic": "affordable_housing",
-      "status": "blank",
+      "status": "done",
       "question": "How important are height limits to you? What do you see as the benefits and drawbacks of a height limit?",
-      "analysis": "",
+      "analysis": "Open-ended question asking the candidate to weigh the stated benefits of height limits (neighborhood character, shadow and view concerns) against their costs (capping how many homes can be built on a given parcel, raising per-unit land cost). This is not hypothetical for Berkeley — the council is presently deciding new height limits for the North Shattuck, Solano, and College Avenue corridors as part of the 2026 Corridors Zoning Update, with the Planning Commission recommending 5–7 stories for qualifying parcels depending on street width, while a majority of councilmembers have indicated support for larger, more uniform increases. Height limits are a zoning-code parameter, so the council sets them directly.",
       "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": []
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "The council sets zoning height limits directly through the zoning ordinance, and is actively doing so in 2026 for the North Shattuck, Solano, and College Avenue corridors."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Berkeleyside: Hotly debated Berkeley zoning changes a step closer to approval",
+          "url": "https://www.berkeleyside.org/2026/05/13/berkeley-corridors-zoning-update-elmwood-shattuck-solano"
+        },
+        {
+          "label": "City of Berkeley: Corridors Zoning Update — North Shattuck, College, and Solano Avenue",
+          "url": "https://berkeleyca.gov/construction-development/land-use-development/general-plan-and-area-plans/corridors-zoning-update"
+        }
+      ],
+      "suggested": [
+        {
+          "text": "I don't put much weight on height limits as a goal in themselves. Every foot of height a limit removes is homes we don't build, and the claimed benefits — protecting neighborhood character, limiting shadows — are usually smaller and more localized than the cost of capping supply citywide. I supported and would continue to support Berkeley's approach in the corridors rezoning process: rather than a flat number, set heights that scale with the street itself — narrower streets like College get more modest increases, wider ones like North Shattuck can support more height — so the tradeoffs are actually being weighed block by block instead of decided by a single arbitrary ceiling.",
+          "note": ""
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Council sets zoning, entitlements, and height limits through the zoning ordinance",
+          "result": "confirmed",
+          "source": "Generic charter city structural authority",
+          "date": "2026-07-23",
+          "note": "Generic municipal power."
+        }
+      ]
     },
     {
       "id": "phdc_q8",
       "section": "Housing Policy",
       "topic": "affordable_housing",
-      "status": "blank",
+      "status": "done",
       "question": "Would you be supportive of a 20-story building in your City?",
-      "analysis": "",
+      "analysis": "Tests whether the candidate's support for density is genuine or only extends to modest increases. This is not a hypothetical extreme for Berkeley: the council unanimously approved a 28-story, 312-foot residential tower at Shattuck and University in June 2025 — the tallest building ever approved in the city, 599 apartments including 58 set aside for very-low-income renters — meaning a 20-story building is smaller than what the city has already approved, not a leap beyond it.",
       "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": []
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "The council approves individual high-rise projects through its entitlement process, as it did for the 28-story Shattuck/University tower in June 2025, and sets the underlying zoning envelope that determines where such heights are allowed."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Berkeleyside: Proposal for Berkeley's tallest building gets final approval",
+          "url": "https://www.berkeleyside.org/2025/06/04/berkeley-housing-high-rise-shattuck-university"
+        },
+        {
+          "label": "The Real Deal: Berkeley City Council approves city's tallest residential tower",
+          "url": "https://therealdeal.com/san-francisco/2025/06/05/berkeley-city-council-approves-citys-tallest-apartments/"
+        }
+      ],
+      "suggested": [
+        {
+          "text": "Yes. This isn't a hypothetical for Berkeley — the council unanimously approved a 28-story residential tower at Shattuck and University in 2025, nearly 600 apartments including dozens set aside for very-low-income renters, making it the tallest building in the city's history. A well-designed 20-story building, particularly near transit and downtown where infrastructure can support it, is smaller than what Berkeley has already said yes to. I support building tall where it makes sense rather than treating height itself as the problem.",
+          "note": ""
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Council sets zoning, entitlements, and height limits through the zoning ordinance",
+          "result": "confirmed",
+          "source": "Generic charter city structural authority",
+          "date": "2026-07-23",
+          "note": "Generic municipal power."
+        }
+      ]
     },
     {
       "id": "phdc_q9",
       "section": "Housing Policy",
       "topic": "affordable_housing",
-      "status": "blank",
+      "status": "done",
       "question": "Tell us about how you react to allowing more missing middle housing across neighborhoods where there are typically just detached single-family homes. What is your favorite type of missing middle housing?",
-      "analysis": "",
+      "analysis": "Missing middle refers to duplexes, triplexes, fourplexes, cottage courts, and small multi-family buildings that sit between detached single-family homes and larger apartment buildings. This is not a hypothetical for Berkeley: the council adopted a Middle Housing Ordinance on July 8, 2025 (effective November 1, 2025) that eliminated single-family-only zoning citywide, allowing duplexes, triplexes, and multi-family buildings up to three stories and eight units by right on most residential lots — making Berkeley the first city in California to do so. This directly touches District 1, which includes some of Berkeley's lowest-density residential areas in North Berkeley, so the question tests whether the candidate supports the reform reaching neighborhoods like the ones in the district being represented, not just other parts of the city.",
       "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": []
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "The council already adopted the Middle Housing Ordinance (effective Nov. 1, 2025), which sets by-right approval for duplexes through eight-unit buildings on most residential lots citywide, including District 1."
+        },
+        {
+          "tier": "authority",
+          "text": "The council can further calibrate by-right thresholds, parking requirements, and design standards for middle housing through future zoning amendments."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Berkeleyside: Berkeley will allow apartments to be built throughout the flats",
+          "url": "https://www.berkeleyside.org/2025/06/27/missing-middle-housing"
+        },
+        {
+          "label": "City of Berkeley: Middle Housing Zoning Changes",
+          "url": "https://berkeleyca.gov/construction-development/land-use-development/general-plan-and-area-plans/middle-housing-zoning"
+        }
+      ],
+      "suggested": [
+        {
+          "text": "I react to it the way I reacted when Berkeley actually did it: I support it, all the way into District 1. Berkeley eliminated single-family-only zoning citywide in 2025, becoming the first city in California to do so, and that means duplexes, triplexes, and small multi-family buildings up to eight units are now allowed by right on most residential lots — including in the lower-density parts of North Berkeley that make up much of this district. I want to see that reform actually build housing here, not just on paper elsewhere in the city.\n\n[DARIA: pick your favorite missing-middle type if you have a different preference — draft below assumes small courtyard fourplexes.] My favorite type is the small courtyard fourplex: four homes sharing a common outdoor space, at a scale that fits into an existing block without needing an elevator or a large parking structure, and dense enough to make a real dent in the housing shortage.",
+          "note": ""
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley adopted the Middle Housing Ordinance effective Nov 1, 2025, eliminating single-family-only zoning",
+          "result": "confirmed",
+          "source": "Berkeleyside / City of Berkeley council action",
+          "date": "2026-07-23",
+          "note": ""
+        },
+        {
+          "claim": "Council can calibrate by-right thresholds, parking requirements, and design standards for missing middle housing",
+          "result": "confirmed",
+          "source": "Generic charter city structural authority (zoning)",
+          "date": "2026-07-23",
+          "note": "Generic municipal power."
+        }
+      ]
     },
     {
       "id": "phdc_q10",
       "section": "Housing Policy",
       "topic": "affordable_housing",
-      "status": "blank",
+      "status": "done",
       "question": "Do we have a housing crisis?",
-      "analysis": "",
+      "analysis": "Baseline litmus question confirming the candidate accepts the premise the rest of the questionnaire is built on. For Berkeley specifically, the state-mandated Regional Housing Needs Allocation (RHNA) for 2023–2031 is 8,934 units — roughly three times the target assigned for the prior 2015–2023 cycle — broken out as 2,446 very-low-income, 1,408 low-income, 1,416 moderate-income, and 3,664 above-moderate-income units, which is the primary-source measure of the scale of unmet housing need the city itself has certified.",
       "references": [],
       "levers": [],
-      "sources": [],
-      "suggested": []
+      "sources": [
+        {
+          "label": "City of Berkeley: Housing Element Update",
+          "url": "https://berkeleyca.gov/construction-development/land-use-development/general-plan-and-area-plans/housing-element-update"
+        },
+        {
+          "label": "Berkeleyside: Berkeley's Housing Element — how the city will plan for 8,934 new homes",
+          "url": "https://www.berkeleyside.org/2021/10/03/berkeley-housing-element-development-zoning"
+        }
+      ],
+      "suggested": [
+        {
+          "text": "Yes, unambiguously. Berkeley's own state-certified housing target for 2023 through 2031 is 8,934 new homes — about three times what the city was assigned in the prior eight-year cycle — including thousands of units at very-low and low incomes. That number reflects decades of under-building relative to demand, and it shows up in every part of the city: renters priced out of neighborhoods they grew up in, workers commuting an hour or more because they can't afford to live near their jobs, and families doubling up rather than finding their own homes. Meeting a target that size requires building at every income level, not choosing between market-rate and subsidized housing.",
+          "note": ""
+        }
+      ]
     },
     {
       "id": "phdc_q11",
       "section": "Legislation",
       "topic": "affordable_housing",
-      "status": "blank",
+      "status": "done",
       "question": "Would you have supported SB-79 (Wiener, 2025)? Or, did you vote on this legislation / cast any votes on whether to support or oppose this legislation? A definitive answer (yes or no) to one of these questions is required to obtain the PDC Endorsement.",
-      "analysis": "",
+      "analysis": "SB 79 (Wiener) was signed by Governor Newsom on October 10, 2025 and takes effect July 1, 2026. It sets state zoning standards allowing mid-rise multifamily housing near major rail stations and bus rapid transit stops, using an SB 35-style ministerial approval process that avoids CEQA review. It directly affects the Ashby, Downtown Berkeley, and North Berkeley BART stations. Local reporting and a Berkeley planning commissioner have noted the practical impact on Berkeley is expected to be moderate relative to other cities, since Downtown Berkeley and the Southside area already allow taller projects than SB 79 mandates, and the city's own 2025 middle-housing rezoning already increased density on many residential lots citywide. No Berkeley council resolution supporting or opposing SB 79 was identified in available reporting (unlike Los Angeles, which passed an opposition resolution); as a council candidate rather than a sitting official, the candidate has not cast a vote on the bill, which the question's phrasing anticipates by offering the hypothetical-support framing as the operative path to a definitive answer.",
       "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": []
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "SB 79 itself is state law, not a council vote, but the council will implement it locally — adopting a compliant local alternative ordinance or plan, or defaulting to the state standard — starting when the law takes effect July 1, 2026."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Berkeleyside: Newsom signs SB 79, allowing denser housing near BART stations",
+          "url": "https://www.berkeleyside.org/2025/10/10/california-sb79-housing-berkeley-transit-oriented-development"
+        },
+        {
+          "label": "Sen. Scott Wiener: Governor Newsom Signs Landmark Law To Build More Homes Near Public Transit",
+          "url": "https://sd11.senate.ca.gov/news/governor-newsom-signs-senator-wieners-landmark-law-build-more-homes-near-public-transit"
+        },
+        {
+          "label": "California HCD: SB 79 Transit-Oriented Development",
+          "url": "https://www.hcd.ca.gov/planning-and-research/sb79-tod"
+        }
+      ],
+      "suggested": [
+        {
+          "text": "Yes. I would have supported SB 79. I'm not a sitting elected official, so I haven't cast a vote on it, but I want to be definitive: transit-oriented zoning near rail and rapid bus stops is exactly the kind of state action Berkeley needs, and SB 79 will apply directly to the areas around our Ashby, Downtown Berkeley, and North Berkeley BART stations starting next July. Berkeley has already shown this works — Downtown and Southside allow taller buildings than SB 79 requires, and our 2025 citywide middle-housing rezoning moved in the same direction. SB 79 extends that logic to the parts of the city that haven't caught up yet, and I would support Berkeley implementing it fully rather than looking for ways around it.",
+          "note": ""
+        }
+      ],
+      "verification": [
+        {
+          "claim": "SB 79 (Wiener) was signed into law and takes effect July 1, 2026, applying to areas near the Ashby, Downtown Berkeley, and North Berkeley BART stations",
+          "result": "confirmed",
+          "source": "Berkeleyside (Oct. 10, 2025); Sen. Scott Wiener official announcement; California HCD SB 79 TOD page",
+          "date": "2026-07-23",
+          "note": ""
+        },
+        {
+          "claim": "Berkeley City Council passed a resolution supporting or opposing SB 79",
+          "result": "unresolved",
+          "source": "No Berkeley-specific council resolution on SB 79 found in available reporting",
+          "date": "2026-07-23",
+          "note": "Not load-bearing: the candidate is not a sitting councilmember and has not cast any vote on the bill, so the question's 'would you have supported it' framing is the operative path to the required definitive answer regardless of whether a council resolution exists."
+        }
+      ]
     }
   ]
 }

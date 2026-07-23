@@ -12,9 +12,9 @@
       "id": "cbd_q1",
       "section": "Background",
       "topic": "background_bio",
-      "status": "blank",
+      "status": "thin",
       "question": "Candidate Biography/Summary",
-      "analysis": "",
+      "analysis": "Open-ended bio prompt with no guidance on content, length, or emphasis, unlike more structured background questions on other questionnaires (e.g., NUHW splits elected office, volunteer leadership, and bio into separate fields). Cal Berkeley Democrats is a UC Berkeley student organization, so the audience skews toward students weighing candidates on connection to the university community and relevance to student life alongside standard biographical credentials. The fully long-form format allows the candidate to blend clinical, labor, and community-organizing background into a single narrative rather than parceling it into separate fields.",
       "references": [],
       "levers": [],
       "sources": [],
@@ -24,9 +24,9 @@
       "id": "cbd_q2",
       "section": "Background",
       "topic": "background_bio",
-      "status": "blank",
+      "status": "thin",
       "question": "Previous Elected Office Held (if applicable)",
-      "analysis": "",
+      "analysis": "Standard incumbency question. The parenthetical '(if applicable)' explicitly signals no penalty for candidates without prior elected experience — common phrasing among student-org questionnaires that regularly endorse first-time candidates alongside those with a voting record.",
       "references": [],
       "levers": [],
       "sources": [],
@@ -36,169 +36,802 @@
       "id": "cbd_q3",
       "section": "Background",
       "topic": "why_running",
-      "status": "blank",
+      "status": "thin",
       "question": "Why are you running for office?",
-      "analysis": "",
+      "analysis": "Cal Berkeley Democrats asks for motivation alone, without a second prompt distinguishing the candidate from opponents (unlike NUHW's paired question). As a student organization, the group is likely to weigh answers that speak to the town-gown relationship and issues affecting the student population, alongside the broader case for candidacy.",
       "references": [],
       "levers": [],
       "sources": [],
-      "suggested": []
+      "suggested": [
+        {
+          "text": "I'm running because Berkeley is a city that shaped who I am, and I want a Council seat that treats every resident's stake in its future as equally real — the neighbors who have lived here for decades and the students who call it home for four years. [DARIA: one or two sentences on the specific moment or experience that pushed you to run.] As a clinician who has spent years watching people fall through gaps in housing, healthcare, and public safety here, I know the difference good local policy makes, and I want to be at the table writing it rather than watching it happen from the outside.",
+          "note": ""
+        }
+      ],
+      "quotes": [
+        {
+          "source": "syrak",
+          "attribution": "Syrak Micael — Cal Berkeley Democrats, D7 2026",
+          "text": "I want to bridge the gap between our long-term residents, who have a wealth of knowledge and unique outlook of the city, and students, who are seeing the city for as it is in its current state.",
+          "relevance": "Bridging residents and students framing on the exact same questionnaire — useful calibration for a student-org audience",
+          "status": "current"
+        }
+      ]
     },
     {
       "id": "cbd_q4",
       "section": "Policy Priorities",
       "topic": "campaign_plan",
-      "status": "blank",
+      "status": "thin",
       "question": "What do you consider to be your top 3 priorities?",
-      "analysis": "",
+      "analysis": "Open framing without specified issue areas, unlike the rest of the questionnaire's section-by-section topic breakdown (housing, climate, public safety, immigration, LGBTQ+ rights). This functions as a preview of the candidate's overall platform and a check on whether later section answers connect back to a coherent set of stated priorities.",
       "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": []
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "Zoning, density, and the Inclusionary Housing Ordinance set the terms for affordable housing production and preservation."
+        },
+        {
+          "tier": "authority",
+          "text": "The council votes on the city's BHSA behavioral health plan and the police department's budget and staffing."
+        },
+        {
+          "tier": "authority",
+          "text": "The council funds and prioritizes Climate Action Plan and Vision Zero transportation projects."
+        }
+      ],
+      "sources": [
+        {
+          "label": "City of Berkeley: Affordable Housing Requirements for Developers (Inclusionary Housing)",
+          "url": "https://berkeleyca.gov/construction-development/permits-design-parameters/design-parameters/affordable-housing"
+        },
+        {
+          "label": "City of Berkeley: Climate Action Plan",
+          "url": "https://berkeleyca.gov/your-government/our-work/adopted-plans/berkeley-climate-action-plan"
+        }
+      ],
+      "suggested": [
+        {
+          "text": "My top three priorities are affordable housing and tenant protections, because no other issue touches as many residents' ability to stay in this city; behavioral health and public safety that does not rely on policing alone, because I have seen firsthand what happens when people cannot access care; and climate and transportation investments that make Berkeley safer and more livable for people who walk, bike, and take transit rather than just drive through it. [DARIA: reorder these if a different weighting better reflects the platform, and add a fourth area if one is missing.]",
+          "note": ""
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Council controls zoning, density, and inclusionary housing requirements",
+          "result": "confirmed",
+          "source": "Generic charter city structural authority",
+          "date": "2026-07-23",
+          "note": "Generic municipal power."
+        },
+        {
+          "claim": "Council votes on BHSA behavioral health plan and police department budget",
+          "result": "confirmed",
+          "source": "City of Berkeley BHSA Three-Year Integrated Plan",
+          "date": "2026-07-23",
+          "note": ""
+        },
+        {
+          "claim": "Council funds and prioritizes Climate Action Plan and Vision Zero projects",
+          "result": "confirmed",
+          "source": "Generic charter city structural authority (budget)",
+          "date": "2026-07-23",
+          "note": "Generic municipal power."
+        }
+      ]
     },
     {
       "id": "cbd_q5",
       "section": "Housing",
       "topic": "affordable_housing",
-      "status": "blank",
+      "status": "thin",
       "question": "What role does new development play in your vision for the future of California?",
-      "analysis": "",
+      "analysis": "The question frames development within a statewide vision for California even though the office is a Berkeley council seat; the actionable scope is what new development delivers locally in Berkeley and District 1, which sits near the UC Berkeley campus and carries some of the city's highest existing student rental demand. Cal Berkeley Democrats' broader questionnaire leans pro-housing, so the question likely functions as a check on whether the candidate treats supply as part of the affordability answer rather than only tenant protections.",
       "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": []
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "The council sets zoning, density, and the Inclusionary Housing Ordinance's 20% below-market-rate requirement on qualifying projects (BMC 23.328)."
+        },
+        {
+          "tier": "authority",
+          "text": "The council can reform the landmarking and historic-review process so it is not misused to stall housing that meets zoning requirements, while still protecting genuinely significant buildings."
+        },
+        {
+          "tier": "advocacy",
+          "text": "State density laws (SB9, SB10, SB79) set the outer framework Berkeley implements locally; the council can advocate for fuller local utilization of these state tools."
+        }
+      ],
+      "sources": [
+        {
+          "label": "City of Berkeley: Affordable Housing Requirements for Developers (Inclusionary Housing)",
+          "url": "https://berkeleyca.gov/construction-development/permits-design-parameters/design-parameters/affordable-housing"
+        },
+        {
+          "label": "City of Berkeley Planning Commission: SB 79 and AB 893 staff report (April 2026)",
+          "url": "https://berkeleyca.gov/sites/default/files/2026-04/2026-04-15_PC_Item%2010A_SB%2079%20and%20AB%20893.pdf"
+        }
+      ],
+      "suggested": [
+        {
+          "text": "I'm a pro-housing, pro-tenant candidate, and I don't see those as in tension. New development is a necessary part of solving California's housing crisis, but it has to come with real protections for the people already living here — otherwise supply alone just displaces long-time residents and prices out the workers and students who keep a college town running. In District 1, minutes from campus, that means welcoming density near transit and the BART corridor, preserving the affordable housing that already exists, including co-ops and community land trusts, and pairing new development with strong tenant protections. [DARIA: name a specific District 1 development or preservation fight to reference here.]",
+          "note": ""
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley's Inclusionary Housing Ordinance (BMC 23.328) requires 20% below-market-rate units on qualifying projects and has generated over $51 million in in-lieu fees since 2016",
+          "result": "confirmed",
+          "source": "City of Berkeley: Affordable Housing Requirements for Developers",
+          "date": "2026-07-23",
+          "note": ""
+        }
+      ],
+      "quotes": [
+        {
+          "source": "syrak",
+          "attribution": "Syrak Micael — Pro-Housing Democratic Caucus, D7 2026",
+          "text": "I believe our housing crisis will only be effectively addressed by an all-of-the-above approach, and that market-rate housing is a necessary piece of this puzzle. I believe that this is not a zero-sum game – we can and should encourage housing development at all income levels, while protecting existing and future tenants, to ultimately create a more equitable and affordable city.",
+          "relevance": "All-of-the-above framing that pairs market-rate development with tenant protections — directly on point for this question",
+          "status": "current"
+        },
+        {
+          "source": "syrak",
+          "attribution": "Syrak Micael — Pro-Housing Democratic Caucus, D7 2026",
+          "text": "I support reforming Berkeley's landmarking system to ensure it is not being misused to stall housing developments while ensuring historically significant infrastructure is restored.",
+          "relevance": "Landmarking reform framing relevant to development obstruction in Berkeley specifically",
+          "status": "current"
+        }
+      ]
     },
     {
       "id": "cbd_q6",
       "section": "Climate & Infrastructure",
       "topic": "campaign_plan",
-      "status": "blank",
+      "status": "thin",
       "question": "What steps should we take to fight climate change?",
-      "analysis": "",
+      "analysis": "Broad prompt without specified sub-areas, unlike the paired transportation question, leaving the candidate to select which levers to name. Berkeley adopted a Climate Emergency Declaration and a Fossil-Fuel-Free goal in 2018 and committed to net-zero emissions by 2045 in 2021. The city's 2019 ban on natural gas hookups in new construction was struck down by the Ninth Circuit as federally preempted in 2023 and formally repealed in 2024, so building electrification now runs through voluntary incentive and state-code channels rather than the original local ordinance. The question tests whether the candidate's climate answer reflects that legal reality rather than citing the now-defunct ban as active policy.",
       "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": []
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "The council votes on and funds the Climate Action Plan, including the Climate Equity Action Fund."
+        },
+        {
+          "tier": "authority",
+          "text": "The council sets transportation and transit investments that reduce vehicle emissions (see Vision Zero and Measure FF)."
+        },
+        {
+          "tier": "advocacy",
+          "text": "Mandatory building electrification beyond voluntary incentives is now largely a state-level fight following the Ninth Circuit's 2023 preemption ruling against Berkeley's gas ban; the council's role is advocacy for state code change, not a local ordinance."
+        }
+      ],
+      "sources": [
+        {
+          "label": "City of Berkeley: Climate Action Plan",
+          "url": "https://berkeleyca.gov/your-government/our-work/adopted-plans/berkeley-climate-action-plan"
+        },
+        {
+          "label": "Columbia Climate Law Blog: Ninth Circuit holds Berkeley's gas ban preempted",
+          "url": "https://blogs.law.columbia.edu/climatechange/2023/04/18/ninth-circuit-holds-berkeleys-gas-ban-preempted-by-u-s-energy-policy-conservation-act/"
+        }
+      ],
+      "suggested": [
+        {
+          "text": "Berkeley declared a climate emergency and committed to a fossil-fuel-free future in 2018, and to net-zero emissions by 2045 in 2021 — I would hold the city to those commitments and make sure the budget matches the ambition. That means expanding the Climate Equity Action Fund so climate investments like home electrification and e-bikes reach low-income residents first, not last, and funding the transportation shifts that cut emissions and make streets safer at the same time. [DARIA: our 2019 ban on gas hookups in new construction was struck down in federal court in 2023 and the city has since repealed it, so any building-electrification commitment here should describe what's actually still in place — voluntary incentives and state code — not the old ordinance.]",
+          "note": ""
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley adopted a Climate Emergency Declaration and Fossil-Fuel-Free goal in 2018, and committed to net-zero emissions by 2045 in 2021",
+          "result": "confirmed",
+          "source": "City of Berkeley: Climate Action Plan",
+          "date": "2026-07-23",
+          "note": ""
+        },
+        {
+          "claim": "Berkeley's 2019 ban on natural gas hookups in new construction was struck down by the Ninth Circuit as federally preempted in 2023 and formally repealed",
+          "result": "confirmed",
+          "source": "Ninth Circuit ruling coverage; City of Berkeley settlement with California Restaurant Association",
+          "date": "2026-07-23",
+          "note": "Do not cite the gas ban as active city policy in submitted copy."
+        }
+      ]
     },
     {
       "id": "cbd_q7",
       "section": "Climate & Infrastructure",
       "topic": "campaign_plan",
-      "status": "blank",
+      "status": "thin",
       "question": "In what ways (if any) should we be moving toward people-centered transportation infrastructure?",
-      "analysis": "",
+      "analysis": "Follow-up to the climate question, asking specifically about transportation. Berkeley adopted a Vision Zero Action Plan in March 2020 targeting zero traffic deaths by 2028, and voters passed Measure FF in November 2024, a parcel tax funding sidewalk and street repair; despite this, city data show slow progress toward the Vision Zero target. BerkDOT, a long-planned unarmed department that would move traffic enforcement, parking, and collision investigation out of the police department, remains stalled after a 2023 state-level setback (the SB 50 civilian traffic enforcement bill did not advance) and has no confirmed implementation timeline. The question tests whether the candidate distinguishes adopted plans and funded programs from stalled ones.",
       "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": []
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "The council funds and prioritizes Vision Zero, Bicycle Plan, and Pedestrian Plan projects and allocates Measure FF (2024) parcel-tax revenue."
+        },
+        {
+          "tier": "authority",
+          "text": "The council sets local parking policy (minimums and maximums) and approves transit-oriented development near BART and bus corridors."
+        },
+        {
+          "tier": "unverified",
+          "text": "BerkDOT's launch timeline is not confirmed; state-level civilian traffic enforcement authorization did not advance in 2023, and city status reports describe continued delay. Do not commit to a specific BerkDOT date."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Berkeleyside: Street safety activists think Berkeley is on verge of big change",
+          "url": "https://www.berkeleyside.org/2025/06/24/berkeley-street-safety-vision-zero-measure-ff"
+        },
+        {
+          "label": "Berkeley Scanner: What's happening with Measure FF, Berkeley's Safe Streets plan?",
+          "url": "https://www.berkeleyscanner.com/2025/10/14/traffic-safety/berkeley-measure-ff-safe-streets-whats-happening/"
+        },
+        {
+          "label": "City of Berkeley: Reimagining Public Safety Status Report (Oct 2024)",
+          "url": "https://berkeleyca.gov/sites/default/files/documents/2024-10-29%20Special%20Item%2001%20Reimagining%20Public%20Safety%20Status.pdf"
+        }
+      ],
+      "suggested": [
+        {
+          "text": "Berkeley adopted a Vision Zero plan in 2020 aiming to end traffic deaths by 2028, and voters backed that commitment with real money in Measure FF in 2024 — I would make sure that funding actually gets projects built, because the data show we are behind pace. I support finishing the transition to unarmed traffic enforcement through BerkDOT, which has been years in the works and deserves a real timeline rather than another delay. And I oppose parking minimums near transit; new housing close to BART and major bus lines should be built for the people who will actually live car-light, not for the cars we're trying to get people out of.",
+          "note": ""
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley adopted a Vision Zero Action Plan in March 2020 targeting zero traffic deaths by 2028",
+          "result": "confirmed",
+          "source": "Berkeleyside street-safety coverage",
+          "date": "2026-07-23",
+          "note": ""
+        },
+        {
+          "claim": "Measure FF, a parcel tax for sidewalk and street repair, passed in November 2024",
+          "result": "confirmed",
+          "source": "Berkeley Scanner Measure FF coverage",
+          "date": "2026-07-23",
+          "note": ""
+        },
+        {
+          "claim": "BerkDOT has a confirmed implementation timeline",
+          "result": "unresolved",
+          "source": "City of Berkeley Reimagining Public Safety Status Report (Oct 2024)",
+          "date": "2026-07-23",
+          "note": "No confirmed launch date; state civilian-enforcement authorization stalled in 2023. Do not commit to a specific timeline in submitted copy."
+        }
+      ],
+      "quotes": [
+        {
+          "source": "syrak",
+          "attribution": "Syrak Micael — Sierra Club, D7 2026",
+          "text": "My priority in creating a healthier and more sustainable community is to use all available means to increase public transit usage and reduce car dependency. I strongly oppose parking minimums and support parking maximums near transit. New housing must be transit-oriented wherever practicable, and parking minimums only encourage continued car use and unnecessarily drive up costs.",
+          "relevance": "Transit-first framing — parking maximums, TOD, car dependency reduction — directly applicable to a people-centered transportation question",
+          "status": "current"
+        }
+      ]
     },
     {
       "id": "cbd_q8",
       "section": "Social Policy",
       "topic": "homelessness",
-      "status": "blank",
+      "status": "thin",
       "question": "How would you work to improve the condition of homeless people in our state?",
-      "analysis": "",
+      "analysis": "The question asks about the state ('our state') even though the office is municipal; the actionable scope for a council candidate is local policy plus county coordination. Berkeley funds and coordinates with Alameda County's Measure W homelessness sales tax, which after a legal challenge became subject to Board of Supervisors allocation rather than an earmarked fund, and the city has formally requested a larger share. Berkeley's Mobile Crisis Team has closed, with crisis response shifting to the county's system, and the city's Wellness Center has also closed — both relevant to how immediate needs are met alongside housing production.",
       "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": []
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "The council funds permanent supportive and transitional housing and sets local encampment and enforcement policy."
+        },
+        {
+          "tier": "advocacy",
+          "text": "Measure W funds are allocated by the Alameda County Board of Supervisors, not automatically earmarked for Berkeley; the council's role is to formally request and advocate for the city's share, as it has already done."
+        },
+        {
+          "tier": "authority",
+          "text": "The Rental Housing Safety Program (BMC 19.40) keeps existing units habitable, functioning as upstream homelessness prevention."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Berkeleyside: Should Alameda County spend Measure W money on homelessness?",
+          "url": "https://www.berkeleyside.org/2025/07/08/measure-w-alameda-county-homelessness-berkeley"
+        },
+        {
+          "label": "Berkeleyside: Homelessness is down in Alameda County",
+          "url": "https://www.berkeleyside.org/2026/05/28/berkeley-homeless-population-alameda-county"
+        },
+        {
+          "label": "Berkeleyside: Mobile Crisis Team + winter shelter closures",
+          "url": "https://www.berkeleyside.org/2026/07/06/mobile-crisis-team-berkeley-winter-shelter-closures"
+        }
+      ],
+      "suggested": [
+        {
+          "text": "Addressing homelessness means working across the full spectrum of housing instability at once: keeping people in the homes they have, catching people on the edge of losing housing before they do, and meaningfully supporting people who are already unhoused. As a clinician, I've seen how much untreated mental illness and substance use both cause and follow from losing stable housing, which is why I don't think this is a problem policing can solve. Berkeley has shouldered more than its share of the region's mental-health and homelessness burden as a mid-sized city, and I would keep pushing Alameda County for Berkeley's fair share of Measure W funding — the sales tax voters approved specifically for this — rather than accept less support because we're smaller than Oakland. Locally, I'd protect and expand permanent supportive housing and make sure any enforcement action comes with a real place for people to go.",
+          "note": ""
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Following a legal challenge, Alameda County's Measure W homelessness funds are allocated by the Board of Supervisors as general fund dollars rather than automatically earmarked",
+          "result": "confirmed",
+          "source": "Berkeleyside Measure W coverage",
+          "date": "2026-07-23",
+          "note": ""
+        },
+        {
+          "claim": "Berkeley's unhoused and unsheltered population declined between 2022 and 2025",
+          "result": "confirmed",
+          "source": "Berkeleyside county homelessness count coverage",
+          "date": "2026-07-23",
+          "note": ""
+        }
+      ],
+      "quotes": [
+        {
+          "source": "syrak",
+          "attribution": "Syrak Micael — Cal Berkeley Democrats, D7 2026",
+          "text": "Addressing homelessness requires us to work across the entire spectrum of housing instability simultaneously, which includes preventing people from losing housing in the first place, stabilizing those on the edge, and meaningfully supporting those already without shelter.",
+          "relevance": "Same questionnaire, full-spectrum framing directly on point",
+          "status": "current"
+        },
+        {
+          "source": "syrak",
+          "attribution": "Syrak Micael — Suitcase Clinic, D7 2026",
+          "text": "Any enforcement framework must be paired with a credible answer to where people go. I propose working with Alameda County to identify alternative housing sites, both indoor and outdoor, using Measure W funding, with shower access, secure storage, and on-site counseling services for our unhoused neighbors.",
+          "relevance": "Enforcement-alternatives framing pairing any enforcement with a credible housing alternative",
+          "status": "unverified",
+          "stale_note": "Measure W funding reference has not been independently verified as applied to this specific proposal"
+        }
+      ]
     },
     {
       "id": "cbd_q9",
       "section": "Social Policy",
       "topic": "immigration",
-      "status": "blank",
+      "status": "done",
       "question": "What steps would you take to make California welcoming to immigrants?",
-      "analysis": "",
+      "analysis": "As with the development and homelessness questions, this one frames the ask at the state level though the office is municipal; the actionable scope is Berkeley's own sanctuary policy. The council passed a Sanctuary City Ordinance in September 2025 (building on a January 2025 reaffirmation resolution) that bars city departments from assisting immigration enforcement, requires equal service access regardless of status, protects personal data, and mandates council reporting within 10 business days of any federal immigration request. The question tests whether the candidate can describe concrete municipal sanctuary mechanics rather than a general statement of support.",
       "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": []
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "The council enacted and can strengthen the Sanctuary City Ordinance (barring department cooperation with ICE, protecting data, mandating reporting)."
+        },
+        {
+          "tier": "authority",
+          "text": "The council funds know-your-rights education, legal defense, and Sanctuary City Task Force operations."
+        },
+        {
+          "tier": "advocacy",
+          "text": "County-level immigrant legal-defense funding is a Board of Supervisors decision Berkeley can advocate to expand."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Daily Cal: Berkeley City Council unanimously passes sanctuary city ordinance",
+          "url": "https://www.dailycal.org/news/city/berkeley-city-council-unanimously-passes-sanctuary-city-ordinance/article_4c251009-fcf2-49f1-8144-34356c57d6c5.html"
+        },
+        {
+          "label": "Berkeleyside: Berkeley reaffirms it's a 'sanctuary city' for immigrants",
+          "url": "https://www.berkeleyside.org/2025/01/22/sanctuary-city-berkeley-immigration"
+        }
+      ],
+      "suggested": [
+        {
+          "text": "This is work I already do. I serve on Berkeley's Sanctuary City Task Force, and I co-facilitate a Bay Resistance Pod for the 94702 zip code — part of the network that responds when neighbors report enforcement activity. Berkeley passed a Sanctuary City Ordinance in 2025 that bars city departments from helping federal immigration enforcement, protects people's data, and requires the city to report to Council within 10 business days of any federal immigration request. As a councilmember I would keep that ordinance enforced without exception, fund the know-your-rights education and legal-defense resources that make it real rather than symbolic, and keep pushing Alameda County to expand immigrant legal-defense funding so Berkeley isn't carrying that work alone.",
+          "note": ""
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley passed a Sanctuary City Ordinance in September 2025 barring city cooperation with immigration enforcement and requiring reporting to Council within 10 business days of any federal immigration request",
+          "result": "confirmed",
+          "source": "Daily Cal coverage of Ordinance No. 7,984-N.S.",
+          "date": "2026-07-23",
+          "note": ""
+        }
+      ],
+      "quotes": [
+        {
+          "source": "syrak",
+          "attribution": "Syrak Micael — Cal Berkeley Democrats, D7 2026",
+          "text": "Protecting our community also requires us to work across every level of government with coordination and purpose within California. That means on the Berkeley level appointing advocates and community leaders to the Sanctuary City Task Force, working alongside the Mayor to prepare action plans, passing policy alongside the rest of city council that reacts to current events and positions Berkeley as a leader in immigrant protection across the country.",
+          "relevance": "Same questionnaire, multi-level immigrant protection framing",
+          "status": "current"
+        }
+      ]
     },
     {
       "id": "cbd_q10",
       "section": "Social Policy",
       "topic": "dei_trans_care",
-      "status": "blank",
+      "status": "thin",
       "question": "What steps would you take to support the rights of LGBTQ+ people?",
-      "analysis": "",
+      "analysis": "Cal Berkeley Democrats asks for concrete steps rather than a general statement of support. California is a legal sanctuary for gender-affirming care under SB 107, but municipal implementation — data privacy protections for gender-identity records, insurance mandates in city health contracts — is not automatic and depends on local ordinance or contract terms the council would need to adopt. No existing Berkeley ordinance mandating gender-affirming care coverage in contracted city health plans was found in this research; any commitment to such a policy is a proposal, not a description of current law.",
       "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": []
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "The council can adopt a local ordinance protecting city records related to gender identity from disclosure to out-of-state investigations."
+        },
+        {
+          "tier": "unverified",
+          "text": "Mandating gender-affirming care coverage in all city-contracted health insurance policies is a proposal; no primary source located confirming Berkeley has already adopted this."
+        },
+        {
+          "tier": "authority",
+          "text": "The council can pass a resolution reaffirming non-cooperation with out-of-state investigations targeting gender-affirming care."
+        }
+      ],
+      "sources": [
+        {
+          "label": "KQED: California becomes first sanctuary state for transgender youth seeking medical care",
+          "url": "https://www.kqed.org/news/11929233/california-becomes-first-sanctuary-state-for-transgender-youth-seeking-medical-care"
+        },
+        {
+          "label": "California Attorney General: SB 107 upheld",
+          "url": "https://oag.ca.gov/node/583699"
+        }
+      ],
+      "suggested": [
+        {
+          "text": "California is a legal sanctuary for gender-affirming care under SB 107, but that protection only means something if local governments back it up. I would push for a Berkeley ordinance that protects city records related to gender identity from disclosure to out-of-state investigations, similar to what other California cities have adopted to strengthen SB 107 locally. I would also work to require that every city-contracted health insurance plan cover gender-affirming care without exception. [DARIA: one or two sentences from the practice on what access to affirming care means for the young people treated — that's the sentence that lands hardest here.]",
+          "note": ""
+        }
+      ],
+      "verification": [
+        {
+          "claim": "California is a legal sanctuary state for gender-affirming care under SB 107",
+          "result": "confirmed",
+          "source": "KQED SB 107 coverage",
+          "date": "2026-07-23",
+          "note": ""
+        },
+        {
+          "claim": "Berkeley has adopted an ordinance mandating gender-affirming care coverage in all city-contracted health insurance plans",
+          "result": "unresolved",
+          "source": "None located in this research",
+          "date": "2026-07-23",
+          "note": "No primary source found; frame as a candidate proposal in any submitted copy, not as existing Berkeley policy."
+        }
+      ],
+      "quotes": [
+        {
+          "source": "syrak",
+          "attribution": "Syrak Micael — Cal Berkeley Democrats, D7 2026",
+          "text": "I will push for Berkeley to adopt LGBTQ+ sanctuary city policies in practice and policy, including robust privacy protections for city records concerning gender identity and mandating, as cities like Boston have done, that all contracted city health insurance policies include coverage for gender-affirming care.",
+          "relevance": "Same questionnaire, specific policy framing — privacy protections plus insurance mandate with Boston precedent",
+          "status": "current"
+        }
+      ]
     },
     {
       "id": "cbd_q11",
       "section": "Public Safety",
       "topic": "campaign_plan",
-      "status": "blank",
+      "status": "thin",
       "question": "What steps would you take in order to reduce crime in California?",
-      "analysis": "",
+      "analysis": "Broad prompt with no sub-focus specified. Berkeley's 2025 crime data (shootings down 40%, robberies down 20%, overall Group A offenses down 11%) show a declining-crime backdrop against which the question is likely read; Cal Berkeley Democrats' progressive base is more likely to weigh root-cause and non-carceral framing (housing, behavioral health, unarmed response infrastructure) than an enforcement-only answer. BerkDOT and behavioral health funding are the concrete municipal levers within this broad ask.",
       "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": []
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "The council sets the police department's budget and staffing levels and funds targeted programs like the department's Flex Team."
+        },
+        {
+          "tier": "authority",
+          "text": "The council funds housing and behavioral health (BHSA) investments that address root-cause drivers of crime."
+        },
+        {
+          "tier": "unverified",
+          "text": "BerkDOT's rollout timeline remains unresolved; do not commit to a specific date."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Berkeleyside: Berkeley crime fell in 2025, car crashes down as well",
+          "url": "https://www.berkeleyside.org/2026/03/27/berkeley-police-crime-data"
+        },
+        {
+          "label": "Berkeley Scanner: Berkeley crime was down again in 2025",
+          "url": "https://www.berkeleyscanner.com/2025/12/27/crime/berkeley-crime-recap-2025/"
+        }
+      ],
+      "suggested": [
+        {
+          "text": "Berkeley's crime numbers actually fell significantly in 2025 — shootings down 40%, robberies down 20%, overall offenses down 11% — and I want to build on that by investing further upstream rather than treating it as a reason to pull back. Crime is largely a symptom of structural failure: unaddressed poverty, housing insecurity, and untreated mental illness. I would keep funding the behavioral health and housing investments that get at root causes, support finishing Berkeley's long-planned transition to unarmed traffic and crisis response through BerkDOT, and make sure our public safety budget reflects that a safer Berkeley is a more stable Berkeley, not just a more policed one.",
+          "note": ""
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley crime declined broadly in 2025 — shootings down 40%, robberies down 20%, overall offenses down 11%",
+          "result": "confirmed",
+          "source": "Berkeleyside BPD 2025 crime data coverage",
+          "date": "2026-07-23",
+          "note": ""
+        }
+      ],
+      "quotes": [
+        {
+          "source": "syrak",
+          "attribution": "Syrak Micael — EBDSA, D7 2026",
+          "text": "Crime is a manifestation of structural failure and a predictable consequence of a society that has allowed poverty, housing insecurity, food deprivation, and untreated mental illness to go unaddressed while expecting those bearing the weight of that to simply endure.",
+          "relevance": "Root-cause crime framing directly applicable to a broad crime-reduction question",
+          "status": "current"
+        }
+      ]
     },
     {
       "id": "cbd_q12",
       "section": "Public Safety",
       "topic": "campaign_plan",
-      "status": "blank",
+      "status": "thin",
       "question": "In what ways would you seek reform in our policing and justice systems?",
-      "analysis": "",
+      "analysis": "Follow-up to the crime question, asking specifically about police and justice system reform. Berkeley's Police Accountability Board, created by charter amendment (Measure II, 2020), has faced ongoing friction — including police refusal to turn over records without a subpoena and, as of January 2026, the resignation of board members amid disputes over final regulations. Separately, the council voted in May 2026 to reject a roughly $2 million surveillance expansion with Flock Safety (cameras, drones, and software) while narrowly renewing the existing license-plate-reader lease for up to another year. Both are live, unresolved fights rather than settled policy, which the answer should reflect accurately rather than describing as already resolved.",
       "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": []
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "The council appoints Police Accountability Board members and controls the budget and staff support that shape the board's leverage in its ongoing negotiations."
+        },
+        {
+          "tier": "authority",
+          "text": "The council votes on surveillance contracts, as it did in rejecting the 2026 Flock Safety expansion."
+        },
+        {
+          "tier": "advocacy",
+          "text": "The Police Accountability Board's subpoena and record-access authority depends on the outcome of negotiations with the police union; the council can direct resources to support the board's position but cannot unilaterally resolve it."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Berkeleyside: What future does police accountability have in Berkeley?",
+          "url": "https://www.berkeleyside.org/2026/02/25/berkeley-police-accountability-future"
+        },
+        {
+          "label": "KQED: Berkeley extends surveillance contract with Flock Safety but rejects major expansion",
+          "url": "https://www.kqed.org/news/12082887/berkeley-extends-surveillance-contract-with-flock-safety-but-rejects-major-expansion"
+        }
+      ],
+      "suggested": [
+        {
+          "text": "Berkeley created the Police Accountability Board by charter amendment in 2020, and it's still fighting for basic tools — the police department has repeatedly refused to turn over records without a subpoena, and board members resigned in early 2026 over disputes about the board's own working rules. I would use the council's budget and appointment power to back the board's push for real subpoena and record-access authority, not leave it to negotiate alone. On surveillance, I supported pulling back the roughly $2 million Flock Safety expansion the council rejected this year; a sanctuary city should not be adding cameras and drones that a federal agency could eventually access. I'd rather put that money into oversight and de-escalation than into more surveillance infrastructure.",
+          "note": ""
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley's Police Accountability Board has faced repeated difficulty obtaining police records without a subpoena, and board members resigned in January 2026",
+          "result": "confirmed",
+          "source": "Berkeleyside Police Accountability Board coverage",
+          "date": "2026-07-23",
+          "note": ""
+        },
+        {
+          "claim": "Council voted in May 2026 to reject a roughly $2 million Flock Safety surveillance expansion while renewing the existing license-plate-reader lease for up to 12 months",
+          "result": "confirmed",
+          "source": "KQED Flock Safety coverage",
+          "date": "2026-07-23",
+          "note": ""
+        }
+      ],
+      "quotes": [
+        {
+          "source": "syrak",
+          "attribution": "Syrak Micael — Planned Parenthood, D7 2026",
+          "text": "I believe that safety does not come from more police, but comes from people's basic needs being met. To this end, I will prioritize de-militarization of Berkeley PD, increased police oversight, and fight to end the city's contract with the mass surveillance company Flock. I will also fight to maintain our city's sanctuary status and prevent law enforcement from collaborating with ICE or other immigration authorities.",
+          "relevance": "Anti-carceral policing reform framing — demilitarization, oversight, Flock opposition — directly on point",
+          "status": "current"
+        }
+      ]
     },
     {
       "id": "cbd_q13",
       "section": "Housing",
       "topic": "rent_control",
-      "status": "blank",
+      "status": "done",
       "question": "Would you support a repeal of Costa-Hawkins?",
-      "analysis": "",
+      "analysis": "Direct litmus question on state Costa-Hawkins repeal. Berkeley has an independently elected Rent Board administering local rent stabilization, which is the local-authority context Costa-Hawkins constrains by exempting single-family homes, condos, and post-1995 construction from local rent control and mandating vacancy decontrol. California voters have rejected repeal three times, most recently Proposition 33 in November 2024. Repeal itself is a state legislative or ballot matter outside council authority; the council's role is confined to advocacy (resolutions, lobbying the state delegation) plus the local rent protections the Rent Board and council can act on within current law.",
       "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": []
+      "levers": [
+        {
+          "tier": "advocacy",
+          "text": "Costa-Hawkins repeal is a state matter; the council can pass resolutions and lobby the state delegation but cannot repeal it directly. Voters rejected repeal three times, most recently Proposition 33 (2024)."
+        },
+        {
+          "tier": "authority",
+          "text": "Berkeley's elected Rent Board and council retain local rent-stabilization authority within current Costa-Hawkins limits, including the 2024 Measure BB changes to just-cause grounds and rent-increase caps."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Ballotpedia: California Proposition 33 (2024)",
+          "url": "https://ballotpedia.org/California_Proposition_33,_Prohibit_State_Limitations_on_Local_Rent_Control_Initiative_(2024)"
+        },
+        {
+          "label": "CalMatters: Prop 33 result and the local path",
+          "url": "https://calmatters.org/politics/2024/11/california-election-results-prop-33-rent-control/"
+        },
+        {
+          "label": "Berkeley Rent Stabilization Board",
+          "url": "https://rentboard.berkeleyca.gov/"
+        }
+      ],
+      "suggested": [
+        {
+          "text": "Yes, unequivocally. Costa-Hawkins strips cities like Berkeley of the authority to protect our own tenants — it exempts single-family homes, condos, and anything built after 1995 from local rent control, and it forces vacancy decontrol, letting rent reset to market rate the moment a unit turns over. Repeal wouldn't impose rent control anywhere; it would just restore the ability of local governments to write the tenant protections that fit their own communities. California voters have rejected repeal three times, most recently Proposition 33 in 2024, so in the near term I'd focus on what's still in our hands: working with Berkeley's independently elected Rent Board to strengthen local protections within current law, while continuing to push for repeal at the state level.",
+          "note": ""
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley has an independently elected Rent Board administering local rent stabilization",
+          "result": "confirmed",
+          "source": "Berkeley Rent Stabilization Board",
+          "date": "2026-07-23",
+          "note": ""
+        },
+        {
+          "claim": "California voters rejected Costa-Hawkins repeal three times, most recently Proposition 33 in November 2024",
+          "result": "confirmed",
+          "source": "Ballotpedia Proposition 33 page",
+          "date": "2026-07-23",
+          "note": ""
+        }
+      ],
+      "quotes": [
+        {
+          "source": "syrak",
+          "attribution": "Syrak Micael — Cal Berkeley Democrats, D7 2026",
+          "text": "Yes, unequivocally. Costa-Hawkins functionally strips cities like Berkeley of the democratic authority to protect their own tenants through exempting all post-1995 construction, single-family homes, and condos from local rent control, and mandating vacancy decontrol that allows landlords to reset rents to market rate the moment a unit turns over, eviscerating the stability that rent control is meant to provide.",
+          "relevance": "Same questionnaire, most detailed Costa-Hawkins critique — names specific exemptions and vacancy decontrol mechanism",
+          "status": "current"
+        },
+        {
+          "source": "syrak",
+          "attribution": "Syrak Micael — Cal Berkeley Democrats, D7 2026",
+          "text": "Repealing Costa-Hawkins would not impose rent control anywhere, but rather restore the sovereignty to local governments to craft the tenant protections that are personalized to what their communities need.",
+          "relevance": "Same questionnaire, frames repeal as restoring local authority rather than imposing regulation",
+          "status": "current"
+        }
+      ]
     },
     {
       "id": "cbd_q14",
       "section": "Foreign Policy",
       "topic": "campaign_plan",
-      "status": "blank",
+      "status": "thin",
       "question": "Under what circumstances, if any, do you support foreign military aid or intervention?",
-      "analysis": "",
+      "analysis": "Entirely outside municipal authority — a Berkeley City Council seat has no jurisdiction over foreign military aid or intervention, which are federal executive and congressional powers. Questions like this on local candidate questionnaires typically function as a values check via the council's resolution and public-statement power rather than a policy-implementation question, consistent with Berkeley's well-documented history of using council resolutions to state positions on national and international matters. The honest framing names that limit explicitly rather than answering as though the office carries formal foreign-policy authority.",
       "references": [],
-      "levers": [],
+      "levers": [
+        {
+          "tier": "advocacy",
+          "text": "Foreign military aid and intervention are entirely outside council authority; the only available tool is a symbolic council resolution or public statement."
+        }
+      ],
       "sources": [],
-      "suggested": []
+      "suggested": [
+        {
+          "text": "A Berkeley City Council seat carries no authority over foreign military aid or intervention — that power sits with Congress and the executive branch, and I'd rather say that plainly than pretend the office has a formal role it doesn't. What the seat does carry is a voice: Berkeley has a long history of using council resolutions to state where it stands on national and international issues, and I would use that platform [DARIA: state the actual position — what circumstances, if any, warrant foreign military aid or intervention, and why]. Where the council does have real leverage is closer to home: opposing city contracts or investments tied to conduct I oppose abroad, and making sure Berkeley's own voice, through resolutions, reflects the values of the people I represent.",
+          "note": ""
+        }
+      ]
     },
     {
       "id": "cbd_q15",
       "section": "Housing",
       "topic": "rent_control",
-      "status": "blank",
+      "status": "thin",
       "question": "What steps would you take to protect the rights of renters?",
-      "analysis": "",
+      "analysis": "Broader companion question to the Costa-Hawkins question, asking about local renter-protection steps generally. Berkeley voters passed Measure BB in November 2024, amending the Rent Ordinance to modify just-cause eviction grounds, cap annual rent increases at 5%, extend coverage to previously exempt subsidized units, and require landlords to confer with tenant associations. Separately, the council voted against adopting the Tenant Opportunity to Purchase Act (TOPA) in October 2024; the matter has since been referred to the City Manager, with amended language reportedly being reintroduced, though this research could not confirm the current status from a primary source. The question tests whether the candidate can distinguish enacted renter protections (Measure BB, the Rent Board) from ones still in progress (TOPA).",
       "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": []
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "The council and the elected Rent Board administer and can strengthen local tenant protections, including the 2024 Measure BB changes (just-cause grounds, 5% rent-increase cap, expanded coverage)."
+        },
+        {
+          "tier": "authority",
+          "text": "The council can fund tenant right-to-counsel and anti-harassment enforcement within existing Rent Ordinance authority."
+        },
+        {
+          "tier": "unverified",
+          "text": "TOPA's path forward is unresolved after the October 2024 council vote against it; do not describe TOPA as enacted or commit to a specific reintroduction timeline."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Berkeley Rent Board: Measure BB Changes to Berkeley's Rent Ordinance",
+          "url": "https://rentboard.berkeleyca.gov/laws-regulations/measure-bb-changes-berkeleys-rent-ordinance"
+        },
+        {
+          "label": "Daily Cal: City Council votes against Tenant Opportunity Purchase Act",
+          "url": "https://www.dailycal.org/news/city/city-government/city-council-votes-against-tenant-opportunity-purchase-act/article_6fe2f5b6-8076-11ef-883e-e363616ab9ef.html"
+        }
+      ],
+      "suggested": [
+        {
+          "text": "Berkeley voters already strengthened renter protections once this cycle — Measure BB, passed in November 2024, capped annual rent increases at 5%, tightened just-cause eviction grounds, and brought previously exempt subsidized units under the Rent Ordinance. I'd build on that: working with our elected Rent Board to enforce those changes, funding tenant right-to-counsel and anti-harassment enforcement, and continuing to push for the Tenant Opportunity to Purchase Act, which would give tenants and community land trusts the right of first refusal when a rental property goes up for sale. Council voted against TOPA in 2024, but the fight for a version that works isn't over, and I'd support bringing it back.",
+          "note": ""
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Measure BB passed in November 2024, capping annual rent increases at 5%, modifying just-cause eviction grounds, and expanding Rent Ordinance coverage to previously exempt subsidized units",
+          "result": "confirmed",
+          "source": "Berkeley Rent Board Measure BB page",
+          "date": "2026-07-23",
+          "note": ""
+        },
+        {
+          "claim": "Council voted against TOPA in October 2024",
+          "result": "confirmed",
+          "source": "Daily Cal TOPA vote coverage",
+          "date": "2026-07-23",
+          "note": ""
+        },
+        {
+          "claim": "TOPA was referred to the City Manager in February 2026 and amended language is being reintroduced",
+          "result": "unresolved",
+          "source": "None located in this research beyond internal campaign notes",
+          "date": "2026-07-23",
+          "note": "Confirm current TOPA status against a council agenda or City Manager office source before citing a specific timeline in submitted copy."
+        }
+      ],
+      "quotes": [
+        {
+          "source": "syrak",
+          "attribution": "Syrak Micael — CA Democratic Renters Council, D7 2026",
+          "text": "I support rent control and believe it is a necessary measure to keep costs down. I also support changing state law to strengthen tenants rights. That includes repealing Costa-Hawkins and the Ellis Act and to allow for vacancy control so that a change in tenancies does not cause the cost to rent a unit to skyrocket.",
+          "relevance": "Concise rent control plus vacancy control framing for a general renter-protection question",
+          "status": "current"
+        },
+        {
+          "source": "syrak",
+          "attribution": "Syrak Micael — UAW Region 6, D7 2026",
+          "text": "On eviction prevention, I support the Tenant Opportunity to Purchase Act as presented by the Yes2TOPA coalition giving tenants and community land trusts the right of first refusal when a property is listed for sale.",
+          "relevance": "TOPA framing — right of first refusal for tenants and community land trusts",
+          "status": "current"
+        }
+      ]
     },
     {
       "id": "cbd_q16",
       "section": "Campaign",
       "topic": "campaign_plan",
-      "status": "blank",
+      "status": "thin",
       "question": "Have you accepted contributions from Corporate PACS or police unions? (Please specify.)",
-      "analysis": "",
+      "analysis": "Factual disclosure question about the candidate's own campaign finance activity, not a policy position — it asks what contributions the candidate has actually accepted. Berkeley's Fair Elections Fund (BMC Chapter 2.12, established by Measure X1 in 2016) offers participating candidates 6:1 public matching on contributions up to $60 from Berkeley residents; whether the candidate is participating in that program is directly relevant context for this question, since public-financing program rules typically restrict the kinds of contributions being asked about here.",
       "references": [],
       "levers": [],
-      "sources": [],
-      "suggested": []
+      "sources": [
+        {
+          "label": "Berkeley Charter: Fair Elections Fund (6.2)",
+          "url": "https://berkeley.municipal.codes/Charter/6.2"
+        },
+        {
+          "label": "Berkeley Municipal Code 2.12.500: Eligibility for Fair Elections campaign funding",
+          "url": "https://berkeley.municipal.codes/BMC/2.12.500"
+        }
+      ],
+      "suggested": [],
+      "verification": [
+        {
+          "claim": "Berkeley's Fair Elections Fund provides 6:1 public matching on contributions up to $60 from Berkeley residents for participating candidates",
+          "result": "confirmed",
+          "source": "Berkeley Municipal Code 2.12.500 / Berkeley Charter 6.2",
+          "date": "2026-07-23",
+          "note": ""
+        }
+      ]
     }
   ]
 }

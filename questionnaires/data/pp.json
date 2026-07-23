@@ -22,9 +22,9 @@
       "id": "pp_q1",
       "section": "Campaign Viability",
       "topic": "campaign_plan",
-      "status": "blank",
+      "status": "thin",
       "question": "Fundraising: What are the projected funds needed to win? What funds have you raised to date versus your cash on hand? What is your strategy for reaching your fundraising goal?",
-      "analysis": "",
+      "analysis": "Standard viability question assessing whether the campaign can financially compete. Berkeley's Fair Elections public financing system is the relevant local mechanism — the matching-funds trigger is the key threshold for a District 1 council race, and PP is likely weighing whether the campaign has a credible path to that threshold rather than expecting a specific dollar figure.",
       "references": [],
       "levers": [],
       "sources": [],
@@ -34,9 +34,9 @@
       "id": "pp_q2",
       "section": "Campaign Viability",
       "topic": "endorsements",
-      "status": "blank",
+      "status": "thin",
       "question": "Support: What groups, organizations and prominent individuals will support you?",
-      "analysis": "",
+      "analysis": "PP uses this to map the candidate's coalition strength ahead of endorsement, similar to how a labor union reads an endorsement list as a coalition map. Named groups, elected officials, and individual supporters signal how much political capital the endorsement adds and whether PP's endorsement would stand alongside other credible institutional support.",
       "references": [],
       "levers": [],
       "sources": [],
@@ -46,9 +46,9 @@
       "id": "pp_q3",
       "section": "Campaign Viability",
       "topic": "campaign_plan",
-      "status": "blank",
+      "status": "thin",
       "question": "Opposition: What groups, organizations and prominent individuals will oppose you?",
-      "analysis": "",
+      "analysis": "Standard viability question identifying likely opposition sources — a real-estate or landlord-aligned group, a law-and-order-aligned group, or a specific opposing candidate's coalition. PP reads this to gauge how contested the race will be and whether its endorsement would be a meaningful counterweight.",
       "references": [],
       "levers": [],
       "sources": [],
@@ -58,9 +58,9 @@
       "id": "pp_q4",
       "section": "Background",
       "topic": "background_bio",
-      "status": "blank",
+      "status": "thin",
       "question": "Have you ever been a volunteer or staff member with Planned Parenthood or collaborated with Planned Parenthood as a community partner? If so, please share your experience if comfortable doing so.",
-      "analysis": "",
+      "analysis": "PP asks whether the candidate has direct organizational history with Planned Parenthood, which the org treats as a strong affinity signal separate from general policy alignment. The question explicitly allows declining to share if not comfortable, which suggests PP does not require an affirmative answer to endorse — only clarity about whether the relationship exists.",
       "references": [],
       "levers": [],
       "sources": [],
@@ -70,9 +70,9 @@
       "id": "pp_q5",
       "section": "Background",
       "topic": "background_bio",
-      "status": "blank",
+      "status": "thin",
       "question": "What aspects of your life and work to date demonstrate your ability to be effective as an elected leader?",
-      "analysis": "",
+      "analysis": "Open-ended leadership-capacity question. For a reproductive-health-focused endorser, clinical, organizing, or advocacy experience that demonstrates judgment under pressure and coalition-building is likely to carry more weight than generic leadership language.",
       "references": [],
       "levers": [],
       "sources": [],
@@ -82,21 +82,26 @@
       "id": "pp_q6",
       "section": "Background",
       "topic": "campaign_plan",
-      "status": "blank",
+      "status": "thin",
       "question": "What do you think the three top major issues in your race will be?",
-      "analysis": "",
+      "analysis": "Unlike the neighboring fundraising and support questions, this asks for the candidate's own analysis and prediction rather than reportable campaign data. PP is using it as a proxy for whether reproductive and behavioral health access will feature prominently in how the candidate frames the race, or whether it will be left out of the top-line pitch entirely.",
       "references": [],
       "levers": [],
       "sources": [],
-      "suggested": []
+      "suggested": [
+        {
+          "text": "I expect the top three issues in this race to be housing affordability and the cost of living in Berkeley, public safety balanced with civil liberties, and access to behavioral and reproductive health care as core city services rather than afterthoughts. [Add any opponent-specific dynamics once the field is set.]",
+          "note": ""
+        }
+      ]
     },
     {
       "id": "pp_q7",
       "section": "Background",
       "topic": "background_bio",
-      "status": "blank",
+      "status": "thin",
       "question": "Have you ever been accused of, faced discipline for, or entered a settlement related to misconduct or harassment (especially with regards to race, sex, sexual orientation, or gender identity)? If yes, please elaborate.",
-      "analysis": "",
+      "analysis": "Standard vetting question common to endorsement questionnaires, phrased with explicit attention to race, sex, sexual orientation, and gender identity given PP's constituency and mission. This must be answered directly by the candidate rather than drafted on the candidate's behalf.",
       "references": [],
       "levers": [],
       "sources": [],
@@ -106,166 +111,562 @@
       "id": "pp_q8",
       "section": "Policy Pledges",
       "topic": "healthcare_standards",
-      "status": "blank",
+      "status": "done",
       "question": "1. Do you support the passage of federal legislation that guarantees rights and access to abortion without political interference, as outlined above?",
-      "analysis": "",
+      "analysis": "Litmus pledge question. PP is asking about federal legislation guaranteeing abortion rights nationally, most likely in the vein of the Women's Health Protection Act, which would codify Roe-era protections in federal statute. The phrase \"as outlined above\" references the source questionnaire's own preamble, which was not captured in this port — the specific bill referenced should be confirmed against the original document before final submission. A Berkeley city council seat has no vote on federal legislation; the honest local answer pairs unqualified support with an accurate account of the seat's actual reach.",
       "references": [],
-      "levers": [],
+      "levers": [
+        {
+          "tier": "advocacy",
+          "text": "A council seat has no vote on federal legislation. The available levers are a supportive resolution and using the office to advocate to the congressional delegation."
+        }
+      ],
       "sources": [],
-      "suggested": []
+      "suggested": [
+        {
+          "text": "Yes. I support federal legislation that guarantees the right to abortion and blocks political interference with it, restoring the protections Roe once provided nationwide. A council seat has no vote on federal law, but I would use the office to advocate to our congressional delegation and support resolutions affirming Berkeley's position.",
+          "note": ""
+        }
+      ]
     },
     {
       "id": "pp_q9",
       "section": "Policy Pledges",
       "topic": "healthcare_standards",
-      "status": "blank",
+      "status": "done",
       "question": "2. Will you oppose TRAP laws and other restrictions on abortion access?",
-      "analysis": "",
+      "analysis": "Litmus pledge on Targeted Regulation of Abortion Providers (TRAP) laws — regulations, often building or licensing requirements, that impose extra burdens on abortion clinics beyond what applies to comparable outpatient medical facilities. TRAP laws are typically state regulatory or statutory tools; Berkeley's own zoning and permitting authority over medical clinics is the one place a local TRAP-like restriction could arise, which gives the council a genuine, narrow local role alongside the state-level pledge.",
       "references": [],
-      "levers": [],
+      "levers": [
+        {
+          "tier": "advocacy",
+          "text": "Most TRAP laws are state regulatory or statutory tools that a council does not control."
+        },
+        {
+          "tier": "authority",
+          "text": "Council controls Berkeley's own zoning and permitting for medical clinics and can commit to not imposing siting or licensing burdens on reproductive health clinics beyond what applies to any comparable outpatient facility."
+        }
+      ],
       "sources": [],
-      "suggested": []
+      "suggested": [
+        {
+          "text": "Yes. TRAP laws single out abortion providers with medical, staffing, or facility requirements that have little to do with patient safety and everything to do with closing clinics through red tape. I oppose them at the state level, and locally I would make sure Berkeley's own zoning and permitting never becomes a backdoor version of the same thing — a reproductive health clinic should face the same siting and licensing standards as any other outpatient medical office, no more.",
+          "note": ""
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Council controls Berkeley's own zoning and permitting for medical clinics",
+          "result": "confirmed",
+          "source": "Generic charter city structural authority",
+          "date": "2026-07-23",
+          "note": "Generic municipal power."
+        }
+      ]
     },
     {
       "id": "pp_q10",
       "section": "Policy Pledges",
       "topic": "healthcare_standards",
-      "status": "blank",
+      "status": "done",
       "question": "3. Will you support public funding (federal, state, and local) for comprehensive sexual and reproductive health care, including abortion services, for all individuals who rely on the government for their health care services?",
-      "analysis": "",
+      "analysis": "Pledge question spanning all three levels of government. The local component is real and often overlooked: Berkeley's Public Health Division already funds reproductive and sexual health programming directly, including a revenue grant agreement with Essential Access Health and the SHIFT teen sexual health education program at Berkeley High School, so this is not solely a state or federal ask for this jurisdiction.",
       "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": []
+      "levers": [
+        {
+          "tier": "advocacy",
+          "text": "Federal Medicaid funding for abortion is governed by the Hyde Amendment, and state funding levels are set by the Legislature; a council seat can only advocate at those levels."
+        },
+        {
+          "tier": "authority",
+          "text": "Berkeley's Public Health Division already receives and allocates funding — including a revenue grant agreement with Essential Access Health — for reproductive and sexual health services, and the council approves that budget and any expansion of it."
+        }
+      ],
+      "sources": [
+        {
+          "label": "City of Berkeley Council Item: Revenue Grant Agreement — Funding Support (June 3, 2025)",
+          "url": "https://berkeleyca.gov/sites/default/files/documents/2025-06-03%20Item%2008%20Revenue%20Grant%20Agreement%20%20Funding%20Support.pdf"
+        },
+        {
+          "label": "The Center Square: federally-funded teen-led sex ed program (SHIFT) in Berkeley",
+          "url": "https://www.thecentersquare.com/california/article_5872f867-a29b-5f20-8abe-e47d6d6360ba.html"
+        }
+      ],
+      "suggested": [
+        {
+          "text": "Yes, at every level. Locally, this is not abstract — Berkeley's Public Health Division already funds reproductive and sexual health services directly, including a grant agreement with Essential Access Health and the SHIFT program, which provides teen-led sexual health education at Berkeley High School. I would protect and grow that local funding, and use the council's voice to push the state and federal government to fund abortion care for everyone who relies on public coverage, not just those who can pay out of pocket.",
+          "note": ""
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley's Public Health Division has a revenue grant agreement with Essential Access Health for reproductive health services and funds the SHIFT teen sexual health education program",
+          "result": "confirmed",
+          "source": "City of Berkeley Council Item: Revenue Grant Agreement — Funding Support (June 3, 2025); The Center Square SHIFT coverage",
+          "date": "2026-07-23",
+          "note": ""
+        }
+      ]
     },
     {
       "id": "pp_q11",
       "section": "Policy Pledges",
       "topic": "healthcare_standards",
-      "status": "blank",
+      "status": "done",
       "question": "4. Will you support additional investments needed to expand access to care for in and out-of-state patients?",
-      "analysis": "",
+      "analysis": "Pledge on expanding investment in access for both in-state and out-of-state patients. California has allocated over $200 million since 2022-23 toward abortion access and provider support, including an Abortion Practical Support Fund that pays for travel, lodging, and related costs and was expanded in 2022 to cover out-of-state travel. That state investment is the primary vehicle; a council seat's role is advocacy for its continuation plus whatever the city itself can add through its own health budget.",
       "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": []
+      "levers": [
+        {
+          "tier": "advocacy",
+          "text": "The Abortion Practical Support Fund and the broader $200M+ state investment are budget decisions made by the Legislature and Governor, not the council."
+        },
+        {
+          "tier": "authority",
+          "text": "The council allocates Berkeley's own Public Health Division budget and can direct a portion of it toward practical support, such as transportation or system navigation, for patients traveling to Berkeley-area providers, the same way it already funds other targeted health programs."
+        }
+      ],
+      "sources": [
+        {
+          "label": "KQED: California budget to cover some out-of-state abortion travel",
+          "url": "https://www.kqed.org/news/11923873/california-budget-to-cover-some-out-of-state-abortion-travel"
+        },
+        {
+          "label": "Governor of California: California Expands Access and Protections for Reproductive Health Care (2023)",
+          "url": "https://www.gov.ca.gov/2023/09/27/california-expands-access-and-protections-for-reproductive-health-care/"
+        }
+      ],
+      "suggested": [
+        {
+          "text": "Yes. California has already put more than $200 million behind abortion access and practical support since 2022, including a fund that pays for travel, lodging, and related costs for patients coming from out of state after Dobbs. I support continuing and growing that investment, and at the city level I would look at directing part of Berkeley's own Public Health Division budget toward practical support, such as transportation and system navigation, for patients reaching Berkeley-area providers, the same way the city already funds other targeted health programs.",
+          "note": ""
+        }
+      ],
+      "verification": [
+        {
+          "claim": "California's Abortion Practical Support Fund was expanded in 2022 to cover out-of-state travel, and California has allocated over $200 million since 2022-23 toward abortion access and provider support",
+          "result": "confirmed",
+          "source": "KQED: California budget to cover some out-of-state abortion travel (2022)",
+          "date": "2026-07-23",
+          "note": ""
+        },
+        {
+          "claim": "Council allocates Berkeley's Public Health Division budget",
+          "result": "confirmed",
+          "source": "Generic charter city structural authority (budget)",
+          "date": "2026-07-23",
+          "note": "Generic municipal power."
+        }
+      ]
     },
     {
       "id": "pp_q12",
       "section": "Policy Pledges",
       "topic": "healthcare_standards",
-      "status": "blank",
+      "status": "done",
       "question": "5. Will you support a minor's right to access confidential services, such as family planning, abortion, prenatal care, and sexually transmitted infection screening and treatment, including a minor's release from school to obtain these services?",
-      "analysis": "",
+      "analysis": "The question bundles two separate things: a minor's right to consent to confidential reproductive health services, and a minor's release from school to obtain them. Both are already established outside city council's reach. California's constitutional right of privacy — confirmed in American Academy of Pediatrics v. Lungren (1997) — bars the state from requiring parental consent for a minor's abortion, and Family Code 6925 already allows minors to consent confidentially to contraception and pregnancy-related care. School release for confidential medical appointments is governed by Education Code 46010.1, which applies to school districts, not city councils — in Berkeley that authority sits with the elected Berkeley Unified School District board, a body separate from the city council.",
       "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": []
+      "levers": [
+        {
+          "tier": "advocacy",
+          "text": "Minors' confidential consent rights are already settled by California constitutional law and statute; a council seat's role is defending those rights from erosion, not creating them."
+        },
+        {
+          "tier": "advocacy",
+          "text": "School release policy is set by the Berkeley Unified School District's elected board, not the city council; a councilmember can support BUSD's implementation but does not control it."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Justia: California Family Code § 6925",
+          "url": "https://law.justia.com/codes/california/2022/code-fam/division-11/part-4/chapter-3/section-6925/"
+        },
+        {
+          "label": "FindLaw: American Academy of Pediatrics v. Lungren (1997)",
+          "url": "https://caselaw.findlaw.com/court/ca-supreme-court/1122242.html"
+        },
+        {
+          "label": "Berkeley Unified School District: Annual Notice to Parents and Guardians",
+          "url": "https://www.berkeleyschools.net/handbook/annual-notice/"
+        }
+      ],
+      "suggested": [
+        {
+          "text": "Yes, without qualification. California law already protects a minor's right to consent confidentially to family planning, abortion, prenatal care, and STI screening and treatment, and I would fight any attempt to weaken that. School release for these appointments is set by the Berkeley Unified School District's elected board rather than the city council, but I would be a vocal ally to BUSD in defending it and would use the council's platform to push back on any state or federal effort to roll these protections back.",
+          "note": ""
+        }
+      ],
+      "verification": [
+        {
+          "claim": "California constitutional law (AAP v. Lungren, 1997) bars the state from requiring parental consent for a minor's abortion, and minors can already consent confidentially to contraception and pregnancy-related care under Family Code 6925",
+          "result": "confirmed",
+          "source": "American Academy of Pediatrics v. Lungren, 16 Cal.4th 307 (1997); Cal. Family Code § 6925",
+          "date": "2026-07-23",
+          "note": ""
+        },
+        {
+          "claim": "Minor release from school for confidential medical services is governed by Education Code 46010.1, administered by the school district rather than the city council",
+          "result": "confirmed",
+          "source": "Berkeley Unified School District Annual Notice to Parents and Guardians",
+          "date": "2026-07-23",
+          "note": "BUSD is a separately elected body from Berkeley City Council."
+        }
+      ]
     },
     {
       "id": "pp_q13",
       "section": "Policy Pledges",
       "topic": "healthcare_standards",
-      "status": "blank",
+      "status": "done",
       "question": "6. Will you support the active monitoring, enforcement, and funding of current California laws requiring sex ed?",
-      "analysis": "",
+      "analysis": "The California Healthy Youth Act (AB 329, 2016) requires comprehensive sexual health and HIV-prevention education in grades 7-12; compliance and curriculum selection sit with the school district's elected board and the California Department of Education, not the city council. Berkeley's city government does have its own separate funding role here: the Public Health Division funds the SHIFT teen-led sexual health education program at Berkeley High School and holds a grant agreement with Essential Access Health for reproductive health services and education, which is real local funding distinct from the school district's compliance obligation.",
       "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": []
+      "levers": [
+        {
+          "tier": "advocacy",
+          "text": "Compliance with the California Healthy Youth Act and curriculum selection are set by the Berkeley Unified School District's elected board and the California Department of Education, not the city council."
+        },
+        {
+          "tier": "authority",
+          "text": "The council approves Berkeley's Public Health Division budget, which already funds the SHIFT teen sexual health education program and a grant agreement with Essential Access Health — real, separate local funding for sex education that the council controls directly."
+        }
+      ],
+      "sources": [
+        {
+          "label": "OCDE: Six questions and answers about the California Healthy Youth Act",
+          "url": "https://newsroom.ocde.us/six-questions-and-answers-about-the-california-healthy-youth-act/"
+        },
+        {
+          "label": "City of Berkeley Council Item: Revenue Grant Agreement — Funding Support (June 3, 2025)",
+          "url": "https://berkeleyca.gov/sites/default/files/documents/2025-06-03%20Item%2008%20Revenue%20Grant%20Agreement%20%20Funding%20Support.pdf"
+        },
+        {
+          "label": "The Center Square: federally-funded teen-led sex ed program (SHIFT) in Berkeley",
+          "url": "https://www.thecentersquare.com/california/article_5872f867-a29b-5f20-8abe-e47d6d6360ba.html"
+        }
+      ],
+      "suggested": [
+        {
+          "text": "Yes. Enforcement of California's Healthy Youth Act sits with the school district's elected board and the state, not the council, but I will not hide behind that distinction — Berkeley's city government already funds sex education directly through the Public Health Division, including the SHIFT program at Berkeley High School and a grant agreement with Essential Access Health, and I would defend and grow that funding.",
+          "note": ""
+        }
+      ],
+      "verification": [
+        {
+          "claim": "The California Healthy Youth Act (AB 329) requires comprehensive sex ed in grades 7-12 and is administered by school districts and the state, not city councils",
+          "result": "confirmed",
+          "source": "OCDE: Six questions and answers about the California Healthy Youth Act",
+          "date": "2026-07-23",
+          "note": ""
+        },
+        {
+          "claim": "Berkeley's Public Health Division funds the SHIFT teen sexual health education program and holds a grant agreement with Essential Access Health",
+          "result": "confirmed",
+          "source": "City of Berkeley Council Item: Revenue Grant Agreement — Funding Support (June 3, 2025); The Center Square SHIFT coverage",
+          "date": "2026-07-23",
+          "note": ""
+        }
+      ]
     },
     {
       "id": "pp_q14",
       "section": "Policy Pledges",
       "topic": "healthcare_standards",
-      "status": "blank",
+      "status": "done",
       "question": "7. Will you support requiring all California health insurance plans to provide coverage for comprehensive sexual and reproductive health care including abortion services?",
-      "analysis": "",
+      "analysis": "This is a state insurance-regulation pledge; the Department of Managed Health Care already requires California-regulated health plans to cover abortion services, and SB 245 (2022) eliminated cost-sharing for abortion care in those plans. A council seat has no authority over statewide insurance regulation, though the city's own employee health plans are a place where the same standard already applies, through Berkeley's contracted Kaiser Permanente and Sutter Health plans.",
       "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": []
+      "levers": [
+        {
+          "tier": "advocacy",
+          "text": "State insurance mandates for all California-regulated health plans are set by the Legislature and the Department of Managed Health Care, not the council."
+        },
+        {
+          "tier": "authority",
+          "text": "Berkeley's own employee health benefits are contracted through Kaiser Permanente and Sutter Health, both California-regulated plans already subject to the state's abortion coverage and no-cost-sharing requirements; the council can commit to defending that coverage in future contract terms."
+        }
+      ],
+      "sources": [
+        {
+          "label": "California SB 245 (2022): Abortion Accessibility Act",
+          "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202120220SB245"
+        },
+        {
+          "label": "Governor of California: Newsom signs legislation to eliminate out-of-pocket costs for abortion services",
+          "url": "https://www.gov.ca.gov/2022/03/22/governor-newsom-signs-legislation-to-eliminate-out-of-pocket-costs-for-abortion-services/"
+        }
+      ],
+      "suggested": [
+        {
+          "text": "Yes. California already requires state-regulated health plans to cover comprehensive reproductive care, including abortion, without cost-sharing, and I support keeping and strengthening that mandate. A council seat does not set statewide insurance rules, but Berkeley's own employee health plans are Kaiser Permanente and Sutter Health, both already bound by that standard, and I would make sure the city never negotiates that coverage away.",
+          "note": ""
+        }
+      ],
+      "verification": [
+        {
+          "claim": "California-regulated health plans are required to cover abortion services, and SB 245 (2022) eliminated cost-sharing for abortion care",
+          "result": "confirmed",
+          "source": "California SB 245 (2022), Abortion Accessibility Act",
+          "date": "2026-07-23",
+          "note": ""
+        },
+        {
+          "claim": "Berkeley's employee health benefits are contracted through Kaiser Permanente and Sutter Health, both California-regulated plans",
+          "result": "confirmed",
+          "source": "City of Berkeley Employee Benefits Guide (2026)",
+          "date": "2026-07-23",
+          "note": "Same source verified for the NUHW questionnaire, question s7b."
+        }
+      ]
     },
     {
       "id": "pp_q15",
       "section": "Policy Pledges",
       "topic": "dei_trans_care",
-      "status": "blank",
+      "status": "done",
       "question": "8. Do you support access to gender affirming care, and will you oppose attempts to restrict access to gender affirming care?",
-      "analysis": "",
+      "analysis": "Litmus pledge on gender-affirming care access. California is a legal sanctuary state for this care under SB 107 (2022), and SB 345 (2023) further shields providers and patients, including telehealth patients, from out-of-state legal action. The local angle is defending that state framework and applying the same standard to Berkeley's own city employee health benefits.",
       "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": []
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "A Berkeley resolution can bar city resources, data, or staff from aiding out-of-state investigations of gender-affirming care, the model Sacramento used to strengthen SB 107 locally."
+        },
+        {
+          "tier": "authority",
+          "text": "City employee health plans covering gender-affirming care without exception is a direct council commitment through contract and budget approval."
+        }
+      ],
+      "sources": [
+        {
+          "label": "KQED: California becomes first sanctuary state for transgender youth seeking medical care",
+          "url": "https://www.kqed.org/news/11929233/california-becomes-first-sanctuary-state-for-transgender-youth-seeking-medical-care"
+        },
+        {
+          "label": "CA Attorney General: SB 107 upheld",
+          "url": "https://oag.ca.gov/node/583699"
+        },
+        {
+          "label": "Ms. Magazine: California becomes sixth state to legally protect telehealth abortion and gender-affirming care providers (SB 345)",
+          "url": "https://msmagazine.com/2023/10/03/california-shield-law-telehealth-abortion-pills-trans-gender-affirming-care/"
+        }
+      ],
+      "suggested": [
+        {
+          "text": "Yes, without exception. I support access to gender-affirming care and will oppose every attempt to restrict it, and I would push for a Berkeley resolution that keeps city resources, data, and staff out of any out-of-state effort to investigate or prosecute someone for receiving or providing it.",
+          "note": ""
+        }
+      ],
+      "verification": [
+        {
+          "claim": "SB 107 (2022) makes California a sanctuary state for gender-affirming care, and SB 345 (2023) shields providers and telehealth patients from out-of-state legal action",
+          "result": "confirmed",
+          "source": "California SB 107 (2022); SB 345 (2023)",
+          "date": "2026-07-23",
+          "note": ""
+        },
+        {
+          "claim": "A Berkeley resolution can bar city resources from aiding out-of-state investigations of gender-affirming care (Sacramento/SB 107 model)",
+          "result": "confirmed",
+          "source": "California SB 107; Sacramento sanctuary resolution precedent",
+          "date": "2026-07-23",
+          "note": "Reused from the NUHW questionnaire, question s9a."
+        }
+      ],
+      "quotes": [
+        {
+          "source": "syrak",
+          "attribution": "Syrak Micael — Cal Berkeley Democrats, D7 2026",
+          "text": "I will push for Berkeley to adopt LGBTQ+ sanctuary city policies in practice and policy, including robust privacy protections for city records concerning gender identity and mandating, as cities like Boston have done, that all contracted city health insurance policies include coverage for gender-affirming care.",
+          "relevance": "Names the same local levers — privacy protections and mandated insurance coverage — that apply directly to this pledge",
+          "status": "current"
+        }
+      ]
     },
     {
       "id": "pp_q15a",
       "section": "Policy Pledges",
       "topic": "dei_trans_care",
-      "status": "blank",
+      "status": "thin",
       "question": "8(a): Please explain your answer. (Optional)",
-      "analysis": "",
+      "analysis": "Optional follow-up inviting the candidate's personal reasoning behind the gender-affirming care pledge. As an optional field, PP is not requiring elaboration, but a clinician's firsthand rationale is likely to carry particular weight given the org's health-care focus.",
       "references": [],
       "levers": [],
       "sources": [],
-      "suggested": []
+      "suggested": [
+        {
+          "text": "As a Licensed Marriage & Family Therapist, I have seen firsthand what it means for a young person to finally be seen and supported for who they are, and what happens when that access is delayed or denied. [DARIA: one or two sentences from your own practice on what access to gender-affirming care has meant for the young people you have worked with.] That is not a political abstraction to me. It is patient care, and every young person deserves it.",
+          "note": ""
+        }
+      ]
     },
     {
       "id": "pp_q16",
       "section": "Policy Pledges",
       "topic": "healthcare_standards",
-      "status": "blank",
+      "status": "done",
       "question": "9. Will you support enacting and enforcing laws that protect reproductive health care providers, their staff, patients, and their families from violence, intimidation, and harassment both at health centers and at their homes?",
-      "analysis": "",
+      "analysis": "Pledge on protecting reproductive health providers, staff, patients, and families from violence, intimidation, and harassment both at health centers and at home. California has built a layered legal shield since 2022: AB 1666 blocks civil liability for lawful abortion care, AB 1242 bars California law enforcement from cooperating with out-of-state investigations, SB 345 shields providers, including telehealth providers, from prosecution, and the state's Safe at Home address confidentiality program was expanded to cover reproductive health providers, employees, volunteers, and patients facing threats. All of these are state-level protections. No Berkeley-specific clinic buffer-zone ordinance was found in this research; the city's own role is general police enforcement of existing harassment, trespass, and stalking law.",
       "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": []
+      "levers": [
+        {
+          "tier": "advocacy",
+          "text": "The state's shield laws (AB 1666, AB 1242, SB 345) and the Safe at Home confidentiality program are the primary legal protections here, and a council seat does not set or enforce them directly."
+        },
+        {
+          "tier": "authority",
+          "text": "Berkeley Police Department's enforcement of existing harassment, trespass, and stalking law at clinic sites and providers' homes is a direct council-overseen function through the department's budget and policy."
+        }
+      ],
+      "sources": [
+        {
+          "label": "California AB 1666 (2022): civil liability shield for lawful abortion care",
+          "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202120220AB1666"
+        },
+        {
+          "label": "California AB 1242 (2022): bars law enforcement cooperation with out-of-state abortion investigations",
+          "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202120220AB1242"
+        },
+        {
+          "label": "Justia: California Government Code, Title 1, Division 7, Chapter 3.2 (Safe at Home for reproductive health providers)",
+          "url": "https://law.justia.com/codes/california/2022/code-gov/title-1/division-7/chapter-3-2/"
+        }
+      ],
+      "suggested": [
+        {
+          "text": "Yes. Threats and violence against reproductive health providers, staff, patients, and their families are not politics, they are targeted intimidation, and I will support enforcing existing law against it at health centers and at home. Locally, Berkeley Police Department's enforcement of harassment, trespass, and stalking law is the direct tool, and I would want the department trained on the specific patterns this kind of harassment takes so patients and staff are not left waiting.",
+          "note": ""
+        }
+      ],
+      "verification": [
+        {
+          "claim": "California's Safe at Home address confidentiality program was expanded to cover reproductive health care providers, employees, volunteers, and patients facing threats or harassment",
+          "result": "confirmed",
+          "source": "California Government Code, Title 1, Division 7, Chapter 3.2",
+          "date": "2026-07-23",
+          "note": ""
+        },
+        {
+          "claim": "Berkeley Police Department policy and budget, including enforcement priorities, is overseen by the city council",
+          "result": "confirmed",
+          "source": "Generic charter city structural authority (police budget and policy)",
+          "date": "2026-07-23",
+          "note": "Generic municipal power. No Berkeley-specific reproductive health clinic buffer-zone ordinance was located in this research."
+        }
+      ]
     },
     {
       "id": "pp_q17",
       "section": "Equity",
       "topic": "cultural_competence",
-      "status": "blank",
+      "status": "done",
       "question": "10. What action items will you take to dismantle archaic, racist policies and create a more equitable society?",
-      "analysis": "",
+      "analysis": "Open essay question asking for concrete action items, not just a values statement. PP frames equity broadly rather than tying it specifically to reproductive health, which gives room to name whichever municipal levers the candidate considers most direct — policing, contracting, and budget priorities are all plausible answers, and PP does not signal which one it expects.",
       "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": []
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "Council sets Berkeley Police Department policy, oversight, and contracting, including the city's current license-plate-reader surveillance contract with Flock Safety, which the council narrowly renewed in 2026 while rejecting a larger expansion."
+        },
+        {
+          "tier": "authority",
+          "text": "Council sets zoning, contracting, and budget priorities that can direct resources toward historically underinvested neighborhoods."
+        },
+        {
+          "tier": "advocacy",
+          "text": "Structural racism embedded in state and federal policy, such as discriminatory reimbursement or funding formulas, is outside council authority; the council's role there is coordinated advocacy."
+        }
+      ],
+      "sources": [
+        {
+          "label": "KQED: Berkeley extends surveillance contract with Flock Safety but rejects major expansion",
+          "url": "https://www.kqed.org/news/12082887/berkeley-extends-surveillance-contract-with-flock-safety-but-rejects-major-expansion"
+        }
+      ],
+      "suggested": [
+        {
+          "text": "Dismantling racist policy starts with what Berkeley itself controls. I would end the city's use of Flock Safety's license-plate-reader network, which continues even after Flock granted federal Border Patrol access to its nationwide database without notifying the cities whose data it held, exposing residents of sanctuary cities like ours to exactly the immigration enforcement we say we protect against. I would also direct budget and contracting decisions toward communities that have been historically underinvested in, and use the council's platform to push back on state and federal policy, like discriminatory reimbursement structures, that Berkeley alone cannot fix but can refuse to be complicit in.",
+          "note": ""
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Council controls Berkeley Police Department contracting, including the Flock Safety license-plate-reader surveillance contract, and narrowly renewed it in 2026 while rejecting a larger expansion",
+          "result": "confirmed",
+          "source": "KQED: Berkeley extends surveillance contract with Flock Safety but rejects major expansion (2026)",
+          "date": "2026-07-23",
+          "note": ""
+        },
+        {
+          "claim": "Council sets zoning, contracting, and budget priorities",
+          "result": "confirmed",
+          "source": "Generic charter city structural authority",
+          "date": "2026-07-23",
+          "note": "Generic municipal power."
+        }
+      ],
+      "quotes": [
+        {
+          "source": "syrak",
+          "attribution": "Syrak Micael — Planned Parenthood, D7 2026",
+          "text": "I believe that safety does not come from more police, but comes from people's basic needs being met. To this end, I will prioritize de-militarization of Berkeley PD, increased police oversight, and fight to end the city's contract with the mass surveillance company Flock. I will also fight to maintain our city's sanctuary status and prevent law enforcement from collaborating with ICE or other immigration authorities.",
+          "relevance": "Direct answer to this exact question on a prior Planned Parenthood questionnaire — shows how another Berkeley candidate framed equity through policing and surveillance",
+          "status": "current"
+        }
+      ]
     },
     {
       "id": "pp_q18",
       "section": "Commitment",
       "topic": "endorsement_ask",
-      "status": "blank",
+      "status": "thin",
       "question": "11. Do you consider yourself a Planned Parenthood champion? Please explain why or why not.",
-      "analysis": "",
+      "analysis": "Direct identity question distinct from the policy pledges — PP is asking the candidate to self-identify as a champion and justify it, which functions as a summary test of whether the rest of the questionnaire's positions cohere into a genuine commitment rather than a checklist of yes answers.",
       "references": [],
       "levers": [],
       "sources": [],
-      "suggested": []
+      "suggested": [
+        {
+          "text": "Yes. As a Licensed Marriage & Family Therapist, reproductive and behavioral health access is not a side issue for me, it is the work I do every day. I have met with Assemblymember Wicks' office to advocate for health care access, and I believe access to abortion, contraception, and gender-affirming care are all part of the same fight: the right to make decisions about our own bodies and get the care we need without political interference. [DARIA: if there is a specific moment that made this personal — a client, a campaign, a piece of legislation — that belongs here.]",
+          "note": ""
+        }
+      ]
     },
     {
       "id": "pp_q19",
       "section": "Commitment",
       "topic": "healthcare_standards",
-      "status": "blank",
+      "status": "thin",
       "question": "12. What efforts or activities have you undertaken to support sexual and reproductive health care rights and access personally or in elected office?",
-      "analysis": "",
+      "analysis": "Asks for concrete past efforts, personally or in elected office, supporting reproductive and sexual health care rights and access. The candidate is not currently an elected official, so the answer draws entirely from personal and professional history rather than a legislative record.",
       "references": [],
       "levers": [],
       "sources": [],
-      "suggested": []
+      "suggested": [
+        {
+          "text": "As a mental health clinician, I see every day how compromised health care access, whether that is behavioral health or reproductive health, does the same kind of damage: it puts care out of reach for the people who need it most. I have met with Assemblymember Wicks' office to advocate for expanding health care access, and earlier in my career I worked on the 2014 Berkeley vs. Big Soda campaign, which built a funding source for health access in low-income communities. [DARIA: any direct reproductive-health-specific efforts — clinic volunteering, escort work, fundraising, a specific campaign — belong here and will matter more to PP than the general health-access framing above.]",
+          "note": ""
+        }
+      ],
+      "quotes": [
+        {
+          "source": "syrak",
+          "attribution": "Syrak Micael — Planned Parenthood, D7 2026",
+          "text": "I believe that reproductive rights are human rights, and I wholeheartedly believe in Planned Parenthood's mission. I was proud to vote for Proposition 1 in 2022, which codified reproductive freedom into the California constitution.",
+          "relevance": "Response to the same Planned Parenthood questionnaire — the Prop 1 vote is a personal, verifiable action a voter could cite; do not attribute Syrak's biographical claim to Daria, but the framing of naming a specific concrete action is useful",
+          "status": "current"
+        }
+      ]
     },
     {
       "id": "pp_q20",
       "section": "Commitment",
       "topic": "endorsement_ask",
-      "status": "blank",
+      "status": "thin",
       "question": "Please check the boxes below that indicate your commitment to Planned Parenthood Advocates Mar Monte and Planned Parenthood Mar Monte health centers, its patients, and services:",
       "type": "checklist",
-      "analysis": "",
+      "analysis": "Checklist pledge confirming commitment to Planned Parenthood Advocates Mar Monte and Planned Parenthood Mar Monte health centers, patients, and services. The individual box labels were not captured when this questionnaire was ported into the tracker — only the checklist framing survived. The source PDF or form must be consulted directly to confirm what each box actually commits to (likely candidates: public endorsement of PP's mission, permission to use the endorsement in PP materials, and availability to appear at a PP-organized event) before checking any of them.",
       "references": [],
       "levers": [],
       "sources": [],
