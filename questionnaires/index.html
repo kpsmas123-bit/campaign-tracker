@@ -168,12 +168,24 @@
     color: var(--text-secondary);
   }
 
-  .prog-bar {
-    height: 4px; background: var(--border-light); border-radius: 2px;
-    overflow: hidden; width: 60px; display: inline-block; vertical-align: middle;
-    margin-right: 6px;
+  .prog-wrap {
+    display: flex; align-items: center; gap: 8px;
   }
-  .prog-bar .fill { height: 100%; background: var(--priority-low); border-radius: 2px; }
+  .prog-bar {
+    height: 6px; background: var(--border); border-radius: 3px;
+    overflow: hidden; flex: 1; min-width: 50px;
+  }
+  .prog-bar .fill { height: 100%; border-radius: 3px; transition: width 0.3s ease; }
+  .prog-bar .fill.red { background: var(--priority-high); }
+  .prog-bar .fill.amber { background: var(--priority-medium); }
+  .prog-bar .fill.green { background: var(--priority-low); }
+  .prog-pct {
+    font-family: "IBM Plex Mono", monospace; font-size: 12px;
+    font-weight: 600; min-width: 32px; text-align: right;
+  }
+  .prog-pct.red { color: var(--priority-high); }
+  .prog-pct.amber { color: var(--priority-medium); }
+  .prog-pct.green { color: var(--priority-low); }
 
   .empty {
     padding: 40px 16px; text-align: center;
@@ -232,6 +244,7 @@
   var orgData = {};
   var statusData = {};
   var answerCounts = {};
+  var dueDates = {};
   var activeFilter = 'all';
 
   var authGate = document.getElementById('authGate');
@@ -277,6 +290,11 @@
     try {
       var r = await sb.from('questionnaire_status').select('*');
       if (r.data) r.data.forEach(function (s) { statusData[s.org_slug] = s; });
+    } catch (e) {}
+
+    try {
+      var dd = await fetch('data/due_dates.json').then(function (r) { return r.json(); });
+      dueDates = dd || {};
     } catch (e) {}
 
     try {
@@ -350,22 +368,18 @@
       c1.innerHTML = '<div class="org-name">' + esc(d.org) + '</div>' +
         '<div class="org-sub">' + esc(d.cycle) + ' · ' + esc(d.candidate) + '</div>';
 
-      // Questions complete cell — done=1, thin/verify=0.5
-      var qDone = 0, qMid = 0;
-      (d.questions || []).forEach(function (qq) {
-        if (qq.status === 'done') qDone++;
-        else if (qq.status === 'thin' || qq.status === 'verify') qMid++;
-      });
-      var pct = ac.total ? Math.round((qDone + qMid * 0.5) / ac.total * 100) : 0;
+      // Questions complete: approved=1, answered=0.5, blank=0
+      var pct = ac.total ? Math.round((ac.approved + (ac.answered - ac.approved) * 0.5) / ac.total * 100) : 0;
+      var color = pct >= 75 ? 'green' : pct >= 35 ? 'amber' : 'red';
       var c2 = document.createElement('div');
-      c2.className = 'cell';
-      c2.innerHTML = '<span class="prog-bar"><span class="fill" style="width:' + pct + '%"></span></span>' +
-        pct + '%';
+      c2.className = 'prog-wrap';
+      c2.innerHTML = '<span class="prog-bar"><span class="fill ' + color + '" style="width:' + pct + '%"></span></span>' +
+        '<span class="prog-pct ' + color + '">' + pct + '%</span>';
 
       // Due date cell
       var c3 = document.createElement('div');
       c3.className = 'cell';
-      c3.textContent = st.timing || '—';
+      c3.textContent = dueDates[slug] || '—';
 
       row.appendChild(c1);
       row.appendChild(c2);

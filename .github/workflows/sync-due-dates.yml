@@ -1,0 +1,78 @@
+name: Sync endorsement due dates from Google Sheet
+
+on:
+  schedule:
+    - cron: '0 8 * * *'  # daily at 8am UTC (1am PT)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch published sheet CSV and extract due dates
+        run: |
+          SHEET_ID="1gJ1pKUaoEoSVH3EaP3hwCZaUTWLlPnvcw0v1XFSXV7I"
+          CSV_URL="https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=0"
+
+          curl -sL "$CSV_URL" -o /tmp/tracker.csv
+
+          python3 << 'PYEOF'
+          import csv, json, re, sys
+
+          # Map spreadsheet "Org" short names to our questionnaire slugs
+          ORG_MAP = {
+              "NUHW": "nuhw",
+              "ALCO Labor": "alc",
+          }
+
+          due = {}
+          with open("/tmp/tracker.csv", newline="", encoding="utf-8-sig") as f:
+              reader = csv.reader(f)
+              header = None
+              for row in reader:
+                  if not header:
+                      try:
+                          org_col = next(i for i, c in enumerate(row) if c.strip() == "Org")
+                          timing_col = next(i for i, c in enumerate(row) if "Timing" in c)
+                          header = row
+                          continue
+                      except StopIteration:
+                          continue
+                  if len(row) <= max(org_col, timing_col):
+                      continue
+                  org = row[org_col].strip()
+                  timing = row[timing_col].strip()
+                  slug = ORG_MAP.get(org)
+                  if slug and timing:
+                      due[slug] = timing
+
+          # Merge with existing (preserve slugs not in spreadsheet)
+          out_path = "questionnaires/data/due_dates.json"
+          try:
+              existing = json.load(open(out_path))
+          except Exception:
+              existing = {}
+
+          for slug in set(list(existing.keys()) + list(due.keys())):
+              existing[slug] = due.get(slug) or existing.get(slug)
+
+          with open(out_path, "w") as f:
+              json.dump(existing, f, indent=2)
+              f.write("\n")
+
+          print(f"Updated {len(due)} due dates: {due}")
+          PYEOF
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add questionnaires/data/due_dates.json
+          git diff --cached --quiet && echo "No changes" && exit 0
+          git commit -m "Sync due dates from endorsement tracker"
+          git push
