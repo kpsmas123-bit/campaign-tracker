@@ -203,15 +203,15 @@
 </head>
 <body>
 
-<nav class="site-nav">
+<nav class="site-nav" id="siteNav" style="display:none">
   <a href="../index.html">Tasks</a>
   <a href="index.html" class="active">Questionnaires</a>
 </nav>
 
 <div class="auth-gate" id="authGate">
   <div class="auth-card">
-    <div class="auth-title">Questionnaires</div>
-    <div class="auth-sub">Enter the shared passphrase to continue.</div>
+    <div class="auth-title">Daria for Berkeley</div>
+    <div class="auth-sub">Enter the campaign passphrase to continue.</div>
     <input class="auth-input" id="authPass" type="password" placeholder="Passphrase" autocomplete="current-password">
     <button class="auth-btn" id="authBtn">Sign in</button>
     <div class="auth-error" id="authError" style="display:none"></div>
@@ -270,7 +270,7 @@
     try {
       var res = await sb.auth.signInWithPassword({ email: AUTH_EMAIL, password: pass });
       if (res.error) throw res.error;
-      authGate.style.display = 'none'; appRoot.style.display = 'block'; boot();
+      authGate.style.display = 'none'; document.getElementById('siteNav').style.display = ''; appRoot.style.display = 'block'; boot();
     } catch (e) {
       authBtn.disabled = false; authBtn.textContent = 'Sign in'; showErr('Wrong passphrase.');
     }
@@ -279,7 +279,7 @@
   authBtn.addEventListener('click', doAuth);
   authPass.addEventListener('keydown', function (e) { if (e.key === 'Enter') doAuth(); });
   sb.auth.getSession().then(function (r) {
-    if (r.data && r.data.session) { authGate.style.display = 'none'; appRoot.style.display = 'block'; boot(); }
+    if (r.data && r.data.session) { authGate.style.display = 'none'; document.getElementById('siteNav').style.display = ''; appRoot.style.display = 'block'; boot(); }
   });
 
   // --- Boot ---
@@ -379,12 +379,17 @@
       var c2 = document.createElement('div');
       c2.innerHTML = '<span class="pill ' + sm.cls + '"><span class="dot"></span>' + sm.label + '</span>';
 
-      // Progress cell
-      var pct = ac.total ? Math.round(ac.answered / ac.total * 100) : 0;
+      // Progress cell — done=1, thin/verify=0.5
+      var qDone = 0, qMid = 0;
+      (d.questions || []).forEach(function (qq) {
+        if (qq.status === 'done') qDone++;
+        else if (qq.status === 'thin' || qq.status === 'verify') qMid++;
+      });
+      var pct = ac.total ? Math.round((qDone + qMid * 0.5) / ac.total * 100) : 0;
       var c3 = document.createElement('div');
       c3.className = 'cell';
       c3.innerHTML = '<span class="prog-bar"><span class="fill" style="width:' + pct + '%"></span></span>' +
-        ac.answered + '/' + ac.total;
+        pct + '%';
 
       // Priority cell
       var priMap = { high: 'high', medium: 'medium', low: 'low' };

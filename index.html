@@ -65,6 +65,28 @@
     -webkit-font-smoothing: antialiased;
   }
 
+  .auth-gate {
+    min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px;
+  }
+  .auth-card { max-width: 340px; width: 100%; display: flex; flex-direction: column; gap: 14px; }
+  .auth-title { font-family: Georgia, 'Times New Roman', serif; font-size: 20px; font-weight: normal; }
+  .auth-sub { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+  .auth-input {
+    font-family: inherit; font-size: 14px; color: var(--text);
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 3px; padding: 10px 12px; width: 100%; outline: none;
+  }
+  .auth-input:focus { border-color: var(--accent); }
+  .auth-btn {
+    font-family: inherit; font-size: 13px; font-weight: 500;
+    color: var(--surface); background: var(--accent);
+    border: 1px solid var(--accent); border-radius: 3px;
+    padding: 10px 16px; cursor: pointer; width: 100%;
+  }
+  .auth-btn:hover { background: var(--accent-hover); }
+  .auth-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .auth-error { font-size: 13px; color: var(--priority-high); line-height: 1.5; }
+
   .site-nav {
     display: flex; align-items: center; gap: 2px;
     max-width: 860px; margin: 0 auto;
@@ -316,12 +338,22 @@
 </head>
 <body>
 
-<nav class="site-nav">
+<div class="auth-gate" id="authGate">
+  <div class="auth-card">
+    <div class="auth-title">Daria for Berkeley</div>
+    <div class="auth-sub">Enter the campaign passphrase to continue.</div>
+    <input class="auth-input" id="authPass" type="password" placeholder="Passphrase" autocomplete="current-password">
+    <button class="auth-btn" id="authBtn">Sign in</button>
+    <div class="auth-error" id="authError" style="display:none"></div>
+  </div>
+</div>
+
+<nav class="site-nav" id="siteNav" style="display:none">
   <a href="index.html" class="active">Tasks</a>
   <a href="questionnaires/index.html">Questionnaires</a>
 </nav>
 
-<div class="app" id="app">
+<div class="app" id="app" style="display:none">
   <div id="setupBanner"></div>
 
   <div class="header">
@@ -707,28 +739,49 @@
 
   // --- Init ---
 
-  if (!isConfigured()) {
-    document.getElementById('setupBanner').innerHTML =
-      '<div class="setup-banner">' +
-        '<strong>Supabase not configured.</strong> Paste your project URL and anon key into ' +
-        '<code>index.html</code> and run <code>setup.sql</code> in the SQL Editor.' +
-      '</div>';
-    setSyncStatus('Not configured', 'offline');
-    tasks = [
-      { id: 1, name: 'Finalize yard sign locations', done: false, due: '2026-07-28', assignee: 'Jordan', priority: 'high' },
-      { id: 2, name: 'Schedule candidate forum prep', done: false, due: '2026-07-25', assignee: 'Alex', priority: 'high' },
-      { id: 3, name: 'Draft volunteer call script', done: false, due: '2026-07-30', assignee: 'Morgan', priority: 'med' },
-      { id: 4, name: 'Update social media calendar', done: false, due: '2026-07-23', assignee: 'Sam', priority: 'med' },
-      { id: 5, name: 'Order campaign mailers', done: true, due: '2026-07-20', assignee: 'Jordan', priority: 'low' },
-      { id: 6, name: 'Confirm rally venue', done: false, due: '2026-08-02', assignee: 'Alex', priority: 'high' },
-    ];
-    team = ['Jordan', 'Alex', 'Morgan', 'Sam'];
-    campaignName = 'City Council 2026';
-    renderAll();
-  } else {
-    sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-    loadAll().then(subscribeRealtime);
+  // --- Auth gate ---
+  var AUTH_EMAIL = 'questionnaire@dariaforberkeley.com';
+  sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+  function showApp() {
+    document.getElementById('authGate').style.display = 'none';
+    document.getElementById('siteNav').style.display = '';
+    document.getElementById('app').style.display = '';
+    if (!isConfigured()) {
+      document.getElementById('setupBanner').innerHTML =
+        '<div class="setup-banner">' +
+          '<strong>Supabase not configured.</strong> Paste your project URL and anon key into ' +
+          '<code>index.html</code> and run <code>setup.sql</code> in the SQL Editor.' +
+        '</div>';
+      setSyncStatus('Not configured', 'offline');
+      renderAll();
+    } else {
+      loadAll().then(subscribeRealtime);
+    }
   }
+
+  async function doAuth() {
+    var pass = document.getElementById('authPass').value.trim();
+    if (!pass) { document.getElementById('authError').textContent = 'Enter the passphrase.'; document.getElementById('authError').style.display = 'block'; return; }
+    document.getElementById('authBtn').disabled = true;
+    document.getElementById('authBtn').textContent = 'Signing in...';
+    try {
+      var res = await sb.auth.signInWithPassword({ email: AUTH_EMAIL, password: pass });
+      if (res.error) throw res.error;
+      showApp();
+    } catch (e) {
+      document.getElementById('authBtn').disabled = false;
+      document.getElementById('authBtn').textContent = 'Sign in';
+      document.getElementById('authError').textContent = 'Wrong passphrase.';
+      document.getElementById('authError').style.display = 'block';
+    }
+  }
+  document.getElementById('authBtn').addEventListener('click', doAuth);
+  document.getElementById('authPass').addEventListener('keydown', function (e) { if (e.key === 'Enter') doAuth(); });
+
+  sb.auth.getSession().then(function (r) {
+    if (r.data && r.data.session) showApp();
+  });
 </script>
 </body>
 </html>

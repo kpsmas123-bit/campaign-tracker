@@ -232,8 +232,8 @@
   .sig-btn.active { border-color: var(--status-done); color: var(--status-done); background: var(--status-done-bg); }
 
   /* --- Info panels (right column) --- */
-  .info { display: flex; flex-direction: column; gap: 12px; max-height: calc(100vh - 180px); overflow: auto; }
-  @media (max-width: 860px) { .info { max-height: none; } }
+  .info { display: flex; flex-direction: column; gap: 12px; position: sticky; top: 16px; align-self: start; }
+  @media (max-width: 860px) { .info { position: static; } }
 
   .block { border: 1px solid var(--border); border-radius: 3px; overflow: hidden; }
   .bhead {
@@ -295,18 +295,50 @@
   }
   .copybtn:hover { background: var(--status-thin-bg); }
 
-  /* Reuse chips */
+  /* Reuse chips — v3 blockquote style */
   .reuse-chip {
-    background: var(--team-bg); border: 1px solid var(--border-light);
-    border-radius: 3px; padding: 8px 10px; margin-top: 6px;
-    font-size: 12px; line-height: 1.5;
+    border-left: 3px solid var(--accent); padding: 8px 12px; margin-top: 8px;
+    font-size: 13px; line-height: 1.5;
+  }
+  .reuse-chip .rc-text {
+    color: var(--text); font-style: italic;
+    font-family: Georgia, 'Times New Roman', serif;
+    white-space: pre-wrap;
   }
   .reuse-chip .rc-org {
     font-family: "IBM Plex Mono", monospace; font-size: 10px;
     color: var(--text-tertiary); text-transform: uppercase;
-    letter-spacing: 0.04em; margin-bottom: 3px;
+    letter-spacing: 0.04em; margin-top: 5px;
   }
-  .reuse-chip .rc-text { color: var(--text-secondary); white-space: pre-wrap; }
+
+  /* --- Notes section --- */
+  .notes-section {
+    margin-top: 10px; padding-top: 10px;
+    border-top: 1px solid var(--border-light);
+  }
+  .notes-label {
+    font-family: "IBM Plex Mono", monospace; font-size: 10px;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--text-tertiary); font-weight: 600; margin-bottom: 4px;
+  }
+  .note-rows { display: flex; flex-direction: column; }
+  .note-row {
+    display: flex; align-items: center; gap: 6px;
+    border-bottom: 1px solid var(--border-light);
+  }
+  .note-row input {
+    flex: 1; font-family: system-ui, -apple-system, sans-serif;
+    font-size: 13px; color: var(--text); background: transparent;
+    border: none; outline: none; padding: 6px 2px;
+  }
+  .note-row input::placeholder { color: var(--text-tertiary); }
+  .note-row .note-del {
+    width: 16px; height: 16px; border: none; background: none;
+    color: var(--text-tertiary); cursor: pointer; font-size: 14px;
+    padding: 0; line-height: 1; opacity: 0; flex-shrink: 0;
+  }
+  .note-row:hover .note-del { opacity: 1; }
+  .note-row .note-del:hover { color: var(--status-blank); }
 
   /* --- Nav dots --- */
   .nav {
@@ -376,7 +408,7 @@
 </head>
 <body>
 
-<nav class="site-nav">
+<nav class="site-nav" id="siteNav" style="display:none">
   <a href="../index.html">Tasks</a>
   <a href="index.html" class="active">Questionnaires</a>
 </nav>
@@ -384,8 +416,8 @@
 <!-- Auth gate -->
 <div class="auth-gate" id="authGate">
   <div class="auth-card">
-    <div class="auth-title">Questionnaire editor</div>
-    <div class="auth-sub">Enter the shared passphrase to continue.</div>
+    <div class="auth-title">Daria for Berkeley</div>
+    <div class="auth-sub">Enter the campaign passphrase to continue.</div>
     <input class="auth-input" id="authPass" type="password" placeholder="Passphrase" autocomplete="current-password">
     <button class="auth-btn" id="authBtn">Sign in</button>
     <div class="auth-error" id="authError" style="display:none"></div>
@@ -437,6 +469,7 @@
   var orgSlug = '';
   var answers = {};
   var approvals = {};
+  var notes = {};
   var reuseCache = {};
   var cur = 0;
   var TOTAL = 0;
@@ -484,6 +517,7 @@
       var res = await sb.auth.signInWithPassword({ email: AUTH_EMAIL, password: pass });
       if (res.error) throw res.error;
       authGate.style.display = 'none';
+      document.getElementById('siteNav').style.display = '';
       appRoot.style.display = 'block';
       boot();
     } catch (err) {
@@ -500,6 +534,7 @@
   sb.auth.getSession().then(function (res) {
     if (res.data && res.data.session) {
       authGate.style.display = 'none';
+      document.getElementById('siteNav').style.display = '';
       appRoot.style.display = 'block';
       boot();
     }
@@ -526,12 +561,13 @@
     // Load answers from Supabase
     try {
       var r = await sb.from('questionnaire_answers')
-        .select('question_id,answer_text,approved,approved_at,is_signature,topic')
+        .select('question_id,answer_text,approved,approved_at,is_signature,topic,notes')
         .eq('org_slug', orgSlug);
       if (r.data) {
         r.data.forEach(function (row) {
           answers[row.question_id] = row.answer_text || '';
           approvals[row.question_id] = { approved: !!row.approved, is_signature: !!row.is_signature };
+          notes[row.question_id] = row.notes || '';
         });
       }
     } catch (e) { /* use defaults */ }
@@ -588,12 +624,34 @@
     }
   }
 
+  // --- Notes ---
+  function saveNotes(qid) {
+    clearTimeout(saveTimers['n_' + qid]);
+    saveTimers['n_' + qid] = setTimeout(async function () {
+      var q = DATA.questions.find(function (x) { return x.id === qid; });
+      setSaveStatus('saving');
+      try {
+        var res = await sb.from('questionnaire_answers').upsert({
+          org_slug: orgSlug,
+          question_id: qid,
+          topic: q ? q.topic : null,
+          answer_text: answers[qid] || '',
+          notes: notes[qid] || ''
+        }, { onConflict: 'org_slug,question_id' });
+        if (res.error) throw res.error;
+        setSaveStatus('saved');
+      } catch (e) {
+        setSaveStatus('error');
+      }
+    }, 350);
+  }
+
   // --- Reuse ---
   async function refreshReuse(topic) {
     if (!topic) return;
     try {
       var r = await sb.from('questionnaire_answers')
-        .select('org_slug,answer_text')
+        .select('org_slug,question_id,answer_text')
         .eq('topic', topic)
         .neq('org_slug', orgSlug)
         .neq('answer_text', '');
@@ -629,7 +687,7 @@
     var blank = 0, thin = 0;
     DATA.questions.forEach(function (q) { if (q.status === 'blank') blank++; if (q.status === 'thin') thin++; });
     I.innerHTML = '<div class="lead">' +
-      '<p style="margin:0 0 8px"><b>Fact-checked build.</b> Your current answers are loaded. ' + blank + ' blank, ' + thin + ' thin, 1 to verify.</p>' +
+      '<p style="margin:0 0 8px"><b>Fact-checked build.</b> Current answers are loaded. ' + blank + ' blank, ' + thin + ' thin, 1 to verify.</p>' +
       '<p style="margin:0 0 8px"><b>Four panels per question.</b> The green <b>Real levers</b> panel tiers what a councilmember can actually do: AUTHORITY is real council power, ADVOCACY is resolutions or lobbying only. The blue <b>Sources</b> panel has live links.</p>' +
       '<p style="margin:0"><b>Suggested copy</b> is stitched from verified research in the candidate\'s voice. Where firsthand detail is needed, there is a bracketed note. Hit <b>Use this</b> to load it into the editor.</p>' +
       '</div>';
@@ -702,6 +760,56 @@
     arow.appendChild(ack); arow.appendChild(albl); arow.appendChild(sigBtn);
     L.appendChild(arow);
 
+    // Notes section
+    var nsec = document.createElement('div'); nsec.className = 'notes-section';
+    nsec.innerHTML = '<div class="notes-label">Notes</div>';
+    var nrows = document.createElement('div'); nrows.className = 'note-rows';
+    var noteLines = (notes[q.id] || '').split('\n').filter(function (l) { return l.trim(); });
+    if (!noteLines.length) noteLines = [''];
+
+    function syncNotes() {
+      var inputs = nrows.querySelectorAll('input');
+      var lines = [];
+      inputs.forEach(function (inp) { lines.push(inp.value); });
+      notes[q.id] = lines.join('\n');
+      saveNotes(q.id);
+    }
+
+    function addNoteRow(val, focusIt) {
+      var row = document.createElement('div'); row.className = 'note-row';
+      var inp = document.createElement('input');
+      inp.value = val || ''; inp.placeholder = 'Add a note...';
+      inp.addEventListener('input', syncNotes);
+      inp.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          var next = row.nextElementSibling;
+          if (next) { next.querySelector('input').focus(); }
+          else { addNoteRow('', true); }
+          syncNotes();
+        }
+        if (e.key === 'Backspace' && !inp.value && nrows.children.length > 1) {
+          e.preventDefault();
+          var prev = row.previousElementSibling;
+          row.remove();
+          if (prev) prev.querySelector('input').focus();
+          syncNotes();
+        }
+      });
+      var del = document.createElement('button'); del.className = 'note-del';
+      del.textContent = '×';
+      del.addEventListener('click', function () {
+        if (nrows.children.length <= 1) { inp.value = ''; syncNotes(); return; }
+        row.remove(); syncNotes();
+      });
+      row.appendChild(inp); row.appendChild(del);
+      nrows.appendChild(row);
+      if (focusIt) inp.focus();
+    }
+
+    noteLines.forEach(function (l) { addNoteRow(l, false); });
+    nsec.appendChild(nrows); L.appendChild(nsec);
+
     // Right column: info panels
     I.innerHTML = '';
 
@@ -755,16 +863,16 @@
       wrap.appendChild(body); I.appendChild(wrap);
     }
 
-    // Reuse panel
+    // Reuse panel — candidate's own words from other questionnaires
     var reuse = reuseCache[q.topic] || [];
     if (reuse.length) {
       var rwrap = document.createElement('div'); rwrap.className = 'block reuse';
-      rwrap.innerHTML = '<div class="bhead"><span class="dot"></span>From your other questionnaires</div>';
+      rwrap.innerHTML = '<div class="bhead"><span class="dot"></span>Candidate\'s own words &mdash; available to reuse</div>';
       var rbody = document.createElement('div'); rbody.className = 'bbody';
       reuse.forEach(function (r) {
         var chip = document.createElement('div'); chip.className = 'reuse-chip';
-        chip.innerHTML = '<div class="rc-org">' + esc(r.org_slug) + '</div>' +
-          '<div class="rc-text">' + br(r.answer_text) + '</div>';
+        chip.innerHTML = '<div class="rc-text">' + br(r.answer_text) + '</div>' +
+          '<div class="rc-org">' + esc(r.org_slug.toUpperCase()) + ' ' + esc(r.question_id.toUpperCase()) + '</div>';
         rbody.appendChild(chip);
       });
       rwrap.appendChild(rbody); I.appendChild(rwrap);
@@ -797,9 +905,10 @@
       if (q.status === 'done') done++;
       else if (q.status === 'thin' || q.status === 'verify') mid++;
     });
+    var pct = Math.round((done + mid * 0.5) / n * 100);
     document.getElementById('barDone').style.width = Math.round(done / n * 100) + '%';
     document.getElementById('barMid').style.width = Math.round(mid / n * 100) + '%';
-    document.getElementById('pcount').textContent = done + ' done · ' + mid + ' to fix · ' + (n - done - mid) + ' blank';
+    document.getElementById('pcount').textContent = pct + '% complete · ' + done + ' done · ' + mid + ' to fix · ' + (n - done - mid) + ' blank';
   }
 
   function go(i) {

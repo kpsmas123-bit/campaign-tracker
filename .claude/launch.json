@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "campaign-tracker",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-c", "cd /Users/samkaplanpettus/campaign-tracker && python3 -m http.server $PORT"],
+      "port": 8765,
+      "autoPort": true
+    }
+  ]
+}
