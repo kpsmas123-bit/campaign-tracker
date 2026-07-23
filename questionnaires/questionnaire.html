@@ -178,7 +178,7 @@
   .chip.blank { background: var(--status-blank-bg); color: var(--status-blank); }
   .chip.verify { background: var(--status-verify-bg); color: var(--status-verify); }
   .chip.blocked { background: var(--status-blank); color: #fff; font-weight: 700; }
-  .chip.approved { background: var(--status-done); color: #fff; font-weight: 700; }
+  .chip.approved { background: var(--status-verify); color: #fff; font-weight: 700; }
   .question {
     font-family: Georgia, 'Times New Roman', serif;
     font-size: 17px; line-height: 1.35; margin: 0 0 12px;
@@ -219,7 +219,7 @@
   .status-opt.active.s-blank { background: var(--status-blank-bg); color: var(--status-blank); border-color: var(--status-blank); }
   .status-opt.active.s-draft { background: var(--status-thin-bg); color: var(--status-thin); border-color: var(--status-thin); }
   .status-opt.active.s-final { background: var(--status-done-bg); color: var(--status-done); border-color: var(--status-done); }
-  .status-opt.active.s-approved { background: var(--status-done); color: #fff; border-color: var(--status-done); }
+  .status-opt.active.s-approved { background: var(--status-verify); color: #fff; border-color: var(--status-verify); }
 
   /* --- Info panels (right column) --- */
   .info { display: flex; flex-direction: column; gap: 12px; position: sticky; top: 16px; align-self: start; }
@@ -358,7 +358,7 @@
   .dot-btn.blank { background: var(--status-blank); }
   .dot-btn.verify { background: var(--status-verify); }
   .dot-btn.blocked { background: var(--status-blank); box-shadow: 0 0 0 2px var(--status-blank); }
-  .dot-btn.approved { background: var(--status-done); box-shadow: 0 0 0 2px var(--status-done); }
+  .dot-btn.approved { background: var(--status-verify); box-shadow: 0 0 0 2px var(--status-verify); }
   .dot-btn.cur { outline: 2px solid var(--text); outline-offset: 2px; transform: scale(1.3); }
 
   /* --- Contact grid --- */
