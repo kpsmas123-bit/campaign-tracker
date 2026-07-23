@@ -479,13 +479,13 @@
   // --- Supabase data layer ---
 
   async function loadAll() {
-    setSyncStatus('Loading...', 'syncing');
+    setSaveStatus('saving');
     var r1 = await sb.from('tasks').select('*').order('id');
     var r2 = await sb.from('team_members').select('*').order('id');
     var r3 = await sb.from('campaign_settings').select('*');
 
     if (r1.error || r2.error || r3.error) {
-      setSyncStatus('Error loading', 'offline');
+      setSaveStatus('error');
       console.error(r1.error, r2.error, r3.error);
       return;
     }
@@ -496,7 +496,7 @@
     var nameRow = settings.find(function(s) { return s.key === 'campaignName'; });
     campaignName = nameRow ? nameRow.value : 'Campaign';
 
-    setSyncStatus('Synced', 'connected');
+    setSaveStatus('saved');
     renderAll();
   }
 
@@ -506,7 +506,7 @@
       .on('postgres_changes', { event: '*', schema: 'public', table: 'team_members' }, function() { reloadTeam(); })
       .on('postgres_changes', { event: '*', schema: 'public', table: 'campaign_settings' }, function() { reloadSettings(); })
       .subscribe(function(status) {
-        if (status === 'SUBSCRIBED') setSyncStatus('Live', 'connected');
+        if (status === 'SUBSCRIBED') setSaveStatus('saved');
       });
   }
 
@@ -795,7 +795,7 @@
           '<strong>Supabase not configured.</strong> Paste your project URL and anon key into ' +
           '<code>index.html</code> and run <code>setup.sql</code> in the SQL Editor.' +
         '</div>';
-      setSyncStatus('Not configured', 'offline');
+      setSaveStatus('error');
       renderAll();
     } else {
       loadAll().then(subscribeRealtime);
