@@ -7,14 +7,46 @@
   "last_factcheck": "2026-07-22",
   "org_research": "NUHW represents over 17,000 healthcare workers across California, with a core focus on behavioral health parity, safe staffing, and patient care standards. The union led the Kaiser mental health strike and is a lead sponsor of the Healthy California NOW single-payer coalition. Their endorsement questionnaire weighs labor solidarity, behavioral health expertise, and concrete municipal levers. Daria's clinical background and AFT organizing history are a direct overlap with their priorities.",
   "contact_fields": [
-    { "k": "name", "label": "Name", "v": "Daria Wrubel" },
-    { "k": "office", "label": "Candidate for", "v": "Berkeley City Council, District 1" },
-    { "k": "occ", "label": "Occupation", "v": "Licensed Marriage & Family Therapist" },
-    { "k": "emp", "label": "Employer", "v": "self-employed (Grounded Therapy)" },
-    { "k": "fppc", "label": "FPPC #", "v": "pending" },
-    { "k": "ein", "label": "EIN", "v": "42-2954370" },
-    { "k": "cons", "label": "Consultant", "v": "Sam Kaplan-Pettus" },
-    { "k": "web", "label": "Website", "v": "dariaforberkeley.com" }
+    {
+      "k": "name",
+      "label": "Name",
+      "v": "Daria Wrubel"
+    },
+    {
+      "k": "office",
+      "label": "Candidate for",
+      "v": "Berkeley City Council, District 1"
+    },
+    {
+      "k": "occ",
+      "label": "Occupation",
+      "v": "Licensed Marriage & Family Therapist"
+    },
+    {
+      "k": "emp",
+      "label": "Employer",
+      "v": "self-employed (Grounded Therapy)"
+    },
+    {
+      "k": "fppc",
+      "label": "FPPC #",
+      "v": "pending"
+    },
+    {
+      "k": "ein",
+      "label": "EIN",
+      "v": "42-2954370"
+    },
+    {
+      "k": "cons",
+      "label": "Consultant",
+      "v": "Sam Kaplan-Pettus"
+    },
+    {
+      "k": "web",
+      "label": "Website",
+      "v": "dariaforberkeley.com"
+    }
   ],
   "questions": [
     {
@@ -22,7 +54,7 @@
       "section": "Background 1",
       "topic": "background_bio",
       "status": "done",
-      "question": "List any elected office you currently hold or have held.",
+      "question": "Please list any elected office you currently hold or have held previously.",
       "analysis": "Honest and fine. Nothing to change.",
       "references": [],
       "levers": [],
@@ -34,7 +66,7 @@
       "section": "Background 2",
       "topic": "background_bio",
       "status": "done",
-      "question": "List any key volunteer organizational leadership roles.",
+      "question": "Please list any key volunteer organizational leadership roles you have played.",
       "analysis": "Strong. The Bay Resistance Pod line is your single best immigration credential and should reappear in Section 10A.",
       "references": [],
       "levers": [],
@@ -46,7 +78,7 @@
       "section": "Background 3",
       "topic": "background_bio",
       "status": "done",
-      "question": "Provide your official bio and relevant work or educational experience.",
+      "question": "Please provide your official bio and include any relevant work or educational experience.",
       "analysis": "Very good. Your mother was a BUSD classified employee and you later organized that same classified unit; one clause surfaces that labor story. One consistency note across questionnaires: this bio (high school in Oakland, college in Pennsylvania) sits against the 'lifelong Berkeley resident' framing elsewhere. Both are defensible, just pick one.",
       "references": [],
       "levers": [],
@@ -58,7 +90,7 @@
       "section": "Background 4",
       "topic": "labor_solidarity",
       "status": "done",
-      "question": "Are you currently a union member? Which unions? What role?",
+      "question": "Are you currently a union member? To which if any unions have you belonged? If you have been a union member, were you an officer, steward, bargaining committee member or activist?",
       "analysis": "One of your strongest answers. Member, site rep, and paid organizer on a CFT grant. Leave it.",
       "references": [],
       "levers": [],
@@ -70,7 +102,7 @@
       "section": "Background 5",
       "topic": "endorsements",
       "status": "thin",
-      "question": "What significant endorsements have you received?",
+      "question": "What significant endorsements have you received from organizations and individuals?",
       "analysis": "Jennifer Shanoski is also a longtime faculty union leader (Peralta Federation of Teachers). Naming that role makes this read as a labor endorsement, which is what this audience weighs. Group as electeds / labor / orgs as the list grows.",
       "references": [],
       "levers": [],
@@ -87,7 +119,7 @@
       "section": "Background 6",
       "topic": "campaign_plan",
       "status": "done",
-      "question": "How much money have you raised? How much do you aim to raise?",
+      "question": "How much money have you raised to date? How much do you aim to raise?",
       "analysis": "Good and specific. Adding contribution count and average would show grassroots depth, but not required.",
       "references": [],
       "levers": [],
@@ -99,7 +131,7 @@
       "section": "Background 7",
       "topic": "campaign_plan",
       "status": "done",
-      "question": "Have you conducted a poll?",
+      "question": "Have you conducted a poll? If yes, please provide relevant information from the findings.",
       "analysis": "Fine.",
       "references": [],
       "levers": [],
@@ -111,7 +143,7 @@
       "section": "Section 2.1",
       "topic": "why_running",
       "status": "done",
-      "question": "Why are you a candidate? What distinguishes you from your opponents?",
+      "question": "Why are you a candidate for this office? What do you believe distinguishes you from your opponent(s) as the best candidate for this office?",
       "analysis": "Much stronger than the earlier draft. It now leads with the two credentials this union cares about, therapist and organizer. Solid as is.",
       "references": [],
       "levers": [],
@@ -123,15 +155,24 @@
       "section": "Section 2.2",
       "topic": "why_running",
       "status": "thin",
-      "question": "Briefly describe your top legislative priorities and issue areas of focus.",
+      "question": "Briefly describe what your top legislative priorities and issue areas of focus will be if elected.",
       "analysis": "For a healthcare union, a priority list with no health or labor plank is a conspicuous gap. Add behavioral health, given you are a clinician and there is a live local fight (the Mobile Crisis Team closure and the county handoff).",
       "references": [],
       "levers": [
-        { "tier": "authority", "text": "The council votes on Berkeley's BHSA behavioral health plan and city staffing, which are direct authority." },
-        { "tier": "authority", "text": "Housing and tenant protection run through the council and the elected Rent Board." }
+        {
+          "tier": "authority",
+          "text": "The council votes on Berkeley's BHSA behavioral health plan and city staffing, which are direct authority."
+        },
+        {
+          "tier": "authority",
+          "text": "Housing and tenant protection run through the council and the elected Rent Board."
+        }
       ],
       "sources": [
-        { "label": "Berkeleyside: Mobile Crisis Team + shelter closures", "url": "https://www.berkeleyside.org/2026/07/06/mobile-crisis-team-berkeley-winter-shelter-closures" }
+        {
+          "label": "Berkeleyside: Mobile Crisis Team + shelter closures",
+          "url": "https://www.berkeleyside.org/2026/07/06/mobile-crisis-team-berkeley-winter-shelter-closures"
+        }
       ],
       "suggested": [
         {
@@ -145,7 +186,7 @@
       "section": "Section 2.3",
       "topic": "endorsement_ask",
       "status": "done",
-      "question": "Why are you seeking NUHW's endorsement, and what support do you need?",
+      "question": "Why are you seeking NUHW’s endorsement, and what sort of support do you need from NUHW?",
       "analysis": "Done and strong. 'Mental health professional' here vs 'mental health clinician' in 7A; pick one across the form.",
       "references": [],
       "levers": [],
@@ -157,7 +198,7 @@
       "section": "Section 2.4",
       "topic": "endorsement_ask",
       "status": "done",
-      "question": "Do you work with community organizations already? Name them.",
+      "question": "Do you work with organizations within your community already? If so, please name the organizations you’re closely aligned with.",
       "analysis": "Good. Consider adding the Bay Resistance Pod from Background 2, and any clinical professional association (CAMFT) for this audience.",
       "references": [],
       "levers": [],
@@ -169,7 +210,7 @@
       "section": "Section 3A",
       "topic": "labor_solidarity",
       "status": "done",
-      "question": "Which of the nine solidarity actions would you take? (checklist)",
+      "question": "Would you be willing to participate in any of the actions listed below. Please check-off those actions you would be willing to take. Meet with the union and the workers; Send public letters of support; Call the boss on behalf of the workers; Attend negotiations in support of the workers; Conduct facility walk-throughs to engage both workers and employers on issues; Participate in town hall meetings, campaigns and build support for union proposals in the press and with the public; Participate in picket lines, marches, rallies, and vigils; Assist in outreach to other government agencies, other elected officials and community organizations; Use the government’s power as a purchaser, contractor, or other market participant to guarantee workers’ right to organize and win fair employment conditions?",
       "analysis": "Exactly right.",
       "references": [],
       "levers": [],
@@ -181,7 +222,7 @@
       "section": "Section 3B",
       "topic": "labor_solidarity",
       "status": "done",
-      "question": "Specific examples of solidarity actions you have taken.",
+      "question": "Please provide any specific examples of actions listed above that you have taken to support workers in the past.",
       "analysis": "Excellent, and the Kaiser detail is a direct hit. You could add your own AFT 6192 organizing as a first-person example, but it is already strong.",
       "references": [],
       "levers": [],
@@ -193,11 +234,14 @@
       "section": "Section 4A",
       "topic": "labor_law",
       "status": "verify",
-      "question": "Four yes/no: card-check neutrality, equal access, ban on captive-audience meetings, short election period.",
+      "question": "Answer Yes or No to the below questions: 1. Do you support \"card check neutrality\" (remaining neutral on the question of unionization and recognizing a union as their employees’ collective bargaining representative)? 2. Do you support the employer and the union to have equal physical access and equal time to discuss workers’ choice of a union? 3. Do you support a ban on coercive kinds of communications, like \"captive audience\" meetings and one-on-one discussions with supervisors? 4. Do you support a short election period prior to a final and binding secret ballot vote?",
       "analysis": "This is a litmus section. The extraction could not confirm which boxes are checked. Open the PDF and verify all four read Yes; a stray blank or No here is costly.",
       "references": [],
       "levers": [
-        { "tier": "advocacy", "text": "These are yes/no support positions, not city powers. The honest answer is a clean Yes to all four." }
+        {
+          "tier": "advocacy",
+          "text": "These are yes/no support positions, not city powers. The honest answer is a clean Yes to all four."
+        }
       ],
       "sources": [],
       "suggested": []
@@ -207,18 +251,36 @@
       "section": "Section 5A",
       "topic": "healthcare_standards",
       "status": "done",
-      "question": "How would you advocate for the improvement of healthcare system standards?",
+      "question": "How would you advocate for the improvement of healthcare system standards if elected?",
       "analysis": "Strong, sourced, and honest about scope. Every figure is verified below.",
       "references": [],
       "levers": [
-        { "tier": "authority", "text": "Berkeley receives ~$10M/yr in state BHSA funds directly and the council votes on the Three-Year Integrated Plan. This is real authority and is separate from the general-fund deficit." },
-        { "tier": "authority", "text": "City staffing, contracting-out, and workplace safety for its own health workers are set by council-approved budgets and MOUs." },
-        { "tier": "advocacy", "text": "Coordination with Alameda County and Supervisor Bas is partnership, not a council power; frame as coordinated rather than duplicative." }
+        {
+          "tier": "authority",
+          "text": "Berkeley receives ~$10M/yr in state BHSA funds directly and the council votes on the Three-Year Integrated Plan. This is real authority and is separate from the general-fund deficit."
+        },
+        {
+          "tier": "authority",
+          "text": "City staffing, contracting-out, and workplace safety for its own health workers are set by council-approved budgets and MOUs."
+        },
+        {
+          "tier": "advocacy",
+          "text": "Coordination with Alameda County and Supervisor Bas is partnership, not a council power; frame as coordinated rather than duplicative."
+        }
       ],
       "sources": [
-        { "label": "City of Berkeley: Mental Health / BHSA", "url": "https://berkeleyca.gov/safety-health/mental-health/mental-health-services-act" },
-        { "label": "Council agenda 4/14/26: $10M DHCS/BHSA contract (item 7)", "url": "https://berkeleyca.gov/city-council-regular-meeting-eagenda-april-14-2026" },
-        { "label": "Berkeleyside: MCT + shelter closures", "url": "https://www.berkeleyside.org/2026/07/06/mobile-crisis-team-berkeley-winter-shelter-closures" }
+        {
+          "label": "City of Berkeley: Mental Health / BHSA",
+          "url": "https://berkeleyca.gov/safety-health/mental-health/mental-health-services-act"
+        },
+        {
+          "label": "Council agenda 4/14/26: $10M DHCS/BHSA contract (item 7)",
+          "url": "https://berkeleyca.gov/city-council-regular-meeting-eagenda-april-14-2026"
+        },
+        {
+          "label": "Berkeleyside: MCT + shelter closures",
+          "url": "https://www.berkeleyside.org/2026/07/06/mobile-crisis-team-berkeley-winter-shelter-closures"
+        }
       ],
       "suggested": []
     },
@@ -227,18 +289,36 @@
       "section": "Section 5B",
       "topic": "disease_protection",
       "status": "done",
-      "question": "What legislation would protect health workers, patients, and communities from widespread disease exposure?",
+      "question": "What if any legislation would you propose to ensure that healthcare workers, patients, and communities are protected from widespread diseases that health workers are disproportionately exposed to by virtue of their jobs?",
       "analysis": "Strong and expert. Note: your Paid Sick Leave Ordinance (BMC 13.100) already exists and is generous (1 hr per 30 worked, covers anyone working 2+ hrs/week in Berkeley), so 'protect and strengthen' is the right frame, not 'create.'",
       "references": [],
       "levers": [
-        { "tier": "advocacy", "text": "The Cal/OSHA ATD standard (8 CCR 5199) is state law already; a councilmember's role is enforcement and speed through Berkeley's own health department, not writing it." },
-        { "tier": "authority", "text": "Berkeley's Paid Sick Leave Ordinance (BMC 13.100) is local law the council can defend and strengthen." },
-        { "tier": "authority", "text": "City procurement and employer standards (PPE, respirators, ventilation in city and contracted facilities) are directly in council control." }
+        {
+          "tier": "advocacy",
+          "text": "The Cal/OSHA ATD standard (8 CCR 5199) is state law already; a councilmember's role is enforcement and speed through Berkeley's own health department, not writing it."
+        },
+        {
+          "tier": "authority",
+          "text": "Berkeley's Paid Sick Leave Ordinance (BMC 13.100) is local law the council can defend and strengthen."
+        },
+        {
+          "tier": "authority",
+          "text": "City procurement and employer standards (PPE, respirators, ventilation in city and contracted facilities) are directly in council control."
+        }
       ],
       "sources": [
-        { "label": "CDPH: ATD standard guidance for local health depts", "url": "https://www.cdph.ca.gov/Programs/CCDPHP/DEODC/OHB/CDPH%20Document%20Library/ATD-Guidance.pdf" },
-        { "label": "City of Berkeley: Workforce Standards (paid sick leave)", "url": "https://berkeleyca.gov/doing-business/operating-berkeley/workforce-standards-and-enforcement" },
-        { "label": "BMC 13.100.040: Paid Sick Leave accrual", "url": "https://berkeley.municipal.codes/BMC/13.100.040" }
+        {
+          "label": "CDPH: ATD standard guidance for local health depts",
+          "url": "https://www.cdph.ca.gov/Programs/CCDPHP/DEODC/OHB/CDPH%20Document%20Library/ATD-Guidance.pdf"
+        },
+        {
+          "label": "City of Berkeley: Workforce Standards (paid sick leave)",
+          "url": "https://berkeleyca.gov/doing-business/operating-berkeley/workforce-standards-and-enforcement"
+        },
+        {
+          "label": "BMC 13.100.040: Paid Sick Leave accrual",
+          "url": "https://berkeley.municipal.codes/BMC/13.100.040"
+        }
       ],
       "suggested": []
     },
@@ -247,7 +327,7 @@
       "section": "Section 6A",
       "topic": "voting_rights",
       "status": "done",
-      "question": "Steps to maximize voter registration and participation among underrepresented communities.",
+      "question": "Please list the steps you would take to maximize voter registration and participation in your jurisdiction, particularly among communities historically underrepresented in the electoral process.",
       "analysis": "Good, and it now answers the noncitizen-voting prompt the question names. Ready.",
       "references": [],
       "levers": [],
@@ -259,15 +339,24 @@
       "section": "Section 7A",
       "topic": "behavioral_health",
       "status": "thin",
-      "question": "Prior policy initiatives or activities to improve behavioral health access, statewide or locally?",
+      "question": "Have you led any prior policy initiatives or engaged in any other previous activities to improve behavioral health access statewide or locally? Please give details.",
       "analysis": "This is the highest-leverage answer on the form and it is underbuilt. NUHW's core mission is behavioral health parity, and you have a decade of direct clinical experience. Right now the concrete example is a 2014 soda tax. Keep the strong opening, then add what you have actually seen: waitlists, denied authorizations, referral dead ends for young clients. No one else in this race can write those sentences. This is the one answer worth over-investing in.",
       "references": [],
       "levers": [
-        { "tier": "authority", "text": "Your clinical experience is itself policy evidence. Firsthand access failures are exactly what NUHW built its Kaiser parity fight on." },
-        { "tier": "authority", "text": "Berkeley's BHSA plan is a live local vehicle you could name here as where you would direct access improvements." }
+        {
+          "tier": "authority",
+          "text": "Your clinical experience is itself policy evidence. Firsthand access failures are exactly what NUHW built its Kaiser parity fight on."
+        },
+        {
+          "tier": "authority",
+          "text": "Berkeley's BHSA plan is a live local vehicle you could name here as where you would direct access improvements."
+        }
       ],
       "sources": [
-        { "label": "City of Berkeley: Mental Health / BHSA", "url": "https://berkeleyca.gov/safety-health/mental-health/mental-health-services-act" }
+        {
+          "label": "City of Berkeley: Mental Health / BHSA",
+          "url": "https://berkeleyca.gov/safety-health/mental-health/mental-health-services-act"
+        }
       ],
       "suggested": [
         {
@@ -281,22 +370,55 @@
       "section": "Section 7B",
       "topic": "behavioral_health",
       "status": "done",
-      "question": "Steps to leverage your jurisdiction's purchasing power or CalPERS voice to improve behavioral health access?",
+      "question": "Most of California’s local governments either purchase their own health coverage for their thousands of public employees or participate in CalPERS. Costs of public employee health plans continue increasing every year, all while provider networks continue to narrow and access to behavioral health services remains persistently challenging. What steps would you take to leverage your jurisdiction’s purchasing power or voice in CalPERS to improve access to behavioral health care?",
       "analysis": "The question assumes a CalPERS relationship. Berkeley does NOT use CalPERS for health benefits — CalPERS is retirement only. Berkeley contracts directly with Kaiser Permanente and Sutter Health Plus for employee health coverage, spending $16M+/year covering ~1,600 employees. The city's EAP through Claremont Behavioral Services caps counseling at 8 authorized sessions per incident per year. Coverage terms for represented employees are bargained through MOUs. The correct answer names this directly: the question's premise does not hold as stated, and the real lever is the city's direct carrier contracts.",
       "references": [],
       "levers": [
-        { "tier": "authority", "text": "Berkeley contracts directly with Kaiser Permanente and Sutter Health Plus (not CalPERS) for ~1,600 employees at $16M+/year. The council influences contract terms through the budget and MOU ratification." },
-        { "tier": "authority", "text": "The city's EAP (Claremont Behavioral Services) caps at 8 sessions per incident per year. Expanding that cap is a concrete negotiable item." },
-        { "tier": "authority", "text": "Berkeley's contracts with the county and service providers for crisis response set staffing and response-time standards." }
+        {
+          "tier": "authority",
+          "text": "Berkeley contracts directly with Kaiser Permanente and Sutter Health Plus (not CalPERS) for ~1,600 employees at $16M+/year. The council influences contract terms through the budget and MOU ratification."
+        },
+        {
+          "tier": "authority",
+          "text": "The city's EAP (Claremont Behavioral Services) caps at 8 sessions per incident per year. Expanding that cap is a concrete negotiable item."
+        },
+        {
+          "tier": "authority",
+          "text": "Berkeley's contracts with the county and service providers for crisis response set staffing and response-time standards."
+        }
       ],
       "sources": [
-        { "label": "City of Berkeley Employee Benefits Guide (2023)", "url": "https://berkeleyca.gov" },
-        { "label": "Berkeleyside: MCT + county handoff (no formal agreement yet)", "url": "https://www.berkeleyside.org/2026/07/06/mobile-crisis-team-berkeley-winter-shelter-closures" }
+        {
+          "label": "City of Berkeley Employee Benefits Guide (2023)",
+          "url": "https://berkeleyca.gov"
+        },
+        {
+          "label": "Berkeleyside: MCT + county handoff (no formal agreement yet)",
+          "url": "https://www.berkeleyside.org/2026/07/06/mobile-crisis-team-berkeley-winter-shelter-closures"
+        }
       ],
       "verification": [
-        { "claim": "Berkeley uses CalPERS for employee health coverage", "result": "refuted", "source": "City of Berkeley Employee Benefits Guide", "date": "2026-07-23", "note": "CalPERS is retirement only. Health coverage is contracted directly with Kaiser Permanente and Sutter Health Plus." },
-        { "claim": "Berkeley spends $16M+/year on employee health coverage for ~1,600 employees", "result": "confirmed", "source": "City of Berkeley Employee Benefits Guide (2023)", "date": "2026-07-23", "note": "Source is 2023 guide; flag for 2026 re-confirmation." },
-        { "claim": "EAP through Claremont Behavioral Services caps at 8 sessions/incident/year", "result": "confirmed", "source": "City of Berkeley Employee Benefits Guide (2023)", "date": "2026-07-23", "note": "" }
+        {
+          "claim": "Berkeley uses CalPERS for employee health coverage",
+          "result": "refuted",
+          "source": "City of Berkeley Employee Benefits Guide",
+          "date": "2026-07-23",
+          "note": "CalPERS is retirement only. Health coverage is contracted directly with Kaiser Permanente and Sutter Health Plus."
+        },
+        {
+          "claim": "Berkeley spends $16M+/year on employee health coverage for ~1,600 employees",
+          "result": "confirmed",
+          "source": "City of Berkeley Employee Benefits Guide (2023)",
+          "date": "2026-07-23",
+          "note": "Source is 2023 guide; flag for 2026 re-confirmation."
+        },
+        {
+          "claim": "EAP through Claremont Behavioral Services caps at 8 sessions/incident/year",
+          "result": "confirmed",
+          "source": "City of Berkeley Employee Benefits Guide (2023)",
+          "date": "2026-07-23",
+          "note": ""
+        }
       ],
       "suggested": [
         {
@@ -310,7 +432,7 @@
       "section": "Section 8A",
       "topic": "single_payer",
       "status": "thin",
-      "question": "Do you support single payer healthcare? Why or why not?",
+      "question": "Do you support the establishment of a single payer healthcare system — a publicly financed system of healthcare for all with a uniform standard of coverage that reduces costs by eliminating the profiteering, administrative waste, high prescription drug prices, and marketing expenditures that accompany private insurance? Why or why not?",
       "analysis": "The yes is unambiguous and the Wicks meeting is a real credential. The question asks 'why,' and the why is missing. You have one already: health care access is a human right, made specific by your clinical vantage on insurance denials.",
       "references": [],
       "levers": [],
@@ -327,12 +449,18 @@
       "section": "Section 8B",
       "topic": "single_payer",
       "status": "blank",
-      "question": "If yes, how would you advocate to enact single payer solutions?",
+      "question": "If yes, how would you advocate to enact single payer solutions to our healthcare crisis?",
       "analysis": "Blank. The honest answer names the limit first: a city cannot enact single payer. Saying so, then naming the real tools (resolutions, delegation lobbying, using the seat as a platform), reads as competence. You have already done the lobbying piece with Wicks.",
       "references": [],
       "levers": [
-        { "tier": "advocacy", "text": "A city cannot enact single payer. Real tools are council resolutions and lobbying the state delegation." },
-        { "tier": "advocacy", "text": "NUHW leads Healthy California NOW, which sponsored SB 770 (2023) toward unified financing. Naming the actual vehicle shows fluency." }
+        {
+          "tier": "advocacy",
+          "text": "A city cannot enact single payer. Real tools are council resolutions and lobbying the state delegation."
+        },
+        {
+          "tier": "advocacy",
+          "text": "NUHW leads Healthy California NOW, which sponsored SB 770 (2023) toward unified financing. Naming the actual vehicle shows fluency."
+        }
       ],
       "sources": [],
       "suggested": [
@@ -351,13 +479,28 @@
       "analysis": "Blank, and you have both strong adjacent material and a unique asset: as a child and adolescent therapist you almost certainly work with trans and gender-questioning young people, and gender-affirming care for minors is the exact front line under attack. California is a sanctuary state for this care under SB 107, but state law only holds if cities back it with their own resources and data practices.",
       "references": [],
       "levers": [
-        { "tier": "authority", "text": "A Berkeley resolution can bar city resources, data, or staff from aiding out-of-state investigations of gender-affirming care (the model Sacramento used to strengthen SB 107 locally)." },
-        { "tier": "authority", "text": "City employee health plans covering gender-affirming care without exception is a direct council commitment." },
-        { "tier": "authority", "text": "Data privacy and refusing surveillance contracts protect trans patients and providers; this connects to your existing civil-liberties stance." }
+        {
+          "tier": "authority",
+          "text": "A Berkeley resolution can bar city resources, data, or staff from aiding out-of-state investigations of gender-affirming care (the model Sacramento used to strengthen SB 107 locally)."
+        },
+        {
+          "tier": "authority",
+          "text": "City employee health plans covering gender-affirming care without exception is a direct council commitment."
+        },
+        {
+          "tier": "authority",
+          "text": "Data privacy and refusing surveillance contracts protect trans patients and providers; this connects to your existing civil-liberties stance."
+        }
       ],
       "sources": [
-        { "label": "KQED: SB 107, CA as trans sanctuary state", "url": "https://www.kqed.org/news/11929233/california-becomes-first-sanctuary-state-for-transgender-youth-seeking-medical-care" },
-        { "label": "CA Attorney General: SB 107 upheld", "url": "https://oag.ca.gov/node/583699" }
+        {
+          "label": "KQED: SB 107, CA as trans sanctuary state",
+          "url": "https://www.kqed.org/news/11929233/california-becomes-first-sanctuary-state-for-transgender-youth-seeking-medical-care"
+        },
+        {
+          "label": "CA Attorney General: SB 107 upheld",
+          "url": "https://oag.ca.gov/node/583699"
+        }
       ],
       "suggested": [
         {
@@ -371,16 +514,28 @@
       "section": "Section 9B",
       "topic": "cultural_competence",
       "status": "blank",
-      "question": "Actions to promote culturally competent, high-quality care for communities of color and marginalized populations?",
+      "question": "What actions would you take to promote access to culturally competent, high quality health care for communities of color and other marginalized populations?",
       "analysis": "Blank. For a clinician-heavy union, the real answer is workforce: recruiting and keeping providers who reflect the community, language capacity, and reimbursement that makes it viable to practice in underserved areas. NUHW names inadequate reimbursement and workforce development in the section preamble, so echoing those shows you read it.",
       "references": [],
       "levers": [
-        { "tier": "authority", "text": "Berkeley's BHSA plan can direct funding toward language access and workforce pipeline for clinicians of color." },
-        { "tier": "authority", "text": "City contracting standards can require providers we fund to serve residents in the languages they speak." },
-        { "tier": "advocacy", "text": "Reimbursement rates are set by the state and Medi-Cal; a city advocates rather than sets them." }
+        {
+          "tier": "authority",
+          "text": "Berkeley's BHSA plan can direct funding toward language access and workforce pipeline for clinicians of color."
+        },
+        {
+          "tier": "authority",
+          "text": "City contracting standards can require providers we fund to serve residents in the languages they speak."
+        },
+        {
+          "tier": "advocacy",
+          "text": "Reimbursement rates are set by the state and Medi-Cal; a city advocates rather than sets them."
+        }
       ],
       "sources": [
-        { "label": "City of Berkeley: Mental Health / BHSA", "url": "https://berkeleyca.gov/safety-health/mental-health/mental-health-services-act" }
+        {
+          "label": "City of Berkeley: Mental Health / BHSA",
+          "url": "https://berkeleyca.gov/safety-health/mental-health/mental-health-services-act"
+        }
       ],
       "suggested": [
         {
@@ -394,16 +549,28 @@
       "section": "Section 10A",
       "topic": "immigration",
       "status": "blank",
-      "question": "Ideas to provide local assistance to immigrants seeking a more secure future?",
+      "question": "What ideas do you have to provide local assistance to immigrants seeking a more secure future in your city or county?",
       "analysis": "Blank, but this should be one of your easiest and strongest answers. You already sit on Berkeley's Sanctuary City Taskforce and co-facilitate a Bay Resistance Pod for 94702, which is rapid-response work. NUHW calls itself a sanctuary union. This suggested copy is entirely your own material.",
       "references": [],
       "levers": [
-        { "tier": "authority", "text": "The council funds sanctuary infrastructure: legal defense, know-your-rights education, and city coordination with the county rapid-response network." },
-        { "tier": "authority", "text": "Refusing surveillance contracts and protecting city-held data is a direct, concrete immigrant-defense lever." },
-        { "tier": "advocacy", "text": "County-level legal defense (ACILEP, funded through Measure W by the Board of Supervisors) is where Berkeley plugs in and advocates for more." }
+        {
+          "tier": "authority",
+          "text": "The council funds sanctuary infrastructure: legal defense, know-your-rights education, and city coordination with the county rapid-response network."
+        },
+        {
+          "tier": "authority",
+          "text": "Refusing surveillance contracts and protecting city-held data is a direct, concrete immigrant-defense lever."
+        },
+        {
+          "tier": "advocacy",
+          "text": "County-level legal defense (ACILEP, funded through Measure W by the Board of Supervisors) is where Berkeley plugs in and advocates for more."
+        }
       ],
       "sources": [
-        { "label": "Supervisor Nikki Fortunato Bas (D5, incl. Berkeley) — immigrant rights / ACILEP", "url": "https://district5.alamedacountyca.gov/about/" }
+        {
+          "label": "Supervisor Nikki Fortunato Bas (D5, incl. Berkeley) — immigrant rights / ACILEP",
+          "url": "https://district5.alamedacountyca.gov/about/"
+        }
       ],
       "suggested": [
         {
@@ -417,15 +584,24 @@
       "section": "Section 10B",
       "topic": "ice_cooperation",
       "status": "blank",
-      "question": "Do you support or oppose cooperation of state and local governments with ICE, and why?",
+      "question": "Please share whether you support or oppose the cooperation of state and local governments with Federal Immigration and Customs Enforcement (ICE) officials and explain why.",
       "analysis": "Blank. This needs an unequivocal one-word opening: Oppose. Then the reasoning almost no other candidate can make, that as a clinician you know what happens when people are afraid to seek care, and NUHW's own preamble is about enforcement at hospitals and schools.",
       "references": [],
       "levers": [
-        { "tier": "authority", "text": "Berkeley can refuse to share data, decline surveillance contracts, and bar staff cooperation. These are concrete council decisions." },
-        { "tier": "advocacy", "text": "The Alameda County Sheriff has already said deputies will not aid ICE; alignment reinforces the county posture." }
+        {
+          "tier": "authority",
+          "text": "Berkeley can refuse to share data, decline surveillance contracts, and bar staff cooperation. These are concrete council decisions."
+        },
+        {
+          "tier": "advocacy",
+          "text": "The Alameda County Sheriff has already said deputies will not aid ICE; alignment reinforces the county posture."
+        }
       ],
       "sources": [
-        { "label": "Supervisor Bas / county immigrant-defense posture", "url": "https://district5.alamedacountyca.gov/about/" }
+        {
+          "label": "Supervisor Bas / county immigrant-defense posture",
+          "url": "https://district5.alamedacountyca.gov/about/"
+        }
       ],
       "suggested": [
         {
@@ -439,17 +615,32 @@
       "section": "Section 11A",
       "topic": "affordable_housing",
       "status": "blank",
-      "question": "Definition of affordable housing, and how you would preserve or create housing workers can afford near their workplaces?",
+      "question": "What is your definition of affordable housing and how would you work to increase the preservation and creation of housing that healthcare workers can afford near their workplaces and the communities they serve?",
       "analysis": "Blank, but you have more usable material here than for any other blank. Note the two halves: NUHW is asking for a definition (be concrete about AMI) and a plan. The union frame is workers priced out of the communities they serve, which connects to staffing and burnout. Adding a union-labor commitment is cheap and expected in a labor questionnaire.",
       "references": [],
       "levers": [
-        { "tier": "authority", "text": "The council sets zoning, density near transit, and inclusionary/affordability requirements." },
-        { "tier": "authority", "text": "Berkeley's Rental Housing Safety Program (BMC 19.40) preserves existing habitable, affordable units through inspection and enforcement." },
-        { "tier": "authority", "text": "The council can require union labor and affordability terms on city-supported projects." }
+        {
+          "tier": "authority",
+          "text": "The council sets zoning, density near transit, and inclusionary/affordability requirements."
+        },
+        {
+          "tier": "authority",
+          "text": "Berkeley's Rental Housing Safety Program (BMC 19.40) preserves existing habitable, affordable units through inspection and enforcement."
+        },
+        {
+          "tier": "authority",
+          "text": "The council can require union labor and affordability terms on city-supported projects."
+        }
       ],
       "sources": [
-        { "label": "City of Berkeley: Rental Housing Safety Program", "url": "https://berkeleyca.gov/doing-business/operating-berkeley/landlords/rental-housing-safety-program-rhsp" },
-        { "label": "Berkeleyside: Golden Bear supportive housing (D1)", "url": "https://www.berkeleyside.org/2021/12/15/golden-bear-inn-project-homekey-berkeley" }
+        {
+          "label": "City of Berkeley: Rental Housing Safety Program",
+          "url": "https://berkeleyca.gov/doing-business/operating-berkeley/landlords/rental-housing-safety-program-rhsp"
+        },
+        {
+          "label": "Berkeleyside: Golden Bear supportive housing (D1)",
+          "url": "https://www.berkeleyside.org/2021/12/15/golden-bear-inn-project-homekey-berkeley"
+        }
       ],
       "suggested": [
         {
@@ -463,16 +654,28 @@
       "section": "Section 11B",
       "topic": "rent_control",
       "status": "blank",
-      "question": "Do you support rent control and the repeal of Costa-Hawkins? Why or why not?",
+      "question": "Do you support rent control and the repeal of the Costa-Hawkins Act which would allow cities and counties to create policies to stabilize rents that meet their communities’ unique needs? Why or why not?",
       "analysis": "Blank, and it is a litmus question that needs Yes in the first sentence. You are already pro-tenant and endorsed by the Rent Board President. Berkeley has an elected Rent Board, so naming what you would do through it shows you know the machinery. Tie your pro-supply and pro-tenant stances together so they do not read as a contradiction: supply and protection together.",
       "references": [],
       "levers": [
-        { "tier": "authority", "text": "Berkeley's elected Rent Board administers rent stabilization; the council and Rent Board can strengthen local tenant protections within current state law." },
-        { "tier": "advocacy", "text": "Costa-Hawkins repeal is a state question. Voters rejected repeal (Prop 33) in 2024, the third failure, so near-term the path is local while supporting future repeal." }
+        {
+          "tier": "authority",
+          "text": "Berkeley's elected Rent Board administers rent stabilization; the council and Rent Board can strengthen local tenant protections within current state law."
+        },
+        {
+          "tier": "advocacy",
+          "text": "Costa-Hawkins repeal is a state question. Voters rejected repeal (Prop 33) in 2024, the third failure, so near-term the path is local while supporting future repeal."
+        }
       ],
       "sources": [
-        { "label": "Ballotpedia: Prop 33 (2024) defeated", "url": "https://ballotpedia.org/California_Proposition_33,_Prohibit_State_Limitations_on_Local_Rent_Control_Initiative_(2024)" },
-        { "label": "CalMatters: Prop 33 result and the local path", "url": "https://calmatters.org/politics/2024/11/california-election-results-prop-33-rent-control/" }
+        {
+          "label": "Ballotpedia: Prop 33 (2024) defeated",
+          "url": "https://ballotpedia.org/California_Proposition_33,_Prohibit_State_Limitations_on_Local_Rent_Control_Initiative_(2024)"
+        },
+        {
+          "label": "CalMatters: Prop 33 result and the local path",
+          "url": "https://calmatters.org/politics/2024/11/california-election-results-prop-33-rent-control/"
+        }
       ],
       "suggested": [
         {
@@ -486,17 +689,32 @@
       "section": "Section 11C",
       "topic": "homelessness",
       "status": "blank",
-      "question": "Approach to homelessness, meeting immediate needs and root causes including mental health and substance use?",
+      "question": "What is your approach to addressing homelessness in our community, and how will you ensure your policies both meet the immediate needs of unhoused residents and tackle the root causes of homelessness, including the lack of affordable housing and access to mental health and substance use treatment?",
       "analysis": "Blank, and it is the last question they read before deciding. The prompt names mental health and substance use directly, which puts your clinical background on point, and you have a completed local example in Golden Bear. Use it in past tense; it opened in 2022. This is also the right home for the housing-habitability point you had drafted in 5B.",
       "references": [],
       "levers": [
-        { "tier": "authority", "text": "The council funds permanent supportive, transitional, and alternative housing and sets encampment policy (including whether to conduct sweeps)." },
-        { "tier": "authority", "text": "Behavioral health funding through the BHSA plan and the county handoff terms directly shape the mental-health half of this question." },
-        { "tier": "authority", "text": "The Rental Housing Safety Program keeps existing units habitable, which is upstream homelessness prevention." }
+        {
+          "tier": "authority",
+          "text": "The council funds permanent supportive, transitional, and alternative housing and sets encampment policy (including whether to conduct sweeps)."
+        },
+        {
+          "tier": "authority",
+          "text": "Behavioral health funding through the BHSA plan and the county handoff terms directly shape the mental-health half of this question."
+        },
+        {
+          "tier": "authority",
+          "text": "The Rental Housing Safety Program keeps existing units habitable, which is upstream homelessness prevention."
+        }
       ],
       "sources": [
-        { "label": "Berkeleyside: Golden Bear supportive housing (D1)", "url": "https://www.berkeleyside.org/2021/12/15/golden-bear-inn-project-homekey-berkeley" },
-        { "label": "Berkeleyside: MCT + winter shelter closures", "url": "https://www.berkeleyside.org/2026/07/06/mobile-crisis-team-berkeley-winter-shelter-closures" }
+        {
+          "label": "Berkeleyside: Golden Bear supportive housing (D1)",
+          "url": "https://www.berkeleyside.org/2021/12/15/golden-bear-inn-project-homekey-berkeley"
+        },
+        {
+          "label": "Berkeleyside: MCT + winter shelter closures",
+          "url": "https://www.berkeleyside.org/2026/07/06/mobile-crisis-team-berkeley-winter-shelter-closures"
+        }
       ],
       "suggested": [
         {

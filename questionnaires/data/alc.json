@@ -7,17 +7,61 @@
   "last_factcheck": "2026-07-22",
   "org_research": "The Alameda Labor Council represents over 140 local unions and 140,000+ working families across Alameda County. Their endorsement process centers on candidates' history with organized labor, willingness to actively support organizing drives, and alignment on healthcare, contracting, and worker rights. The questionnaire emphasizes concrete commitments — signing letters, speaking at forums, refusing to cross picket lines — not just policy positions.",
   "contact_fields": [
-    { "k": "name", "label": "Name", "v": "Daria Wrubel" },
-    { "k": "office", "label": "Office Sought", "v": "Berkeley City Council" },
-    { "k": "district", "label": "District", "v": "1" },
-    { "k": "city_zip", "label": "City & Zip Code", "v": "" },
-    { "k": "cell", "label": "Cell Phone", "v": "" },
-    { "k": "occ", "label": "Occupation", "v": "Licensed Marriage & Family Therapist" },
-    { "k": "emp", "label": "Employer", "v": "self-employed (Grounded Therapy)" },
-    { "k": "party", "label": "Political Party", "v": "Democratic" },
-    { "k": "consultant", "label": "Consultant and/or Campaign Manager", "v": "Sam Kaplan-Pettus" },
-    { "k": "fppc", "label": "Campaign ID (FPPC #)", "v": "pending" },
-    { "k": "committee", "label": "Committee Name", "v": "" }
+    {
+      "k": "name",
+      "label": "Name",
+      "v": "Daria Wrubel"
+    },
+    {
+      "k": "office",
+      "label": "Office Sought",
+      "v": "Berkeley City Council"
+    },
+    {
+      "k": "district",
+      "label": "District",
+      "v": "1"
+    },
+    {
+      "k": "city_zip",
+      "label": "City & Zip Code",
+      "v": ""
+    },
+    {
+      "k": "cell",
+      "label": "Cell Phone",
+      "v": ""
+    },
+    {
+      "k": "occ",
+      "label": "Occupation",
+      "v": "Licensed Marriage & Family Therapist"
+    },
+    {
+      "k": "emp",
+      "label": "Employer",
+      "v": "self-employed (Grounded Therapy)"
+    },
+    {
+      "k": "party",
+      "label": "Political Party",
+      "v": "Democratic"
+    },
+    {
+      "k": "consultant",
+      "label": "Consultant and/or Campaign Manager",
+      "v": "Sam Kaplan-Pettus"
+    },
+    {
+      "k": "fppc",
+      "label": "Campaign ID (FPPC #)",
+      "v": "pending"
+    },
+    {
+      "k": "committee",
+      "label": "Committee Name",
+      "v": ""
+    }
   ],
   "questions": [
     {
@@ -30,7 +74,10 @@
       "references": [],
       "levers": [],
       "sources": [
-        { "label": "Alameda County Registrar: Voter lookup", "url": "https://www.acvote.org/index" }
+        {
+          "label": "Alameda County Registrar: Voter lookup",
+          "url": "https://www.acvote.org/index"
+        }
       ],
       "suggested": [
         {
@@ -213,11 +260,20 @@
       "analysis": "Overlaps with NUHW s21 and s22. For the labor council, frame priorities through a labor lens: affordability is a worker issue, city services depend on city workers, public safety intersects with worker rights. The candidate's platform of livability, affordability, city services, education, and civil liberties maps well. Add the behavioral health and labor planks that were added for NUHW.",
       "references": [],
       "levers": [
-        { "tier": "authority", "text": "The council sets the city budget, staffing levels, and contracting policy — all direct authority over how city workers are treated." },
-        { "tier": "authority", "text": "Zoning, density, and tenant protections are council powers that directly affect housing affordability for working families." }
+        {
+          "tier": "authority",
+          "text": "The council sets the city budget, staffing levels, and contracting policy — all direct authority over how city workers are treated."
+        },
+        {
+          "tier": "authority",
+          "text": "Zoning, density, and tenant protections are council powers that directly affect housing affordability for working families."
+        }
       ],
       "sources": [
-        { "label": "Berkeleyside: Mobile Crisis Team + shelter closures", "url": "https://www.berkeleyside.org/2026/07/06/mobile-crisis-team-berkeley-winter-shelter-closures" }
+        {
+          "label": "Berkeleyside: Mobile Crisis Team + shelter closures",
+          "url": "https://www.berkeleyside.org/2026/07/06/mobile-crisis-team-berkeley-winter-shelter-closures"
+        }
       ],
       "suggested": [
         {
@@ -235,8 +291,14 @@
       "analysis": "This is a two-part question: (1) how will the candidate achieve the priorities, and (2) past collaboration with unions. The candidate's AFT 6192 organizing year is the centerpiece. The Brass Liberation Orchestra actions add solidarity beyond the candidate's own workplace. For how, name the council's actual tools: budgets, MOUs, contracting standards, and direct engagement with labor before decisions are made.",
       "references": [],
       "levers": [
-        { "tier": "authority", "text": "The council approves MOUs with city employee unions — that is direct power over working conditions." },
-        { "tier": "authority", "text": "Contracting and procurement standards can require union labor, prevailing wages, and anti-contracting-out protections." }
+        {
+          "tier": "authority",
+          "text": "The council approves MOUs with city employee unions — that is direct power over working conditions."
+        },
+        {
+          "tier": "authority",
+          "text": "Contracting and procurement standards can require union labor, prevailing wages, and anti-contracting-out protections."
+        }
       ],
       "sources": [],
       "suggested": [
@@ -272,13 +334,28 @@
       "analysis": "For a labor council, frame the three challenges through a worker lens. The obvious three for Berkeley D1: (1) housing affordability — workers priced out of the city they serve, (2) the budget deficit and its threat to city services and city jobs, (3) the behavioral health/public safety transition. Each has a concrete council lever and a labor connection.",
       "references": [],
       "levers": [
-        { "tier": "authority", "text": "Zoning, density bonuses, and inclusionary requirements are council powers." },
-        { "tier": "authority", "text": "The council sets the city budget and approves staffing levels — cuts fall on city workers first." },
-        { "tier": "authority", "text": "Berkeley's BHSA plan and the county handoff contract are live council decisions." }
+        {
+          "tier": "authority",
+          "text": "Zoning, density bonuses, and inclusionary requirements are council powers."
+        },
+        {
+          "tier": "authority",
+          "text": "The council sets the city budget and approves staffing levels — cuts fall on city workers first."
+        },
+        {
+          "tier": "authority",
+          "text": "Berkeley's BHSA plan and the county handoff contract are live council decisions."
+        }
       ],
       "sources": [
-        { "label": "Berkeleyside: Mobile Crisis Team + shelter closures", "url": "https://www.berkeleyside.org/2026/07/06/mobile-crisis-team-berkeley-winter-shelter-closures" },
-        { "label": "City of Berkeley: Rental Housing Safety Program", "url": "https://berkeleyca.gov/doing-business/operating-berkeley/landlords/rental-housing-safety-program-rhsp" }
+        {
+          "label": "Berkeleyside: Mobile Crisis Team + shelter closures",
+          "url": "https://www.berkeleyside.org/2026/07/06/mobile-crisis-team-berkeley-winter-shelter-closures"
+        },
+        {
+          "label": "City of Berkeley: Rental Housing Safety Program",
+          "url": "https://berkeleyca.gov/doing-business/operating-berkeley/landlords/rental-housing-safety-program-rhsp"
+        }
       ],
       "suggested": [
         {
@@ -313,9 +390,18 @@
       "analysis": "A newer question reflecting labor's growing concern about workplace automation, algorithmic management, and AI displacing union jobs. For a clinician, there is an additional angle: AI in healthcare decision-making (prior authorization algorithms, chatbot triage) that substitutes for licensed clinical judgment. The candidate already has language in the NUHW questionnaire about resisting automated tools replacing licensed clinicians. For a labor council, center the answer on worker impact: job displacement, the right to bargain over new technology, and transparency in algorithmic management.",
       "references": [],
       "levers": [
-        { "tier": "authority", "text": "The council can set policy on how the City of Berkeley itself uses AI in employment, services, and procurement — that is direct authority." },
-        { "tier": "authority", "text": "City contracts and MOUs can require that AI deployment be subject to bargaining and that workers affected by automation have retraining and transition protections." },
-        { "tier": "advocacy", "text": "State-level AI regulation (AB 331, SB 1047 precedents) is advocacy, not city authority, but the council can pass resolutions and lobby the delegation." }
+        {
+          "tier": "authority",
+          "text": "The council can set policy on how the City of Berkeley itself uses AI in employment, services, and procurement — that is direct authority."
+        },
+        {
+          "tier": "authority",
+          "text": "City contracts and MOUs can require that AI deployment be subject to bargaining and that workers affected by automation have retraining and transition protections."
+        },
+        {
+          "tier": "advocacy",
+          "text": "State-level AI regulation (AB 331, SB 1047 precedents) is advocacy, not city authority, but the council can pass resolutions and lobby the delegation."
+        }
       ],
       "sources": [],
       "suggested": [
@@ -351,9 +437,18 @@
       "analysis": "The question asks for concrete council actions, not just support. Berkeley has specific municipal tools: the council can pass labor peace ordinances, require card-check neutrality in city contracts and subsidized developments, and use the city's voice to support organizing drives publicly. The candidate's organizing background makes these commitments credible.",
       "references": [],
       "levers": [
-        { "tier": "authority", "text": "Labor peace ordinances and card-check neutrality requirements in city contracts and subsidized projects are direct council powers." },
-        { "tier": "authority", "text": "The council can publicly support organizing drives, write letters to employers, and use the city's voice." },
-        { "tier": "authority", "text": "Preventing the use of city funds or resources against workers during organizing campaigns is a direct budget and policy decision." }
+        {
+          "tier": "authority",
+          "text": "Labor peace ordinances and card-check neutrality requirements in city contracts and subsidized projects are direct council powers."
+        },
+        {
+          "tier": "authority",
+          "text": "The council can publicly support organizing drives, write letters to employers, and use the city's voice."
+        },
+        {
+          "tier": "authority",
+          "text": "Preventing the use of city funds or resources against workers during organizing campaigns is a direct budget and policy decision."
+        }
       ],
       "sources": [],
       "suggested": [
@@ -389,8 +484,14 @@
       "analysis": "Support, unequivocally. The candidate's clinical background gives firsthand knowledge of what happens when patients face uncapped hospital charges — they avoid care entirely. For a city councilmember, the direct lever is limited (hospital pricing is largely state and federal), but the council can pass resolutions, advocate to the state delegation, and use city contracting to support facilities that serve uninsured patients fairly.",
       "references": [],
       "levers": [
-        { "tier": "advocacy", "text": "Hospital pricing regulation is primarily state authority (Health & Safety Code, OSHPD oversight). A councilmember advocates and passes resolutions." },
-        { "tier": "authority", "text": "The council can direct city contracts and partnerships toward facilities with fair pricing policies for uninsured patients." }
+        {
+          "tier": "advocacy",
+          "text": "Hospital pricing regulation is primarily state authority (Health & Safety Code, OSHPD oversight). A councilmember advocates and passes resolutions."
+        },
+        {
+          "tier": "authority",
+          "text": "The council can direct city contracts and partnerships toward facilities with fair pricing policies for uninsured patients."
+        }
       ],
       "sources": [],
       "suggested": [
@@ -409,7 +510,10 @@
       "analysis": "Yes, without qualification. This is a principle question about labor consultation before contracting decisions. The candidate's broader anti-contracting-out stance from NUHW applies here directly. For a labor council, this is about respect for the relationship and the bargaining process.",
       "references": [],
       "levers": [
-        { "tier": "authority", "text": "Workers compensation carrier selection is a city procurement decision. The council can require consultation with affected unions before any change." }
+        {
+          "tier": "authority",
+          "text": "Workers compensation carrier selection is a city procurement decision. The council can require consultation with affected unions before any change."
+        }
       ],
       "sources": [],
       "suggested": [
@@ -458,7 +562,7 @@
       "section": "Principles",
       "topic": "labor_solidarity",
       "status": "done",
-      "question": "What steps would you take to support a boycott, when sanctioned by a Central Labor Council, California Labor Federation or AFL-CIO? Will your campaign refuse to use restaurants, hotels, or other public accommodations on the boycott list?",
+      "question": "What steps would you take to support a boycott, when sanctioned by a Central Labor Council, California Labor Federation or AFL-CIO? Will your campaign refuse to use restaurants, hotels, or other public accommodations on the boycott list (available at www.calaborfed.org)?",
       "analysis": "Two-part question: (1) personal/official steps to support boycotts, (2) campaign operations specifically. Both answers should be yes. The candidate should commit to checking the boycott list for campaign events and using the council platform to amplify boycott calls.",
       "references": [],
       "levers": [],
@@ -496,7 +600,10 @@
       "analysis": "This is a relationship question. The labor council wants to know their input matters on appointments that affect workers — the Planning Commission, the Housing Advisory Commission, the Personnel Board. The answer should be yes, with an understanding of which appointments matter most to labor.",
       "references": [],
       "levers": [
-        { "tier": "authority", "text": "Councilmembers make appointments to city boards and commissions. The Personnel Board, Planning Commission, and Housing Advisory Commission have direct impact on workers and labor priorities." }
+        {
+          "tier": "authority",
+          "text": "Councilmembers make appointments to city boards and commissions. The Personnel Board, Planning Commission, and Housing Advisory Commission have direct impact on workers and labor priorities."
+        }
       ],
       "sources": [],
       "suggested": [
