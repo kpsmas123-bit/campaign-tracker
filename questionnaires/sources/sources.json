@@ -1,0 +1,38 @@
+{
+  "nuhw": {
+    "org": "National Union of Healthcare Workers",
+    "source_documents": [
+      {
+        "description": "2026 Local Candidate Questionnaire (blank)",
+        "drive_file_id": "1njONKI5CwMGREoynv7aliSHzvW49Q0pz",
+        "filename": "2026LocalCandidateQuestionnaire.pdf"
+      },
+      {
+        "description": "2026 Local Candidate Questionnaire (Daria's draft)",
+        "drive_file_id": "1EF2eurkFAyxqKgUzF5apnOZ0YwBNoxZF",
+        "filename": "draft-2026LocalCandidateQuestionnaire.pdf"
+      }
+    ]
+  },
+  "alc": {
+    "org": "Alameda Labor Council, AFL-CIO",
+    "source_documents": [
+      {
+        "description": "2026G ALC Candidate Questionnaire",
+        "drive_file_id": "19YxbhRMu3bPJ2-Ibr3enomGqHV8WqiEl",
+        "filename": "2026G ALC Candidate Questionnaire.pdf"
+      }
+    ]
+  },
+  "btu": {
+    "org": "Berkeley Tenants Union",
+    "source_documents": [
+      {
+        "description": "BTU City Council Endorsement Questionnaire (Google Form)",
+        "drive_file_id": null,
+        "filename": null,
+        "note": "Source is a Google Form, not a PDF. Transcribed from screenshot."
+      }
+    ]
+  }
+}

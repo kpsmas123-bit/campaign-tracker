@@ -280,6 +280,22 @@
           "note": "NUHW s22 adapted for labor council — leads with worker lens",
           "text": "My priorities center on livability for working families: increasing affordability so the people who work in Berkeley can live here, improving city services and protecting the workers who deliver them, preserving our educational and cultural excellence, and investing in public safety that does not jeopardize civil liberties. I would add two that reflect my own background. First, protecting our behavioral health infrastructure — Berkeley just closed its Mobile Crisis Team and a winter shelter, and I want to make sure residents do not lose care in the transition. Second, standing with our city workers, because how we treat the people who deliver public services is how we protect those services.\n\nThis election will shape how Berkeley navigates a serious budget deficit while honoring its commitments to its workforce, its tenants, and its most vulnerable residents."
         }
+      ],
+      "verification": [
+        {
+          "claim": "Council sets city budget, staffing levels, and contracting policy",
+          "result": "confirmed",
+          "source": "Generic charter city structural authority",
+          "date": "2026-07-23",
+          "note": "Generic municipal power."
+        },
+        {
+          "claim": "Zoning, density, and tenant protections are council powers",
+          "result": "confirmed",
+          "source": "Generic charter city structural authority",
+          "date": "2026-07-23",
+          "note": "Generic municipal power."
+        }
       ]
     },
     {
@@ -305,6 +321,22 @@
         {
           "note": "Combines organizing history with concrete council tools",
           "text": "I have worked with unions from the inside. As a classified employee at Berkeley Unified, I was a site representative for AFT Local 6192 at Thousand Oaks Elementary, and then the union organizer for the entire local for the 2013-14 school year, on a California Federation of Teachers grant. I organized alongside the people I represented.\n\nOutside my own workplace, I have supported labor actions through the Brass Liberation Orchestra, including the Richmond Teachers Union and the Kaiser Nurse Practitioners strike, and I have met directly with state legislators alongside union members to advocate for shared priorities like single-payer healthcare.\n\nAs a councilmember I would achieve these objectives through the tools the council actually has: the budget, MOU negotiations that respect and strengthen city workers, contracting standards that require union labor and prevent contracting out, and a commitment to consulting with labor before decisions are made, not after."
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Council approves MOUs with city employee unions",
+          "result": "confirmed",
+          "source": "Generic charter city structural authority",
+          "date": "2026-07-23",
+          "note": "Generic municipal power."
+        },
+        {
+          "claim": "Contracting and procurement standards can require union labor and prevailing wages",
+          "result": "confirmed",
+          "source": "Generic charter city structural authority; California Labor Code",
+          "date": "2026-07-23",
+          "note": "Prevailing wage for public works reinforced by state law."
         }
       ]
     },
@@ -362,6 +394,29 @@
           "note": "Three challenges, labor-framed",
           "text": "First, housing affordability. The nurses, teachers, city workers, and clinicians who serve Berkeley increasingly cannot afford to live here. I am a pro-housing and pro-tenant candidate. I support building density near transit, preserving existing affordable units through programs like our Rental Housing Safety Program, requiring union labor on new construction, and strengthening tenant protections.\n\nSecond, the city budget and protecting city services. Berkeley faces a structural deficit, and the pressure to cut will fall first on the workers who deliver public services. I would protect staffing levels, resist contracting out, and find revenue solutions rather than making city workers absorb the gap.\n\nThird, the transition in behavioral health and public safety. Berkeley just closed its Mobile Crisis Team and a winter shelter while handing crisis response to the county. Done wrong, this means fewer jobs, worse service, and workers caught in the middle. I would fight for staffing and response-time guarantees in the county agreement and make sure the clinicians and frontline workers delivering care help shape the transition."
         }
+      ],
+      "verification": [
+        {
+          "claim": "Zoning, density bonuses, and inclusionary requirements are council powers",
+          "result": "confirmed",
+          "source": "Generic charter city structural authority",
+          "date": "2026-07-23",
+          "note": "Generic municipal power."
+        },
+        {
+          "claim": "Council sets city budget and approves staffing levels",
+          "result": "confirmed",
+          "source": "Generic charter city structural authority",
+          "date": "2026-07-23",
+          "note": "Generic municipal power."
+        },
+        {
+          "claim": "Berkeley's BHSA plan and county handoff contract are council decisions",
+          "result": "confirmed",
+          "source": "City of Berkeley BHSA Three-Year Integrated Plan; Berkeleyside MCT reporting",
+          "date": "2026-07-23",
+          "note": ""
+        }
       ]
     },
     {
@@ -409,6 +464,22 @@
           "note": "Labor-centered AI position with clinical angle",
           "text": "Technology should serve workers, not replace them and not surveil them. My concern with artificial intelligence is straightforward: when it is deployed without worker input, it becomes a tool for cutting jobs, automating management decisions, and eroding the conditions that unions have fought to win.\n\nAs a clinician, I see this in healthcare already. Insurance companies use algorithms to deny care and replace clinical judgment with automated systems. I have said elsewhere that I would resist letting carriers or city contractors substitute automated tools for licensed clinical judgment, and I mean it.\n\nMore broadly, working class families bear the cost when AI is introduced without guardrails. As a councilmember I would ensure that the City of Berkeley's own use of AI is transparent, that any deployment affecting city workers is subject to collective bargaining, and that our procurement and contracting standards require the same of vendors. Workers must have a seat at the table before new technology changes their jobs, not after."
         }
+      ],
+      "verification": [
+        {
+          "claim": "Council can set policy on how the City of Berkeley uses AI in employment, services, and procurement",
+          "result": "confirmed",
+          "source": "Generic charter city structural authority (ordinance/policy)",
+          "date": "2026-07-23",
+          "note": "Generic municipal power — internal policy."
+        },
+        {
+          "claim": "City contracts and MOUs can require AI deployment be subject to bargaining",
+          "result": "confirmed",
+          "source": "Generic charter city structural authority (MOU ratification)",
+          "date": "2026-07-23",
+          "note": "Generic municipal power — MOU terms are bargained."
+        }
       ]
     },
     {
@@ -439,7 +510,11 @@
       "levers": [
         {
           "tier": "authority",
-          "text": "Labor peace ordinances and card-check neutrality requirements in city contracts and subsidized projects are direct council powers."
+          "text": "Berkeley has a labor peace ordinance (BMC 2.102) requiring labor peace agreements for hospitality operations in the Marina Zone. The council has demonstrated this power and can expand the model to other city contracts and subsidized projects."
+        },
+        {
+          "tier": "unverified",
+          "text": "Card-check neutrality requirements in city contracts. Berkeley's existing labor peace ordinance (BMC 2.102) explicitly does not require employer recognition of unions or collective bargaining. Whether the council can impose card-check neutrality via contract conditions has not been confirmed for this jurisdiction."
         },
         {
           "tier": "authority",
@@ -454,7 +529,23 @@
       "suggested": [
         {
           "note": "Concrete council tools, not just support",
-          "text": "I would use the tools a councilmember actually has. I would support labor peace ordinances and card-check neutrality requirements in city contracts and city-subsidized developments. I would publicly support workers seeking to organize — signing letters, speaking at forums, and using the council platform to make clear that Berkeley stands with workers exercising their rights. I would work to ensure that no city funds or resources are used against workers during organizing campaigns. And I would personally speak to employers about remaining neutral, as someone who has been on both sides of an organizing drive and understands what neutrality actually requires."
+          "text": "I would use the tools a councilmember actually has. Berkeley already requires labor peace agreements for hospitality operations in the Marina Zone under BMC 2.102 — I would work to expand that model to all city contracts and city-subsidized developments, so that public dollars never underwrite union-busting. I would publicly support workers seeking to organize — signing letters, speaking at forums, and using the council platform to make clear that Berkeley stands with workers exercising their rights. I would work to ensure that no city funds or resources are used against workers during organizing campaigns. And I would personally speak to employers about remaining neutral, as someone who has been on both sides of an organizing drive and understands what neutrality actually requires."
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley can impose labor peace requirements in city contracts",
+          "result": "confirmed",
+          "source": "Berkeley Municipal Code Chapter 2.102",
+          "date": "2026-07-23",
+          "note": "BMC 2.102 requires labor peace agreements for hospitality operations in the Marina Zone. Mechanism exists; current scope is limited to Marina hospitality."
+        },
+        {
+          "claim": "Berkeley can impose card-check neutrality requirements in city contracts",
+          "result": "unresolved",
+          "source": "Berkeley Municipal Code Chapter 2.102",
+          "date": "2026-07-23",
+          "note": "BMC 2.102 explicitly does not require recognition or collective bargaining. LA and Long Beach have card-check ordinances but Berkeley has not enacted one. State preemption status unresolved."
         }
       ]
     },
@@ -489,8 +580,8 @@
           "text": "Hospital pricing regulation is primarily state authority (Health & Safety Code, OSHPD oversight). A councilmember advocates and passes resolutions."
         },
         {
-          "tier": "authority",
-          "text": "The council can direct city contracts and partnerships toward facilities with fair pricing policies for uninsured patients."
+          "tier": "advocacy",
+          "text": "The council can advocate for fair pricing for uninsured patients and pass resolutions supporting state-level caps. It can also prefer facilities with fair pricing policies when choosing partners for city health programs, though no formal contracting mechanism exists."
         }
       ],
       "sources": [],
@@ -498,6 +589,15 @@
         {
           "note": "Support, with clinical grounding",
           "text": "I would support it. As a clinician, I see what happens when patients face uncapped charges — they avoid care until a manageable problem becomes a crisis, and the cost shifts to emergency rooms and public systems. No one should face financial ruin for getting sick. I would support state-level efforts to cap hospital charges for the uninsured and use the council platform to advocate for it with our state delegation."
+        }
+      ],
+      "verification": [
+        {
+          "claim": "The council can direct city contracts toward facilities based on pricing policies for uninsured patients",
+          "result": "refuted",
+          "source": "Berkeley Municipal Code; web search July 2026",
+          "date": "2026-07-23",
+          "note": "No evidence Berkeley contracts with hospitals for general patient care or has any mechanism to direct partnerships based on uninsured pricing. Hospital pricing is state-regulated. Lever retiered to advocacy."
         }
       ]
     },
@@ -520,6 +620,15 @@
         {
           "note": "Unqualified yes",
           "text": "Yes, absolutely. Contracting decisions that affect workers should never be made without consulting the workers they affect. I would consult with the impacted union before any change to workers compensation carriers, and I would apply that same principle to contracting decisions broadly — labor should be at the table before the decision is made, not notified after."
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Workers compensation carrier selection is a city procurement decision; council can require union consultation",
+          "result": "confirmed",
+          "source": "Generic charter city structural authority (procurement)",
+          "date": "2026-07-23",
+          "note": "Generic municipal power."
         }
       ]
     },
@@ -610,6 +719,15 @@
         {
           "note": "Yes, with specificity about which appointments matter",
           "text": "Yes. I would consult with the Alameda Labor Council before making appointments to boards and commissions, particularly those with direct impact on workers and labor: the Personnel Board, the Planning Commission, and the Housing Advisory Commission, among others. Good appointments start with asking the people most affected who they trust."
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Councilmembers make appointments to city boards and commissions",
+          "result": "confirmed",
+          "source": "Generic charter city structural authority",
+          "date": "2026-07-23",
+          "note": "Generic municipal power."
         }
       ]
     },

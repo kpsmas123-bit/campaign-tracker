@@ -139,7 +139,7 @@
   .table { width: 100%; }
   .thead {
     display: grid;
-    grid-template-columns: 1fr 120px 100px;
+    grid-template-columns: 1fr 120px 120px 100px;
     gap: 8px; padding: 8px 12px;
     border-bottom: 1px solid var(--border);
   }
@@ -150,12 +150,18 @@
   }
   .row {
     display: grid;
-    grid-template-columns: 1fr 120px 100px;
+    grid-template-columns: 1fr 120px 120px 100px;
     gap: 8px; padding: 10px 12px; align-items: center;
     border-bottom: 1px solid var(--border-light);
     cursor: pointer; text-decoration: none; color: inherit;
   }
   .row:hover { background: var(--hover); }
+  .flag { display: flex; flex-direction: column; gap: 2px; }
+  .flag-item {
+    font-family: "IBM Plex Mono", monospace; font-size: 10px;
+    color: var(--priority-high); letter-spacing: 0.03em;
+  }
+  .flag-item.warn { color: var(--priority-medium); }
 
   .org-name { font-size: 14px; font-weight: 500; }
   .org-sub {
@@ -194,7 +200,8 @@
 
   @media (max-width: 640px) {
     .thead, .row { grid-template-columns: 1fr 80px; }
-    .thead .th:nth-child(3), .row > *:nth-child(3) { display: none; }
+    .thead .th:nth-child(3), .row > *:nth-child(3),
+    .thead .th:nth-child(4), .row > *:nth-child(4) { display: none; }
   }
 </style>
 </head>
@@ -226,6 +233,7 @@
     <div class="thead">
       <div class="th">Organization</div>
       <div class="th">Complete</div>
+      <div class="th">Flags</div>
       <div class="th">Due</div>
     </div>
     <div id="rows"></div>
@@ -376,6 +384,23 @@
       c2.innerHTML = '<span class="prog-bar"><span class="fill ' + color + '" style="width:' + pct + '%"></span></span>' +
         '<span class="prog-pct ' + color + '">' + pct + '%</span>';
 
+      // Flags cell — blocked questions + authority levers without verification
+      var blocked = 0;
+      var unverified = 0;
+      (d.questions || []).forEach(function (q) {
+        if (q.status === 'blocked') blocked++;
+        var hasAuthority = (q.levers || []).some(function (l) {
+          return l && l.tier === 'authority';
+        });
+        var hasVerification = q.verification && q.verification.length > 0;
+        if (hasAuthority && !hasVerification) unverified++;
+      });
+      var cFlags = document.createElement('div');
+      cFlags.className = 'flag';
+      if (blocked) cFlags.innerHTML += '<span class="flag-item">' + blocked + ' blocked</span>';
+      if (unverified) cFlags.innerHTML += '<span class="flag-item warn">' + unverified + (unverified === 1 ? ' q' : ' qs') + ' unchecked</span>';
+      if (!blocked && !unverified) cFlags.innerHTML = '<span class="cell">—</span>';
+
       // Due date cell
       var c3 = document.createElement('div');
       c3.className = 'cell';
@@ -383,6 +408,7 @@
 
       row.appendChild(c1);
       row.appendChild(c2);
+      row.appendChild(cFlags);
       row.appendChild(c3);
       wrap.appendChild(row);
     });

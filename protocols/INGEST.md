@@ -41,7 +41,7 @@ Run this protocol in a Claude Code session when adding a new organization's ques
    ```
 
 5. **Assign topics** from the controlled list:
-   `why_running`, `background_bio`, `endorsement_ask`, `labor_solidarity`, `labor_law`, `healthcare_standards`, `disease_protection`, `behavioral_health`, `single_payer`, `voting_rights`, `dei_trans_care`, `cultural_competence`, `immigration`, `ice_cooperation`, `affordable_housing`, `rent_control`, `housing_affordability`, `anti_displacement`, `tenant_protections`, `rent_stabilization`, `homelessness`, `campaign_plan`, `endorsements`
+   `why_running`, `background_bio`, `endorsement_ask`, `labor_solidarity`, `labor_law`, `healthcare_standards`, `disease_protection`, `behavioral_health`, `single_payer`, `voting_rights`, `dei_trans_care`, `cultural_competence`, `immigration`, `ice_cooperation`, `affordable_housing`, `rent_control`, `homelessness`, `campaign_plan`, `endorsements`
 
 6. **PREMISE VERIFICATION (mandatory, before any levers or copy).** Every question embeds assumptions about the jurisdiction — that it has a program, a mechanism, an authority, a contract, a department. For each question:
    - Extract every jurisdiction-specific assumption the question makes
@@ -56,20 +56,12 @@ Run this protocol in a Claude Code session when adding a new organization's ques
 
 7. **Generate analysis, levers, and suggested copy.** For each question:
    - `analysis`: research-backed context on the topic as it relates to the candidate's platform and the org's priorities
-   - `levers`: array of objects with tiered tags:
-     - `"authority"`: council has direct power (zoning, budget, ordinance, appointment). NEVER tag something authority on an assumed mechanism — each authority lever must have a verification entry confirming this jurisdiction actually has that power.
-     - `"advocacy"`: council can only pass resolutions, lobby, or use bully pulpit
-     - `"unverified"`: mechanism has not been confirmed for this jurisdiction. Renders in a warning style. Never appears in exported drafts.
+   - `levers`: array of objects with tiered tags. See CONVENTIONS.md § Lever tiering for tier definitions.
    - `sources`: array of `{ "label": "...", "url": "..." }` — verified, live links only. For jurisdiction-specific mechanics, require a primary source (city site, ordinance, budget, MOU, benefits guide).
-   - `suggested`: array of `{ "note": "short label", "text": "draft copy" }` — written in first person ("I support…", "I would…"), with `[bracketed notes]` where firsthand detail is needed. See **Copy Rules** below.
-   - Set `status` per the status rules in step 8.
+   - `suggested`: array of `{ "note": "short label", "text": "draft copy" }` — written per the copy rules in CONVENTIONS.md § Copy rules, with `[bracketed notes]` where firsthand detail is needed.
+   - Set `status` per step 8.
 
-8. **Set status.** Each question gets exactly one status:
-   - `"done"`: analysis, levers, and suggested copy are complete. All verification entries are `confirmed` or `refuted` (and the content reflects reality). All source URLs are live.
-   - `"thin"`: analysis is partial or sources are incomplete, but no unresolved blocking facts.
-   - `"verify"`: sources need link-checking or content re-verification.
-   - `"blocked"`: a load-bearing fact cannot be resolved from a primary source. The question has a verification entry with `result: "unresolved"` and a note saying what specifically needs confirming and where to look. **DO NOT generate suggested copy for blocked questions.** Blocked questions render visibly in the UI and are excluded from export until resolved.
-   - `"blank"`: no research has been done.
+8. **Set status.** See CONVENTIONS.md § Status definitions for the full list. Key rule: `blocked` questions get NO suggested copy.
 
 9. **Register the slug** in the gallery. Add the slug string to the `KNOWN_ORGS` array in `questionnaires/index.html`.
 
@@ -85,10 +77,7 @@ Run this protocol in a Claude Code session when adding a new organization's ques
 
 ## Copy Rules
 
-- **First person.** Suggested copy is draft text the candidate submits. Write in first person: "I support…", "I would…", "my Council seat…". Use "the candidate" or "Daria" only in analysis, levers, and other non-copy fields.
-- **No hedged facts.** Suggested copy may NEVER contain an unresolved factual disjunction about the jurisdiction. Forbidden patterns: "either X or Y," "whether we use X or Y," "in most cities," and any construction that papers over something checkable. A verifiable fact is resolved, or it is omitted and flagged. It is never hedged.
-- **No AI/Claude/model references.** Use neutral labels (analysis, research, strategy).
-- **Asymmetric risk.** A blank answer costs nothing. A confidently wrong specific costs the endorsement and the credibility. When in doubt, leave it out and flag it.
+See CONVENTIONS.md § Copy rules. The canonical definitions live there to prevent drift.
 
 ## Output
 
@@ -100,9 +89,7 @@ Run this protocol in a Claude Code session when adding a new organization's ques
 
 ## Rules
 
-- Do not include answers in the JSON — those go to Supabase via the editor
+See CONVENTIONS.md § Rules for the full list. Key rules repeated here for emphasis:
 - Port questions verbatim — character-for-character from source, including the org's own typos
-- Every source URL must be verified as live before marking status as "done"
 - Every authority lever must have a verification entry confirming the jurisdiction has that power
 - Blocked questions get no suggested copy — a "confirm this" note on finished-looking copy is the failure mode
-- Source date must be recorded; flag anything older than two years

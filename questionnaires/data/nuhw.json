@@ -179,6 +179,22 @@
           "note": "Her list, with a health + labor plank added in her voice",
           "text": "My priorities center on livability: increasing affordability, improving city services, preserving our educational and cultural excellence, and investing in public safety that does not jeopardize civil liberties. I would add two that reflect my own background. First, protecting our behavioral health infrastructure. As a clinician, and with Berkeley closing its Mobile Crisis Team and handing crisis response to the county, I want to make sure residents do not lose care in the transition. Second, standing with our city workers, because how we treat the people who deliver public services is how we protect those services."
         }
+      ],
+      "verification": [
+        {
+          "claim": "Council votes on Berkeley's BHSA behavioral health plan and city staffing",
+          "result": "confirmed",
+          "source": "City of Berkeley BHSA Three-Year Integrated Plan",
+          "date": "2026-07-23",
+          "note": ""
+        },
+        {
+          "claim": "Berkeley has an elected Rent Board that handles tenant protection",
+          "result": "confirmed",
+          "source": "Berkeley Rent Stabilization Board (berkeleyrent.org)",
+          "date": "2026-07-23",
+          "note": "Independently elected body."
+        }
       ]
     },
     {
@@ -282,7 +298,23 @@
           "url": "https://www.berkeleyside.org/2026/07/06/mobile-crisis-team-berkeley-winter-shelter-closures"
         }
       ],
-      "suggested": []
+      "suggested": [],
+      "verification": [
+        {
+          "claim": "Berkeley receives ~$10M/yr in state BHSA funds and the council votes on the Three-Year Integrated Plan",
+          "result": "confirmed",
+          "source": "City of Berkeley BHSA Three-Year Integrated Plan",
+          "date": "2026-07-23",
+          "note": ""
+        },
+        {
+          "claim": "City staffing, contracting, and workplace safety are set by council-approved budgets and MOUs",
+          "result": "confirmed",
+          "source": "Generic charter city structural authority",
+          "date": "2026-07-23",
+          "note": "Generic municipal power."
+        }
+      ]
     },
     {
       "id": "s5b",
@@ -320,7 +352,23 @@
           "url": "https://berkeley.municipal.codes/BMC/13.100.040"
         }
       ],
-      "suggested": []
+      "suggested": [],
+      "verification": [
+        {
+          "claim": "Berkeley has a Paid Sick Leave Ordinance at BMC 13.100",
+          "result": "confirmed",
+          "source": "Berkeley Municipal Code Chapter 13.100",
+          "date": "2026-07-23",
+          "note": ""
+        },
+        {
+          "claim": "City procurement and employer standards for PPE and ventilation are council-controlled",
+          "result": "confirmed",
+          "source": "Generic charter city structural authority",
+          "date": "2026-07-23",
+          "note": "Generic municipal power."
+        }
+      ]
     },
     {
       "id": "s6a",
@@ -363,6 +411,15 @@
           "note": "Your opening kept; the middle needs your firsthand detail, which I will not invent",
           "text": "As a mental health clinician myself, I understand the importance of health care parity that treats behavioral health access as just as essential as all other kinds of health care, and I believe health care access is a human right. I have been in private practice as a child and adolescent therapist since 2020.\n\n[DARIA: two or three sentences on what you have actually seen. How long do your young clients wait for care? What happens when an authorization is denied? Where do referrals dead-end? Concrete and specific.]\n\nLocally, Berkeley is its own behavioral health jurisdiction and is writing its first Behavioral Health Services Act plan now. I would use that plan to direct funding toward the access gaps I have watched families fall through, and I would make sure the clinicians delivering that care help write it. Earlier, I worked on the 2014 Berkeley vs. Big Soda campaign, which created a funding source for health access in low-income communities."
         }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley's BHSA plan is a live local vehicle for directing behavioral health improvements",
+          "result": "confirmed",
+          "source": "City of Berkeley BHSA Three-Year Integrated Plan",
+          "date": "2026-07-23",
+          "note": ""
+        }
       ]
     },
     {
@@ -371,12 +428,12 @@
       "topic": "behavioral_health",
       "status": "done",
       "question": "Most of California’s local governments either purchase their own health coverage for their thousands of public employees or participate in CalPERS. Costs of public employee health plans continue increasing every year, all while provider networks continue to narrow and access to behavioral health services remains persistently challenging. What steps would you take to leverage your jurisdiction’s purchasing power or voice in CalPERS to improve access to behavioral health care?",
-      "analysis": "The question assumes a CalPERS relationship. Berkeley does NOT use CalPERS for health benefits — CalPERS is retirement only. Berkeley contracts directly with Kaiser Permanente and Sutter Health Plus for employee health coverage, spending $16M+/year covering ~1,600 employees. The city's EAP through Claremont Behavioral Services caps counseling at 8 authorized sessions per incident per year. Coverage terms for represented employees are bargained through MOUs. The correct answer names this directly: the question's premise does not hold as stated, and the real lever is the city's direct carrier contracts.",
+      "analysis": "The question assumes a CalPERS relationship. Berkeley does NOT use CalPERS for health benefits — CalPERS is retirement only. Berkeley offers three HMO plans from two carriers (two Kaiser Permanente, one Sutter Health), expects to spend over $16 million on health benefits for members and dependents in 2026, and pays the full premium up to the Kaiser rate — Sutter enrollees pay the difference. The city's EAP through Claremont Behavioral Services caps counseling at 8 authorized sessions per incident per year. Coverage terms for represented employees are bargained through MOUs. The correct answer names this directly: the question's premise does not hold as stated, and the real lever is the city's direct carrier contracts.",
       "references": [],
       "levers": [
         {
           "tier": "authority",
-          "text": "Berkeley contracts directly with Kaiser Permanente and Sutter Health Plus (not CalPERS) for ~1,600 employees at $16M+/year. The council influences contract terms through the budget and MOU ratification."
+          "text": "Berkeley offers three HMO plans from two carriers (two Kaiser Permanente, one Sutter Health), expects to spend over $16 million on health benefits for members and dependents in 2026, and pays the full premium up to the Kaiser rate. The council influences contract terms through the budget and MOU ratification."
         },
         {
           "tier": "authority",
@@ -389,7 +446,7 @@
       ],
       "sources": [
         {
-          "label": "City of Berkeley Employee Benefits Guide (2023)",
+          "label": "City of Berkeley Employee Benefits Guide (2026; URL filename says 2024)",
           "url": "https://berkeleyca.gov"
         },
         {
@@ -401,29 +458,29 @@
         {
           "claim": "Berkeley uses CalPERS for employee health coverage",
           "result": "refuted",
-          "source": "City of Berkeley Employee Benefits Guide",
+          "source": "City of Berkeley Employee Benefits Guide (2026)",
           "date": "2026-07-23",
-          "note": "CalPERS is retirement only. Health coverage is contracted directly with Kaiser Permanente and Sutter Health Plus."
+          "note": "CalPERS is retirement only. Health coverage is contracted directly with Kaiser Permanente and Sutter Health. The 2026 guide is hosted at a URL whose filename says 2024."
         },
         {
-          "claim": "Berkeley spends $16M+/year on employee health coverage for ~1,600 employees",
+          "claim": "Berkeley offers three HMO plans from two carriers (two Kaiser Permanente, one Sutter Health), expects to spend over $16 million on health benefits for members and dependents in 2026, pays full premium up to Kaiser rate with Sutter enrollees paying the difference",
           "result": "confirmed",
-          "source": "City of Berkeley Employee Benefits Guide (2023)",
+          "source": "City of Berkeley Employee Benefits Guide (2026)",
           "date": "2026-07-23",
-          "note": "Source is 2023 guide; flag for 2026 re-confirmation."
+          "note": "The 2026 guide is hosted at a URL whose filename says 2024."
         },
         {
           "claim": "EAP through Claremont Behavioral Services caps at 8 sessions/incident/year",
           "result": "confirmed",
-          "source": "City of Berkeley Employee Benefits Guide (2023)",
+          "source": "City of Berkeley Employee Benefits Guide (2026)",
           "date": "2026-07-23",
-          "note": ""
+          "note": "The 2026 guide is hosted at a URL whose filename says 2024."
         }
       ],
       "suggested": [
         {
           "note": "Corrects the CalPERS premise; leads with what Berkeley actually has",
-          "text": "Berkeley does not participate in CalPERS for health — we contract directly with Kaiser Permanente and Sutter Health Plus, spending over $16 million a year to cover roughly 1,600 city employees. That is real purchasing power, and I would use it. Specifically, I would push for contract terms that require timely-access standards for behavioral health, maintain adequate in-network rosters of licensed clinicians, and resist substituting automated tools for clinical judgment. I would also work to expand our Employee Assistance Program, which currently caps counseling at eight authorized sessions per incident per year through Claremont Behavioral Services — a limit that falls far short of what many employees need. For represented employees, these terms are bargained through MOUs, and I would make behavioral health access a priority at the negotiating table. The same principle applies to our service contracts: as Berkeley shifts crisis response coordination to Alameda County, the terms of that agreement are where our standards will either hold or quietly erode, and I would fight for staffing and response-time guarantees in writing."
+          "text": "Berkeley does not participate in CalPERS for health — CalPERS is retirement only. We offer three HMO plans from two carriers, Kaiser Permanente and Sutter Health, and expect to spend over $16 million on health benefits for members and dependents in 2026. The city pays the full premium up to the Kaiser rate, with Sutter enrollees paying the difference. That is real purchasing power, and I would use it. Specifically, I would push for contract terms that require timely-access standards for behavioral health, maintain adequate in-network rosters of licensed clinicians, and resist substituting automated tools for clinical judgment. I would also work to expand our Employee Assistance Program, which currently caps counseling at eight authorized sessions per incident per year through Claremont Behavioral Services — a limit that falls far short of what many employees need. For represented employees, these terms are bargained through MOUs, and I would make behavioral health access a priority at the negotiating table. The same principle applies to our service contracts: as Berkeley shifts crisis response coordination to Alameda County, the terms of that agreement are where our standards will either hold or quietly erode, and I would fight for staffing and response-time guarantees in writing."
         }
       ]
     },
@@ -507,6 +564,22 @@
           "note": "Her civil-liberties language, applied; the clinical sentence is hers to write",
           "text": "California is a sanctuary state for gender-affirming care under SB 107, but state law only holds if local governments back it. I would support a Berkeley resolution making clear that no city resource, data, or employee will be used to help another state investigate or prosecute someone for receiving or providing gender-affirming care. I would make sure our own employee health plans cover gender-affirming care without exception, protect resident and patient data from disclosure, and refuse to let our contracts or grants be quietly rewritten to satisfy federal pressure.\n\n[DARIA: one or two sentences from your practice on what access to affirming care means for the young people you treat. That is the sentence that will land hardest here.]"
         }
+      ],
+      "verification": [
+        {
+          "claim": "A Berkeley resolution can bar city resources from aiding out-of-state investigations of gender-affirming care (Sacramento/SB 107 model)",
+          "result": "confirmed",
+          "source": "California SB 107; Sacramento sanctuary resolution precedent",
+          "date": "2026-07-23",
+          "note": "SB 107 is state law. Sacramento passed a local strengthening resolution. Berkeley can do the same under general ordinance authority."
+        },
+        {
+          "claim": "City employee health plans covering gender-affirming care is a council commitment",
+          "result": "confirmed",
+          "source": "Generic charter city structural authority (health plan terms set through budget and carrier contracts)",
+          "date": "2026-07-23",
+          "note": ""
+        }
       ]
     },
     {
@@ -541,6 +614,22 @@
         {
           "note": "Her principles, applied to workforce; add a practice example if you have one",
           "text": "Access that is not culturally or linguistically competent is not real access. The core of this is workforce. We cannot recruit and keep providers who reflect our communities when reimbursement rates make it impossible to practice in underserved areas and administrative burden drives clinicians out of the field. At the city level I would push for language capacity in every public-facing health service, invest in pipeline and retention support for clinicians of color, and use our contracting standards to require that providers we fund can serve residents in the languages they actually speak. Our own Behavioral Health Services Act plan is one place we can direct funding toward exactly this.\n\n[DARIA: if you have seen culturally competent care succeed or fail in your own practice, one specific example belongs here.]"
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley's BHSA plan can direct funding toward language access and workforce pipeline",
+          "result": "confirmed",
+          "source": "City of Berkeley BHSA Three-Year Integrated Plan",
+          "date": "2026-07-23",
+          "note": ""
+        },
+        {
+          "claim": "City contracting standards can require language capacity from funded providers",
+          "result": "confirmed",
+          "source": "Generic charter city structural authority (contracting)",
+          "date": "2026-07-23",
+          "note": "Generic municipal power."
         }
       ]
     },
@@ -577,6 +666,22 @@
           "note": "Entirely her own material, assembled",
           "text": "This is work I already do. I serve on Berkeley's Sanctuary City Taskforce, and I co-facilitate a Bay Resistance Pod for the 94702 zip code, which means being part of the network that responds when neighbors report enforcement activity. As a councilmember I would keep Berkeley's sanctuary protections strong and fund the infrastructure that makes them real: legal defense, know-your-rights education, and coordination with the county's rapid-response network. Alameda County has invested millions in immigrant legal defense and a rapid-response hotline through the ACILEP partnership, and Berkeley should be a committed partner in it, working closely with Supervisor Nikki Fortunato Bas, not a bystander."
         }
+      ],
+      "verification": [
+        {
+          "claim": "Council funds sanctuary infrastructure: legal defense, know-your-rights education, rapid-response coordination",
+          "result": "confirmed",
+          "source": "Generic charter city structural authority (budget); Berkeley sanctuary city policy",
+          "date": "2026-07-23",
+          "note": ""
+        },
+        {
+          "claim": "Refusing surveillance contracts and protecting city-held data is a council decision",
+          "result": "confirmed",
+          "source": "Generic charter city structural authority (contracting/policy)",
+          "date": "2026-07-23",
+          "note": "Generic municipal power."
+        }
       ]
     },
     {
@@ -607,6 +712,15 @@
         {
           "note": "Her civil-liberties frame, with the clinical reasoning she is uniquely placed to make",
           "text": "I oppose it, without qualification. When local government cooperates with ICE, people stop going to the places that keep them safe and well. As a clinician I have seen what fear does to whether someone seeks care at all, and the federal government has made hospitals, schools, and places of worship targets. Berkeley's sanctuary protections should be enforced without exception, and that includes refusing to share data and rejecting the surveillance contracts that make sharing possible in the first place. Protecting immigrants and defending our basic civil liberties are the same fight."
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley can refuse to share data, decline surveillance contracts, and bar staff cooperation with ICE",
+          "result": "confirmed",
+          "source": "Generic charter city structural authority; California Values Act (SB 54)",
+          "date": "2026-07-23",
+          "note": "SB 54 provides state-level framework; local policy can go further."
         }
       ]
     },
@@ -647,6 +761,29 @@
           "note": "Her Sierra Club housing language, retargeted to healthcare workers",
           "text": "I am a pro-housing and pro-tenant candidate. Affordable housing means housing a household can occupy without spending more than a third of its income on rent, defined across a real range: deeply affordable homes for our lowest-income neighbors, and middle-income housing for the nurses, therapists, teachers, and city workers now commuting in from an hour away. Responsible new housing is essential to both affordability and climate action. I support building density near transit so people can live close to where they work, preserving the affordable housing we already have through programs like our Rental Housing Safety Program, and requiring that new construction be built with union labor."
         }
+      ],
+      "verification": [
+        {
+          "claim": "Council sets zoning, density, and inclusionary/affordability requirements",
+          "result": "confirmed",
+          "source": "Generic charter city structural authority",
+          "date": "2026-07-23",
+          "note": "Generic municipal power."
+        },
+        {
+          "claim": "Berkeley has a Rental Housing Safety Program at BMC 19.40",
+          "result": "confirmed",
+          "source": "Berkeley Municipal Code Chapter 19.40",
+          "date": "2026-07-23",
+          "note": ""
+        },
+        {
+          "claim": "Council can require union labor and affordability terms on city-supported projects",
+          "result": "confirmed",
+          "source": "Generic charter city structural authority (procurement)",
+          "date": "2026-07-23",
+          "note": "Generic municipal power."
+        }
       ]
     },
     {
@@ -681,6 +818,15 @@
         {
           "note": "Her positions assembled, with the current Costa-Hawkins status built in",
           "text": "Yes to both. I am a pro-housing and pro-tenant candidate, and I do not think those are in tension: we need to build far more housing and protect the people living in the housing we already have, because building alone will not help a family priced out next month. Costa-Hawkins ties the hands of cities like ours by exempting single-family homes and newer construction and letting rents reset at vacancy. California voters have declined to repeal it three times, most recently Proposition 33 in 2024, so in the near term the path is local. That same November, Berkeley voters approved new tenant protections including a rent-increase cap, and I would work with our elected Rent Board, whose president has endorsed me, to strengthen protections here while we keep pushing for repeal at the state level."
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley has an elected Rent Board that administers rent stabilization",
+          "result": "confirmed",
+          "source": "Berkeley Rent Stabilization Board (berkeleyrent.org)",
+          "date": "2026-07-23",
+          "note": "Independently elected body."
         }
       ]
     },
@@ -720,6 +866,29 @@
         {
           "note": "Her Sierra Club language, with the clinical half and the housing-habitability point folded in",
           "text": "We must address homelessness as the most urgent symptom of our housing crisis, through permanent supportive housing, transitional housing, and alternative sites. Berkeley has shown this works: the Golden Bear on San Pablo Avenue, here in District 1, converted a motel into permanent supportive homes that have housed formerly homeless neighbors since 2022. We should be doing far more of it.\n\nImmediate needs come first. People need shelter, sanitation, and storage now, and I do not support sweeps that take people's belongings and move them a few blocks with nowhere to go.\n\nOn root causes, housing and behavioral health are inseparable. As a clinician I know untreated mental illness and substance use both cause and follow from housing instability, and we lose people at exactly the moments they are most reachable. Berkeley just closed its Mobile Crisis Team and a winter shelter while handing crisis response to the county, and I would fight to make sure that adds up to a real system rather than a gap. Keeping existing homes safe and habitable through our Rental Housing Safety Program is part of this too, because the cheapest way to fight homelessness is to keep people housed in the first place."
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Council funds permanent supportive, transitional, and alternative housing and sets encampment policy",
+          "result": "confirmed",
+          "source": "Generic charter city structural authority (budget)",
+          "date": "2026-07-23",
+          "note": "Generic municipal power."
+        },
+        {
+          "claim": "BHSA plan directs behavioral health funding",
+          "result": "confirmed",
+          "source": "City of Berkeley BHSA Three-Year Integrated Plan",
+          "date": "2026-07-23",
+          "note": ""
+        },
+        {
+          "claim": "Berkeley Rental Housing Safety Program keeps existing units habitable",
+          "result": "confirmed",
+          "source": "Berkeley Municipal Code Chapter 19.40",
+          "date": "2026-07-23",
+          "note": ""
         }
       ]
     }
