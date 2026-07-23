@@ -1,0 +1,140 @@
+{
+  "slug": "uaw",
+  "org": "United Auto Workers Region 6",
+  "cycle": "2026",
+  "candidate": "Daria Wrubel — Berkeley City Council D1",
+  "generated": "2026-07-23",
+  "last_factcheck": "2026-07-23",
+  "org_research": "United Auto Workers Region 6 represents workers across Northern California and endorses candidates in municipal races. Their questionnaire probes labor solidarity, union affiliation, and willingness to actively support organizing drives — including attending picket lines and writing support letters. It also covers housing, climate, campaign finance, and endorsements, reflecting UAW's broad interest in worker-adjacent policy.",
+  "contact_fields": [
+    { "k": "candidate_name", "label": "Candidate Name", "v": "" },
+    { "k": "cell_phone", "label": "Cell Phone", "v": "" },
+    { "k": "campaign_phone", "label": "Campaign Phone", "v": "" },
+    { "k": "email", "label": "Email Address", "v": "" },
+    { "k": "campaign_manager", "label": "Campaign Manager", "v": "" },
+    { "k": "office_sought", "label": "Elected Office you are seeking (District/Seat)", "v": "Berkeley City Council D1" },
+    { "k": "union_affiliation", "label": "Union Affiliation, if any (both past and current)", "v": "" }
+  ],
+  "questions": [
+    {
+      "id": "uaw_q1",
+      "section": "Endorsement",
+      "topic": "endorsement_ask",
+      "status": "blank",
+      "question": "Why should the UAW support your candidacy?",
+      "analysis": "",
+      "references": [],
+      "levers": [],
+      "sources": [],
+      "suggested": []
+    },
+    {
+      "id": "uaw_q2",
+      "section": "Policy Priorities",
+      "topic": "campaign_plan",
+      "status": "blank",
+      "question": "If elected (or re-elected), what would be your top three issues?",
+      "analysis": "",
+      "references": [],
+      "levers": [],
+      "sources": [],
+      "suggested": []
+    },
+    {
+      "id": "uaw_q3",
+      "section": "Background",
+      "topic": "background_bio",
+      "status": "blank",
+      "question": "Are you affiliated with a political party?",
+      "analysis": "",
+      "references": [],
+      "levers": [],
+      "sources": [],
+      "suggested": []
+    },
+    {
+      "id": "uaw_q4",
+      "section": "Labor",
+      "topic": "labor_law",
+      "status": "blank",
+      "question": "What role does the office you seek play in labor relations?",
+      "analysis": "",
+      "references": [],
+      "levers": [],
+      "sources": [],
+      "suggested": []
+    },
+    {
+      "id": "uaw_q5",
+      "section": "Labor",
+      "topic": "labor_solidarity",
+      "status": "blank",
+      "question": "Have you, or any immediate family member, ever belonged to a union?  If so, describe any union activities.",
+      "analysis": "",
+      "references": [],
+      "levers": [],
+      "sources": [],
+      "suggested": []
+    },
+    {
+      "id": "uaw_q6",
+      "section": "Labor",
+      "topic": "labor_solidarity",
+      "status": "blank",
+      "question": "If workers in your city were involved in a union organizing drive, would you be willing to speak out on behalf of workers' rights to organize?  Would you be willing to write a letter of support? Would you attend a rally? A picket line?",
+      "analysis": "",
+      "references": [],
+      "levers": [],
+      "sources": [],
+      "suggested": []
+    },
+    {
+      "id": "uaw_q7",
+      "section": "Housing",
+      "topic": "affordable_housing",
+      "status": "blank",
+      "question": "How will you improve access to affordable housing in urban areas? What new policies or strengthened enforcements can address racial discrimination in housing and stop the epidemic of evictions?",
+      "analysis": "",
+      "references": [],
+      "levers": [],
+      "sources": [],
+      "suggested": []
+    },
+    {
+      "id": "uaw_q8",
+      "section": "Climate",
+      "topic": "campaign_plan",
+      "status": "blank",
+      "question": "Please cite policy measures around transit, emission reduction, infrastructure and other related policy areas that you would support in relation to mitigating climate change.",
+      "analysis": "",
+      "references": [],
+      "levers": [],
+      "sources": [],
+      "suggested": []
+    },
+    {
+      "id": "uaw_q9",
+      "section": "Campaign",
+      "topic": "campaign_plan",
+      "status": "blank",
+      "question": "How are you financing your campaign? Are you accepting/seeking support of corporations or corporate-sponsored PACs?",
+      "analysis": "",
+      "references": [],
+      "levers": [],
+      "sources": [],
+      "suggested": []
+    },
+    {
+      "id": "uaw_q10",
+      "section": "Campaign",
+      "topic": "endorsements",
+      "status": "blank",
+      "question": "Who has endorsed your campaign? Please name labor unions, political organizations, elected officials, and community leaders.",
+      "analysis": "",
+      "references": [],
+      "levers": [],
+      "sources": [],
+      "suggested": []
+    }
+  ]
+}

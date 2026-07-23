@@ -35,6 +35,50 @@
       }
     ]
   },
+  "uaw": {
+    "org": "United Auto Workers Region 6",
+    "source_documents": [
+      {
+        "description": "UAW Questionnaire for City Council and Municipal Candidates 25-26",
+        "drive_file_id": null,
+        "filename": "UAW Region 6 Candidate Questionnaire 25-26 - Municipal.docx",
+        "note": "Transcribed from Syrak Micael's completed copy. Questions are verbatim from source."
+      }
+    ]
+  },
+  "phdc": {
+    "org": "Pro-Housing Democratic Caucus of California",
+    "source_documents": [
+      {
+        "description": "PDC Endorsement Questionnaire (Google Form)",
+        "drive_file_id": null,
+        "filename": "Prohousing Democratic Caucus of California Questionnaire.docx",
+        "note": "Transcribed from Syrak Micael's completed copy. Questions are verbatim from source."
+      }
+    ]
+  },
+  "pp": {
+    "org": "Planned Parenthood Advocates Mar Monte",
+    "source_documents": [
+      {
+        "description": "California Candidate Questionnaire 2025/2026",
+        "drive_file_id": null,
+        "filename": "Planned Parenthood Endorsement Questionnaire.docx",
+        "note": "Transcribed from Syrak Micael's completed copy. Questions are verbatim from source."
+      }
+    ]
+  },
+  "cbd": {
+    "org": "Cal Berkeley Democrats",
+    "source_documents": [
+      {
+        "description": "Candidate Endorsement Questionnaire (Google Form)",
+        "drive_file_id": null,
+        "filename": "Cal Berkeley Democrats Candidate Endorsement Questionnaire.docx",
+        "note": "Transcribed from Syrak Micael's completed copy. Questions are verbatim from source."
+      }
+    ]
+  },
   "reference_corpus": {
     "cecilia_lunaparra": {
       "name": "Cecilia Lunaparra",
@@ -66,9 +110,64 @@
     "syrak_micael": {
       "name": "Syrak Micael",
       "office": "Berkeley City Council D7",
-      "cycle": "2024",
-      "documents": [],
-      "note": "Searched Drive for 'Syrak Micael' — no questionnaire documents found. Add file IDs here if located."
+      "cycle": "2026",
+      "documents": [
+        {
+          "description": "UAW Region 6 Candidate Questionnaire 25-26",
+          "filename": "UAW Region 6 Candidate Questionnaire 25-26 - Municipal.docx",
+          "type": "docx"
+        },
+        {
+          "description": "Pro-Housing Democratic Caucus Questionnaire",
+          "filename": "Prohousing Democratic Caucus of California Questionnaire.docx",
+          "type": "docx"
+        },
+        {
+          "description": "Planned Parenthood Endorsement Questionnaire",
+          "filename": "Planned Parenthood Endorsement Questionnaire.docx",
+          "type": "docx"
+        },
+        {
+          "description": "Cal Berkeley Democrats Endorsement Questionnaire",
+          "filename": "Cal Berkeley Democrats Candidate Endorsement Questionnaire.docx",
+          "type": "docx"
+        },
+        {
+          "description": "BTU Endorsement Questionnaire",
+          "filename": "BTU Endorsement.docx",
+          "type": "docx"
+        },
+        {
+          "description": "California Democratic Renters Council Endorsement Questionnaire",
+          "filename": "Due 7_17 - California Democratic Renters Council Endorsement Questionnaire.docx",
+          "type": "docx"
+        },
+        {
+          "description": "EBDSA Questionnaire",
+          "filename": "EBDSA Questionaire.docx",
+          "type": "docx"
+        },
+        {
+          "description": "FlipBCC Questionnaire and Forum Prep",
+          "filename": "FlipBCC Questionnaire and Forum Prep.docx",
+          "type": "docx"
+        },
+        {
+          "description": "Sierra Club Questionnaire Berkeley D7",
+          "filename": "Submitted - Sierra Club Questionnaire Berkeley D7 Syrak Micael.docx",
+          "type": "docx"
+        },
+        {
+          "description": "Suitcase Clinic Email",
+          "filename": "Suitcase Clinic Email.docx",
+          "type": "docx"
+        },
+        {
+          "description": "Telegraph for People Candidate Statement",
+          "filename": "Telegraph for People Canidate Statement.docx",
+          "type": "docx"
+        }
+      ]
     }
   }
 }

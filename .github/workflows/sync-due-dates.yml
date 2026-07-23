@@ -30,6 +30,14 @@ jobs:
               "ALCO Labor": "alc",
               "BTU": "btu",
               "Berkeley Tenants Union": "btu",
+              "UAW": "uaw",
+              "UAW Region 6": "uaw",
+              "PHDC": "phdc",
+              "Pro-Housing Democratic Caucus": "phdc",
+              "PP": "pp",
+              "Planned Parenthood": "pp",
+              "CBD": "cbd",
+              "Cal Berkeley Democrats": "cbd",
           }
 
           due = {}

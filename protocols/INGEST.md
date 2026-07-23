@@ -35,8 +35,7 @@ Run this protocol in a Claude Code session when adding a new organization's ques
      "references": [],
      "levers": [],
      "sources": [],
-     "suggested": [],
-     "verification": []
+     "suggested": []
    }
    ```
 
