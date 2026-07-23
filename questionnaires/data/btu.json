@@ -1,0 +1,210 @@
+{
+  "slug": "btu",
+  "org": "Berkeley Tenants Union",
+  "cycle": "2026",
+  "candidate": "Daria Wrubel — Berkeley City Council D1",
+  "generated": "2026-07-23",
+  "last_factcheck": "2026-07-23",
+  "org_research": "The Berkeley Tenants Union is a grassroots tenant-rights organization that advocates for stronger rent control, just-cause eviction protections, and community land trusts. Their endorsement questionnaire focuses on specific legislative commitments — TOPA, Costa-Hawkins repeal, rent cap reductions, and expanding the Rent Stabilization Ordinance. Most questions are yes/other binary pledges rather than long-form essays, signaling that the BTU prioritizes concrete commitments over narrative.",
+  "contact_fields": [],
+  "questions": [
+    {
+      "id": "btu_1",
+      "section": "Statement",
+      "topic": "why_running",
+      "status": "thin",
+      "question": "Please provide a brief (under 250 words) Candidate Statement.",
+      "analysis": "This is the only open-ended narrative prompt. The BTU audience wants to see housing and tenant rights centered, not a generic bio. The candidate should lead with the renter experience in District 1 — rising rents, displacement pressure, the affordability squeeze on families — and connect it to a governing philosophy. Keep it under 250 words. Avoid wonky policy lists; save that for the specific pledge questions below.",
+      "references": [],
+      "levers": [
+        "Lead with tenant/renter identity and lived experience in D1",
+        "Name the housing crisis as the central challenge",
+        "Connect organizing background to tenant advocacy",
+        "Signal that the candidate will be a tenant ally on Council, not just sympathetic"
+      ],
+      "sources": [
+        { "label": "Berkeley Rent Board: Rent Stabilization overview", "url": "https://www.berkeleyrent.org" },
+        { "label": "City of Berkeley Housing Element (2023-2031)", "url": "https://berkeleyca.gov/your-government/our-work/adopted-plans/housing-element" }
+      ],
+      "suggested": [
+        {
+          "note": "Tenant-forward candidate statement, under 250 words",
+          "text": "I am running for Berkeley City Council because I believe the affordability crisis is the defining challenge of our time in District 1. As a therapist, I see the toll that housing instability takes on the children and families I serve. As a former union organizer with AFT Local 6192, I know that working people need advocates who will fight — not just sympathize — at the policy table.\n\nBerkeley has a proud legacy of tenant protections, but that legacy is under threat. Rents continue to climb, displacement is accelerating, and state preemption puts our local controls at risk. I am running to defend and expand what we have: stronger rent stabilization, real enforcement of just-cause protections, and new tools like the Tenant Opportunity to Purchase Act.\n\nI am both pro-housing and pro-tenant. I support building the affordable and social housing our city needs while ensuring that existing renters are not sacrificed in the process. I will bring the same organizing discipline I used as a union steward and organizer to the Council chamber — centering the people most affected, building coalitions, and holding the line on commitments.\n\nDistrict 1 deserves a Council member who sees housing as a human right, not a commodity. I am that candidate."
+        }
+      ]
+    },
+    {
+      "id": "btu_2",
+      "section": "Housing Policy",
+      "topic": "housing_affordability",
+      "status": "thin",
+      "question": "What policies should be adopted to address the affordable student housing crisis? How will you use your position to advocate for those policies?",
+      "analysis": "This question reflects BTU's awareness that Berkeley's student population is a significant renter demographic, and that the university's housing shortfall drives rent inflation citywide. The candidate should acknowledge the UC Berkeley housing gap (the university houses roughly 22% of its students), support university-built housing on UC land, and connect student housing relief to broader tenant protection — more supply on campus means less displacement pressure in the surrounding neighborhoods.",
+      "references": [],
+      "levers": [
+        "Demand UC Berkeley build more on-campus housing to absorb enrollment growth",
+        "Support Below Market Rate requirements in new student-oriented development",
+        "Advocate for city-university partnership agreements (like the Long Range Development Plan MOU)",
+        "Connect student housing shortage to rent pressure on non-student tenants"
+      ],
+      "sources": [
+        { "label": "UC Berkeley Long Range Development Plan", "url": "https://capitalstrategies.berkeley.edu/lrdp" },
+        { "label": "City of Berkeley: UC Berkeley Housing MOU", "url": "https://berkeleyca.gov" }
+      ],
+      "suggested": [
+        {
+          "note": "Connect student housing to broader tenant protection",
+          "text": "The student housing crisis is inseparable from Berkeley's broader affordability crisis. When UC Berkeley enrolls more students than it can house — currently sheltering roughly one in five — thousands of students compete for the same rental units as working families, driving up rents across the city.\n\nThe candidate would advocate for:\n\n1. Holding UC Berkeley accountable to build enough on-campus housing to match enrollment growth, including through the Long Range Development Plan process and city-university MOUs.\n2. Requiring Below Market Rate units in any new student-oriented private development.\n3. Expanding the city's affordable housing trust fund and directing a portion toward housing accessible to students, graduate workers, and low-income renters.\n4. Opposing any weakening of rent stabilization protections under the pretext of increasing student supply.\n\nMore housing on campus is good for students and good for tenants. The candidate would use the Council seat to hold the university to its commitments and ensure that new development does not come at the expense of existing renters."
+        }
+      ]
+    },
+    {
+      "id": "btu_3",
+      "section": "Housing Policy",
+      "topic": "anti_displacement",
+      "status": "thin",
+      "question": "What should the City do to fight gentrification and displacement?",
+      "analysis": "Core BTU territory. The candidate should name specific, actionable policies — not abstract commitments. TOPA, community land trusts, anti-speculation taxes, stronger code enforcement (to prevent landlords from using habitability violations as a displacement tool), expanded Rent Board staffing, and proactive tenant outreach. Avoid framing that pits new housing against anti-displacement — the BTU audience wants both, and the candidate should signal that.",
+      "references": [],
+      "levers": [
+        "Support TOPA (covered in detail in btu_4)",
+        "Expand community land trust funding and city-owned social housing",
+        "Strengthen code enforcement so it protects tenants, not displaces them",
+        "Fund proactive tenant outreach and right-to-counsel programs",
+        "Support anti-speculation transfer taxes on rapid flips",
+        "Increase Rent Board staffing and funding"
+      ],
+      "sources": [
+        { "label": "Berkeley Community Land Trust", "url": "https://www.bayareaclt.org" },
+        { "label": "Urban Displacement Project (UC Berkeley)", "url": "https://www.urbandisplacement.org" }
+      ],
+      "suggested": [
+        {
+          "note": "Concrete anti-displacement platform",
+          "text": "Fighting gentrification and displacement requires a portfolio of tools, not a single policy. The candidate would prioritize:\n\nTenant Opportunity to Purchase (TOPA): Giving tenants and community land trusts the first right to buy when rental properties are sold, keeping housing in community hands.\n\nRent stabilization expansion: Extending protections to golden duplexes and ADU properties, and lowering the annual rent increase cap to 3% or below.\n\nProactive tenant outreach: Funding multilingual tenant rights education and a right-to-counsel program so renters facing eviction have legal representation.\n\nCommunity land trusts: Expanding city investment in community land trusts to permanently remove housing from the speculative market.\n\nCode enforcement reform: Ensuring that habitability enforcement protects tenants rather than becoming a pretext for displacement through Ellis Act evictions or owner move-in claims.\n\nAnti-speculation measures: Supporting transfer taxes on properties flipped within a short holding period.\n\nRent Board resources: Increasing staffing and funding for the Rent Stabilization Board so that existing protections are actually enforced.\n\nDisplacement is not inevitable — it is the result of policy choices, and the candidate would make different ones."
+        }
+      ]
+    },
+    {
+      "id": "btu_4",
+      "section": "Pledges",
+      "topic": "tenant_protections",
+      "status": "thin",
+      "question": "I support the Tenant Opportunity to Purchase to Purchase Act (TOPA) as put forth by the Yes2TOPA coalition. (Specifically, the amended language that will be introduced by Council Member Lunaparra on behalf of the coalition)",
+      "type": "yes_other",
+      "analysis": "This is a direct pledge question — the BTU wants a clear Yes. TOPA gives tenants and qualified nonprofits the first right to purchase when a rental property is sold. The Yes2TOPA coalition version, with Council Member Lunaparra's amended language, is the specific bill the BTU backs. The candidate should say Yes and can add brief context about why, but should not hedge or qualify. If the candidate has any concerns about specific implementation details, raise them privately — this is not the place for nuance.",
+      "references": [],
+      "levers": [
+        "Unambiguous Yes",
+        "Brief context connecting TOPA to anti-displacement strategy",
+        "Reference the Yes2TOPA coalition and Lunaparra's language specifically"
+      ],
+      "sources": [
+        { "label": "Yes2TOPA Coalition", "url": "https://yes2topa.org" }
+      ],
+      "suggested": [
+        {
+          "note": "Clear yes with brief supporting rationale",
+          "text": "Yes. TOPA is one of the most powerful anti-displacement tools available to the city. Giving tenants and community organizations the first right to purchase keeps housing in community hands and prevents speculative flips that lead to rent increases and displacement. The candidate fully supports the Yes2TOPA coalition's framework and Council Member Lunaparra's amended language."
+        }
+      ]
+    },
+    {
+      "id": "btu_5",
+      "section": "Pledges",
+      "topic": "tenant_protections",
+      "status": "thin",
+      "question": "I support the full and unconditional repeal of Costa-Hawkins and the Ellis Act.",
+      "type": "yes_other",
+      "analysis": "Another direct pledge. Costa-Hawkins (1995) limits local rent control by exempting post-1995 construction and single-family homes, and mandates vacancy decontrol. The Ellis Act (1985) allows landlords to evict all tenants by withdrawing rental units from the market. Both are state laws — a city council member cannot repeal them directly, but can advocate for repeal at the state level and support statewide ballot measures. The BTU wants full and unconditional repeal, not reform or partial measures. Say Yes.",
+      "references": [],
+      "levers": [
+        "Unambiguous Yes",
+        "Acknowledge these are state laws but commit to advocacy for full repeal",
+        "Name how these laws harm Berkeley tenants specifically"
+      ],
+      "sources": [
+        { "label": "Tenants Together: Costa-Hawkins fact sheet", "url": "https://www.tenantstogether.org" },
+        { "label": "Anti-Eviction Mapping Project: Ellis Act data", "url": "https://antievictionmap.com" }
+      ],
+      "suggested": [
+        {
+          "note": "Clear yes — acknowledge state-level action needed",
+          "text": "Yes. Costa-Hawkins and the Ellis Act are the two biggest obstacles to meaningful tenant protection in California. Vacancy decontrol under Costa-Hawkins drives rent spikes every time a tenant moves, and the Ellis Act gives landlords an escape hatch from rent control entirely. The candidate supports full and unconditional repeal of both laws and would use the Council seat to advocate for repeal at the state level, support statewide ballot measures, and join coalitions like Tenants Together working toward this goal."
+        }
+      ]
+    },
+    {
+      "id": "btu_6",
+      "section": "Pledges",
+      "topic": "rent_stabilization",
+      "status": "thin",
+      "question": "I support fully extending the Rent Stabilization Ordinance to \"golden duplexes\" and properties with an ADU on them.",
+      "type": "yes_other",
+      "analysis": "\"Golden duplexes\" are owner-occupied duplexes currently exempt from Berkeley's Rent Stabilization Ordinance under the owner-occupancy exemption. As Berkeley encourages ADU construction, properties that add an ADU may also fall outside rent stabilization. The BTU wants both categories brought under full rent stabilization. This is a local policy the City Council can directly act on. Say Yes.",
+      "references": [],
+      "levers": [
+        "Unambiguous Yes",
+        "Note that ADU expansion should not create a loophole in rent protections",
+        "Frame as closing an exemption, not creating new regulation"
+      ],
+      "sources": [
+        { "label": "Berkeley Rent Stabilization Board: Covered units", "url": "https://www.berkeleyrent.org" }
+      ],
+      "suggested": [
+        {
+          "note": "Clear yes — frame as closing a gap",
+          "text": "Yes. As Berkeley encourages ADU construction and the housing stock evolves, rent stabilization must keep pace. Exempting golden duplexes and ADU properties creates a growing gap in tenant protections. The candidate supports bringing these units under full rent stabilization coverage — building new housing and protecting the people who live in it are not in conflict."
+        }
+      ]
+    },
+    {
+      "id": "btu_7",
+      "section": "Pledges",
+      "topic": "rent_stabilization",
+      "status": "thin",
+      "question": "I support lowering the cap on rent hikes in the Rent Stabilization Ordinance to 3% or lower.",
+      "type": "yes_other",
+      "analysis": "Berkeley's current annual allowable rent increase is tied to 65% of CPI, which has exceeded 3% in recent inflationary years. The BTU wants a hard cap at 3% or lower regardless of CPI. This is a direct local policy lever. Say Yes.",
+      "references": [],
+      "levers": [
+        "Unambiguous Yes",
+        "Note that CPI-linked caps fail tenants during inflationary periods",
+        "Frame as protecting fixed-income and low-income renters from price shocks"
+      ],
+      "sources": [
+        { "label": "Berkeley Rent Board: Annual allowable increase history", "url": "https://www.berkeleyrent.org" }
+      ],
+      "suggested": [
+        {
+          "note": "Clear yes — affordability framing",
+          "text": "Yes. When inflation spikes, CPI-linked rent caps pass the cost directly to tenants — the people least able to absorb it. A 3% cap provides predictability for renters and still allows landlords a reasonable return. The candidate supports lowering the cap to 3% or below to protect tenants on fixed incomes and prevent the kind of rent shocks that force displacement."
+        }
+      ]
+    },
+    {
+      "id": "btu_8",
+      "section": "Pledges",
+      "topic": "tenant_protections",
+      "status": "thin",
+      "question": "I support fully extending the tenant right-to-organize provisions of the Tenant Protection and Right to Organize Act to all housing that is fully or partially covered by the Rent Stabilization Ordinance.",
+      "type": "yes_other",
+      "analysis": "The Tenant Protection and Right to Organize Act gives tenants the right to form tenant associations and engage in collective action without retaliation. The BTU wants these protections extended to all housing covered by the RSO. This is directly within City Council's authority. Say Yes — and connect it to the candidate's organizing background.",
+      "references": [],
+      "levers": [
+        "Unambiguous Yes",
+        "Connect to the candidate's union organizing experience — tenant organizing is labor organizing",
+        "Frame as a fundamental right, not a special privilege"
+      ],
+      "sources": [
+        { "label": "Berkeley Municipal Code: Tenant Protection Ordinance", "url": "https://berkeley.municipal.codes" }
+      ],
+      "suggested": [
+        {
+          "note": "Clear yes — connect to organizing roots",
+          "text": "Yes. The right to organize is foundational — whether in a workplace or a building. As a former union organizer, the candidate understands that tenants are strongest when they can act collectively, and that retaliation protections make that possible. Extending the right-to-organize provisions to all RSO-covered housing ensures that every tenant in Berkeley has the same ability to advocate for their home. The candidate fully supports this extension."
+        }
+      ]
+    }
+  ]
+}
