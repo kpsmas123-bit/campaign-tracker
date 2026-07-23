@@ -14,7 +14,7 @@
       "topic": "why_running",
       "status": "thin",
       "question": "Please provide a brief (under 250 words) Candidate Statement.",
-      "analysis": "This is the only open-ended narrative prompt. The BTU audience wants to see housing and tenant rights centered, not a generic bio. The candidate should lead with the renter experience in District 1 — rising rents, displacement pressure, the affordability squeeze on families — and connect it to a governing philosophy. Keep it under 250 words. Avoid wonky policy lists; save that for the specific pledge questions below.",
+      "analysis": "The only open-ended narrative prompt on the BTU questionnaire. Most other questions are yes/other binary pledges. The BTU audience wants to see housing and tenant rights centered, not a generic campaign bio.",
       "references": [],
       "levers": [
         {
@@ -66,7 +66,7 @@
       "topic": "affordable_housing",
       "status": "thin",
       "question": "What policies should be adopted to address the affordable student housing crisis? How will you use your position to advocate for those policies?",
-      "analysis": "This question reflects BTU's awareness that Berkeley's student population is a significant renter demographic, and that the university's housing shortfall drives rent inflation citywide. The candidate should acknowledge the UC Berkeley housing gap (the university houses roughly 22% of its students), support university-built housing on UC land, and connect student housing relief to broader tenant protection — more supply on campus means less displacement pressure in the surrounding neighborhoods.",
+      "analysis": "Reflects BTU's awareness that Berkeley's student population is a significant renter demographic and that UC Berkeley's housing shortfall (the university houses roughly 22% of its students) drives rent inflation citywide. The question asks for specific policies, not just support for the concept.",
       "references": [],
       "levers": [
         {
@@ -127,7 +127,7 @@
       "topic": "affordable_housing",
       "status": "thin",
       "question": "What should the City do to fight gentrification and displacement?",
-      "analysis": "Core BTU territory. The candidate should name specific, actionable policies — not abstract commitments. TOPA, community land trusts, anti-speculation taxes, stronger code enforcement (to prevent landlords from using habitability violations as a displacement tool), expanded Rent Board staffing, and proactive tenant outreach. Avoid framing that pits new housing against anti-displacement — the BTU audience wants both, and the candidate should signal that.",
+      "analysis": "Core BTU territory. The question asks for specific, actionable anti-displacement policies — not abstract commitments. The BTU audience distinguishes between general pro-housing language and concrete proposals (TOPA, community land trusts, code enforcement, Rent Board staffing).",
       "references": [],
       "levers": [
         {
@@ -218,7 +218,7 @@
       "status": "thin",
       "question": "I support the Tenant Opportunity to Purchase to Purchase Act (TOPA) as put forth by the Yes2TOPA coalition. (Specifically, the amended language that will be introduced by Council Member Lunaparra on behalf of the coalition)",
       "type": "yes_other",
-      "analysis": "This is a direct pledge question — the BTU wants a clear Yes. TOPA gives tenants and qualified nonprofits the first right to purchase when a rental property is sold. The Yes2TOPA coalition version, with Council Member Lunaparra's amended language, is the specific bill the BTU backs. The candidate should say Yes and can add brief context about why, but should not hedge or qualify. If the candidate has any concerns about specific implementation details, raise them privately — this is not the place for nuance.",
+      "analysis": "Direct pledge question. TOPA gives tenants and qualified nonprofits the first right to purchase when a rental property is sold. The Yes2TOPA coalition version, with Council Member Lunaparra's amended language, is the specific bill the BTU backs. The question is binary — Yes or explain why not.",
       "references": [],
       "levers": [
         {
@@ -254,7 +254,7 @@
       "status": "thin",
       "question": "I support the full and unconditional repeal of Costa-Hawkins and the Ellis Act.",
       "type": "yes_other",
-      "analysis": "Another direct pledge. Costa-Hawkins (1995) limits local rent control by exempting post-1995 construction and single-family homes, and mandates vacancy decontrol. The Ellis Act (1985) allows landlords to evict all tenants by withdrawing rental units from the market. Both are state laws — a city council member cannot repeal them directly, but can advocate for repeal at the state level and support statewide ballot measures. The BTU wants full and unconditional repeal, not reform or partial measures. Say Yes.",
+      "analysis": "Direct pledge. Costa-Hawkins (1995) limits local rent control by exempting post-1995 construction and single-family homes, and mandates vacancy decontrol. The Ellis Act (1985) allows landlords to evict all tenants by withdrawing rental units from the market. Both are state laws — a city council member cannot repeal them directly but can advocate for state-level repeal. The BTU position is full and unconditional repeal, not reform or partial measures.",
       "references": [],
       "levers": [
         {
@@ -303,7 +303,7 @@
       "status": "thin",
       "question": "I support fully extending the Rent Stabilization Ordinance to \"golden duplexes\" and properties with an ADU on them.",
       "type": "yes_other",
-      "analysis": "\"Golden duplexes\" are owner-occupied duplexes currently exempt from Berkeley's Rent Stabilization Ordinance under the owner-occupancy exemption. As Berkeley encourages ADU construction, properties that add an ADU may also fall outside rent stabilization. The BTU wants both categories brought under full rent stabilization. This is a local policy the City Council can directly act on. Say Yes.",
+      "analysis": "'Golden duplexes' are owner-occupied duplexes currently exempt from Berkeley's Rent Stabilization Ordinance under the owner-occupancy exemption. As Berkeley encourages ADU construction, properties that add an ADU may also fall outside rent stabilization. The BTU wants both categories brought under full rent stabilization. This is a local policy lever directly within City Council's authority.",
       "references": [],
       "levers": [
         {
@@ -339,7 +339,7 @@
       "status": "thin",
       "question": "I support lowering the cap on rent hikes in the Rent Stabilization Ordinance to 3% or lower.",
       "type": "yes_other",
-      "analysis": "Berkeley's current annual allowable rent increase is tied to 65% of CPI, which has exceeded 3% in recent inflationary years. The BTU wants a hard cap at 3% or lower regardless of CPI. This is a direct local policy lever. Say Yes.",
+      "analysis": "Berkeley's current annual allowable rent increase is tied to 65% of CPI, which has exceeded 3% in recent inflationary years. The BTU wants a hard cap at 3% or lower regardless of CPI. This is a direct local policy lever within City Council's authority.",
       "references": [],
       "levers": [
         {
@@ -375,7 +375,7 @@
       "status": "thin",
       "question": "I support fully extending the tenant right-to-organize provisions of the Tenant Protection and Right to Organize Act to all housing that is fully or partially covered by the Rent Stabilization Ordinance.",
       "type": "yes_other",
-      "analysis": "The Tenant Protection and Right to Organize Act gives tenants the right to form tenant associations and engage in collective action without retaliation. The BTU wants these protections extended to all housing covered by the RSO. This is directly within City Council's authority. Say Yes — and connect it to the candidate's organizing background.",
+      "analysis": "The Tenant Protection and Right to Organize Act gives tenants the right to form tenant associations and engage in collective action without retaliation. The BTU wants these protections extended to all housing covered by the RSO. This is directly within City Council's authority.",
       "references": [],
       "levers": [
         {

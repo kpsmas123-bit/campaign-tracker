@@ -11,7 +11,7 @@ Run this protocol when adding a new reference questionnaire (from Cecilia, Syrak
 
 ### Steps
 
-1. **Read the full source document.** Use `mcp__cf01c625__read_file_content` for Google Docs or read the PDF/text directly.
+1. **Read the full source document.** Use the Google Drive MCP tool (`read_file_content`) for Google Docs, or read the PDF/text directly.
 
 2. **Register in sources.json.** Add an entry under `reference_corpus.{candidate_slug}`:
    ```json
@@ -77,6 +77,22 @@ After ingesting new reference questionnaires, or when a new org questionnaire is
 
 6. **Validate JSON.** Run `python3 -c "import json; json.load(open('questionnaires/data/{slug}.json'))"` for every modified file.
 
+## Part 3: Ongoing Staleness Checks
+
+When facts change (a program closes, a policy fails at the ballot), existing quotes may go stale. This is handled by `protocols/REFRESH.md` Mode C, which scans all quotes arrays across all org files and updates `status` / `stale_note` as needed.
+
+Keep the **known stale items** list in Part 1 Step 4 up to date whenever a new staleness is discovered during a refresh cycle.
+
+## Adding New Reference Candidates
+
+The `source` field in quotes objects uses a slug for the reference candidate (e.g., `"cecilia"`, `"syrak"`, `"campaign"`). When adding a new reference candidate:
+
+1. Pick a lowercase slug (first name or last name, no spaces).
+2. Add a `reference_corpus.{slug}` entry in `sources.json`.
+3. Update CONVENTIONS.md § Quotes schema to add the new slug to the `source` enum comment.
+4. Follow Part 1 for each of the new candidate's questionnaires.
+5. Follow Part 2 to apply quotes across all existing org files.
+
 ## Rules
 
 - Quotes are verbatim. Do not paraphrase, compress, or edit the source text.
@@ -85,3 +101,4 @@ After ingesting new reference questionnaires, or when a new org questionnaire is
 - No gendered or second-person pronouns in `relevance` fields. Use "the candidate" when referring to Daria.
 - Stale quotes stay in the system with warnings — they show what the framing landscape looked like and prevent the candidate from unknowingly citing outdated facts.
 - When multiple quotes match a single question, prefer the most specific and concise one. Two quotes maximum per question unless the topic genuinely requires more.
+- Export intentionally excludes quotes — they are framing references for the campaign team, not text to submit.

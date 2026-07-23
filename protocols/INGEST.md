@@ -55,7 +55,7 @@ Run this protocol in a Claude Code session when adding a new organization's ques
    - Flag any source older than two years for re-confirmation.
 
 7. **Generate analysis, levers, and suggested copy.** For each question:
-   - `analysis`: research-backed context on the topic as it relates to the candidate's platform and the org's priorities
+   - `analysis`: context about the question — what the org is asking, why, relevant policy context, and any flags about question wording or false premises. See CONVENTIONS.md § Analysis field. Do NOT include commentary on the answer or copy strategy.
    - `levers`: array of objects with tiered tags. See CONVENTIONS.md § Lever tiering for tier definitions.
    - `sources`: array of `{ "label": "...", "url": "..." }` — verified, live links only. For jurisdiction-specific mechanics, require a primary source (city site, ordinance, budget, MOU, benefits guide).
    - `suggested`: array of `{ "note": "", "text": "draft copy" }` — written per the copy rules in CONVENTIONS.md § Copy rules, with `[bracketed notes]` where firsthand detail is needed. Leave `note` as an empty string (the renderer requires the field but subtitles are not used).

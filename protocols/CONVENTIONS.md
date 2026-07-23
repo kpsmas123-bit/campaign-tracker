@@ -58,6 +58,7 @@ campaign-tracker/
   protocols/
     INGEST.md                   # new questionnaire protocol
     REFRESH.md                  # update existing questionnaire
+    QUOTES.md                   # reference questionnaire ingest & apply
     CONVENTIONS.md              # this file
 ```
 
@@ -93,6 +94,24 @@ Each `data/{slug}.json` follows this structure:
 ```
 
 Answers are NOT stored in JSON — they go to `questionnaire_answers` in Supabase.
+
+## Analysis field
+
+The `analysis` field describes the **question** — not the answer. It must remain accurate regardless of whether the answer is blank, drafted, or final. Contents:
+
+- What the org is asking and why (their intent, what they weigh, whether it is a litmus question)
+- Flags about question wording or false premises (e.g., a question that assumes a CalPERS relationship Berkeley does not have)
+- Relevant local policy context needed to answer accurately (existing ordinances, programs, mechanisms)
+- How this topic connects to the org's stated priorities or section preamble
+
+The analysis must NOT contain:
+
+- Commentary on the answer's quality or status ("strong", "blank", "needs work", "nothing to change")
+- Strategy for writing the copy ("lead with X", "add Y", "say Yes")
+- References to other questions' answers or cross-form reuse notes
+- Coaching on tone, structure, or ordering of the answer
+
+Copy strategy belongs in the `suggested` array. Answer status is tracked by the `status` field. Analysis is the one field that should never go stale when an answer is written or revised.
 
 ## Status definitions
 
@@ -136,7 +155,7 @@ Each question can optionally include a `quotes` array with reference material fr
 
 ```json
 {
-  "source": "cecilia|syrak|campaign",
+  "source": "cecilia|syrak|campaign",  // extensible — add new slugs via QUOTES.md § Adding New Reference Candidates
   "attribution": "Full Name — Org Questionnaire, Year",
   "text": "verbatim quote from the source questionnaire",
   "relevance": "one-line explanation of why this quote is relevant to this question",
@@ -156,6 +175,8 @@ Each question can optionally include a `quotes` array with reference material fr
 Cecilia Lunaparra's and Syrak Micael's questionnaire answers are **framing references only**. They show how other Berkeley council candidates have addressed the same topics, which helps the candidate calibrate tone, scope, and specificity. Their biographical claims, personal experiences, and endorsement lists must **never** enter Daria's answers. If a quote contains useful policy framing, the candidate must restate the position in their own voice and from their own experience.
 
 Do not add empty quotes arrays. Missing field means "no reference material matched"; empty array means "checked, found nothing relevant." The distinction is load-bearing.
+
+Quotes are excluded from exported drafts by design — they are internal framing references for the campaign team, not text to submit to an org.
 
 ## Adding a new org
 

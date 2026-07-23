@@ -262,6 +262,10 @@
     border-left-color: var(--status-blank);
     background: var(--status-blank-bg);
   }
+  .quote-chip.unverified {
+    border-left-color: var(--status-thin);
+    background: var(--status-thin-bg);
+  }
   .quote-chip .qt-text {
     color: var(--text); font-style: italic;
     font-family: Georgia, 'Times New Roman', serif;
@@ -983,12 +987,15 @@
       var qbody = document.createElement('div'); qbody.className = 'bbody';
       q.quotes.forEach(function (qt) {
         var chip = document.createElement('div');
-        chip.className = 'quote-chip' + (qt.status === 'stale' ? ' stale' : '');
+        chip.className = 'quote-chip' + (qt.status === 'stale' ? ' stale' : qt.status === 'unverified' ? ' unverified' : '');
         var html = '<div class="qt-text">' + br(qt.text) + '</div>' +
           '<div class="qt-attr">' + esc(qt.attribution) + '</div>';
         if (qt.relevance) html += '<div class="qt-rel">' + esc(qt.relevance) + '</div>';
         if (qt.status === 'stale' && qt.stale_note) {
           html += '<div class="qt-stale">Stale: ' + esc(qt.stale_note) + '</div>';
+        }
+        if (qt.status === 'unverified') {
+          html += '<div class="qt-stale" style="color:var(--status-thin)">Unverified</div>';
         }
         chip.innerHTML = html;
         qbody.appendChild(chip);

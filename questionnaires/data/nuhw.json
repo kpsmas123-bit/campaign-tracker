@@ -55,7 +55,7 @@
       "topic": "background_bio",
       "status": "done",
       "question": "Please list any elected office you currently hold or have held previously.",
-      "analysis": "Honest and fine. Nothing to change.",
+      "analysis": "Standard background prompt. NUHW uses this to gauge political experience and incumbency status.",
       "references": [],
       "levers": [],
       "sources": [],
@@ -67,7 +67,7 @@
       "topic": "background_bio",
       "status": "done",
       "question": "Please list any key volunteer organizational leadership roles you have played.",
-      "analysis": "Strong. The Bay Resistance Pod line is the candidate's single best immigration credential and should reappear in Section 10A.",
+      "analysis": "NUHW weighs organizational leadership as a signal of coalition-building capacity. For a healthcare union, roles connected to healthcare, labor, or immigrant rights carry the most weight.",
       "references": [],
       "levers": [],
       "sources": [],
@@ -79,7 +79,7 @@
       "topic": "background_bio",
       "status": "done",
       "question": "Please provide your official bio and include any relevant work or educational experience.",
-      "analysis": "Very good. The candidate's mother was a BUSD classified employee and the candidate later organized that same classified unit; one clause surfaces that labor story. One consistency note across questionnaires: this bio (high school in Oakland, college in Pennsylvania) sits against the 'lifelong Berkeley resident' framing elsewhere. Both are defensible, just pick one.",
+      "analysis": "NUHW's bio prompt is open-ended. For a healthcare union, the most relevant elements are clinical credentials and labor history. Consistency note: the bio framing (where the candidate grew up, schooling) should be consistent across questionnaires.",
       "references": [],
       "levers": [],
       "sources": [],
@@ -91,7 +91,7 @@
       "topic": "labor_solidarity",
       "status": "done",
       "question": "Are you currently a union member? To which if any unions have you belonged? If you have been a union member, were you an officer, steward, bargaining committee member or activist?",
-      "analysis": "One of the candidate's strongest answers. Member, site rep, and paid organizer on a CFT grant. Leave it.",
+      "analysis": "NUHW treats union membership history as a core credibility signal. Site rep and organizer experience carries significantly more weight than passive membership.",
       "references": [],
       "levers": [],
       "sources": [],
@@ -103,7 +103,7 @@
       "topic": "endorsements",
       "status": "thin",
       "question": "What significant endorsements have you received from organizations and individuals?",
-      "analysis": "Jennifer Shanoski is also a longtime faculty union leader (Peralta Federation of Teachers). Naming that role makes this read as a labor endorsement, which is what this audience weighs. Group as electeds / labor / orgs as the list grows.",
+      "analysis": "NUHW reads endorsements as a coalition map. For a labor union, endorsements from other unions or union leaders carry the most weight. Individual endorsers' labor roles should be identified where applicable.",
       "references": [],
       "levers": [],
       "sources": [],
@@ -120,7 +120,7 @@
       "topic": "campaign_plan",
       "status": "done",
       "question": "How much money have you raised to date? How much do you aim to raise?",
-      "analysis": "Good and specific. Adding contribution count and average would show grassroots depth, but not required.",
+      "analysis": "NUHW uses fundraising numbers to assess viability. For Berkeley's public financing system, the key threshold is the matching-funds trigger.",
       "references": [],
       "levers": [],
       "sources": [],
@@ -132,7 +132,7 @@
       "topic": "campaign_plan",
       "status": "done",
       "question": "Have you conducted a poll? If yes, please provide relevant information from the findings.",
-      "analysis": "Fine.",
+      "analysis": "Standard viability question. No specific NUHW expectations beyond demonstrating the campaign is competitive.",
       "references": [],
       "levers": [],
       "sources": [],
@@ -144,7 +144,7 @@
       "topic": "why_running",
       "status": "done",
       "question": "Why are you a candidate for this office? What do you believe distinguishes you from your opponent(s) as the best candidate for this office?",
-      "analysis": "Much stronger than the earlier draft. It now leads with the two credentials this union cares about, therapist and organizer. Solid as is.",
+      "analysis": "NUHW wants to see two things: why the candidate is running and what distinguishes the candidate from opponents. For a healthcare union, clinical or labor credentials mentioned early carry the most weight.",
       "references": [],
       "levers": [],
       "sources": [],
@@ -156,7 +156,7 @@
       "topic": "why_running",
       "status": "thin",
       "question": "Briefly describe what your top legislative priorities and issue areas of focus will be if elected.",
-      "analysis": "For a healthcare union, a priority list with no health or labor plank is a conspicuous gap. Add behavioral health, given the candidate is a clinician and there is a live local fight (the Mobile Crisis Team closure and the county handoff).",
+      "analysis": "For a healthcare union, a priority list with no health or labor plank is a conspicuous gap. NUHW's core issues — behavioral health parity, safe staffing, single payer — are the topics this audience expects to see.",
       "references": [],
       "levers": [
         {
@@ -212,7 +212,7 @@
       "topic": "endorsement_ask",
       "status": "done",
       "question": "Why are you seeking NUHW’s endorsement, and what sort of support do you need from NUHW?",
-      "analysis": "Done and strong. 'Mental health professional' here vs 'mental health clinician' in 7A; pick one across the form.",
+      "analysis": "NUHW asks this to understand what the candidate expects from the endorsement and what the candidate brings to the relationship. Terminology note: 'mental health professional' vs 'mental health clinician' should be consistent across the form.",
       "references": [],
       "levers": [],
       "sources": [],
@@ -224,7 +224,7 @@
       "topic": "endorsement_ask",
       "status": "done",
       "question": "Do you work with organizations within your community already? If so, please name the organizations you’re closely aligned with.",
-      "analysis": "Good. Consider adding the Bay Resistance Pod from Background 2, and any clinical professional association (CAMFT) for this audience.",
+      "analysis": "NUHW uses this to map the candidate's existing coalition and identify alignment with labor and healthcare organizations.",
       "references": [],
       "levers": [],
       "sources": [],
@@ -236,7 +236,7 @@
       "topic": "labor_solidarity",
       "status": "done",
       "question": "Would you be willing to participate in any of the actions listed below. Please check-off those actions you would be willing to take. Meet with the union and the workers; Send public letters of support; Call the boss on behalf of the workers; Attend negotiations in support of the workers; Conduct facility walk-throughs to engage both workers and employers on issues; Participate in town hall meetings, campaigns and build support for union proposals in the press and with the public; Participate in picket lines, marches, rallies, and vigils; Assist in outreach to other government agencies, other elected officials and community organizations; Use the government’s power as a purchaser, contractor, or other market participant to guarantee workers’ right to organize and win fair employment conditions?",
-      "analysis": "Exactly right.",
+      "analysis": "Litmus section. NUHW lists specific solidarity actions (meet with workers, send support letters, etc.) and expects affirmative responses on all of them. Any unchecked item is noted.",
       "references": [],
       "levers": [],
       "sources": [],
@@ -248,7 +248,7 @@
       "topic": "labor_solidarity",
       "status": "done",
       "question": "Please provide any specific examples of actions listed above that you have taken to support workers in the past.",
-      "analysis": "Excellent, and the Kaiser detail is a direct hit. The candidate could add the AFT 6192 organizing as a first-person example, but it is already strong.",
+      "analysis": "Follow-up to the checklist — NUHW wants concrete examples of past solidarity actions, not hypothetical commitments. Direct personal participation carries more weight than organizational affiliation.",
       "references": [],
       "levers": [],
       "sources": [],
@@ -260,7 +260,7 @@
       "topic": "labor_law",
       "status": "verify",
       "question": "Answer Yes or No to the below questions: 1. Do you support \"card check neutrality\" (remaining neutral on the question of unionization and recognizing a union as their employees’ collective bargaining representative)? 2. Do you support the employer and the union to have equal physical access and equal time to discuss workers’ choice of a union? 3. Do you support a ban on coercive kinds of communications, like \"captive audience\" meetings and one-on-one discussions with supervisors? 4. Do you support a short election period prior to a final and binding secret ballot vote?",
-      "analysis": "This is a litmus section. The extraction could not confirm which boxes are checked. Open the PDF and verify all four read Yes; a stray blank or No here is costly.",
+      "analysis": "Litmus section. NUHW expects Yes on all four labor-law questions (card check neutrality, etc.). A stray blank or No is costly. Note: the extraction could not confirm which boxes are checked — verify against the source PDF.",
       "references": [],
       "levers": [
         {
@@ -277,7 +277,7 @@
       "topic": "healthcare_standards",
       "status": "done",
       "question": "How would you advocate for the improvement of healthcare system standards if elected?",
-      "analysis": "Strong, sourced, and honest about scope. Every figure is verified below.",
+      "analysis": "NUHW's core legislative priority area. The question asks for advocacy at the municipal level, which is limited in scope — healthcare regulation is largely state and federal. The honest framing names both the real levers and their limits.",
       "references": [],
       "levers": [
         {
@@ -331,7 +331,7 @@
       "topic": "disease_protection",
       "status": "done",
       "question": "What if any legislation would you propose to ensure that healthcare workers, patients, and communities are protected from widespread diseases that health workers are disproportionately exposed to by virtue of their jobs?",
-      "analysis": "Strong and expert. Note: the Paid Sick Leave Ordinance (BMC 13.100) already exists and is generous (1 hr per 30 worked, covers anyone working 2+ hrs/wk). A good candidate answer names it and builds on it rather than proposing what Berkeley already has.",
+      "analysis": "The question asks about legislation for disease protection. Note: Berkeley's Paid Sick Leave Ordinance (BMC 13.100) already exists and is generous (1 hr per 30 worked, covers anyone working 2+ hrs/wk in Berkeley). The question's framing implies a gap that may not exist.",
       "references": [],
       "levers": [
         {
@@ -385,7 +385,7 @@
       "topic": "voting_rights",
       "status": "done",
       "question": "Please list the steps you would take to maximize voter registration and participation in your jurisdiction, particularly among communities historically underrepresented in the electoral process.",
-      "analysis": "Good, and it now answers the noncitizen-voting prompt the question names. Ready.",
+      "analysis": "NUHW's preamble to this section names noncitizen voting specifically. The question asks for concrete steps at the local level, not just support for the concept.",
       "references": [],
       "levers": [],
       "sources": [],
@@ -397,7 +397,7 @@
       "topic": "behavioral_health",
       "status": "thin",
       "question": "Have you led any prior policy initiatives or engaged in any other previous activities to improve behavioral health access statewide or locally? Please give details.",
-      "analysis": "This is the highest-leverage answer on the form and it is underbuilt. NUHW's core mission is behavioral health parity, and the candidate has a decade of direct clinical experience. Right now the concrete example is a 2014 soda tax. Keep the strong opening, then add what the candidate has actually seen: waitlists, denied authorizations, referral dead ends for young clients. No one else in this race can write those sentences. This is the one answer worth over-investing in.",
+      "analysis": "Highest-leverage question on the form. NUHW's core mission is behavioral health parity, and the section preamble details their advocacy on this exact issue. The question asks for prior policy initiatives or activities — concrete past actions, not future plans.",
       "references": [],
       "levers": [
         {
@@ -447,7 +447,7 @@
       "topic": "behavioral_health",
       "status": "done",
       "question": "Most of California’s local governments either purchase their own health coverage for their thousands of public employees or participate in CalPERS. Costs of public employee health plans continue increasing every year, all while provider networks continue to narrow and access to behavioral health services remains persistently challenging. What steps would you take to leverage your jurisdiction’s purchasing power or voice in CalPERS to improve access to behavioral health care?",
-      "analysis": "The question assumes a CalPERS relationship. Berkeley does NOT use CalPERS for health benefits — CalPERS is retirement only. Berkeley offers three HMO plans from two carriers (two Kaiser Permanente, one Sutter Health), expects to spend over $16 million on health benefits for members and dependents in 2026, and pays the full premium up to the Kaiser rate — Sutter enrollees pay the difference. The city's EAP through Claremont Behavioral Services caps counseling at 8 authorized sessions per incident per year. Coverage terms for represented employees are bargained through MOUs. The correct answer names this directly: the question's premise does not hold as stated, and the real lever is the city's direct carrier contracts.",
+      "analysis": "The question assumes a CalPERS relationship. Berkeley does NOT use CalPERS for health benefits — CalPERS is retirement only. Berkeley offers three HMO plans from two carriers (two Kaiser Permanente, one Sutter Health), expects to spend over $16 million on health benefits for members and dependents in 2026, and pays the full premium up to the Kaiser rate — Sutter enrollees pay the difference. The city's EAP through Claremont Behavioral Services caps counseling at 8 authorized sessions per incident per year. Coverage terms for represented employees are bargained through MOUs.",
       "references": [],
       "levers": [
         {
@@ -509,7 +509,7 @@
       "topic": "single_payer",
       "status": "thin",
       "question": "Do you support the establishment of a single payer healthcare system — a publicly financed system of healthcare for all with a uniform standard of coverage that reduces costs by eliminating the profiteering, administrative waste, high prescription drug prices, and marketing expenditures that accompany private insurance? Why or why not?",
-      "analysis": "The yes is unambiguous and the Wicks meeting is a real credential. The question asks 'why,' and the why is missing. The candidate has one already: health care access is a human right, made specific by the candidate's clinical vantage on insurance denials.",
+      "analysis": "The question asks both whether the candidate supports single payer AND why. NUHW is a lead sponsor of the Healthy California NOW single-payer coalition, so this is a priority topic. The 'why' component expects a personal conviction, not just a policy rationale.",
       "references": [],
       "levers": [],
       "sources": [],
@@ -526,7 +526,7 @@
       "topic": "single_payer",
       "status": "blank",
       "question": "If yes, how would you advocate to enact single payer solutions to our healthcare crisis?",
-      "analysis": "Blank. The honest answer names the limit first: a city cannot enact single payer. Saying so, then naming the real tools (resolutions, delegation lobbying, using the seat as a platform), reads as competence. The candidate has already done the lobbying piece with Wicks.",
+      "analysis": "Follow-up: how to advocate for single payer at the municipal level. A city council cannot enact single payer — the real tools are resolutions, lobbying the state delegation, and using the council platform to build support.",
       "references": [],
       "levers": [
         {
@@ -561,7 +561,7 @@
       "topic": "dei_trans_care",
       "status": "blank",
       "question": "What actions will you take to defend DEI and transgender care principles in your locality?",
-      "analysis": "Blank, and the candidate has both strong adjacent material and a unique asset: as a child and adolescent therapist the candidate almost certainly works with trans and gender-questioning young people, and gender-affirming care for minors is the exact front line under attack. California is a sanctuary state for this care under SB 107, but state law only holds if cities back it with their own resources and data practices.",
+      "analysis": "NUHW's section preamble connects DEI and transgender care to healthcare access. The question asks for specific actions, not just support. California is a sanctuary state for gender-affirming care under SB 107, which creates a municipal implementation angle (resource allocation, data protection practices).",
       "references": [],
       "levers": [
         {
@@ -616,7 +616,7 @@
       "topic": "cultural_competence",
       "status": "blank",
       "question": "What actions would you take to promote access to culturally competent, high quality health care for communities of color and other marginalized populations?",
-      "analysis": "Blank. For a clinician-heavy union, the real answer is workforce: recruiting and keeping providers who reflect the community, language capacity, and reimbursement that makes it viable to practice in underserved areas. NUHW names inadequate reimbursement and workforce development in the section preamble, so echoing those shows the candidate read it.",
+      "analysis": "The section preamble names inadequate reimbursement and workforce development as barriers to culturally competent care. For a clinician-heavy union, the question is about the healthcare workforce: recruiting and retaining providers who reflect the community, language capacity, and reimbursement structures.",
       "references": [],
       "levers": [
         {
@@ -667,7 +667,7 @@
       "topic": "immigration",
       "status": "blank",
       "question": "What ideas do you have to provide local assistance to immigrants seeking a more secure future in your city or county?",
-      "analysis": "Blank, but this should be one of the easiest and strongest answers. The candidate already sits on Berkeley's Sanctuary City Taskforce and co-facilitates a Bay Resistance Pod for 94702, which is rapid-response work. NUHW calls itself a sanctuary union. This suggested copy is entirely the candidate's own material.",
+      "analysis": "NUHW identifies as a sanctuary union. The question asks for local assistance ideas, not just a position. Berkeley has an existing sanctuary city framework, so the question expects familiarity with what the city already does and what gaps remain.",
       "references": [],
       "levers": [
         {
@@ -727,7 +727,7 @@
       "topic": "ice_cooperation",
       "status": "blank",
       "question": "Please share whether you support or oppose the cooperation of state and local governments with Federal Immigration and Customs Enforcement (ICE) officials and explain why.",
-      "analysis": "Blank. This needs an unequivocal one-word opening: Oppose. Then the reasoning almost no other candidate can make, that as a clinician the candidate knows what happens when people are afraid to seek care, and NUHW's own preamble is about enforcement at hospitals and schools.",
+      "analysis": "Litmus question. NUHW's preamble to this section names enforcement at hospitals and schools — locations where their members work. The question asks for a clear support/oppose position with reasoning.",
       "references": [],
       "levers": [
         {
@@ -776,7 +776,7 @@
       "topic": "affordable_housing",
       "status": "blank",
       "question": "What is your definition of affordable housing and how would you work to increase the preservation and creation of housing that healthcare workers can afford near their workplaces and the communities they serve?",
-      "analysis": "Blank, but the candidate has more usable material here than for any other blank. Note the two halves: NUHW is asking for a definition (be concrete about AMI) and a plan. The union frame is workers priced out of the communities they serve, which connects to staffing and burnout. Adding a union-labor commitment is cheap and expected in a labor questionnaire.",
+      "analysis": "Two-part question: (1) define affordable housing (be concrete about AMI thresholds), and (2) describe a plan for preservation and creation. The NUHW framing is workers priced out of the communities they serve, which connects housing affordability to staffing, burnout, and healthcare access.",
       "references": [],
       "levers": [
         {
@@ -847,7 +847,7 @@
       "topic": "rent_control",
       "status": "blank",
       "question": "Do you support rent control and the repeal of the Costa-Hawkins Act which would allow cities and counties to create policies to stabilize rents that meet their communities’ unique needs? Why or why not?",
-      "analysis": "Blank, and it is a litmus question that needs Yes in the first sentence. The candidate is already pro-tenant and endorsed by the Rent Board President. Berkeley has an elected Rent Board, so naming what the candidate would do through it shows knowledge of the machinery. Tie the pro-supply and pro-tenant stances together so they do not read as a contradiction: supply and protection together.",
+      "analysis": "Litmus question. NUHW's housing section centers rent stabilization. Berkeley has an elected Rent Board, making this a direct local-authority topic. The question explicitly names Costa-Hawkins repeal as a component.",
       "references": [],
       "levers": [
         {
@@ -900,7 +900,7 @@
       "topic": "homelessness",
       "status": "blank",
       "question": "What is your approach to addressing homelessness in our community, and how will you ensure your policies both meet the immediate needs of unhoused residents and tackle the root causes of homelessness, including the lack of affordable housing and access to mental health and substance use treatment?",
-      "analysis": "Blank, and it is the last question they read before deciding. The prompt names mental health and substance use directly, which puts the candidate's clinical background on point, and the candidate has a completed local example in Golden Bear. Use it in past tense; it opened in 2022. This is also the right home for the housing-habitability point drafted in 5B.",
+      "analysis": "Final question on the form. The prompt specifically names mental health and substance use as components of the homelessness response, connecting it directly to NUHW's behavioral health mission. The question asks for both immediate needs and root causes.",
       "references": [],
       "levers": [
         {

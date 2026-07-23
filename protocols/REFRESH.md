@@ -46,11 +46,36 @@ Before re-checking links or updating analysis, re-run premise verification. Juri
    - Set `last_factcheck` to today's date
    - Update `status` on each question per CONVENTIONS.md § Status definitions
 
-8. **Do NOT touch answers.** Answers live in Supabase, not in the JSON. Never read, copy, or modify them during a refresh.
+### Mode C: Quote staleness check
 
-9. **Validate the JSON.** Run `python3 -c "import json; json.load(open('questionnaires/data/{slug}.json'))"`.
+When a fact changes (a program closes, a policy fails, a department restructures), existing quotes may reference the old reality. Run this mode alongside Mode A.
 
-10. **Commit.** The diff should show only analysis/sources/suggested/verification changes, never structural changes to the questions array (no reordering, no merging, no renaming IDs).
+8. **Scan all quotes for affected references.** For each question with a `quotes` array:
+   - Check whether any program, ordinance, or fact cited in a quote has changed.
+   - If stale: set `status` to `"stale"` and write a specific `stale_note`.
+   - If a quote was previously marked stale but the situation has been corrected (program restored, new legislation passed), set `status` back to `"current"` and remove `stale_note`.
+   - Use the known stale items list in `protocols/QUOTES.md` as a starting checklist, but also check against any new policy changes discovered in Mode A.
+
+   Bulk scan command:
+   ```bash
+   python3 -c "
+   import json, re
+   STALE_TERMS = ['Specialized Care Unit', 'SCU', 'BerkDOT', 'Mobile Crisis Team', 'Wellness Center', 'Prop 33']
+   for slug in ['nuhw','alc','btu']:
+       d = json.load(open(f'questionnaires/data/{slug}.json'))
+       for q in d['questions']:
+           for qt in q.get('quotes', []):
+               for term in STALE_TERMS:
+                   if term.lower() in qt['text'].lower() and qt['status'] != 'stale':
+                       print(f'{slug} {q[\"id\"]}: quote references {term} but is not marked stale')
+   "
+   ```
+
+9. **Do NOT touch answers.** Answers live in Supabase, not in the JSON. Never read, copy, or modify them during a refresh.
+
+10. **Validate the JSON.** Run `python3 -c "import json; json.load(open('questionnaires/data/{slug}.json'))"`.
+
+11. **Commit.** The diff should show only analysis/sources/suggested/verification/quotes changes, never structural changes to the questions array (no reordering, no merging, no renaming IDs).
 
 ## Rules
 
