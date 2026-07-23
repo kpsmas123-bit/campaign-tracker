@@ -177,6 +177,7 @@
   .chip.thin { background: var(--status-thin-bg); color: var(--status-thin); }
   .chip.blank { background: var(--status-blank-bg); color: var(--status-blank); }
   .chip.verify { background: var(--status-verify-bg); color: var(--status-verify); }
+  .chip.blocked { background: var(--status-blank); color: #fff; font-weight: 700; }
   .question {
     font-family: Georgia, 'Times New Roman', serif;
     font-size: 17px; line-height: 1.35; margin: 0 0 12px;
@@ -184,10 +185,12 @@
 
   /* --- Textarea --- */
   textarea {
-    width: 100%; font-family: system-ui, -apple-system, sans-serif;
-    font-size: 14px; line-height: 1.55; color: var(--text);
+    width: 100%; max-width: 68ch;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 17px; line-height: 1.6; color: var(--text);
     padding: 12px; border: 1px solid var(--border); border-radius: 3px;
-    background: var(--surface); resize: vertical; min-height: 220px;
+    background: var(--surface); resize: vertical; min-height: 24rem;
+    field-sizing: content;
   }
   textarea:focus { outline: none; border-color: var(--accent); }
   textarea.need { border-color: var(--status-blank); background: var(--status-blank-bg); }
@@ -267,6 +270,7 @@
   }
   .lever.authority .tag { background: var(--status-done-bg); color: var(--status-done); }
   .lever.advocacy .tag { background: var(--status-thin-bg); color: var(--status-thin); }
+  .lever.unverified .tag { background: var(--status-blank-bg); color: var(--status-blank); }
 
   /* Sources */
   .src { margin-top: 6px; }
@@ -275,6 +279,15 @@
     font-size: 11px; text-decoration: none; border-bottom: 1px solid var(--border-light);
   }
   .src a:hover { border-bottom-color: var(--accent); }
+
+  /* Verify gap indicator */
+  .verify-gap {
+    font-family: "IBM Plex Mono", monospace; font-size: 11px;
+    color: var(--status-blank); background: var(--status-blank-bg);
+    padding: 8px 10px; border-radius: 2px;
+    border-left: 3px solid var(--status-blank);
+    line-height: 1.5;
+  }
 
   /* Suggested copy */
   .draft {
@@ -357,6 +370,7 @@
   .dot-btn.thin { background: var(--status-thin); }
   .dot-btn.blank { background: var(--status-blank); }
   .dot-btn.verify { background: var(--status-verify); }
+  .dot-btn.blocked { background: var(--status-blank); box-shadow: 0 0 0 2px var(--status-blank); }
   .dot-btn.cur { outline: 2px solid var(--text); outline-offset: 2px; transform: scale(1.3); }
 
   /* --- Contact grid --- */
@@ -504,7 +518,7 @@
   var appRoot = document.getElementById('appRoot');
   var toastEl = document.getElementById('toast');
 
-  var LBL = { done: 'Done', thin: 'Needs work', blank: 'Blank', verify: 'Verify' };
+  var LBL = { done: 'Done', thin: 'Needs work', blank: 'Blank', verify: 'Verify', blocked: 'Blocked' };
 
   function esc(v) {
     return String(v == null ? '' : v)
@@ -742,6 +756,16 @@
       saveAnswer(q.id);
     });
 
+    if (typeof CSS === 'undefined' || !CSS.supports || !CSS.supports('field-sizing', 'content')) {
+      ta.style.overflow = 'hidden';
+      var autoGrow = function () {
+        ta.style.height = 'auto';
+        ta.style.height = Math.max(ta.scrollHeight, ta.offsetHeight) + 'px';
+      };
+      ta.addEventListener('input', autoGrow);
+      setTimeout(autoGrow, 0);
+    }
+
     var abtns = document.createElement('div'); abtns.className = 'abtns';
     var copyBtn = document.createElement('button'); copyBtn.className = 'btn'; copyBtn.textContent = 'Copy';
     copyBtn.addEventListener('click', function () {
@@ -849,10 +873,13 @@
 
     if (q.levers && q.levers.length) {
       var lhtml = q.levers.map(function (l) {
-        var tier = l.tier === 'authority' ? 'authority' : 'advocacy';
-        return '<div class="lever ' + tier + '"><span class="tag">' +
-          (tier === 'authority' ? 'Authority' : 'Advocacy') +
-          '</span><span>' + esc(l.text) + '</span></div>';
+        var tier, text;
+        if (typeof l === 'string') { tier = 'unverified'; text = l; }
+        else { tier = l.tier || 'unverified'; text = l.text || ''; }
+        var cls = tier === 'authority' ? 'authority' : tier === 'advocacy' ? 'advocacy' : 'unverified';
+        var label = tier === 'authority' ? 'Authority' : tier === 'advocacy' ? 'Advocacy' : 'Unverified';
+        return '<div class="lever ' + cls + '"><span class="tag">' + label +
+          '</span><span>' + esc(text) + '</span></div>';
       }).join('');
       I.appendChild(mkBlock('levers', 'Real levers (honest tiering)', lhtml));
     }
@@ -864,6 +891,17 @@
           : '<div class="src" style="color:var(--text-tertiary);font-style:italic">' + esc(s.label) + '</div>';
       }).join('');
       I.appendChild(mkBlock('sources', 'Sources', shtml));
+    }
+
+    var hasAuthority = q.levers && q.levers.some(function (l) {
+      return typeof l !== 'string' && l.tier === 'authority';
+    });
+    var hasSources = q.sources && q.sources.length > 0;
+    if (hasAuthority && !hasSources) {
+      var gap = document.createElement('div');
+      gap.className = 'verify-gap';
+      gap.textContent = 'Authority levers present but no verification sources linked — needs sourcing before export.';
+      I.appendChild(gap);
     }
 
     if (q.suggested && q.suggested.length) {
@@ -923,15 +961,19 @@
   }
 
   function paintProg() {
-    var n = DATA.questions.length; var done = 0; var mid = 0;
+    var n = DATA.questions.length; var done = 0; var mid = 0; var blocked = 0;
     DATA.questions.forEach(function (q) {
       if (q.status === 'done') done++;
       else if (q.status === 'thin' || q.status === 'verify') mid++;
+      else if (q.status === 'blocked') blocked++;
     });
     var pct = Math.round((done + mid * 0.5) / n * 100);
     document.getElementById('barDone').style.width = Math.round(done / n * 100) + '%';
     document.getElementById('barMid').style.width = Math.round(mid / n * 100) + '%';
-    document.getElementById('pcount').textContent = pct + '% complete · ' + done + ' done · ' + mid + ' to fix · ' + (n - done - mid) + ' blank';
+    var parts = [pct + '% complete', done + ' done', mid + ' to fix'];
+    if (blocked) parts.push(blocked + ' blocked');
+    parts.push((n - done - mid - blocked) + ' blank');
+    document.getElementById('pcount').textContent = parts.join(' · ');
   }
 
   function go(i) {
@@ -958,8 +1000,19 @@
       DATA.candidate.toUpperCase() + '\n\nSECTION 1 CANDIDATE COMMITTEE INFORMATION\n';
     (DATA.contact_fields || []).forEach(function (f) { out += f.label + ': ' + (f.v || '') + '\n'; });
     DATA.questions.forEach(function (q) {
+      var marker = '';
+      if (q.status === 'blocked') marker = '[BLOCKED — UNRESOLVED PREMISE, DO NOT SUBMIT]\n';
       out += '\n\n' + q.section.toUpperCase() + '\n' + q.question + '\n\n' +
-        ((answers[q.id] || '').trim() || '[NOT YET ANSWERED]') + '\n';
+        marker + ((answers[q.id] || '').trim() || '[NOT YET ANSWERED]') + '\n';
+      if (q.levers && q.levers.length) {
+        q.levers.forEach(function (l) {
+          var tier = typeof l === 'string' ? 'unverified' : (l.tier || 'unverified');
+          var text = typeof l === 'string' ? l : (l.text || '');
+          if (tier === 'unverified') {
+            out += '[UNVERIFIED LEVER — NEEDS TIER ASSIGNMENT: ' + text + ']\n';
+          }
+        });
+      }
     });
     navigator.clipboard.writeText(out).then(function () { toast('Full draft copied'); }, function () { toast('Copy failed'); });
     try {
