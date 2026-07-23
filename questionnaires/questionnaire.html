@@ -239,6 +239,12 @@
   .bhead .dot { width: 6px; height: 6px; border-radius: 50%; }
   .bbody { padding: 10px 12px; font-size: 13px; line-height: 1.55; }
   .bbody p { margin: 6px 0 0; }
+  .analysis-edit {
+    outline: none; cursor: text; white-space: pre-wrap; min-height: 1.5em;
+    margin: 0; padding: 2px 0; border-radius: 2px; transition: background 0.15s;
+  }
+  .analysis-edit:hover { background: var(--hover); }
+  .analysis-edit:focus { background: var(--hover); }
 
   .block.read .bhead { background: var(--status-blank-bg); color: var(--status-blank); }
   .block.read .dot { background: var(--status-blank); }
@@ -531,6 +537,7 @@
   var answers = {};
   var answerStatus = {};
   var notes = {};
+  var analysisOverrides = {};
   var reuseCache = {};
   var cur = 0;
   var TOTAL = 0;
@@ -638,6 +645,10 @@
         .eq('org_slug', orgSlug);
       if (r.data) {
         r.data.forEach(function (row) {
+          if (row.question_id.indexOf('__a__') === 0) {
+            analysisOverrides[row.question_id.slice(5)] = row.answer_text || '';
+            return;
+          }
           answers[row.question_id] = row.answer_text || '';
           if (row.approved && row.is_signature) answerStatus[row.question_id] = 'approved';
           else if (row.approved) answerStatus[row.question_id] = 'final';
@@ -719,6 +730,25 @@
         setSaveStatus('error');
       }
     }, 350);
+  }
+
+  // --- Analysis overrides ---
+  function saveAnalysis(qid) {
+    clearTimeout(saveTimers['a_' + qid]);
+    saveTimers['a_' + qid] = setTimeout(async function () {
+      setSaveStatus('saving');
+      try {
+        var res = await sb.from('questionnaire_answers').upsert({
+          org_slug: orgSlug,
+          question_id: '__a__' + qid,
+          answer_text: analysisOverrides[qid] || ''
+        }, { onConflict: 'org_slug,question_id' });
+        if (res.error) throw res.error;
+        setSaveStatus('saved');
+      } catch (e) {
+        setSaveStatus('error');
+      }
+    }, 600);
   }
 
   // --- Reuse ---
@@ -908,8 +938,23 @@
       return b;
     };
 
-    if (q.analysis) {
-      I.appendChild(mkBlock('read', 'Analysis', '<p>' + br(q.analysis) + '</p>'));
+    var analysisText = analysisOverrides.hasOwnProperty(q.id) ? analysisOverrides[q.id] : (q.analysis || '');
+    if (analysisText || q.analysis) {
+      var ab = document.createElement('div'); ab.className = 'block read';
+      ab.innerHTML = '<div class="bhead"><span class="dot"></span>Analysis</div>';
+      var abody = document.createElement('div'); abody.className = 'bbody';
+      var atxt = document.createElement('div');
+      atxt.className = 'analysis-edit';
+      atxt.contentEditable = 'true';
+      atxt.spellcheck = true;
+      atxt.textContent = analysisText;
+      atxt.addEventListener('input', function () {
+        analysisOverrides[q.id] = atxt.textContent;
+        saveAnalysis(q.id);
+      });
+      abody.appendChild(atxt);
+      ab.appendChild(abody);
+      I.appendChild(ab);
     }
 
     if (q.levers && q.levers.length) {
