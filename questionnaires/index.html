@@ -139,7 +139,7 @@
   .table { width: 100%; }
   .thead {
     display: grid;
-    grid-template-columns: 1fr 100px 90px 90px 80px;
+    grid-template-columns: 1fr 120px 100px;
     gap: 8px; padding: 8px 12px;
     border-bottom: 1px solid var(--border);
   }
@@ -150,7 +150,7 @@
   }
   .row {
     display: grid;
-    grid-template-columns: 1fr 100px 90px 90px 80px;
+    grid-template-columns: 1fr 120px 100px;
     gap: 8px; padding: 10px 12px; align-items: center;
     border-bottom: 1px solid var(--border-light);
     cursor: pointer; text-decoration: none; color: inherit;
@@ -162,20 +162,6 @@
     font-family: "IBM Plex Mono", monospace; font-size: 11px;
     color: var(--text-tertiary); margin-top: 1px;
   }
-
-  .pill {
-    font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 600;
-    letter-spacing: 0.03em; text-transform: uppercase;
-    padding: 3px 8px; border-radius: 2px; display: inline-flex;
-    align-items: center; gap: 5px; width: fit-content;
-  }
-  .pill .dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
-  .pill.high { background: var(--priority-high-bg); color: var(--priority-high); }
-  .pill.high .dot { background: var(--priority-high); }
-  .pill.medium { background: var(--priority-medium-bg); color: var(--priority-medium); }
-  .pill.medium .dot { background: var(--priority-medium); }
-  .pill.low { background: var(--priority-low-bg); color: var(--priority-low); }
-  .pill.low .dot { background: var(--priority-low); }
 
   .cell {
     font-family: "IBM Plex Mono", monospace; font-size: 11px;
@@ -195,9 +181,8 @@
   }
 
   @media (max-width: 640px) {
-    .thead, .row { grid-template-columns: 1fr 80px 70px; }
-    .thead .th:nth-child(4), .thead .th:nth-child(5),
-    .row > *:nth-child(4), .row > *:nth-child(5) { display: none; }
+    .thead, .row { grid-template-columns: 1fr 80px; }
+    .thead .th:nth-child(3), .row > *:nth-child(3) { display: none; }
   }
 </style>
 </head>
@@ -228,10 +213,8 @@
   <div class="table">
     <div class="thead">
       <div class="th">Organization</div>
-      <div class="th">Status</div>
-      <div class="th">Progress</div>
-      <div class="th">Priority</div>
-      <div class="th">Timing</div>
+      <div class="th">Complete</div>
+      <div class="th">Due</div>
     </div>
     <div id="rows"></div>
   </div>
@@ -367,46 +350,26 @@
       c1.innerHTML = '<div class="org-name">' + esc(d.org) + '</div>' +
         '<div class="org-sub">' + esc(d.cycle) + ' · ' + esc(d.candidate) + '</div>';
 
-      // Status cell
-      var statusLabel = st.status || 'not_started';
-      var statusMap = {
-        not_started: { cls: 'high', label: 'Not started' },
-        in_progress: { cls: 'medium', label: 'In progress' },
-        submitted: { cls: 'low', label: 'Submitted' },
-        approved: { cls: 'low', label: 'Approved' }
-      };
-      var sm = statusMap[statusLabel] || statusMap.not_started;
-      var c2 = document.createElement('div');
-      c2.innerHTML = '<span class="pill ' + sm.cls + '"><span class="dot"></span>' + sm.label + '</span>';
-
-      // Progress cell — done=1, thin/verify=0.5
+      // Questions complete cell — done=1, thin/verify=0.5
       var qDone = 0, qMid = 0;
       (d.questions || []).forEach(function (qq) {
         if (qq.status === 'done') qDone++;
         else if (qq.status === 'thin' || qq.status === 'verify') qMid++;
       });
       var pct = ac.total ? Math.round((qDone + qMid * 0.5) / ac.total * 100) : 0;
-      var c3 = document.createElement('div');
-      c3.className = 'cell';
-      c3.innerHTML = '<span class="prog-bar"><span class="fill" style="width:' + pct + '%"></span></span>' +
+      var c2 = document.createElement('div');
+      c2.className = 'cell';
+      c2.innerHTML = '<span class="prog-bar"><span class="fill" style="width:' + pct + '%"></span></span>' +
         pct + '%';
 
-      // Priority cell
-      var priMap = { high: 'high', medium: 'medium', low: 'low' };
-      var pri = st.priority || 'medium';
-      var c4 = document.createElement('div');
-      c4.innerHTML = '<span class="pill ' + (priMap[pri] || 'medium') + '"><span class="dot"></span>' + esc(pri) + '</span>';
-
-      // Timing cell
-      var c5 = document.createElement('div');
-      c5.className = 'cell';
-      c5.textContent = st.timing || '—';
+      // Due date cell
+      var c3 = document.createElement('div');
+      c3.className = 'cell';
+      c3.textContent = st.timing || '—';
 
       row.appendChild(c1);
       row.appendChild(c2);
       row.appendChild(c3);
-      row.appendChild(c4);
-      row.appendChild(c5);
       wrap.appendChild(row);
     });
   }
