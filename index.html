@@ -125,10 +125,11 @@
   }
 
   .save-indicator {
-    display: flex; align-items: center; gap: 6px;
+    position: absolute; right: 100%; top: 50%; transform: translateY(-50%);
+    display: flex; align-items: center; gap: 6px; margin-right: 10px; white-space: nowrap;
     font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11px;
     letter-spacing: 0.03em; color: var(--text-secondary);
-    opacity: 0; transition: opacity 0.2s ease;
+    opacity: 0; transition: opacity 0.2s ease; pointer-events: none;
   }
   .save-indicator.visible { opacity: 1; }
   .save-dot {
@@ -172,6 +173,7 @@
   }
   .campaign-name::placeholder { color: var(--text-tertiary); }
   .header-right {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 16px;
