@@ -86,7 +86,8 @@ Each `data/{slug}.json` follows this structure:
     "levers": [{ "tier": "authority|advocacy|unverified", "text": "..." }],
     "sources": [{ "label": "...", "url": "..." }],
     "suggested": [{ "note": "", "text": "draft copy" }],
-    "verification": [{ "claim": "...", "result": "confirmed|refuted|unresolved", "source": "...", "date": "ISO date", "note": "..." }]
+    "verification": [{ "claim": "...", "result": "confirmed|refuted|unresolved", "source": "...", "date": "ISO date", "note": "..." }],
+    "quotes": [{ "source": "cecilia|syrak|campaign", "attribution": "...", "text": "verbatim", "relevance": "...", "status": "current|stale|unverified", "stale_note": "..." }]
   }]
 }
 ```
@@ -128,6 +129,33 @@ A lever citing a **named ordinance, program, fund, or agency** (e.g., TOPA, a sp
 ## Controlled topic list
 
 `why_running`, `background_bio`, `endorsement_ask`, `labor_solidarity`, `labor_law`, `healthcare_standards`, `disease_protection`, `behavioral_health`, `single_payer`, `voting_rights`, `dei_trans_care`, `cultural_competence`, `immigration`, `ice_cooperation`, `affordable_housing`, `rent_control`, `homelessness`, `campaign_plan`, `endorsements`
+
+## Quotes schema
+
+Each question can optionally include a `quotes` array with reference material from external candidates' questionnaires. These are framing references only — see the framing rule below.
+
+```json
+{
+  "source": "cecilia|syrak|campaign",
+  "attribution": "Full Name — Org Questionnaire, Year",
+  "text": "verbatim quote from the source questionnaire",
+  "relevance": "one-line explanation of why this quote is relevant to this question",
+  "status": "current|stale|unverified",
+  "stale_note": "required if stale — specific explanation of what changed"
+}
+```
+
+### Quote status definitions
+
+- **`current`**: the quoted position or fact remains accurate as of the last fact-check date.
+- **`stale`**: a program, policy, or fact referenced in the quote has changed since the source questionnaire was written. The `stale_note` field must say what specifically changed. Stale quotes remain useful as framing but must not be cited as current fact.
+- **`unverified`**: the claim in the quote has not been independently verified.
+
+### Framing rule
+
+Cecilia Lunaparra's and Syrak Micael's questionnaire answers are **framing references only**. They show how other Berkeley council candidates have addressed the same topics, which helps the candidate calibrate tone, scope, and specificity. Their biographical claims, personal experiences, and endorsement lists must **never** enter Daria's answers. If a quote contains useful policy framing, the candidate must restate the position in their own voice and from their own experience.
+
+Do not add empty quotes arrays. Missing field means "no reference material matched"; empty array means "checked, found nothing relevant." The distinction is load-bearing.
 
 ## Adding a new org
 

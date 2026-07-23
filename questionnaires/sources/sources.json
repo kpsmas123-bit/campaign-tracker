@@ -34,5 +34,41 @@
         "note": "Source is a Google Form, not a PDF. Transcribed from screenshot."
       }
     ]
+  },
+  "reference_corpus": {
+    "cecilia_lunaparra": {
+      "name": "Cecilia Lunaparra",
+      "office": "Berkeley City Council D7",
+      "cycle": "2024",
+      "documents": [
+        {
+          "description": "Sierra Club D7 Questionnaire",
+          "drive_file_id": "1LGyyEhkHW_56CXk991bs4SsXGPfyOO3F1ikjbuZNovY",
+          "type": "google_doc"
+        },
+        {
+          "description": "SEIU 1021 D7 Questionnaire",
+          "drive_file_id": "1rJ7W85bK6jQjE42LuMqKuL6ed51sYAEUI9w1z3vWMBg",
+          "type": "google_doc"
+        },
+        {
+          "description": "ACCE Action Candidate Questionnaire",
+          "drive_file_id": "1oxEbNG17Zd1SmqqZH0sDK9zWNrSdf4nW7TEnldzov8o",
+          "type": "google_doc"
+        },
+        {
+          "description": "East Bay DSA Electoral Endorsement Questionnaire",
+          "drive_file_id": "1UpRCsQLpFoWVmOgqj1B86U-cnJdmpD6abgRn4WKTHD8",
+          "type": "google_doc"
+        }
+      ]
+    },
+    "syrak_micael": {
+      "name": "Syrak Micael",
+      "office": "Berkeley City Council D7",
+      "cycle": "2024",
+      "documents": [],
+      "note": "Searched Drive for 'Syrak Micael' — no questionnaire documents found. Add file IDs here if located."
+    }
   }
 }

@@ -195,6 +195,15 @@
           "date": "2026-07-23",
           "note": "Independently elected body."
         }
+      ],
+      "quotes": [
+        {
+          "source": "cecilia",
+          "attribution": "Cecilia Lunaparra — East Bay DSA, D7 2024",
+          "text": "My top three priorities are: affordable housing, tenant's rights, and protecting our unhoused neighbors; getting to the roots of public safety and investing in non-policing and decarceral harm reduction programs; making streets and third spaces accessible to all by investing in pedestrian and bike infrastructure, traffic calming, public transit, and more.",
+          "relevance": "Shows how a Berkeley council candidate frames legislative priorities for a progressive audience",
+          "status": "current"
+        }
       ]
     },
     {
@@ -420,6 +429,16 @@
           "date": "2026-07-23",
           "note": ""
         }
+      ],
+      "quotes": [
+        {
+          "source": "cecilia",
+          "attribution": "Cecilia Lunaparra — ACCE, D7 2024",
+          "text": "Improve student and community safety by investing in programs like Berkeley's Specialized Care Unit and BerkDOT that prevent the root causes of violence, rather than criminalization and mass incarceration. Make the SCU 24/7 and pressure the state government to allow BerkDOT to take effect so that mental health issues, addiction, and traffic violations are not being handled by armed police officers.",
+          "relevance": "Shows how a Berkeley candidate framed unarmed crisis response — but SCU has since transferred to Alameda County",
+          "status": "stale",
+          "stale_note": "Specialized Care Unit transferred to Alameda County; no longer a Berkeley city program. BerkDOT status unresolved."
+        }
       ]
     },
     {
@@ -524,6 +543,15 @@
         {
           "text": "A city council cannot enact single payer on its own, and I would rather be honest about that than promise what the seat cannot deliver. What a councilmember can do is use the platform. I would support a Berkeley council resolution backing CalCare and the unified-financing work the state began under SB 770, and I would keep meeting directly with our state delegation, as I already have with Assemblymember Wicks' office, alongside NUHW and the Healthy California NOW coalition. Local resolutions and steady pressure are how state campaigns build the momentum to win.",
           "note": ""
+        }
+      ],
+      "quotes": [
+        {
+          "source": "cecilia",
+          "attribution": "Cecilia Lunaparra — East Bay DSA, D7 2024",
+          "text": "I look forward to introducing a resolution in support of CalCare to the Berkeley City Council if it is brought up again in the legislature, similar to Berkeley's pro-AB1400 resolution in 2021.",
+          "relevance": "Shows the council-resolution approach to single-payer advocacy at the local level",
+          "status": "current"
         }
       ]
     },
@@ -682,6 +710,15 @@
           "date": "2026-07-23",
           "note": "Generic municipal power."
         }
+      ],
+      "quotes": [
+        {
+          "source": "cecilia",
+          "attribution": "Cecilia Lunaparra — ACCE, D7 2024",
+          "text": "Immigrants are a vital part of our society, and valued members of our Berkeley community. I am proud that Berkeley is a sanctuary city, and I would like to work to open the doors to expand the opportunity to more immigrants. Berkeley should be welcoming of immigrants not only in name, but in action as well — I will fight for increased affordable housing for all.",
+          "relevance": "Frames sanctuary city commitment as action-oriented, not symbolic",
+          "status": "current"
+        }
       ]
     },
     {
@@ -721,6 +758,15 @@
           "source": "Generic charter city structural authority; California Values Act (SB 54)",
           "date": "2026-07-23",
           "note": "SB 54 provides state-level framework; local policy can go further."
+        }
+      ],
+      "quotes": [
+        {
+          "source": "cecilia",
+          "attribution": "Cecilia Lunaparra — ACCE, D7 2024",
+          "text": "They should be abolished and I will do whatever I can to reduce or eliminate their contact with my constituents entirely.",
+          "relevance": "Unequivocal opposition to ICE cooperation — the strongest possible framing for a sanctuary city audience",
+          "status": "current"
         }
       ]
     },
@@ -784,6 +830,15 @@
           "date": "2026-07-23",
           "note": "Generic municipal power."
         }
+      ],
+      "quotes": [
+        {
+          "source": "cecilia",
+          "attribution": "Cecilia Lunaparra — ACCE, D7 2024",
+          "text": "I am fundamentally committed to fighting for housing justice through an all-of-the-above strategy, built through an increased housing supply at all income levels, with a specific focus on affordable housing, and robust anti-displacement measures. I believe we must use general tax funds to build social housing and subsidize affordable housing to fundamentally address the housing crisis.",
+          "relevance": "All-of-the-above framing that bridges pro-housing and anti-displacement positions — useful for a union audience asking about healthcare worker affordability",
+          "status": "current"
+        }
       ]
     },
     {
@@ -827,6 +882,15 @@
           "source": "Berkeley Rent Stabilization Board (berkeleyrent.org)",
           "date": "2026-07-23",
           "note": "Independently elected body."
+        }
+      ],
+      "quotes": [
+        {
+          "source": "cecilia",
+          "attribution": "Cecilia Lunaparra — ACCE, D7 2024",
+          "text": "Which policies would you commit to supporting? Rent control, vacancy control, vacancy tax, tenant right to counsel, tenant anti-harassment, tenant right of first refusal, just-cause eviction protections — ALL OF THE ABOVE.",
+          "relevance": "Comprehensive tenant-protection commitment from a Berkeley council candidate — sets the bar",
+          "status": "current"
         }
       ]
     },
@@ -889,6 +953,15 @@
           "source": "Berkeley Municipal Code Chapter 19.40",
           "date": "2026-07-23",
           "note": ""
+        }
+      ],
+      "quotes": [
+        {
+          "source": "cecilia",
+          "attribution": "Cecilia Lunaparra — ACCE, D7 2024",
+          "text": "Fight against harmful, dangerous, and potentially unconstitutional sweeps of unhoused people, their belongings, and their pets. Fully fund a 24-hour inclement weather shelter to protect our unhoused neighbors. The City must ensure that our scarce Measure P funds are never used for encampment enforcement and sweeps, only for actual services for unhoused individuals.",
+          "relevance": "Distinguishes service spending from enforcement spending — a useful framing when the question asks about both immediate needs and root causes",
+          "status": "current"
         }
       ]
     }

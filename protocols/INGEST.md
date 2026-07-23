@@ -63,13 +63,15 @@ Run this protocol in a Claude Code session when adding a new organization's ques
 
 8. **Set status.** See CONVENTIONS.md § Status definitions for the full list. Key rule: `blocked` questions get NO suggested copy.
 
-9. **Register the slug** in the gallery. Add the slug string to the `KNOWN_ORGS` array in `questionnaires/index.html`.
+9. **Apply reference quotes.** Run the Apply step from `protocols/QUOTES.md` Part 2. Match each question's topic against the reference corpus and add `quotes` arrays where genuine analogues exist. Prioritize blank and thin questions. Leave the field absent (not empty array) where no good match exists.
 
-10. **Add to due dates and sync.** Add a `null` entry for the slug in `questionnaires/data/due_dates.json` and add the org's name(s) to the `ORG_MAP` in `.github/workflows/sync-due-dates.yml`.
+10. **Register the slug** in the gallery. Add the slug string to the `KNOWN_ORGS` array in `questionnaires/index.html`.
 
-11. **Validate the JSON.** Run `python3 -c "import json; json.load(open('questionnaires/data/{slug}.json'))"` to confirm valid JSON.
+11. **Add to due dates and sync.** Add a `null` entry for the slug in `questionnaires/data/due_dates.json` and add the org's name(s) to the `ORG_MAP` in `.github/workflows/sync-due-dates.yml`.
 
-12. **Seed a status row** (optional). Insert into `questionnaire_status` via Supabase:
+12. **Validate the JSON.** Run `python3 -c "import json; json.load(open('questionnaires/data/{slug}.json'))"` to confirm valid JSON.
+
+13. **Seed a status row** (optional). Insert into `questionnaire_status` via Supabase:
     ```sql
     insert into questionnaire_status (org_slug, display_name, priority, category, timing)
     values ('{slug}', '{Org Name}', 'high', 'labor', '2026-08-15');
