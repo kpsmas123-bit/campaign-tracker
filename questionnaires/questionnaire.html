@@ -203,36 +203,21 @@
   }
   .abtns { display: flex; gap: 6px; flex-wrap: wrap; }
 
-  /* --- Approve row --- */
-  .approve-row {
-    display: flex; align-items: center; gap: 10px; margin-top: 10px;
+  /* --- Status row --- */
+  .status-row {
+    display: flex; align-items: center; gap: 2px; margin-top: 10px;
     padding: 8px 0; border-top: 1px solid var(--border-light);
   }
-  .approve-check {
-    width: 16px; height: 16px; border: 1.5px solid var(--border);
-    border-radius: 2px; cursor: pointer; display: flex;
-    align-items: center; justify-content: center;
-    background: transparent; padding: 0; flex-shrink: 0;
-  }
-  .approve-check:hover { border-color: var(--accent); }
-  .approve-check.checked { background: var(--status-done); border-color: var(--status-done); }
-  .approve-check.checked::after {
-    content: ''; width: 8px; height: 5px;
-    border-left: 1.5px solid #fff; border-bottom: 1.5px solid #fff;
-    transform: rotate(-45deg) translateY(-1px);
-  }
-  .approve-label {
+  .status-opt {
     font-family: "IBM Plex Mono", monospace; font-size: 11px;
-    color: var(--text-secondary); cursor: pointer; user-select: none;
+    background: transparent; border: 1px solid var(--border);
+    color: var(--text-tertiary); border-radius: 2px;
+    padding: 4px 10px; cursor: pointer;
   }
-  .approve-label.active { color: var(--status-done); }
-  .sig-btn {
-    font-family: "IBM Plex Mono", monospace; font-size: 10px;
-    color: var(--text-tertiary); background: none; border: 1px solid var(--border);
-    border-radius: 2px; padding: 2px 7px; cursor: pointer; margin-left: auto;
-  }
-  .sig-btn:hover { border-color: var(--accent); color: var(--accent); }
-  .sig-btn.active { border-color: var(--status-done); color: var(--status-done); background: var(--status-done-bg); }
+  .status-opt:hover { border-color: var(--text-secondary); color: var(--text-secondary); }
+  .status-opt.active.s-blank { background: var(--status-blank-bg); color: var(--status-blank); border-color: var(--status-blank); }
+  .status-opt.active.s-draft { background: var(--status-thin-bg); color: var(--status-thin); border-color: var(--status-thin); }
+  .status-opt.active.s-final { background: var(--status-done-bg); color: var(--status-done); border-color: var(--status-done); }
 
   /* --- Info panels (right column) --- */
   .info { display: flex; flex-direction: column; gap: 12px; position: sticky; top: 16px; align-self: start; }
@@ -502,7 +487,7 @@
   var DATA = null;
   var orgSlug = '';
   var answers = {};
-  var approvals = {};
+  var answerStatus = {};
   var notes = {};
   var reuseCache = {};
   var cur = 0;
@@ -519,6 +504,14 @@
   var toastEl = document.getElementById('toast');
 
   var LBL = { done: 'Done', thin: 'Needs work', blank: 'Blank', verify: 'Verify', blocked: 'Blocked' };
+
+  function effectiveStatus(q) {
+    if (q.status === 'blocked') return 'blocked';
+    var s = answerStatus[q.id] || 'blank';
+    if (s === 'final') return 'done';
+    if (s === 'draft') return 'thin';
+    return 'blank';
+  }
 
   function esc(v) {
     return String(v == null ? '' : v)
@@ -603,7 +596,8 @@
       if (r.data) {
         r.data.forEach(function (row) {
           answers[row.question_id] = row.answer_text || '';
-          approvals[row.question_id] = { approved: !!row.approved, is_signature: !!row.is_signature };
+          if (row.approved) answerStatus[row.question_id] = 'final';
+          else if (row.is_signature) answerStatus[row.question_id] = 'draft';
           notes[row.question_id] = row.notes || '';
         });
       }
@@ -640,8 +634,8 @@
     }, 350);
   }
 
-  async function saveApproval(qid) {
-    var a = approvals[qid] || {};
+  async function saveStatus(qid) {
+    var s = answerStatus[qid] || 'blank';
     setSaveStatus('saving');
     try {
       var q = DATA.questions.find(function (x) { return x.id === qid; });
@@ -650,9 +644,9 @@
         question_id: qid,
         topic: q ? q.topic : null,
         answer_text: answers[qid] || '',
-        approved: !!a.approved,
-        approved_at: a.approved ? new Date().toISOString() : null,
-        is_signature: !!a.is_signature
+        approved: s === 'final',
+        approved_at: s === 'final' ? new Date().toISOString() : null,
+        is_signature: s === 'draft'
       }, { onConflict: 'org_slug,question_id' });
       if (res.error) throw res.error;
       setSaveStatus('saved');
@@ -721,10 +715,21 @@
     });
     L.appendChild(g);
 
-    var blank = 0, thin = 0;
-    DATA.questions.forEach(function (q) { if (q.status === 'blank') blank++; if (q.status === 'thin') thin++; });
+    var cDone = 0, cDraft = 0, cBlank = 0, cBlocked = 0;
+    DATA.questions.forEach(function (q) {
+      var es = effectiveStatus(q);
+      if (es === 'done') cDone++;
+      else if (es === 'thin') cDraft++;
+      else if (es === 'blocked') cBlocked++;
+      else cBlank++;
+    });
+    var statParts = [];
+    if (cDone) statParts.push(cDone + ' final');
+    if (cDraft) statParts.push(cDraft + ' draft');
+    if (cBlank) statParts.push(cBlank + ' blank');
+    if (cBlocked) statParts.push(cBlocked + ' blocked');
     I.innerHTML = '<div class="lead">' +
-      '<p style="margin:0 0 8px"><b>Fact-checked build.</b> Current answers are loaded. ' + blank + ' blank, ' + thin + ' thin, 1 to verify.</p>' +
+      '<p style="margin:0 0 8px"><b>Fact-checked build.</b> Current answers are loaded. ' + statParts.join(', ') + '.</p>' +
       '<p style="margin:0 0 8px"><b>Four panels per question.</b> The green <b>Real levers</b> panel tiers what a councilmember can actually do: AUTHORITY is real council power, ADVOCACY is resolutions or lobbying only. The blue <b>Sources</b> panel has live links.</p>' +
       '<p style="margin:0"><b>Suggested copy</b> is stitched from verified research in the candidate\'s voice. Where firsthand detail is needed, there is a bracketed note. Hit <b>Use this</b> to load it into the editor.</p>' +
       '</div>';
@@ -737,8 +742,9 @@
     var I = document.getElementById('info');
 
     // Left column: question + textarea
+    var es = effectiveStatus(q);
     L.innerHTML = '<div class="eyebrow"><span class="qn">' + esc(q.section) + '</span>' +
-      '<span class="chip ' + q.status + '">' + LBL[q.status] + '</span></div>' +
+      '<span class="chip ' + es + '">' + (LBL[es] || es) + '</span></div>' +
       '<div class="question">' + esc(q.question) + '</div>';
 
     var ta = document.createElement('textarea');
@@ -775,37 +781,23 @@
     meta.appendChild(cnt); meta.appendChild(abtns);
     L.appendChild(ta); L.appendChild(meta);
 
-    // Approve row
-    var appr = approvals[q.id] || { approved: false, is_signature: false };
-    var arow = document.createElement('div'); arow.className = 'approve-row';
-    var ack = document.createElement('button');
-    ack.className = 'approve-check' + (appr.approved ? ' checked' : '');
-    ack.addEventListener('click', function () {
-      appr.approved = !appr.approved;
-      approvals[q.id] = appr;
-      ack.classList.toggle('checked', appr.approved);
-      albl.classList.toggle('active', appr.approved);
-      saveApproval(q.id);
-      toast(appr.approved ? 'Approved' : 'Unapproved');
+    // Status row
+    var srow = document.createElement('div'); srow.className = 'status-row';
+    var curStatus = answerStatus[q.id] || 'blank';
+    ['blank', 'draft', 'final'].forEach(function (s) {
+      var btn = document.createElement('button');
+      btn.className = 'status-opt s-' + s + (curStatus === s ? ' active' : '');
+      btn.textContent = s.charAt(0).toUpperCase() + s.slice(1);
+      btn.addEventListener('click', function () {
+        answerStatus[q.id] = s;
+        srow.querySelectorAll('.status-opt').forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        saveStatus(q.id);
+        paintDots(); paintProg();
+      });
+      srow.appendChild(btn);
     });
-    var albl = document.createElement('span');
-    albl.className = 'approve-label' + (appr.approved ? ' active' : '');
-    albl.textContent = 'Approved';
-    albl.addEventListener('click', function () { ack.click(); });
-
-    var sigBtn = document.createElement('button');
-    sigBtn.className = 'sig-btn' + (appr.is_signature ? ' active' : '');
-    sigBtn.textContent = appr.is_signature ? 'Signature line' : 'Mark as signature';
-    sigBtn.addEventListener('click', function () {
-      appr.is_signature = !appr.is_signature;
-      approvals[q.id] = appr;
-      sigBtn.classList.toggle('active', appr.is_signature);
-      sigBtn.textContent = appr.is_signature ? 'Signature line' : 'Mark as signature';
-      saveApproval(q.id);
-      toast(appr.is_signature ? 'Marked as signature line' : 'Unmarked');
-    });
-    arow.appendChild(ack); arow.appendChild(albl); arow.appendChild(sigBtn);
-    L.appendChild(arow);
+    L.appendChild(srow);
 
     // Notes section
     var nsec = document.createElement('div'); nsec.className = 'notes-section';
@@ -952,7 +944,7 @@
     wrap.appendChild(c);
     DATA.questions.forEach(function (q, i) {
       var b = document.createElement('button');
-      b.className = 'dot-btn ' + q.status;
+      b.className = 'dot-btn ' + effectiveStatus(q);
       if (cur === i + 1) b.classList.add('cur');
       b.title = q.section + ': ' + q.question;
       b.addEventListener('click', function () { go(i + 1); });
@@ -963,9 +955,10 @@
   function paintProg() {
     var n = DATA.questions.length; var done = 0; var mid = 0; var blocked = 0;
     DATA.questions.forEach(function (q) {
-      if (q.status === 'done') done++;
-      else if (q.status === 'thin' || q.status === 'verify') mid++;
-      else if (q.status === 'blocked') blocked++;
+      var es = effectiveStatus(q);
+      if (es === 'done') done++;
+      else if (es === 'thin') mid++;
+      else if (es === 'blocked') blocked++;
     });
     var pct = Math.round((done + mid * 0.5) / n * 100);
     document.getElementById('barDone').style.width = Math.round(done / n * 100) + '%';
