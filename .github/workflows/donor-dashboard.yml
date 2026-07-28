@@ -16,13 +16,21 @@ jobs:
 
       - name: Fetch data and generate dashboard
         run: |
-          # Published CSV URL — update after publishing the Summary tab
-          SHEET_ID="YOUR_MASTER_SHEET_ID"
-          SUMMARY_GID="YOUR_SUMMARY_TAB_GID"
+          # Donor Tracker Master. Addressed by tab name via gviz rather than by
+          # gid, so reordering or recreating tabs does not break the build.
+          # Requires only "anyone with the link can view" — not Publish to web.
+          SHEET_ID="1put7iH5sMUTDtSZWlF8GRyx36I9UJrGG5hRRv1hrFgM"
+          SUMMARY_URL="https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=Summary"
 
-          SUMMARY_URL="https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=${SUMMARY_GID}"
+          curl -sfL "$SUMMARY_URL" -o /tmp/summary.csv
 
-          curl -sL "$SUMMARY_URL" -o /tmp/summary.csv
+          # Fail loudly rather than publishing a dashboard of zeros
+          if ! grep -q 'total_raised' /tmp/summary.csv; then
+            echo "::error::Summary tab did not return expected data. Check that the"
+            echo "::error::sheet is link-shared and that consolidate() has been run."
+            head -5 /tmp/summary.csv
+            exit 1
+          fi
 
           python3 << 'PYEOF'
           import csv, json
