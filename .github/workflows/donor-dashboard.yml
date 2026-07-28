@@ -1,0 +1,107 @@
+name: Update donor dashboard
+
+on:
+  schedule:
+    - cron: '0 15 * * *'  # daily at 3pm UTC (8am PT) — after the 6am PT Apps Script run
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch data and generate dashboard
+        run: |
+          # Published CSV URLs — update these after publishing the tabs
+          SUMMARY_SHEET_ID="YOUR_MASTER_SHEET_ID"
+          SUMMARY_GID="YOUR_SUMMARY_TAB_GID"
+          DAILY_GID="YOUR_DAILY_TAB_GID"
+
+          SUMMARY_URL="https://docs.google.com/spreadsheets/d/${SUMMARY_SHEET_ID}/export?format=csv&gid=${SUMMARY_GID}"
+          DAILY_URL="https://docs.google.com/spreadsheets/d/${SUMMARY_SHEET_ID}/export?format=csv&gid=${DAILY_GID}"
+
+          curl -sL "$SUMMARY_URL" -o /tmp/summary.csv
+          curl -sL "$DAILY_URL" -o /tmp/daily.csv
+
+          python3 << 'PYEOF'
+          import csv, json, html
+
+          # Parse summary
+          summary = {}
+          with open('/tmp/summary.csv', newline='', encoding='utf-8-sig') as f:
+              for row in csv.reader(f):
+                  if len(row) >= 2 and row[0] != 'metric':
+                      summary[row[0]] = row[1]
+
+          # Parse daily (sectioned CSV)
+          cities = []
+          occupations = []
+          amounts = []
+          section = None
+          header = None
+
+          with open('/tmp/daily.csv', newline='', encoding='utf-8-sig') as f:
+              for row in csv.reader(f):
+                  if not row:
+                      continue
+                  if row[0].startswith('[') and row[0].endswith(']'):
+                      section = row[0][1:-1]
+                      header = None
+                      continue
+                  if header is None:
+                      header = row
+                      continue
+                  if section == 'cities' and len(row) >= 3:
+                      cities.append({'city': row[0], 'donors': int(row[1]), 'amount': float(row[2])})
+                  elif section == 'occupations' and len(row) >= 3:
+                      occupations.append({'occ': row[0], 'donors': int(row[1]), 'amount': float(row[2])})
+                  elif section == 'amounts' and len(row) >= 2:
+                      amounts.append({'amount': row[0], 'count': int(row[1])})
+
+          def num(key, default=0):
+              try:
+                  return float(summary.get(key, default))
+              except (TypeError, ValueError):
+                  return default
+
+          data = {
+              'total_raised': num('total_raised'),
+              'donation_count': int(num('donation_count')),
+              'unique_donors': int(num('unique_donors')),
+              'average_donation': num('average_donation'),
+              'berkeley_raised': num('berkeley_raised'),
+              'berkeley_donations': int(num('berkeley_donations')),
+              'qualifying': num('qualifying'),
+              'match_earned': num('match_earned'),
+              'match_remaining': num('match_remaining'),
+              'match_cap': num('match_cap', 52000),
+              'match_ratio': num('match_ratio', 6),
+              'projected_total': num('projected_total'),
+              # Blank when there is no snapshot 7+ days old yet
+              'week_ago_total': summary.get('week_ago_total', ''),
+              'week_ago_donors': summary.get('week_ago_donors', ''),
+              'updated': summary.get('updated', ''),
+              'cities': cities[:15],
+              'occupations': occupations[:10],
+              'amounts': amounts,
+          }
+
+          with open('/tmp/dashboard_data.json', 'w') as f:
+              json.dump(data, f)
+          print(f"Dashboard data: ${data['total_raised']:.0f} from {data['unique_donors']} donors")
+          PYEOF
+
+          python3 donors/generate.py /tmp/dashboard_data.json donors/index.html
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add donors/index.html
+          git diff --cached --quiet && echo "No changes" && exit 0
+          git commit -m "Update donor dashboard"
+          git push

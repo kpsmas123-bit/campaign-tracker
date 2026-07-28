@@ -3,3 +3,16 @@
 *.swp
 *~
 .claude/
+
+# ── Never commit: this repo is PUBLIC ────────────────────────────────
+# Candidate questionnaire drafts, completed questionnaires, and any
+# document containing personal or strategic information. Keep these in
+# Google Drive or Supabase Storage instead — see donors/SETUP.md.
+Sryak's Completed Questionnaires/
+*.docx
+*.doc
+nuhw_draft.txt
+*_draft.txt
+questionnaire_answers*
+donor_export*
+*.csv
