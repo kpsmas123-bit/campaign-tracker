@@ -5,7 +5,7 @@
  * every report, deduplicates by Lineitem ID, and writes four tabs:
  *
  *   - Raw     every donation, including names — KEEP PRIVATE, never publish
- *   - Summary metric/value totals + Berkeley match math — publish as CSV
+ *   - Summary metric/value totals + Berkeley match math — read by the site
  *   - History one snapshot row per day, for week-over-week change
  *   - Daily   city/occupation/amount breakdowns, for reference in the sheet
  *
