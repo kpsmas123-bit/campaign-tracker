@@ -23,9 +23,16 @@ var REPORT_MATCH = 'custom-report-report1.1'; // Substring found in every report
 //   - Only contributions from Berkeley residents qualify
 //   - City Council cap is $52,000 in total matching funds
 var MATCH_RATIO   = 6;         // $6 public funds per $1 qualifying contribution
-var MATCH_MAX_PER = 60;        // Only the first $60 of a contribution is matchable
+var MATCH_MAX_PER = 60;        // $60 is the per-DONOR contribution limit, not per gift
 var MATCH_CAP     = 52000;     // Max total matching funds, City Council
 var MATCH_CITY    = 'berkeley';// Residency test against Donor City
+
+// To be certified into the program a candidate must first collect at least 30
+// Qualified Contributions from at least 30 unique contributors, each $10–$60,
+// totalling at least $580. No matching funds are paid until that is met.
+var QUALIFY_MIN_COUNT  = 30;
+var QUALIFY_MIN_GIFT   = 10;
+var QUALIFY_MIN_TOTAL  = 580;
 // ────────────────────────────────────────────────────────────────────
 
 // Qualifying contributions needed to max out the match: $52,000 / 6 = $8,666.67
@@ -242,17 +249,32 @@ function consolidate() {
     return r.city.toLowerCase().trim() === MATCH_CITY;
   });
   var berkeleyRaised = berkeleyRows.reduce(function(s, r) { return s + r.amount; }, 0);
-  var qualifying = berkeleyRows.reduce(function(s, r) {
-    return s + Math.min(r.amount, MATCH_MAX_PER);
+
+  // Total each Berkeley donor's giving, then cap at $60 PER DONOR. The $60
+  // limit is a per-donor total, not a per-gift ceiling, so a donor who gives
+  // twice adds nothing matchable beyond their first $60.
+  var berkeleyByDonor = {};
+  berkeleyRows.forEach(function(r) {
+    var key = (r.first + ' ' + r.last).toLowerCase().trim() || r.id;
+    berkeleyByDonor[key] = (berkeleyByDonor[key] || 0) + r.amount;
+  });
+  var berkeleyDonors = Object.keys(berkeleyByDonor).length;
+  var qualifying = Object.keys(berkeleyByDonor).reduce(function(s, k) {
+    return s + Math.min(berkeleyByDonor[k], MATCH_MAX_PER);
   }, 0);
 
-  // Unique Berkeley contributors, counted the same way as donorCount above
-  var berkeleyDonorMap = {};
-  berkeleyRows.forEach(function(r) {
-    var key = (r.first + ' ' + r.last).toLowerCase().trim();
-    if (key) berkeleyDonorMap[key] = true;
+  // ── Certification threshold ──
+  // Counted per contributor: each needs at least one gift in the $10–$60 band.
+  var qualifiedContributors = Object.keys(berkeleyByDonor).filter(function(k) {
+    return berkeleyByDonor[k] >= QUALIFY_MIN_GIFT;
   });
-  var berkeleyDonors = Object.keys(berkeleyDonorMap).length;
+  var qualifiedCount = qualifiedContributors.length;
+  var qualifiedTotal = qualifiedContributors.reduce(function(s, k) {
+    return s + Math.min(berkeleyByDonor[k], MATCH_MAX_PER);
+  }, 0);
+  var isCertified = qualifiedCount >= QUALIFY_MIN_COUNT &&
+                    qualifiedTotal >= QUALIFY_MIN_TOTAL;
+  var certifyShort = Math.max(0, QUALIFY_MIN_COUNT - qualifiedCount);
 
   var matchEarned    = Math.min(qualifying * MATCH_RATIO, MATCH_CAP);
   var matchRemaining = MATCH_CAP - matchEarned;
@@ -310,6 +332,10 @@ function consolidate() {
   summarySheet.appendRow(['berkeley_donations', berkeleyRows.length]);
   summarySheet.appendRow(['berkeley_donors', berkeleyDonors]);
   summarySheet.appendRow(['qualifying', qualifying]);
+  summarySheet.appendRow(['qualified_contributors', qualifiedCount]);
+  summarySheet.appendRow(['qualify_min_count', QUALIFY_MIN_COUNT]);
+  summarySheet.appendRow(['certify_short', certifyShort]);
+  summarySheet.appendRow(['is_certified', isCertified ? 1 : 0]);
   summarySheet.appendRow(['match_earned', matchEarned]);
   summarySheet.appendRow(['match_remaining', matchRemaining]);
   summarySheet.appendRow(['match_cap', MATCH_CAP]);

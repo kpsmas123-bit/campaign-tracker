@@ -152,6 +152,29 @@ def generate(data_path, out_path):
     week_total  = d.get('week_ago_total', '')
     week_donors = d.get('week_ago_donors', '')
 
+    # Certification: no matching funds are paid until the threshold is met, so
+    # until then the match is a projection, not money earned.
+    certified   = bool(d.get('is_certified', False))
+    qual_ctrb   = int(d.get('qualified_contributors', 0))
+    qual_min    = int(d.get('qualify_min_count', 30))
+    cert_short  = int(d.get('certify_short', max(0, qual_min - qual_ctrb)))
+
+    match_word  = 'earned' if certified else 'projected'
+    match_label = 'Matching funds earned' if certified else 'Matching funds projected'
+
+    if certified:
+        cert_banner = ''
+    else:
+        plural = 'contributor' if cert_short == 1 else 'contributors'
+        cert_banner = (
+            '<div class="alert">'
+            f'<b>Not yet certified &mdash; {cert_short} more qualifying {plural} needed.</b> '
+            f'The program requires {qual_min} contributors giving $10&ndash;$60 each; '
+            f'you have {qual_ctrb}. No matching funds are paid until that is met, '
+            'so the figures below are projections.'
+            '</div>'
+        )
+
     # Qualifying contributions needed to max out the match
     qual_needed = match_cap / ratio
     qual_left   = max(0.0, qual_needed - qualifying)
@@ -215,6 +238,8 @@ def generate(data_path, out_path):
     --accent: #4A6FA5;
     --accent-hover: #3D5E8C;
     --priority-high: #C45240;
+    --priority-medium: #C89B2A;
+    --priority-medium-bg: #C89B2A12;
     --priority-low: #6B956B;
     --team-bg: #F2F2EE;
     --hover: #F4F4F0;
@@ -232,6 +257,8 @@ def generate(data_path, out_path):
       --accent: #6B8FC4;
       --accent-hover: #7DA0D0;
       --priority-high: #D4705F;
+      --priority-medium: #D4AD4A;
+      --priority-medium-bg: #D4AD4A18;
       --priority-low: #7DAF7D;
       --team-bg: #222226;
       --hover: #24242A;
@@ -325,6 +352,14 @@ def generate(data_path, out_path):
   /* Two stat tiles: a countdown and a share. Both are single values, so
      they are numbers rather than plots — a 2-slice pie or a one-bar chart
      would encode less than the figure itself. */
+  .alert {{
+    background: var(--priority-medium-bg);
+    border: 1px solid var(--priority-medium);
+    border-radius: 3px; padding: 10px 14px; margin-top: 16px;
+    font-size: 12px; line-height: 1.6; color: var(--text);
+  }}
+  .alert b {{ font-weight: 600; }}
+
   .figures {{
     display: grid; grid-template-columns: 1fr 1fr;
     gap: 12px; margin-top: 20px;
@@ -410,21 +445,21 @@ def generate(data_path, out_path):
   </div>
 
   <div class="card">
-    <div class="card-title">Public financing &mdash; {ratio}:1 Berkeley match</div>
+    <div class="card-title">Public financing &mdash; {ratio:g}:1 Berkeley match</div>
 
     <div class="headline">
       <span class="headline-value">{money(projected)}</span>
       <span class="headline-note">projected total &mdash; {money(total)} raised plus {money(match)} in matching funds</span>
     </div>
-
+{cert_banner}
     <div class="meter">
       <div class="meter-head">
-        <span class="label">Matching funds earned</span>
+        <span class="label">{match_label}</span>
         <span class="meter-pct">{match_pct:.0f}%</span>
       </div>
       <div class="meter-track"><div class="meter-fill" style="width:{match_pct:.1f}%"></div></div>
       <div class="meter-foot">
-        <span>{money(match)} earned</span>
+        <span>{money(match)} {match_word}</span>
         <span>{money(match_left)} still available of the {money(match_cap)} cap</span>
       </div>
     </div>
