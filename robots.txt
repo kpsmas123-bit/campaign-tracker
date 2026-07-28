@@ -1,0 +1,6 @@
+# Internal campaign operations tool — not for public indexing.
+# Only honored when this repo is served at a domain root (e.g. a custom
+# subdomain). On the github.io project path the per-page noindex meta tag
+# is what actually does the work.
+User-agent: *
+Disallow: /
