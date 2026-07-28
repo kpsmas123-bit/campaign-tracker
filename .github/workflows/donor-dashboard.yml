@@ -71,9 +71,6 @@ jobs:
               # empty. Stamp the build time instead — it is what the date on
               # the page actually means.
               'updated': datetime.now(timezone.utc).isoformat(),
-              'cities': cities[:15],
-              'occupations': occupations[:10],
-              'amounts': amounts,
           }
 
           with open('/tmp/dashboard_data.json', 'w') as f:
