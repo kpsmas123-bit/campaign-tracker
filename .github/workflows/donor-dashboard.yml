@@ -34,6 +34,7 @@ jobs:
 
           python3 << 'PYEOF'
           import csv, json
+          from datetime import datetime, timezone
 
           # Parse summary
           summary = {}
@@ -65,7 +66,11 @@ jobs:
               # Blank when there is no snapshot 7+ days old yet
               'week_ago_total': summary.get('week_ago_total', ''),
               'week_ago_donors': summary.get('week_ago_donors', ''),
-              'updated': summary.get('updated', ''),
+              # The sheet's own 'updated' cell cannot be read: gviz types the
+              # whole value column as numeric, so the ISO string comes back
+              # empty. Stamp the build time instead — it is what the date on
+              # the page actually means.
+              'updated': datetime.now(timezone.utc).isoformat(),
               'cities': cities[:15],
               'occupations': occupations[:10],
               'amounts': amounts,
