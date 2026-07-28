@@ -162,6 +162,15 @@ def generate(data_path, out_path):
     # Share of money raised that is match-eligible
     bky_share = (qualifying / total * 100) if total else 0.0
 
+    # Share of donors who are Berkeley residents. Falls back to the share of
+    # donations if an older Summary tab has no berkeley_donors row yet.
+    bky_donors = d.get('berkeley_donors') or 0
+    if bky_donors and donors:
+        donor_share = bky_donors / donors * 100
+    else:
+        bky_donors = bky_count
+        donor_share = (bky_count / count * 100) if count else 0.0
+
     # How many more Berkeley gifts to max the match.
     # $60 is the ceiling on what counts, so gifts_at_max is the floor on the
     # number needed; the average-gift figure is the realistic expectation.
@@ -390,12 +399,6 @@ def generate(data_path, out_path):
       <span class="headline-note">projected total &mdash; {money(total)} raised plus {money(match)} in matching funds</span>
     </div>
 
-    <div class="breakdown">
-      <span><b>{money(bky_raised)}</b> from Berkeley residents ({bky_count:,} gifts)</span>
-      <span class="sep">&middot;</span>
-      <span><b>{money(qualifying)}</b> qualifies for match ({bky_share:.0f}% of all money raised)</span>
-    </div>
-
     <div class="meter">
       <div class="meter-head">
         <span class="label">Matching funds earned</span>
@@ -417,6 +420,18 @@ def generate(data_path, out_path):
       <div class="meter-foot">
         <span><b>{gift_line}</b> &mdash; {gift_note}</span>
         <span>{money(qualifying)} of {money(qual_needed)}</span>
+      </div>
+    </div>
+
+    <div class="meter">
+      <div class="meter-head">
+        <span class="label">Donors whose gifts qualify</span>
+        <span class="meter-pct">{donor_share:.0f}%</span>
+      </div>
+      <div class="meter-track"><div class="meter-fill" style="width:{donor_share:.1f}%"></div></div>
+      <div class="meter-foot">
+        <span><b>{bky_donors:,} of {donors:,}</b> donors are Berkeley residents</span>
+        <span>{money(qualifying)} of {money(total)} raised qualifies ({bky_share:.0f}%)</span>
       </div>
     </div>
   </div>

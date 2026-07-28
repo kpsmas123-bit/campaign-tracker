@@ -47,6 +47,7 @@ jobs:
               'average_donation': num('average_donation'),
               'berkeley_raised': num('berkeley_raised'),
               'berkeley_donations': int(num('berkeley_donations')),
+              'berkeley_donors': int(num('berkeley_donors')),
               'qualifying': num('qualifying'),
               'match_earned': num('match_earned'),
               'match_remaining': num('match_remaining'),

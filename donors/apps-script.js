@@ -242,6 +242,14 @@ function consolidate() {
     return s + Math.min(r.amount, MATCH_MAX_PER);
   }, 0);
 
+  // Unique Berkeley contributors, counted the same way as donorCount above
+  var berkeleyDonorMap = {};
+  berkeleyRows.forEach(function(r) {
+    var key = (r.first + ' ' + r.last).toLowerCase().trim();
+    if (key) berkeleyDonorMap[key] = true;
+  });
+  var berkeleyDonors = Object.keys(berkeleyDonorMap).length;
+
   var matchEarned    = Math.min(qualifying * MATCH_RATIO, MATCH_CAP);
   var matchRemaining = MATCH_CAP - matchEarned;
   var projectedTotal = totalRaised + matchEarned;
@@ -296,6 +304,7 @@ function consolidate() {
   summarySheet.appendRow(['average_donation', Math.round(avgDonation * 100) / 100]);
   summarySheet.appendRow(['berkeley_raised', berkeleyRaised]);
   summarySheet.appendRow(['berkeley_donations', berkeleyRows.length]);
+  summarySheet.appendRow(['berkeley_donors', berkeleyDonors]);
   summarySheet.appendRow(['qualifying', qualifying]);
   summarySheet.appendRow(['match_earned', matchEarned]);
   summarySheet.appendRow(['match_remaining', matchRemaining]);
