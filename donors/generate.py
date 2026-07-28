@@ -336,13 +336,6 @@ def generate(data_path, out_path):
   }}
   .meter-foot b {{ color: var(--text); font-weight: 500; }}
 
-  .note {{
-    margin-top: 18px; padding-top: 14px;
-    border-top: 1px solid var(--border-light);
-    font-size: 12px; line-height: 1.6; color: var(--text-secondary);
-  }}
-  .note a {{ color: var(--accent); }}
-
   @media (max-width: 600px) {{
     .stats {{ grid-template-columns: 1fr 1fr; }}
     .headline-value {{ font-size: 28px; }}
@@ -426,14 +419,6 @@ def generate(data_path, out_path):
         <span>{money(qualifying)} of {money(qual_needed)}</span>
       </div>
     </div>
-
-    <p class="note">
-      Under the Berkeley Fair Elections Act, participating City Council candidates receive
-      {ratio} dollars in public funds for every dollar of qualifying contributions, counting
-      only the first {money(60)} of each gift and only gifts from Berkeley residents.
-      Total matching funds are capped at {money(match_cap)}.
-      Contributions from outside Berkeley still count toward money raised but earn no match.
-    </p>
   </div>
 
 </div>
