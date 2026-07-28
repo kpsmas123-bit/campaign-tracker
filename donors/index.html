@@ -126,11 +126,26 @@
   }
   .headline-note { font-size: 13px; color: var(--text-secondary); }
 
-  .breakdown {
-    display: flex; gap: 8px; flex-wrap: wrap;
-    margin: 16px 0 4px; font-size: 13px; color: var(--text-secondary);
+  /* Two stat tiles: a countdown and a share. Both are single values, so
+     they are numbers rather than plots — a 2-slice pie or a one-bar chart
+     would encode less than the figure itself. */
+  .figures {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 12px; margin-top: 20px;
   }
-  .breakdown b { color: var(--text); font-weight: 500; }
+  .figure {
+    background: var(--ground); border: 1px solid var(--border-light);
+    border-radius: 3px; padding: 14px 16px;
+  }
+  .figure-value {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 32px; line-height: 1.05;
+  }
+  .figure-label { font-size: 13px; margin-top: 6px; }
+  .figure-note {
+    font-size: 12px; color: var(--text-secondary);
+    margin-top: 4px; line-height: 1.5;
+  }
 
   .meter { margin-top: 18px; }
   .meter + .meter { margin-top: 20px; }
@@ -158,8 +173,7 @@
     .headline-value { font-size: 28px; }
     /* Stack rather than squeeze into two narrow columns */
     .meter-foot { flex-direction: column; gap: 2px; }
-    .breakdown { flex-direction: column; gap: 4px; }
-    .breakdown .sep { display: none; }
+    .figures { grid-template-columns: 1fr; }
   }
 
   .auth-gate {
@@ -258,27 +272,16 @@
       </div>
     </div>
 
-    <div class="meter">
-      <div class="meter-head">
-        <span class="label">Berkeley gifts still needed to max the match</span>
-        <span class="meter-pct">18%</span>
+    <div class="figures">
+      <div class="figure">
+        <div class="figure-value">120</div>
+        <div class="figure-label">more $60 gifts max the match</div>
+        <div class="figure-note">about 132 at the current $54.29 Berkeley average &middot; $7,147 to go</div>
       </div>
-      <div class="meter-track"><div class="meter-fill" style="width:17.5%"></div></div>
-      <div class="meter-foot">
-        <span><b>120 more gifts at $60</b> &mdash; about 132 at the current $54.29 Berkeley average</span>
-        <span>$1,520 of $8,667</span>
-      </div>
-    </div>
-
-    <div class="meter">
-      <div class="meter-head">
-        <span class="label">Donors whose gifts qualify</span>
-        <span class="meter-pct">42%</span>
-      </div>
-      <div class="meter-track"><div class="meter-fill" style="width:41.5%"></div></div>
-      <div class="meter-foot">
-        <span><b>27 of 65</b> donors are Berkeley residents</span>
-        <span>$1,520 of $3,475 raised qualifies (44%)</span>
+      <div class="figure">
+        <div class="figure-value">42%</div>
+        <div class="figure-label">of donors are Berkeley residents</div>
+        <div class="figure-note">27 of 65 &middot; they give 44% of all money raised</div>
       </div>
     </div>
   </div>

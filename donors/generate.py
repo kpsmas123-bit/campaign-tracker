@@ -180,15 +180,18 @@ def generate(data_path, out_path):
     gifts_at_avg = math.ceil(qual_left / bky_avg) if (qual_left > 0 and bky_avg) else 0
 
     if qual_left <= 0:
-        gift_line = 'Match is maxed out'
-        gift_note = 'no further Berkeley gifts add matching funds'
-    elif gifts_at_avg:
-        gift_line = f'{gifts_at_max:,} more gifts at {money(max_gift)}'
-        gift_note = (f'about {gifts_at_avg:,} at the current '
-                     f'{money(bky_avg, cents=True)} Berkeley average')
+        countdown_value = 'Maxed'
+        countdown_label = 'the match is fully earned'
+        countdown_note  = 'further Berkeley gifts add no matching funds'
     else:
-        gift_line = f'{gifts_at_max:,} more gifts at {money(max_gift)}'
-        gift_note = f'{money(qual_left)} still needed from Berkeley residents'
+        countdown_value = f'{gifts_at_max:,}'
+        countdown_label = f'more {money(max_gift)} gifts max the match'
+        if gifts_at_avg:
+            countdown_note = (f'about {gifts_at_avg:,} at the current '
+                              f'{money(bky_avg, cents=True)} Berkeley average '
+                              f'&middot; {money(qual_left)} to go')
+        else:
+            countdown_note = f'{money(qual_left)} still needed from Berkeley residents'
 
     page = f'''<!DOCTYPE html>
 <html lang="en">
@@ -318,11 +321,26 @@ def generate(data_path, out_path):
   }}
   .headline-note {{ font-size: 13px; color: var(--text-secondary); }}
 
-  .breakdown {{
-    display: flex; gap: 8px; flex-wrap: wrap;
-    margin: 16px 0 4px; font-size: 13px; color: var(--text-secondary);
+  /* Two stat tiles: a countdown and a share. Both are single values, so
+     they are numbers rather than plots — a 2-slice pie or a one-bar chart
+     would encode less than the figure itself. */
+  .figures {{
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 12px; margin-top: 20px;
   }}
-  .breakdown b {{ color: var(--text); font-weight: 500; }}
+  .figure {{
+    background: var(--ground); border: 1px solid var(--border-light);
+    border-radius: 3px; padding: 14px 16px;
+  }}
+  .figure-value {{
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 32px; line-height: 1.05;
+  }}
+  .figure-label {{ font-size: 13px; margin-top: 6px; }}
+  .figure-note {{
+    font-size: 12px; color: var(--text-secondary);
+    margin-top: 4px; line-height: 1.5;
+  }}
 
   .meter {{ margin-top: 18px; }}
   .meter + .meter {{ margin-top: 20px; }}
@@ -350,8 +368,7 @@ def generate(data_path, out_path):
     .headline-value {{ font-size: 28px; }}
     /* Stack rather than squeeze into two narrow columns */
     .meter-foot {{ flex-direction: column; gap: 2px; }}
-    .breakdown {{ flex-direction: column; gap: 4px; }}
-    .breakdown .sep {{ display: none; }}
+    .figures {{ grid-template-columns: 1fr; }}
   }}
 {AUTH_CSS}</style>
 </head>
@@ -411,27 +428,16 @@ def generate(data_path, out_path):
       </div>
     </div>
 
-    <div class="meter">
-      <div class="meter-head">
-        <span class="label">Berkeley gifts still needed to max the match</span>
-        <span class="meter-pct">{qual_pct:.0f}%</span>
+    <div class="figures">
+      <div class="figure">
+        <div class="figure-value">{countdown_value}</div>
+        <div class="figure-label">{countdown_label}</div>
+        <div class="figure-note">{countdown_note}</div>
       </div>
-      <div class="meter-track"><div class="meter-fill" style="width:{qual_pct:.1f}%"></div></div>
-      <div class="meter-foot">
-        <span><b>{gift_line}</b> &mdash; {gift_note}</span>
-        <span>{money(qualifying)} of {money(qual_needed)}</span>
-      </div>
-    </div>
-
-    <div class="meter">
-      <div class="meter-head">
-        <span class="label">Donors whose gifts qualify</span>
-        <span class="meter-pct">{donor_share:.0f}%</span>
-      </div>
-      <div class="meter-track"><div class="meter-fill" style="width:{donor_share:.1f}%"></div></div>
-      <div class="meter-foot">
-        <span><b>{bky_donors:,} of {donors:,}</b> donors are Berkeley residents</span>
-        <span>{money(qualifying)} of {money(total)} raised qualifies ({bky_share:.0f}%)</span>
+      <div class="figure">
+        <div class="figure-value">{donor_share:.0f}%</div>
+        <div class="figure-label">of donors are Berkeley residents</div>
+        <div class="figure-note">{bky_donors:,} of {donors:,} &middot; they give {bky_share:.0f}% of all money raised</div>
       </div>
     </div>
   </div>
