@@ -1,12 +1,16 @@
 /**
  * ActBlue Donor Consolidator
  *
- * Reads all ActBlue CSV exports from a Google Drive folder,
- * deduplicates by Lineitem ID, and writes two published tabs:
- *   - Daily: date, amount, donor_count
- *   - Summary: single row with totals
+ * Sweeps ActBlue scheduled reports out of Drive root into a folder, reads
+ * every report, deduplicates by Lineitem ID, and writes four tabs:
  *
- * No PII leaves this sheet — the published tabs contain only aggregates.
+ *   - Raw     every donation, including names — KEEP PRIVATE, never publish
+ *   - Summary metric/value totals + Berkeley match math — publish as CSV
+ *   - History one snapshot row per day, for week-over-week change
+ *   - Daily   city/occupation/amount breakdowns, for reference in the sheet
+ *
+ * Only the Summary tab feeds the dashboard, and it holds aggregates only —
+ * no names, addresses, emails, or phone numbers. Do not publish Raw.
  */
 
 // ── CONFIG ──────────────────────────────────────────────────────────
