@@ -6,7 +6,7 @@ Berkeley Public Financing Program Guide and the 2026 disbursement tracker:
   - Only contributions from Berkeley residents qualify
   - City Council cap is $52,000 in total matching funds
 """
-import json, sys, html
+import json, sys, html, math
 
 # ── Auth gate ────────────────────────────────────────────────────────
 # Same Supabase passphrase wall as Tasks and Questionnaires, so the site
@@ -130,18 +130,6 @@ def delta_html(now, before, as_money=True):
     return f'<span class="delta {cls}">{arrow} {val} this week</span>'
 
 
-def bar_row(label, value, max_val, count, as_money=True):
-    w = pct(value, max_val)
-    val = money(value) if as_money else f"{value:,.0f}"
-    return (
-        '<div class="bar-row">'
-        f'<span class="bar-label">{html.escape(str(label))}</span>'
-        f'<div class="bar-track"><div class="bar-fill" style="width:{w:.1f}%"></div></div>'
-        f'<span class="bar-value">{val} <small>({count})</small></span>'
-        '</div>'
-    )
-
-
 def generate(data_path, out_path):
     with open(data_path) as f:
         d = json.load(f)
@@ -174,24 +162,24 @@ def generate(data_path, out_path):
     # Share of money raised that is match-eligible
     bky_share = (qualifying / total * 100) if total else 0.0
 
-    cities = d.get('cities', [])
-    max_city = max((c['amount'] for c in cities), default=1)
-    city_bars = '\n'.join(
-        bar_row(c['city'], c['amount'], max_city, c['donors']) for c in cities[:12]
-    )
+    # How many more Berkeley gifts to max the match.
+    # $60 is the ceiling on what counts, so gifts_at_max is the floor on the
+    # number needed; the average-gift figure is the realistic expectation.
+    max_gift    = 60
+    gifts_at_max = math.ceil(qual_left / max_gift) if qual_left > 0 else 0
+    bky_avg      = (qualifying / bky_count) if bky_count else 0
+    gifts_at_avg = math.ceil(qual_left / bky_avg) if (qual_left > 0 and bky_avg) else 0
 
-    occs = d.get('occupations', [])
-    max_occ = max((o['amount'] for o in occs), default=1)
-    occ_bars = '\n'.join(
-        bar_row(o['occ'], o['amount'], max_occ, o['donors']) for o in occs[:10]
-    )
-
-    amounts = d.get('amounts', [])
-    max_amt = max((a['count'] for a in amounts), default=1)
-    amt_bars = '\n'.join(
-        bar_row(f"${a['amount']}", a['count'], max_amt, a['count'], as_money=False)
-        for a in amounts
-    )
+    if qual_left <= 0:
+        gift_line = 'Match is maxed out'
+        gift_note = 'no further Berkeley gifts add matching funds'
+    elif gifts_at_avg:
+        gift_line = f'{gifts_at_max:,} more gifts at {money(max_gift)}'
+        gift_note = (f'about {gifts_at_avg:,} at the current '
+                     f'{money(bky_avg, cents=True)} Berkeley average')
+    else:
+        gift_line = f'{gifts_at_max:,} more gifts at {money(max_gift)}'
+        gift_note = f'{money(qual_left)} still needed from Berkeley residents'
 
     page = f'''<!DOCTYPE html>
 <html lang="en">
@@ -346,6 +334,7 @@ def generate(data_path, out_path):
     display: flex; justify-content: space-between;
     margin-top: 6px; font-size: 12px; color: var(--text-secondary); gap: 12px;
   }}
+  .meter-foot b {{ color: var(--text); font-weight: 500; }}
 
   .note {{
     margin-top: 18px; padding-top: 14px;
@@ -354,29 +343,8 @@ def generate(data_path, out_path):
   }}
   .note a {{ color: var(--accent); }}
 
-  .bar-row {{
-    display: grid; grid-template-columns: 150px 1fr 96px;
-    align-items: center; gap: 12px; padding: 4px 0;
-  }}
-  .bar-label {{
-    font-size: 13px; white-space: nowrap;
-    overflow: hidden; text-overflow: ellipsis;
-  }}
-  .bar-track {{
-    height: 5px; background: var(--border-light);
-    border-radius: 3px; overflow: hidden;
-  }}
-  .bar-fill {{ height: 100%; background: var(--accent); border-radius: 3px; }}
-  .bar-value {{
-    font-family: "IBM Plex Mono", ui-monospace, monospace;
-    font-size: 11px; text-align: right; color: var(--text-secondary);
-  }}
-  .bar-value small {{ color: var(--text-tertiary); }}
-
   @media (max-width: 600px) {{
     .stats {{ grid-template-columns: 1fr 1fr; }}
-    .bar-row {{ grid-template-columns: 96px 1fr 78px; gap: 8px; }}
-    .bar-label {{ font-size: 12px; }}
     .headline-value {{ font-size: 28px; }}
     /* Stack rather than squeeze into two narrow columns */
     .meter-foot {{ flex-direction: column; gap: 2px; }}
@@ -449,13 +417,13 @@ def generate(data_path, out_path):
 
     <div class="meter">
       <div class="meter-head">
-        <span class="label">Qualifying contributions toward the cap</span>
+        <span class="label">Berkeley gifts still needed to max the match</span>
         <span class="meter-pct">{qual_pct:.0f}%</span>
       </div>
       <div class="meter-track"><div class="meter-fill" style="width:{qual_pct:.1f}%"></div></div>
       <div class="meter-foot">
+        <span><b>{gift_line}</b> &mdash; {gift_note}</span>
         <span>{money(qualifying)} of {money(qual_needed)}</span>
-        <span>{money(qual_left)} more from Berkeley residents maxes the match</span>
       </div>
     </div>
 
@@ -466,21 +434,6 @@ def generate(data_path, out_path):
       Total matching funds are capped at {money(match_cap)}.
       Contributions from outside Berkeley still count toward money raised but earn no match.
     </p>
-  </div>
-
-  <div class="card">
-    <div class="card-title">By city</div>
-    {city_bars}
-  </div>
-
-  <div class="card">
-    <div class="card-title">By occupation</div>
-    {occ_bars}
-  </div>
-
-  <div class="card">
-    <div class="card-title">Donation amounts</div>
-    {amt_bars}
   </div>
 
 </div>

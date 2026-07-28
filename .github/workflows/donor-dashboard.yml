@@ -16,19 +16,16 @@ jobs:
 
       - name: Fetch data and generate dashboard
         run: |
-          # Published CSV URLs — update these after publishing the tabs
-          SUMMARY_SHEET_ID="YOUR_MASTER_SHEET_ID"
+          # Published CSV URL — update after publishing the Summary tab
+          SHEET_ID="YOUR_MASTER_SHEET_ID"
           SUMMARY_GID="YOUR_SUMMARY_TAB_GID"
-          DAILY_GID="YOUR_DAILY_TAB_GID"
 
-          SUMMARY_URL="https://docs.google.com/spreadsheets/d/${SUMMARY_SHEET_ID}/export?format=csv&gid=${SUMMARY_GID}"
-          DAILY_URL="https://docs.google.com/spreadsheets/d/${SUMMARY_SHEET_ID}/export?format=csv&gid=${DAILY_GID}"
+          SUMMARY_URL="https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=${SUMMARY_GID}"
 
           curl -sL "$SUMMARY_URL" -o /tmp/summary.csv
-          curl -sL "$DAILY_URL" -o /tmp/daily.csv
 
           python3 << 'PYEOF'
-          import csv, json, html
+          import csv, json
 
           # Parse summary
           summary = {}
@@ -36,31 +33,6 @@ jobs:
               for row in csv.reader(f):
                   if len(row) >= 2 and row[0] != 'metric':
                       summary[row[0]] = row[1]
-
-          # Parse daily (sectioned CSV)
-          cities = []
-          occupations = []
-          amounts = []
-          section = None
-          header = None
-
-          with open('/tmp/daily.csv', newline='', encoding='utf-8-sig') as f:
-              for row in csv.reader(f):
-                  if not row:
-                      continue
-                  if row[0].startswith('[') and row[0].endswith(']'):
-                      section = row[0][1:-1]
-                      header = None
-                      continue
-                  if header is None:
-                      header = row
-                      continue
-                  if section == 'cities' and len(row) >= 3:
-                      cities.append({'city': row[0], 'donors': int(row[1]), 'amount': float(row[2])})
-                  elif section == 'occupations' and len(row) >= 3:
-                      occupations.append({'occ': row[0], 'donors': int(row[1]), 'amount': float(row[2])})
-                  elif section == 'amounts' and len(row) >= 2:
-                      amounts.append({'amount': row[0], 'count': int(row[1])})
 
           def num(key, default=0):
               try:
