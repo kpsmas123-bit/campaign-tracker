@@ -2060,7 +2060,7 @@
       "topic": "endorsement_ask",
       "status": "thin",
       "question": "What distinguishes you as a Working Families Party candidate from your opponents?",
-      "analysis": "A comparative question. The distinction WFP looks for is structural — funding sources, base of support, and accountability to organizations — rather than differences in stated positions, since in Berkeley most candidates will state similar ones. Surveillance contracting is a live local fight the candidate can point to rather than a hypothetical: on May 7, 2026 the Council declined the Peace and Justice Commission's recommendation to cancel Berkeley's Flock Safety contracts over immigration data sharing, and instead adopted Resolution 72,254-N.S. extending the automated license plate reader contract twelve months for up to $200,000 with amended contract language, while separately rejecting a roughly $2 million expansion into cameras and drones. So the expansion was stopped and the underlying contract was not — the question is unresolved, and the renewal expires within the next Council term. It also sits at the intersection of three things WFP organizes on at once: corporate power, immigrant defense, and who a city does business with.",
+      "analysis": "A comparative question. The distinction WFP looks for is structural — funding sources, base of support, and accountability to organizations — rather than differences in stated positions, since in Berkeley most candidates will state similar ones. The answer runs on three claims, each independently checkable. First, the surveillance contract: on May 7, 2026 the Council declined the Peace and Justice Commission's recommendation to cancel Berkeley's Flock Safety contracts, rejected a roughly $2 million expansion into cameras and drones, and adopted Resolution 72,254-N.S. renewing the automated license plate reader contract twelve months for up to $200,000 — so the expansion was stopped and the underlying contract was not, and the renewal lapses inside the next Council term. Second, the sanctuary claim: Berkeley's ordinance, BMC Chapter 13.114, contains no criminal carve-out and binds every City agency and contractor, which is what makes a procurement decision a sanctuary question rather than a separate one. Third, campaign structure: BMC 2.12.440 already bars corporate, business-entity, and union contributions to any Berkeley candidate, and the public financing program caps contributions at $60 and bars PAC money outright, so the independence claim is a legal fact about the campaign rather than a promise. Note that another Berkeley candidate has run on ending the Flock contract, so this is a shared position in the field and the distinction has to rest on more than holding it.",
       "references": [],
       "levers": [
         {
@@ -2074,6 +2074,10 @@
         {
           "tier": "authority",
           "text": "Act on the Peace and Justice Commission's cancellation recommendation the Council declined in May 2026"
+        },
+        {
+          "tier": "authority",
+          "text": "Apply BMC Chapter 13.114's contractor obligations to surveillance vendors, not only to City staff"
         }
       ],
       "sources": [
@@ -2086,6 +2090,14 @@
           "url": "https://www.npr.org/2026/02/17/nx-s1-5612825/flock-contracts-canceled-immigration-survillance-concerns"
         },
         {
+          "label": "Proposed Sanctuary City Ordinance — Council Referral (Ordinance 7,984-N.S. text)",
+          "url": "https://berkeleyca.gov/sites/default/files/documents/2025-09-30%20Item%2001%20Proposed%20Sanctuary%20City%20Ordinance%20%E2%80%93%20Council%20Referral.pdf"
+        },
+        {
+          "label": "BMC 2.12.440 — Contributions from certain organizations and business entities prohibited",
+          "url": "https://berkeley.municipal.codes/BMC/2.12.440"
+        },
+        {
           "label": "City of Berkeley — Public Financing Program",
           "url": "https://berkeleyca.gov/your-government/elections/campaign-finance"
         }
@@ -2093,7 +2105,7 @@
       "suggested": [
         {
           "note": "",
-          "text": "This race started for me with a surveillance contract.\n\nBerkeley calls itself a sanctuary city. We also pay Flock Safety to run automated license plate readers that photograph our neighbors' cars and feed a nationwide database. Audits in other states have since found federal agencies, including Border Patrol, searching local Flock data without the cities that owned it knowing — one state's review turned up an undisclosed pilot giving Customs and Border Protection access, and dozens of cities have cancelled their contracts since.\n\nIn May 2026 our Council had the chance to end it. The Peace and Justice Commission recommended cancelling. Instead the Council rejected the roughly $2 million expansion into cameras and drones — good — and quietly renewed the license plate reader contract anyway, twelve more months and up to $200,000. Half a decision. The renewal lapses during the next Council term, which means whoever holds this seat votes on it.\n\nThat is the difference I would name. Not that my opponents support surveillance; most of them will say they do not. It is that a sanctuary policy which stops at the boundary of a procurement decision is not a sanctuary policy. The contract is the policy. I would vote to end it, and until then I would condition it on audit rights and a hard bar on federal access.\n\nThe structural piece matters too. I am running in Berkeley's public financing program: no contribution over $60, no corporate or union money under our Election Reform Act, and no PAC money at all. Nobody with a city contract is funding this campaign.\n\n[Add the personal specifics only the candidate can supply: what first surfaced the Flock contract for the candidate, any testimony given or organizing done around the May 2026 vote, and — if there is a real contrast — where opponents actually landed on it.]"
+          "text": "Three things, and the first is why I am in this race at all.\n\n**The contract.** Berkeley pays Flock Safety to run automated license plate readers that photograph our neighbors' cars and feed a nationwide database. Audits elsewhere have since found federal agencies, including Border Patrol, searching local Flock data without the cities that owned it knowing — one state's review turned up an undisclosed pilot giving Customs and Border Protection access, and dozens of cities have cancelled since. In May 2026 our Council had the chance to end it. The Peace and Justice Commission recommended cancelling. The Council rejected the roughly $2 million expansion into cameras and drones — good — and renewed the license plate reader contract anyway, twelve more months and up to $200,000. Half a decision. That renewal lapses during the next Council term, so whoever holds this seat casts the vote.\n\n**Why it is a sanctuary question, not a procurement one.** Berkeley's sanctuary ordinance binds every city agency, employee, and contractor, and carries no criminal carve-out. We wrote it that way on purpose. A city cannot promise its immigrant residents that it will not hand over information and then pay a vendor whose database federal agents have been searching without our knowledge. The contract is the policy. I would vote to end it, and until that vote comes I would condition it on audit rights and a hard bar on federal access.\n\n**Why I can say that without hedging.** I am running in Berkeley's public financing program. Under our Election Reform Act no corporation, business entity, or union may contribute to any candidate here; under public financing no contribution to me may exceed $60 and no political action committee may give at all. My campaign is small-dollar neighbors and a public match. Nobody holding a city contract has a stake in how I vote on city contracts.\n\nI would not claim to be the only candidate who wants Berkeley out of this contract — I am not, and that is a good thing. The distinction I would draw is that I did not arrive at it from a policy platform. I arrived at the race from this.\n\n[Add the specifics only the candidate can supply: what first surfaced the Flock contract, any testimony given or organizing done around the May 2026 vote, and where opponents actually landed on that vote if there is a documented contrast.]"
         }
       ],
       "verification": [
@@ -2102,21 +2114,58 @@
           "result": "confirmed",
           "source": "Berkeley City Council Resolution 72,254-N.S.; KQED Flock Safety coverage",
           "date": "2026-05-07",
-          "note": "Council declined the Peace and Justice Commission's recommendation to cancel the contracts and instead extended the ALPR contract twelve months for up to $200,000 with amended language, while rejecting a roughly $2 million expansion into cameras and drones."
+          "note": "Council declined the Peace and Justice Commission's recommendation to cancel and instead extended the ALPR contract twelve months for up to $200,000 with amended language, while rejecting a roughly $2 million expansion into cameras and drones."
         },
         {
           "claim": "Federal agencies including Border Patrol searched local Flock data without the owning cities' knowledge",
           "result": "confirmed",
-          "source": "Illinois state audit of Flock CBP pilot; municipal Flock audits reported by NPR and local outlets",
+          "source": "Illinois state audit of the Flock CBP pilot; municipal Flock audits reported by NPR and local outlets",
           "date": "2026-02-17",
-          "note": "An Illinois audit found Flock had allowed Customs and Border Protection access through an undisclosed pilot; agencies without data-sharing agreements ran an estimated 600,000 unauthorized searches in the twelve months to December 2025, and dozens of cities have since cancelled. Phrase as federal access occurring without city knowledge — not as a single deliberate grant by the company, which the record does not establish."
+          "note": "An Illinois audit found Flock had allowed Customs and Border Protection access through an undisclosed pilot; agencies without data-sharing agreements ran an estimated 600,000 unauthorized searches in the twelve months to December 2025, and dozens of cities have since cancelled. State as federal access occurring without city knowledge — not as a single deliberate grant by the company, which the record does not establish."
+        },
+        {
+          "claim": "Berkeley's sanctuary ordinance binds City contractors, not only City staff",
+          "result": "confirmed",
+          "source": "Ordinance 7,984-N.S. adding BMC Chapter 13.114",
+          "date": "2025-09-30",
+          "note": "The ordinance reaches every City agency, employee, and contractor and carries no criminal-offense carve-out, which is what makes a vendor contract a sanctuary question rather than a separate procurement matter."
+        },
+        {
+          "claim": "Berkeley law already bars corporate, business-entity, and union contributions to any candidate",
+          "result": "confirmed",
+          "source": "BMC 2.12.440 (Berkeley Election Reform Act)",
+          "date": "2026-07-29",
+          "note": "No proprietorship, firm, partnership, joint venture, syndicate, business trust, company, corporation including non-profit corporations, or labor union may contribute to any candidate or committee."
+        },
+        {
+          "claim": "Participation in Berkeley's Public Financing Program caps contributions at $60 and bars PAC money",
+          "result": "confirmed",
+          "source": "City of Berkeley Public Financing Program Guide",
+          "date": "2026-07-29",
+          "note": "The contribution limit for a participating candidate is $60, and participating candidates may not accept contributions from political action committees."
         },
         {
           "claim": "The candidate entered this race over Berkeley's surveillance contracting",
           "result": "unresolved",
           "source": "Campaign — supplied by the campaign, not independently documented",
           "date": "2026-07-30",
-          "note": "The framing below is the campaign's own account of why the candidate ran. It should be confirmed in the candidate's words before submission; the surrounding facts about the contract and the audits are separately verified."
+          "note": "The origin framing is the campaign's own account. Confirm in the candidate's words before submission; the surrounding facts about the contract, the ordinance, and the campaign finance rules are separately verified."
+        }
+      ],
+      "quotes": [
+        {
+          "source": "syrak",
+          "attribution": "Syrak Micael — Planned Parenthood, D7 2026",
+          "text": "I believe that safety does not come from more police, but comes from people's basic needs being met. To this end, I will prioritize de-militarization of Berkeley PD, increased police oversight, and fight to end the city's contract with the mass surveillance company Flock. I will also fight to maintain our city's sanctuary status and prevent law enforcement from collaborating with ICE or other immigration authorities.",
+          "relevance": "Another Berkeley candidate running on ending the Flock contract and tying it to sanctuary status — evidence the position is shared in this field, so the distinction cannot rest on holding it alone.",
+          "status": "current"
+        },
+        {
+          "source": "cecilia",
+          "attribution": "Cecilia Lunaparra — ACCE, D7 2024",
+          "text": "Immigrants are a vital part of our society, and valued members of our Berkeley community. I am proud that Berkeley is a sanctuary city, and I would like to work to open the doors to expand the opportunity to more immigrants. Berkeley should be welcoming of immigrants not only in name, but in action as well — I will fight for increased affordable housing for all.",
+          "relevance": "Sanctuary framed as action rather than label — the same move this answer makes when it argues a sanctuary policy cannot stop at a procurement decision.",
+          "status": "current"
         }
       ]
     },
