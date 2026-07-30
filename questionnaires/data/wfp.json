@@ -1,0 +1,1780 @@
+{
+  "slug": "wfp",
+  "org": "California Working Families Party",
+  "cycle": "2026",
+  "candidate": "Daria Wrubel — Berkeley City Council D1",
+  "generated": "2026-07-29",
+  "last_factcheck": "2026-07-29",
+  "org_research": "The California Working Families Party is a coalition of more than 30 grassroots organizations and labor unions with roughly 100,000 members, organized through regional chapters including the Bay Area, and governed in part by regional committees whose member representatives are elected by dues-paying members and vote in the endorsement process. Its stated priorities are economic justice, environmental protection, community safety, and countering corporate power; it claims a policy win banning AI-enabled price fixing. The party emphasizes co-governing — treating an endorsement as an ongoing accountability relationship — and asks candidates to pledge refusal of contributions from oil, law enforcement, real estate, charter school, and corporate PAC sources. This form is a combined statewide and local questionnaire, and roughly a third of its questions concern state legislative or ballot authority a city councilmember does not hold; the form's own preamble acknowledges that offices differ in power.",
+  "contact_fields": [
+    {
+      "k": "name",
+      "label": "Name",
+      "v": "Daria Wrubel"
+    },
+    {
+      "k": "email",
+      "label": "Email",
+      "v": ""
+    },
+    {
+      "k": "phone",
+      "label": "Phone",
+      "v": ""
+    },
+    {
+      "k": "position",
+      "label": "Position you are running for",
+      "v": "Berkeley City Council, District 1"
+    }
+  ],
+  "questions": [
+    {
+      "id": "wfp_q1",
+      "section": "Campaign",
+      "topic": "campaign_plan",
+      "status": "thin",
+      "question": "Please provide details on your campaign team’s structure by listing the positions below and indicating who is currently filling each role:\n● General Consultant: [Name or indicate if unfilled]\n● Campaign Manager: [Name or indicate if unfilled]\n● Field Director: [Name or indicate if unfilled]\n● Fundraiser (Consultant/Staff): [Name or indicate if unfilled]",
+      "analysis": "Standard capacity-assessment question. WFP weighs whether a campaign has the infrastructure to execute a field program, since the endorsement carries organizational resources. Roles left unfilled are not disqualifying for a municipal race, where volunteer-led structures are common, but the answer should be accurate rather than aspirational.",
+      "references": [],
+      "levers": [],
+      "sources": [],
+      "suggested": [
+        {
+          "note": "",
+          "text": "● General Consultant: [Name, or write \"Unfilled — volunteer-led\"]\n● Campaign Manager: [Name, or write \"Unfilled\"]\n● Field Director: [Name, or write \"Unfilled\"]\n● Fundraiser (Consultant/Staff): [Name, or write \"Unfilled\"]\n\n[If most roles are unfilled, add one line naming who is actually doing the work — e.g. \"This is a volunteer-run campaign; canvass and fundraising are coordinated by the candidate with a volunteer core of N.\" A small honest structure reads better than blanks.]"
+        }
+      ]
+    },
+    {
+      "id": "wfp_q2",
+      "section": "Campaign",
+      "topic": "campaign_plan",
+      "status": "thin",
+      "question": "Fundraised thus far and fundraising goal for June 2026?",
+      "analysis": "Asks for a fundraising figure and a June 2026 goal. Berkeley's public financing program shapes both numbers in ways worth stating: participating candidates face a $60 per-donor contribution limit and receive a 6:1 match on qualifying contributions from Berkeley residents, capped at $52,000 for City Council. Certification first requires 30 qualifying contributors. A raw dollar total read without that structure understates the campaign's position relative to candidates in unmatched jurisdictions.",
+      "references": [],
+      "levers": [],
+      "sources": [
+        {
+          "label": "City of Berkeley — Public Financing Program",
+          "url": "https://berkeleyca.gov/your-government/elections/campaign-finance"
+        }
+      ],
+      "suggested": [
+        {
+          "note": "",
+          "text": "[Insert current raised-to-date figure and donor count, and the June 2026 goal.]\n\nBerkeley runs a public financing program, which shapes these numbers. Contributions to my campaign are capped at $60 per person, and qualifying contributions from Berkeley residents are matched six to one, up to $52,000 in matching funds for a Council race. That means our fundraising target is not a dollar figure so much as a number of neighbors: roughly $8,667 in matched local giving unlocks the full match.\n\n[If not yet certified, say so plainly and give the gap — certification requires 30 qualifying Berkeley contributors.]"
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Participation in Berkeley's Public Financing Program bars PAC contributions and caps all contributions at $60",
+          "result": "confirmed",
+          "source": "City of Berkeley Public Financing Program Guide",
+          "date": "2026-07-29",
+          "note": "The contribution limit for a participating candidate is $60, except a candidate's own contribution to their controlled committee of $270 or less, which is not matchable. Participating candidates may not accept contributions from political action committees."
+        }
+      ]
+    },
+    {
+      "id": "wfp_q3",
+      "section": "Campaign",
+      "topic": "endorsements",
+      "status": "thin",
+      "question": "Which endorsements are you most proud of? What allies or organizations do you see as key partners in your campaign?",
+      "analysis": "Asks which endorsements the candidate is proudest of and who the key partners are. For WFP the useful signal is overlap with their own member organizations and with labor and tenant groups, not the length of the list.",
+      "references": [],
+      "levers": [],
+      "sources": [],
+      "suggested": [
+        {
+          "note": "",
+          "text": "[List endorsements secured to date, leading with labor, tenant, and progressive organizations that overlap with WFP's coalition. For each of the top two or three, add one clause on why it mattered — a contested endorsement won, or an organization whose members know the candidate's work firsthand.]\n\n[Then name key partners going forward, and be specific about the relationship rather than listing organizations the campaign merely hopes to hear from.]"
+        }
+      ]
+    },
+    {
+      "id": "wfp_q4",
+      "section": "Campaign",
+      "topic": "campaign_plan",
+      "status": "thin",
+      "question": "Is your campaign utilizing VAN, PDI, or some type of voter ID software?",
+      "analysis": "Capacity question about voter contact tooling. VAN and PDI are the two dominant voter file platforms in California; WFP asks because the endorsement can include access to their own data tools, which integrate with these systems.",
+      "references": [],
+      "levers": [],
+      "sources": [],
+      "suggested": [
+        {
+          "note": "",
+          "text": "[State which system the campaign uses — VAN, PDI, or another — or that voter contact is currently tracked another way. If access is through a party or labor committee, say which.]"
+        }
+      ]
+    },
+    {
+      "id": "wfp_q5",
+      "section": "Campaign",
+      "topic": "campaign_plan",
+      "status": "thin",
+      "question": "What is your voter ID goal for the campaign?",
+      "analysis": "Follows Q4 and asks for a numeric voter identification target. In a Berkeley district council race the meaningful denominator is district registered voters and expected turnout, not citywide totals.",
+      "references": [],
+      "levers": [],
+      "sources": [],
+      "suggested": [
+        {
+          "note": "",
+          "text": "[State the voter ID goal as a number and, if useful, as a share of expected district turnout. Include the current count if the program is already underway.]"
+        }
+      ]
+    },
+    {
+      "id": "wfp_q6",
+      "section": "Campaign",
+      "topic": "campaign_plan",
+      "status": "thin",
+      "question": "Are you/will you be personally door knocking? How many days/week?",
+      "analysis": "Asks about the candidate's personal canvassing commitment. WFP's model is field-intensive and this question is a direct test of whether the candidate personally does voter contact rather than delegating it.",
+      "references": [],
+      "levers": [],
+      "sources": [],
+      "suggested": [
+        {
+          "note": "",
+          "text": "[State yes, and give the actual days per week and when the program started. A specific, sustainable number is more credible than a maximal one.]"
+        }
+      ]
+    },
+    {
+      "id": "wfp_q7",
+      "section": "Campaign",
+      "topic": "why_running",
+      "status": "thin",
+      "question": "What are the first three policies you would introduce if you are elected to the office you are seeking?",
+      "analysis": "Asks for three concrete first-term policy initiatives. The strongest answers for a Berkeley council race name mechanisms the office actually controls — ordinance, budget appropriation, zoning, or contracting — rather than positions on state law. Several verified local openings exist: Berkeley has no right to counsel for tenants despite funding eviction defense by contract; the FY2027–28 budget eliminated the City's last mental health crisis response positions; and the citywide transit pass contemplated by General Plan Policy T-3 has never been funded.",
+      "references": [],
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "Adopt a right-to-counsel ordinance for tenants facing eviction"
+        },
+        {
+          "tier": "authority",
+          "text": "Restore recurring funding for non-police mental health crisis response"
+        },
+        {
+          "tier": "authority",
+          "text": "Fund the citywide transit pass already contemplated by General Plan Policy T-3"
+        }
+      ],
+      "sources": [],
+      "suggested": [
+        {
+          "note": "",
+          "text": "[Choose three and state each as an instrument, not an aspiration. Drafted options below, each verified as within Council authority — replace or reorder to match priorities.]\n\n1. A right to counsel for tenants facing eviction. Berkeley funds eviction defense by contract, roughly $800,000 a year, and the money has run out mid-year before. I would make representation an entitlement rather than a service that depends on the balance in a contract.\n\n2. Restoring non-police crisis response. The budget adopted in June 2026 eliminated the City's last mental health crisis positions and shifted psychiatric emergencies entirely to the police. I would restore those positions with ongoing funding rather than grant money.\n\n3. [Third priority — a citywide transit pass under General Plan Policy T-3, or the candidate's own leading issue.]"
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley City Council can adopt a right-to-counsel ordinance, restore crisis response positions, and fund a transit pass",
+          "result": "confirmed",
+          "source": "Berkeley Municipal Code (ordinance authority); FY2027–FY2028 adopted budget, Resolution 72,340-N.S. (appropriation authority); Berkeley General Plan Transportation Element Policy T-3",
+          "date": "2026-06-23",
+          "note": "All three are generic municipal powers — ordinance adoption and budget appropriation — exercised by Council under the Council-Manager charter. Policy T-3 already directs the City to consider a citywide transit pass; it has never been funded."
+        }
+      ]
+    },
+    {
+      "id": "wfp_q8",
+      "section": "Campaign",
+      "topic": "endorsement_ask",
+      "status": "thin",
+      "question": "Do you have a working relationship with any CA WFP member organizations in your region? If so, which ones? Are you committed to co-governing with WFP and our member organizations?",
+      "analysis": "Two questions in one: existing relationships with CA WFP member organizations in the region, and a commitment to co-governing. CA WFP describes itself as a coalition of more than 30 grassroots organizations and labor unions with roughly 100,000 members, organized through regional chapters including the Bay Area. Co-governing means treating the endorsement as an ongoing accountability relationship rather than a one-time transaction, so a specific answer about how the candidate would stay accountable after taking office carries more weight than a general affirmation.",
+      "references": [],
+      "levers": [],
+      "sources": [
+        {
+          "label": "California Working Families Party — About",
+          "url": "https://www.caworkingfamilies.org/about"
+        }
+      ],
+      "suggested": [
+        {
+          "note": "",
+          "text": "[Name the specific CA WFP member organizations the campaign already works with in the East Bay, and describe the relationship concretely — shared canvasses, coalition work, prior organizing — rather than listing groups known only by reputation.]\n\nYes, I am committed to co-governing. To me that means the endorsement does not end on election night: it means bringing your member organizations in before a vote rather than after, being reachable when something is moving quickly on the agenda, and being willing to hear that I have gotten something wrong. [Add one specific commitment — a standing meeting, a policy area where the candidate would seek coalition input first.]"
+        }
+      ]
+    },
+    {
+      "id": "wfp_q9",
+      "section": "Campaign",
+      "topic": "why_running",
+      "status": "thin",
+      "question": "What is one thing you hope will be different in the district you represent after one term in office?",
+      "analysis": "A vision question scoped to one term in the specific district. District 1 covers northwest Berkeley. The strongest answers name something measurable that a constituent would notice, rather than a general improvement in tone or process.",
+      "references": [],
+      "levers": [],
+      "sources": [],
+      "suggested": [
+        {
+          "note": "",
+          "text": "[Name one change a District 1 resident would actually be able to see or measure after four years. Concrete and modest reads as more credible than sweeping.]"
+        }
+      ]
+    },
+    {
+      "id": "wfp_q10",
+      "section": "Economic Justice",
+      "topic": "single_payer",
+      "status": "done",
+      "question": "Do you support funding and implementing universal single-payer healthcare in California?",
+      "analysis": "Universal single-payer healthcare in California requires state legislation and a financing mechanism; no municipal authority exists. The relevant local context is that Berkeley operates its own Public Health Division rather than relying solely on the county, so the candidate has a genuine municipal public health role even though coverage policy is a state matter.",
+      "references": [],
+      "levers": [
+        {
+          "tier": "advocacy",
+          "text": "Support state single-payer legislation and a Council resolution of support"
+        },
+        {
+          "tier": "authority",
+          "text": "Fund and direct Berkeley's own Public Health Division through the City budget"
+        }
+      ],
+      "sources": [
+        {
+          "label": "City of Berkeley — Public Health Division",
+          "url": "https://berkeleyca.gov/safety-health/public-health"
+        }
+      ],
+      "suggested": [
+        {
+          "note": "",
+          "text": "Yes.\n\nHealth coverage tied to employment fails exactly the people I would represent: part-time workers, gig workers, students aging off a parent's plan, and retirees too young for Medicare. Single-payer ends that, and I support both funding and implementing it.\n\nA city councilmember does not vote on this. What Berkeley does have is our own Public Health Division rather than dependence on the county alone, and that is real authority I would use, and fund, while the state does its part."
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley operates its own Public Health Division funded through the City budget",
+          "result": "confirmed",
+          "source": "City of Berkeley — Public Health; FY2027–FY2028 adopted budget (Health, Housing and Community Services)",
+          "date": "2026-06-23",
+          "note": "Berkeley Public Health delivers City-run programs including WIC, immunization, and family wellness, appropriated through the City budget. The frequently repeated claim that Berkeley is one of only three city health jurisdictions in California could not be confirmed from a primary source and is not asserted."
+        }
+      ]
+    },
+    {
+      "id": "wfp_q11",
+      "section": "Economic Justice",
+      "topic": "labor_law",
+      "status": "done",
+      "question": "Do you support raising the state minimum wage to at least $21?",
+      "analysis": "A statewide policy question directed at a local candidate. Raising the state minimum wage is a legislative and ballot matter, so a councilmember can take a position and advocate but cannot vote on it. Berkeley sets its own local minimum wage under BMC Chapter 13.99, currently $19.61 per hour effective July 1, 2026, indexed each July to the prior year's CPI-W. That is above the state floor but below the $21 figure in the question, which gives the candidate a concrete local record to cite and a live local lever rather than only a statewide opinion.",
+      "references": [],
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "Amend BMC Chapter 13.99 to raise Berkeley's local minimum wage above the CPI-indexed rate"
+        },
+        {
+          "tier": "authority",
+          "text": "Fund enforcement of the existing wage ordinance through the Workforce Standards program"
+        },
+        {
+          "tier": "advocacy",
+          "text": "Support state legislation and ballot measures raising the statewide floor to at least $21"
+        }
+      ],
+      "sources": [
+        {
+          "label": "BMC Chapter 13.99 — Minimum Wage",
+          "url": "https://berkeley.municipal.codes/BMC/13.99"
+        },
+        {
+          "label": "City of Berkeley — Workforce Standards and Enforcement",
+          "url": "https://berkeleyca.gov/doing-business/operating-berkeley/workforce-standards-and-enforcement"
+        }
+      ],
+      "suggested": [
+        {
+          "note": "",
+          "text": "Yes.\n\nI support raising California's minimum wage to at least $21 an hour. A full-time worker earning the state minimum cannot afford rent in Berkeley, and the gap between what work pays and what housing costs is the single clearest driver of displacement in my district.\n\nBerkeley has not waited for the state. Our local minimum wage is $19.61 an hour as of July 1, 2026, set under Chapter 13.99 of our municipal code and indexed to inflation each July. On the Council I would push to raise it further rather than let indexing alone set the pace, and I would fund enforcement, because a wage floor that is not enforced is a wage floor only on paper."
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley sets its own minimum wage above the state floor and has authority to do so",
+          "result": "confirmed",
+          "source": "BMC Chapter 13.99; City of Berkeley Official Notice — Berkeley Minimum Wage",
+          "date": "2026-04-01",
+          "note": "$19.61/hour effective July 1, 2026, indexed annually to CPI-W. BMC 13.99.020 cites police powers under Article XI, Section 7 of the California Constitution; BMC 13.99.100 is titled 'No Preemption of Higher Standards.'"
+        }
+      ]
+    },
+    {
+      "id": "wfp_q12",
+      "section": "Economic Justice",
+      "topic": "labor_law",
+      "status": "done",
+      "question": "Do you support the reclassification of gig workers as employees fully entitled to all rights and benefits, as outlined in AB 5 (2019)?",
+      "analysis": "Reclassification of gig workers is state law, governed by AB 5 (2019) and substantially undone for app-based drivers by Proposition 22 (2020), which the California Supreme Court upheld in Castellanos v. State of California in July 2024. Cities have no authority to reclassify workers, though Berkeley does enforce its own local labor standards ordinances for employees working within the city.",
+      "references": [],
+      "levers": [
+        {
+          "tier": "advocacy",
+          "text": "Support state legislation restoring AB 5 protections and undoing Proposition 22"
+        },
+        {
+          "tier": "authority",
+          "text": "Fund enforcement of Berkeley's minimum wage ordinance for workers within city limits"
+        }
+      ],
+      "sources": [
+        {
+          "label": "AB 5 (2019) — California Legislative Information",
+          "url": "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=201920200AB5"
+        }
+      ],
+      "suggested": [
+        {
+          "note": "",
+          "text": "Yes.\n\nMisclassification is how a company keeps the control of an employer and sheds the obligations. Workers lose the minimum wage, overtime, sick leave, unemployment insurance, and the right to organize — and the public absorbs the cost that the employer avoided.\n\nThis is state law, and Proposition 22 carved a large hole in AB 5 that the courts have upheld. I support closing it. Locally, what I control is enforcement: Berkeley's minimum wage and sick leave ordinances apply to people working here, and enforcement is the difference between a standard and a suggestion."
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley enforces its own local wage standards for workers within city limits",
+          "result": "confirmed",
+          "source": "BMC Chapter 13.99; City of Berkeley Workforce Standards and Enforcement",
+          "date": "2026-07-29",
+          "note": "BMC 13.99 applies to all employees working at least two hours within Berkeley, for-profit and nonprofit alike, and BMC 13.99.100 is titled 'No Preemption of Higher Standards.' Enforcement sits with the City's Workforce Standards program."
+        }
+      ]
+    },
+    {
+      "id": "wfp_q13",
+      "section": "Economic Justice",
+      "topic": "taxation",
+      "status": "done",
+      "question": "Do you pledge to support a Wealth Tax ballot measure in California?",
+      "analysis": "A pledge question on a prospective state ballot measure. No municipal mechanism exists. Berkeley's own revenue authority is limited to local measures such as the Measure U1 gross receipts tax on large residential rental income, which funds the city's anti-displacement work including eviction defense.",
+      "references": [],
+      "levers": [
+        {
+          "tier": "advocacy",
+          "text": "Pledge support for a state wealth tax ballot measure"
+        },
+        {
+          "tier": "authority",
+          "text": "Protect and direct Berkeley's own Measure U1 revenue toward anti-displacement work"
+        }
+      ],
+      "sources": [
+        {
+          "label": "Measure U1 Budget and Forecast — FY2026 Mid-Biennial Budget Update",
+          "url": "https://berkeleyca.gov/sites/default/files/legislative-body-meeting-attachments/2025-05-22%20Item%2002%20Supplemental%20Material%20-%20Fiscal%20Year%202026%20Mid-Biennial%20Budget%20Update%20(Measure%20U1%20Forecast).pdf"
+        }
+      ],
+      "suggested": [
+        {
+          "note": "",
+          "text": "Yes, I pledge to support a Wealth Tax ballot measure.\n\nCalifornia's tax base leans on income and sales while accumulated wealth goes largely untouched, and the services that get cut when revenue falls short are the ones working families depend on. Berkeley is living that arithmetic right now: our current budget eliminated the city's last mental health crisis response positions.\n\nLocally I would protect Measure U1, our gross receipts tax on large rental operators, which funds the eviction defense and anti-displacement work that keeps people housed."
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley controls Measure U1 revenue and directs it to anti-displacement work",
+          "result": "confirmed",
+          "source": "Measure U1 Budget and Forecast, FY2026 Mid-Biennial Budget Update, Item 02 Supplemental Material",
+          "date": "2025-05-22",
+          "note": "The Measure U1 gross receipts tax on large residential rental income is appropriated by Council; the forecast's Anti-Displacement lines fund Rent Board legal services and the Eviction Defense Center."
+        }
+      ]
+    },
+    {
+      "id": "wfp_q14",
+      "section": "Economic Justice",
+      "topic": "taxation",
+      "status": "blank",
+      "question": "Did you support Schools and Communities First: Proposition 15 (2020), which aimed to reform California’s property tax system by creating a split-roll tax? This measure would have reassessed commercial and industrial properties at market value while maintaining Prop 13 protections for residential properties, generating funding for public schools and local community services.",
+      "analysis": "A factual question about the candidate's own position on a 2020 statewide measure. Proposition 15 would have reassessed most commercial and industrial property at market value while preserving Proposition 13 protections for residential property; it failed statewide with roughly 48% yes, though it carried Alameda County. The measure was a priority for labor and progressive organizations, so this functions as a litmus question. The candidate's own position cannot be supplied from research.",
+      "references": [],
+      "levers": [],
+      "sources": [
+        {
+          "label": "California Secretary of State — November 3, 2020 Statement of Vote",
+          "url": "https://www.sos.ca.gov/elections/prior-elections/statewide-election-results/general-election-november-3-2020"
+        }
+      ],
+      "suggested": [],
+      "verification": [
+        {
+          "claim": "The candidate's position on Proposition 15 (2020)",
+          "result": "unresolved",
+          "source": "Not researchable — requires the candidate's own account",
+          "date": "2026-07-29",
+          "note": "Asks how the candidate personally voted in 2020. Must come from the candidate and must not be inferred. No suggested copy per the protocol rule for unanswerable questions."
+        }
+      ]
+    },
+    {
+      "id": "wfp_q15",
+      "section": "Housing",
+      "topic": "rent_control",
+      "status": "done",
+      "question": "Do you support repealing the Ellis Act?",
+      "analysis": "Repealing the Ellis Act requires state legislation; a councilmember can advocate but not vote. Berkeley already regulates Ellis withdrawals as far as state law permits, under BMC Chapter 13.77: relocation payments of $19,413 per household plus $6,471 for low-income, elderly, disabled, or long-tenancy households as of January 1, 2026; a ten-year right of first refusal for displaced tenants; punitive damages if a unit is re-rented within two years; a rent rollback if re-rented within five years; and a ten-year bar on condominium conversion. Withdrawal volume is low by regional standards — 508 units across 172 filings since July 1986 — which means the local answer is about closing a remaining escape hatch rather than responding to a crisis.",
+      "references": [],
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "Strengthen BMC Chapter 13.77 relocation payments and re-rental restrictions to the limit state law allows"
+        },
+        {
+          "tier": "authority",
+          "text": "Fund Rent Board monitoring of Ellis re-rentals so the ten-year right of first refusal is actually enforced"
+        },
+        {
+          "tier": "advocacy",
+          "text": "Support state legislation repealing or narrowing the Ellis Act"
+        }
+      ],
+      "sources": [
+        {
+          "label": "BMC Chapter 13.77 — Ellis Implementation Ordinance",
+          "url": "https://berkeley.municipal.codes/BMC/13.77"
+        },
+        {
+          "label": "Berkeley Rent Board — Ellis Act Eviction",
+          "url": "https://rentboard.berkeleyca.gov/rights-responsibilities/evictions/ellis-act-eviction"
+        },
+        {
+          "label": "Berkeley Rent Board — 2026 Adjustments of Relocation Assistance Payments",
+          "url": "https://rentboard.berkeleyca.gov/elected-rent-board/news/2026-adjustments-relocation-assistance-payments"
+        }
+      ],
+      "suggested": [
+        {
+          "note": "",
+          "text": "Yes.\n\nThe Ellis Act lets a landlord empty a rent-controlled building and take those units off the market permanently. Every unit withdrawn is a unit that never comes back at a regulated rent, and Berkeley has lost 508 of them since 1986.\n\nBerkeley has gone as far as state law allows. Our Ellis ordinance requires relocation payments of $19,413 per household, plus $6,471 more for low-income, elderly, disabled, and long-tenured households; gives displaced tenants a ten-year right of first refusal; and exposes an owner to punitive damages for re-renting within two years. What we cannot do locally is stop the withdrawal itself. That is why repeal matters, and I would support it. In the meantime I would fund the Rent Board adequately enough to enforce the protections we already have, since a right of first refusal nobody monitors is not a protection."
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley has a local Ellis Act implementation ordinance exceeding state requirements",
+          "result": "confirmed",
+          "source": "BMC Chapter 13.77",
+          "date": "2026-07-29",
+          "note": "Ten-year right of first refusal (13.77.040(C)), punitive damages on re-rental within two years (13.77.040(B)), rent rollback within five years (13.77.040(A)), and a ten-year condominium conversion bar (BMC 21.28.060.C)."
+        },
+        {
+          "claim": "Ellis Act withdrawal volume in Berkeley",
+          "result": "confirmed",
+          "source": "Berkeley Rent Board staff memo, Summary of Ellis Act Evictions (1986 – June 30, 2025)",
+          "date": "2025-07-08",
+          "note": "508 units across 172 filings since July 1986; three filings covering eight units in the first half of 2025."
+        },
+        {
+          "claim": "Current Ellis Act relocation payment amounts",
+          "result": "confirmed",
+          "source": "Berkeley Rent Board — 2026 Adjustments of Relocation Assistance Payments",
+          "date": "2025-10-27",
+          "note": "$19,413 per household plus $6,471 for qualifying households, effective January 1, 2026; CPI-indexed annually."
+        }
+      ]
+    },
+    {
+      "id": "wfp_q16",
+      "section": "Housing",
+      "topic": "rent_control",
+      "status": "done",
+      "question": "Do you support repealing Costa Hawkins?",
+      "analysis": "Repealing Costa-Hawkins requires state action, but for Berkeley the consequences are unusually concrete: the municipal code already contains dormant standby provisions written to activate on repeal. BMC 13.76.100(D) restores a rent ceiling at the most recent lawfully established rent if state law stops mandating that landlords set initial rents, which ends vacancy decontrol going forward. BMC 13.76.050(B)(1) converts the permanent post-June-1980 new-construction exemption into a rolling fifteen-year exemption. BMC 13.76.050(B)(2) self-terminates by its own terms, bringing single-family homes and condominiums under full coverage. Roughly 20,000 Berkeley units currently have regulated rents. The candidate can therefore answer this question with specific local mechanics rather than general support.",
+      "references": [],
+      "levers": [
+        {
+          "tier": "advocacy",
+          "text": "Support state legislation and ballot measures repealing Costa-Hawkins"
+        },
+        {
+          "tier": "authority",
+          "text": "Keep BMC 13.76 standby trigger provisions current so they take effect immediately on repeal"
+        },
+        {
+          "tier": "authority",
+          "text": "Direct the Rent Board to prepare implementation guidance in advance of any repeal"
+        }
+      ],
+      "sources": [
+        {
+          "label": "BMC 13.76.050 — Rental units partially or fully exempt",
+          "url": "https://berkeley.municipal.codes/BMC/13.76.050"
+        },
+        {
+          "label": "BMC 13.76.100 — Rent ceilings",
+          "url": "https://berkeley.municipal.codes/BMC/13.76.100"
+        },
+        {
+          "label": "Berkeley Rent Board — Rent Control 101",
+          "url": "https://rentboard.berkeleyca.gov/rights-responsibilities/rent-control-101"
+        }
+      ],
+      "suggested": [
+        {
+          "note": "",
+          "text": "Yes.\n\nCosta-Hawkins is the reason Berkeley's rent stabilization ordinance protects a tenancy but not a unit. Because of it, a landlord resets rent to market the moment a tenant leaves, and everything built after June 1980 is permanently exempt. Over 20,000 Berkeley units have regulated rents, and state law caps what that regulation can actually do.\n\nRepeal is not abstract for Berkeley. Our voters already wrote the follow-on provisions into our own code, waiting for state law to get out of the way. On repeal, Chapter 13.76 restores rent ceilings at the most recent lawful rent, ending vacancy decontrol; the permanent exemption for post-1980 construction becomes a rolling fifteen-year exemption, so newer buildings come under control as they age; and the single-family exemption ends by its own terms. I support repeal, and I would make sure the Rent Board has implementation guidance ready the day it happens rather than months after."
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley's code contains standby provisions that activate if Costa-Hawkins is repealed",
+          "result": "confirmed",
+          "source": "BMC 13.76.100(D) and BMC 13.76.050(B)(1)",
+          "date": "2026-07-29",
+          "note": "13.76.100(D) applies 'to the extent that state law no longer mandates that a landlord may establish the initial rental rate'; 13.76.050(B)(1) makes the new-construction exemption a rolling fifteen years on repeal or amendment of Civil Code 1954.52."
+        },
+        {
+          "claim": "Berkeley's single-family exemption is conditioned on Costa-Hawkins remaining in effect",
+          "result": "confirmed",
+          "source": "BMC 13.76.050(B)(2)",
+          "date": "2026-07-29",
+          "note": "The exemption applies 'only as long as the pertinent provisions of California Civil Code Section 1954.50 et. seq. remain in effect and require such an exemption.'"
+        },
+        {
+          "claim": "Scale of Berkeley's rent-regulated housing stock",
+          "result": "confirmed",
+          "source": "Berkeley Rent Board — Rent Control 101",
+          "date": "2026-07-29",
+          "note": "Over 20,000 rental units in Berkeley have regulated rents; landlords have set initial rents for new tenancies since January 1999."
+        }
+      ]
+    },
+    {
+      "id": "wfp_q17",
+      "section": "Housing",
+      "topic": "rent_control",
+      "status": "done",
+      "question": "Do you support expanding rent control statewide?",
+      "analysis": "Expanding rent control statewide requires repealing or amending Costa-Hawkins, which is state law. The local stake is concrete and already documented in Berkeley's own code, whose standby provisions activate on repeal — see the Costa-Hawkins question. Roughly 20,000 Berkeley units currently have regulated rents, and vacancy decontrol has applied since January 1999.",
+      "references": [],
+      "levers": [
+        {
+          "tier": "advocacy",
+          "text": "Support statewide rent control expansion and Costa-Hawkins repeal"
+        },
+        {
+          "tier": "authority",
+          "text": "Maintain Berkeley's rent stabilization ordinance at the maximum scope state law allows"
+        }
+      ],
+      "sources": [
+        {
+          "label": "Berkeley Rent Board — Rent Control 101",
+          "url": "https://rentboard.berkeleyca.gov/rights-responsibilities/rent-control-101"
+        }
+      ],
+      "suggested": [
+        {
+          "note": "",
+          "text": "Yes.\n\nRent control works where it exists, and state law is what keeps it from existing in most of California. Berkeley regulates rents on over 20,000 units, and we are still losing ground, because since 1999 every vacancy resets to market and everything built after June 1980 is exempt.\n\nExpanding rent control statewide means repealing Costa-Hawkins. Berkeley has already written the provisions that would take effect the day that happens — they are sitting in our code waiting on Sacramento. I support that repeal, and until then I would keep our own ordinance at the widest scope state law permits."
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley maintains its own rent stabilization ordinance within the limits state law allows",
+          "result": "confirmed",
+          "source": "BMC Chapter 13.76, Rent Stabilization and Eviction for Just Cause Ordinance",
+          "date": "2026-07-29",
+          "note": "Originally Ordinance 5261-N.S. (1980), amended through Ordinance 7950-N.S. (2024). Over 20,000 Berkeley rental units have regulated rents; scope is constrained by Costa-Hawkins, not by local choice."
+        }
+      ]
+    },
+    {
+      "id": "wfp_q18",
+      "section": "Housing",
+      "topic": "rent_control",
+      "status": "done",
+      "question": "Do you support no-fault eviction protections?",
+      "analysis": "Berkeley already has just cause eviction protections under BMC Chapter 13.76, adopted in 1980 and amended through Ordinance 7,950-N.S. in 2024, which apply even to units that are exempt from rent ceilings under Costa-Hawkins. State law provides a weaker floor through AB 1482 (2019). The question is therefore one where the candidate can point to an existing local standard rather than a promise.",
+      "references": [],
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "Maintain and strengthen just cause protections under BMC Chapter 13.76"
+        },
+        {
+          "tier": "authority",
+          "text": "Fund Rent Board enforcement so just cause protections are meaningful in practice"
+        },
+        {
+          "tier": "advocacy",
+          "text": "Support strengthening the statewide just cause floor set by AB 1482"
+        }
+      ],
+      "sources": [
+        {
+          "label": "BMC Chapter 13.76 — Rent Stabilization and Eviction for Just Cause",
+          "url": "https://berkeley.municipal.codes/BMC/13.76"
+        }
+      ],
+      "suggested": [
+        {
+          "note": "",
+          "text": "Yes.\n\nA no-fault eviction removes a household that did nothing wrong. Berkeley has required just cause since 1980, and importantly our protection reaches even the units that state law exempts from rent ceilings — a landlord in a post-1980 building can raise the rent freely here, but still cannot evict without cause.\n\nI support keeping that and funding the Rent Board well enough to enforce it, and I support raising the weaker statewide floor under AB 1482 to match."
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley has just cause eviction protections covering units exempt from rent ceilings",
+          "result": "confirmed",
+          "source": "BMC 13.76.050(B) — partially covered units",
+          "date": "2026-07-29",
+          "note": "Units partially exempt under Costa-Hawkins have no rent ceiling but remain subject to just cause for eviction and security deposit interest requirements."
+        }
+      ]
+    },
+    {
+      "id": "wfp_q19",
+      "section": "Housing",
+      "topic": "rent_control",
+      "status": "done",
+      "question": "Do you support a fully funded Right to Counsel program for renters in your jurisdiction?",
+      "analysis": "The question's premise does not hold for this jurisdiction. Berkeley has no codified right to counsel: exact-phrase searches of the municipal code, charter, and ordinances for 'right to counsel', 'legal defense', and 'eviction defense' return no match. What Berkeley has instead is contracted eviction-defense legal services funded through Measure U1 — roughly $800,000 a year split between the East Bay Community Law Center and the Eviction Defense Center — plus the separate Housing Retention Program, which grants up to $10,000 toward rent arrears for households at or below 50% AMI and funds no legal representation at all. The 'fully funded' half of the question is also refuted: a November 2023 Council budget referral records that even after a $2 million supplement the program was expected to exhaust its funds by January 2024, against 130 eviction notices filed in September 2023 alone. Answering as though Berkeley already has a right to counsel would misstate the candidate's own city.",
+      "references": [],
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "Adopt an ordinance establishing an actual right to counsel in eviction proceedings, rather than contracted services"
+        },
+        {
+          "tier": "authority",
+          "text": "Increase and stabilize the Measure U1 anti-displacement allocation so eviction defense does not run out mid-year"
+        },
+        {
+          "tier": "authority",
+          "text": "Fund the Housing Retention Program at a level matched to filing volume rather than to a fixed appropriation"
+        }
+      ],
+      "sources": [
+        {
+          "label": "City of Berkeley — Housing Retention Program",
+          "url": "https://berkeleyca.gov/community-recreation/affordable-housing-berkeley/housing-retention-program"
+        },
+        {
+          "label": "Measure U1 Budget and Forecast — FY2026 Mid-Biennial Budget Update",
+          "url": "https://berkeleyca.gov/sites/default/files/legislative-body-meeting-attachments/2025-05-22%20Item%2002%20Supplemental%20Material%20-%20Fiscal%20Year%202026%20Mid-Biennial%20Budget%20Update%20(Measure%20U1%20Forecast).pdf"
+        },
+        {
+          "label": "Budget Referral: Supplemental Funding for Housing Retention Program",
+          "url": "https://berkeleyca.gov/sites/default/files/documents/2023-11-07%20Item%2013%20Budget%20Referral%20Supplemental%20Funding.pdf"
+        }
+      ],
+      "suggested": [
+        {
+          "note": "",
+          "text": "Yes — and I want to be precise about where Berkeley actually stands, because we do not have this yet.\n\nBerkeley has no right to counsel. What we have is contracted eviction-defense legal services, funded at roughly $800,000 a year through Measure U1 and delivered by the East Bay Community Law Center and the Eviction Defense Center, alongside a separate Housing Retention Program that pays up to $10,000 in back rent but funds no lawyer. Good programs, but not a right: a tenant's access to representation depends on whether money is left in the contract when the notice arrives. In 2023 the Council was told the program would run dry by January even after a $2 million supplement, in a month when the Rent Board logged 130 eviction notices.\n\nI would move Berkeley from funding services to guaranteeing representation: an ordinance establishing a right to counsel in eviction proceedings, and an anti-displacement allocation sized to filing volume instead of a fixed appropriation that runs out mid-year."
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley has a codified right to counsel for tenants facing eviction",
+          "result": "refuted",
+          "source": "Berkeley Municipal Code, Charter, and Ordinances (berkeley.municipal.codes exact-phrase search)",
+          "date": "2026-07-29",
+          "note": "Searches for 'right to counsel', 'legal defense', and 'eviction defense' each returned no match in scope. No ordinance creates an entitlement to counsel."
+        },
+        {
+          "claim": "Berkeley funds contracted eviction-defense legal services",
+          "result": "confirmed",
+          "source": "Measure U1 Budget and Forecast, FY2026 Mid-Biennial Budget Update, Item 02 Supplemental Material",
+          "date": "2025-05-22",
+          "note": "Anti-Displacement lines fund Rent Board (EDC & EBCLC) at $550,000/year and the Eviction Defense Center at $250,000/year — roughly $800,000 annually as contracted services, not an entitlement."
+        },
+        {
+          "claim": "Berkeley's eviction-defense and rent-arrears funding meets demand",
+          "result": "refuted",
+          "source": "Budget Referral: Supplemental Funding for Housing Retention Program, Council Consent Calendar Item 13",
+          "date": "2023-11-07",
+          "note": "After a $2 million supplement in March 2023 the referral anticipated funding running out by January 2024, against 130 eviction notices received by the Rent Board in September 2023."
+        },
+        {
+          "claim": "FY2027 adopted dollar figure for Berkeley eviction-defense legal services",
+          "result": "unresolved",
+          "source": "Annotated Agenda, Berkeley City Council (FY27/FY28 Biennial Budget, Resolution No. 72,340-N.S.)",
+          "date": "2026-06-23",
+          "note": "Budget adopted, but eviction-defense line items are not itemized in the agenda; only FY2027 estimates from the May 2025 U1 forecast are available. Pull the adopted budget's Measure U1 schedule before citing an FY2027 figure."
+        }
+      ]
+    },
+    {
+      "id": "wfp_q20",
+      "section": "Housing",
+      "topic": "rent_control",
+      "status": "done",
+      "question": "Do you support policies that would ban the use of price setting algorithms in the housing market? (ie. Realpage)",
+      "analysis": "Berkeley has already legislated here, and the legislative history matters more than the headline. Ordinance 7,956-N.S. added BMC Chapter 13.63 and was adopted March 25, 2025, effective April 24, 2025. RealPage sued in RealPage, Inc. v. City of Berkeley (N.D. Cal. 3:25-cv-03004-JSC) on First Amendment grounds; the City agreed not to enforce pending the preliminary-injunction motion and Ordinance 7,974-N.S. suspended the effective date. Ordinance 7,992-N.S., adopted December 2, 2025, deleted the suspension and substantially narrowed the prohibition: 'competitor data' now reaches only information not available to the general public, about properties the landlord does not own or manage, and less than 90 days old, with carve-outs for appraisal, project financing, and machine-learning model training. The narrowed ordinance is in force, carrying penalties up to $1,000 per violation per unit per month plus a private right of action. Describing Berkeley as having banned RealPage without that history would overstate what survived. Note also that the California WFP claims banning AI-enabled price fixing as one of its own policy wins, so this is a question the organization follows closely.",
+      "references": [],
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "Defend and, if litigation permits, restore the broader scope Ordinance 7,956-N.S. originally had"
+        },
+        {
+          "tier": "authority",
+          "text": "Fund City Attorney enforcement of BMC 13.63 so the private right of action is not the only remedy in practice"
+        },
+        {
+          "tier": "advocacy",
+          "text": "Support state and federal action against algorithmic price coordination in rental housing"
+        }
+      ],
+      "sources": [
+        {
+          "label": "BMC 13.63.030 — Prohibited conduct",
+          "url": "https://berkeley.municipal.codes/BMC/13.63.030"
+        },
+        {
+          "label": "City Attorney report — Amendments to Ordinance Prohibiting the Sale or Use of Coordinated Pricing Algorithms",
+          "url": "https://berkeleyca.gov/sites/default/files/documents/2025-11-18%20Item%2004%20Amend%20Ordinance%20Prohibiting%20the%20Sale%20or%20Use%20of%20Coordinated%20Pricing%20Algo.pdf"
+        },
+        {
+          "label": "Annotated Agenda — Council, December 2, 2025 (Ordinance 7,992-N.S. second reading)",
+          "url": "https://berkeleyca.gov/sites/default/files/city-council-meetings/2025-12-02%20Annotated%20Agenda%20-%20Council.pdf"
+        }
+      ],
+      "suggested": [
+        {
+          "note": "",
+          "text": "Yes. Berkeley has already done it, and I would defend it.\n\nWhen landlords feed their rents into shared pricing software, they stop competing and start coordinating. The tenant sees a market rate; what they are actually seeing is a recommendation every nearby landlord received at once.\n\nBerkeley adopted Chapter 13.63 in March 2025 to prohibit exactly that. RealPage sued on First Amendment grounds, the city suspended enforcement, and in December 2025 the Council adopted a narrower version that is in force today — it now reaches non-public competitor data less than 90 days old, with carve-outs for appraisals and model training. It still carries penalties of up to $1,000 per unit per month and lets tenants sue directly.\n\nI would rather have the narrower ordinance standing than a broader one enjoined. But I do not think the current line is where it should permanently sit, and I would support restoring scope as the litigation allows, alongside state action so that no single city has to absorb this fight alone."
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley has adopted an ordinance restricting algorithmic rent-setting",
+          "result": "confirmed",
+          "source": "BMC Chapter 13.63; Ordinance 7,956-N.S.",
+          "date": "2025-03-25",
+          "note": "Adopted March 25, 2025, signed March 28, effective April 24, 2025."
+        },
+        {
+          "claim": "The ordinance adopted in March 2025 is the version in force today",
+          "result": "refuted",
+          "source": "Annotated Agenda, Council Consent Calendar Item 1 (Ordinance 7,992-N.S.); City Attorney redline",
+          "date": "2025-12-02",
+          "note": "Ordinance 7,974-N.S. suspended the effective date to March 1, 2026; Ordinance 7,992-N.S. then deleted 13.63.070 and narrowed 'competitor data' to non-public information under 90 days old, adding carve-outs for appraisal, project financing, and model training."
+        },
+        {
+          "claim": "RealPage, Inc. v. City of Berkeley has been formally dismissed",
+          "result": "unresolved",
+          "source": "City Attorney report, November 18, 2025",
+          "date": "2025-11-18",
+          "note": "The report states the City Attorney 'believes that the litigation will be resolved if these amendments are adopted.' No primary City document confirming dismissal was located; do not assert the case is over."
+        }
+      ]
+    },
+    {
+      "id": "wfp_q21",
+      "section": "Climate and Environment",
+      "topic": "climate_energy",
+      "status": "done",
+      "question": "Do you support a one mile buffer between active oil wells/field/fracking and homes, schools, playgrounds and hospitals?",
+      "analysis": "The question assumes the jurisdiction contains oil infrastructure. It does not. A CalGEM WellSTAR spatial query over Berkeley returns zero oil, gas, and geothermal wells; Alameda County as a whole holds 100 wells, of which 92 are plugged, 7 canceled, and 1 idle, with none active or producing, and the state's 2023 Annual Report records zero production for the county. No designated oil field boundary and no well stimulation record intersects Berkeley. A setback ordinance would therefore regulate nothing here, and the honest local statement is that no well has ever been drilled within city limits rather than that Berkeley prohibits drilling.",
+      "references": [],
+      "levers": [
+        {
+          "tier": "advocacy",
+          "text": "Support statewide setback requirements between extraction sites and homes, schools, and hospitals"
+        },
+        {
+          "tier": "authority",
+          "text": "Amend BMC 23.502.020 to prohibit commercial oil and gas extraction outright rather than allow it by use permit"
+        }
+      ],
+      "sources": [
+        {
+          "label": "CalGEM WellSTAR Wells GIS service",
+          "url": "https://gis.conservation.ca.gov/server/rest/services/WellSTAR/Wells/MapServer"
+        },
+        {
+          "label": "CalGEM — California State Oil and Gas Supervisor Annual Report 2023",
+          "url": "https://www.conservation.ca.gov/calgem/Documents/State%20Oil%20and%20Gas%20Supervisor%20Annual%20Report%202023.pdf"
+        }
+      ],
+      "suggested": [
+        {
+          "note": "",
+          "text": "Yes.\n\nThere has never been an oil or gas well drilled inside Berkeley, and there is no active production anywhere in Alameda County, so a setback here would not move a single rig. I support the statewide standard regardless, because the communities that carry this burden — in Kern County, in Wilmington, in South Los Angeles — are breathing the consequences of a siting pattern that was never accidental.\n\nThere is one thing I can do locally. Berkeley's zoning code still lists drilling for oil or natural gas as a conditional use available by permit in our manufacturing and commercial districts. Nobody has ever applied, but the door is legally open. I would close it."
+        }
+      ],
+      "verification": [
+        {
+          "claim": "There are active oil wells, oil fields, or fracking operations within Berkeley city limits",
+          "result": "refuted",
+          "source": "CalGEM WellSTAR Wells and Well Stimulation Treatment GIS services; CalGEM Field Administrative Boundaries",
+          "date": "2026-07-29",
+          "note": "Spatial query over a bounding box containing all of Berkeley returns zero wells on both the oil/gas and geothermal layers; a Livermore control query returned 74, confirming the filter works. Zero of 516 designated field boundaries and zero of 2,959 stimulation records intersect Berkeley."
+        },
+        {
+          "claim": "Alameda County has active oil or gas production",
+          "result": "refuted",
+          "source": "CalGEM State Oil and Gas Supervisor Annual Report 2023, Appendix A",
+          "date": "2025-11-07",
+          "note": "County row reads zero oil and condensate, zero associated gas, zero non-associated gas, zero total gross gas. Of 100 county wells, 92 plugged, 7 canceled, 1 idle."
+        },
+        {
+          "claim": "Berkeley's zoning code prohibits oil and gas extraction",
+          "result": "refuted",
+          "source": "BMC 23.502.020 and use tables at BMC 23.206.020, 23.204.020",
+          "date": "2026-07-29",
+          "note": "'Commercial Excavation' expressly includes 'drilling for, or removal of, oil or natural gas' and is classified UP(PH) — a discretionary but legally available conditional use in manufacturing and most commercial districts."
+        }
+      ]
+    },
+    {
+      "id": "wfp_q22",
+      "section": "Climate and Environment",
+      "topic": "climate_energy",
+      "status": "done",
+      "question": "Do you support ending all new oil and gas wells in California?",
+      "analysis": "A statewide question with no local permitting dimension, since Berkeley contains no wells and issues no drilling permits. Worth distinguishing from the candidate's most recognizable local climate lever: Berkeley's natural gas ban in new construction (Ordinance 7,672-N.S., BMC Chapter 12.80) was held preempted by the federal Energy Policy and Conservation Act in California Restaurant Association v. City of Berkeley and was repealed by Ordinance 7,907-N.S. on June 4, 2024. Citing that ban as current law would be a factual error. What is in force is the Building Emissions Saving Ordinance, BMC Chapter 19.81, amended April 15, 2025 and effective January 1, 2026.",
+      "references": [],
+      "levers": [
+        {
+          "tier": "advocacy",
+          "text": "Support state legislation ending new oil and gas well permits"
+        },
+        {
+          "tier": "authority",
+          "text": "Implement and strengthen the Building Emissions Saving Ordinance as the operative local decarbonization tool"
+        },
+        {
+          "tier": "authority",
+          "text": "Adopt an all-electric reach code within the limits left after the EPCA preemption ruling and AB 130"
+        }
+      ],
+      "sources": [
+        {
+          "label": "California Restaurant Association v. City of Berkeley, amended opinion (9th Cir., Jan. 2, 2024)",
+          "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2024/01/02/21-16278.pdf"
+        },
+        {
+          "label": "Annotated Agenda — Council, June 4, 2024 (Ordinance 7,907-N.S. repeal)",
+          "url": "https://berkeleyca.gov/sites/default/files/city-council-meetings/2024-06-04%20Annotated%20Agenda%20-%20Council.pdf"
+        },
+        {
+          "label": "City of Berkeley — BESO Amendments Overview",
+          "url": "https://berkeleyca.gov/sites/default/files/documents/BESO%20Amendments%20Overview.pdf"
+        }
+      ],
+      "suggested": [
+        {
+          "note": "",
+          "text": "Yes. California should stop permitting new oil and gas wells.\n\nBerkeley has none to permit, so my record on this is about buildings rather than wellheads. I want to be straight about that record: Berkeley passed the country's first natural gas ban in new construction in 2019, the Ninth Circuit held it preempted by federal appliance law, and the Council repealed it in June 2024. I would rather say that plainly than claim a law we no longer have.\n\nWhat we do have is the Building Emissions Saving Ordinance, which took effect this January and requires efficiency improvements at time of sale. I would fund its implementation, and pursue an all-electric reach code within whatever room the preemption ruling and AB 130 actually leave us."
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley's natural gas ban in new construction is still in force",
+          "result": "refuted",
+          "source": "Annotated Agenda, Council (Ordinance 7,907-N.S., second reading); CRA v. City of Berkeley amended opinion",
+          "date": "2024-06-04",
+          "note": "The Ninth Circuit held Ordinance 7,672-N.S. preempted by EPCA (amended opinion and denial of rehearing en banc, January 2, 2024). Council repealed BMC Chapter 12.80 on June 4, 2024 as a settlement condition. Do not cite the gas ban as current law."
+        },
+        {
+          "claim": "Berkeley has an operative building decarbonization ordinance",
+          "result": "confirmed",
+          "source": "BMC Chapter 19.81, Building Emissions Saving Ordinance, as amended by Ordinance 7,953-N.S.",
+          "date": "2025-04-15",
+          "note": "Effective January 1, 2026: time-of-sale flexible resilience standard requiring six credits for 1–4 unit homes, with heat pump water heater, heat pump HVAC, panel upgrade, or solar plus storage each satisfying compliance."
+        }
+      ]
+    },
+    {
+      "id": "wfp_q23",
+      "section": "Climate and Environment",
+      "topic": "climate_energy",
+      "status": "done",
+      "question": "Do you pledge to endorse—and, if elected to the state legislature, vote for—the Make Polluters Pay Superfund (SB 684/AB 1243)? This initiative would require the largest fossil fuel polluters to pay fees that fund projects and programs aimed at mitigating, remedying, and preventing the costs and harms of climate change.",
+      "analysis": "The question's operative clause is conditioned on election to the state legislature, which does not apply to a City Council candidate. What remains answerable is the endorsement half. SB 684 and AB 1243 would impose cost-recovery fees on the largest fossil fuel producers to fund climate mitigation. A councilmember can endorse, and can put the Council on record through a resolution supporting state legislation, which Berkeley does routinely.",
+      "references": [],
+      "levers": [
+        {
+          "tier": "advocacy",
+          "text": "Personally endorse SB 684 and AB 1243"
+        },
+        {
+          "tier": "authority",
+          "text": "Author a Council resolution putting the City of Berkeley on record in support of the legislation"
+        }
+      ],
+      "sources": [
+        {
+          "label": "SB 684 — California Legislative Information",
+          "url": "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB684"
+        },
+        {
+          "label": "AB 1243 — California Legislative Information",
+          "url": "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260AB1243"
+        }
+      ],
+      "suggested": [
+        {
+          "note": "",
+          "text": "Yes, I endorse the Make Polluters Pay Superfund.\n\nTo be accurate about what I would be able to do: I am running for Berkeley City Council, not the legislature, so I will not have a vote on SB 684 or AB 1243. What I can do is endorse them now and, if elected, bring a resolution putting the City of Berkeley formally on record in support.\n\nThe principle is one Berkeley has already paid to learn. Cities are absorbing the costs of climate damage through our own budgets — seismic and fire resilience, heat, stormwater — while the companies that produced the emissions keep the revenue. Shifting that cost back to the producers is the only version of this that is fiscally honest."
+        }
+      ],
+      "verification": [
+        {
+          "claim": "A Berkeley councilmember can vote on state legislation",
+          "result": "refuted",
+          "source": "Berkeley City Charter — Council-Manager form; the office is municipal",
+          "date": "2026-07-29",
+          "note": "The question's clause 'if elected to the state legislature' does not apply to this office. The answerable commitment is endorsement plus a Council resolution of support, not a floor vote."
+        }
+      ]
+    },
+    {
+      "id": "wfp_q24",
+      "section": "Transportation",
+      "topic": "transit",
+      "status": "done",
+      "question": "Do you support allocating more state funding for public transit?",
+      "analysis": "A state budget question. The local connection is concrete: Berkeley's FY2027–FY2031 Capital Improvement Program identifies roughly $59.75 million in 2026 dollars of citywide transit improvements — bus-only lanes, queue-jump lanes, and transit signal priority — that are largely unfunded. Berkeley adopted a Transit-First Policy Implementation Plan as Resolution 70,751-N.S. on March 21, 2023 and in the same action seated councilmembers on a quarterly Inter-Agency Liaison Committee with AC Transit. State operating support is also the binding constraint on service levels the City cannot itself fund.",
+      "references": [],
+      "levers": [
+        {
+          "tier": "advocacy",
+          "text": "Support state operating and capital funding for transit districts"
+        },
+        {
+          "tier": "authority",
+          "text": "Appropriate Measure B/BB local return funds toward the unfunded transit capital projects in the CIP"
+        },
+        {
+          "tier": "authority",
+          "text": "Use the Transit-First Implementation Plan and the AC Transit liaison committee to prioritize bus speed on city streets"
+        }
+      ],
+      "sources": [
+        {
+          "label": "Annotated Agenda — Council, March 21, 2023 (Resolution 70,751-N.S., Transit-First Policy Implementation Plan)",
+          "url": "https://berkeleyca.gov/sites/default/files/city-council-meetings/2023-03-21%20Annotated%20Agenda%20-%20Council.pdf"
+        },
+        {
+          "label": "City of Berkeley — Public Transit",
+          "url": "https://berkeleyca.gov/city-services/getting-around/public-transit"
+        }
+      ],
+      "suggested": [
+        {
+          "note": "",
+          "text": "Yes.\n\nTransit in the Bay Area is facing an operating cliff, and no amount of local goodwill closes it. AC Transit and BART are independent districts with their own boards and their own farebox math; when state operating support falls short, service gets cut, and the riders who lose a route are the ones least able to drive instead.\n\nBerkeley has already identified about $59.75 million in transit priority work — bus-only lanes, queue jumps, signal priority — in our capital plan, and most of it is unfunded. That is the piece I would actually control: the streets themselves. I would direct our Measure B and BB local return dollars toward making buses faster through Berkeley, and use our seat on the AC Transit liaison committee to make sure our street projects match where their service actually needs help."
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley has adopted a Transit-First policy and holds a standing liaison role with AC Transit",
+          "result": "confirmed",
+          "source": "Annotated Agenda, Berkeley City Council (Resolution 70,751-N.S.)",
+          "date": "2023-03-21",
+          "note": "Adopted the Transit-First Policy Implementation Plan and appointed councilmembers to the Inter-Agency Liaison Committee with AC Transit, meeting quarterly."
+        },
+        {
+          "claim": "Berkeley has identified but not funded significant transit capital work",
+          "result": "confirmed",
+          "source": "City of Berkeley FY2027–FY2031 Capital Improvement Program",
+          "date": "2026-06-23",
+          "note": "Roughly $59.75 million in 2026 dollars of citywide transit improvements identified, largely unfunded."
+        }
+      ]
+    },
+    {
+      "id": "wfp_q25",
+      "section": "Transportation",
+      "topic": "transit",
+      "status": "done",
+      "question": "Do you support free public transit for:\nYouth 0-18\nSeniors 65+\nAll riders",
+      "analysis": "Fares are set by the AC Transit and BART boards, not by the City Council — Public Utilities Code sections 25807 and 29038. Two premises in the surrounding discourse are commonly stated wrong and should not be repeated: AC Transit youth fares are 50% off, not free, and the free student transit pass is Alameda County Transportation Commission Measure BB money, which for Berkeley Unified is means-tested to families meeting free or reduced-price meal guidelines, unlike Emery Unified and Livermore Valley where it is universal. Berkeley holds a seat on Alameda CTC, so widening that eligibility is a vote a councilmember actually casts. Berkeley's own General Plan Transportation Element Policy T-3 already directs the City to consider a citywide transit pass for residents; it has never been funded. Council also has an underused statutory right under PUC sections 25808–25809 and 29039 to compel a district board hearing on the reasonableness of any fare.",
+      "references": [],
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "Vote through Berkeley's Alameda CTC seat to make the Measure BB Student Transit Pass universal for Berkeley Unified rather than means-tested"
+        },
+        {
+          "tier": "authority",
+          "text": "Fund the citywide transit pass already contemplated by General Plan Policy T-3"
+        },
+        {
+          "tier": "authority",
+          "text": "Remove the Southside Plan Area exemption from the TDM ordinance so those projects must also provide free transit passes"
+        },
+        {
+          "tier": "authority",
+          "text": "Purchase AC Transit EasyPass for a resident group beyond city employees, as Berkeley already does for staff"
+        },
+        {
+          "tier": "advocacy",
+          "text": "Exercise the Council's statutory right to a fare-reasonableness hearing before the AC Transit and BART boards"
+        }
+      ],
+      "sources": [
+        {
+          "label": "AC Transit — Fares",
+          "url": "https://www.actransit.org/fares"
+        },
+        {
+          "label": "Alameda CTC — Student Transit Pass Program",
+          "url": "https://www.alamedactc.org/programs-projects/student-transit-pass/"
+        },
+        {
+          "label": "BART — Board of Directors",
+          "url": "https://www.bart.gov/about/bod"
+        }
+      ],
+      "suggested": [
+        {
+          "note": "",
+          "text": "I support free transit for youth 0–18 and for seniors 65+, and I support moving toward fare-free service for all riders as operating funding allows.\n\nI want to be accurate about who decides. Fares are set by the AC Transit and BART boards, not by the Berkeley City Council. And the current programs are less generous than they are often described: AC Transit youth fares are half price, not free, and the free student pass in Berkeley is county Measure BB money that our school district makes available only to families who qualify for free or reduced-price meals — while Emery Unified and Livermore Valley offer it to every student.\n\nThat last one is a vote I would actually hold. Berkeley has a seat on the Alameda County Transportation Commission, which runs that program, and I would use it to make the pass universal for every Berkeley Unified student. Locally, our General Plan has directed the City to consider a citywide transit pass since 2001 and we have never funded it. We already buy EasyPass for city employees; I would start by extending that model beyond our own staff."
+        }
+      ],
+      "verification": [
+        {
+          "claim": "AC Transit youth rides are free",
+          "result": "refuted",
+          "source": "AC Transit — Fares, effective July 1, 2026",
+          "date": "2026-07-01",
+          "note": "Riders aged 5–18 receive 50% off; only children under 5 ride free. Youth/Senior/Disabled local fare is $1.37 Clipper, $1.50 cash, against $2.75/$3.00 adult."
+        },
+        {
+          "claim": "The free student transit pass serving Berkeley schools is a City of Berkeley program",
+          "result": "refuted",
+          "source": "Alameda CTC — Student Transit Pass Program",
+          "date": "2026-07-29",
+          "note": "It is Measure BB funding administered by Alameda CTC. For Berkeley Unified only 6th–12th graders whose families meet free or reduced-price meal income guidelines can apply, unlike Emery Unified and Livermore Valley where it is universal."
+        },
+        {
+          "claim": "Berkeley funds a transit pass for residents or students",
+          "result": "refuted",
+          "source": "City of Berkeley FY2027–FY2028 adopted budget",
+          "date": "2026-06-23",
+          "note": "The only City-funded pass is AC Transit EasyPass for municipal employees (Resolution 71,988-N.S., not to exceed $572,717 over three years, from the Payroll Deduction Trust Fund). No youth, student, or resident pass line item exists."
+        },
+        {
+          "claim": "Berkeley has adopted policy contemplating a citywide transit pass",
+          "result": "confirmed",
+          "source": "Berkeley General Plan, Transportation Element Policy T-3 (Eco-Pass City Program)",
+          "date": "2001-12-18",
+          "note": "Directs the City to consider a citywide transit pass for Berkeley residents financed by a tax, allowing unlimited rides on AC Transit and/or BART. Adopted policy, never funded."
+        },
+        {
+          "claim": "Berkeley City Council sets AC Transit or BART fares",
+          "result": "refuted",
+          "source": "Public Utilities Code sections 25807 and 29038",
+          "date": "2026-07-29",
+          "note": "Fares are fixed by each district's elected board. PUC 25808–25809 and 29039 do give a city council within the district the right to compel a hearing on the reasonableness of any rate, to be held 15–60 days after filing."
+        }
+      ]
+    },
+    {
+      "id": "wfp_q26",
+      "section": "Public Safety and Immigration",
+      "topic": "criminal_justice",
+      "status": "done",
+      "question": "Will you commit to working to reduce rates of incarceration?",
+      "analysis": "Authority here is split in a way that a flat answer usually gets wrong in both directions. Berkeley does operate a jail — the Berkeley Public Safety Center, a Type I facility housing up to 40 detainees between arrest and arraignment, administered by the Police Department — so the claim that Berkeley has no jail is false. What Berkeley does not control is prosecution, pretrial detention beyond arraignment, sentencing custody, or conditions at Santa Rita Jail, all of which sit with Alameda County's elected Sheriff and District Attorney and the Board of Supervisors, on which Berkeley has no vote. Council did adopt a Care First, Jails Last policy by Resolution 71,007-N.S. in July 2023, requiring departmental policy revisions and semiannual reporting to Council on transports to diversion versus jail; whether those reports have been filed could not be confirmed.",
+      "references": [],
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "Set arrest, booking, citation-in-lieu, and diversion policy through the Police Department budget and policy manual"
+        },
+        {
+          "tier": "authority",
+          "text": "Enforce the semiannual Care First, Jails Last reporting requirement already adopted by Council"
+        },
+        {
+          "tier": "advocacy",
+          "text": "Press the Alameda County Board of Supervisors and Sheriff on Santa Rita Jail population and conditions"
+        }
+      ],
+      "sources": [
+        {
+          "label": "City of Berkeley — Berkeley City Jail",
+          "url": "https://berkeleyca.gov/your-government/about-us/city-offices-service-locations/berkeley-city-jail"
+        },
+        {
+          "label": "Resolution to Adopt a City-Wide Care First, Jails Last Policy (Item 31)",
+          "url": "https://berkeleyca.gov/sites/default/files/documents/2023-07-25%20Item%2031%20Resolution%20to%20Adopt%20a%20City-Wide.pdf"
+        },
+        {
+          "label": "BSCC — All Facilities List",
+          "url": "http://www.bscc.ca.gov/wp-content/uploads/2026/01/All-Facilities-list-posted-to-the-to-web_1.26.26.-FINAL.pdf"
+        }
+      ],
+      "suggested": [
+        {
+          "note": "",
+          "text": "Yes.\n\nI want to be precise about the levers, because this is an area where city candidates often promise things counties decide. Berkeley runs a jail — a 40-bed facility that holds people between arrest and arraignment. Everything after that point, including Santa Rita, belongs to the county Sheriff, the District Attorney, and the Board of Supervisors, where Berkeley has no vote.\n\nSo the honest commitment is about the front door, which is entirely ours: who gets arrested rather than cited, which calls get a clinician instead of a squad car, and whether diversion exists at the moment of contact. Berkeley adopted a Care First, Jails Last policy in 2023 that requires the Police Chief and our Mental Health division to report to Council twice a year on how many people are transported to diversion versus to jail. I could not find evidence those reports have been filed. Making that reporting real is where I would start, because we cannot reduce something we have stopped counting."
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley does not operate a jail",
+          "result": "refuted",
+          "source": "Board of State and Community Corrections All Facilities List; City of Berkeley Berkeley City Jail page; FY2027–28 adopted budget",
+          "date": "2026-01-26",
+          "note": "Berkeley Public Safety Center is BSCC facility #165, a Type I jail housing up to 40 detainees between arrest and arraignment, administered by the Police Department under the Support Services Division."
+        },
+        {
+          "claim": "Sentencing custody and jail conditions are controlled by Alameda County, not Berkeley",
+          "result": "confirmed",
+          "source": "BSCC All Facilities List (Santa Rita Jail, #65, Type II, Alameda County Sheriff's Office)",
+          "date": "2026-01-26",
+          "note": "The Sheriff and District Attorney are county-wide elected officials and the jail budget is set by the Board of Supervisors, on which Berkeley holds no seat."
+        },
+        {
+          "claim": "Berkeley has adopted a Care First, Jails Last policy",
+          "result": "confirmed",
+          "source": "Resolution 71,007-N.S., Berkeley City Council",
+          "date": "2023-07-25",
+          "note": "Requires public-contact departments to revise policies within one year and the Police Chief and Mental Health Division Manager to report to Council every six months for at least three years on transports to diversion, transports to jail, and 5150s."
+        },
+        {
+          "claim": "The mandated Care First, Jails Last semiannual reports have been filed",
+          "result": "unresolved",
+          "source": "Berkeley City Council agendas",
+          "date": "2026-07-29",
+          "note": "No primary source located showing any mandated periodic report was actually filed. Confirm with the City Clerk before claiming implementation."
+        }
+      ]
+    },
+    {
+      "id": "wfp_q27",
+      "section": "Public Safety and Immigration",
+      "topic": "policing",
+      "status": "done",
+      "question": "Will you invest in non-police emergency response systems?",
+      "analysis": "Berkeley has moved backwards on this within the last two months, and the answer must reflect that. The Specialized Care Unit — a three-person team of a peer support specialist, an EMT, and a clinician, operated under contract by Bonita House and reached at its own phone line — ran from September 5, 2023 to May 2025 and is recorded as complete in the City's Reimagining Public Safety status update. It was funded entirely with one-time money: $4.75 million in ARPA, a $536,500 DHCS grant that expired June 30, 2025, and $68,000 in MHSA, with the City Manager's April 2025 memo stating plainly that there is no recurring funding. Then the budget adopted June 23, 2026 eliminated the 2.6 remaining FTE of the Mobile Crisis Team, described in the budget document as the last General Fund–funded mental health crisis response positions, with responsibility for wellness checks and psychiatric emergencies shifting solely to the Police Department. BerkDOT was never created: the July 2020 action was a referral to the City Manager, it is classified as paused and defunded at Tier 3, and traffic and parking enforcement both remain inside the Police Department. Any answer premised on Berkeley currently having non-police crisis response would be false.",
+      "references": [],
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "Restore General Fund positions for mental health crisis response eliminated in the FY2027–28 budget"
+        },
+        {
+          "tier": "authority",
+          "text": "Fund a successor to the Specialized Care Unit with recurring rather than one-time money"
+        },
+        {
+          "tier": "authority",
+          "text": "Revive the BerkDOT referral and move traffic enforcement out of the Police Department to the extent state law permits"
+        },
+        {
+          "tier": "advocacy",
+          "text": "Press Alameda County to ensure its Medi-Cal mobile crisis system actually covers Berkeley call volume"
+        }
+      ],
+      "sources": [
+        {
+          "label": "City of Berkeley — Reimagining Public Safety, Summer 2025 Status Update",
+          "url": "https://berkeleyca.gov/sites/default/files/documents/RPS_StatusUpdate_22July2025.pdf"
+        },
+        {
+          "label": "City Manager memo — Specialized Care Unit (April 22, 2025)",
+          "url": "https://berkeleyca.gov/sites/default/files/documents/2025-04-22%20%20%20%20%20Specialized%20Care%20Unit.pdf"
+        },
+        {
+          "label": "City of Berkeley — Crisis Services",
+          "url": "https://berkeleyca.gov/safety-health/mental-health/crisis-services"
+        }
+      ],
+      "suggested": [
+        {
+          "note": "",
+          "text": "Yes — and in Berkeley that now means rebuilding something we just dismantled.\n\nBerkeley ran a Specialized Care Unit from September 2023 to May 2025: a peer counselor, an EMT, and a clinician who answered mental health and substance use calls without a police officer. It worked, and it was funded entirely with one-time federal and grant money. When that ran out, it ended. Then the budget adopted this June eliminated the last 2.6 city-funded mental health crisis positions. The budget document says it directly: the City will no longer provide crisis response services, and wellness checks and psychiatric emergencies now fall solely to the Berkeley Police Department.\n\nI would not have voted for that. Sending an armed officer to a psychiatric emergency is a choice, and we made it because a pilot was never given a permanent budget line. I would restore those positions and fund a successor to the SCU out of ongoing General Fund money rather than the next grant cycle. I would also revive BerkDOT, which Berkeley has described as a priority since 2020 without ever creating it — traffic and parking enforcement still sit inside the police department.\n\nOne thing I will not do is describe our police budget as shrinking. It is not. All-funds police spending rises by about $661,000 next year. Reductions measured against a projection are not reductions."
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley currently operates a city-run non-police crisis response program",
+          "result": "refuted",
+          "source": "Reimagining Public Safety Summer 2025 Status Update; FY2027–FY2028 adopted budget (Resolution 72,340-N.S.)",
+          "date": "2026-06-23",
+          "note": "The SCU phone line is recorded as running September 2023 to May 2025 and marked Complete. The adopted budget eliminates 2.6 filled FTE described as 'the last General Fund-funded mental health crisis response positions' and states the City 'will no longer provide crisis response services,' shifting wellness checks and psychiatric emergencies solely to the Police Department."
+        },
+        {
+          "claim": "The Specialized Care Unit had recurring funding",
+          "result": "refuted",
+          "source": "City Manager memo, Specialized Care Unit",
+          "date": "2025-04-22",
+          "note": "Total pilot funding of $5.3 million was entirely one-time: $4,750,000 ARPA, $536,500 DHCS Crisis Care Mobile Units grant expiring June 30, 2025, and $68,000 MHSA. The memo states 'There is no reoccurring funding for the pilot.'"
+        },
+        {
+          "claim": "BerkDOT was created as a City department",
+          "result": "refuted",
+          "source": "Resolution 69,501-N.S.; Reimagining Public Safety Status Report",
+          "date": "2024-10-29",
+          "note": "The July 14, 2020 action was a referral 'pursuing the creation of' a department, not its creation. Status is 'Paused Due to Deferred Funding,' classified Tier 3, with the $300,000 development allocation reallocated. Traffic and parking enforcement remain in the Police Department."
+        },
+        {
+          "claim": "Berkeley's police budget declined in the current adopted budget",
+          "result": "refuted",
+          "source": "Summary of Expenditures by Department, FY2027–FY2028 adopted budget",
+          "date": "2026-06-23",
+          "note": "All Funds Police rises from $106,237,136 adopted in FY2026 to $106,898,286 in FY2027, an increase of $661,150. The cited 10% reduction is measured against a baseline projection rather than prior-year adopted."
+        }
+      ]
+    },
+    {
+      "id": "wfp_q28",
+      "section": "Public Safety and Immigration",
+      "topic": "ice_cooperation",
+      "status": "done",
+      "question": "What describes your commitment to supporting sanctuary policies for immigrants by prohibiting collaboration between ICE and local law enforcement?\nFor all cases\nWith exceptions granted for limited violent felonies ie. sexual assault of minor, domestic violence and homicide.\nI do not support sanctuary city policies.\nOther: Please Explain",
+      "analysis": "This is a multiple-choice question where Berkeley's actual ordinance supports the strongest option without qualification. Ordinance 7,984-N.S., adding BMC Chapter 13.114, was adopted on second reading September 30, 2025 and contains no criminal offense carve-out — no serious or violent felony list, no Penal Code 1192.7 or 667.5 exception. Its only exceptions are consent, service provision, and what state or federal law compels. This matters because state law leaves that discretion open: Government Code 7282.5 permits, but does not require, cooperation for a long list of offenses, and expressly conditions it on not violating local policy. Berkeley closes that door. Police Department Policy 415 reproduces the ordinance and states that members 'shall not transfer an individual to immigration authorities.' Berkeley also goes beyond SB 54 by binding every City agency and contractor, requiring written reporting of every ICE request to Council within ten business days, and restricting consent searches of non-public City property. Two cautions: a January 2025 council report miscites the 1986 sanctuary resolution number, and Policy 415.7.5 retains residual template language about reporting transfers that contradicts the flat prohibition — not an operative carve-out, but a hostile questioner could point at it.",
+      "references": [],
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "Defend and enforce BMC Chapter 13.114, including the ten-business-day Council reporting requirement"
+        },
+        {
+          "tier": "authority",
+          "text": "Direct removal of the residual transfer-reporting language in Police Policy 415.7.5 that conflicts with the ordinance"
+        },
+        {
+          "tier": "authority",
+          "text": "Use BMC Chapter 13.105 contracting restrictions to keep City procurement clear of data brokers serving immigration enforcement"
+        },
+        {
+          "tier": "authority",
+          "text": "Reconsider the automated license plate reader contract extended in May 2026 over the Peace and Justice Commission's objection"
+        }
+      ],
+      "sources": [
+        {
+          "label": "Proposed Sanctuary City Ordinance — Council Referral (Ordinance 7,984-N.S. text)",
+          "url": "https://berkeleyca.gov/sites/default/files/documents/2025-09-30%20Item%2001%20Proposed%20Sanctuary%20City%20Ordinance%20%E2%80%93%20Council%20Referral.pdf"
+        },
+        {
+          "label": "Annotated Agenda — Council, September 30, 2025 (second reading adopted)",
+          "url": "https://berkeleyca.gov/sites/default/files/city-council-meetings/2025-09-30%20Annotated%20Agenda%20-%20Council.pdf"
+        },
+        {
+          "label": "California Government Code § 7282.5",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=GOV&sectionNum=7282.5"
+        }
+      ],
+      "suggested": [
+        {
+          "note": "",
+          "text": "For all cases.\n\nBerkeley's sanctuary ordinance, adopted in September 2025, contains no criminal carve-out at all. Our police may not transfer anyone to immigration authorities, full stop, and may notify only on an outstanding criminal warrant. That was a deliberate choice. State law under SB 54 leaves cities discretion to cooperate on a long list of offenses — but it conditions that discretion on local policy, and Berkeley's policy closes it.\n\nI support that, and I would defend it. A carve-out is not a narrow exception in practice; it is a reason for every immigrant in the city to assume that calling the police is a risk. The moment cooperation is conditional, the protection stops working for everyone.\n\nOur ordinance also does things SB 54 does not: it binds every city department and contractor rather than just police, and it requires any ICE request to be reported to the Council in writing within ten business days. I would make sure that reporting actually happens, and I would keep our procurement clear of vendors that sell data into immigration enforcement."
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley's sanctuary ordinance contains a carve-out for violent felonies",
+          "result": "refuted",
+          "source": "Ordinance 7,984-N.S. adding BMC Chapter 13.114; Berkeley PD Law Enforcement Services Manual Policy 415",
+          "date": "2025-09-30",
+          "note": "No criminal-offense carve-out exists — no serious or violent felony list and no Penal Code 1192.7 or 667.5 exception. Policy 415.7.4 states members 'shall not transfer an individual to immigration authorities'; notification is limited to an outstanding criminal warrant."
+        },
+        {
+          "claim": "Berkeley's ordinance exceeds what SB 54 already requires",
+          "result": "confirmed",
+          "source": "Government Code 7284.6 and 7282.5 compared against BMC Chapter 13.114",
+          "date": "2026-07-29",
+          "note": "Section 7282.5 gives officials discretion to cooperate for enumerated offenses 'only if doing so would not violate any federal, state, or local law, or local policy.' Berkeley eliminates that discretion, binds all City agencies and contractors, and requires written reporting of each ICE request to Council within ten business days versus SB 54's annual DOJ reporting."
+        },
+        {
+          "claim": "Berkeley's immigrant sanctuary declaration dates to the 1971 City of Refuge resolution",
+          "result": "refuted",
+          "source": "Ordinance 7,984-N.S. findings, BMC 13.114.010(G)",
+          "date": "2025-09-30",
+          "note": "The 1971 declaration (Resolution 44,784-N.S.) concerned Vietnam War conscientious objectors. The immigrant sanctuary declaration is Resolution 52,596-N.S. (1986). A January 21, 2025 council report miscites this as 52,558-N.S."
+        }
+      ]
+    },
+    {
+      "id": "wfp_q29",
+      "section": "Public Safety and Immigration",
+      "topic": "criminal_justice",
+      "status": "done",
+      "question": "Will you pledge to support a state ballot measure to end the death penalty in California?",
+      "analysis": "A state ballot measure question with no municipal mechanism. Californians rejected repeal in 2012 (Proposition 34) and again in 2016 (Proposition 62), while approving Proposition 66 to speed executions in the same 2016 election. A councilmember can endorse and can place the Council on record by resolution.",
+      "references": [],
+      "levers": [
+        {
+          "tier": "advocacy",
+          "text": "Pledge support for a state ballot measure ending the death penalty"
+        },
+        {
+          "tier": "authority",
+          "text": "Author a Council resolution putting Berkeley on record in support of repeal"
+        }
+      ],
+      "sources": [
+        {
+          "label": "California Secretary of State — Ballot Measures",
+          "url": "https://www.sos.ca.gov/elections/ballot-measures"
+        }
+      ],
+      "suggested": [
+        {
+          "note": "",
+          "text": "Yes.\n\nThe death penalty is applied unevenly by race and by county, it is irreversible, and California has condemned people who were later shown to be innocent. I will support a ballot measure ending it.\n\nThis is not a decision a city councilmember makes, so what I am pledging is my endorsement and my vote as a citizen, plus a Council resolution putting Berkeley formally on record — which our city has a long history of doing on questions like this one."
+        }
+      ],
+      "verification": [
+        {
+          "claim": "A Berkeley councilmember has a direct role in capital punishment policy",
+          "result": "refuted",
+          "source": "California Constitution and Penal Code — capital sentencing is a state matter",
+          "date": "2026-07-29",
+          "note": "No municipal mechanism exists. The available commitments are a personal pledge and a Council resolution of support."
+        }
+      ]
+    },
+    {
+      "id": "wfp_q30",
+      "section": "Public Safety and Immigration",
+      "topic": "criminal_justice",
+      "status": "blank",
+      "question": "Did you support Prop 36 (2024)?",
+      "analysis": "A factual question about the candidate's own past position on a 2024 statewide measure. Proposition 36 increased penalties for certain theft and drug offenses and partially rolled back Proposition 47 (2014); it passed with roughly 68% of the vote statewide. The Working Families Party and most California progressive organizations opposed it, so this functions as a litmus question for this endorsement. Alameda County results and the candidate's own position are the two inputs needed; the position cannot be supplied from research.",
+      "references": [],
+      "levers": [],
+      "sources": [
+        {
+          "label": "California Secretary of State — November 5, 2024 Statement of Vote",
+          "url": "https://www.sos.ca.gov/elections/prior-elections/statewide-election-results/general-election-november-5-2024"
+        }
+      ],
+      "suggested": [],
+      "verification": [
+        {
+          "claim": "The candidate's position on Proposition 36 (2024)",
+          "result": "unresolved",
+          "source": "Not researchable — requires the candidate's own account",
+          "date": "2026-07-29",
+          "note": "This asks how the candidate personally voted or what position was taken. It must come from the candidate and must not be inferred. Left blank per the protocol rule that blocked and unanswerable questions receive no suggested copy."
+        }
+      ]
+    },
+    {
+      "id": "wfp_q31",
+      "section": "Campaign Finance Pledges",
+      "topic": "campaign_finance",
+      "status": "done",
+      "question": "Will you reject campaign contributions and endorsements from oil companies, oil company associations, public utilities and PAC's which take money from any of the above including but not limited to: Chevron, Valero, Western States Petroleum Association, and Sempra Energy?",
+      "analysis": "Part of a block of six pledge questions. Berkeley's answer is unusually strong because local law already forbids most of what is being asked about: BMC 2.12.440, part of the Berkeley Election Reform Act, prohibits any proprietorship, firm, partnership, joint venture, syndicate, business trust, company, corporation including non-profit corporations, or labor union from contributing to any candidate, and bars campaign treasurers from soliciting or accepting such contributions. Separately, participation in Berkeley's Public Financing Program caps every contribution at $60 and bars contributions from political action committees. The pledge is therefore not aspirational for a participating Berkeley candidate — it is a legal condition of the campaign's structure, which is a stronger claim than a promise.",
+      "references": [],
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "Remain in Berkeley's Public Financing Program, which caps contributions at $60 and bars PAC money"
+        },
+        {
+          "tier": "authority",
+          "text": "Uphold BMC 2.12.440's ban on corporate, business-entity, and labor union contributions"
+        }
+      ],
+      "sources": [
+        {
+          "label": "BMC 2.12.440 — Contributions from certain organizations and business entities prohibited",
+          "url": "https://berkeley.municipal.codes/BMC/2.12.440"
+        },
+        {
+          "label": "City of Berkeley — Public Financing Program",
+          "url": "https://berkeleyca.gov/your-government/elections/campaign-finance"
+        }
+      ],
+      "suggested": [
+        {
+          "note": "",
+          "text": "Yes. I will reject campaign contributions and endorsements from oil companies, oil company associations, public utilities, and their PACs.\n\nIn Berkeley this is more than a pledge. Our Election Reform Act bars every corporation, business entity, and labor union from contributing to any candidate at all, and because I am running in the public financing program, no contribution to my campaign may exceed $60 and no political action committee may contribute at any amount. My campaign is funded by individual neighbors giving small amounts, matched six to one by the city.\n\nThat structure is why I can make this commitment without qualification."
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley law already prohibits corporate, business-entity, and labor union contributions to any candidate",
+          "result": "confirmed",
+          "source": "BMC 2.12.440 (Berkeley Election Reform Act)",
+          "date": "2026-07-29",
+          "note": "No proprietorship, firm, partnership, joint venture, syndicate, business trust, company, corporation including non-profit corporations, or labor union may contribute to any candidate or committee, and no campaign treasurer may solicit or accept such a contribution."
+        },
+        {
+          "claim": "Participation in Berkeley's Public Financing Program bars PAC contributions and caps all contributions at $60",
+          "result": "confirmed",
+          "source": "City of Berkeley Public Financing Program Guide",
+          "date": "2026-07-29",
+          "note": "The contribution limit for a participating candidate is $60, except a candidate's own contribution to their controlled committee of $270 or less, which is not matchable. Participating candidates may not accept contributions from political action committees."
+        }
+      ]
+    },
+    {
+      "id": "wfp_q32",
+      "section": "Campaign Finance Pledges",
+      "topic": "campaign_finance",
+      "status": "done",
+      "question": "Will you reject campaign contributions and endorsements from law enforcement groups?",
+      "analysis": "Part of a block of six pledge questions. Berkeley's answer is unusually strong because local law already forbids most of what is being asked about: BMC 2.12.440, part of the Berkeley Election Reform Act, prohibits any proprietorship, firm, partnership, joint venture, syndicate, business trust, company, corporation including non-profit corporations, or labor union from contributing to any candidate, and bars campaign treasurers from soliciting or accepting such contributions. Separately, participation in Berkeley's Public Financing Program caps every contribution at $60 and bars contributions from political action committees. The pledge is therefore not aspirational for a participating Berkeley candidate — it is a legal condition of the campaign's structure, which is a stronger claim than a promise.",
+      "references": [],
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "Remain in Berkeley's Public Financing Program, which caps contributions at $60 and bars PAC money"
+        },
+        {
+          "tier": "authority",
+          "text": "Uphold BMC 2.12.440's ban on corporate, business-entity, and labor union contributions"
+        }
+      ],
+      "sources": [
+        {
+          "label": "BMC 2.12.440 — Contributions from certain organizations and business entities prohibited",
+          "url": "https://berkeley.municipal.codes/BMC/2.12.440"
+        },
+        {
+          "label": "City of Berkeley — Public Financing Program",
+          "url": "https://berkeleyca.gov/your-government/elections/campaign-finance"
+        }
+      ],
+      "suggested": [
+        {
+          "note": "",
+          "text": "Yes. I will reject campaign contributions and endorsements from law enforcement groups.\n\nIn Berkeley this is more than a pledge. Our Election Reform Act bars every corporation, business entity, and labor union from contributing to any candidate at all, and because I am running in the public financing program, no contribution to my campaign may exceed $60 and no political action committee may contribute at any amount. My campaign is funded by individual neighbors giving small amounts, matched six to one by the city.\n\nThat structure is why I can make this commitment without qualification."
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley law already prohibits corporate, business-entity, and labor union contributions to any candidate",
+          "result": "confirmed",
+          "source": "BMC 2.12.440 (Berkeley Election Reform Act)",
+          "date": "2026-07-29",
+          "note": "No proprietorship, firm, partnership, joint venture, syndicate, business trust, company, corporation including non-profit corporations, or labor union may contribute to any candidate or committee, and no campaign treasurer may solicit or accept such a contribution."
+        },
+        {
+          "claim": "Participation in Berkeley's Public Financing Program bars PAC contributions and caps all contributions at $60",
+          "result": "confirmed",
+          "source": "City of Berkeley Public Financing Program Guide",
+          "date": "2026-07-29",
+          "note": "The contribution limit for a participating candidate is $60, except a candidate's own contribution to their controlled committee of $270 or less, which is not matchable. Participating candidates may not accept contributions from political action committees."
+        }
+      ]
+    },
+    {
+      "id": "wfp_q33",
+      "section": "Campaign Finance Pledges",
+      "topic": "campaign_finance",
+      "status": "done",
+      "question": "Will you reject campaign contributions and endorsements from the Apartment Association or the Association of Realtors?",
+      "analysis": "Part of a block of six pledge questions. Berkeley's answer is unusually strong because local law already forbids most of what is being asked about: BMC 2.12.440, part of the Berkeley Election Reform Act, prohibits any proprietorship, firm, partnership, joint venture, syndicate, business trust, company, corporation including non-profit corporations, or labor union from contributing to any candidate, and bars campaign treasurers from soliciting or accepting such contributions. Separately, participation in Berkeley's Public Financing Program caps every contribution at $60 and bars contributions from political action committees. The pledge is therefore not aspirational for a participating Berkeley candidate — it is a legal condition of the campaign's structure, which is a stronger claim than a promise.",
+      "references": [],
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "Remain in Berkeley's Public Financing Program, which caps contributions at $60 and bars PAC money"
+        },
+        {
+          "tier": "authority",
+          "text": "Uphold BMC 2.12.440's ban on corporate, business-entity, and labor union contributions"
+        }
+      ],
+      "sources": [
+        {
+          "label": "BMC 2.12.440 — Contributions from certain organizations and business entities prohibited",
+          "url": "https://berkeley.municipal.codes/BMC/2.12.440"
+        },
+        {
+          "label": "City of Berkeley — Public Financing Program",
+          "url": "https://berkeleyca.gov/your-government/elections/campaign-finance"
+        }
+      ],
+      "suggested": [
+        {
+          "note": "",
+          "text": "Yes. I will reject campaign contributions and endorsements from the Apartment Association or the Association of Realtors.\n\nIn Berkeley this is more than a pledge. Our Election Reform Act bars every corporation, business entity, and labor union from contributing to any candidate at all, and because I am running in the public financing program, no contribution to my campaign may exceed $60 and no political action committee may contribute at any amount. My campaign is funded by individual neighbors giving small amounts, matched six to one by the city.\n\nThat structure is why I can make this commitment without qualification."
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley law already prohibits corporate, business-entity, and labor union contributions to any candidate",
+          "result": "confirmed",
+          "source": "BMC 2.12.440 (Berkeley Election Reform Act)",
+          "date": "2026-07-29",
+          "note": "No proprietorship, firm, partnership, joint venture, syndicate, business trust, company, corporation including non-profit corporations, or labor union may contribute to any candidate or committee, and no campaign treasurer may solicit or accept such a contribution."
+        },
+        {
+          "claim": "Participation in Berkeley's Public Financing Program bars PAC contributions and caps all contributions at $60",
+          "result": "confirmed",
+          "source": "City of Berkeley Public Financing Program Guide",
+          "date": "2026-07-29",
+          "note": "The contribution limit for a participating candidate is $60, except a candidate's own contribution to their controlled committee of $270 or less, which is not matchable. Participating candidates may not accept contributions from political action committees."
+        }
+      ]
+    },
+    {
+      "id": "wfp_q34",
+      "section": "Campaign Finance Pledges",
+      "topic": "campaign_finance",
+      "status": "done",
+      "question": "Will you reject campaign contributions and endorsements from charter school associations?",
+      "analysis": "Part of a block of six pledge questions. Berkeley's answer is unusually strong because local law already forbids most of what is being asked about: BMC 2.12.440, part of the Berkeley Election Reform Act, prohibits any proprietorship, firm, partnership, joint venture, syndicate, business trust, company, corporation including non-profit corporations, or labor union from contributing to any candidate, and bars campaign treasurers from soliciting or accepting such contributions. Separately, participation in Berkeley's Public Financing Program caps every contribution at $60 and bars contributions from political action committees. The pledge is therefore not aspirational for a participating Berkeley candidate — it is a legal condition of the campaign's structure, which is a stronger claim than a promise.",
+      "references": [],
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "Remain in Berkeley's Public Financing Program, which caps contributions at $60 and bars PAC money"
+        },
+        {
+          "tier": "authority",
+          "text": "Uphold BMC 2.12.440's ban on corporate, business-entity, and labor union contributions"
+        }
+      ],
+      "sources": [
+        {
+          "label": "BMC 2.12.440 — Contributions from certain organizations and business entities prohibited",
+          "url": "https://berkeley.municipal.codes/BMC/2.12.440"
+        },
+        {
+          "label": "City of Berkeley — Public Financing Program",
+          "url": "https://berkeleyca.gov/your-government/elections/campaign-finance"
+        }
+      ],
+      "suggested": [
+        {
+          "note": "",
+          "text": "Yes. I will reject campaign contributions and endorsements from charter school associations.\n\nIn Berkeley this is more than a pledge. Our Election Reform Act bars every corporation, business entity, and labor union from contributing to any candidate at all, and because I am running in the public financing program, no contribution to my campaign may exceed $60 and no political action committee may contribute at any amount. My campaign is funded by individual neighbors giving small amounts, matched six to one by the city.\n\nThat structure is why I can make this commitment without qualification."
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley law already prohibits corporate, business-entity, and labor union contributions to any candidate",
+          "result": "confirmed",
+          "source": "BMC 2.12.440 (Berkeley Election Reform Act)",
+          "date": "2026-07-29",
+          "note": "No proprietorship, firm, partnership, joint venture, syndicate, business trust, company, corporation including non-profit corporations, or labor union may contribute to any candidate or committee, and no campaign treasurer may solicit or accept such a contribution."
+        },
+        {
+          "claim": "Participation in Berkeley's Public Financing Program bars PAC contributions and caps all contributions at $60",
+          "result": "confirmed",
+          "source": "City of Berkeley Public Financing Program Guide",
+          "date": "2026-07-29",
+          "note": "The contribution limit for a participating candidate is $60, except a candidate's own contribution to their controlled committee of $270 or less, which is not matchable. Participating candidates may not accept contributions from political action committees."
+        }
+      ]
+    },
+    {
+      "id": "wfp_q35",
+      "section": "Campaign Finance Pledges",
+      "topic": "campaign_finance",
+      "status": "done",
+      "question": "Will you reject campaign contributions and endorsements from corporate PACs?",
+      "analysis": "Part of a block of six pledge questions. Berkeley's answer is unusually strong because local law already forbids most of what is being asked about: BMC 2.12.440, part of the Berkeley Election Reform Act, prohibits any proprietorship, firm, partnership, joint venture, syndicate, business trust, company, corporation including non-profit corporations, or labor union from contributing to any candidate, and bars campaign treasurers from soliciting or accepting such contributions. Separately, participation in Berkeley's Public Financing Program caps every contribution at $60 and bars contributions from political action committees. The pledge is therefore not aspirational for a participating Berkeley candidate — it is a legal condition of the campaign's structure, which is a stronger claim than a promise.",
+      "references": [],
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "Remain in Berkeley's Public Financing Program, which caps contributions at $60 and bars PAC money"
+        },
+        {
+          "tier": "authority",
+          "text": "Uphold BMC 2.12.440's ban on corporate, business-entity, and labor union contributions"
+        }
+      ],
+      "sources": [
+        {
+          "label": "BMC 2.12.440 — Contributions from certain organizations and business entities prohibited",
+          "url": "https://berkeley.municipal.codes/BMC/2.12.440"
+        },
+        {
+          "label": "City of Berkeley — Public Financing Program",
+          "url": "https://berkeleyca.gov/your-government/elections/campaign-finance"
+        }
+      ],
+      "suggested": [
+        {
+          "note": "",
+          "text": "Yes. I will reject campaign contributions and endorsements from corporate PACs.\n\nIn Berkeley this is more than a pledge. Our Election Reform Act bars every corporation, business entity, and labor union from contributing to any candidate at all, and because I am running in the public financing program, no contribution to my campaign may exceed $60 and no political action committee may contribute at any amount. My campaign is funded by individual neighbors giving small amounts, matched six to one by the city.\n\nThat structure is why I can make this commitment without qualification."
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley law already prohibits corporate, business-entity, and labor union contributions to any candidate",
+          "result": "confirmed",
+          "source": "BMC 2.12.440 (Berkeley Election Reform Act)",
+          "date": "2026-07-29",
+          "note": "No proprietorship, firm, partnership, joint venture, syndicate, business trust, company, corporation including non-profit corporations, or labor union may contribute to any candidate or committee, and no campaign treasurer may solicit or accept such a contribution."
+        },
+        {
+          "claim": "Participation in Berkeley's Public Financing Program bars PAC contributions and caps all contributions at $60",
+          "result": "confirmed",
+          "source": "City of Berkeley Public Financing Program Guide",
+          "date": "2026-07-29",
+          "note": "The contribution limit for a participating candidate is $60, except a candidate's own contribution to their controlled committee of $270 or less, which is not matchable. Participating candidates may not accept contributions from political action committees."
+        }
+      ]
+    },
+    {
+      "id": "wfp_q36",
+      "section": "Campaign Finance Pledges",
+      "topic": "campaign_finance",
+      "status": "done",
+      "question": "Do you consider yourself a lobbyist and corporate free candidate?",
+      "analysis": "Part of a block of six pledge questions. Berkeley's answer is unusually strong because local law already forbids most of what is being asked about: BMC 2.12.440, part of the Berkeley Election Reform Act, prohibits any proprietorship, firm, partnership, joint venture, syndicate, business trust, company, corporation including non-profit corporations, or labor union from contributing to any candidate, and bars campaign treasurers from soliciting or accepting such contributions. Separately, participation in Berkeley's Public Financing Program caps every contribution at $60 and bars contributions from political action committees. The pledge is therefore not aspirational for a participating Berkeley candidate — it is a legal condition of the campaign's structure, which is a stronger claim than a promise.",
+      "references": [],
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "Remain in Berkeley's Public Financing Program for the duration of the campaign"
+        }
+      ],
+      "sources": [
+        {
+          "label": "BMC 2.12.440 — Contributions from certain organizations and business entities prohibited",
+          "url": "https://berkeley.municipal.codes/BMC/2.12.440"
+        },
+        {
+          "label": "City of Berkeley — Public Financing Program",
+          "url": "https://berkeleyca.gov/your-government/elections/campaign-finance"
+        }
+      ],
+      "suggested": [
+        {
+          "note": "",
+          "text": "Yes.\n\nI am running in Berkeley's public financing program. Every contribution to my campaign is capped at $60, no corporation, business entity, or labor union may contribute under our Election Reform Act, and no political action committee may contribute at all. Qualifying contributions from Berkeley residents are matched six to one by the city.\n\nThat is what lobbyist and corporate free means in practice here: not a promise to refuse money I might otherwise be offered, but a campaign whose entire budget is small-dollar local giving plus a public match."
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley law already prohibits corporate, business-entity, and labor union contributions to any candidate",
+          "result": "confirmed",
+          "source": "BMC 2.12.440 (Berkeley Election Reform Act)",
+          "date": "2026-07-29",
+          "note": "No proprietorship, firm, partnership, joint venture, syndicate, business trust, company, corporation including non-profit corporations, or labor union may contribute to any candidate or committee, and no campaign treasurer may solicit or accept such a contribution."
+        },
+        {
+          "claim": "Participation in Berkeley's Public Financing Program bars PAC contributions and caps all contributions at $60",
+          "result": "confirmed",
+          "source": "City of Berkeley Public Financing Program Guide",
+          "date": "2026-07-29",
+          "note": "The contribution limit for a participating candidate is $60, except a candidate's own contribution to their controlled committee of $270 or less, which is not matchable. Participating candidates may not accept contributions from political action committees."
+        }
+      ]
+    },
+    {
+      "id": "wfp_q37",
+      "section": "Working Families Party",
+      "topic": "endorsement_ask",
+      "status": "thin",
+      "question": "Why are you seeking the Working Families Party endorsement?",
+      "analysis": "An open question about motivation for seeking this specific endorsement. WFP describes its work as recruiting progressive candidates, winning policy including a ban on AI-enabled price fixing, and organizing a multiracial party, and it emphasizes co-governing. Answers that engage with WFP's particular theory of organization carry more weight than general statements of shared values.",
+      "references": [],
+      "levers": [],
+      "sources": [
+        {
+          "label": "California Working Families Party — About",
+          "url": "https://www.caworkingfamilies.org/about"
+        }
+      ],
+      "suggested": [
+        {
+          "note": "",
+          "text": "[Draft opening, to be made specific with the candidate's own reasons.]\n\nI am seeking the Working Families Party endorsement because WFP treats an endorsement as the beginning of a relationship rather than the end of one. [Add the candidate's own reason — what drew them to WFP specifically, and any prior work with the party or its member organizations.]\n\n[One concrete tie: WFP campaigned to ban algorithmic rent price-fixing, and Berkeley passed that ordinance and is defending it in court. Name a shared fight the candidate has actually been part of rather than one merely admired.]"
+        }
+      ]
+    },
+    {
+      "id": "wfp_q38",
+      "section": "Working Families Party",
+      "topic": "endorsement_ask",
+      "status": "thin",
+      "question": "What distinguishes you as a Working Families Party candidate from your opponents?",
+      "analysis": "A comparative question requiring knowledge of the District 1 field. The distinction WFP looks for is structural — funding sources, base of support, willingness to be accountable to organizations — rather than differences in stated positions, since in Berkeley most candidates will state similar positions.",
+      "references": [],
+      "levers": [],
+      "sources": [],
+      "suggested": [
+        {
+          "note": "",
+          "text": "[Name the actual distinction, ideally structural rather than positional. In a Berkeley race where most candidates say similar things, the credible differentiators are: who funds the campaign, which organizations the candidate is accountable to, what the candidate has already done rather than promised, and willingness to take a position that costs something.]"
+        }
+      ]
+    },
+    {
+      "id": "wfp_q39",
+      "section": "Working Families Party",
+      "topic": "campaign_plan",
+      "status": "thin",
+      "question": "Have you attended the Working Families Party Campaign Camp Trainings? If so, roughly how many sessions did you attend, and which module(s)?",
+      "analysis": "Factual question about the candidate's own participation in WFP Campaign Camp trainings. Attendance is not a prerequisite for endorsement; an accurate no is better than a vague yes, and expressing interest is a reasonable follow-on.",
+      "references": [],
+      "levers": [],
+      "sources": [],
+      "suggested": [
+        {
+          "note": "",
+          "text": "[Answer accurately. If yes, give the approximate number of sessions and name the modules. If no, say so and note interest in attending.]"
+        }
+      ]
+    },
+    {
+      "id": "wfp_q40",
+      "section": "Working Families Party",
+      "topic": "campaign_plan",
+      "status": "thin",
+      "question": "Have members of your campaign team attended the Working Families Party Campaign Camp Trainings? If so, which module did they attend?",
+      "analysis": "The team counterpart to the prior question. Relevant to WFP because Campaign Camp participation indicates a campaign is already operating within their organizing model.",
+      "references": [],
+      "levers": [],
+      "sources": [],
+      "suggested": [
+        {
+          "note": "",
+          "text": "[Answer accurately, naming the modules attended and roughly who attended. If no one has, say so.]"
+        }
+      ]
+    },
+    {
+      "id": "wfp_q41",
+      "section": "Working Families Party",
+      "topic": "campaign_plan",
+      "status": "thin",
+      "question": "If endorsed, would you be interested in utilizing WFP’s campaign services, such as phone dialer, SMS texting, voter database and/or other tools?",
+      "analysis": "Asks about interest in WFP's campaign services — dialer, SMS, voter database. For a small-dollar municipal campaign operating under a $60 contribution cap, in-kind access to voter contact tooling is materially valuable, which is worth saying directly.",
+      "references": [],
+      "levers": [],
+      "sources": [],
+      "suggested": [
+        {
+          "note": "",
+          "text": "Yes, and these would make a real difference to this campaign.\n\nRunning under Berkeley's public financing program means every contribution is capped at $60, so paid voter contact tooling competes directly against everything else in a small budget. Access to a dialer, SMS, and a voter database would let us reach substantially more voters per dollar. [Note which tools would be most useful given the campaign's current setup.]"
+        }
+      ]
+    },
+    {
+      "id": "wfp_q42",
+      "section": "Working Families Party",
+      "topic": "endorsement_ask",
+      "status": "thin",
+      "question": "Are you a dues paying member of the California Working Families Party?",
+      "analysis": "Factual membership question. CA WFP defines a dues-paying member as someone contributing $10 a month or $120 or more annually; dues-paying members elect regional member representatives who vote in the endorsement process.",
+      "references": [],
+      "levers": [],
+      "sources": [
+        {
+          "label": "Working Families Party — Meet the Member Reps",
+          "url": "https://workingfamilies.org/2024/07/meet-the-member-reps/"
+        }
+      ],
+      "suggested": [
+        {
+          "note": "",
+          "text": "[Answer accurately — yes or no. CA WFP counts a dues-paying member as someone giving $10 monthly or $120 or more per year. If not currently a member, say so directly rather than leaving it blank.]"
+        }
+      ]
+    }
+  ]
+}

@@ -39,8 +39,10 @@ Run this protocol in a Claude Code session when adding a new organization's ques
    }
    ```
 
-5. **Assign topics** from the controlled list:
-   `why_running`, `background_bio`, `endorsement_ask`, `labor_solidarity`, `labor_law`, `healthcare_standards`, `disease_protection`, `behavioral_health`, `single_payer`, `voting_rights`, `dei_trans_care`, `cultural_competence`, `immigration`, `ice_cooperation`, `affordable_housing`, `rent_control`, `homelessness`, `campaign_plan`, `endorsements`
+5. **Assign topics** from the controlled list in CONVENTIONS.md § Controlled topic list.
+   If a question has no good match, add a topic there rather than force-fitting a
+   near miss — `topic` drives cross-form answer reuse, so a wrong topic surfaces
+   irrelevant prior answers.
 
 6. **PREMISE VERIFICATION (mandatory, before any levers or copy).** Every question embeds assumptions about the jurisdiction — that it has a program, a mechanism, an authority, a contract, a department. For each question:
    - Extract every jurisdiction-specific assumption the question makes

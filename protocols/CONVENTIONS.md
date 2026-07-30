@@ -147,7 +147,20 @@ A lever citing a **named ordinance, program, fund, or agency** (e.g., TOPA, a sp
 
 ## Controlled topic list
 
-`why_running`, `background_bio`, `endorsement_ask`, `labor_solidarity`, `labor_law`, `healthcare_standards`, `disease_protection`, `behavioral_health`, `single_payer`, `voting_rights`, `dei_trans_care`, `cultural_competence`, `immigration`, `ice_cooperation`, `affordable_housing`, `rent_control`, `homelessness`, `campaign_plan`, `endorsements`
+`why_running`, `background_bio`, `endorsement_ask`, `labor_solidarity`, `labor_law`, `healthcare_standards`, `disease_protection`, `behavioral_health`, `single_payer`, `voting_rights`, `dei_trans_care`, `cultural_competence`, `immigration`, `ice_cooperation`, `affordable_housing`, `rent_control`, `homelessness`, `campaign_plan`, `endorsements`, `climate_energy`, `policing`, `criminal_justice`, `transit`, `taxation`, `campaign_finance`
+
+The last six were added for the WFP questionnaire, whose scope reaches well
+past labor and housing. `topic` is load-bearing: `refreshReuse(topic)` in
+`questionnaires/questionnaire.html` pulls prior answers sharing a topic so they
+can be reused across forms. Assigning a near-miss topic surfaces irrelevant
+answers, so add a topic rather than force-fit an existing one.
+
+- `climate_energy` — fossil fuels, emissions, energy siting, climate funding
+- `policing` — police practices, budgets, non-police response, surveillance
+- `criminal_justice` — incarceration, sentencing, the death penalty, courts
+- `transit` — public transit funding, fares, service, transportation planning
+- `taxation` — tax policy and revenue measures
+- `campaign_finance` — contribution pledges, refusals, public financing
 
 ## Quotes schema
 

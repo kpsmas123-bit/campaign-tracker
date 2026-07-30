@@ -37,6 +37,9 @@ jobs:
               "PP": "pp",
               "Planned Parenthood": "pp",
               "CBD": "cbd",
+              "WFP": "wfp",
+              "Working Families Party": "wfp",
+              "CA WFP": "wfp",
               "Cal Berkeley Democrats": "cbd",
           }
 

@@ -169,5 +169,15 @@
         }
       ]
     }
+  },
+  "wfp": {
+    "org": "California Working Families Party",
+    "source_documents": [
+      {
+        "description": "2026 CA WFP Early Endorsement Questionnaire (blank, marked DRAFT)",
+        "drive_file_id": "",
+        "filename": "2026-CA-WFP-Early-Endorsement-Questionnaire.pdf"
+      }
+    ]
   }
 }
