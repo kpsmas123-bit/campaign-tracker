@@ -598,13 +598,35 @@
 
   var LBL = { done: 'Done', thin: 'Needs work', blank: 'Blank', verify: 'Verify', blocked: 'Blocked', approved: 'Approved' };
 
+  // Has the user put anything in this question — prose or a ticked box?
+  function hasContent(q) {
+    if ((answers[q.id] || '').trim()) return true;
+    return (choiceSel[q.id] || []).length > 0;
+  }
+
   function effectiveStatus(q) {
     if (q.status === 'blocked') return 'blocked';
     var s = answerStatus[q.id] || 'blank';
     if (s === 'approved') return 'approved';
     if (s === 'final') return 'done';
     if (s === 'draft') return 'thin';
-    return 'blank';
+    // An explicit mark wins, but absent one, anything typed or ticked means
+    // this is no longer blank — a checkbox alone IS the answer on forms like
+    // WFP's, where prose is only required when answering No.
+    return hasContent(q) ? 'thin' : 'blank';
+  }
+
+  // Update the status chip, nav dots, and progress bar without re-rendering
+  // the slide, so typing does not lose focus or caret position.
+  function refreshStatusUI(q) {
+    var es = effectiveStatus(q);
+    var chip = document.querySelector('#left .eyebrow .chip');
+    if (chip) {
+      chip.className = 'chip ' + es;
+      chip.textContent = LBL[es] || es;
+    }
+    paintDots();
+    paintProg();
   }
 
   function esc(v) {
@@ -939,6 +961,8 @@
           choiceSel[q.id] = sel;
           saveChoice(q.id);
           renderSlide(idx);
+          paintDots();
+          paintProg();
         });
         row.appendChild(b);
       });
@@ -961,6 +985,9 @@
       ta.classList.toggle('need', !ta.value.trim());
       setCnt();
       saveAnswer(q.id);
+      // Repaint the chip in place rather than re-rendering the slide, which
+      // would drop focus and the caret mid-keystroke.
+      refreshStatusUI(q);
     });
 
     if (typeof CSS === 'undefined' || !CSS.supports || !CSS.supports('field-sizing', 'content')) {

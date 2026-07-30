@@ -318,10 +318,24 @@
       var r2 = await sb.from('questionnaire_answers')
         .select('org_slug,question_id,answer_text,approved');
       if (r2.data) {
+        // Rows are namespaced: "__a__<qid>" holds an analysis override and
+        // "__c__<qid>" holds checkbox selections. Counting rows directly
+        // double-counts a question answered both ways, and treats an analysis
+        // note as an answer. Track distinct question ids instead.
+        var seen = {}, seenAppr = {};
         r2.data.forEach(function (row) {
-          if (!answerCounts[row.org_slug]) answerCounts[row.org_slug] = { answered: 0, approved: 0, total: 0 };
-          if (row.answer_text && row.answer_text.trim()) answerCounts[row.org_slug].answered++;
-          if (row.approved) answerCounts[row.org_slug].approved++;
+          var org = row.org_slug, qid = row.question_id, filled = false;
+          if (qid.indexOf('__a__') === 0) return;              // analysis, not an answer
+          if (qid.indexOf('__c__') === 0) {
+            qid = qid.slice(5);
+            filled = !!(row.answer_text && row.answer_text.trim());  // a ticked box counts
+          } else {
+            filled = !!(row.answer_text && row.answer_text.trim());
+          }
+          if (!answerCounts[org]) answerCounts[org] = { answered: 0, approved: 0, total: 0 };
+          if (!seen[org]) { seen[org] = {}; seenAppr[org] = {}; }
+          if (filled && !seen[org][qid]) { seen[org][qid] = 1; answerCounts[org].answered++; }
+          if (row.approved && !seenAppr[org][qid]) { seenAppr[org][qid] = 1; answerCounts[org].approved++; }
         });
       }
     } catch (e) {}
