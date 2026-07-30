@@ -157,36 +157,142 @@
       "topic": "why_running",
       "status": "thin",
       "question": "What are the first three policies you would introduce if you are elected to the office you are seeking?",
-      "analysis": "Asks for three concrete first-term policy initiatives. The strongest answers for a Berkeley council race name mechanisms the office actually controls — ordinance, budget appropriation, zoning, or contracting — rather than positions on state law. Several verified local openings exist: Berkeley has no right to counsel for tenants despite funding eviction defense by contract; the FY2027–28 budget eliminated the City's last mental health crisis response positions; and the citywide transit pass contemplated by General Plan Policy T-3 has never been funded.",
+      "analysis": "Asks for three concrete first-term initiatives. The strongest answers for a municipal race name an instrument the office actually controls — an ordinance, an appropriation, a contract, a commission vote — rather than a position on state law, and each of the three drafted here is one. All three also share a shape worth noticing: in each case Berkeley has already conceded the principle and then failed to fund or codify it. There is no right to counsel in the municipal code, only contracted eviction-defense services that a 2023 Council referral records running out mid-year. Non-police crisis response existed and was ended: the Specialized Care Unit ran on entirely one-time money from September 2023 to May 2025, and the budget adopted June 23, 2026 eliminated the last 2.6 General Fund crisis positions, moving wellness checks and psychiatric emergencies solely to the Police Department while all-funds police spending rose by $661,150. A citywide transit pass has been adopted City policy since December 2001 under General Plan Transportation Element Policy T-3 and has never been funded, though Berkeley already buys AC Transit EasyPass for its own employees. That pattern — the promise made, the line item missing — is the throughline available to this answer, and it is a stronger frame than three unrelated good ideas.",
       "references": [],
       "levers": [
         {
           "tier": "authority",
-          "text": "Adopt a right-to-counsel ordinance for tenants facing eviction"
+          "text": "Adopt an ordinance establishing a right to counsel in eviction proceedings, rather than funding services by contract"
         },
         {
           "tier": "authority",
-          "text": "Restore recurring funding for non-police mental health crisis response"
+          "text": "Size the Measure U1 anti-displacement allocation to filing volume so eviction defense does not lapse mid-year"
+        },
+        {
+          "tier": "authority",
+          "text": "Restore the General Fund crisis-response positions eliminated in the FY2027–28 budget, with recurring rather than one-time funding"
         },
         {
           "tier": "authority",
           "text": "Fund the citywide transit pass already contemplated by General Plan Policy T-3"
+        },
+        {
+          "tier": "authority",
+          "text": "Extend the AC Transit EasyPass the City already buys for employees to a resident or student group"
+        },
+        {
+          "tier": "authority",
+          "text": "Vote through Berkeley's Alameda CTC seat to make the Measure BB student transit pass universal for Berkeley Unified"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "label": "Measure U1 Budget and Forecast — FY2026 Mid-Biennial Budget Update",
+          "url": "https://berkeleyca.gov/sites/default/files/legislative-body-meeting-attachments/2025-05-22%20Item%2002%20Supplemental%20Material%20-%20Fiscal%20Year%202026%20Mid-Biennial%20Budget%20Update%20(Measure%20U1%20Forecast).pdf"
+        },
+        {
+          "label": "Budget Referral: Supplemental Funding for Housing Retention Program",
+          "url": "https://berkeleyca.gov/sites/default/files/documents/2023-11-07%20Item%2013%20Budget%20Referral%20Supplemental%20Funding.pdf"
+        },
+        {
+          "label": "City of Berkeley — Reimagining Public Safety, Summer 2025 Status Update",
+          "url": "https://berkeleyca.gov/sites/default/files/documents/RPS_StatusUpdate_22July2025.pdf"
+        },
+        {
+          "label": "City Manager memo — Specialized Care Unit (April 22, 2025)",
+          "url": "https://berkeleyca.gov/sites/default/files/documents/2025-04-22%20%20%20%20%20Specialized%20Care%20Unit.pdf"
+        },
+        {
+          "label": "Alameda CTC — Student Transit Pass Program",
+          "url": "https://www.alamedactc.org/programs-projects/student-transit-pass/"
+        }
+      ],
       "suggested": [
         {
           "note": "",
-          "text": "[Choose three and state each as an instrument, not an aspiration. Drafted options below, each verified as within Council authority — replace or reorder to match priorities.]\n\n1. A right to counsel for tenants facing eviction. Berkeley funds eviction defense by contract, roughly $800,000 a year, and the money has run out mid-year before. I would make representation an entitlement rather than a service that depends on the balance in a contract.\n\n2. Restoring non-police crisis response. The budget adopted in June 2026 eliminated the City's last mental health crisis positions and shifted psychiatric emergencies entirely to the police. I would restore those positions with ongoing funding rather than grant money.\n\n3. [Third priority — a citywide transit pass under General Plan Policy T-3, or the candidate's own leading issue.]"
+          "text": "All three are things Berkeley has already said it believes and then failed to fund. That is the pattern I want to break, so each of these is an ordinance or a line item, not a statement of values.\n\n**1. A right to counsel for tenants facing eviction.** Berkeley does not have one. What we have is contracted eviction-defense services — roughly $800,000 a year through Measure U1, delivered by the East Bay Community Law Center and the Eviction Defense Center — plus a separate program that pays back rent but funds no lawyer. Whether a tenant gets representation depends on how much is left in the contract the week their notice arrives. In 2023 the Council was told the money would run out by January even after a $2 million supplement. I would move Berkeley from funding a service to guaranteeing a right, by ordinance, and size the anti-displacement allocation to filing volume instead of to a fixed appropriation.\n\n**2. Restore non-police crisis response.** Berkeley ran a Specialized Care Unit — a peer counselor, an EMT, and a clinician answering mental health and substance use calls without an officer — from September 2023 until May 2025. It worked, and it was paid for entirely with one-time federal and grant money, so when that ran out it ended. The budget adopted this June then eliminated the last 2.6 city-funded crisis positions; the budget document states plainly that the City will no longer provide crisis response and that wellness checks and psychiatric emergencies now fall solely to the Police Department. Over the same period all-funds police spending rose by about $661,000. I would restore those positions and fund a successor to the SCU out of ongoing General Fund money, because a pilot without a permanent line item is a program with an expiration date.\n\n**3. Fund the citywide transit pass Berkeley adopted in 2001 and never paid for.** Our General Plan has directed the City to consider a transit pass for residents since December 2001. We already buy AC Transit EasyPass for our own municipal employees. Extending that to residents is an appropriation, not a new idea. And through Berkeley's seat on the Alameda County Transportation Commission I would vote to make the Measure BB student pass universal for Berkeley Unified — today our district means-tests it to families who qualify for free or reduced-price meals, while Emery Unified and Livermore Valley give it to every student.\n\n[Confirm these are the right three and the right order. If a different priority belongs here, the useful test is the same one applied above: name the ordinance, the appropriation, or the commission vote that delivers it.]"
         }
       ],
       "verification": [
         {
-          "claim": "Berkeley City Council can adopt a right-to-counsel ordinance, restore crisis response positions, and fund a transit pass",
+          "claim": "Berkeley has a codified right to counsel for tenants facing eviction",
+          "result": "refuted",
+          "source": "Berkeley Municipal Code, Charter, and Ordinances (berkeley.municipal.codes exact-phrase search)",
+          "date": "2026-07-29",
+          "note": "Searches for 'right to counsel', 'legal defense', and 'eviction defense' each returned no match in scope. No ordinance creates an entitlement to counsel."
+        },
+        {
+          "claim": "Berkeley funds contracted eviction-defense legal services",
           "result": "confirmed",
-          "source": "Berkeley Municipal Code (ordinance authority); FY2027–FY2028 adopted budget, Resolution 72,340-N.S. (appropriation authority); Berkeley General Plan Transportation Element Policy T-3",
+          "source": "Measure U1 Budget and Forecast, FY2026 Mid-Biennial Budget Update, Item 02 Supplemental Material",
+          "date": "2025-05-22",
+          "note": "Anti-Displacement lines fund Rent Board (EDC & EBCLC) at $550,000/year and the Eviction Defense Center at $250,000/year — roughly $800,000 annually as contracted services, not an entitlement."
+        },
+        {
+          "claim": "Berkeley's eviction-defense and rent-arrears funding meets demand",
+          "result": "refuted",
+          "source": "Budget Referral: Supplemental Funding for Housing Retention Program, Council Consent Calendar Item 13",
+          "date": "2023-11-07",
+          "note": "After a $2 million supplement in March 2023 the referral anticipated funding running out by January 2024, against 130 eviction notices received by the Rent Board in September 2023."
+        },
+        {
+          "claim": "Berkeley currently operates a city-run non-police crisis response program",
+          "result": "refuted",
+          "source": "Reimagining Public Safety Summer 2025 Status Update; FY2027–FY2028 adopted budget (Resolution 72,340-N.S.)",
           "date": "2026-06-23",
-          "note": "All three are generic municipal powers — ordinance adoption and budget appropriation — exercised by Council under the Council-Manager charter. Policy T-3 already directs the City to consider a citywide transit pass; it has never been funded."
+          "note": "The SCU phone line is recorded as running September 2023 to May 2025 and marked Complete. The adopted budget eliminates 2.6 filled FTE described as 'the last General Fund-funded mental health crisis response positions' and states the City 'will no longer provide crisis response services,' shifting wellness checks and psychiatric emergencies solely to the Police Department."
+        },
+        {
+          "claim": "The Specialized Care Unit had recurring funding",
+          "result": "refuted",
+          "source": "City Manager memo, Specialized Care Unit",
+          "date": "2025-04-22",
+          "note": "Total pilot funding of $5.3 million was entirely one-time: $4,750,000 ARPA, $536,500 DHCS Crisis Care Mobile Units grant expiring June 30, 2025, and $68,000 MHSA. The memo states 'There is no reoccurring funding for the pilot.'"
+        },
+        {
+          "claim": "Berkeley's police budget declined in the current adopted budget",
+          "result": "refuted",
+          "source": "Summary of Expenditures by Department, FY2027–FY2028 adopted budget",
+          "date": "2026-06-23",
+          "note": "All Funds Police rises from $106,237,136 adopted in FY2026 to $106,898,286 in FY2027, an increase of $661,150. The cited 10% reduction is measured against a baseline projection rather than prior-year adopted."
+        },
+        {
+          "claim": "Berkeley has adopted policy contemplating a citywide transit pass",
+          "result": "confirmed",
+          "source": "Berkeley General Plan, Transportation Element Policy T-3 (Eco-Pass City Program)",
+          "date": "2001-12-18",
+          "note": "Directs the City to consider a citywide transit pass for Berkeley residents financed by a tax, allowing unlimited rides on AC Transit and/or BART. Adopted policy, never funded."
+        },
+        {
+          "claim": "Berkeley funds a transit pass for residents or students",
+          "result": "refuted",
+          "source": "City of Berkeley FY2027–FY2028 adopted budget",
+          "date": "2026-06-23",
+          "note": "The only City-funded pass is AC Transit EasyPass for municipal employees (Resolution 71,988-N.S., not to exceed $572,717 over three years, from the Payroll Deduction Trust Fund). No youth, student, or resident pass line item exists."
+        }
+      ],
+      "quotes": [
+        {
+          "source": "cecilia",
+          "attribution": "Cecilia Lunaparra — East Bay DSA, D7 2024",
+          "text": "My top three priorities are: affordable housing, tenant's rights, and protecting our unhoused neighbors; getting to the roots of public safety and investing in non-policing and decarceral harm reduction programs; making streets and third spaces accessible to all by investing in pedestrian and bike infrastructure, traffic calming, public transit, and more.",
+          "relevance": "A Berkeley councilmember's own top-three, structured as themes. The three planks drafted here land on the same terrain — tenants, non-police response, transit — so the distinction available is specificity: naming the ordinance and the line item rather than the theme.",
+          "status": "current"
+        },
+        {
+          "source": "cecilia",
+          "attribution": "Cecilia Lunaparra — ACCE, D7 2024",
+          "text": "Improve student and community safety by investing in programs like Berkeley's Specialized Care Unit and BerkDOT that prevent the root causes of violence, rather than criminalization and mass incarceration. Make the SCU 24/7 and pressure the state government to allow BerkDOT to take effect so that mental health issues, addiction, and traffic violations are not being handled by armed police officers.",
+          "relevance": "A 2024 Berkeley campaign promising to expand the Specialized Care Unit to 24/7. Neither program survived, which is precisely the argument the crisis-response plank makes — the position was popular and the funding was never made permanent.",
+          "status": "stale",
+          "stale_note": "The Specialized Care Unit ran September 2023 to May 2025 and is recorded as complete; it was funded entirely with one-time ARPA and grant money. The budget adopted June 23, 2026 then eliminated the last 2.6 General Fund crisis-response positions. BerkDOT was never created — the July 2020 action was a referral, now classified paused and defunded at Tier 3."
+        },
+        {
+          "source": "syrak",
+          "attribution": "Syrak Micael — Sierra Club, D7 2026",
+          "text": "My priority in creating a healthier and more sustainable community is to use all available means to increase public transit usage and reduce car dependency. I strongly oppose parking minimums and support parking maximums near transit. New housing must be transit-oriented wherever practicable, and parking minimums only encourage continued car use and unnecessarily drive up costs.",
+          "relevance": "Another 2026 Berkeley candidate leading on transit, framed through land use rather than fares — useful contrast for a plank that turns on affordability instead of parking policy.",
+          "status": "current"
         }
       ]
     },
