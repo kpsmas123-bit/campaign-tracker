@@ -172,6 +172,14 @@
     display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
   }
   .qn { color: var(--text-secondary); font-weight: 600; }
+  /* Question number. Derived from array position, not from q.id — ids are
+     inconsistent across orgs (alc_bg1, b1, pp_q*) and do not track order.
+     Position is what go() and the nav dots already address, so they agree. */
+  .qnum {
+    color: var(--text); font-weight: 600;
+    border: 1px solid var(--border); border-radius: 2px;
+    padding: 1px 6px; letter-spacing: 0.04em;
+  }
   .chip {
     font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 600;
     letter-spacing: 0.03em; text-transform: uppercase;
@@ -819,7 +827,9 @@
 
     // Left column: question + textarea
     var es = effectiveStatus(q);
-    L.innerHTML = '<div class="eyebrow"><span class="qn">' + esc(q.section) + '</span>' +
+    L.innerHTML = '<div class="eyebrow">' +
+      '<span class="qnum">Q' + (idx + 1) + ' of ' + DATA.questions.length + '</span>' +
+      '<span class="qn">' + esc(q.section) + '</span>' +
       '<span class="chip ' + es + '">' + (LBL[es] || es) + '</span></div>' +
       '<div class="question">' + esc(q.question) + '</div>';
 
@@ -1063,7 +1073,7 @@
       var b = document.createElement('button');
       b.className = 'dot-btn ' + effectiveStatus(q);
       if (cur === i + 1) b.classList.add('cur');
-      b.title = q.section + ': ' + q.question;
+      b.title = 'Q' + (i + 1) + ' — ' + q.section + ': ' + q.question;
       b.addEventListener('click', function () { go(i + 1); });
       wrap.appendChild(b);
     });
@@ -1113,10 +1123,10 @@
     var out = DATA.org.toUpperCase() + ' ' + DATA.cycle + ' QUESTIONNAIRE — ' +
       DATA.candidate.toUpperCase() + '\n\nSECTION 1 CANDIDATE COMMITTEE INFORMATION\n';
     (DATA.contact_fields || []).forEach(function (f) { out += f.label + ': ' + (f.v || '') + '\n'; });
-    DATA.questions.forEach(function (q) {
+    DATA.questions.forEach(function (q, i) {
       var marker = '';
       if (q.status === 'blocked') marker = '[BLOCKED — UNRESOLVED PREMISE, DO NOT SUBMIT]\n';
-      out += '\n\n' + q.section.toUpperCase() + '\n' + q.question + '\n\n' +
+      out += '\n\nQ' + (i + 1) + ' — ' + q.section.toUpperCase() + '\n' + q.question + '\n\n' +
         marker + ((answers[q.id] || '').trim() || '[NOT YET ANSWERED]') + '\n';
       if (q.levers && q.levers.length) {
         q.levers.forEach(function (l) {
