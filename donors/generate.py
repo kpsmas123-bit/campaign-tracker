@@ -17,7 +17,7 @@ import json, sys, html, math
 
 AUTH_CSS = """
   .auth-gate {
-    min-height: 100vh; display: flex;
+    min-height: calc(100vh - 52px); display: flex;
     align-items: center; justify-content: center; padding: 24px;
   }
   .auth-card {
@@ -409,12 +409,12 @@ def generate(data_path, out_path):
 {AUTH_CSS}</style>
 </head>
 <body>
-{AUTH_HTML}
-<nav class="site-nav" id="siteNav" style="display:none">
+<nav class="site-nav" id="siteNav">
   <a href="../index.html">Tasks</a>
   <a href="../questionnaires/index.html">Questionnaires</a>
   <a href="index.html" class="active">Fundraising</a>
 </nav>
+{AUTH_HTML}
 
 <div class="app" id="appRoot" style="display:none">
 

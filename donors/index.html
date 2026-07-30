@@ -190,7 +190,7 @@
   }
 
   .auth-gate {
-    min-height: 100vh; display: flex;
+    min-height: calc(100vh - 52px); display: flex;
     align-items: center; justify-content: center; padding: 24px;
   }
   .auth-card {
@@ -220,6 +220,11 @@
 </style>
 </head>
 <body>
+<nav class="site-nav" id="siteNav">
+  <a href="../index.html">Tasks</a>
+  <a href="../questionnaires/index.html">Questionnaires</a>
+  <a href="index.html" class="active">Fundraising</a>
+</nav>
 
 <div class="auth-gate" id="authGate">
   <div class="auth-card">
@@ -231,16 +236,11 @@
   </div>
 </div>
 
-<nav class="site-nav" id="siteNav" style="display:none">
-  <a href="../index.html">Tasks</a>
-  <a href="../questionnaires/index.html">Questionnaires</a>
-  <a href="index.html" class="active">Fundraising</a>
-</nav>
 
 <div class="app" id="appRoot" style="display:none">
 
   <h1 class="page-title">Fundraising</h1>
-  <p class="page-sub">Updated 2026-07-29</p>
+  <p class="page-sub">Updated 2026-07-28</p>
 
   <div class="stats">
     <div class="stat">

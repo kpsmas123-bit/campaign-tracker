@@ -67,7 +67,7 @@
   }
 
   .auth-gate {
-    min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px;
+    min-height: calc(100vh - 52px); display: flex; align-items: center; justify-content: center; padding: 24px;
   }
   .auth-card { max-width: 340px; width: 100%; display: flex; flex-direction: column; gap: 14px; }
   .auth-title { font-family: Georgia, 'Times New Roman', serif; font-size: 20px; font-weight: normal; }
@@ -359,6 +359,11 @@
 </head>
 <body>
 
+<nav class="site-nav" id="siteNav">
+  <a href="index.html" class="active">Tasks</a>
+  <a href="questionnaires/index.html">Questionnaires</a>
+  <a href="donors/index.html">Fundraising</a>
+</nav>
 <div class="auth-gate" id="authGate">
   <div class="auth-card">
     <div class="auth-title">Daria for Berkeley</div>
@@ -369,11 +374,6 @@
   </div>
 </div>
 
-<nav class="site-nav" id="siteNav" style="display:none">
-  <a href="index.html" class="active">Tasks</a>
-  <a href="questionnaires/index.html">Questionnaires</a>
-  <a href="donors/index.html">Fundraising</a>
-</nav>
 
 <div class="app" id="app" style="display:none">
   <div id="setupBanner"></div>

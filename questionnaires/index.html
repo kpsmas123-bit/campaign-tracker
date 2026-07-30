@@ -82,7 +82,7 @@
 
   /* --- Auth gate --- */
   .auth-gate {
-    min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px;
+    min-height: calc(100vh - 52px); display: flex; align-items: center; justify-content: center; padding: 24px;
   }
   .auth-card { max-width: 340px; width: 100%; display: flex; flex-direction: column; gap: 14px; }
   .auth-title { font-family: Georgia, 'Times New Roman', serif; font-size: 20px; font-weight: normal; }
@@ -215,7 +215,7 @@
 </head>
 <body>
 
-<nav class="site-nav" id="siteNav" style="display:none">
+<nav class="site-nav" id="siteNav">
   <a href="../index.html">Tasks</a>
   <a href="index.html" class="active">Questionnaires</a>
   <a href="../donors/index.html">Fundraising</a>
