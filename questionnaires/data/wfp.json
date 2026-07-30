@@ -157,141 +157,198 @@
       "topic": "why_running",
       "status": "thin",
       "question": "What are the first three policies you would introduce if you are elected to the office you are seeking?",
-      "analysis": "Asks for three concrete first-term initiatives. The strongest answers for a municipal race name an instrument the office actually controls — an ordinance, an appropriation, a contract, a commission vote — rather than a position on state law, and each of the three drafted here is one. All three also share a shape worth noticing: in each case Berkeley has already conceded the principle and then failed to fund or codify it. There is no right to counsel in the municipal code, only contracted eviction-defense services that a 2023 Council referral records running out mid-year. Non-police crisis response existed and was ended: the Specialized Care Unit ran on entirely one-time money from September 2023 to May 2025, and the budget adopted June 23, 2026 eliminated the last 2.6 General Fund crisis positions, moving wellness checks and psychiatric emergencies solely to the Police Department while all-funds police spending rose by $661,150. A citywide transit pass has been adopted City policy since December 2001 under General Plan Transportation Element Policy T-3 and has never been funded, though Berkeley already buys AC Transit EasyPass for its own employees. That pattern — the promise made, the line item missing — is the throughline available to this answer, and it is a stronger frame than three unrelated good ideas.",
+      "analysis": "Asks for three concrete first-term initiatives. The strongest answers name an instrument the office controls — an ordinance, an appropriation, a contract, a commission vote. Each plank here has one, and each has a documented Berkeley record behind it.\n\nSurveillance: on May 7, 2026 the Council declined the Peace and Justice Commission's recommendation to cancel the Flock Safety contracts, rejected a roughly $2 million expansion into cameras and drones, and adopted Resolution 72,254-N.S. renewing the automated license plate reader contract twelve months for up to $200,000. That renewal lapses inside the next Council term.\n\nCommercial vacancy: Berkeley already taxes empty homes. Measure M passed in November 2022 with 64.94% and added BMC Chapter 7.54, which reaches residential units only — first bills issued September 2025 against 364 properties and 863 units, roughly $3.5 to $4 million a year projected. No Berkeley tax or registry reaches commercial storefronts. Two routes exist and they are not equivalent: a commercial vacancy tax requires a ballot measure, while a vacant storefront registry with monitoring fees rests on police power under Article XI Section 7 and Government Code 38771 and can be adopted by ordinance. San Jose runs the only commercial-specific program in California and it is a registry, not a tax.\n\nHarrison Street: the encampment sits in District 1, the seat this candidate is seeking. It was still occupied as of the City's June 10, 2026 public health update. The last primary population count is 51 people from a 2023 census. Berkeley has run the relevant precedent before — the Horizon Transitional Village and SPARK safe-parking site at 742 Grayson Street, July 2021 to October 2022, whose residents were primarily people displaced from the unsanctioned RV encampments at 8th and Harrison. It served about 150 people and closed because the lease expired, not because it failed. Council has already said it wants what this plank proposes: Item 29 of May 20, 2025 states that ideally some sites 'would have capacity to support the relocation of an entire encampment, to preserve an existing supportive community.' It passed as a referral, and staff answered on October 14, 2025 that absent new external funding they do not recommend opening new programs while existing shelters face closure. That staff position is the obstacle the answer has to meet.\n\nThree cautions on the law. Grants Pass v. Johnson abrogated Martin v. Boise in June 2024, so shelter capacity is no longer an Eighth Amendment precondition to enforcement — do not argue a city is barred from clearing camps. The April 3, 2026 order in Berkeley Homeless Union v. City of Berkeley holds expressly that the City is not required to designate or create sanctioned campsites, so this is a policy choice rather than a legal obligation. And Berkeley's own encampment policy already promises a shelter offer before closure whenever practicable, which is a self-imposed standard Council can raise.",
       "references": [],
       "levers": [
         {
           "tier": "authority",
-          "text": "Adopt an ordinance establishing a right to counsel in eviction proceedings, rather than funding services by contract"
+          "text": "Vote against renewing the Flock Safety automated license plate reader contract when the twelve-month extension lapses"
         },
         {
           "tier": "authority",
-          "text": "Size the Measure U1 anti-displacement allocation to filing volume so eviction defense does not lapse mid-year"
+          "text": "Adopt a vacant storefront registry with monitoring fees by ordinance, which requires no ballot measure"
         },
         {
           "tier": "authority",
-          "text": "Restore the General Fund crisis-response positions eliminated in the FY2027–28 budget, with recurring rather than one-time funding"
+          "text": "Place a commercial vacancy tax on the ballot to extend to storefronts what Measure M did for housing"
         },
         {
           "tier": "authority",
-          "text": "Fund the citywide transit pass already contemplated by General Plan Policy T-3"
+          "text": "Appropriate Measure P revenue to open an alternative site sized to relocate the Harrison Street community together"
         },
         {
           "tier": "authority",
-          "text": "Extend the AC Transit EasyPass the City already buys for employees to a resident or student group"
+          "text": "Amend Resolution 71,513-N.S. to require that closures preserve households, pets, and community rather than dispersing them"
         },
         {
           "tier": "authority",
-          "text": "Vote through Berkeley's Alameda CTC seat to make the Measure BB student transit pass universal for Berkeley Unified"
+          "text": "Direct Encampment Resolution Fund Round 3 money, which must be spent by June 30, 2027, toward the Harrison corridor"
         }
       ],
       "sources": [
         {
-          "label": "Measure U1 Budget and Forecast — FY2026 Mid-Biennial Budget Update",
-          "url": "https://berkeleyca.gov/sites/default/files/legislative-body-meeting-attachments/2025-05-22%20Item%2002%20Supplemental%20Material%20-%20Fiscal%20Year%202026%20Mid-Biennial%20Budget%20Update%20(Measure%20U1%20Forecast).pdf"
+          "label": "City of Berkeley — Measure M ballot packet (Empty Homes Tax, BMC Ch. 7.54)",
+          "url": "https://berkeleyca.gov/sites/default/files/documents/Measure%20M%20-%20November%208,%202022%20Election.pdf"
         },
         {
-          "label": "Budget Referral: Supplemental Funding for Housing Retention Program",
-          "url": "https://berkeleyca.gov/sites/default/files/documents/2023-11-07%20Item%2013%20Budget%20Referral%20Supplemental%20Funding.pdf"
+          "label": "Berkeley Rent Board — Empty Homes Tax Implementation Update (Sept 18, 2025)",
+          "url": "https://rentboard.berkeleyca.gov/sites/default/files/documents/09-18-2025_RSB_ITEM_8A2_ACTION_Empty%20Homes%20Tax%20Board%20Update_9-18-2025_FINAL.pdf"
         },
         {
-          "label": "City of Berkeley — Reimagining Public Safety, Summer 2025 Status Update",
-          "url": "https://berkeleyca.gov/sites/default/files/documents/RPS_StatusUpdate_22July2025.pdf"
+          "label": "Council Item 29 — Alternative Housing Options (May 20, 2025)",
+          "url": "https://berkeleyca.gov/sites/default/files/documents/2025-05-20%20Item%2029%20Alternative%20Housing%20Options.pdf"
         },
         {
-          "label": "City Manager memo — Specialized Care Unit (April 22, 2025)",
-          "url": "https://berkeleyca.gov/sites/default/files/documents/2025-04-22%20%20%20%20%20Specialized%20Care%20Unit.pdf"
+          "label": "Referral Response — Alternative Housing Options (Oct 14, 2025)",
+          "url": "https://berkeleyca.gov/sites/default/files/documents/2025-10-14%20Item%2015%20Referral%20Response%20%20Alternative%20Housing%20Options.pdf"
         },
         {
-          "label": "Alameda CTC — Student Transit Pass Program",
-          "url": "https://www.alamedactc.org/programs-projects/student-transit-pass/"
+          "label": "UCSF — Interim Evaluation of the Berkeley Encampment Resolution/RV Buyback Program (Mar 2026)",
+          "url": "https://homelessness.ucsf.edu/sites/default/files/2026-03/Berkeley%20RV%20Interim%20Evaluation%20Final%203.31.pdf"
+        },
+        {
+          "label": "City Manager — Measure P and Impact on Homeless Services in Berkeley (Mar 28, 2025)",
+          "url": "https://berkeleyca.gov/sites/default/files/documents/2025-03-28%20Measure%20P%20and%20Impact%20on%20Homeless%20Services%20in%20Berkeley.pdf"
+        },
+        {
+          "label": "KQED: Berkeley extends surveillance contract with Flock Safety but rejects major expansion",
+          "url": "https://www.kqed.org/news/12082887/berkeley-extends-surveillance-contract-with-flock-safety-but-rejects-major-expansion"
         }
       ],
       "suggested": [
         {
           "note": "",
-          "text": "All three are things Berkeley has already said it believes and then failed to fund. That is the pattern I want to break, so each of these is an ordinance or a line item, not a statement of values.\n\n**1. A right to counsel for tenants facing eviction.** Berkeley does not have one. What we have is contracted eviction-defense services — roughly $800,000 a year through Measure U1, delivered by the East Bay Community Law Center and the Eviction Defense Center — plus a separate program that pays back rent but funds no lawyer. Whether a tenant gets representation depends on how much is left in the contract the week their notice arrives. In 2023 the Council was told the money would run out by January even after a $2 million supplement. I would move Berkeley from funding a service to guaranteeing a right, by ordinance, and size the anti-displacement allocation to filing volume instead of to a fixed appropriation.\n\n**2. Restore non-police crisis response.** Berkeley ran a Specialized Care Unit — a peer counselor, an EMT, and a clinician answering mental health and substance use calls without an officer — from September 2023 until May 2025. It worked, and it was paid for entirely with one-time federal and grant money, so when that ran out it ended. The budget adopted this June then eliminated the last 2.6 city-funded crisis positions; the budget document states plainly that the City will no longer provide crisis response and that wellness checks and psychiatric emergencies now fall solely to the Police Department. Over the same period all-funds police spending rose by about $661,000. I would restore those positions and fund a successor to the SCU out of ongoing General Fund money, because a pilot without a permanent line item is a program with an expiration date.\n\n**3. Fund the citywide transit pass Berkeley adopted in 2001 and never paid for.** Our General Plan has directed the City to consider a transit pass for residents since December 2001. We already buy AC Transit EasyPass for our own municipal employees. Extending that to residents is an appropriation, not a new idea. And through Berkeley's seat on the Alameda County Transportation Commission I would vote to make the Measure BB student pass universal for Berkeley Unified — today our district means-tests it to families who qualify for free or reduced-price meals, while Emery Unified and Livermore Valley give it to every student.\n\n[Confirm these are the right three and the right order. If a different priority belongs here, the useful test is the same one applied above: name the ordinance, the appropriation, or the commission vote that delivers it.]"
+          "text": "**1. Get Berkeley out of the Flock Safety contract.**\n\nWe pay Flock to run license plate readers that photograph our neighbors' cars into a nationwide database. Audits elsewhere found federal agencies, including Border Patrol, searching local Flock data without the cities that owned it knowing; one state's review turned up an undisclosed pilot giving Customs and Border Protection access, and dozens of cities have cancelled. In May 2026 our Peace and Justice Commission recommended cancelling. The Council rejected the roughly $2 million expansion into cameras and drones and renewed the license plate reader contract anyway — twelve months, up to $200,000. That renewal lapses inside the next Council term, which means this seat casts the vote. Our sanctuary ordinance binds every city contractor and carries no criminal carve-out. The contract is the policy, and I would end it.\n\n**2. A commercial vacancy ordinance to fight blight and refill our storefronts.**\n\nBerkeley already taxes empty homes — Measure M passed with 65% in 2022 and is now billing 864 vacant units. Nothing we have reaches an empty storefront. A boarded-up block is not a market outcome; it is a landlord holding out for a rent the neighborhood cannot deliver, while the businesses and community spaces that would use that space have nowhere to go.\n\nI would start with the piece that needs no election: a vacant storefront registry with monitoring fees, adopted by ordinance under the city's police power, the way San Jose, Santa Monica, Pasadena, Long Beach, and Richmond have. Registration makes vacancy visible and costly, funds inspection, and gives us the data we currently do not have. Then take a commercial vacancy tax to the ballot, earmarked to fill those spaces — tenant improvement grants, below-market leases for small businesses and nonprofits, and space for community projects.\n\nI would rather be honest than oversell this. No California city has published evidence that a vacancy tax actually reduced vacancy. Oakland's has raised about $5.9 million a year against the $10 million promised, and this July Oakland had to strip its own liens off vacant parcels because they were blocking sales to affordable housing developers. San Diego's empty homes tax lost at the ballot this June. So the design has to be better than the ones that came before: the point is filling the space, not collecting the penalty, and the tax should be the lever that makes the incentive credible rather than the goal.\n\n**3. An alternative site for the Harrison Street community — together, not scattered.**\n\nHarrison Street is in the district I am running to represent. It is still occupied. The city has spent nearly $284,000 on outside counsel defending encampment litigation in one fiscal year, cleared 40 tons of garbage since February, and the people living there are no closer to housing.\n\nBerkeley has already done the thing that works. From 2021 to 2022 we ran a transitional village and safe-parking site at 742 Grayson Street, and its residents were mostly people displaced from the RV encampments at 8th and Harrison. It served about 150 people and moved roughly 30 into permanent housing. It did not close because it failed. It closed because the lease ran out.\n\nI would open a site sized to take the Harrison community together. This Council already said it wants that — in May 2025 it passed a referral stating that ideally a site would have capacity to relocate an entire encampment to preserve an existing supportive community — and then staff came back and said not to fund one while existing shelters are closing. They were not wrong about the budget: this year we eliminated the Winter Shelter and cut the STAIR Center by 23%. I would fund it out of Measure P, which raises about $11 million a year for exactly this, and out of the Encampment Resolution Fund money that has to be spent by June 2027 or returned.\n\nTwo things I would change about how we do it. Our own encampment policy says nothing about pets, partners, or keeping a community together — the storage rules are detailed and the human ones are absent. Berkeley's own evaluation of the 2nd and Cedar closure found people there had already been swept from somewhere else, and recommended letting residents stay with partners, pets, and family. I would write that into the policy. And I would stop pretending the courts are making this decision for us. A federal judge ruled in April that Berkeley is not required to create a sanctioned site. That is exactly the point: it is a choice, and I would make it.\n\n[Confirm the ordering and add the candidate's own account of the Harrison corridor — residents met, meetings attended, testimony given. The record above is documentary; the firsthand detail is what makes it the candidate's.]"
         }
       ],
       "verification": [
         {
-          "claim": "Berkeley has a codified right to counsel for tenants facing eviction",
-          "result": "refuted",
-          "source": "Berkeley Municipal Code, Charter, and Ordinances (berkeley.municipal.codes exact-phrase search)",
-          "date": "2026-07-29",
-          "note": "Searches for 'right to counsel', 'legal defense', and 'eviction defense' each returned no match in scope. No ordinance creates an entitlement to counsel."
-        },
-        {
-          "claim": "Berkeley funds contracted eviction-defense legal services",
+          "claim": "Berkeley's Council renewed the Flock Safety license plate reader contract in May 2026 while rejecting a larger expansion",
           "result": "confirmed",
-          "source": "Measure U1 Budget and Forecast, FY2026 Mid-Biennial Budget Update, Item 02 Supplemental Material",
-          "date": "2025-05-22",
-          "note": "Anti-Displacement lines fund Rent Board (EDC & EBCLC) at $550,000/year and the Eviction Defense Center at $250,000/year — roughly $800,000 annually as contracted services, not an entitlement."
+          "source": "Berkeley City Council Resolution 72,254-N.S.; KQED Flock Safety coverage",
+          "date": "2026-05-07",
+          "note": "Council declined the Peace and Justice Commission's recommendation to cancel and instead extended the ALPR contract twelve months for up to $200,000 with amended language, while rejecting a roughly $2 million expansion into cameras and drones."
         },
         {
-          "claim": "Berkeley's eviction-defense and rent-arrears funding meets demand",
-          "result": "refuted",
-          "source": "Budget Referral: Supplemental Funding for Housing Retention Program, Council Consent Calendar Item 13",
-          "date": "2023-11-07",
-          "note": "After a $2 million supplement in March 2023 the referral anticipated funding running out by January 2024, against 130 eviction notices received by the Rent Board in September 2023."
-        },
-        {
-          "claim": "Berkeley currently operates a city-run non-police crisis response program",
-          "result": "refuted",
-          "source": "Reimagining Public Safety Summer 2025 Status Update; FY2027–FY2028 adopted budget (Resolution 72,340-N.S.)",
-          "date": "2026-06-23",
-          "note": "The SCU phone line is recorded as running September 2023 to May 2025 and marked Complete. The adopted budget eliminates 2.6 filled FTE described as 'the last General Fund-funded mental health crisis response positions' and states the City 'will no longer provide crisis response services,' shifting wellness checks and psychiatric emergencies solely to the Police Department."
-        },
-        {
-          "claim": "The Specialized Care Unit had recurring funding",
-          "result": "refuted",
-          "source": "City Manager memo, Specialized Care Unit",
-          "date": "2025-04-22",
-          "note": "Total pilot funding of $5.3 million was entirely one-time: $4,750,000 ARPA, $536,500 DHCS Crisis Care Mobile Units grant expiring June 30, 2025, and $68,000 MHSA. The memo states 'There is no reoccurring funding for the pilot.'"
-        },
-        {
-          "claim": "Berkeley's police budget declined in the current adopted budget",
-          "result": "refuted",
-          "source": "Summary of Expenditures by Department, FY2027–FY2028 adopted budget",
-          "date": "2026-06-23",
-          "note": "All Funds Police rises from $106,237,136 adopted in FY2026 to $106,898,286 in FY2027, an increase of $661,150. The cited 10% reduction is measured against a baseline projection rather than prior-year adopted."
-        },
-        {
-          "claim": "Berkeley has adopted policy contemplating a citywide transit pass",
+          "claim": "Federal agencies including Border Patrol searched local Flock data without the owning cities' knowledge",
           "result": "confirmed",
-          "source": "Berkeley General Plan, Transportation Element Policy T-3 (Eco-Pass City Program)",
-          "date": "2001-12-18",
-          "note": "Directs the City to consider a citywide transit pass for Berkeley residents financed by a tax, allowing unlimited rides on AC Transit and/or BART. Adopted policy, never funded."
+          "source": "Illinois state audit of the Flock CBP pilot; municipal Flock audits reported by NPR and local outlets",
+          "date": "2026-02-17",
+          "note": "An Illinois audit found Flock had allowed Customs and Border Protection access through an undisclosed pilot; agencies without data-sharing agreements ran an estimated 600,000 unauthorized searches in the twelve months to December 2025, and dozens of cities have since cancelled. State as federal access occurring without city knowledge — not as a single deliberate grant by the company, which the record does not establish."
         },
         {
-          "claim": "Berkeley funds a transit pass for residents or students",
+          "claim": "Berkeley's existing vacancy tax covers residential units only and does not reach commercial property",
+          "result": "confirmed",
+          "source": "Measure M ballot packet and BMC Chapter 7.54 (Empty Homes Tax)",
+          "date": "2022-11-08",
+          "note": "Passed with 64.94% (28,805 to 15,549). BMC 7.54.030(L) defines a Residential Unit; no commercial or non-residential property appears anywhere in Chapter 7.54. Effective January 1, 2024, expires December 31, 2034."
+        },
+        {
+          "claim": "Berkeley's Empty Homes Tax is being implemented and collected",
+          "result": "confirmed",
+          "source": "Berkeley Rent Stabilization Board, Empty Homes Tax Implementation Update; City Manager report amending BMC 7.54",
+          "date": "2025-09-18",
+          "note": "First bills issued the week of September 15, 2025 for tax year 2024: 364 properties and 863 units assessed after exemptions, roughly $3.5 to $4 million a year projected. Actual collected revenue is not yet published."
+        },
+        {
+          "claim": "A vacant storefront registry can be adopted by ordinance without a ballot measure",
+          "result": "confirmed",
+          "source": "San Jose Municipal Code Ch. 17.38 Part 4; comparable registries in Santa Monica, Pasadena, Long Beach, and Richmond",
+          "date": "2026-07-30",
+          "note": "Registries rest on police power under California Constitution Article XI Section 7 and Government Code 38771 and recover costs through fees rather than raising revenue, so no vote is required. San Jose's Downtown Registration Area is the only commercial-specific program of either kind in California."
+        },
+        {
+          "claim": "Vacancy taxes have been shown to reduce commercial vacancy",
+          "result": "unresolved",
+          "source": "Survey of fourteen California cities; Oakland City Auditor performance audit pending",
+          "date": "2026-07-30",
+          "note": "No California city has published an official evaluation of effectiveness. Oakland's Measure W has collected an average of $5.9 million a year against roughly $10 million advertised, at 68 to 76 percent collection, and Oakland staff expressly disclaim their assessed-parcel counts as a vacancy metric. In July 2026 Oakland adopted Resolution 91291 removing its own vacancy-tax liens because they were blocking sales of vacant parcels to affordable housing developers. San Diego's Empty Homes Tax failed at the June 2026 ballot, reported at roughly 56.5 percent no — that result is secondary-sourced and the certified totals remain unconfirmed."
+        },
+        {
+          "claim": "The Harrison Street encampment is in District 1 and remains occupied",
+          "result": "confirmed",
+          "source": "City Manager Public Notice and Order to Abate; Council Item 37 (Kesarwani, District 1); City of Berkeley Public Health Update",
+          "date": "2026-06-10",
+          "note": "Harrison Street from 10th to 6th and 8th Street from Gilman to Codornices Creek. The June 10, 2026 update records 40 tons of garbage removed since February 2026 and outreach to occupants, so the site is still occupied. Last primary population figure is 51 people from a 2023 census."
+        },
+        {
+          "claim": "A court requires Berkeley to create a sanctioned campsite",
           "result": "refuted",
-          "source": "City of Berkeley FY2027–FY2028 adopted budget",
+          "source": "Berkeley Homeless Union v. City of Berkeley, No. 3:25-cv-01414-EMC, order on cross-motions for summary judgment (Dkt. 288)",
+          "date": "2026-04-03",
+          "note": "The order states the City 'is not required to designate, create, or identify' enforcement-free relocation zones or City-sanctioned campsites. A sanctioned site is legally permitted but not compelled — it is a policy choice. The City did lose on ADA grounds regarding individualized assessment, moving assistance, and property storage."
+        },
+        {
+          "claim": "Shelter capacity is still a legal precondition to closing an encampment",
+          "result": "refuted",
+          "source": "City of Grants Pass v. Johnson, 603 U.S. 520 (June 28, 2024), abrogating Martin v. City of Boise",
+          "date": "2024-06-28",
+          "note": "Generally applicable camping ordinances may now be enforced even where no shelter beds are available. Fourth and Fourteenth Amendment property protections under Lavan v. City of Los Angeles remain intact, and Grants Pass says nothing about the ADA. Berkeley's own promise of a shelter offer before closure is self-imposed policy under Resolution 71,513-N.S., not a legal floor."
+        },
+        {
+          "claim": "Berkeley has previously operated a sanctioned site serving people displaced from Harrison Street",
+          "result": "confirmed",
+          "source": "Council Item 29, Alternative Housing Options",
+          "date": "2025-05-20",
+          "note": "The Horizon Transitional Village and SPARK safe-parking site at 742 Grayson Street operated July 2021 to October 2022 with up to 40 RVs and about 50 indoor beds, serving roughly 150 people with about 30 connected to permanent housing. Its residents were primarily individuals displaced from the unsanctioned RV encampments at 8th and Harrison. It closed when the City's lease expired, not on performance."
+        },
+        {
+          "claim": "Council has already adopted the goal of relocating an encampment together to preserve its community",
+          "result": "confirmed",
+          "source": "Council Item 29, Alternative Housing Options; Referral Response, Oct 14, 2025",
+          "date": "2025-05-20",
+          "note": "Item 29 states that ideally some sites 'would have capacity to support the relocation of an entire encampment, to preserve an existing supportive community.' It passed as a referral rather than binding policy, and staff responded on October 14, 2025 that absent new external funding they do not recommend opening new programs while existing shelter programs face imminent closure."
+        },
+        {
+          "claim": "Berkeley's adopted encampment policy protects pets, partners, or community cohesion during closures",
+          "result": "refuted",
+          "source": "Resolution 71,513-N.S.; Administrative Regulations 10.1 and 10.2",
+          "date": "2024-09-10",
+          "note": "The adopted policy and administrative regulations govern notice and property storage — 14 days, 90 days for property with apparent resale value of $100 or more, and a minimum 45 days for tents, tarps, and sleeping bags — but contain no provision on pets, service animals, partners, households, or keeping a community together. That gap is amendable by Council."
+        },
+        {
+          "claim": "Measure P is the revenue a Berkeley councilmember appropriates for homelessness",
+          "result": "confirmed",
+          "source": "City Manager memo, Measure P and Impact on Homeless Services in Berkeley",
+          "date": "2025-03-28",
+          "note": "Real property transfer tax passed November 2018 with 72.4%, raising roughly $11 million a year on average with wide swings by market conditions. In FY26 Berkeley spent $18.9 million on homelessness including $13 million of Measure P. Berkeley is not a direct recipient of state HHAP funds."
+        },
+        {
+          "claim": "The FY2027–28 budget reduced Berkeley's shelter capacity",
+          "result": "confirmed",
+          "source": "FY2027–FY2028 adopted biennial budget, Resolution 72,340-N.S.",
           "date": "2026-06-23",
-          "note": "The only City-funded pass is AC Transit EasyPass for municipal employees (Resolution 71,988-N.S., not to exceed $572,717 over three years, from the Payroll Deduction Trust Fund). No youth, student, or resident pass line item exists."
+          "note": "The Berkeley Winter Shelter was eliminated for $358,750 in savings, and the STAIR Center took a 23% operating reduction of $400,554 alongside a 25% bed-capacity reduction. The Mayor's supplemental restored other items but not these."
         }
       ],
       "quotes": [
         {
+          "source": "syrak",
+          "attribution": "Syrak Micael — Cal Berkeley Democrats, D7 2026",
+          "text": "Any enforcement framework must be paired with a credible answer to where people go. I propose working with Alameda County to identify alternative housing sites, both indoor and outdoor, using Measure W funding, with shower access, secure storage, and on-site counseling services for our unhoused neighbors.",
+          "relevance": "Nearly the same proposal from another 2026 Berkeley candidate, which means the alternative-sites plank is not by itself distinguishing — the specificity available is Harrison Street, the Grayson precedent, and naming Measure P as the actual funding source.",
+          "status": "unverified",
+          "stale_note": "The Measure W funding reference is ambiguous and unverified: Berkeley's Measure W (2024) is a transfer tax the Council appropriates, while Alameda County's Measure W (2020) is a county sales tax Berkeley does not control. Do not repeat the funding claim without resolving which is meant."
+        },
+        {
           "source": "cecilia",
           "attribution": "Cecilia Lunaparra — East Bay DSA, D7 2024",
-          "text": "My top three priorities are: affordable housing, tenant's rights, and protecting our unhoused neighbors; getting to the roots of public safety and investing in non-policing and decarceral harm reduction programs; making streets and third spaces accessible to all by investing in pedestrian and bike infrastructure, traffic calming, public transit, and more.",
-          "relevance": "A Berkeley councilmember's own top-three, structured as themes. The three planks drafted here land on the same terrain — tenants, non-police response, transit — so the distinction available is specificity: naming the ordinance and the line item rather than the theme.",
+          "text": "Fight against harmful, dangerous, and potentially unconstitutional sweeps of unhoused people, their belongings, and their pets. Fully fund a 24-hour inclement weather shelter to protect our unhoused neighbors. The City must ensure that our scarce Measure P funds are never used for encampment enforcement and sweeps, only for actual services.",
+          "relevance": "Names Measure P and the service-versus-enforcement distinction, and raises pets — which Berkeley's adopted encampment policy does not address at all.",
+          "status": "current"
+        },
+        {
+          "source": "syrak",
+          "attribution": "Syrak Micael — Planned Parenthood, D7 2026",
+          "text": "I believe that safety does not come from more police, but comes from people's basic needs being met. To this end, I will prioritize de-militarization of Berkeley PD, increased police oversight, and fight to end the city's contract with the mass surveillance company Flock. I will also fight to maintain our city's sanctuary status and prevent law enforcement from collaborating with ICE or other immigration authorities.",
+          "relevance": "Another 2026 Berkeley candidate also running on ending the Flock contract — the position is shared in this field, so the plank rests on being the vote that lands when the renewal lapses, not on holding the position.",
           "status": "current"
         },
         {
           "source": "cecilia",
-          "attribution": "Cecilia Lunaparra — ACCE, D7 2024",
-          "text": "Improve student and community safety by investing in programs like Berkeley's Specialized Care Unit and BerkDOT that prevent the root causes of violence, rather than criminalization and mass incarceration. Make the SCU 24/7 and pressure the state government to allow BerkDOT to take effect so that mental health issues, addiction, and traffic violations are not being handled by armed police officers.",
-          "relevance": "A 2024 Berkeley campaign promising to expand the Specialized Care Unit to 24/7. Neither program survived, which is precisely the argument the crisis-response plank makes — the position was popular and the funding was never made permanent.",
-          "status": "stale",
-          "stale_note": "The Specialized Care Unit ran September 2023 to May 2025 and is recorded as complete; it was funded entirely with one-time ARPA and grant money. The budget adopted June 23, 2026 then eliminated the last 2.6 General Fund crisis-response positions. BerkDOT was never created — the July 2020 action was a referral, now classified paused and defunded at Tier 3."
-        },
-        {
-          "source": "syrak",
-          "attribution": "Syrak Micael — Sierra Club, D7 2026",
-          "text": "My priority in creating a healthier and more sustainable community is to use all available means to increase public transit usage and reduce car dependency. I strongly oppose parking minimums and support parking maximums near transit. New housing must be transit-oriented wherever practicable, and parking minimums only encourage continued car use and unnecessarily drive up costs.",
-          "relevance": "Another 2026 Berkeley candidate leading on transit, framed through land use rather than fares — useful contrast for a plank that turns on affordability instead of parking policy.",
+          "attribution": "Cecilia Lunaparra — NUHW, D7 2024",
+          "text": "Which policies would you commit to supporting? Rent control, vacancy control, vacancy tax, tenant right to counsel, tenant anti-harassment, tenant right of first refusal, just-cause eviction protections — ALL OF THE ABOVE.",
+          "relevance": "When Berkeley says 'vacancy tax' it means the residential Empty Homes Tax that voters already passed. The commercial plank has to name the distinction explicitly or it reads as re-proposing Measure M.",
           "status": "current"
         }
       ]
