@@ -247,7 +247,7 @@
 
   .task-list-header {
     display: grid;
-    grid-template-columns: 28px 1fr 90px 100px 80px 28px;
+    grid-template-columns: 16px 28px 1fr 90px 100px 80px 28px;
     gap: 8px; align-items: center; padding: 8px 0;
     border-bottom: 1px solid var(--border);
     font-size: 11px; letter-spacing: 0.06em;
@@ -258,12 +258,24 @@
 
   .task-row {
     display: grid;
-    grid-template-columns: 28px 1fr 90px 100px 80px 28px;
+    grid-template-columns: 16px 28px 1fr 90px 100px 80px 28px;
     gap: 8px; align-items: center; padding: 7px 0;
     border-bottom: 1px solid var(--border-light);
     transition: background 0.1s ease;
   }
   .task-row:hover { background: var(--hover); }
+
+  /* Drag to reorder */
+  .task-grip {
+    color: var(--text-tertiary); cursor: grab; user-select: none;
+    font-size: 11px; line-height: 1; letter-spacing: -2px;
+    opacity: 0; transition: opacity 0.1s ease; text-align: center;
+  }
+  .task-row:hover .task-grip { opacity: 1; }
+  .task-row.dragging { opacity: 0.4; }
+  .task-row.dragging .task-grip { cursor: grabbing; }
+  .task-row.drop-above { box-shadow: inset 0 2px 0 0 var(--accent); }
+  .task-row.drop-below { box-shadow: inset 0 -2px 0 0 var(--accent); }
   .task-row.done .task-name-input { text-decoration: line-through; color: var(--done-text); }
   .task-row.done .task-due,
   .task-row.done .task-assignee-select,
@@ -351,7 +363,7 @@
 
   @media (max-width: 640px) {
     .app { padding: 24px 16px 60px; }
-    .task-list-header, .task-row { grid-template-columns: 24px 1fr 80px 28px; }
+    .task-list-header, .task-row { grid-template-columns: 16px 24px 1fr 80px 28px; }
     .task-list-header .col-assignee, .task-list-header .col-priority,
     .task-row .task-assignee-select, .task-row .task-priority-btn { display: none; }
   }
@@ -412,7 +424,7 @@
     <button class="filter-btn" data-filter="low">Low</button>
   </div>
 
-  <div class="task-list-header">
+  <div class="task-list-header"><div></div>
     <span></span>
     <span class="col-name">Task</span>
     <span class="col-due">Due</span>
@@ -478,6 +490,33 @@
     return new Date(dateStr + 'T00:00:00') < today;
   }
 
+  // Manual task order, persisted as a list of task ids in campaign_settings.
+  // Stored there rather than as a column on `tasks` because that table is
+  // shared with another app in this Supabase project — a settings key is
+  // additive and cannot affect it.
+  var taskOrder = [];
+
+  function applyTaskOrder() {
+    if (!taskOrder.length) return;
+    var pos = {};
+    taskOrder.forEach(function (id, i) { pos[id] = i; });
+    tasks.sort(function (a, b) {
+      var pa = pos[a.id], pb = pos[b.id];
+      if (pa === undefined && pb === undefined) return a.id - b.id;
+      if (pa === undefined) return 1;   // unordered (new) tasks fall to the end
+      if (pb === undefined) return -1;
+      return pa - pb;
+    });
+  }
+
+  async function saveTaskOrder() {
+    taskOrder = tasks.map(function (t) { return t.id; });
+    setSaveStatus('saving');
+    var r = await sb.from('campaign_settings')
+      .upsert({ key: 'taskOrder', value: JSON.stringify(taskOrder) });
+    setSaveStatus(r.error ? 'error' : 'saved');
+  }
+
   // --- Supabase data layer ---
 
   async function loadAll() {
@@ -493,6 +532,9 @@
     }
 
     tasks = r1.data || [];
+    var orderRow = (r3.data || []).find(function (x) { return x.key === 'taskOrder'; });
+    if (orderRow) { try { taskOrder = JSON.parse(orderRow.value) || []; } catch (e) { taskOrder = []; } }
+    applyTaskOrder();
     team = (r2.data || []).map(function(m) { return m.name; });
     var settings = r3.data || [];
     var nameRow = settings.find(function(s) { return s.key === 'campaignName'; });
@@ -665,7 +707,8 @@
           return '<option value="' + escHtml(m) + '"' + (t.assignee === m ? ' selected' : '') + '>' + escHtml(m) + '</option>';
         }).join('');
 
-      return '<div class="task-row' + (t.done ? ' done' : '') + '" data-id="' + t.id + '">' +
+      return '<div class="task-row' + (t.done ? ' done' : '') + '" data-id="' + t.id + '" draggable="true">' +
+        '<div class="task-grip" title="Drag to reorder">&#8942;&#8942;</div>' +
         '<div class="task-check' + (t.done ? ' checked' : '') + '" data-id="' + t.id + '"></div>' +
         '<input class="task-name-input" value="' + escHtml(t.name) + '" placeholder="Task name" data-id="' + t.id + '">' +
         '<input class="task-due' + (overdue ? ' overdue' : '') + '" type="date" value="' + (t.due || '') + '" data-id="' + t.id + '">' +
@@ -675,6 +718,50 @@
         '<button class="task-delete" data-id="' + t.id + '">&times;</button>' +
       '</div>';
     }).join('');
+
+    // Drag to reorder. Only meaningful in the unfiltered view, since a
+    // filtered list shows a subset and dropping into it cannot express a
+    // position among the hidden rows.
+    var dragId = null;
+    container.querySelectorAll('.task-row').forEach(function (row) {
+      row.addEventListener('dragstart', function (e) {
+        if (currentFilter !== 'all') { e.preventDefault(); return; }
+        dragId = parseInt(row.dataset.id);
+        row.classList.add('dragging');
+        e.dataTransfer.effectAllowed = 'move';
+        try { e.dataTransfer.setData('text/plain', String(dragId)); } catch (err) {}
+      });
+      row.addEventListener('dragend', function () {
+        dragId = null;
+        container.querySelectorAll('.task-row').forEach(function (r) {
+          r.classList.remove('dragging', 'drop-above', 'drop-below');
+        });
+      });
+      row.addEventListener('dragover', function (e) {
+        if (dragId === null || parseInt(row.dataset.id) === dragId) return;
+        e.preventDefault();
+        e.dataTransfer.dropEffect = 'move';
+        var mid = row.getBoundingClientRect().top + row.offsetHeight / 2;
+        row.classList.toggle('drop-above', e.clientY < mid);
+        row.classList.toggle('drop-below', e.clientY >= mid);
+      });
+      row.addEventListener('dragleave', function () {
+        row.classList.remove('drop-above', 'drop-below');
+      });
+      row.addEventListener('drop', function (e) {
+        e.preventDefault();
+        var targetId = parseInt(row.dataset.id);
+        if (dragId === null || targetId === dragId) return;
+        var below = row.classList.contains('drop-below');
+        var from = tasks.findIndex(function (t) { return t.id === dragId; });
+        if (from < 0) return;
+        var moved = tasks.splice(from, 1)[0];
+        var to = tasks.findIndex(function (t) { return t.id === targetId; });
+        tasks.splice(below ? to + 1 : to, 0, moved);
+        renderTasks();
+        saveTaskOrder();
+      });
+    });
 
     // Wire events
     container.querySelectorAll('.task-check').forEach(function(el) {

@@ -1,5 +1,11 @@
 """Generate the static fundraising dashboard from aggregated donor data.
 
+donors/index.html is a BUILD ARTIFACT owned by the donor-dashboard workflow.
+Do not regenerate it from a scratch/test JSON and commit that — doing so
+overwrites the Action's output and freezes a stale "Updated" date on the live
+page. After changing this file, trigger the workflow instead:
+    gh workflow run donor-dashboard.yml --ref main
+
 Berkeley public financing rules encoded here are verified against the City of
 Berkeley Public Financing Program Guide and the 2026 disbursement tracker:
   - 6:1 match on qualifying contributions of up to $60

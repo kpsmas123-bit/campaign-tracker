@@ -156,6 +156,10 @@
     border-bottom: 1px solid var(--border-light);
   }
   .row:hover { background: var(--hover); }
+  .row[draggable="true"] { cursor: grab; }
+  .row.dragging { opacity: 0.4; cursor: grabbing; }
+  .row.drop-above { box-shadow: inset 0 2px 0 0 var(--accent); }
+  .row.drop-below { box-shadow: inset 0 -2px 0 0 var(--accent); }
 
   .org-link { text-decoration: none; color: inherit; cursor: pointer; }
   .org-link:hover .org-name { color: var(--accent); }
@@ -263,6 +267,28 @@
   var answerCounts = {};
   var dueDates = {};
   var activeFilter = 'all';
+  // Manual org order, persisted as a list of slugs in campaign_settings —
+  // additive, so no schema change to the questionnaire tables.
+  var orgOrder = [];
+
+  function orderedSlugs(list) {
+    if (!orgOrder.length) return list;
+    var pos = {};
+    orgOrder.forEach(function (s, i) { pos[s] = i; });
+    return list.slice().sort(function (a, b) {
+      var pa = pos[a], pb = pos[b];
+      if (pa === undefined && pb === undefined) return 0;
+      if (pa === undefined) return 1;   // orgs added since the last reorder go last
+      if (pb === undefined) return -1;
+      return pa - pb;
+    });
+  }
+
+  async function saveOrgOrder(newOrder) {
+    orgOrder = newOrder;
+    await sb.from('campaign_settings')
+      .upsert({ key: 'questionnaireOrder', value: JSON.stringify(orgOrder) });
+  }
 
   var authGate = document.getElementById('authGate');
   var authPass = document.getElementById('authPass');
@@ -349,6 +375,11 @@
       }
     });
 
+    try {
+      var ro = await sb.from('campaign_settings').select('value').eq('key', 'questionnaireOrder');
+      if (ro.data && ro.data.length) orgOrder = JSON.parse(ro.data[0].value) || [];
+    } catch (e) { orgOrder = []; }
+
     buildFilters();
     render();
   }
@@ -385,7 +416,8 @@
   function render() {
     var wrap = document.getElementById('rows');
     wrap.innerHTML = '';
-    var slugs = KNOWN_ORGS.filter(function (slug) {
+    var dragSlug = null;
+    var slugs = orderedSlugs(KNOWN_ORGS).filter(function (slug) {
       if (activeFilter === 'all') return true;
       var s = statusData[slug];
       return s && s.category === activeFilter;
@@ -404,6 +436,44 @@
 
       var row = document.createElement('div');
       row.className = 'row';
+      row.draggable = true;
+      row.dataset.slug = slug;
+
+      // Drag to reorder. Disabled while a category filter is active, since a
+      // filtered list cannot express a position among the hidden rows.
+      row.addEventListener('dragstart', function (e) {
+        if (activeFilter !== 'all') { e.preventDefault(); return; }
+        dragSlug = slug;
+        row.classList.add('dragging');
+        e.dataTransfer.effectAllowed = 'move';
+        try { e.dataTransfer.setData('text/plain', slug); } catch (err) {}
+      });
+      row.addEventListener('dragend', function () {
+        dragSlug = null;
+        wrap.querySelectorAll('.row').forEach(function (r) {
+          r.classList.remove('dragging', 'drop-above', 'drop-below');
+        });
+      });
+      row.addEventListener('dragover', function (e) {
+        if (!dragSlug || slug === dragSlug) return;
+        e.preventDefault();
+        e.dataTransfer.dropEffect = 'move';
+        var mid = row.getBoundingClientRect().top + row.offsetHeight / 2;
+        row.classList.toggle('drop-above', e.clientY < mid);
+        row.classList.toggle('drop-below', e.clientY >= mid);
+      });
+      row.addEventListener('dragleave', function () {
+        row.classList.remove('drop-above', 'drop-below');
+      });
+      row.addEventListener('drop', function (e) {
+        e.preventDefault();
+        if (!dragSlug || slug === dragSlug) return;
+        var below = row.classList.contains('drop-below');
+        var next = orderedSlugs(KNOWN_ORGS).filter(function (x) { return x !== dragSlug; });
+        var at = next.indexOf(slug);
+        next.splice(below ? at + 1 : at, 0, dragSlug);
+        saveOrgOrder(next).then(render);
+      });
 
       // Org name cell — clickable link
       var c1 = document.createElement('div');
