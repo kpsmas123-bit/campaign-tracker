@@ -2060,14 +2060,63 @@
       "topic": "endorsement_ask",
       "status": "thin",
       "question": "What distinguishes you as a Working Families Party candidate from your opponents?",
-      "analysis": "A comparative question requiring knowledge of the District 1 field. The distinction WFP looks for is structural — funding sources, base of support, willingness to be accountable to organizations — rather than differences in stated positions, since in Berkeley most candidates will state similar positions.",
+      "analysis": "A comparative question. The distinction WFP looks for is structural — funding sources, base of support, and accountability to organizations — rather than differences in stated positions, since in Berkeley most candidates will state similar ones. Surveillance contracting is a live local fight the candidate can point to rather than a hypothetical: on May 7, 2026 the Council declined the Peace and Justice Commission's recommendation to cancel Berkeley's Flock Safety contracts over immigration data sharing, and instead adopted Resolution 72,254-N.S. extending the automated license plate reader contract twelve months for up to $200,000 with amended contract language, while separately rejecting a roughly $2 million expansion into cameras and drones. So the expansion was stopped and the underlying contract was not — the question is unresolved, and the renewal expires within the next Council term. It also sits at the intersection of three things WFP organizes on at once: corporate power, immigrant defense, and who a city does business with.",
       "references": [],
-      "levers": [],
-      "sources": [],
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "Vote against renewing the Flock Safety automated license plate reader contract when the twelve-month extension lapses"
+        },
+        {
+          "tier": "authority",
+          "text": "Condition any surveillance contract on audit rights and a bar on federal access, using the Council's contracting power"
+        },
+        {
+          "tier": "authority",
+          "text": "Act on the Peace and Justice Commission's cancellation recommendation the Council declined in May 2026"
+        }
+      ],
+      "sources": [
+        {
+          "label": "KQED: Berkeley extends surveillance contract with Flock Safety but rejects major expansion",
+          "url": "https://www.kqed.org/news/12082887/berkeley-extends-surveillance-contract-with-flock-safety-but-rejects-major-expansion"
+        },
+        {
+          "label": "NPR: Why some cities are canceling Flock license plate reader contracts",
+          "url": "https://www.npr.org/2026/02/17/nx-s1-5612825/flock-contracts-canceled-immigration-survillance-concerns"
+        },
+        {
+          "label": "City of Berkeley — Public Financing Program",
+          "url": "https://berkeleyca.gov/your-government/elections/campaign-finance"
+        }
+      ],
       "suggested": [
         {
           "note": "",
-          "text": "[Name the actual distinction, ideally structural rather than positional. In a Berkeley race where most candidates say similar things, the credible differentiators are: who funds the campaign, which organizations the candidate is accountable to, what the candidate has already done rather than promised, and willingness to take a position that costs something.]"
+          "text": "This race started for me with a surveillance contract.\n\nBerkeley calls itself a sanctuary city. We also pay Flock Safety to run automated license plate readers that photograph our neighbors' cars and feed a nationwide database. Audits in other states have since found federal agencies, including Border Patrol, searching local Flock data without the cities that owned it knowing — one state's review turned up an undisclosed pilot giving Customs and Border Protection access, and dozens of cities have cancelled their contracts since.\n\nIn May 2026 our Council had the chance to end it. The Peace and Justice Commission recommended cancelling. Instead the Council rejected the roughly $2 million expansion into cameras and drones — good — and quietly renewed the license plate reader contract anyway, twelve more months and up to $200,000. Half a decision. The renewal lapses during the next Council term, which means whoever holds this seat votes on it.\n\nThat is the difference I would name. Not that my opponents support surveillance; most of them will say they do not. It is that a sanctuary policy which stops at the boundary of a procurement decision is not a sanctuary policy. The contract is the policy. I would vote to end it, and until then I would condition it on audit rights and a hard bar on federal access.\n\nThe structural piece matters too. I am running in Berkeley's public financing program: no contribution over $60, no corporate or union money under our Election Reform Act, and no PAC money at all. Nobody with a city contract is funding this campaign.\n\n[Add the personal specifics only the candidate can supply: what first surfaced the Flock contract for the candidate, any testimony given or organizing done around the May 2026 vote, and — if there is a real contrast — where opponents actually landed on it.]"
+        }
+      ],
+      "verification": [
+        {
+          "claim": "Berkeley's Council renewed the Flock Safety license plate reader contract in May 2026 while rejecting a larger expansion",
+          "result": "confirmed",
+          "source": "Berkeley City Council Resolution 72,254-N.S.; KQED Flock Safety coverage",
+          "date": "2026-05-07",
+          "note": "Council declined the Peace and Justice Commission's recommendation to cancel the contracts and instead extended the ALPR contract twelve months for up to $200,000 with amended language, while rejecting a roughly $2 million expansion into cameras and drones."
+        },
+        {
+          "claim": "Federal agencies including Border Patrol searched local Flock data without the owning cities' knowledge",
+          "result": "confirmed",
+          "source": "Illinois state audit of Flock CBP pilot; municipal Flock audits reported by NPR and local outlets",
+          "date": "2026-02-17",
+          "note": "An Illinois audit found Flock had allowed Customs and Border Protection access through an undisclosed pilot; agencies without data-sharing agreements ran an estimated 600,000 unauthorized searches in the twelve months to December 2025, and dozens of cities have since cancelled. Phrase as federal access occurring without city knowledge — not as a single deliberate grant by the company, which the record does not establish."
+        },
+        {
+          "claim": "The candidate entered this race over Berkeley's surveillance contracting",
+          "result": "unresolved",
+          "source": "Campaign — supplied by the campaign, not independently documented",
+          "date": "2026-07-30",
+          "note": "The framing below is the campaign's own account of why the candidate ran. It should be confirmed in the candidate's words before submission; the surrounding facts about the contract and the audits are separately verified."
         }
       ]
     },
