@@ -180,6 +180,37 @@
     border: 1px solid var(--border); border-radius: 2px;
     padding: 1px 6px; letter-spacing: 0.04em;
   }
+  /* The org's own instruction for this section, quoted from the source form */
+  .secnote {
+    font-size: 12px; line-height: 1.5; color: var(--text-secondary);
+    border-left: 2px solid var(--border); padding: 2px 0 2px 10px;
+    margin: 0 0 10px 0;
+  }
+
+  /* Form controls mirroring the source PDF's checkboxes */
+  .choicebox { margin-bottom: 10px; }
+  .choice-head {
+    font-family: "IBM Plex Mono", monospace; font-size: 10px;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--text-tertiary); margin-bottom: 6px;
+  }
+  .choice-row { display: flex; gap: 6px; flex-wrap: wrap; }
+  .choice {
+    font-family: inherit; font-size: 13px; color: var(--text);
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 3px; padding: 6px 12px; cursor: pointer;
+    display: flex; align-items: center; gap: 7px;
+  }
+  .choice::before {
+    content: ''; width: 13px; height: 13px; flex: none;
+    border: 1px solid var(--text-tertiary); border-radius: 2px;
+  }
+  .choice:hover { border-color: var(--accent); }
+  .choice.on { border-color: var(--accent); color: var(--accent); font-weight: 500; }
+  .choice.on::before {
+    background: var(--accent); border-color: var(--accent);
+    box-shadow: inset 0 0 0 2px var(--surface);
+  }
   .chip {
     font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 600;
     letter-spacing: 0.03em; text-transform: uppercase;
@@ -546,6 +577,11 @@
   var answerStatus = {};
   var notes = {};
   var analysisOverrides = {};
+  // Form-control selections for questions the source PDF renders as checkboxes
+  // or radio groups. Stored under a "__c__" question_id prefix, following the
+  // same namespacing the analysis overrides already use, so no schema change
+  // is needed and the prose answer stays untouched.
+  var choiceSel = {};
   var reuseCache = {};
   var cur = 0;
   var TOTAL = 0;
@@ -657,6 +693,12 @@
             analysisOverrides[row.question_id.slice(5)] = row.answer_text || '';
             return;
           }
+          if (row.question_id.indexOf('__c__') === 0) {
+            // Stored as a newline-separated list of selected choice labels
+            choiceSel[row.question_id.slice(5)] =
+              (row.answer_text || '').split('\n').filter(function (s) { return s.trim(); });
+            return;
+          }
           answers[row.question_id] = row.answer_text || '';
           if (row.approved && row.is_signature) answerStatus[row.question_id] = 'approved';
           else if (row.approved) answerStatus[row.question_id] = 'final';
@@ -759,6 +801,39 @@
     }, 600);
   }
 
+  function saveChoice(qid) {
+    clearTimeout(saveTimers['c_' + qid]);
+    saveTimers['c_' + qid] = setTimeout(async function () {
+      setSaveStatus('saving');
+      try {
+        var res = await sb.from('questionnaire_answers').upsert({
+          org_slug: orgSlug,
+          question_id: '__c__' + qid,
+          answer_text: (choiceSel[qid] || []).join('\n')
+        }, { onConflict: 'org_slug,question_id' });
+        if (res.error) throw res.error;
+        setSaveStatus('saved');
+      } catch (e) {
+        setSaveStatus('error');
+      }
+    }, 600);
+  }
+
+  // Seed a selection from the answer's opening line the first time a question
+  // is opened. The drafted copy already leads with "Yes." or "No.", so an
+  // answer written before this control existed still shows the right box
+  // ticked. Only applied when nothing has been chosen yet.
+  function seedChoice(q) {
+    if (!q.choices || choiceSel[q.id]) return;
+    var first = (answers[q.id] || '').split('\n')[0].trim().toLowerCase();
+    if (!first) return;
+    var hits = q.choices.filter(function (c) {
+      return first.indexOf(c.label.toLowerCase()) === 0;
+    });
+    // Single-choice only: a multi-select opening line is prose, not a list
+    if (hits.length === 1 && q.choice_type === 'single') choiceSel[q.id] = [hits[0].label];
+  }
+
   // --- Reuse ---
   async function refreshReuse(topic) {
     if (!topic) return;
@@ -831,7 +906,45 @@
       '<span class="qnum">Q' + (idx + 1) + ' of ' + DATA.questions.length + '</span>' +
       '<span class="qn">' + esc(q.section) + '</span>' +
       '<span class="chip ' + es + '">' + (LBL[es] || es) + '</span></div>' +
-      '<div class="question">' + esc(q.question) + '</div>';
+      '<div class="question">' + esc(q.question) + '</div>' +
+      (q.section_note ? '<div class="secnote">' + esc(q.section_note) + '</div>' : '');
+
+    // Form control, for questions the source PDF renders as checkboxes
+    if (q.choices && q.choices.length) {
+      seedChoice(q);
+      var cbox = document.createElement('div');
+      cbox.className = 'choicebox';
+      var multi = q.choice_type === 'multi';
+      var head = document.createElement('div');
+      head.className = 'choice-head';
+      head.textContent = multi ? 'Select all that apply — checkbox on the PDF'
+                               : 'Select one — checkbox on the PDF';
+      cbox.appendChild(head);
+
+      var row = document.createElement('div');
+      row.className = 'choice-row';
+      q.choices.forEach(function (c) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'choice' + ((choiceSel[q.id] || []).indexOf(c.label) >= 0 ? ' on' : '');
+        b.textContent = c.label;
+        b.addEventListener('click', function () {
+          var sel = (choiceSel[q.id] || []).slice();
+          var at = sel.indexOf(c.label);
+          if (multi) {
+            if (at >= 0) sel.splice(at, 1); else sel.push(c.label);
+          } else {
+            sel = at >= 0 ? [] : [c.label];
+          }
+          choiceSel[q.id] = sel;
+          saveChoice(q.id);
+          renderSlide(idx);
+        });
+        row.appendChild(b);
+      });
+      cbox.appendChild(row);
+      L.appendChild(cbox);
+    }
 
     var ta = document.createElement('textarea');
     ta.spellcheck = true;
@@ -1126,8 +1239,16 @@
     DATA.questions.forEach(function (q, i) {
       var marker = '';
       if (q.status === 'blocked') marker = '[BLOCKED — UNRESOLVED PREMISE, DO NOT SUBMIT]\n';
-      out += '\n\nQ' + (i + 1) + ' — ' + q.section.toUpperCase() + '\n' + q.question + '\n\n' +
-        marker + ((answers[q.id] || '').trim() || '[NOT YET ANSWERED]') + '\n';
+      out += '\n\nQ' + (i + 1) + ' — ' + q.section.toUpperCase() + '\n' + q.question + '\n\n';
+      if (q.choices && q.choices.length) {
+        var sel = choiceSel[q.id] || [];
+        out += 'CHECKBOX: ' + (sel.length ? sel.join(', ') : '[NOT SELECTED]') + '\n';
+        q.choices.forEach(function (c) {
+          out += '   [' + (sel.indexOf(c.label) >= 0 ? 'X' : ' ') + '] ' + c.label + '\n';
+        });
+        out += '\n';
+      }
+      out += marker + ((answers[q.id] || '').trim() || '[NOT YET ANSWERED]') + '\n';
       if (q.levers && q.levers.length) {
         q.levers.forEach(function (l) {
           var tier = typeof l === 'string' ? 'unverified' : (l.tier || 'unverified');

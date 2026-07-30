@@ -31,7 +31,7 @@
   "questions": [
     {
       "id": "wfp_q1",
-      "section": "Campaign",
+      "section": "Candidate Campaign",
       "topic": "campaign_plan",
       "status": "thin",
       "question": "Please provide details on your campaign team’s structure by listing the positions below and indicating who is currently filling each role:\n● General Consultant: [Name or indicate if unfilled]\n● Campaign Manager: [Name or indicate if unfilled]\n● Field Director: [Name or indicate if unfilled]\n● Fundraiser (Consultant/Staff): [Name or indicate if unfilled]",
@@ -44,11 +44,12 @@
           "note": "",
           "text": "● General Consultant: [Name, or write \"Unfilled — volunteer-led\"]\n● Campaign Manager: [Name, or write \"Unfilled\"]\n● Field Director: [Name, or write \"Unfilled\"]\n● Fundraiser (Consultant/Staff): [Name, or write \"Unfilled\"]\n\n[If most roles are unfilled, add one line naming who is actually doing the work — e.g. \"This is a volunteer-run campaign; canvass and fundraising are coordinated by the candidate with a volunteer core of N.\" A small honest structure reads better than blanks.]"
         }
-      ]
+      ],
+      "section_note": "(Fill out these questions to the best of your ability)"
     },
     {
       "id": "wfp_q2",
-      "section": "Campaign",
+      "section": "Candidate Campaign",
       "topic": "campaign_plan",
       "status": "thin",
       "question": "Fundraised thus far and fundraising goal for June 2026?",
@@ -75,11 +76,12 @@
           "date": "2026-07-29",
           "note": "The contribution limit for a participating candidate is $60, except a candidate's own contribution to their controlled committee of $270 or less, which is not matchable. Participating candidates may not accept contributions from political action committees."
         }
-      ]
+      ],
+      "section_note": "(Fill out these questions to the best of your ability)"
     },
     {
       "id": "wfp_q3",
-      "section": "Campaign",
+      "section": "Candidate Campaign",
       "topic": "endorsements",
       "status": "thin",
       "question": "Which endorsements are you most proud of? What allies or organizations do you see as key partners in your campaign?",
@@ -92,11 +94,12 @@
           "note": "",
           "text": "[List endorsements secured to date, leading with labor, tenant, and progressive organizations that overlap with WFP's coalition. For each of the top two or three, add one clause on why it mattered — a contested endorsement won, or an organization whose members know the candidate's work firsthand.]\n\n[Then name key partners going forward, and be specific about the relationship rather than listing organizations the campaign merely hopes to hear from.]"
         }
-      ]
+      ],
+      "section_note": "(Fill out these questions to the best of your ability)"
     },
     {
       "id": "wfp_q4",
-      "section": "Campaign",
+      "section": "Candidate Campaign",
       "topic": "campaign_plan",
       "status": "thin",
       "question": "Is your campaign utilizing VAN, PDI, or some type of voter ID software?",
@@ -109,11 +112,12 @@
           "note": "",
           "text": "[State which system the campaign uses — VAN, PDI, or another — or that voter contact is currently tracked another way. If access is through a party or labor committee, say which.]"
         }
-      ]
+      ],
+      "section_note": "(Fill out these questions to the best of your ability)"
     },
     {
       "id": "wfp_q5",
-      "section": "Campaign",
+      "section": "Candidate Campaign",
       "topic": "campaign_plan",
       "status": "thin",
       "question": "What is your voter ID goal for the campaign?",
@@ -126,11 +130,12 @@
           "note": "",
           "text": "[State the voter ID goal as a number and, if useful, as a share of expected district turnout. Include the current count if the program is already underway.]"
         }
-      ]
+      ],
+      "section_note": "(Fill out these questions to the best of your ability)"
     },
     {
       "id": "wfp_q6",
-      "section": "Campaign",
+      "section": "Candidate Campaign",
       "topic": "campaign_plan",
       "status": "thin",
       "question": "Are you/will you be personally door knocking? How many days/week?",
@@ -143,11 +148,12 @@
           "note": "",
           "text": "[State yes, and give the actual days per week and when the program started. A specific, sustainable number is more credible than a maximal one.]"
         }
-      ]
+      ],
+      "section_note": "(Fill out these questions to the best of your ability)"
     },
     {
       "id": "wfp_q7",
-      "section": "Campaign",
+      "section": "Governance",
       "topic": "why_running",
       "status": "thin",
       "question": "What are the first three policies you would introduce if you are elected to the office you are seeking?",
@@ -186,7 +192,7 @@
     },
     {
       "id": "wfp_q8",
-      "section": "Campaign",
+      "section": "Governance",
       "topic": "endorsement_ask",
       "status": "thin",
       "question": "Do you have a working relationship with any CA WFP member organizations in your region? If so, which ones? Are you committed to co-governing with WFP and our member organizations?",
@@ -208,7 +214,7 @@
     },
     {
       "id": "wfp_q9",
-      "section": "Campaign",
+      "section": "Governance",
       "topic": "why_running",
       "status": "thin",
       "question": "What is one thing you hope will be different in the district you represent after one term in office?",
@@ -225,7 +231,7 @@
     },
     {
       "id": "wfp_q10",
-      "section": "Economic Justice",
+      "section": "Policy Positions — Healthcare and Workers Rights",
       "topic": "single_payer",
       "status": "done",
       "question": "Do you support funding and implementing universal single-payer healthcare in California?",
@@ -261,11 +267,24 @@
           "date": "2026-06-23",
           "note": "Berkeley Public Health delivers City-run programs including WIC, immunization, and family wellness, appropriated through the City budget. The frequently repeated claim that Berkeley is one of only three city health jurisdictions in California could not be confirmed from a primary source and is not asserted."
         }
-      ]
+      ],
+      "choice_type": "single",
+      "pdf_field": "10 Do you support funding and implementing universal singlepayer healthcare in California",
+      "choices": [
+        {
+          "label": "Yes",
+          "pdf": "/Yes"
+        },
+        {
+          "label": "No",
+          "pdf": "/No"
+        }
+      ],
+      "section_note": "Please answer yes or no. If you do not support one or more of the policies listed below, please explain why, and if there is an alternative policy you do support."
     },
     {
       "id": "wfp_q11",
-      "section": "Economic Justice",
+      "section": "Policy Positions — Healthcare and Workers Rights",
       "topic": "labor_law",
       "status": "done",
       "question": "Do you support raising the state minimum wage to at least $21?",
@@ -309,11 +328,24 @@
           "date": "2026-04-01",
           "note": "$19.61/hour effective July 1, 2026, indexed annually to CPI-W. BMC 13.99.020 cites police powers under Article XI, Section 7 of the California Constitution; BMC 13.99.100 is titled 'No Preemption of Higher Standards.'"
         }
-      ]
+      ],
+      "choice_type": "single",
+      "pdf_field": "11 Do you support raising the state minimum wage to at least 21",
+      "choices": [
+        {
+          "label": "Yes",
+          "pdf": "/Yes_2"
+        },
+        {
+          "label": "No",
+          "pdf": "/No_2"
+        }
+      ],
+      "section_note": "Please answer yes or no. If you do not support one or more of the policies listed below, please explain why, and if there is an alternative policy you do support."
     },
     {
       "id": "wfp_q12",
-      "section": "Economic Justice",
+      "section": "Policy Positions — Healthcare and Workers Rights",
       "topic": "labor_law",
       "status": "done",
       "question": "Do you support the reclassification of gig workers as employees fully entitled to all rights and benefits, as outlined in AB 5 (2019)?",
@@ -349,11 +381,24 @@
           "date": "2026-07-29",
           "note": "BMC 13.99 applies to all employees working at least two hours within Berkeley, for-profit and nonprofit alike, and BMC 13.99.100 is titled 'No Preemption of Higher Standards.' Enforcement sits with the City's Workforce Standards program."
         }
-      ]
+      ],
+      "choice_type": "single",
+      "pdf_field": "benefits as outlined in AB 5 2019",
+      "choices": [
+        {
+          "label": "Yes",
+          "pdf": "/Yes_3"
+        },
+        {
+          "label": "No",
+          "pdf": "/No_3"
+        }
+      ],
+      "section_note": "Please answer yes or no. If you do not support one or more of the policies listed below, please explain why, and if there is an alternative policy you do support."
     },
     {
       "id": "wfp_q13",
-      "section": "Economic Justice",
+      "section": "Policy Positions — Progressive Revenue",
       "topic": "taxation",
       "status": "done",
       "question": "Do you pledge to support a Wealth Tax ballot measure in California?",
@@ -389,11 +434,24 @@
           "date": "2025-05-22",
           "note": "The Measure U1 gross receipts tax on large residential rental income is appropriated by Council; the forecast's Anti-Displacement lines fund Rent Board legal services and the Eviction Defense Center."
         }
-      ]
+      ],
+      "choice_type": "single",
+      "pdf_field": "13 Do you pledge to support a Wealth Tax ballot measure in California",
+      "choices": [
+        {
+          "label": "Yes",
+          "pdf": "/Yes_4"
+        },
+        {
+          "label": "No",
+          "pdf": "/No_4"
+        }
+      ],
+      "section_note": "Please answer yes or no. If you do not support one or more of the policies listed below, please explain why, and if there is an alternative policy you do support."
     },
     {
       "id": "wfp_q14",
-      "section": "Economic Justice",
+      "section": "Policy Positions — Progressive Revenue",
       "topic": "taxation",
       "status": "blank",
       "question": "Did you support Schools and Communities First: Proposition 15 (2020), which aimed to reform California’s property tax system by creating a split-roll tax? This measure would have reassessed commercial and industrial properties at market value while maintaining Prop 13 protections for residential properties, generating funding for public schools and local community services.",
@@ -415,11 +473,24 @@
           "date": "2026-07-29",
           "note": "Asks how the candidate personally voted in 2020. Must come from the candidate and must not be inferred. No suggested copy per the protocol rule for unanswerable questions."
         }
-      ]
+      ],
+      "choice_type": "single",
+      "pdf_field": "community services",
+      "choices": [
+        {
+          "label": "Yes",
+          "pdf": "/Yes_5"
+        },
+        {
+          "label": "No",
+          "pdf": "/No_5"
+        }
+      ],
+      "section_note": "Please answer yes or no. If you do not support one or more of the policies listed below, please explain why, and if there is an alternative policy you do support."
     },
     {
       "id": "wfp_q15",
-      "section": "Housing",
+      "section": "Policy Positions — Tenant Protections, Affordable Housing & Homelessness",
       "topic": "rent_control",
       "status": "done",
       "question": "Do you support repealing the Ellis Act?",
@@ -481,11 +552,24 @@
           "date": "2025-10-27",
           "note": "$19,413 per household plus $6,471 for qualifying households, effective January 1, 2026; CPI-indexed annually."
         }
-      ]
+      ],
+      "choice_type": "single",
+      "pdf_field": "15 Do you support repealing the Ellis Act",
+      "choices": [
+        {
+          "label": "Yes",
+          "pdf": "/Yes_6"
+        },
+        {
+          "label": "No",
+          "pdf": "/No_6"
+        }
+      ],
+      "section_note": "Please answer yes or no. If you do not support one or more of the policies listed below, please explain why, and if there is an alternative policy you do support."
     },
     {
       "id": "wfp_q16",
-      "section": "Housing",
+      "section": "Policy Positions — Tenant Protections, Affordable Housing & Homelessness",
       "topic": "rent_control",
       "status": "done",
       "question": "Do you support repealing Costa Hawkins?",
@@ -547,11 +631,24 @@
           "date": "2026-07-29",
           "note": "Over 20,000 rental units in Berkeley have regulated rents; landlords have set initial rents for new tenancies since January 1999."
         }
-      ]
+      ],
+      "choice_type": "single",
+      "pdf_field": "16 Do you support repealing Costa Hawkins",
+      "choices": [
+        {
+          "label": "Yes",
+          "pdf": "/Yes_7"
+        },
+        {
+          "label": "No",
+          "pdf": "/No_7"
+        }
+      ],
+      "section_note": "Please answer yes or no. If you do not support one or more of the policies listed below, please explain why, and if there is an alternative policy you do support."
     },
     {
       "id": "wfp_q17",
-      "section": "Housing",
+      "section": "Policy Positions — Tenant Protections, Affordable Housing & Homelessness",
       "topic": "rent_control",
       "status": "done",
       "question": "Do you support expanding rent control statewide?",
@@ -587,11 +684,24 @@
           "date": "2026-07-29",
           "note": "Originally Ordinance 5261-N.S. (1980), amended through Ordinance 7950-N.S. (2024). Over 20,000 Berkeley rental units have regulated rents; scope is constrained by Costa-Hawkins, not by local choice."
         }
-      ]
+      ],
+      "choice_type": "single",
+      "pdf_field": "17 Do you support expanding rent control statewide",
+      "choices": [
+        {
+          "label": "Yes",
+          "pdf": "/Yes_8"
+        },
+        {
+          "label": "No",
+          "pdf": "/No_8"
+        }
+      ],
+      "section_note": "Please answer yes or no. If you do not support one or more of the policies listed below, please explain why, and if there is an alternative policy you do support."
     },
     {
       "id": "wfp_q18",
-      "section": "Housing",
+      "section": "Policy Positions — Tenant Protections, Affordable Housing & Homelessness",
       "topic": "rent_control",
       "status": "done",
       "question": "Do you support no-fault eviction protections?",
@@ -631,11 +741,24 @@
           "date": "2026-07-29",
           "note": "Units partially exempt under Costa-Hawkins have no rent ceiling but remain subject to just cause for eviction and security deposit interest requirements."
         }
-      ]
+      ],
+      "choice_type": "single",
+      "pdf_field": "18 Do you support nofault eviction protections",
+      "choices": [
+        {
+          "label": "Yes",
+          "pdf": "/Yes_9"
+        },
+        {
+          "label": "No",
+          "pdf": "/No_9"
+        }
+      ],
+      "section_note": "Please answer yes or no. If you do not support one or more of the policies listed below, please explain why, and if there is an alternative policy you do support."
     },
     {
       "id": "wfp_q19",
-      "section": "Housing",
+      "section": "Policy Positions — Tenant Protections, Affordable Housing & Homelessness",
       "topic": "rent_control",
       "status": "done",
       "question": "Do you support a fully funded Right to Counsel program for renters in your jurisdiction?",
@@ -704,11 +827,24 @@
           "date": "2026-06-23",
           "note": "Budget adopted, but eviction-defense line items are not itemized in the agenda; only FY2027 estimates from the May 2025 U1 forecast are available. Pull the adopted budget's Measure U1 schedule before citing an FY2027 figure."
         }
-      ]
+      ],
+      "choice_type": "single",
+      "pdf_field": "19 Do you support a fully funded Right to Counsel program for renters in your jurisdiction",
+      "choices": [
+        {
+          "label": "Yes",
+          "pdf": "/Yes_10"
+        },
+        {
+          "label": "No",
+          "pdf": "/No_10"
+        }
+      ],
+      "section_note": "Please answer yes or no. If you do not support one or more of the policies listed below, please explain why, and if there is an alternative policy you do support."
     },
     {
       "id": "wfp_q20",
-      "section": "Housing",
+      "section": "Policy Positions — Tenant Protections, Affordable Housing & Homelessness",
       "topic": "rent_control",
       "status": "done",
       "question": "Do you support policies that would ban the use of price setting algorithms in the housing market? (ie. Realpage)",
@@ -770,11 +906,24 @@
           "date": "2025-11-18",
           "note": "The report states the City Attorney 'believes that the litigation will be resolved if these amendments are adopted.' No primary City document confirming dismissal was located; do not assert the case is over."
         }
-      ]
+      ],
+      "choice_type": "single",
+      "pdf_field": "market ie Realpage",
+      "choices": [
+        {
+          "label": "Yes",
+          "pdf": "/Yes_11"
+        },
+        {
+          "label": "No",
+          "pdf": "/No_11"
+        }
+      ],
+      "section_note": "Please answer yes or no. If you do not support one or more of the policies listed below, please explain why, and if there is an alternative policy you do support."
     },
     {
       "id": "wfp_q21",
-      "section": "Climate and Environment",
+      "section": "Policy Positions — Climate Justice",
       "topic": "climate_energy",
       "status": "done",
       "question": "Do you support a one mile buffer between active oil wells/field/fracking and homes, schools, playgrounds and hospitals?",
@@ -828,11 +977,24 @@
           "date": "2026-07-29",
           "note": "'Commercial Excavation' expressly includes 'drilling for, or removal of, oil or natural gas' and is classified UP(PH) — a discretionary but legally available conditional use in manufacturing and most commercial districts."
         }
-      ]
+      ],
+      "choice_type": "single",
+      "pdf_field": "schools playgrounds and hospitals",
+      "choices": [
+        {
+          "label": "Yes",
+          "pdf": "/Yes_12"
+        },
+        {
+          "label": "No",
+          "pdf": "/No_12"
+        }
+      ],
+      "section_note": "Please answer yes or no. If you do not support one or more of the policies listed below, please explain why, and if there is an alternative policy you do support."
     },
     {
       "id": "wfp_q22",
-      "section": "Climate and Environment",
+      "section": "Policy Positions — Climate Justice",
       "topic": "climate_energy",
       "status": "done",
       "question": "Do you support ending all new oil and gas wells in California?",
@@ -887,11 +1049,24 @@
           "date": "2025-04-15",
           "note": "Effective January 1, 2026: time-of-sale flexible resilience standard requiring six credits for 1–4 unit homes, with heat pump water heater, heat pump HVAC, panel upgrade, or solar plus storage each satisfying compliance."
         }
-      ]
+      ],
+      "choice_type": "single",
+      "pdf_field": "22 Do you support ending all new oil and gas wells in California",
+      "choices": [
+        {
+          "label": "Yes",
+          "pdf": "/Yes_13"
+        },
+        {
+          "label": "No",
+          "pdf": "/No_13"
+        }
+      ],
+      "section_note": "Please answer yes or no. If you do not support one or more of the policies listed below, please explain why, and if there is an alternative policy you do support."
     },
     {
       "id": "wfp_q23",
-      "section": "Climate and Environment",
+      "section": "Policy Positions — Climate Justice",
       "topic": "climate_energy",
       "status": "done",
       "question": "Do you pledge to endorse—and, if elected to the state legislature, vote for—the Make Polluters Pay Superfund (SB 684/AB 1243)? This initiative would require the largest fossil fuel polluters to pay fees that fund projects and programs aimed at mitigating, remedying, and preventing the costs and harms of climate change.",
@@ -931,11 +1106,24 @@
           "date": "2026-07-29",
           "note": "The question's clause 'if elected to the state legislature' does not apply to this office. The answerable commitment is endorsement plus a Council resolution of support, not a floor vote."
         }
-      ]
+      ],
+      "choice_type": "single",
+      "pdf_field": "preventing the costs and harms of climate change",
+      "choices": [
+        {
+          "label": "Yes",
+          "pdf": "/Yes_14"
+        },
+        {
+          "label": "No",
+          "pdf": "/No_14"
+        }
+      ],
+      "section_note": "Please answer yes or no. If you do not support one or more of the policies listed below, please explain why, and if there is an alternative policy you do support."
     },
     {
       "id": "wfp_q24",
-      "section": "Transportation",
+      "section": "Policy Positions — Climate Justice",
       "topic": "transit",
       "status": "done",
       "question": "Do you support allocating more state funding for public transit?",
@@ -986,11 +1174,24 @@
           "date": "2026-06-23",
           "note": "Roughly $59.75 million in 2026 dollars of citywide transit improvements identified, largely unfunded."
         }
-      ]
+      ],
+      "choice_type": "single",
+      "pdf_field": "24 Do you support allocating more state funding for public transit",
+      "choices": [
+        {
+          "label": "Yes",
+          "pdf": "/Yes_15"
+        },
+        {
+          "label": "No",
+          "pdf": "/No_15"
+        }
+      ],
+      "section_note": "Please answer yes or no. If you do not support one or more of the policies listed below, please explain why, and if there is an alternative policy you do support."
     },
     {
       "id": "wfp_q25",
-      "section": "Transportation",
+      "section": "Policy Positions — Climate Justice",
       "topic": "transit",
       "status": "done",
       "question": "Do you support free public transit for:\nYouth 0-18\nSeniors 65+\nAll riders",
@@ -1074,11 +1275,30 @@
           "date": "2026-07-29",
           "note": "Fares are fixed by each district's elected board. PUC 25808–25809 and 29039 do give a city council within the district the right to compel a hearing on the reasonableness of any rate, to be held 15–60 days after filing."
         }
-      ]
+      ],
+      "choice_type": "multi",
+      "choices": [
+        {
+          "label": "Youth 0-18",
+          "pdf_field": "Youth 018",
+          "pdf": "/On"
+        },
+        {
+          "label": "Seniors 65+",
+          "pdf_field": "Seniors 65",
+          "pdf": "/On"
+        },
+        {
+          "label": "All riders",
+          "pdf_field": "All riders",
+          "pdf": "/On"
+        }
+      ],
+      "section_note": "Please answer yes or no. If you do not support one or more of the policies listed below, please explain why, and if there is an alternative policy you do support."
     },
     {
       "id": "wfp_q26",
-      "section": "Public Safety and Immigration",
+      "section": "Policy Positions — Criminal Justice Reform",
       "topic": "criminal_justice",
       "status": "done",
       "question": "Will you commit to working to reduce rates of incarceration?",
@@ -1147,11 +1367,24 @@
           "date": "2026-07-29",
           "note": "No primary source located showing any mandated periodic report was actually filed. Confirm with the City Clerk before claiming implementation."
         }
-      ]
+      ],
+      "choice_type": "single",
+      "pdf_field": "26 Will you commit to working to reduce rates of incarceration",
+      "choices": [
+        {
+          "label": "Yes",
+          "pdf": "/Yes_16"
+        },
+        {
+          "label": "No",
+          "pdf": "/No_16"
+        }
+      ],
+      "section_note": "Please answer yes or no. If you do not support one or more of the policies listed below, please explain why, and if there is an alternative policy you do support."
     },
     {
       "id": "wfp_q27",
-      "section": "Public Safety and Immigration",
+      "section": "Policy Positions — Criminal Justice Reform",
       "topic": "policing",
       "status": "done",
       "question": "Will you invest in non-police emergency response systems?",
@@ -1224,11 +1457,24 @@
           "date": "2026-06-23",
           "note": "All Funds Police rises from $106,237,136 adopted in FY2026 to $106,898,286 in FY2027, an increase of $661,150. The cited 10% reduction is measured against a baseline projection rather than prior-year adopted."
         }
-      ]
+      ],
+      "choice_type": "single",
+      "pdf_field": "27 Will you invest in nonpolice emergency response systems",
+      "choices": [
+        {
+          "label": "Yes",
+          "pdf": "/Yes_17"
+        },
+        {
+          "label": "No",
+          "pdf": "/No_17"
+        }
+      ],
+      "section_note": "Please answer yes or no. If you do not support one or more of the policies listed below, please explain why, and if there is an alternative policy you do support."
     },
     {
       "id": "wfp_q28",
-      "section": "Public Safety and Immigration",
+      "section": "Policy Positions — Criminal Justice Reform",
       "topic": "ice_cooperation",
       "status": "done",
       "question": "What describes your commitment to supporting sanctuary policies for immigrants by prohibiting collaboration between ICE and local law enforcement?\nFor all cases\nWith exceptions granted for limited violent felonies ie. sexual assault of minor, domestic violence and homicide.\nI do not support sanctuary city policies.\nOther: Please Explain",
@@ -1294,11 +1540,35 @@
           "date": "2025-09-30",
           "note": "The 1971 declaration (Resolution 44,784-N.S.) concerned Vietnam War conscientious objectors. The immigrant sanctuary declaration is Resolution 52,596-N.S. (1986). A January 21, 2025 council report miscites this as 52,558-N.S."
         }
-      ]
+      ],
+      "choice_type": "multi",
+      "choices": [
+        {
+          "label": "For all cases",
+          "pdf_field": "For all cases",
+          "pdf": "/On"
+        },
+        {
+          "label": "With exceptions for limited violent felonies",
+          "pdf_field": "With exceptions granted for limited violent felonies ie sexual assault of minor",
+          "pdf": "/On"
+        },
+        {
+          "label": "I do not support sanctuary city policies",
+          "pdf_field": "I do not support sanctuary city policies",
+          "pdf": "/On"
+        },
+        {
+          "label": "Other: Please Explain",
+          "pdf_field": "Other Please Explain",
+          "pdf": "/On"
+        }
+      ],
+      "section_note": "Please answer yes or no. If you do not support one or more of the policies listed below, please explain why, and if there is an alternative policy you do support."
     },
     {
       "id": "wfp_q29",
-      "section": "Public Safety and Immigration",
+      "section": "Policy Positions — Criminal Justice Reform",
       "topic": "criminal_justice",
       "status": "done",
       "question": "Will you pledge to support a state ballot measure to end the death penalty in California?",
@@ -1334,11 +1604,24 @@
           "date": "2026-07-29",
           "note": "No municipal mechanism exists. The available commitments are a personal pledge and a Council resolution of support."
         }
-      ]
+      ],
+      "choice_type": "single",
+      "pdf_field": "29 Will you pledge to support a state ballot measure to end the death penalty in California",
+      "choices": [
+        {
+          "label": "Yes",
+          "pdf": "/Yes_18"
+        },
+        {
+          "label": "No",
+          "pdf": "/No_18"
+        }
+      ],
+      "section_note": "Please answer yes or no. If you do not support one or more of the policies listed below, please explain why, and if there is an alternative policy you do support."
     },
     {
       "id": "wfp_q30",
-      "section": "Public Safety and Immigration",
+      "section": "Policy Positions — Criminal Justice Reform",
       "topic": "criminal_justice",
       "status": "blank",
       "question": "Did you support Prop 36 (2024)?",
@@ -1360,11 +1643,24 @@
           "date": "2026-07-29",
           "note": "This asks how the candidate personally voted or what position was taken. It must come from the candidate and must not be inferred. Left blank per the protocol rule that blocked and unanswerable questions receive no suggested copy."
         }
-      ]
+      ],
+      "choice_type": "single",
+      "pdf_field": "30 Did you support Prop 36 2024",
+      "choices": [
+        {
+          "label": "Yes",
+          "pdf": "/Yes_19"
+        },
+        {
+          "label": "No",
+          "pdf": "/No_19"
+        }
+      ],
+      "section_note": "Please answer yes or no. If you do not support one or more of the policies listed below, please explain why, and if there is an alternative policy you do support."
     },
     {
       "id": "wfp_q31",
-      "section": "Campaign Finance Pledges",
+      "section": "Campaign Contributions",
       "topic": "campaign_finance",
       "status": "done",
       "question": "Will you reject campaign contributions and endorsements from oil companies, oil company associations, public utilities and PAC's which take money from any of the above including but not limited to: Chevron, Valero, Western States Petroleum Association, and Sempra Energy?",
@@ -1411,11 +1707,23 @@
           "date": "2026-07-29",
           "note": "The contribution limit for a participating candidate is $60, except a candidate's own contribution to their controlled committee of $270 or less, which is not matchable. Participating candidates may not accept contributions from political action committees."
         }
+      ],
+      "choice_type": "single",
+      "pdf_field": "not limited to Chevron Valero Western States Petroleum Association and Sempra Energy",
+      "choices": [
+        {
+          "label": "Yes",
+          "pdf": "/Yes_20"
+        },
+        {
+          "label": "No",
+          "pdf": "/No_20"
+        }
       ]
     },
     {
       "id": "wfp_q32",
-      "section": "Campaign Finance Pledges",
+      "section": "Campaign Contributions",
       "topic": "campaign_finance",
       "status": "done",
       "question": "Will you reject campaign contributions and endorsements from law enforcement groups?",
@@ -1462,11 +1770,23 @@
           "date": "2026-07-29",
           "note": "The contribution limit for a participating candidate is $60, except a candidate's own contribution to their controlled committee of $270 or less, which is not matchable. Participating candidates may not accept contributions from political action committees."
         }
+      ],
+      "choice_type": "single",
+      "pdf_field": "32 Will you reject campaign contributions and endorsements from law enforcement groups",
+      "choices": [
+        {
+          "label": "Yes",
+          "pdf": "/Yes_21"
+        },
+        {
+          "label": "No",
+          "pdf": "/No_21"
+        }
       ]
     },
     {
       "id": "wfp_q33",
-      "section": "Campaign Finance Pledges",
+      "section": "Campaign Contributions",
       "topic": "campaign_finance",
       "status": "done",
       "question": "Will you reject campaign contributions and endorsements from the Apartment Association or the Association of Realtors?",
@@ -1513,11 +1833,23 @@
           "date": "2026-07-29",
           "note": "The contribution limit for a participating candidate is $60, except a candidate's own contribution to their controlled committee of $270 or less, which is not matchable. Participating candidates may not accept contributions from political action committees."
         }
+      ],
+      "choice_type": "single",
+      "pdf_field": "Association or the Association of Realtors",
+      "choices": [
+        {
+          "label": "Yes",
+          "pdf": "/Yes_22"
+        },
+        {
+          "label": "No",
+          "pdf": "/No_22"
+        }
       ]
     },
     {
       "id": "wfp_q34",
-      "section": "Campaign Finance Pledges",
+      "section": "Campaign Contributions",
       "topic": "campaign_finance",
       "status": "done",
       "question": "Will you reject campaign contributions and endorsements from charter school associations?",
@@ -1564,11 +1896,23 @@
           "date": "2026-07-29",
           "note": "The contribution limit for a participating candidate is $60, except a candidate's own contribution to their controlled committee of $270 or less, which is not matchable. Participating candidates may not accept contributions from political action committees."
         }
+      ],
+      "choice_type": "single",
+      "pdf_field": "34 Will you reject campaign contributions and endorsements from charter school associations",
+      "choices": [
+        {
+          "label": "Yes",
+          "pdf": "/Yes_23"
+        },
+        {
+          "label": "No",
+          "pdf": "/No_23"
+        }
       ]
     },
     {
       "id": "wfp_q35",
-      "section": "Campaign Finance Pledges",
+      "section": "Campaign Contributions",
       "topic": "campaign_finance",
       "status": "done",
       "question": "Will you reject campaign contributions and endorsements from corporate PACs?",
@@ -1615,11 +1959,23 @@
           "date": "2026-07-29",
           "note": "The contribution limit for a participating candidate is $60, except a candidate's own contribution to their controlled committee of $270 or less, which is not matchable. Participating candidates may not accept contributions from political action committees."
         }
+      ],
+      "choice_type": "single",
+      "pdf_field": "35 Will you reject campaign contributions and endorsements from corporate PACs",
+      "choices": [
+        {
+          "label": "Yes",
+          "pdf": "/Yes_24"
+        },
+        {
+          "label": "No",
+          "pdf": "/No_24"
+        }
       ]
     },
     {
       "id": "wfp_q36",
-      "section": "Campaign Finance Pledges",
+      "section": "Campaign Contributions",
       "topic": "campaign_finance",
       "status": "done",
       "question": "Do you consider yourself a lobbyist and corporate free candidate?",
@@ -1662,11 +2018,23 @@
           "date": "2026-07-29",
           "note": "The contribution limit for a participating candidate is $60, except a candidate's own contribution to their controlled committee of $270 or less, which is not matchable. Participating candidates may not accept contributions from political action committees."
         }
+      ],
+      "choice_type": "single",
+      "pdf_field": "36 Do you consider yourself a lobbyist and corporate free candidate",
+      "choices": [
+        {
+          "label": "Yes",
+          "pdf": "/Yes_25"
+        },
+        {
+          "label": "No",
+          "pdf": "/No_25"
+        }
       ]
     },
     {
       "id": "wfp_q37",
-      "section": "Working Families Party",
+      "section": "CA Working Families Party",
       "topic": "endorsement_ask",
       "status": "thin",
       "question": "Why are you seeking the Working Families Party endorsement?",
@@ -1688,7 +2056,7 @@
     },
     {
       "id": "wfp_q38",
-      "section": "Working Families Party",
+      "section": "CA Working Families Party",
       "topic": "endorsement_ask",
       "status": "thin",
       "question": "What distinguishes you as a Working Families Party candidate from your opponents?",
@@ -1705,7 +2073,7 @@
     },
     {
       "id": "wfp_q39",
-      "section": "Working Families Party",
+      "section": "CA Working Families Party",
       "topic": "campaign_plan",
       "status": "thin",
       "question": "Have you attended the Working Families Party Campaign Camp Trainings? If so, roughly how many sessions did you attend, and which module(s)?",
@@ -1722,7 +2090,7 @@
     },
     {
       "id": "wfp_q40",
-      "section": "Working Families Party",
+      "section": "CA Working Families Party",
       "topic": "campaign_plan",
       "status": "thin",
       "question": "Have members of your campaign team attended the Working Families Party Campaign Camp Trainings? If so, which module did they attend?",
@@ -1739,7 +2107,7 @@
     },
     {
       "id": "wfp_q41",
-      "section": "Working Families Party",
+      "section": "CA Working Families Party",
       "topic": "campaign_plan",
       "status": "thin",
       "question": "If endorsed, would you be interested in utilizing WFP’s campaign services, such as phone dialer, SMS texting, voter database and/or other tools?",
@@ -1756,7 +2124,7 @@
     },
     {
       "id": "wfp_q42",
-      "section": "Working Families Party",
+      "section": "CA Working Families Party",
       "topic": "endorsement_ask",
       "status": "thin",
       "question": "Are you a dues paying member of the California Working Families Party?",
