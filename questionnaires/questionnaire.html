@@ -407,19 +407,25 @@
   }
   .note-rows { display: flex; flex-direction: column; }
   .note-row {
-    display: flex; align-items: center; gap: 6px;
+    display: flex; align-items: flex-start; gap: 6px;
     border-bottom: 1px solid var(--border-light);
   }
-  .note-row input {
+  /* A textarea rather than an input so long notes wrap and stay readable.
+     Height is recomputed from scrollHeight on every edit, so the row grows
+     instead of clipping. Enter still creates a new note. */
+  .note-row textarea {
     flex: 1; font-family: system-ui, -apple-system, sans-serif;
-    font-size: 13px; color: var(--text); background: transparent;
+    font-size: 13px; line-height: 1.5; color: var(--text); background: transparent;
     border: none; outline: none; padding: 6px 2px;
+    resize: none; overflow: hidden; display: block;
+    min-width: 0; min-height: 0;
   }
-  .note-row input::placeholder { color: var(--text-tertiary); }
+  .note-row textarea::placeholder { color: var(--text-tertiary); }
   .note-row .note-del {
     width: 16px; height: 16px; border: none; background: none;
     color: var(--text-tertiary); cursor: pointer; font-size: 14px;
     padding: 0; line-height: 1; opacity: 0; flex-shrink: 0;
+    margin-top: 7px;
   }
   .note-row:hover .note-del { opacity: 1; }
   .note-row .note-del:hover { color: var(--status-blank); }
@@ -1037,23 +1043,44 @@
     if (!noteLines.length) noteLines = [''];
 
     function syncNotes() {
-      var inputs = nrows.querySelectorAll('input');
       var lines = [];
-      inputs.forEach(function (inp) { lines.push(inp.value); });
+      nrows.querySelectorAll('textarea').forEach(function (inp) {
+        // Notes persist one per line, so a literal newline inside a note
+        // would split it in two on reload. Collapse any that slip in.
+        lines.push(inp.value.replace(/[\r\n]+/g, ' '));
+      });
       notes[q.id] = lines.join('\n');
       saveNotes(q.id);
     }
 
+    function growNote(el) {
+      el.style.height = 'auto';
+      el.style.height = el.scrollHeight + 'px';
+    }
+
     function addNoteRow(val, focusIt) {
       var row = document.createElement('div'); row.className = 'note-row';
-      var inp = document.createElement('input');
+      var inp = document.createElement('textarea');
+      inp.rows = 1;
       inp.value = val || ''; inp.placeholder = 'Add a note...';
-      inp.addEventListener('input', syncNotes);
+      inp.addEventListener('input', function () { growNote(inp); syncNotes(); });
+      // Pasting multi-line text becomes multiple notes rather than one
+      // mangled line.
+      inp.addEventListener('paste', function (e) {
+        var text = (e.clipboardData || window.clipboardData).getData('text');
+        if (!text || text.indexOf('\n') === -1) return;
+        e.preventDefault();
+        var parts = text.split(/\r?\n/).filter(function (t) { return t.trim(); });
+        inp.value = (inp.value + parts.shift()).trim();
+        growNote(inp);
+        parts.forEach(function (t) { addNoteRow(t.trim(), false); });
+        syncNotes();
+      });
       inp.addEventListener('keydown', function (e) {
         if (e.key === 'Enter') {
           e.preventDefault();
           var next = row.nextElementSibling;
-          if (next) { next.querySelector('input').focus(); }
+          if (next) { next.querySelector('textarea').focus(); }
           else { addNoteRow('', true); }
           syncNotes();
         }
@@ -1061,18 +1088,20 @@
           e.preventDefault();
           var prev = row.previousElementSibling;
           row.remove();
-          if (prev) prev.querySelector('input').focus();
+          if (prev) prev.querySelector('textarea').focus();
           syncNotes();
         }
       });
       var del = document.createElement('button'); del.className = 'note-del';
       del.textContent = '×';
       del.addEventListener('click', function () {
-        if (nrows.children.length <= 1) { inp.value = ''; syncNotes(); return; }
+        if (nrows.children.length <= 1) { inp.value = ''; growNote(inp); syncNotes(); return; }
         row.remove(); syncNotes();
       });
       row.appendChild(inp); row.appendChild(del);
       nrows.appendChild(row);
+      // Size after layout so scrollHeight reflects the real wrapped height
+      requestAnimationFrame(function () { growNote(inp); });
       if (focusIt) inp.focus();
     }
 
