@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<!-- GitHub Pages cannot set response headers, so the policy has to ride in a
+     meta tag. Note frame-ancestors/X-Frame-Options are header-only and are
+     ignored here. The load-bearing directive is connect-src: even if markup
+     were somehow injected, it cannot phone data out to another origin. -->
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net;
+  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+  font-src https://fonts.gstatic.com;
+  connect-src 'self' https://qhrtqtnrduambvchjxqw.supabase.co wss://qhrtqtnrduambvchjxqw.supabase.co;
+  img-src 'self' data:;
+  object-src 'none';
+  base-uri 'none';
+  form-action 'none'">
+<title>Campaign Calendar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ground: #F9F9F6;
+    --surface: #FFFFFF;
+    --text: #2A2A2E;
+    --text-secondary: #7C7C82;
+    --text-tertiary: #A8A8AC;
+    --border: #E6E6E2;
+    --border-light: #F0F0EC;
+    --accent: #4A6FA5;
+    --accent-hover: #3D5E8C;
+    --priority-high: #C45240;
+    --priority-high-bg: #C4524012;
+    --priority-medium: #C89B2A;
+    --priority-low: #6B956B;
+    --team-bg: #F2F2EE;
+    --hover: #F4F4F0;
+    --today-bg: #4A6FA50E;
+
+    --ev-house_party: #C4784A;
+    --ev-canvass:     #6B956B;
+    --ev-endorsement: #4A6FA5;
+    --ev-special:     #8B6BA5;
+    --ev-internal:    #77808A;
+    --ev-deadline:    #C45240;
+    --ov-questionnaire: #C89B2A;
+    --ov-task:          #5F8AA0;
+    --pill-tint: 16%;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #18181B;
+      --surface: #1E1E22;
+      --text: #E4E4E0;
+      --text-secondary: #8E8E92;
+      --text-tertiary: #5A5A5E;
+      --border: #2E2E32;
+      --border-light: #262628;
+      --accent: #6B8FC4;
+      --accent-hover: #7DA0D0;
+      --priority-high: #D4705F;
+      --priority-high-bg: #D4705F18;
+      --priority-medium: #D4AD4A;
+      --priority-low: #7DAF7D;
+      --team-bg: #222226;
+      --hover: #24242A;
+      --today-bg: #6B8FC414;
+
+      --ev-house_party: #D89468;
+      --ev-canvass:     #7DAF7D;
+      --ev-endorsement: #6B8FC4;
+      --ev-special:     #A487BE;
+      --ev-internal:    #949CA6;
+      --ev-deadline:    #D4705F;
+      --ov-questionnaire: #D4AD4A;
+      --ov-task:          #7BA5BC;
+      --pill-tint: 22%;
+    }
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--text);
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* --- auth gate (identical behaviour to the other three pages) --- */
+  .auth-gate { min-height: calc(100vh - 52px); display: flex; align-items: center; justify-content: center; padding: 24px; }
+  .auth-card { max-width: 340px; width: 100%; display: flex; flex-direction: column; gap: 14px; }
+  .auth-title { font-family: Georgia, 'Times New Roman', serif; font-size: 20px; font-weight: normal; }
+  .auth-sub { font-size: 13px; color: var(--text-secondary); }
+  .auth-input {
+    font-family: inherit; font-size: 14px; color: var(--text);
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 3px; padding: 10px 12px; width: 100%; outline: none;
+  }
+  .auth-input:focus { border-color: var(--accent); }
+  .auth-btn {
+    font-family: inherit; font-size: 13px; font-weight: 500;
+    color: #FFF; background: var(--accent);
+    border: 1px solid var(--accent); border-radius: 3px;
+    padding: 10px 16px; cursor: pointer; width: 100%;
+  }
+  .auth-btn:hover { background: var(--accent-hover); }
+  .auth-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .auth-error { font-size: 13px; color: var(--priority-high); }
+
+  /* --- shared chrome --- */
+  .site-nav {
+    display: flex; align-items: center; gap: 2px;
+    max-width: 860px; margin: 0 auto; padding: 16px 24px 0;
+  }
+  .site-nav a {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--text-tertiary); text-decoration: none;
+    padding: 5px 10px; border-bottom: 2px solid transparent;
+  }
+  .site-nav a:hover { color: var(--text-secondary); }
+  .site-nav a.active { color: var(--text); border-bottom-color: var(--accent); }
+
+  /* 860px matches Tasks / Questionnaires / Fundraising exactly. The nav is
+     margin:0 auto, so a wider column here would slide the whole tab strip
+     sideways when moving between pages. */
+  .app { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
+
+  .setup-banner {
+    background: var(--priority-high-bg);
+    border: 1px solid var(--priority-high);
+    border-radius: 3px; padding: 12px 16px; margin-bottom: 20px;
+    font-size: 13px; line-height: 1.6;
+  }
+
+  .header {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 16px; margin-bottom: 20px; padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .month-title {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 22px; font-weight: normal; white-space: nowrap;
+  }
+  .month-title .yr { color: var(--text-tertiary); }
+  .header-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+
+  .nav-btn {
+    font-family: inherit; font-size: 13px; color: var(--text-secondary);
+    background: none; border: 1px solid var(--border); border-radius: 3px;
+    padding: 4px 9px; cursor: pointer; line-height: 1.4;
+  }
+  .nav-btn:hover { background: var(--hover); color: var(--text); }
+  .nav-btn.primary {
+    color: #FFF; background: var(--accent); border-color: var(--accent);
+    font-weight: 500;
+  }
+  .nav-btn.primary:hover { background: var(--accent-hover); color: #FFF; }
+
+  .save-indicator {
+    display: flex; align-items: center; gap: 6px; white-space: nowrap;
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11px;
+    letter-spacing: 0.03em; color: var(--text-secondary);
+    opacity: 0; transition: opacity 0.2s ease; pointer-events: none;
+  }
+  .save-indicator.visible { opacity: 1; }
+  .save-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--text-secondary); }
+  .save-indicator.saving .save-dot { background: var(--priority-medium); animation: pulse-dot 0.8s ease-in-out infinite; }
+  .save-indicator.saved  .save-dot { background: var(--priority-low); }
+  .save-indicator.error  .save-dot { background: var(--priority-high); }
+  .save-indicator.error  { color: var(--priority-high); }
+  @keyframes pulse-dot { 0%,100% { opacity:1; transform:scale(1);} 50% { opacity:.4; transform:scale(.7);} }
+
+  /* --- layer filters --- */
+  .filters { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
+  .filter-chip {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase;
+    color: var(--text-tertiary); background: none;
+    border: 1px solid var(--border); border-radius: 999px;
+    padding: 5px 12px; cursor: pointer; transition: color .15s, border-color .15s;
+  }
+  .filter-chip:hover { color: var(--text-secondary); }
+  .filter-chip .swatch {
+    width: 8px; height: 8px; border-radius: 2px;
+    background: currentColor; opacity: .35;
+  }
+  .filter-chip.on { color: var(--text); border-color: var(--border); }
+  .filter-chip.on .swatch { opacity: 1; }
+  .filter-chip[data-layer="events"].on         { --c: var(--accent); }
+  .filter-chip[data-layer="questionnaires"].on { --c: var(--ov-questionnaire); }
+  .filter-chip[data-layer="tasks"].on          { --c: var(--ov-task); }
+  .filter-chip.on .swatch { background: var(--c); }
+  .filter-count { color: var(--text-tertiary); font-variant-numeric: tabular-nums; }
+
+  /* --- month grid --- */
+  .weekdays {
+    /* minmax(0, 1fr), not 1fr: plain 1fr means minmax(auto, 1fr), and the
+       auto floor is content width — a nowrap pill would then push its column
+       wider than a seventh and clip Saturday off the right edge. */
+    display: grid; grid-template-columns: repeat(7, minmax(0, 1fr));
+    border: 1px solid var(--border); border-bottom: none;
+    border-radius: 3px 3px 0 0; overflow: hidden; background: var(--surface);
+  }
+  .weekday {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--text-tertiary); text-align: left;
+    padding: 8px 10px; border-right: 1px solid var(--border-light);
+  }
+  .weekday:last-child { border-right: none; }
+
+  .grid {
+    /* minmax(0, 1fr), not 1fr: plain 1fr means minmax(auto, 1fr), and the
+       auto floor is content width — a nowrap pill would then push its column
+       wider than a seventh and clip Saturday off the right edge. */
+    display: grid; grid-template-columns: repeat(7, minmax(0, 1fr));
+    border: 1px solid var(--border); border-radius: 0 0 3px 3px;
+    overflow: hidden; background: var(--surface);
+  }
+  .cell {
+    min-height: 116px; padding: 6px 6px 8px; min-width: 0;
+    border-right: 1px solid var(--border-light);
+    border-top: 1px solid var(--border-light);
+    display: flex; flex-direction: column; gap: 3px;
+    cursor: pointer; transition: background .12s;
+  }
+  .cell:nth-child(7n) { border-right: none; }
+  .cell:nth-child(-n+7) { border-top: none; }
+  .cell:hover { background: var(--hover); }
+  .cell.other { background: var(--ground); }
+  .cell.other .daynum { color: var(--text-tertiary); opacity: .55; }
+  .cell.today { background: var(--today-bg); }
+
+  .daynum {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px; color: var(--text-secondary);
+    font-variant-numeric: tabular-nums; padding: 1px 3px 2px;
+  }
+  .cell.today .daynum {
+    color: #FFF; background: var(--accent); border-radius: 3px;
+    align-self: flex-start; font-weight: 500;
+  }
+
+  .pill {
+    display: block; width: 100%; text-align: left;
+    font-family: inherit; font-size: 11px; line-height: 1.35;
+    border: 1px solid transparent; border-radius: 3px;
+    padding: 3px 6px; cursor: pointer;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .pill .t { font-variant-numeric: tabular-nums; opacity: .75; margin-right: 4px; }
+  .pill.event { color: var(--pc); background: color-mix(in srgb, var(--pc) var(--pill-tint), transparent); }
+  .pill.event:hover { background: color-mix(in srgb, var(--pc) 30%, transparent); }
+  /* overlays are read-only: outlined rather than filled, so they never read
+     as something you can edit here */
+  .pill.overlay { color: var(--pc); background: none; border-color: color-mix(in srgb, var(--pc) 45%, transparent); }
+  .pill.overlay:hover { background: color-mix(in srgb, var(--pc) 12%, transparent); }
+
+  .more {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 10px; color: var(--text-tertiary);
+    background: none; border: none; padding: 1px 6px;
+    cursor: pointer; text-align: left;
+  }
+  .more:hover { color: var(--text-secondary); }
+
+  .empty-note {
+    margin-top: 20px; font-size: 13px; color: var(--text-tertiary); text-align: center;
+  }
+
+  /* --- modal --- */
+  .backdrop {
+    position: fixed; inset: 0; background: rgba(0,0,0,.32);
+    display: flex; align-items: flex-start; justify-content: center;
+    padding: 60px 20px 40px; overflow-y: auto; z-index: 50;
+  }
+  .modal {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 4px; width: 100%; max-width: 440px;
+    padding: 22px; display: flex; flex-direction: column; gap: 14px;
+  }
+  .modal h2 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 18px; font-weight: normal;
+  }
+  .modal-sub {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px; letter-spacing: .05em; text-transform: uppercase;
+    color: var(--text-tertiary);
+  }
+  .field { display: flex; flex-direction: column; gap: 5px; }
+  .field label {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 10px; letter-spacing: .07em; text-transform: uppercase;
+    color: var(--text-tertiary);
+  }
+  .field input, .field textarea, .field select {
+    font-family: inherit; font-size: 14px; color: var(--text);
+    background: var(--ground); border: 1px solid var(--border);
+    border-radius: 3px; padding: 8px 10px; width: 100%; outline: none;
+  }
+  .field textarea { resize: vertical; min-height: 68px; line-height: 1.5; }
+  .field input:focus, .field textarea:focus, .field select:focus { border-color: var(--accent); }
+  .row { display: flex; gap: 10px; }
+  .row > * { flex: 1; min-width: 0; }
+
+  .type-picker { display: flex; flex-wrap: wrap; gap: 6px; }
+  .type-opt {
+    font-family: inherit; font-size: 12px;
+    border: 1px solid var(--border); border-radius: 999px;
+    padding: 4px 11px; cursor: pointer; background: none; color: var(--text-secondary);
+  }
+  .type-opt:hover { border-color: var(--pc); }
+  .type-opt.sel {
+    color: var(--pc); border-color: var(--pc);
+    background: color-mix(in srgb, var(--pc) var(--pill-tint), transparent);
+  }
+
+  .allday-row { display: flex; align-items: center; gap: 8px; }
+  .allday-row input { width: auto; }
+  .allday-row label {
+    font-family: inherit; font-size: 13px; text-transform: none;
+    letter-spacing: 0; color: var(--text-secondary); cursor: pointer;
+  }
+
+  .modal-actions { display: flex; align-items: center; gap: 8px; margin-top: 4px; }
+  .modal-actions .spacer { flex: 1; }
+  .danger { color: var(--priority-high); border-color: transparent; }
+  .danger:hover { background: var(--priority-high-bg); }
+
+  .detail-line { font-size: 13px; color: var(--text-secondary); }
+  .detail-notes { font-size: 13px; line-height: 1.6; white-space: pre-wrap; }
+  .gcal-hint { font-size: 12px; color: var(--text-tertiary); line-height: 1.5; }
+  .gcal-btn {
+    display: block; text-align: center; text-decoration: none;
+    font-size: 13px; font-weight: 500; color: var(--accent);
+    background: none; border: 1px solid var(--border); border-radius: 3px;
+    padding: 9px 14px; margin-top: 2px;
+  }
+  .gcal-btn:hover { border-color: var(--accent); background: var(--hover); }
+
+  @media (max-width: 820px) {
+    .app { padding: 24px 12px 60px; }
+    .cell { min-height: 92px; }
+    .weekday { font-size: 9px; padding: 6px; }
+    .pill { font-size: 10px; }
+    .header { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Visible pre-auth, matching the other three pages: a signed-out visitor
+     landing here still needs a way to reach them. It also keeps the sign-in
+     card vertically aligned, since .auth-gate reserves 52px for this strip. -->
+<nav class="site-nav" id="siteNav">
+  <a href="../index.html">Tasks</a>
+  <a href="../questionnaires/index.html">Questionnaires</a>
+  <a href="../donors/index.html">Fundraising</a>
+  <a href="index.html" class="active">Calendar</a>
+</nav>
+
+<div class="auth-gate" id="authGate">
+  <div class="auth-card">
+    <div class="auth-title">Campaign Calendar</div>
+    <div class="auth-sub">Enter the campaign passphrase to continue.</div>
+    <input class="auth-input" id="authPass" type="password" placeholder="Passphrase" autocomplete="current-password">
+    <button class="auth-btn" id="authBtn">Sign in</button>
+    <div class="auth-error" id="authError" style="display:none"></div>
+  </div>
+</div>
+
+<div class="app" id="app" style="display:none">
+  <div id="setupNotice" style="display:none"></div>
+  <div class="header">
+    <div class="month-title" id="monthTitle"></div>
+    <div class="header-right">
+      <div class="save-indicator" id="saveIndicator"><span class="save-dot"></span><span class="save-label"></span></div>
+      <button class="nav-btn" id="prevBtn" title="Previous month">&larr;</button>
+      <button class="nav-btn" id="todayBtn">Today</button>
+      <button class="nav-btn" id="nextBtn" title="Next month">&rarr;</button>
+      <button class="nav-btn primary" id="newBtn">+ Event</button>
+    </div>
+  </div>
+
+  <div class="filters" id="filters"></div>
+
+  <div class="weekdays" id="weekdays"></div>
+  <div class="grid" id="grid"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  // ============================================================
+  // CONFIG — publishable key only. Never put a service_role key here;
+  // this file is served from a public repository.
+  // ============================================================
+  var SUPABASE_URL = 'https://qhrtqtnrduambvchjxqw.supabase.co';
+  var SUPABASE_KEY = 'sb_publishable_UAG7Ru6PRdNnOLCbchpQVg_8vE0jG5N';
+  var AUTH_EMAIL   = 'questionnaire@dariaforberkeley.com';
+
+  // Flip to true only after the calendar-sync Edge Function is deployed
+  // (calendar/SETUP.md section 2). Until then every save stays local and the
+  // per-event "Add to Google Calendar" button is the path to Google.
+  var AUTO_SYNC = false;
+
+  // Note: the Google Calendar template URL has no working way to preselect a
+  // calendar. The `src=` parameter is widely copy-pasted but originates from a
+  // 2009 post about the pre-2017 Calendar and is ignored today; no current
+  // library emits it. Pick the calendar from the dropdown on Google's page
+  // instead — or use the automatic path once that is wired up.
+
+  var EVENT_TYPES = [
+    { id: 'house_party', label: 'House Party' },
+    { id: 'canvass',     label: 'Canvass' },
+    { id: 'endorsement', label: 'Endorsement Interview' },
+    { id: 'special',     label: 'Special Event' },
+    { id: 'internal',    label: 'Internal Meeting' },
+    { id: 'deadline',    label: 'Deadline' }
+  ];
+  var TYPE_IDS = EVENT_TYPES.map(function (t) { return t.id; });
+
+  var ORG_NAMES = {
+    nuhw: 'NUHW', alc: 'Alameda Labor Council', btu: 'Berkeley Tenants Union',
+    uaw: 'UAW Region 6', phdc: 'Pro-Housing Dem Caucus',
+    pp: 'Planned Parenthood', cbd: 'Cal Berkeley Dems',
+    wfp: 'Working Families Party'
+  };
+
+  var LAYERS = [
+    { id: 'events',         label: 'Events' },
+    { id: 'questionnaires', label: 'Questionnaire Due' },
+    { id: 'tasks',          label: 'Task Due' }
+  ];
+
+  var sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  var today = new Date();
+  var viewY = today.getFullYear();
+  var viewM = today.getMonth();
+  var events = [];
+  var overlays = { questionnaires: [], tasks: [] };
+  var filters = loadFilters();
+  var expanded = {};
+
+  // ---------- helpers ----------
+
+  function loadFilters() {
+    try {
+      var raw = localStorage.getItem('calFilters');
+      if (raw) {
+        var p = JSON.parse(raw);
+        return {
+          events: p.events !== false,
+          questionnaires: p.questionnaires !== false,
+          tasks: p.tasks !== false
+        };
+      }
+    } catch (e) { /* fall through to defaults */ }
+    return { events: true, questionnaires: true, tasks: true };
+  }
+  function saveFilters() {
+    try { localStorage.setItem('calFilters', JSON.stringify(filters)); } catch (e) {}
+  }
+
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function iso(y, m, d) { return y + '-' + pad(m + 1) + '-' + pad(d); }
+  function todayISO() { return iso(today.getFullYear(), today.getMonth(), today.getDate()); }
+
+  function fmtTime(t) {
+    if (!t) return '';
+    var parts = String(t).split(':');
+    var h = parseInt(parts[0], 10);
+    var mn = parts[1] || '00';
+    if (isNaN(h)) return '';
+    var ap = h >= 12 ? 'p' : 'a';
+    var h12 = h % 12; if (h12 === 0) h12 = 12;
+    return h12 + (mn === '00' ? '' : ':' + mn) + ap;
+  }
+
+  function typeLabel(id) {
+    for (var i = 0; i < EVENT_TYPES.length; i++) if (EVENT_TYPES[i].id === id) return EVENT_TYPES[i].label;
+    return id;
+  }
+
+  var saveTimer = null;
+  function setSave(state, msg) {
+    var el = document.getElementById('saveIndicator');
+    var lbl = el.querySelector('.save-label');
+    clearTimeout(saveTimer);
+    el.className = 'save-indicator visible ' + state;
+    lbl.textContent = msg || (state === 'saving' ? 'Saving' : state === 'saved' ? 'Saved' : 'Save failed');
+    if (state !== 'saving') saveTimer = setTimeout(function () { el.className = 'save-indicator'; }, 2600);
+  }
+
+  // Every piece of text below goes in via textContent, never innerHTML,
+  // so an event title can never inject markup.
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+
+  // ---------- data ----------
+
+  async function loadEvents() {
+    var lastDay = new Date(viewY, viewM + 1, 0).getDate();
+    // Pad by a week each side so the leading/trailing cells of the grid fill in.
+    // Worst case is 6 leading and 6 trailing cells, so 7 covers it.
+    var from = new Date(viewY, viewM, 1); from.setDate(from.getDate() - 7);
+    var to   = new Date(viewY, viewM, lastDay); to.setDate(to.getDate() + 7);
+    var r = await sb.from('campaign_events').select('*')
+      .gte('event_date', iso(from.getFullYear(), from.getMonth(), from.getDate()))
+      .lte('event_date', iso(to.getFullYear(), to.getMonth(), to.getDate()))
+      .order('start_time', { ascending: true, nullsFirst: true });
+    if (r.error) throw r.error;
+    events = r.data || [];
+  }
+
+  function parseLooseDate(s) {
+    // due_dates.json holds free text like "JULY 23rd" — no year.
+    if (!s || typeof s !== 'string') return null;
+    var m = s.match(/([A-Za-z]{3,})\s*\.?\s*(\d{1,2})/);
+    if (!m) return null;
+    var months = ['january','february','march','april','may','june','july',
+                  'august','september','october','november','december'];
+    var mi = -1, name = m[1].toLowerCase();
+    for (var i = 0; i < months.length; i++) {
+      if (months[i].indexOf(name.slice(0, 3)) === 0) { mi = i; break; }
+    }
+    if (mi < 0) return null;
+    var day = parseInt(m[2], 10);
+    if (!day) return null;
+    // Validate against the actual month, not a flat 31 — "February 30" would
+    // otherwise produce a date string that matches no cell, so the pill would
+    // silently vanish while still being counted in the filter chip.
+    var y = today.getFullYear();
+    if (day > new Date(y, mi + 1, 0).getDate()) return null;
+    // No year in the source: pick the reading nearest to now, in BOTH
+    // directions. A one-sided test pushes "December 20th" read in January a
+    // full year forward instead of back.
+    var cand = new Date(y, mi, day);
+    if ((today - cand) / 86400000 > 180) y += 1;
+    else if ((cand - today) / 86400000 > 180) y -= 1;
+    return iso(y, mi, day);
+  }
+
+  async function loadOverlays() {
+    var out = { questionnaires: [], tasks: [] };
+
+    try {
+      var res = await fetch('../questionnaires/data/due_dates.json', { cache: 'no-store' });
+      if (res.ok) {
+        var dd = await res.json();
+        Object.keys(dd).forEach(function (slug) {
+          var d = parseLooseDate(dd[slug]);
+          if (d) out.questionnaires.push({
+            date: d,
+            title: (ORG_NAMES[slug] || slug.toUpperCase()) + ' due',
+            layer: 'questionnaires',
+            detail: 'Questionnaire deadline, from the endorsement tracker.'
+          });
+        });
+      }
+    } catch (e) { /* overlay is optional; the grid still renders */ }
+
+    try {
+      var t = await sb.from('tasks').select('id,name,due,done').not('due', 'is', null);
+      if (!t.error && t.data) {
+        t.data.forEach(function (row) {
+          if (!row.due || !/^\d{4}-\d{2}-\d{2}$/.test(row.due)) return;
+          out.tasks.push({
+            date: row.due,
+            title: row.name || 'Untitled task',
+            layer: 'tasks',
+            done: !!row.done,
+            detail: row.done ? 'Task — completed.' : 'Task due, from the task tracker.'
+          });
+        });
+      }
+    } catch (e) { /* ditto */ }
+
+    overlays = out;
+  }
+
+  // ---------- render ----------
+
+  var MONTHS = ['January','February','March','April','May','June','July',
+                'August','September','October','November','December'];
+  var DOW = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+
+  function itemsFor(dateStr) {
+    var out = [];
+    if (filters.events) {
+      events.forEach(function (e) {
+        if (e.event_date === dateStr) out.push({ kind: 'event', data: e });
+      });
+    }
+    ['questionnaires', 'tasks'].forEach(function (layer) {
+      if (!filters[layer]) return;
+      overlays[layer].forEach(function (o) {
+        if (o.date === dateStr) out.push({ kind: 'overlay', data: o });
+      });
+    });
+    return out;
+  }
+
+  function renderFilters() {
+    var box = document.getElementById('filters');
+    box.textContent = '';
+    LAYERS.forEach(function (L) {
+      var n = 0;
+      if (L.id === 'events') n = events.filter(inView).length;
+      else n = overlays[L.id].filter(function (o) { return inViewDate(o.date); }).length;
+
+      var b = el('button', 'filter-chip' + (filters[L.id] ? ' on' : ''));
+      b.setAttribute('data-layer', L.id);
+      b.setAttribute('aria-pressed', filters[L.id] ? 'true' : 'false');
+      b.appendChild(el('span', 'swatch'));
+      b.appendChild(el('span', null, L.label));
+      b.appendChild(el('span', 'filter-count', String(n)));
+      b.addEventListener('click', function () {
+        filters[L.id] = !filters[L.id];
+        saveFilters(); render();
+      });
+      box.appendChild(b);
+    });
+  }
+
+  function inView(e) { return inViewDate(e.event_date); }
+  function inViewDate(d) {
+    if (!d) return false;
+    var p = d.split('-');
+    return parseInt(p[0], 10) === viewY && parseInt(p[1], 10) - 1 === viewM;
+  }
+
+  function render() {
+    var title = document.getElementById('monthTitle');
+    title.textContent = '';
+    title.appendChild(document.createTextNode(MONTHS[viewM] + ' '));
+    title.appendChild(el('span', 'yr', String(viewY)));
+
+    var wd = document.getElementById('weekdays');
+    wd.textContent = '';
+    DOW.forEach(function (d) { wd.appendChild(el('div', 'weekday', d)); });
+
+    renderFilters();
+
+    var grid = document.getElementById('grid');
+    grid.textContent = '';
+
+    var first = new Date(viewY, viewM, 1);
+    var startOffset = first.getDay();
+    var start = new Date(viewY, viewM, 1 - startOffset);
+    var totalDays = new Date(viewY, viewM + 1, 0).getDate();
+    var weeks = Math.ceil((startOffset + totalDays) / 7);
+    var tISO = todayISO();
+
+    for (var i = 0; i < weeks * 7; i++) {
+      var d = new Date(start.getFullYear(), start.getMonth(), start.getDate() + i);
+      var ds = iso(d.getFullYear(), d.getMonth(), d.getDate());
+      var isOther = d.getMonth() !== viewM;
+
+      var cell = el('div', 'cell' + (isOther ? ' other' : '') + (ds === tISO ? ' today' : ''));
+      cell.appendChild(el('div', 'daynum', String(d.getDate())));
+
+      var items = itemsFor(ds);
+      var limit = expanded[ds] ? items.length : 3;
+      items.slice(0, limit).forEach(function (it) { cell.appendChild(makePill(it)); });
+      if (items.length > limit) {
+        var more = el('button', 'more', '+' + (items.length - limit) + ' more');
+        more.addEventListener('click', function (dsv) {
+          return function (ev) { ev.stopPropagation(); expanded[dsv] = true; render(); };
+        }(ds));
+        cell.appendChild(more);
+      }
+
+      cell.addEventListener('click', function (dsv) {
+        return function () { openEditor(null, dsv); };
+      }(ds));
+      grid.appendChild(cell);
+    }
+  }
+
+  function makePill(it) {
+    var b;
+    if (it.kind === 'event') {
+      var e = it.data;
+      b = el('button', 'pill event');
+      b.style.setProperty('--pc', 'var(--ev-' + (TYPE_IDS.indexOf(e.event_type) >= 0 ? e.event_type : 'special') + ')');
+      if (!e.all_day && e.start_time) b.appendChild(el('span', 't', fmtTime(e.start_time)));
+      b.appendChild(document.createTextNode(e.title || 'Untitled'));
+      b.title = (e.title || 'Untitled') + ' — ' + typeLabel(e.event_type);
+      b.addEventListener('click', function (ev) { ev.stopPropagation(); openDetail(e); });
+    } else {
+      var o = it.data;
+      b = el('button', 'pill overlay');
+      b.style.setProperty('--pc', 'var(--ov-' + (o.layer === 'tasks' ? 'task' : 'questionnaire') + ')');
+      b.appendChild(document.createTextNode((o.done ? '✓ ' : '') + o.title));
+      b.title = o.title + ' — ' + o.detail;
+      b.addEventListener('click', function (ev) { ev.stopPropagation(); openOverlayDetail(o); });
+    }
+    return b;
+  }
+
+  // ---------- modals ----------
+
+  var openModal = null;
+  function closeModal() {
+    if (openModal) { openModal.remove(); openModal = null; }
+    document.removeEventListener('keydown', onEsc);
+  }
+  function onEsc(e) { if (e.key === 'Escape') closeModal(); }
+
+  function shell() {
+    closeModal();
+    var back = el('div', 'backdrop');
+    var m = el('div', 'modal');
+    back.appendChild(m);
+    back.addEventListener('click', function (e) { if (e.target === back) closeModal(); });
+    document.body.appendChild(back);
+    document.addEventListener('keydown', onEsc);
+    openModal = back;
+    return m;
+  }
+
+  function openOverlayDetail(o) {
+    var m = shell();
+    m.appendChild(el('div', 'modal-sub', o.layer === 'tasks' ? 'Task due' : 'Questionnaire due'));
+    m.appendChild(el('h2', null, o.title));
+    m.appendChild(el('div', 'detail-line', prettyDate(o.date)));
+    m.appendChild(el('div', 'gcal-hint', o.detail + ' Edit it on its own page — this is a read-only view.'));
+    var acts = el('div', 'modal-actions');
+    acts.appendChild(el('span', 'spacer'));
+    var close = el('button', 'nav-btn', 'Close');
+    close.addEventListener('click', closeModal);
+    acts.appendChild(close);
+    m.appendChild(acts);
+  }
+
+  function prettyDate(ds) {
+    var p = ds.split('-');
+    var d = new Date(parseInt(p[0],10), parseInt(p[1],10)-1, parseInt(p[2],10));
+    return DOW[d.getDay()] + ', ' + MONTHS[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+  }
+
+  function openDetail(e) {
+    var m = shell();
+    m.appendChild(el('div', 'modal-sub', typeLabel(e.event_type)));
+    m.appendChild(el('h2', null, e.title || 'Untitled'));
+
+    var when = prettyDate(e.event_date);
+    if (!e.all_day && e.start_time) {
+      when += ' · ' + fmtTime(e.start_time) + (e.end_time ? '–' + fmtTime(e.end_time) : '');
+    } else if (e.all_day) { when += ' · All day'; }
+    m.appendChild(el('div', 'detail-line', when));
+    if (e.location) m.appendChild(el('div', 'detail-line', e.location));
+    if (e.notes) m.appendChild(el('div', 'detail-notes', e.notes));
+
+    var gcal = el('a', 'gcal-btn', 'Add to Google Calendar');
+    gcal.href = gcalUrl(e);
+    gcal.target = '_blank';
+    gcal.rel = 'noopener noreferrer';
+    m.appendChild(gcal);
+    m.appendChild(el('div', 'gcal-hint',
+      'Opens Google Calendar with this event prefilled. Pick the campaign ' +
+      'calendar from the dropdown there, then save to send invites.'));
+
+    var acts = el('div', 'modal-actions');
+    var del = el('button', 'nav-btn danger', 'Delete');
+    del.addEventListener('click', function () { removeEvent(e); });
+    acts.appendChild(del);
+    acts.appendChild(el('span', 'spacer'));
+    var edit = el('button', 'nav-btn', 'Edit');
+    edit.addEventListener('click', function () { openEditor(e, e.event_date); });
+    acts.appendChild(edit);
+    var close = el('button', 'nav-btn primary', 'Close');
+    close.addEventListener('click', closeModal);
+    acts.appendChild(close);
+    m.appendChild(acts);
+  }
+
+  function stamp(d) {
+    return String(d.getFullYear()) + pad(d.getMonth() + 1) + pad(d.getDate()) +
+           'T' + pad(d.getHours()) + pad(d.getMinutes()) + '00';
+  }
+
+  function gcalUrl(e) {
+    var p = e.event_date.split('-');
+    var ymd = p[0] + p[1] + p[2];
+    var dates;
+    if (e.all_day || !e.start_time) {
+      // All-day events use an exclusive end date.
+      var end = new Date(parseInt(p[0],10), parseInt(p[1],10)-1, parseInt(p[2],10) + 1);
+      dates = [ymd, iso(end.getFullYear(), end.getMonth(), end.getDate()).replace(/-/g, '')];
+    } else {
+      var st = String(e.start_time).split(':');
+      var sh = parseInt(st[0], 10), sm = parseInt(st[1] || '0', 10);
+      var startDt = new Date(parseInt(p[0],10), parseInt(p[1],10) - 1, parseInt(p[2],10), sh, sm);
+      var endDt;
+      if (e.end_time) {
+        var et = String(e.end_time).split(':');
+        endDt = new Date(parseInt(p[0],10), parseInt(p[1],10) - 1, parseInt(p[2],10),
+                         parseInt(et[0], 10), parseInt(et[1] || '0', 10));
+      } else {
+        // Default to one hour. Built through Date rather than (h+1)%24 so a
+        // 23:30 event ends 00:30 the NEXT day instead of producing an end
+        // timestamp earlier than its start.
+        endDt = new Date(startDt.getTime() + 3600000);
+      }
+      dates = [stamp(startDt), stamp(endDt)];
+    }
+    var q = [
+      'action=TEMPLATE',
+      'text=' + encodeURIComponent(e.title || 'Untitled'),
+      // Each half encoded, joined by a literal "/" — Google requires the slash
+      // as the range separator, so encoding the whole string to %2F would be
+      // wrong. Encoding the halves still blocks any separator injection if
+      // these columns ever loosen to text (setup.sql already stores a date in
+      // a text column, so that drift is not hypothetical).
+      'dates=' + encodeURIComponent(dates[0]) + '/' + encodeURIComponent(dates[1]),
+      'details=' + encodeURIComponent((e.notes || '') + (e.notes ? '\n\n' : '') + typeLabel(e.event_type)),
+      'location=' + encodeURIComponent(e.location || ''),
+      // Without this Google resolves the naive timestamps against the *viewer's*
+      // calendar timezone, so a volunteer set to Eastern would see a 9am
+      // Berkeley canvass at 9am Eastern.
+      'ctz=America/Los_Angeles'
+    ];
+    return 'https://calendar.google.com/calendar/render?' + q.join('&');
+  }
+
+  function openEditor(existing, dateStr) {
+    var m = shell();
+    var e = existing || {
+      title: '', event_type: 'special', event_date: dateStr,
+      start_time: '', end_time: '', all_day: false, location: '', notes: ''
+    };
+    m.appendChild(el('div', 'modal-sub', existing ? 'Edit event' : 'New event'));
+    m.appendChild(el('h2', null, existing ? 'Edit' : prettyDate(e.event_date)));
+
+    var fTitle = field('Title', 'input');
+    fTitle.input.value = e.title || '';
+    fTitle.input.maxLength = 200;
+    fTitle.input.placeholder = 'House party at the Kims';
+    m.appendChild(fTitle.wrap);
+
+    var typeWrap = el('div', 'field');
+    typeWrap.appendChild(el('label', null, 'Type'));
+    var picker = el('div', 'type-picker');
+    var chosen = TYPE_IDS.indexOf(e.event_type) >= 0 ? e.event_type : 'special';
+    EVENT_TYPES.forEach(function (t) {
+      var b = el('button', 'type-opt' + (t.id === chosen ? ' sel' : ''), t.label);
+      b.type = 'button';
+      b.style.setProperty('--pc', 'var(--ev-' + t.id + ')');
+      b.addEventListener('click', function () {
+        chosen = t.id;
+        Array.prototype.forEach.call(picker.children, function (c) { c.classList.remove('sel'); });
+        b.classList.add('sel');
+      });
+      picker.appendChild(b);
+    });
+    typeWrap.appendChild(picker);
+    m.appendChild(typeWrap);
+
+    var fDate = field('Date', 'input'); fDate.input.type = 'date';
+    fDate.input.value = e.event_date;
+    m.appendChild(fDate.wrap);
+
+    var allWrap = el('div', 'allday-row');
+    var allIn = document.createElement('input');
+    allIn.type = 'checkbox'; allIn.id = 'allDay'; allIn.checked = !!e.all_day;
+    var allLbl = el('label', null, 'All day'); allLbl.htmlFor = 'allDay';
+    allWrap.appendChild(allIn); allWrap.appendChild(allLbl);
+    m.appendChild(allWrap);
+
+    var timeRow = el('div', 'row');
+    var fStart = field('Start', 'input'); fStart.input.type = 'time'; fStart.input.value = e.start_time ? String(e.start_time).slice(0,5) : '';
+    var fEnd   = field('End', 'input');   fEnd.input.type = 'time';   fEnd.input.value = e.end_time ? String(e.end_time).slice(0,5) : '';
+    timeRow.appendChild(fStart.wrap); timeRow.appendChild(fEnd.wrap);
+    m.appendChild(timeRow);
+    function syncTimes() { timeRow.style.display = allIn.checked ? 'none' : 'flex'; }
+    allIn.addEventListener('change', syncTimes); syncTimes();
+
+    var fLoc = field('Location', 'input');
+    fLoc.input.value = e.location || ''; fLoc.input.maxLength = 300;
+    fLoc.input.placeholder = 'Optional';
+    m.appendChild(fLoc.wrap);
+
+    var fNotes = field('Details', 'textarea');
+    fNotes.input.value = e.notes || ''; fNotes.input.maxLength = 5000;
+    fNotes.input.placeholder = 'Optional — shown when the event is expanded';
+    m.appendChild(fNotes.wrap);
+
+    var err = el('div', 'auth-error'); err.style.display = 'none';
+    m.appendChild(err);
+
+    var acts = el('div', 'modal-actions');
+    if (existing) {
+      var del = el('button', 'nav-btn danger', 'Delete');
+      del.addEventListener('click', function () { removeEvent(existing); });
+      acts.appendChild(del);
+    }
+    acts.appendChild(el('span', 'spacer'));
+    var cancel = el('button', 'nav-btn', 'Cancel');
+    cancel.addEventListener('click', closeModal);
+    acts.appendChild(cancel);
+    var save = el('button', 'nav-btn primary', 'Save');
+    acts.appendChild(save);
+    m.appendChild(acts);
+
+    save.addEventListener('click', async function () {
+      var title = fTitle.input.value.trim();
+      if (!title) { err.textContent = 'Give the event a title.'; err.style.display = 'block'; fTitle.input.focus(); return; }
+      if (!fDate.input.value) { err.textContent = 'Pick a date.'; err.style.display = 'block'; return; }
+      var allDay = allIn.checked;
+      var st = allDay ? null : (fStart.input.value || null);
+      var en = allDay ? null : (fEnd.input.value || null);
+      if (st && en && en < st) { err.textContent = 'End time is before the start time.'; err.style.display = 'block'; return; }
+
+      var row = {
+        title: title,
+        event_type: TYPE_IDS.indexOf(chosen) >= 0 ? chosen : 'special',
+        event_date: fDate.input.value,
+        start_time: st, end_time: en, all_day: allDay,
+        location: fLoc.input.value.trim(),
+        notes: fNotes.input.value.trim()
+      };
+
+      save.disabled = true; setSave('saving');
+      try {
+        // select().single() on insert so we get the generated id back and can
+        // hand it to the sync call.
+        var r = existing
+          ? await sb.from('campaign_events').update(row).eq('id', existing.id).select().single()
+          : await sb.from('campaign_events').insert(row).select().single();
+        if (r.error) throw r.error;
+        setSave('saved');
+        await refresh();
+        // Closed only after everything that can throw, so a failure still has
+        // a live modal to report into.
+        closeModal();
+        pushToGoogle(r.data && r.data.id, 'upsert');
+      } catch (ex) {
+        save.disabled = false;
+        setSave('error');
+        err.textContent = 'Could not save. ' + (ex && ex.message ? ex.message : '');
+        err.style.display = 'block';
+      }
+    });
+
+    setTimeout(function () { fTitle.input.focus(); }, 30);
+  }
+
+  function field(label, tag) {
+    var wrap = el('div', 'field');
+    wrap.appendChild(el('label', null, label));
+    var input = document.createElement(tag);
+    wrap.appendChild(input);
+    return { wrap: wrap, input: input };
+  }
+
+  async function removeEvent(e) {
+    if (!window.confirm('Delete "' + (e.title || 'Untitled') + '"?')) return;
+    setSave('saving');
+    try {
+      // Retract from Google first — once the row is gone we no longer know the
+      // Google event id, and the event would be orphaned on the calendar.
+      if (AUTO_SYNC && e.google_event_id) await pushToGoogle(e.id, 'delete');
+      var r = await sb.from('campaign_events').delete().eq('id', e.id);
+      if (r.error) throw r.error;
+      setSave('saved'); closeModal(); await refresh();
+    } catch (ex) { setSave('error'); }
+  }
+
+  // No-op until the Edge Function is deployed. A failure here must not lose the
+  // event: the row is already saved, so this only reports.
+  async function pushToGoogle(id, action) {
+    if (!AUTO_SYNC || !id) return;
+    try {
+      var r = await sb.functions.invoke('calendar-sync', { body: { event_id: id, action: action } });
+      if (r.error) throw r.error;
+    } catch (ex) {
+      setSave('error', 'Saved, not on Google');
+    }
+  }
+
+  // ---------- wiring ----------
+
+  async function refresh() {
+    try {
+      // Overlays reload too: task due dates change on the Tasks page, and
+      // loading them only once left them stale for the whole session.
+      await Promise.all([loadEvents(), loadOverlays()]);
+      setSetupNotice('');
+    } catch (e) {
+      if (e && (e.code === 'PGRST205' || /schema cache/i.test(e.message || ''))) {
+        setSetupNotice('The calendar table does not exist yet. Run calendar_setup.sql ' +
+                       'in the Supabase SQL Editor, then reload this page.');
+      } else {
+        setSave('error', 'Load failed');
+      }
+    }
+    render();
+  }
+
+  function setSetupNotice(msg) {
+    var box = document.getElementById('setupNotice');
+    box.textContent = '';
+    if (!msg) { box.style.display = 'none'; return; }
+    box.style.display = '';
+    box.appendChild(el('div', 'setup-banner', msg));
+  }
+
+  function go(delta) {
+    viewM += delta;
+    if (viewM < 0) { viewM = 11; viewY--; }
+    if (viewM > 11) { viewM = 0; viewY++; }
+    expanded = {};
+    refresh();
+  }
+
+  document.getElementById('prevBtn').addEventListener('click', function () { go(-1); });
+  document.getElementById('nextBtn').addEventListener('click', function () { go(1); });
+  document.getElementById('todayBtn').addEventListener('click', function () {
+    viewY = today.getFullYear(); viewM = today.getMonth(); expanded = {}; refresh();
+  });
+  document.getElementById('newBtn').addEventListener('click', function () {
+    var d = (viewY === today.getFullYear() && viewM === today.getMonth())
+      ? todayISO() : iso(viewY, viewM, 1);
+    openEditor(null, d);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (openModal) return;
+    if (e.target && /INPUT|TEXTAREA|SELECT/.test(e.target.tagName)) return;
+    if (e.key === 'ArrowLeft') go(-1);
+    if (e.key === 'ArrowRight') go(1);
+  });
+
+  // A stored session resolving after the user has already typed the passphrase
+  // would otherwise run showApp twice and subscribe the realtime channel twice.
+  var booted = false;
+  async function showApp() {
+    if (booted) return;
+    booted = true;
+    document.getElementById('authGate').style.display = 'none';
+    document.getElementById('app').style.display = '';
+    await refresh();
+    sb.channel('campaign_events_rt')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'campaign_events' }, refresh)
+      .subscribe();
+  }
+
+  async function doAuth() {
+    var pass = document.getElementById('authPass').value.trim();
+    var errEl = document.getElementById('authError');
+    var btn = document.getElementById('authBtn');
+    if (!pass) { errEl.textContent = 'Enter the passphrase.'; errEl.style.display = 'block'; return; }
+    btn.disabled = true; btn.textContent = 'Signing in...';
+    try {
+      var res = await sb.auth.signInWithPassword({ email: AUTH_EMAIL, password: pass });
+      if (res.error) throw res.error;
+      showApp();
+    } catch (e) {
+      btn.disabled = false; btn.textContent = 'Sign in';
+      errEl.textContent = 'Wrong passphrase.'; errEl.style.display = 'block';
+    }
+  }
+  document.getElementById('authBtn').addEventListener('click', doAuth);
+  document.getElementById('authPass').addEventListener('keydown', function (e) { if (e.key === 'Enter') doAuth(); });
+
+  sb.auth.getSession().then(function (r) { if (r.data && r.data.session) showApp(); });
+})();
+</script>
+</body>
+</html>

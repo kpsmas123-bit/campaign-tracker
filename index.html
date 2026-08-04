@@ -375,6 +375,7 @@
   <a href="index.html" class="active">Tasks</a>
   <a href="questionnaires/index.html">Questionnaires</a>
   <a href="donors/index.html">Fundraising</a>
+  <a href="calendar/index.html">Calendar</a>
 </nav>
 <div class="auth-gate" id="authGate">
   <div class="auth-card">
@@ -476,7 +477,12 @@
   function escHtml(str) {
     var d = document.createElement('div');
     d.textContent = str || '';
-    return d.innerHTML;
+    // The textContent round-trip escapes & < > but leaves quotes intact, and
+    // every caller interpolates the result into a double-quoted attribute
+    // (value="...", data-name="..."). Without these two replacements a task
+    // name containing a double quote can close the attribute and add its own —
+    // e.g. `" autofocus onfocus="...` — which executes on page render.
+    return d.innerHTML.replace(/"/g, '&quot;').replace(/'/g, '&#39;');
   }
 
   function getInitials(name) {

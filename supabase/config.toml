@@ -1,0 +1,9 @@
+project_id = "qhrtqtnrduambvchjxqw"
+
+[functions.calendar-sync]
+# Verified at the platform edge before the function body runs. This is
+# authentication only — the function still checks that the caller is the shared
+# campaign user before touching Google. Never set this to false: the function
+# holds a service-role client, so an unauthenticated caller would be able to
+# read and rewrite any row.
+verify_jwt = true

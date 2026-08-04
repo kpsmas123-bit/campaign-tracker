@@ -419,6 +419,7 @@ def generate(data_path, out_path):
   <a href="../index.html">Tasks</a>
   <a href="../questionnaires/index.html">Questionnaires</a>
   <a href="index.html" class="active">Fundraising</a>
+  <a href="../calendar/index.html">Calendar</a>
 </nav>
 {AUTH_HTML}
 

@@ -16,3 +16,8 @@ nuhw_draft.txt
 questionnaire_answers*
 donor_export*
 *.csv
+answers_*.py
+*-FILLED.pdf
+*_official.pdf
+supabase/functions/.env
+supabase/.temp/
