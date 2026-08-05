@@ -1,0 +1,3 @@
+# Working draft. Not for indexing.
+User-agent: *
+Disallow: /

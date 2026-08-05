@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>The Flock contract — working draft</title>
+<style>
+:root{
+  --green:#18603b; --green-dk:#0e3d25; --gold:#dbb42b; --cream:#ebdcab;
+  --paper:#fbf8f0; --ink:#14140f; --ink-2:#4a4a42; --rule:#d8d2bd;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font:400 19px/1.52 var(--serif); font-kerning:normal;
+}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+.prose{max-width:37rem}
+
+/* ---------- draft banner ---------- */
+.draft{
+  background:var(--green-dk); color:var(--cream); font:600 13px/1.4 var(--sans);
+  letter-spacing:.02em; padding:9px 0;
+}
+.draft strong{color:var(--gold)}
+
+/* ---------- masthead ---------- */
+header.top{border-bottom:3px solid var(--green); padding:46px 0 26px; background:var(--paper)}
+.kicker{
+  font:700 12px/1 var(--sans); letter-spacing:.16em; text-transform:uppercase;
+  color:var(--green); margin:0 0 18px;
+}
+h1{
+  font:400 clamp(34px,5.4vw,58px)/1.06 var(--serif); letter-spacing:-.015em;
+  margin:0 0 20px; max-width:19ch;
+}
+.standfirst{font-size:21px;line-height:1.5;color:var(--ink-2);max-width:36rem;margin:0}
+
+/* ---------- nav ---------- */
+nav.toc{
+  position:sticky; top:0; z-index:20; background:var(--paper);
+  border-bottom:1px solid var(--rule); padding:11px 0;
+}
+nav.toc ul{display:flex;flex-wrap:wrap;gap:22px;list-style:none;margin:0;padding:0}
+nav.toc a{
+  font:600 12.5px/1 var(--sans); letter-spacing:.06em; text-transform:uppercase;
+  color:var(--ink-2); text-decoration:none; padding:3px 0; border-bottom:2px solid transparent;
+}
+nav.toc a:hover{color:var(--green);border-bottom-color:var(--gold)}
+
+/* ---------- summary ---------- */
+.summary{background:var(--cream);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.summary .wrap{padding-top:38px;padding-bottom:38px}
+.summary h2{font:700 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--green-dk);margin:0 0 16px}
+.summary p{max-width:38rem;margin:0 0 14px;font-size:19.5px}
+.summary p:last-child{margin-bottom:0}
+
+/* ---------- sections ---------- */
+section{padding:56px 0;border-bottom:1px solid var(--rule)}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 30px}
+.sec-num{font:700 12px/1 var(--sans);color:var(--gold);letter-spacing:.1em}
+.sec-head h2{font:400 clamp(25px,3.4vw,34px)/1.15 var(--serif);margin:0;letter-spacing:-.01em}
+.prose h2{
+  font:400 25px/1.22 var(--serif); margin:44px 0 12px; letter-spacing:-.01em;
+  padding-top:18px; border-top:1px solid var(--rule);
+}
+.prose h2:first-of-type{margin-top:0;border-top:0;padding-top:0}
+.prose p{margin:0 0 15px}
+.prose blockquote{
+  margin:20px 0; padding:2px 0 2px 20px; border-left:3px solid var(--gold);
+  color:var(--ink-2); font-style:italic;
+}
+.prose ul{margin:0 0 15px;padding-left:22px}
+.prose li{margin-bottom:7px}
+.prose hr{display:none}
+
+/* ---------- citations ---------- */
+sup.cite{font-size:.62em;line-height:0;vertical-align:super;white-space:nowrap;margin-left:1px}
+sup.cite a{
+  color:var(--green); text-decoration:none; font-family:var(--sans); font-weight:700;
+  padding:0 1px;
+}
+sup.cite a:hover{background:var(--gold);color:var(--ink)}
+sup.cite a.dup{display:none}
+sup.cite a+a:not(.dup)::before{content:"\2009"}
+sup.cite[data-tier="C"] a{color:var(--ink-2)}
+sup.cite[data-tier="C"] a::after{content:"c";font-size:.8em;vertical-align:super;opacity:.7}
+
+/* ---------- timeline ---------- */
+.tl-controls{display:flex;gap:9px;margin:0 0 24px;flex-wrap:wrap}
+.tl-controls button{
+  font:600 12px/1 var(--sans); letter-spacing:.05em; text-transform:uppercase;
+  padding:8px 14px; border:1px solid var(--green); background:transparent;
+  color:var(--green); cursor:pointer; border-radius:2px;
+}
+.tl-controls button[aria-pressed="true"]{background:var(--green);color:var(--cream)}
+ol.timeline{list-style:none;margin:0;padding:0;position:relative}
+/* The spine. A real line down the page, with a node per event. */
+ol.timeline::before{
+  content:""; position:absolute; left:167px; top:10px; bottom:10px;
+  width:2px; background:linear-gradient(180deg,var(--gold),var(--green) 22%,var(--green) 78%,var(--rule));
+}
+.tl-item{
+  display:grid; grid-template-columns:150px 34px 1fr; gap:0;
+  padding:13px 0; position:relative;
+}
+.tl-item::after{
+  content:""; position:absolute; left:162px; top:22px;
+  width:12px; height:12px; border-radius:50%;
+  background:var(--green); border:2.5px solid var(--paper); box-shadow:0 0 0 1.5px var(--green);
+}
+.tl-item[data-kind="comparative"]::after{background:var(--gold);box-shadow:0 0 0 1.5px var(--gold)}
+.tl-date{text-align:right;padding-right:22px}
+.tl-body{grid-column:3;padding-left:8px}
+.tl-date time{font:600 13px/1.4 var(--sans);color:var(--green);letter-spacing:.03em}
+
+/* Year markers. Chapters in the chronology, so 25 rows do not read as one list. */
+.tl-year{
+  display:grid; grid-template-columns:150px 34px 1fr; align-items:center;
+  padding:26px 0 8px; position:sticky; top:44px; z-index:5;
+  background:linear-gradient(180deg,var(--paper) 72%,transparent);
+}
+.tl-year span{
+  grid-column:1; text-align:right; padding-right:22px;
+  font:700 21px/1 var(--sans); letter-spacing:.02em; color:var(--ink);
+  font-variant-numeric:tabular-nums;
+}
+.tl-year::after{
+  content:""; grid-column:2; justify-self:start; margin-left:11px;
+  width:14px; height:2px; background:var(--gold);
+}
+
+/* Emphasis. The pivotal events carry more weight than the context around them. */
+.tl-item[data-weight="key"] .tl-body>p:last-child{font-size:20px;line-height:1.4}
+.tl-item[data-weight="key"] .tl-date time{color:var(--ink);font-size:14px}
+.tl-item[data-weight="key"]::after{
+  width:15px;height:15px;left:160px;top:20px;background:var(--gold);
+  box-shadow:0 0 0 1.5px var(--green);
+}
+.tl-item[data-weight="normal"] .tl-body>p:last-child{color:var(--ink-2)}
+.tl-body p{margin:0}
+.tl-actor{font:600 12px/1.4 var(--sans);letter-spacing:.04em;color:var(--ink-2);margin-bottom:4px !important}
+/* Three registers: the company, Berkeley, and everywhere else. */
+.tl-item[data-kind="company"] .tl-body{background:linear-gradient(90deg,rgba(20,20,15,.055),transparent 74%);border-radius:2px}
+.tl-item[data-kind="company"]::after{background:var(--ink);box-shadow:0 0 0 1.5px var(--ink)}
+.tl-item[data-kind="company"] .tl-date time{color:var(--ink)}
+.tl-item[data-kind="elsewhere"] .tl-body{background:linear-gradient(90deg,rgba(219,180,43,.14),transparent 78%);border-radius:2px}
+.tl-item[data-kind="elsewhere"]::after{background:var(--gold);box-shadow:0 0 0 1.5px var(--gold)}
+.tl-item[data-kind="elsewhere"] .tl-date time{color:var(--ink-2)}
+.tl-note{font:400 15px/1.5 var(--sans);color:var(--ink-2);max-width:44rem;margin:22px 0 0;padding-top:16px;border-top:1px solid var(--rule)}
+
+/* ---------- documents ---------- */
+.doc{border:1px solid var(--rule);background:#fff;margin-bottom:26px}
+.doc-head{padding:18px 22px;border-bottom:1px solid var(--rule);background:var(--cream)}
+.doc-head h3{font:400 21px/1.25 var(--serif);margin:0 0 5px}
+.doc-head p{font:400 13.5px/1.45 var(--sans);color:var(--ink-2);margin:0}
+.doc-body{padding:20px 22px}
+.pull{
+  margin:0 0 14px; padding:12px 16px; background:var(--paper);
+  border-left:3px solid var(--gold); font-size:17.5px;
+}
+.pull cite{display:block;font:600 12px/1.4 var(--sans);color:var(--ink-2);font-style:normal;margin-top:7px;letter-spacing:.03em}
+.doc embed,.doc object,.doc iframe{width:100%;height:620px;border:0;border-top:1px solid var(--rule);display:block}
+.doc-links{padding:14px 22px;border-top:1px solid var(--rule);font:600 13px/1 var(--sans)}
+.doc-links a{color:var(--green);margin-right:20px}
+
+/* ---------- sources ---------- */
+ol.sources{list-style:none;margin:0;padding:0;column-gap:44px}
+.source{display:grid;grid-template-columns:44px 1fr;gap:10px;padding:13px 0;border-bottom:1px solid var(--rule);break-inside:avoid}
+.source:target{background:var(--cream)}
+.s-num{font:700 13px/1.5 var(--sans);color:var(--gold)}
+.s-title{margin:0 0 4px;font-size:16.5px;line-height:1.35}
+.s-meta,.s-links{font:400 12.5px/1.45 var(--sans);color:var(--ink-2);margin:0}
+.s-links a{color:var(--green)}
+.no-archive{color:#96603a}
+.ledger-note{font:400 15px/1.55 var(--sans);color:var(--ink-2);max-width:44rem;margin:0 0 26px}
+
+/* ---------- footer ---------- */
+footer{padding:34px 0 60px;font:400 13.5px/1.6 var(--sans);color:var(--ink-2)}
+footer p{max-width:44rem;margin:0 0 9px}
+
+a{color:var(--green)}
+
+@media (max-width:760px){
+  body{font-size:17.5px}
+  .wrap{padding:0 20px}
+  ol.timeline::before{left:5px}
+  .tl-item{grid-template-columns:1fr;gap:4px;padding-left:28px}
+  .tl-item::after{left:0;top:18px}
+  .tl-date{text-align:left;padding-right:0}
+  .tl-year{grid-template-columns:1fr;padding-left:28px;top:0}
+  .tl-year span{text-align:left;padding-right:0;font-size:18px}
+  .tl-year::after{display:none}
+  .tl-body{grid-column:1;padding-left:0}
+  .doc embed,.doc object,.doc iframe{height:420px}
+}
+
+@media print{
+  .draft,nav.toc,.tl-controls,.doc embed,.doc object,.doc iframe,.doc-links{display:none}
+  body{background:#fff;font-size:10.5pt}
+  section{padding:14pt 0;border-bottom:0}
+  .summary{background:none}
+  a{color:#000;text-decoration:none}
+  sup.cite a{color:#000}
+  .source,.tl-item{break-inside:avoid}
+  ol.timeline::before,.tl-item::after{display:none}
+  .tl-item{grid-template-columns:120px 1fr;padding-left:0}
+  .tl-body{grid-column:2}
+  .tl-date{text-align:left;padding-right:10pt}
+  .tl-year{position:static;grid-template-columns:1fr;padding:8pt 0 2pt;background:none}
+  .tl-year span{text-align:left;padding-right:0;font-size:12pt}
+  .tl-year::after{display:none}
+  .tl-item[data-weight="key"] .tl-body>p:last-child{font-size:inherit;font-weight:600}
+  h1{font-size:24pt}
+}
+</style>
+</head>
+<body>
+
+<div class="draft"><div class="wrap"><strong>WORKING DRAFT</strong> &nbsp;Not published. Not reviewed. Claims render from a verified ledger; sections 1&ndash;9 are not yet written.</div></div>
+
+<header class="top"><div class="wrap">
+  <p class="kicker">District 1 &middot; Berkeley City Council</p>
+  <h1>Berkeley&rsquo;s Flock contract, and the decision due in 2027</h1>
+  <p class="standfirst">Every factual claim on this page renders from a source ledger of 281 verified rows. Claims that did not survive verification do not appear.</p>
+</div></header>
+
+<nav class="toc"><div class="wrap"><ul>
+  <li><a href="#summary">Summary</a></li>
+  <li><a href="#questions">Questions</a></li>
+  <li><a href="#timeline">Timeline</a></li>
+  <li><a href="#documents">Documents</a></li>
+  <li><a href="#sources">Sources</a></li>
+</ul></div></nav>
+
+<div class="summary" id="summary"><div class="wrap">
+  <h2>In short</h2>
+  <p>On May 7, 2026, Berkeley&rsquo;s City Council voted 8&ndash;1 against executing Flock Safety&rsquo;s full Master Services Agreement, and 5&ndash;4 to extend the existing 52-camera license plate reader contract for twelve months. The successor procurement was referred to the City Manager as an RFP. The next mandatory return to Council is an efficacy assessment due roughly June 2027 &mdash; to the Council seated December 1, 2026.</p>
+  <p>This page sets out what the record shows about that contract: what Council restricted, what the restrictions reach, what the audits measure, what the technology has been credited with, and what it costs. It is built on 120 sources, 89 of which currently have an archived copy.</p>
+</div></div>
+
+<section id="questions"><div class="wrap">
+  <div class="sec-head"><span class="sec-num">10</span><h2>Questions</h2></div>
+  <div class="prose">
+<h2 id="what-did-council-actually-decide-on-may-7">What did Council actually decide on May 7?</h2>
+<p>Two separate things, and they are often merged. On May 7, 2026, Council voted 8–1 not to execute the full Flock Master Services Agreement — the fixed cameras, the community video streams, the first-responder drones, and the investigations software. <sup class="cite" data-tier="A"><a href="#s-23" data-claim="GOV-2026-05-07-03" title="City of Berkeley City Clerk">23</a></sup> Eight of nine members voted that way, including the four councilmembers who, as The Berkeley Scanner reported, had co-signed an op-ed supporting renewal and expansion two days earlier. <sup class="cite" data-tier="A"><a href="#s-23" data-claim="GOV-2026-05-07-13" title="City of Berkeley City Clerk" class="dup" aria-hidden="true" tabindex="-1">23</a></sup> <sup class="cite" data-tier="C"><a href="#s-71" data-claim="GOV-2026-05-05-01" title="The Berkeley Scanner">71</a></sup></p>
+<p>That vote is not in dispute here, and the record of it belongs in any honest account of what Berkeley did.</p>
+<p>The extension was a different vote. Council severed it, and it carried 5–4 — twelve months of the existing 52-camera ALPR contract for up to $200,000, with the successor procurement referred to the City Manager for an RFP. <sup class="cite" data-tier="A"><a href="#s-23" data-claim="GOV-2026-05-07-02" title="City of Berkeley City Clerk">23</a></sup> <sup class="cite" data-tier="A"><a href="#s-23" data-claim="BRK-2026-05-07-04" title="City of Berkeley City Clerk" class="dup" aria-hidden="true" tabindex="-1">23</a></sup> Four members voted no: Bartlett, Tregub, Lunaparra, Ishii.</p>
+<p>So the question of whether Berkeley keeps buying this product from this company was not settled in May. It was deferred by twelve months, on a one-vote margin.</p>
+<h2 id="what-does-bpd-s-audit-measure-and-what-does-it-not">What does BPD's audit measure, and what does it not?</h2>
+<p>It reports 100 percent on BPD authorized access, 100 percent on BPD permitted uses, 100 percent on external authorized access, and 99.81 percent on external permitted uses. <sup class="cite" data-tier="A"><a href="#s-32" data-claim="REC-2025-10-22-02" title="City of Berkeley Office of the City Manager">32</a></sup> The FY2025 annual report states that every audit required by policy was completed, and that Internal Affairs received no external complaints about these technologies. <sup class="cite" data-tier="A"><a href="#s-32" data-claim="BRK-2025-11-10-05" title="City of Berkeley Office of the City Manager" class="dup" aria-hidden="true" tabindex="-1">32</a></sup></p>
+<p>Those numbers are real and the page does not dispute them.</p>
+<p>What they measure is whether people with authorized access followed the rules when they ran searches. That is worth measuring. It is not the same as measuring whether the data stayed where Berkeley put it, and two failures in the last year turned on the difference.</p>
+<p>In February 2026, Berkeley's own Police Accountability Board reported that Mountain View police had discovered Flock silently enabled a nationwide access setting on their system, allowing federal agencies including ATF, the Air Force, and the GSA Inspector General to reach local ALPR data — along with a statewide lookup feature left on for 29 of 30 cameras, producing roughly 600,000 unauthorized searches by more than 250 California agencies over more than a year. The chief shut down all thirty cameras on February 2. The council terminated the contract unanimously on February 24. <sup class="cite" data-tier="C"><a href="#s-8" data-claim="REC-2026-02-24-01" title="City of Berkeley Police Accountability Board">8</a></sup></p>
+<p>No local compliance rule would have caught that, because nobody local did anything wrong. The setting changed on the vendor's side.</p>
+<p>In June 2026, the San Francisco Police Department released an audit finding that its Flock data had been improperly searched nearly 300 times over about a year — 299 inquiries, or roughly 0.005 percent of queries, as The San Francisco Standard reported. <sup class="cite" data-tier="C"><a href="#s-118" data-claim="AMD-2026-06-18-01" title="The San Francisco Standard">118</a></sup> SFPD had lawfully authorized the Northern California Regional Intelligence Center to reach its data. KQED reported that NCRIC then extended access to analysts at the Western States Information Network without SFPD's knowledge, and those analysts searched on behalf of outside agencies. <sup class="cite" data-tier="C"><a href="#s-119" data-claim="AMD-2026-06-18-02" title="KQED">119</a><a href="#s-118" data-claim="AMD-2026-06-18-02" title="The San Francisco Standard" class="dup" aria-hidden="true" tabindex="-1">118</a></sup></p>
+<p>The first hop was authorized. The violation happened at the second, where a rule written about who may have access does not reach. It took about a year and an audit to surface.</p>
+<p>Berkeley's restrictions are written at the first hop.</p>
+<h2 id="what-has-the-alpr-system-been-credited-with">What has the ALPR system been credited with?</h2>
+<p>The City reports that during 2025 fixed ALPRs were instrumental in at least 55 arrests, assisted in more than 100 other investigations, and led to the recovery of at least 43 stolen vehicles, and that robbery closure rates rose ten percentage points in the nine months after implementation. <sup class="cite" data-tier="A"><a href="#s-6" data-claim="GOV-2026-01-20-01" title="City of Berkeley">6</a></sup></p>
+<p>That is the City's own accounting, and there is no comparison group in it. A closure rate that rises over nine months rose during nine months in which other things also happened.</p>
+<p>The strongest published evidence that ALPR expansion helps is a 2025 evaluation of the Atlantic City Police Department in the Justice Evaluation Journal. It found the expansion did not reduce violent crime, and was associated with reductions in shootings, motor vehicle thefts, and property crime. <sup class="cite" data-tier="A"><a href="#s-109" data-claim="FLK-2025-XX-XX-02" title="Justice Evaluation Journal (Taylor &amp; Francis)">109</a><a href="#s-116" data-claim="FLK-2025-XX-XX-02" title="Justice Evaluation Journal (abstract via CrimRxiv)">116</a></sup></p>
+<p>Three things belong next to that finding. The department sits on a barrier island, and the cameras were installed on all of its entrances and exits, scanning every vehicle entering or leaving. <sup class="cite" data-tier="A"><a href="#s-116" data-claim="AMD-2026-08-04-02" title="Justice Evaluation Journal (abstract via CrimRxiv)">116</a></sup> One of the two authors is James A. Sarkos, chief of the department being evaluated. <sup class="cite" data-tier="A"><a href="#s-117" data-claim="AMD-2026-08-04-01" title="City of Atlantic City">117</a></sup> And the same evaluation found the technology's use skewed toward particular investigative units rather than patrol. <sup class="cite" data-tier="A"><a href="#s-116" data-claim="AMD-2026-08-04-03" title="Justice Evaluation Journal (abstract via CrimRxiv)" class="dup" aria-hidden="true" tabindex="-1">116</a></sup></p>
+<p>Berkeley has no perimeter to seal. The finding does not transfer.</p>
+<h2 id="does-ending-the-contract-matter-if-other-cities-keep-theirs">Does ending the contract matter if other cities keep theirs?</h2>
+<p>El Cerrito declined to renew on May 6, 2026; Contra Costa News reported its cameras went dark June 7 and removal began in July. <sup class="cite" data-tier="C"><a href="#s-40" data-claim="ELC-2026-05-06-01" title="Contra Costa News">40</a></sup> The Los Angeles Police Department let its three-year agreement expire, with CIO Dean Gialamas telling TechCrunch the department had serious concerns around civil liberties and privacy. <sup class="cite" data-tier="C"><a href="#s-56" data-claim="FLK-2026-07-13-01" title="TechCrunch">56</a></sup> UW–Madison police did not renew. <sup class="cite" data-tier="A"><a href="#s-60" data-claim="UWM-2026-07-03-01" title="UW-Madison Police Department">60</a></sup></p>
+<p>Other places went the other way, and the page is not going to pretend otherwise. Cleveland 19 News reported that a council committee voted to end the city's contract in June, then approved a six-month extension about three weeks later. <sup class="cite" data-tier="C"><a href="#s-77" data-claim="CLE-2026-06-00-01" title="Cleveland 19 News (WOIO)">77</a></sup> <sup class="cite" data-tier="C"><a href="#s-76" data-claim="CLE-2026-07-08-01" title="Cleveland 19 News (WOIO)">76</a></sup> Voice of OC reported Costa Mesa voting to keep its contract through April 2027. <sup class="cite" data-tier="C"><a href="#s-61" data-claim="CSTM-2026-07-21-01" title="Voice of OC">61</a></sup> Capitol City Now reported Springfield, Illinois approving a two-year contract. <sup class="cite" data-tier="C"><a href="#s-39" data-claim="SPR-2026-07-07-01" title="Capitol City Now">39</a></sup></p>
+<p>The premise is also worth examining. What Berkeley controls is Berkeley's data — 52 cameras recording the vehicles of people who live here, held in a vendor's system and shared onward under rules whose failure modes are documented above. A neighbor's cameras are not Berkeley's to cancel and were never the question.</p>
+<h2 id="did-federal-immigration-agencies-search-berkeley-s-data">Did federal immigration agencies search Berkeley's data?</h2>
+<p>The audit states that no federal or out-of-state agencies searched BPD's ALPR network. <sup class="cite" data-tier="A"><a href="#s-32" data-claim="REC-2025-10-22-02" title="City of Berkeley Office of the City Manager">32</a></sup> It records five searches containing the string DHS and attributes them to the Desert Hot Springs Police Department. <sup class="cite" data-tier="A"><a href="#s-32" data-claim="REC-2025-10-22-03" title="City of Berkeley Office of the City Manager" class="dup" aria-hidden="true" tabindex="-1">32</a></sup></p>
+<p>Both of those are correct, and any claim that federal immigration agents searched Berkeley's cameras is not supported by this record. The page does not make one.</p>
+<p>What the record does show is narrower and still worth stating. In July 2025 BPD identified noncompliant use through the statewide ALPR lookup function: external agencies entered ICE once and CBP twice in the reason field while searching statewide data that included Berkeley's. <sup class="cite" data-tier="A"><a href="#s-33" data-claim="BRK-2025-07-00-01" title="Berkeley Police Accountability Board">33</a></sup> BPD disabled the statewide lookup tool. <sup class="cite" data-tier="A"><a href="#s-32" data-claim="REC-2025-10-22-04" title="City of Berkeley Office of the City Manager">32</a></sup> By order of the chief, network access was revoked for all agencies outside the nine Bay Area counties plus Sacramento County, and the audit reports zero searches referencing a federal immigration agency since. <sup class="cite" data-tier="A"><a href="#s-32" data-claim="REC-2025-10-22-04" title="City of Berkeley Office of the City Manager" class="dup" aria-hidden="true" tabindex="-1">32</a></sup></p>
+<p>Berkeley found a problem and closed it. That is the strongest fact available to the other side of this argument, and it is in the record because it happened.</p>
+<p>It also establishes the point. The exposure was real enough to act on, it came through a sharing feature rather than a rule violation, and it was found after the fact.</p>
+<h2 id="is-the-2027-efficacy-review-the-right-venue-for-this-decisio">Is the 2027 efficacy review the right venue for this decision?</h2>
+<p>A real one would be progress, and the page says so plainly.</p>
+<p>The review already exists on paper. A Lunaparra amendment adopted as part of the May 7 motion requires that the extension include an efficacy assessment and a compliance review, presented to Council at least thirty days before the extension ends. <sup class="cite" data-tier="A"><a href="#s-23" data-claim="GOV-2026-05-07-06" title="City of Berkeley City Clerk">23</a></sup> With the extension running roughly twelve months from July 2026, that lands around June 2027. <sup class="cite" data-tier="B"><a href="#s-23" data-claim="GOV-2026-05-07-12" title="City of Berkeley City Clerk" class="dup" aria-hidden="true" tabindex="-1">23</a></sup></p>
+<p>Three things about that timing. The council that receives it is the one seated December 1, 2026, not the one that ordered it. No ALPR item appeared on any Council agenda between May 7 and August 4, 2026. <sup class="cite" data-tier="B"><a href="#s-23" data-claim="GOV-2026-05-07-12" title="City of Berkeley City Clerk">23</a></sup> And under BMC 2.99.030 the City Manager controls whether and when a surveillance acquisition report comes forward, so the agenda timing on this originates with staff rather than with Council. <sup class="cite" data-tier="A"><a href="#s-23" data-claim="GOV-2026-05-07-14" title="City of Berkeley City Clerk" class="dup" aria-hidden="true" tabindex="-1">23</a></sup></p>
+<p>A review that arrives thirty days before a contract lapses, to a body that did not write its terms, is not a decision point. It is a notification.</p>
+<h2 id="what-would-replace-the-contract">What would replace the contract?</h2>
+<p>The procurement that would replace it already exists on paper.</p>
+<p>The twelve-month extension runs out in 2027. Berkeley does not have to renew it, and the procurement that would replace it has already been referred to the City Manager as an RFP in consultation with the Police Accountability Board and BPD. <sup class="cite" data-tier="A"><a href="#s-23" data-claim="BRK-2026-05-07-04" title="City of Berkeley City Clerk">23</a></sup> That process can proceed without this vendor.</p>
+<p>If Council will not do that, the efficacy review has to be worth the name. That means publishing the audits rather than summarizing them, identifying the agencies involved in each finding rather than declining to, and accounting for the searches BPD itself runs against other jurisdictions' data — which no published audit currently covers. It means the review arriving early enough to be acted on rather than thirty days before expiry. Council already directed staff to explore contract terms carrying a $290,000 penalty per violation <sup class="cite" data-tier="A"><a href="#s-23" data-claim="BRK-2026-05-07-06" title="City of Berkeley City Clerk">23</a></sup> and to amend BMC 2.99 to add a violation and termination clause for surveillance vendors. <sup class="cite" data-tier="A"><a href="#s-23" data-claim="BRK-2026-05-07-07" title="City of Berkeley City Clerk" class="dup" aria-hidden="true" tabindex="-1">23</a></sup> Those referrals should produce something before the next contract is signed, not after.</p>
+<p>That is a smaller ask than ending the contract. It would still be progress, and the campaign would treat it as such.</p>
+<hr>
+  </div>
+</div></section>
+
+<section id="timeline"><div class="wrap">
+  <div class="sec-head"><span class="sec-num">11</span><h2>Timeline</h2></div>
+  <div class="tl-controls" hidden>
+    <button type="button" data-filter="all" aria-pressed="true">All</button>
+    <button type="button" data-filter="berkeley" aria-pressed="false">Berkeley</button>
+    <button type="button" data-filter="elsewhere" aria-pressed="false">Elsewhere</button>
+    <button type="button" data-filter="company" aria-pressed="false">The company</button>
+  </div>
+  <ol class="timeline">
+<li class="tl-year" aria-hidden="true"><span>2017</span></li>
+<li class="tl-item" data-kind="company" data-weight="key"><div class="tl-date"><time datetime="2017-01-01"></time></div><div class="tl-body"><p class="tl-actor">Flock Safety</p><p>TechCrunch reports Flock Safety was founded in Atlanta by Georgia Tech alumni Garrett Langley, Matt Feury and Paige Todd, and went through Y Combinator. <sup class="cite" data-tier="C"><a href="#s-42" data-claim="FLK-2017-01-01-01">42</a><a href="#s-120" data-claim="FLK-2017-01-01-01">120</a></sup></p></div></li>
+<li class="tl-year" aria-hidden="true"><span>2023</span></li>
+<li class="tl-item" data-kind="berkeley" data-weight="key"><div class="tl-date"><time datetime="2023-10-10">Oct 10</time></div><div class="tl-body"><p class="tl-actor">Berkeley City Council</p><p>Berkeley authorizes its Flock ALPR contract on the Consent Calendar — $344,500, ceiling $425,000. <sup class="cite" data-tier="A"><a href="#s-14" data-claim="BRK-2023-10-10-02">14</a></sup></p></div></li>
+<li class="tl-item" data-kind="berkeley" data-weight="normal"><div class="tl-date"><time datetime="2023-10-10">Oct 10</time></div><div class="tl-body"><p class="tl-actor">Public commenters</p><p>At least 17 written communications are logged. The item is never pulled from the Consent Calendar for discussion. <sup class="cite" data-tier="A"><a href="#s-14" data-claim="BRK-2023-10-10-03">14</a></sup></p></div></li>
+<li class="tl-year" aria-hidden="true"><span>2024</span></li>
+<li class="tl-item" data-kind="company" data-weight="normal"><div class="tl-date"><time datetime="2024-10-16">Oct 16</time></div><div class="tl-body"><p class="tl-actor">Flock Safety</p><p>Flock acquires Aerodome, a drone-as-first-responder company, expanding beyond license plate readers. <sup class="cite" data-tier="A"><a href="#s-88" data-claim="FLK-2024-10-16-01">88</a></sup></p></div></li>
+<li class="tl-year" aria-hidden="true"><span>2025</span></li>
+<li class="tl-item" data-kind="berkeley" data-weight="normal"><div class="tl-date"><time datetime="2025-01">January</time></div><div class="tl-body"><p class="tl-actor">Berkeley Police Department</p><p>Berkeley's 52-camera network becomes fully operational. <sup class="cite" data-tier="A"><a href="#s-32" data-claim="BRK-2025-01-00-01">32</a></sup></p></div></li>
+<li class="tl-item" data-kind="company" data-weight="key"><div class="tl-date"><time datetime="2025-03-13">Mar 13</time></div><div class="tl-body"><p class="tl-actor">Flock Safety</p><p>Flock raises $275 million at a $7.5 billion valuation, led by Andreessen Horowitz. <sup class="cite" data-tier="A"><a href="#s-90" data-claim="FLK-2025-03-13-01">90</a></sup></p></div></li>
+<li class="tl-item" data-kind="berkeley" data-weight="key"><div class="tl-date"><time datetime="2025-07">July</time></div><div class="tl-body"><p class="tl-actor">Berkeley Police Department</p><p>Berkeley's Police Accountability Board reports BPD's own audit found external agencies queried Berkeley's data through the statewide lookup. <sup class="cite" data-tier="B"><a href="#s-8" data-claim="REC-2025-07-01-01">8</a></sup></p></div></li>
+<li class="tl-item" data-kind="elsewhere" data-weight="key"><div class="tl-date"><time datetime="2025-08">August</time></div><div class="tl-body"><p class="tl-actor">Illinois Secretary of State</p><p>Berkeley's Police Accountability Board reports the Illinois Secretary of State's audit found Flock violated state law by allowing federal access. <sup class="cite" data-tier="C"><a href="#s-8" data-claim="REC-2025-08-01-01">8</a></sup></p></div></li>
+<li class="tl-item" data-kind="elsewhere" data-weight="normal"><div class="tl-date"><time datetime="2025-08-05">Aug 5</time></div><div class="tl-body"><p class="tl-actor">Oak Park Village Board</p><p>Wednesday Journal reports Oak Park, Illinois votes to terminate its Flock contract outright. <sup class="cite" data-tier="C"><a href="#s-102" data-claim="OAKPK-2025-08-05-01">102</a></sup></p></div></li>
+<li class="tl-item" data-kind="berkeley" data-weight="normal"><div class="tl-date"><time datetime="2025-11-05">Nov 5</time></div><div class="tl-body"><p class="tl-actor">Berkeley Police Department / Police Accountability Board</p><p>BPD declines to identify the agencies responsible, citing investigatory records. <sup class="cite" data-tier="A"><a href="#s-33" data-claim="BRK-2025-11-05-01">33</a></sup></p></div></li>
+<li class="tl-item" data-kind="berkeley" data-weight="normal"><div class="tl-date"><time datetime="2025-11-06">Nov 6</time></div><div class="tl-body"><p class="tl-actor">Berkeley Police Accountability Board</p><p>Berkeley's Police Accountability Board votes 5-0 to write to Council and restate its opposition to the use of Flock. <sup class="cite" data-tier="A"><a href="#s-33" data-claim="BRK-2025-11-06-01">33</a></sup></p></div></li>
+<li class="tl-item" data-kind="berkeley" data-weight="key"><div class="tl-date"><time datetime="2025-11-10">Nov 10</time></div><div class="tl-body"><p class="tl-actor">Berkeley Police Accountability Board Chair Joshua Cayetano</p><p>The PAB Chair writes to Council: the report omitted required complaints and did not disclose the July 2025 ALPR issue. <sup class="cite" data-tier="A"><a href="#s-33" data-claim="BRK-2025-11-10-01">33</a></sup></p></div></li>
+<li class="tl-item" data-kind="elsewhere" data-weight="normal"><div class="tl-date"><time datetime="2025-12-10">Dec 10</time></div><div class="tl-body"><p class="tl-actor">Cambridge City Manager Yi-An Huang</p><p>Cambridge Day reports Cambridge, Massachusetts terminating its contract after Flock installed cameras the city had not approved. <sup class="cite" data-tier="C"><a href="#s-74" data-claim="CAM-2025-12-10-01">74</a></sup></p></div></li>
+<li class="tl-year" aria-hidden="true"><span>2026</span></li>
+<li class="tl-item" data-kind="elsewhere" data-weight="normal"><div class="tl-date"><time datetime="2026-01-13">Jan 13</time></div><div class="tl-body"><p class="tl-actor">Santa Cruz City Council</p><p>Lookout Santa Cruz reports the city voting to terminate its Flock contract on 30 days' notice. <sup class="cite" data-tier="C"><a href="#s-48" data-claim="SCZ-2026-01-13-01">48</a></sup></p></div></li>
+<li class="tl-item" data-kind="elsewhere" data-weight="key"><div class="tl-date"><time datetime="2026-02-24">Feb 24</time></div><div class="tl-body"><p class="tl-actor">Mountain View City Council / Mountain View Police Department</p><p>Berkeley's Police Accountability Board reports Mountain View found Flock had silently enabled nationwide access — roughly 600,000 unauthorized searches over more than a year. That council terminated its contract unanimously. <sup class="cite" data-tier="C"><a href="#s-8" data-claim="REC-2026-02-24-01">8</a></sup></p></div></li>
+<li class="tl-item" data-kind="elsewhere" data-weight="normal"><div class="tl-date"><time datetime="2026-02-26">Feb 26</time></div><div class="tl-body"><p class="tl-actor">Unnamed class action plaintiffs / Flock Safety</p><p>Berkeley's Police Accountability Board reports a California class action alleging Flock violated state law. <sup class="cite" data-tier="C"><a href="#s-8" data-claim="REC-2026-02-26-01">8</a></sup></p></div></li>
+<li class="tl-item" data-kind="berkeley" data-weight="key"><div class="tl-date"><time datetime="2026-03-18">Mar 18</time></div><div class="tl-body"><p class="tl-actor">Berkeley Police Accountability Board</p><p>The PAB writes that BMC 2.99 requires legally enforceable sanctions for intentional violations, and finds they are absent. <sup class="cite" data-tier="A"><a href="#s-8" data-claim="REC-2026-03-18-05">8</a></sup></p></div></li>
+<li class="tl-item" data-kind="berkeley" data-weight="normal"><div class="tl-date"><time datetime="2026-03-24">Mar 24</time></div><div class="tl-body"><p class="tl-actor">City Manager / Berkeley Police Department</p><p>Item 26 proposes cutting three sworn officer positions to fund technology subscriptions. <sup class="cite" data-tier="A"><a href="#s-7" data-claim="BRK-2026-03-24-06">7</a></sup></p></div></li>
+<li class="tl-item" data-kind="berkeley" data-weight="normal"><div class="tl-date"><time datetime="2026-03-24">Mar 24</time></div><div class="tl-body"><p class="tl-actor">Berkeley City Council</p><p>After 132 speakers, Council continues the item. The meeting adjourns at 1:27 a.m. <sup class="cite" data-tier="A"><a href="#s-22" data-claim="BRK-2026-03-24-09">22</a></sup></p></div></li>
+<li class="tl-item" data-kind="elsewhere" data-weight="normal"><div class="tl-date"><time datetime="2026-05-06">May 6</time></div><div class="tl-body"><p class="tl-actor">El Cerrito City Council</p><p>Contra Costa News reports El Cerrito voting not to renew; its cameras shut down June 7. <sup class="cite" data-tier="C"><a href="#s-40" data-claim="ELC-2026-05-06-01">40</a></sup></p></div></li>
+<li class="tl-item" data-kind="berkeley" data-weight="key"><div class="tl-date"><time datetime="2026-05-07">May 7</time></div><div class="tl-body"><p class="tl-actor">Berkeley City Council</p><p>Berkeley votes 5-4 to extend the contract twelve months for up to $200,000. <sup class="cite" data-tier="A"><a href="#s-23" data-claim="GOV-2026-05-07-02">23</a></sup></p></div></li>
+<li class="tl-item" data-kind="elsewhere" data-weight="key"><div class="tl-date"><time datetime="2026-06-18">Jun 18</time></div><div class="tl-body"><p class="tl-actor">San Francisco Police Department</p><p>KQED reports SFPD authorized NCRIC, which extended access to WSIN analysts who searched for outside agencies. <sup class="cite" data-tier="C"><a href="#s-119" data-claim="AMD-2026-06-18-02">119</a><a href="#s-118" data-claim="AMD-2026-06-18-02">118</a></sup></p></div></li>
+<li class="tl-item" data-kind="elsewhere" data-weight="normal"><div class="tl-date"><time datetime="2026-07-13">Jul 13</time></div><div class="tl-body"><p class="tl-actor">Los Angeles Police Department</p><p>TechCrunch reports the Los Angeles Police Department letting its Flock agreement expire, citing civil liberties and privacy concerns. <sup class="cite" data-tier="C"><a href="#s-56" data-claim="FLK-2026-07-13-01">56</a></sup></p></div></li>
+<li class="tl-item" data-kind="company" data-weight="key"><div class="tl-date"><time datetime="2026-07-24">Jul 24</time></div><div class="tl-body"><p class="tl-actor">Flock Safety</p><p>Flock publishes a post naming Berkeley among cities that “Chose Safety and Privacy with Flock.” <sup class="cite" data-tier="A"><a href="#s-83" data-claim="FLK-2026-07-24-01">83</a></sup></p></div></li>
+<li class="tl-year" aria-hidden="true"><span>2027</span></li>
+<li class="tl-item" data-kind="berkeley" data-weight="key"><div class="tl-date"><time datetime="2027-06-01">June</time></div><div class="tl-body"><p class="tl-actor">Berkeley City Council / City Manager</p><p>The extension lapses. The efficacy review is due at least 30 days earlier, to the Council seated December 1, 2026. <sup class="cite" data-tier="B"><a href="#s-23" data-claim="GOV-2026-05-07-12">23</a></sup></p></div></li>
+  </ol>
+  <p class="tl-note">25 events tracing how Berkeley arrived at this decision: the company's founding and growth, Berkeley's adoption, findings and cancellations elsewhere, its own oversight board's objections, and the 2027 expiry. This is a narrative selection, not a summary of the full record — the questions above set out the strongest arguments on both sides, and the complete 281-row ledger is in Sources.</p>
+</div></section>
+
+<section id="documents"><div class="wrap">
+  <div class="sec-head"><span class="sec-num">12</span><h2>Documents</h2></div>
+  <p class="ledger-note">Every document cited here is mirrored in this repository rather than linked to the City&rsquo;s server, because agenda attachments move. The original URL and an archived copy are listed with each source.</p>
+
+  <div class="doc">
+    <div class="doc-head">
+      <h3>Item 26 &mdash; Public Safety Technology</h3>
+      <p>City of Berkeley, Office of the City Manager &middot; March 24, 2026 &middot; 90 pages</p>
+    </div>
+    <div class="doc-body">
+      <blockquote class="pull">Flock has offered a 10% discount on new products if the City executes by the end of March 2026, representing over $100,000 in total savings.<cite>Page text, Item 26</cite></blockquote>
+      <blockquote class="pull">That coupled with the 10% discount offered by Flock for execution by March 2026 provides a compelling fiscal incentive to act now.<cite>Page text, Item 26</cite></blockquote>
+      <blockquote class="pull">Draft resolution would reduce the authorized sworn officer strength of the Berkeley Police Department by 3 full-time equivalent positions effective July 1, 2026, with the salary and benefit savings funding technology subscription costs.<cite>Page text, Item 26</cite></blockquote>
+    </div>
+    <object data="docs/2026-03-24-item-26-public-safety-technology.pdf#page=1" type="application/pdf">
+      <p style="padding:20px">This browser cannot display the PDF inline. Use the download link below.</p>
+    </object>
+    <p class="doc-links">
+      <a href="docs/2026-03-24-item-26-public-safety-technology.pdf">Download the full document (2.1 MB)</a>
+      <a href="https://berkeleyca.gov/sites/default/files/2026-03/2026-03-24%20Item%2026%20Public%20Safety%20Technology.pdf" rel="noopener">Original on berkeleyca.gov</a>
+    </p>
+  </div>
+</div></section>
+
+<section id="sources"><div class="wrap">
+  <div class="sec-head"><span class="sec-num">13</span><h2>Sources</h2></div>
+  <p class="ledger-note">Numbering is global and stable. 29 of 120 ledger sources are cited on this page; the rest support claims in sections not yet written. Sources with no archived copy are marked, rather than dropped.</p>
+  <ol class="sources">
+<li id="s-6" class="source"><span class="s-num">6</span><div><p class="s-title">2026 01 20 Item 27 Surveillance Technology Ordinance</p><p class="s-meta">City of Berkeley &middot; govt report &middot; accessed 2026-08-04</p><p class="s-links"><a href="https://berkeleyca.gov/sites/default/files/2026-01/2026-01-20%20Item%2027%20Surveillance%20Technology%20Ordinance.pdf" rel="noopener">original</a> &middot; <a href="https://web.archive.org/web/20260110022843/https://berkeleyca.gov/sites/default/files/2026-01/2026-01-20%20Item%2027%20Surveillance%20Technology%20Ordinance.pdf" rel="noopener">archived copy</a></p></div></li>
+<li id="s-7" class="source"><span class="s-num">7</span><div><p class="s-title">2026 03 24 Item 26 Public Safety Technology</p><p class="s-meta">City of Berkeley Office of the City Manager &middot; agenda packet &middot; accessed 2026-08-04</p><p class="s-links"><a href="https://berkeleyca.gov/sites/default/files/2026-03/2026-03-24%20Item%2026%20Public%20Safety%20Technology.pdf" rel="noopener">original</a> &middot; <a href="https://web.archive.org/web/20260507180017/https://berkeleyca.gov/sites/default/files/2026-03/2026-03-24%20Item%2026%20Public%20Safety%20Technology.pdf" rel="noopener">archived copy</a></p></div></li>
+<li id="s-8" class="source"><span class="s-num">8</span><div><p class="s-title">March 18, 2026 PAB Recommendations Surveillance Tech</p><p class="s-meta">City of Berkeley Police Accountability Board &middot; primary document &middot; accessed 2026-08-04</p><p class="s-links"><a href="https://berkeleyca.gov/sites/default/files/2026-03/March%2018,%202026%20PAB%20Recommendations_Surveillance%20Tech.pdf" rel="noopener">original</a> &middot; <a href="https://web.archive.org/web/20260320184020/https://berkeleyca.gov/sites/default/files/2026-03/March%2018,%202026%20PAB%20Recommendations_Surveillance%20Tech.pdf" rel="noopener">archived copy</a></p></div></li>
+<li id="s-14" class="source"><span class="s-num">14</span><div><p class="s-title">2023 10 10 Annotated Agenda Council</p><p class="s-meta">City of Berkeley City Clerk &middot; primary document &middot; accessed 2026-08-04</p><p class="s-links"><a href="https://berkeleyca.gov/sites/default/files/city-council-meetings/2023-10-10%20Annotated%20Agenda%20-%20Council.pdf" rel="noopener">original</a> &middot; <a href="https://web.archive.org/web/20250309000306/https://berkeleyca.gov/sites/default/files/city-council-meetings/2023-10-10%20Annotated%20Agenda%20-%20Council.pdf" rel="noopener">archived copy</a></p></div></li>
+<li id="s-22" class="source"><span class="s-num">22</span><div><p class="s-title">2026 03 24 Annotated Agenda Council</p><p class="s-meta">City of Berkeley City Clerk &middot; primary document &middot; accessed 2026-08-04</p><p class="s-links"><a href="https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-03-24%20Annotated%20Agenda%20-%20Council.pdf" rel="noopener">original</a> &middot; <span class="no-archive">no archive available</span></p></div></li>
+<li id="s-23" class="source"><span class="s-num">23</span><div><p class="s-title">2026 05 07 Annotated Agenda Council</p><p class="s-meta">City of Berkeley City Clerk &middot; primary document &middot; accessed 2026-08-04</p><p class="s-links"><a href="https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-05-07%20Annotated%20Agenda%20-%20Council.pdf" rel="noopener">original</a> &middot; <span class="no-archive">no archive available</span></p></div></li>
+<li id="s-32" class="source"><span class="s-num">32</span><div><p class="s-title">2025 11 10 Item 11 Annual Surveillance Technology Report for Body Worn Cameras</p><p class="s-meta">City of Berkeley Office of the City Manager &middot; govt report &middot; accessed 2026-08-04</p><p class="s-links"><a href="https://berkeleyca.gov/sites/default/files/documents/2025-11-10%20Item%2011%20Annual%20Surveillance%20Technology%20Report%20for%20Body%20Worn%20Cameras.pdf" rel="noopener">original</a> &middot; <a href="https://web.archive.org/web/20251207003430/https://berkeleyca.gov/sites/default/files/documents/2025-11-10%20Item%2011%20Annual%20Surveillance%20Technology%20Report%20for%20Body%20Worn%20Cameras.pdf" rel="noopener">archived copy</a></p></div></li>
+<li id="s-33" class="source"><span class="s-num">33</span><div><p class="s-title">2025 11 10 Letter re Annual Surveillance Technology Report Final (wAttachments)</p><p class="s-meta">Berkeley Police Accountability Board &middot; primary document &middot; accessed 2026-08-04</p><p class="s-links"><a href="https://berkeleyca.gov/sites/default/files/documents/2025-11-10%20Letter%20re%20Annual%20Surveillance%20Technology%20Report_Final%20(wAttachments).pdf" rel="noopener">original</a> &middot; <a href="https://web.archive.org/web/20251224071435/https://berkeleyca.gov/sites/default/files/documents/2025-11-10%20Letter%20re%20Annual%20Surveillance%20Technology%20Report_Final%20(wAttachments).pdf" rel="noopener">archived copy</a></p></div></li>
+<li id="s-39" class="source"><span class="s-num">39</span><div><p class="s-title">248842 springfield city council approves flock license plate reader contract with changes</p><p class="s-meta">Capitol City Now &middot; news report &middot; accessed 2026-08-04</p><p class="s-links"><a href="https://capitolcitynow.com/news/248842-springfield-city-council-approves-flock-license-plate-reader-contract-with-changes/" rel="noopener">original</a> &middot; <span class="no-archive">no archive available</span></p></div></li>
+<li id="s-40" class="source"><span class="s-num">40</span><div><p class="s-title">el cerrito votes to end flock contract cameras go dark june 7</p><p class="s-meta">Contra Costa News &middot; news report &middot; accessed 2026-08-04</p><p class="s-links"><a href="https://contracosta.news/2026/05/06/el-cerrito-votes-to-end-flock-contract-cameras-go-dark-june-7/" rel="noopener">original</a> &middot; <a href="https://web.archive.org/web/20260728235859/https://contracosta.news/2026/05/06/el-cerrito-votes-to-end-flock-contract-cameras-go-dark-june-7/" rel="noopener">archived copy</a></p></div></li>
+<li id="s-42" class="source"><span class="s-num">42</span><div><p class="s-title">Flock Safety</p><p class="s-meta">Wikipedia &middot; news report &middot; accessed 2026-08-04</p><p class="s-links"><a href="https://en.wikipedia.org/wiki/Flock_Safety" rel="noopener">original</a> &middot; <a href="https://web.archive.org/web/20260803194136/https://en.wikipedia.org/wiki/Flock_Safety" rel="noopener">archived copy</a></p></div></li>
+<li id="s-48" class="source"><span class="s-num">48</span><div><p class="s-title">Lookout Santa Cruz</p><p class="s-meta">Lookout Santa Cruz &middot; news report &middot; accessed 2026-08-04</p><p class="s-links"><a href="https://lookout.co/city-council-votes-to-end-santa-cruzs-contract-with-flock-safety/story" rel="noopener">original</a> &middot; <a href="https://web.archive.org/web/20260116100136/https://lookout.co/city-council-votes-to-end-santa-cruzs-contract-with-flock-safety/story" rel="noopener">archived copy</a></p></div></li>
+<li id="s-56" class="source"><span class="s-num">56</span><div><p class="s-title">lapd lets contract with surveillance giant flock expire citing serious concerns over civil liberties and privacy</p><p class="s-meta">TechCrunch &middot; news report &middot; accessed 2026-08-04</p><p class="s-links"><a href="https://techcrunch.com/2026/07/13/lapd-lets-contract-with-surveillance-giant-flock-expire-citing-serious-concerns-over-civil-liberties-and-privacy/" rel="noopener">original</a> &middot; <a href="https://web.archive.org/web/20260728035927/https://techcrunch.com/2026/07/13/lapd-lets-contract-with-surveillance-giant-flock-expire-citing-serious-concerns-over-civil-liberties-and-privacy/" rel="noopener">archived copy</a></p></div></li>
+<li id="s-60" class="source"><span class="s-num">60</span><div><p class="s-title">uw madison police department not renewing current flock alpr contract</p><p class="s-meta">UW-Madison Police Department &middot; primary document &middot; accessed 2026-08-04</p><p class="s-links"><a href="https://uwpd.wisc.edu/uw-madison-police-department-not-renewing-current-flock-alpr-contract/" rel="noopener">original</a> &middot; <a href="https://web.archive.org/web/20260804103905/https://uwpd.wisc.edu/uw-madison-police-department-not-renewing-current-flock-alpr-contract/" rel="noopener">archived copy</a></p></div></li>
+<li id="s-61" class="source"><span class="s-num">61</span><div><p class="s-title">costa mesa keeps controversial flock cameras looks to clean up contract next year</p><p class="s-meta">Voice of OC &middot; news report &middot; accessed 2026-08-04</p><p class="s-links"><a href="https://voiceofoc.org/2026/07/costa-mesa-keeps-controversial-flock-cameras-looks-to-clean-up-contract-next-year/" rel="noopener">original</a> &middot; <a href="https://web.archive.org/web/20260802165605/https://voiceofoc.org/2026/07/costa-mesa-keeps-controversial-flock-cameras-looks-to-clean-up-contract-next-year/" rel="noopener">archived copy</a></p></div></li>
+<li id="s-71" class="source"><span class="s-num">71</span><div><p class="s-title">berkeley officials make case flock vote nears op ed</p><p class="s-meta">The Berkeley Scanner &middot; news report &middot; accessed 2026-08-04</p><p class="s-links"><a href="https://www.berkeleyscanner.com/2026/05/05/community/berkeley-officials-make-case-flock-vote-nears-op-ed/" rel="noopener">original</a> &middot; <a href="https://web.archive.org/web/20260514202227/https://www.berkeleyscanner.com/2026/05/05/community/berkeley-officials-make-case-flock-vote-nears-op-ed/" rel="noopener">archived copy</a></p></div></li>
+<li id="s-74" class="source"><span class="s-num">74</span><div><p class="s-title">city cancels deal license plate tech</p><p class="s-meta">Cambridge Day &middot; news report &middot; accessed 2026-08-04</p><p class="s-links"><a href="https://www.cambridgeday.com/2025/12/10/city-cancels-deal-license-plate-tech/" rel="noopener">original</a> &middot; <a href="https://web.archive.org/web/20260711162315/https://www.cambridgeday.com/2025/12/10/city-cancels-deal-license-plate-tech/" rel="noopener">archived copy</a></p></div></li>
+<li id="s-76" class="source"><span class="s-num">76</span><div><p class="s-title">cleveland reverses course flock camera shutdown approves extension</p><p class="s-meta">Cleveland 19 News (WOIO) &middot; news report &middot; accessed 2026-08-04</p><p class="s-links"><a href="https://www.cleveland19.com/2026/07/08/cleveland-reverses-course-flock-camera-shutdown-approves-extension/" rel="noopener">original</a> &middot; <a href="https://web.archive.org/web/20260715115018/https://www.cleveland19.com/2026/07/08/cleveland-reverses-course-flock-camera-shutdown-approves-extension/" rel="noopener">archived copy</a></p></div></li>
+<li id="s-77" class="source"><span class="s-num">77</span><div><p class="s-title">cleveland city council vote flock camera contract extension</p><p class="s-meta">Cleveland 19 News (WOIO) &middot; news report &middot; accessed 2026-08-04</p><p class="s-links"><a href="https://www.cleveland19.com/2026/07/15/cleveland-city-council-vote-flock-camera-contract-extension/" rel="noopener">original</a> &middot; <a href="https://web.archive.org/web/20260721063359/https://www.cleveland19.com/2026/07/15/cleveland-city-council-vote-flock-camera-contract-extension/" rel="noopener">archived copy</a></p></div></li>
+<li id="s-83" class="source"><span class="s-num">83</span><div><p class="s-title">after public debate these cities chose safety and privacy with flock</p><p class="s-meta">Flock Safety &middot; company material &middot; accessed 2026-08-04</p><p class="s-links"><a href="https://www.flocksafety.com/blog/after-public-debate-these-cities-chose-safety-and-privacy-with-flock" rel="noopener">original</a> &middot; <span class="no-archive">no archive available</span></p></div></li>
+<li id="s-88" class="source"><span class="s-num">88</span><div><p class="s-title">Flock Safety Expands Into Drones for Law Enforcement with Acquisition of Aerodome</p><p class="s-meta">GlobeNewswire (Flock Safety press release) &middot; company material &middot; accessed 2026-08-04</p><p class="s-links"><a href="https://www.globenewswire.com/news-release/2024/10/16/2964095/0/en/Flock-Safety-Expands-Into-Drones-for-Law-Enforcement-with-Acquisition-of-Aerodome.html" rel="noopener">original</a> &middot; <a href="https://web.archive.org/web/20260802010130/https://www.globenewswire.com/news-release/2024/10/16/2964095/0/en/flock-safety-expands-into-drones-for-law-enforcement-with-acquisition-of-aerodome.html" rel="noopener">archived copy</a></p></div></li>
+<li id="s-90" class="source"><span class="s-num">90</span><div><p class="s-title">Flock Safety Raises 275 Million to Advance the Safety Technology Ecosystem and Strengthen Communities Across the U S</p><p class="s-meta">GlobeNewswire (Flock Safety press release) &middot; company material &middot; accessed 2026-08-04</p><p class="s-links"><a href="https://www.globenewswire.com/news-release/2025/03/13/3042227/0/en/Flock-Safety-Raises-275-Million-to-Advance-the-Safety-Technology-Ecosystem-and-Strengthen-Communities-Across-the-U-S.html" rel="noopener">original</a> &middot; <a href="https://web.archive.org/web/20260323195111/https://www.globenewswire.com/news-release/2025/03/13/3042227/0/en/Flock-Safety-Raises-275-Million-to-Advance-the-Safety-Technology-Ecosystem-and-Strengthen-Communities-Across-the-U-S.html" rel="noopener">archived copy</a></p></div></li>
+<li id="s-102" class="source"><span class="s-num">102</span><div><p class="s-title">oak park terminates flock license plate reader contract</p><p class="s-meta">Wednesday Journal (oakpark.com) &middot; news report &middot; accessed 2026-08-04</p><p class="s-links"><a href="https://www.oakpark.com/2025/08/07/oak-park-terminates-flock-license-plate-reader-contract/" rel="noopener">original</a> &middot; <a href="https://web.archive.org/web/20260610223115/https://www.oakpark.com/2025/08/07/oak-park-terminates-flock-license-plate-reader-contract/" rel="noopener">archived copy</a></p></div></li>
+<li id="s-109" class="source"><span class="s-num">109</span><div><p class="s-title">24751979.2025.2473363</p><p class="s-meta">Justice Evaluation Journal (Taylor &amp; Francis) &middot; audit &middot; accessed 2026-08-04</p><p class="s-links"><a href="https://www.tandfonline.com/doi/full/10.1080/24751979.2025.2473363" rel="noopener">original</a> &middot; <a href="https://web.archive.org/web/20260722004827/https://www.tandfonline.com/doi/full/10.1080/24751979.2025.2473363" rel="noopener">archived copy</a></p></div></li>
+<li id="s-116" class="source"><span class="s-num">116</span><div><p class="s-title">An Evaluation of a Major Expansion in Automated License Plate Reader (ALPR) Technology</p><p class="s-meta">Justice Evaluation Journal (abstract via CrimRxiv) &middot; peer reviewed study &middot; accessed 2026-08-04</p><p class="s-links"><a href="https://www.crimrxiv.com/pub/gbu63hj3/release/1" rel="noopener">original</a> &middot; <span class="no-archive">no archive available</span></p></div></li>
+<li id="s-117" class="source"><span class="s-num">117</span><div><p class="s-title">James Sarkos Named ACPD Acting Chief</p><p class="s-meta">City of Atlantic City &middot; primary document &middot; accessed 2026-08-04</p><p class="s-links"><a href="https://www.acnj.gov/News/View/264/james-sarkos-named-acpd-acting-chief" rel="noopener">original</a> &middot; <span class="no-archive">no archive available</span></p></div></li>
+<li id="s-118" class="source"><span class="s-num">118</span><div><p class="s-title">Audit reveals hundreds of illegal searches of SFPD's license plate reader system</p><p class="s-meta">The San Francisco Standard &middot; news report &middot; accessed 2026-08-04</p><p class="s-links"><a href="https://sfstandard.com/2026/06/18/sfpd-license-plate-reader-illegal-searches/" rel="noopener">original</a> &middot; <span class="no-archive">no archive available</span></p></div></li>
+<li id="s-119" class="source"><span class="s-num">119</span><div><p class="s-title">San Francisco Police Audit Shows Feds 'Improperly' Accessed License Plate Data Hundreds of Times</p><p class="s-meta">KQED &middot; news report &middot; accessed 2026-08-04</p><p class="s-links"><a href="https://www.kqed.org/news/12088076/san-francisco-police-audit-shows-feds-accessed-license-plate-data-hundreds-of-times" rel="noopener">original</a> &middot; <span class="no-archive">no archive available</span></p></div></li>
+<li id="s-120" class="source"><span class="s-num">120</span><div><p class="s-title">Y Combinator's police surveillance darling Flock Safety raises $275M at $7.5B valuation</p><p class="s-meta">TechCrunch &middot; news report &middot; accessed 2026-08-04</p><p class="s-links"><a href="https://techcrunch.com/2025/03/13/y-combinators-police-surveillance-darling-flock-safety-raises-275m-at-7-5b-valuation" rel="noopener">original</a> &middot; <span class="no-archive">no archive available</span></p></div></li>
+  </ol>
+</div></section>
+
+<footer><div class="wrap">
+  <p>Working draft. Not authorized for distribution.</p>
+  <p>Superscript numbers link to the source ledger. A superscript <strong>c</strong> marks a tier C claim, which names its outlet in the text.</p>
+</div></footer>
+
+<script>
+// Progressive enhancement only. Without JS every event is visible and the page is complete.
+(function(){
+  var bar=document.querySelector('.tl-controls');
+  if(!bar) return;
+  bar.hidden=false;
+  var items=Array.prototype.slice.call(document.querySelectorAll('.tl-item'));
+  bar.addEventListener('click',function(e){
+    var btn=e.target.closest('button'); if(!btn) return;
+    var f=btn.getAttribute('data-filter');
+    bar.querySelectorAll('button').forEach(function(b){
+      b.setAttribute('aria-pressed', String(b===btn));
+    });
+    items.forEach(function(li){
+      li.style.display=(f==='all'||li.getAttribute('data-kind')===f)?'':'none';
+    });
+    // Hide a year marker whose events are all filtered out.
+    document.querySelectorAll('.tl-year').forEach(function(y){
+      var shown=false, n=y.nextElementSibling;
+      while(n && !n.classList.contains('tl-year')){
+        if(n.classList.contains('tl-item') && n.style.display!=='none'){shown=true;break;}
+        n=n.nextElementSibling;
+      }
+      y.style.display=shown?'':'none';
+    });
+  });
+})();
+</script>
+</body>
+</html>
