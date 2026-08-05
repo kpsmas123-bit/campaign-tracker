@@ -707,6 +707,29 @@
       return;
     }
 
+    // Analysis, levers, suggested copy and org research live in Supabase, not
+    // in the JSON: these files are served straight off GitHub Pages from a
+    // public repo, where the passphrase gate cannot reach them. Grafting the
+    // fields back onto the question objects here means every render path below
+    // keeps reading q.analysis / q.levers / q.suggested unchanged.
+    try {
+      var rr = await sb.from('questionnaire_research')
+        .select('question_id,analysis,levers,suggested')
+        .eq('org_slug', orgSlug);
+      if (rr.data && rr.data.length) {
+        var byId = {};
+        rr.data.forEach(function (row) { byId[row.question_id] = row; });
+        if (byId.__org__) DATA.org_research = byId.__org__.analysis || '';
+        DATA.questions.forEach(function (qq) {
+          var row = byId[qq.id];
+          if (!row) return;
+          if (row.analysis  != null) qq.analysis  = row.analysis;
+          if (row.levers    != null) qq.levers    = row.levers;
+          if (row.suggested != null) qq.suggested = row.suggested;
+        });
+      }
+    } catch (e) { /* questions still render; research panes stay empty */ }
+
     TOTAL = DATA.questions.length + 1;
     document.getElementById('kicker').textContent = DATA.org + ' ' + DATA.cycle + ' · Endorsement Questionnaire';
     document.getElementById('titleEl').textContent = DATA.candidate;
