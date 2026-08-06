@@ -15,7 +15,16 @@
 
 // ── CONFIG ──────────────────────────────────────────────────────────
 var FOLDER_NAME = 'ActBlue Reports';        // Drive folder to collect reports in
-var REPORT_MATCH = 'custom-report-report1.1'; // Substring found in every report filename
+
+// Substring common to every ActBlue report filename, matched case-insensitively
+// anywhere in the name. It must stay loose enough to cover BOTH report types:
+//   one-off custom : daria-wrubel-233102-custom-report-report1.1-2026-07-01-2026-07-28
+//   scheduled daily: Report1.1_Daily_08/06/2026
+// This was previously 'custom-report-report1.1', which only matched the first
+// form. When the campaign switched to scheduled daily reports every new file
+// was silently skipped, so the sheet stayed frozen on the 7/28 custom report
+// while the script kept running and reporting success.
+var REPORT_MATCH = 'report1.1';
 
 // Berkeley Fair Elections Act public financing (verified against the City's
 // 2026 Public Financing Program Guide and the 7/23/2026 disbursement tracker):
@@ -60,22 +69,40 @@ function isReport(name) {
  */
 function moveReportsToFolder() {
   var folder = getReportsFolder();
-  var root = DriveApp.getRootFolder();
-  var moved = 0;
+  var folderId = folder.getId();
+  var moved = 0, alreadyThere = 0;
 
-  [MimeType.GOOGLE_SHEETS, MimeType.CSV].forEach(function(type) {
-    var files = root.getFilesByType(type);
-    while (files.hasNext()) {
-      var file = files.next();
-      if (isReport(file.getName())) {
-        file.moveTo(folder);
-        moved++;
-        Logger.log('Moved: ' + file.getName());
-      }
+  // Searches all of Drive, not just the root. The previous version scanned
+  // DriveApp.getRootFolder() only, so a report delivered into any subfolder was
+  // never collected and never reported as missing.
+  var files = DriveApp.searchFiles(
+    "title contains '" + REPORT_MATCH.replace(/'/g, "\\'") + "' and trashed = false");
+
+  while (files.hasNext()) {
+    var file = files.next();
+    if (!isReport(file.getName())) continue;
+
+    var mime = file.getMimeType();
+    if (mime !== MimeType.GOOGLE_SHEETS && mime !== MimeType.CSV) continue;
+
+    // Already collected — moving it onto itself would churn revisions.
+    var parents = file.getParents(), inFolder = false;
+    while (parents.hasNext()) {
+      if (parents.next().getId() === folderId) { inFolder = true; break; }
     }
-  });
+    if (inFolder) { alreadyThere++; continue; }
 
-  Logger.log('Moved ' + moved + ' report(s) into "' + FOLDER_NAME + '"');
+    file.moveTo(folder);
+    moved++;
+    Logger.log('Moved: ' + file.getName());
+  }
+
+  Logger.log('Moved ' + moved + ' report(s) into "' + FOLDER_NAME + '" (' +
+             alreadyThere + ' already there)');
+  if (moved === 0 && alreadyThere === 0) {
+    Logger.log('WARNING: no files anywhere in Drive match "' + REPORT_MATCH +
+               '". Nothing will update until a report lands.');
+  }
 }
 
 function consolidate() {
@@ -87,6 +114,16 @@ function consolidate() {
   var files = folder.getFilesByType(MimeType.GOOGLE_SHEETS);
   var seen = {};   // Lineitem ID -> row
   var rows = [];
+
+  // Freshness tracking. Without this the sheet reports a confident number with
+  // no indication of how old the underlying reports are, which is exactly how
+  // the 7/28 stall went unnoticed for nine days.
+  var newestName = '', newestTime = 0, filesRead = 0;
+  function noteFile(f) {
+    filesRead++;
+    var t = f.getLastUpdated().getTime();
+    if (t > newestTime) { newestTime = t; newestName = f.getName(); }
+  }
 
   while (files.hasNext()) {
     var file = files.next();
@@ -108,6 +145,7 @@ function consolidate() {
         continue; // not an ActBlue report
       }
       Logger.log('Reading "' + file.getName() + '" (' + (data.length - 1) + ' rows)');
+      noteFile(file);
 
       for (var i = 1; i < data.length; i++) {
         var id = String(data[i][colId]).trim();
@@ -143,6 +181,7 @@ function consolidate() {
       var colOcc    = indexOf(header, 'Donor Occupation');
 
       if (colId < 0 || colAmount < 0) continue;
+      noteFile(csvFile);
 
       for (var i = 1; i < parsed.length; i++) {
         var id = String(parsed[i][colId]).trim();
@@ -346,6 +385,22 @@ function consolidate() {
   summarySheet.appendRow(['goal_direct', GOAL_DIRECT]);
   summarySheet.appendRow(['goal_total', GOAL_TOTAL]);
   summarySheet.appendRow(['updated', new Date().toISOString()]);
+
+  // Data-freshness metrics. `updated` above only says the script ran — it says
+  // nothing about whether it read anything new, which is why a nine-day stall
+  // looked like a live figure. These say how stale the underlying reports are.
+  // Written as plain numbers/strings so the gviz CSV endpoint can type them.
+  summarySheet.appendRow(['reports_read', filesRead]);
+  summarySheet.appendRow(['newest_report', newestName || 'NONE']);
+  summarySheet.appendRow(['newest_report_date',
+    newestTime ? Utilities.formatDate(new Date(newestTime), tz, 'yyyy-MM-dd') : '']);
+  summarySheet.appendRow(['data_age_days',
+    newestTime ? Math.floor((new Date().getTime() - newestTime) / 86400000) : -1]);
+
+  if (filesRead === 0) {
+    Logger.log('WARNING: read 0 report files. Check REPORT_MATCH ("' +
+               REPORT_MATCH + '") against the actual filenames in Drive.');
+  }
 
   Logger.log('Consolidated ' + rows.length + ' donations from ' + donorCount +
              ' unique donors. Total: $' + totalRaised);
