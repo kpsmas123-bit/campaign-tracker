@@ -75,6 +75,12 @@ jobs:
               # empty. Stamp the build time instead — it is what the date on
               # the page actually means.
               'updated': datetime.now(timezone.utc).isoformat(),
+              # Age of the newest ActBlue report actually read, as distinct from
+              # the build time above. -1 means no report was read at all.
+              # data_age_days is numeric so gviz returns it reliably; the date
+              # string is best-effort and the page degrades to the age alone.
+              'data_age_days': int(num('data_age_days', -1)),
+              'newest_report_date': summary.get('newest_report_date', ''),
           }
 
           with open('/tmp/dashboard_data.json', 'w') as f:

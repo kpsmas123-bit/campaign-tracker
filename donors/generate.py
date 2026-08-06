@@ -146,6 +146,24 @@ def generate(data_path, out_path):
     avg       = d['average_donation']
     updated   = str(d.get('updated', ''))[:10]
 
+    # `updated` is the BUILD time — it says the workflow ran, not that the
+    # numbers moved. Those are different claims, and conflating them is how a
+    # nine-day stall in the ActBlue feed stayed invisible: the page said
+    # "Updated <today>" every single day while publishing July 28's figures.
+    # This reports the age of the underlying reports instead.
+    age = d.get('data_age_days', None)
+    through = str(d.get('newest_report_date', ''))[:10]
+    if age is None or age < 0:
+        freshness = ' &middot; <span class="freshness dead">no report data</span>'
+    elif age <= 1:
+        freshness = (' &middot; data through %s' % through) if through else ''
+    else:
+        cls = 'dead' if age >= 7 else 'stale'
+        label = '%d days old' % age
+        if through:
+            label = 'data through %s &mdash; %d days old' % (through, age)
+        freshness = ' &middot; <span class="freshness %s">%s</span>' % (cls, label)
+
     bky_raised = d.get('berkeley_raised', 0)
     bky_count  = d.get('berkeley_donations', 0)
     qualifying = d.get('qualifying', 0)
@@ -307,6 +325,11 @@ def generate(data_path, out_path):
     font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
     color: var(--text-tertiary); margin-bottom: 28px;
   }}
+  /* Data freshness, distinct from build time. A stale figure and a live one
+     look identical, which is how a nine-day ActBlue feed stall went unnoticed
+     in Aug 2026 while this page kept publishing a confident number. */
+  .freshness.stale {{ color: var(--priority-medium); }}
+  .freshness.dead {{ color: var(--priority-high); font-weight: 600; }}
 
   .label {{
     font-family: "IBM Plex Mono", ui-monospace, monospace;
@@ -426,7 +449,7 @@ def generate(data_path, out_path):
 <div class="app" id="appRoot" style="display:none">
 
   <h1 class="page-title">Fundraising</h1>
-  <p class="page-sub">Updated {updated}</p>
+  <p class="page-sub">Updated {updated}{freshness}</p>
 
   <div class="stats">
     <div class="stat">
