@@ -83,6 +83,11 @@
     font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
     color: var(--text-tertiary); margin-bottom: 28px;
   }
+  /* Data freshness, distinct from build time. A stale figure and a live one
+     look identical, which is how a nine-day ActBlue feed stall went unnoticed
+     in Aug 2026 while this page kept publishing a confident number. */
+  .freshness.stale { color: var(--priority-medium); }
+  .freshness.dead { color: var(--priority-high); font-weight: 600; }
 
   .label {
     font-family: "IBM Plex Mono", ui-monospace, monospace;
@@ -241,7 +246,7 @@
 <div class="app" id="appRoot" style="display:none">
 
   <h1 class="page-title">Fundraising</h1>
-  <p class="page-sub">Updated 2026-08-06</p>
+  <p class="page-sub">Updated 2026-08-06 &middot; data through 2026-08-06</p>
 
   <div class="stats">
     <div class="stat">
