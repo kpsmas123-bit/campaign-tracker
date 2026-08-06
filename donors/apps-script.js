@@ -61,11 +61,10 @@ function isReport(name) {
 }
 
 /**
- * Move ActBlue reports out of Drive root into the reports folder.
- * ActBlue names reports like
- *   daria-wrubel-233102-custom-report-report1.1-2026-07-01-2026-07-28
- * so REPORT_MATCH is matched anywhere in the name, not just at the start.
- * Run before consolidate().
+ * Collect ActBlue reports from anywhere in Drive into the reports folder.
+ * REPORT_MATCH is matched anywhere in the filename, not just at the start,
+ * because the two report types are named quite differently. Run before
+ * consolidate() — consolidate() calls it for you.
  */
 function moveReportsToFolder() {
   var folder = getReportsFolder();
@@ -108,6 +107,7 @@ function moveReportsToFolder() {
 function consolidate() {
   moveReportsToFolder();
   var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var ssId = ss.getId();   // re-opened after the read loops; see below
 
   // Collect all rows from every sheet in the folder
   var folder = getReportsFolder();
@@ -200,6 +200,16 @@ function consolidate() {
       Logger.log('Skipping CSV ' + csvFile.getName() + ': ' + e.message);
     }
   }
+
+  // Re-acquire the Master before writing. The loops above call
+  // SpreadsheetApp.openById() once per report file, which moves SpreadsheetApp's
+  // internal "active sheet" pointer into the last report opened. insertSheet()
+  // positions relative to that pointer, so writing through the stale handle
+  // fails with "Sheet <id> not found" — where the id belongs to a report tab,
+  // not to this spreadsheet.
+  SpreadsheetApp.flush();
+  ss = SpreadsheetApp.openById(ssId);
+  ss.setActiveSheet(ss.getSheets()[0]);
 
   // ── Write Raw tab (private, not published) ──
   var rawSheet = getOrCreateSheet(ss, 'Raw');
@@ -417,6 +427,9 @@ function indexOf(arr, label) {
 
 function getOrCreateSheet(ss, name) {
   var sheet = ss.getSheetByName(name);
-  if (!sheet) sheet = ss.insertSheet(name);
+  // Explicit index rather than the default. Bare insertSheet(name) places the
+  // new tab next to whatever SpreadsheetApp considers active, which is not
+  // necessarily a tab of `ss` after other spreadsheets have been opened.
+  if (!sheet) sheet = ss.insertSheet(name, ss.getNumSheets());
   return sheet;
 }
