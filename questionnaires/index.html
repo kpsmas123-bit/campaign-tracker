@@ -210,6 +210,32 @@
     color: var(--text-tertiary); font-size: 13px;
   }
 
+  /* --- Finished / unfinished grouping --- */
+  .group-head {
+    display: flex; align-items: center; gap: 8px;
+    font-family: "IBM Plex Mono", monospace; font-size: 10px;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--text-tertiary);
+    padding: 18px 12px 6px;
+    border-bottom: 1px solid var(--border-light);
+  }
+  .group-head:first-child { padding-top: 8px; }
+  .group-head .count { color: var(--text-tertiary); opacity: .7; }
+  /* The header doubles as a drop target, so a row can be moved between groups
+     even when the destination group is empty and has no rows to drop onto. */
+  .group-head.drop-target {
+    background: var(--accent); color: #FFF; border-radius: 3px;
+  }
+  .group-head.drop-target .count { color: #FFF; }
+  .group-hint {
+    padding: 10px 12px 14px; font-size: 12px;
+    color: var(--text-tertiary); font-style: italic;
+  }
+  .row.finished .org-name { color: var(--text-secondary); }
+  .row.finished { opacity: .62; }
+  .row.finished:hover { opacity: 1; }
+  .done-mark { color: var(--priority-low); margin-right: 5px; }
+
   @media (max-width: 640px) {
     .thead, .row { grid-template-columns: 1fr 80px; }
     .thead .th:nth-child(3), .row > *:nth-child(3),
@@ -385,18 +411,56 @@
     render();
   }
 
+  // --- Grouping ---
+  // Three manual groups, stored in questionnaire_status.status, a column that
+  // existed in the schema but was unused by the UI. Set by dragging a row
+  // across a divider rather than computed from percent complete: a
+  // questionnaire can be submitted with questions deliberately left blank, and
+  // one sitting at 100% may still be unsent.
+  var GROUPS = [
+    { key: 'priority', label: 'Priority' },
+    { key: 'active',   label: 'In progress' },
+    { key: 'finished', label: 'Done' }
+  ];
+  function isGroupKey(k) {
+    return GROUPS.some(function (g) { return g.key === k; });
+  }
+  function groupOf(slug) {
+    var s = statusData[slug];
+    // Anything unset or holding a legacy value lands in the middle group.
+    return (s && isGroupKey(s.status)) ? s.status : 'active';
+  }
+  function setGroup(slug, key) {
+    return saveField(slug, 'status', key).then(function () { buildFilters(); render(); });
+  }
+
   // --- Filters ---
   function buildFilters() {
-    var cats = new Set();
-    cats.add('all');
-    Object.values(statusData).forEach(function (s) { if (s.category) cats.add(s.category); });
     var wrap = document.getElementById('filters');
     wrap.innerHTML = '';
-    cats.forEach(function (c) {
+    var opts = [{ k: 'all', label: 'All' }];
+    GROUPS.forEach(function (g) {
+      opts.push({
+        k: g.key, label: g.label,
+        n: KNOWN_ORGS.filter(function (s) { return groupOf(s) === g.key; }).length
+      });
+    });
+    // Category chips, minus any that would duplicate a group chip. A category
+    // literally named "Priority" is likely, and two identical-looking filters
+    // that do different things is worse than dropping one.
+    Object.values(statusData).forEach(function (s) {
+      if (!s.category) return;
+      var dup = opts.some(function (o) {
+        return o.k.toLowerCase() === s.category.toLowerCase() ||
+               o.label.toLowerCase() === s.category.toLowerCase();
+      });
+      if (!dup) opts.push({ k: s.category, label: s.category });
+    });
+    opts.forEach(function (o) {
       var b = document.createElement('button');
-      b.className = 'fbtn' + (c === activeFilter ? ' active' : '');
-      b.textContent = c === 'all' ? 'All' : c;
-      b.addEventListener('click', function () { activeFilter = c; buildFilters(); render(); });
+      b.className = 'fbtn' + (o.k === activeFilter ? ' active' : '');
+      b.textContent = o.label + (o.n != null ? ' ' + o.n : '');
+      b.addEventListener('click', function () { activeFilter = o.k; buildFilters(); render(); });
       wrap.appendChild(b);
     });
   }
@@ -420,6 +484,7 @@
     var dragSlug = null;
     var slugs = orderedSlugs(KNOWN_ORGS).filter(function (slug) {
       if (activeFilter === 'all') return true;
+      if (isGroupKey(activeFilter)) return groupOf(slug) === activeFilter;
       var s = statusData[slug];
       return s && s.category === activeFilter;
     });
@@ -429,14 +494,44 @@
       return;
     }
 
-    slugs.forEach(function (slug) {
+    // Groups only appear unfiltered; a filtered list already answers the
+    // question a divider would ask, so dividers there would be noise.
+    var grouped = activeFilter === 'all';
+
+    function groupHead(g, n) {
+      var h = document.createElement('div');
+      h.className = 'group-head';
+      h.appendChild(document.createTextNode(g.label));
+      var cnt = document.createElement('span');
+      cnt.className = 'count';
+      cnt.textContent = n;
+      h.appendChild(cnt);
+      // The header is itself a drop target, so a row can be moved into a group
+      // that is currently empty and therefore has no rows to drop onto.
+      h.addEventListener('dragover', function (e) {
+        if (!dragSlug || groupOf(dragSlug) === g.key) return;
+        e.preventDefault();
+        e.dataTransfer.dropEffect = 'move';
+        h.classList.add('drop-target');
+      });
+      h.addEventListener('dragleave', function () { h.classList.remove('drop-target'); });
+      h.addEventListener('drop', function (e) {
+        e.preventDefault();
+        h.classList.remove('drop-target');
+        if (!dragSlug || groupOf(dragSlug) === g.key) return;
+        setGroup(dragSlug, g.key);
+      });
+      return h;
+    }
+
+    function makeRow(slug) {
       var d = orgData[slug];
       var st = statusData[slug] || {};
       var ac = answerCounts[slug] || { answered: 0, approved: 0, total: 0 };
       if (!d) return;
 
       var row = document.createElement('div');
-      row.className = 'row';
+      row.className = 'row' + (groupOf(slug) === 'finished' ? ' finished' : '');
       row.draggable = true;
       row.dataset.slug = slug;
 
@@ -469,6 +564,12 @@
       row.addEventListener('drop', function (e) {
         e.preventDefault();
         if (!dragSlug || slug === dragSlug) return;
+        // Dropping onto a row in the other group moves the questionnaire into
+        // that group. Same group is a plain reorder, as before.
+        if (grouped && groupOf(slug) !== groupOf(dragSlug)) {
+          setGroup(dragSlug, groupOf(slug));
+          return;
+        }
         var below = row.classList.contains('drop-below');
         var next = orderedSlugs(KNOWN_ORGS).filter(function (x) { return x !== dragSlug; });
         var at = next.indexOf(slug);
@@ -481,7 +582,9 @@
       var link = document.createElement('a');
       link.className = 'org-link';
       link.href = 'questionnaire.html?org=' + slug;
-      link.innerHTML = '<div class="org-name">' + esc(d.org) + '</div>' +
+      link.innerHTML = '<div class="org-name">' +
+        (groupOf(slug) === 'finished' ? '<span class="done-mark">&#10003;</span>' : '') +
+        esc(d.org) + '</div>' +
         '<div class="org-sub">' + esc(d.cycle) + ' · ' + esc(d.candidate) + '</div>';
       c1.appendChild(link);
 
@@ -520,7 +623,24 @@
       row.appendChild(cDue);
       row.appendChild(cNotes);
       wrap.appendChild(row);
+    }
+
+    if (!grouped) { slugs.forEach(makeRow); return; }
+
+    GROUPS.forEach(function (g) {
+      var members = slugs.filter(function (s) { return groupOf(s) === g.key; });
+      wrap.appendChild(groupHead(g, members.length));
+      if (!members.length) {
+        var hint = document.createElement('div');
+        hint.className = 'group-hint';
+        hint.textContent = g.key === 'finished'
+          ? 'Drag a questionnaire here once it has been submitted.'
+          : 'Nothing here \u2014 drag one in.';
+        wrap.appendChild(hint);
+      }
+      members.forEach(makeRow);
     });
+
   }
 })();
 </script>
