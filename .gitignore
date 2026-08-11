@@ -21,3 +21,4 @@ answers_*.py
 *_official.pdf
 supabase/functions/.env
 supabase/.temp/
+*_research.json
