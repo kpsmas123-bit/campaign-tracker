@@ -714,7 +714,7 @@
     // keeps reading q.analysis / q.levers / q.suggested unchanged.
     try {
       var rr = await sb.from('questionnaire_research')
-        .select('question_id,analysis,levers,suggested')
+        .select('question_id,analysis,levers,suggested,verification,quotes,sources')
         .eq('org_slug', orgSlug);
       if (rr.data && rr.data.length) {
         var byId = {};
@@ -723,9 +723,14 @@
         DATA.questions.forEach(function (qq) {
           var row = byId[qq.id];
           if (!row) return;
-          if (row.analysis  != null) qq.analysis  = row.analysis;
-          if (row.levers    != null) qq.levers    = row.levers;
-          if (row.suggested != null) qq.suggested = row.suggested;
+          if (row.analysis     != null) qq.analysis     = row.analysis;
+          if (row.levers       != null) qq.levers       = row.levers;
+          if (row.suggested    != null) qq.suggested    = row.suggested;
+          // Fact-check layer. Older orgs still carry these in the JSON and are
+          // left alone; newer ones (eb4e, seiu) have them only in Supabase.
+          if (row.verification != null) qq.verification = row.verification;
+          if (row.quotes       != null) qq.quotes       = row.quotes;
+          if (row.sources      != null) qq.sources      = row.sources;
         });
       }
     } catch (e) { /* questions still render; research panes stay empty */ }
