@@ -1,0 +1,112 @@
+{
+  "slug": "eb4e",
+  "org": "East Bay for Everyone",
+  "cycle": "2026",
+  "candidate": "Daria Wrubel — Berkeley City Council D1",
+  "generated": "2026-08-10",
+  "last_factcheck": "",
+  "contact_fields": [
+    { "k": "name", "label": "Candidate Name", "v": "Daria Wrubel" },
+    { "k": "website", "label": "Website", "v": "" },
+    { "k": "contact", "label": "Contact Information", "v": "" }
+  ],
+  "questions": [
+    {
+      "id": "eb4e_q1",
+      "section": "Candidate",
+      "section_note": "Responses are limited to 200 words each.",
+      "topic": "why_running",
+      "status": "blank",
+      "question": "Why are you running for this seat and what are your priorities if elected?"
+    },
+    {
+      "id": "eb4e_q2",
+      "section": "Housing",
+      "topic": "housing_costs",
+      "status": "blank",
+      "question": "Why do you think housing is so expensive in California, and how do we solve this problem?"
+    },
+    {
+      "id": "eb4e_q3",
+      "section": "Housing",
+      "topic": "homelessness",
+      "status": "blank",
+      "question": "What policies will you support in office to reduce the number of people who experience homelessness in your community and return them to stable housing?"
+    },
+    {
+      "id": "eb4e_q4",
+      "section": "Housing",
+      "topic": "tenant_protections",
+      "status": "blank",
+      "question": "What actions would you take in office to support renters and prevent displacement?"
+    },
+    {
+      "id": "eb4e_q5",
+      "section": "Housing",
+      "topic": "social_housing",
+      "status": "blank",
+      "question": "How do you plan to increase the production and preservation of low-income or mixed-income social housing, and increase the construction of market-rate housing?"
+    },
+    {
+      "id": "eb4e_q6",
+      "section": "Housing",
+      "topic": "building_codes",
+      "status": "blank",
+      "question": "Currently California adopts private, for-profit building codes without any public evaluation of their costs or benefits in terms of safety, affordability and climate on a three year cycle. Do you support efforts to have more public-led evaluations of the costs and benefits of private building codes prior to state-level adoption?"
+    },
+    {
+      "id": "eb4e_q7",
+      "section": "Transit & Safe Streets",
+      "topic": "transit_planning",
+      "status": "blank",
+      "question": "Global best practice for transit improvements involves cities and transit operators developing transit improvement plans whereby objective service goals in terms of routes, frequencies, speeds, reliability and transfers are identified first. Then planners work together to identify cost-effective strategies to improve transit to meet those goals.\n\nCalifornia and the Bay Area have instead focused on expensive infrastructure-first solutions.\n\nDo you support service-led planning to help deliver high-quality transit networks?"
+    },
+    {
+      "id": "eb4e_q8",
+      "section": "Transit & Safe Streets",
+      "topic": "transit_priority",
+      "status": "blank",
+      "question": "Do you support adopting a transit priority policy for your city per MTC's Transit Priority Policy?"
+    },
+    {
+      "id": "eb4e_q9",
+      "section": "Transit & Safe Streets",
+      "topic": "transit_funding",
+      "status": "blank",
+      "question": "Do you support Connect Bay Area to provide stable operating funding for transit operators like AC Transit, ferries and BART? YES or NO",
+      "choice_type": "single",
+      "choices": [
+        { "label": "Yes" },
+        { "label": "No" }
+      ]
+    },
+    {
+      "id": "eb4e_q10",
+      "section": "Transit & Safe Streets",
+      "topic": "safe_streets",
+      "status": "blank",
+      "question": "What sort of transit or safe street projects have you championed in your community? Is there a project you would like to champion in the future?"
+    },
+    {
+      "id": "eb4e_q11",
+      "section": "Campaign",
+      "topic": "endorsements",
+      "status": "blank",
+      "question": "Who are your top endorsers? How do you plan to win the campaign?"
+    },
+    {
+      "id": "eb4e_q12",
+      "section": "Berkeley Housing",
+      "topic": "housing_pipeline",
+      "status": "blank",
+      "question": "Berkeley saw a lot of housing construction immediately following the pandemic, but since then, construction costs have risen. Berkeley has a large number of permitted projects in the pipeline that aren't breaking ground. What would you change to help unlock Berkeley's pipeline of housing projects and get the cranes back up over our city?"
+    },
+    {
+      "id": "eb4e_q13",
+      "section": "Berkeley Housing",
+      "topic": "fair_housing",
+      "status": "blank",
+      "question": "Berkeley has had success getting housing built downtown, in student neighborhoods, and in formerly redlined neighborhoods, but it has seen precious little housing production in its wealthier districts. What would you do to increase housing production in Berkeley's wealthier neighborhoods and affirmatively further fair housing?"
+    }
+  ]
+}
