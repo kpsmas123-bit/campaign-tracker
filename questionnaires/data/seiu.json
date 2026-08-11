@@ -1,0 +1,349 @@
+{
+  "slug": "seiu",
+  "org": "SEIU 1021",
+  "cycle": "2026",
+  "candidate": "Daria Wrubel — Berkeley City Council D1",
+  "generated": "2026-08-10",
+  "last_factcheck": "",
+  "contact_fields": [
+    {
+      "k": "name",
+      "label": "Candidate Name",
+      "v": "Daria Wrubel"
+    },
+    {
+      "k": "office",
+      "label": "Office/District",
+      "v": "Berkeley City Council, District 1"
+    },
+    {
+      "k": "address",
+      "label": "Campaign Address",
+      "v": ""
+    },
+    {
+      "k": "phone",
+      "label": "Campaign Phone",
+      "v": ""
+    },
+    {
+      "k": "fppc",
+      "label": "Tax/FPPC ID #",
+      "v": ""
+    },
+    {
+      "k": "occupation",
+      "label": "Occupation",
+      "v": ""
+    },
+    {
+      "k": "employer",
+      "label": "Employer",
+      "v": ""
+    },
+    {
+      "k": "ballot_designation",
+      "label": "Proposed Ballot Designation",
+      "v": ""
+    },
+    {
+      "k": "offices_held",
+      "label": "Elected offices currently/previously held",
+      "v": ""
+    },
+    {
+      "k": "other_campaigns",
+      "label": "Other campaigns for elected office",
+      "v": ""
+    },
+    {
+      "k": "appointed",
+      "label": "Appointed offices currently/previously held",
+      "v": ""
+    },
+    {
+      "k": "union_membership",
+      "label": "Current/prior union membership",
+      "v": ""
+    },
+    {
+      "k": "other_orgs",
+      "label": "Other organizations you belong to",
+      "v": ""
+    },
+    {
+      "k": "budget",
+      "label": "Anticipated Budget",
+      "v": ""
+    },
+    {
+      "k": "raised",
+      "label": "Funds Raised to Date",
+      "v": ""
+    }
+  ],
+  "questions": [
+    {
+      "id": "seiu_q1",
+      "section": "General Questions",
+      "topic": "priorities",
+      "status": "blank",
+      "question": "Briefly describe your top priorities and the policy areas that will be of most interest to you as an elected official.",
+      "section_note": "Attach biography, current endorsements, and any printed campaign literature. Campaign finance report requested with funds-raised figure."
+    },
+    {
+      "id": "seiu_q2",
+      "section": "General Questions",
+      "topic": "public_admin_experience",
+      "status": "blank",
+      "question": "What public administration or leadership experience do you have? Please explain the programs you have developed and implemented for the benefit of the public."
+    },
+    {
+      "id": "seiu_q3",
+      "section": "General Questions",
+      "topic": "budget_cuts_city_services",
+      "status": "blank",
+      "question": "Declining revenues are a real issue for most municipalities in the current and coming years. For some municipalities it means making difficult choices about essential city services including making cuts, implementing layoffs, and/or reducing expenditures. How will you engage SEIU members to ensure that essential city services and city staff are prioritized in your decision making?"
+    },
+    {
+      "id": "seiu_q4",
+      "section": "Public Sector",
+      "topic": "contracting_out",
+      "status": "blank",
+      "question": "Under what circumstances, if any, do you favor contracting out existing government services?"
+    },
+    {
+      "id": "seiu_q5",
+      "section": "Public Sector",
+      "topic": "contractor_wage_parity",
+      "status": "blank",
+      "question": "In the event any public services were to be contracted out, would you support or oppose the requirement that the private contractor would have to offer its employees comparable wages and benefits?"
+    },
+    {
+      "id": "seiu_q6",
+      "section": "Public Sector",
+      "topic": "outsourcing_alternatives",
+      "status": "blank",
+      "question": "Would you allow SEIU members sufficient time to provide alternative plans to contracting out before outsourcing is approved?"
+    },
+    {
+      "id": "seiu_q7",
+      "section": "Public Sector",
+      "topic": "part_time_temp_workers",
+      "status": "blank",
+      "question": "What rights and benefits do you believe the school district should afford its part-time and temporary employees?"
+    },
+    {
+      "id": "seiu_q8",
+      "section": "Public Sector",
+      "topic": "employer_neutrality",
+      "status": "blank",
+      "question": "Many private companies receive public funds or other types of subsidies. Would you support or oppose requiring these private employers to remain neutral in union elections? Please explain your position."
+    },
+    {
+      "id": "seiu_q9",
+      "section": "Public Sector",
+      "topic": "pensions",
+      "status": "blank",
+      "question": "Public Employee Pensions have come under attack by various anti-government and anti-worker groups like the Freedom Foundation and California Policy Center. How do you plan on advocating to protect defined benefits such as public employee pensions?"
+    },
+    {
+      "id": "seiu_q10",
+      "section": "Public Sector",
+      "topic": "revenue_threshold",
+      "status": "blank",
+      "question": "Anti-tax and anti-union groups have been working every election cycle to make it more difficult for municipalities to raise local revenue for public services. What would you do to defeat efforts to increase the threshold for local revenue measures from 50% to two-thirds?"
+    },
+    {
+      "id": "seiu_q11",
+      "section": "Revenues for Local Services",
+      "topic": "tax_preferences",
+      "status": "blank",
+      "question": "Please describe the circumstances under which you would support creation of any new tax preferences, i.e. tax “breaks”. What kinds of accountability would you require preventing abuse and how would you propose to pay for them?"
+    },
+    {
+      "id": "seiu_q12",
+      "section": "Revenues for Local Services",
+      "topic": "majority_vote_standard",
+      "status": "blank",
+      "question": "Do you support or oppose a majority vote standard to approve local government special taxes and bond measures?"
+    },
+    {
+      "id": "seiu_q13",
+      "section": "Revenues for Local Services",
+      "topic": "revenue_initiatives",
+      "status": "blank",
+      "question": "What type of state and/or local tax revenue initiatives would you support or lead to ensure the city provide good quality public services for your constituents?"
+    },
+    {
+      "id": "seiu_q14",
+      "section": "Revenues for Local Services",
+      "topic": "budget_priorities",
+      "status": "blank",
+      "question": "Name your top three budget priorities."
+    },
+    {
+      "id": "seiu_q15",
+      "section": "Revenues for Local Services",
+      "topic": "state_federal_funding",
+      "status": "blank",
+      "question": "While most municipalities collect revenue from local measures, we know that state and federal resources can have a deep impact on access to healthcare, safety net programs, and public education. What will you do to ensure that we fight for every state and federal dollar of funding for public hospitals, social services, and public education?"
+    },
+    {
+      "id": "seiu_q16",
+      "section": "Wage Inequality",
+      "topic": "wage_theft",
+      "status": "blank",
+      "question": "What actions will you take to address wage theft and worker abuse in Alameda County?"
+    },
+    {
+      "id": "seiu_q17",
+      "section": "Wage Inequality",
+      "topic": "income_inequality",
+      "status": "blank",
+      "question": "What policies or actions will you support to address income inequality?"
+    },
+    {
+      "id": "seiu_q18",
+      "section": "Wage Inequality",
+      "topic": "gender_wage_gap",
+      "status": "blank",
+      "question": "Women continue to be paid less than men, what would you do in your capacity as an elected official to curb the gender wage gap in Alameda County?"
+    },
+    {
+      "id": "seiu_q19",
+      "section": "New Organizing",
+      "topic": "support_organizing",
+      "status": "blank",
+      "question": "What actions will you take to support organizing campaigns AND policy efforts to help workers organize in the public sector and the private sector?"
+    },
+    {
+      "id": "seiu_q20",
+      "section": "New Organizing",
+      "topic": "worker_access",
+      "status": "blank",
+      "question": "Will you support our union’s efforts to gain access to workers it does not have access to, so that workers have a meaningful opportunity to choose a union?"
+    },
+    {
+      "id": "seiu_q21",
+      "section": "New Organizing",
+      "topic": "alternative_worker_power",
+      "status": "blank",
+      "question": "Will you support the creation of alternative methods of aggregating workers’ power to change their work conditions and their communities, for example: allowing workers to create worker organizations, allowing payroll deductions, and the development of industry-wide wage, benefit, and work standards formed with worker input?"
+    },
+    {
+      "id": "seiu_q22",
+      "section": "Cost of Living",
+      "topic": "cost_of_living",
+      "status": "blank",
+      "question": "Cost of living issues — name your solutions to addressing this issue."
+    },
+    {
+      "id": "seiu_q23",
+      "section": "Defending Our Community",
+      "topic": "sanctuary",
+      "status": "blank",
+      "question": "Our undocumented neighbors are under attack by the current federal administration. SEIU has said loud and clear that we oppose the violent detention of our immigrant community members. What will you do to ensure that Alameda County continues to be a place of sanctuary for our immigrant neighbors?"
+    },
+    {
+      "id": "seiu_q24",
+      "section": "Defending Our Community",
+      "topic": "ice_data_sharing",
+      "status": "blank",
+      "question": "What will you do to ensure that no school district resources are spent in the capture and detention of undocumented immigrants including data sharing agreements with ICE?"
+    },
+    {
+      "id": "seiu_q25",
+      "section": "Defending Our Community",
+      "topic": "anything_else",
+      "status": "blank",
+      "question": "Is there anything else you believe is important for the members of SEIU to know about you and your campaign?"
+    },
+    {
+      "id": "seiu_q26",
+      "section": "Other Issues",
+      "topic": "union_solidarity_actions",
+      "status": "blank",
+      "question": "Which of the following actions would you take to support workers engaged in union activity such as bargaining and organizing? (Additional actions or comments welcome.)",
+      "choice_type": "multi",
+      "choices": [
+        {
+          "label": "Walk picket lines"
+        },
+        {
+          "label": "Mediate with employers"
+        },
+        {
+          "label": "Write letters of support"
+        },
+        {
+          "label": "Fight for proper enforcement of current labor law"
+        },
+        {
+          "label": "Hold a press conference"
+        },
+        {
+          "label": "Speak at rallies"
+        }
+      ]
+    },
+    {
+      "id": "seiu_q27",
+      "section": "Other Issues",
+      "topic": "cross_picket_line",
+      "status": "blank",
+      "question": "Would you cross a picket line?",
+      "choice_type": "single",
+      "choices": [
+        {
+          "label": "Yes"
+        },
+        {
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "id": "seiu_q28",
+      "section": "Other Issues",
+      "topic": "seiu_relationship",
+      "status": "blank",
+      "question": "If elected, which of the following will you commit to in order to build a strong working relationship with SEIU?",
+      "choice_type": "multi",
+      "choices": [
+        {
+          "label": "Call for and welcome SEIU input on relevant policy matters"
+        },
+        {
+          "label": "Attend SEIU leadership and worksite meetings"
+        },
+        {
+          "label": "Work with SEIU to develop legislative proposals"
+        },
+        {
+          "label": "Ensure direct access to you and your staff"
+        },
+        {
+          "label": "Work to appoint qualified union members to appropriate Boards and Commissions"
+        }
+      ]
+    },
+    {
+      "id": "seiu_q29",
+      "section": "Candidate Pledge",
+      "topic": "organizing_pledge",
+      "status": "blank",
+      "section_note": "A separate signed pledge on the last page, with six commitments. Requires signature and date.",
+      "question": "Candidate Pledge — Supporting the Right of Workers to Choose a Union. Signing pledges: (1) to publicly support and actively encourage workers organizing with SEIU; (2) that workers should freely choose unionization without employer interference, including encouraging employer neutrality; (3) that no taxpayer money should be spent interfering with the right to choose a union; (4) a fair and fast process for determining worker support, including secret ballot election or card check recognition; (5) that employers negotiate an agreement within 90 days of a majority expressing support; (6) that employers bargain in good faith and abide by those agreements. Will you sign?",
+      "choice_type": "single",
+      "choices": [
+        {
+          "label": "Yes, will sign"
+        },
+        {
+          "label": "No"
+        }
+      ]
+    }
+  ]
+}
