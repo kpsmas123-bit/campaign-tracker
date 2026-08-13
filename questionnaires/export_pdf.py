@@ -16,7 +16,13 @@ import os
 import re
 import sys
 
+from reportlab import rl_config
 from reportlab.lib.enums import TA_LEFT
+
+# ASCII85-armouring the compressed streams costs about 20% file size and buys
+# nothing here — these PDFs are written to disk and uploaded as binary.
+rl_config.useA85 = 0
+
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.units import inch
@@ -168,10 +174,17 @@ def main():
             print('  ! %s marked Done but has no data file — skipped' % slug)
             continue
         org_data = json.load(open(path))
+        total = len(org_data.get('questions', []))
+        answers = by_org.get(slug, {})
+        if not any(v.strip() for v in answers.values()):
+            # Marked Done with nothing saved. A cover page with no answers under
+            # it reads as a submission of blanks, which is worse than no file.
+            print('  ! %-6s marked Done but has no saved answers — no PDF written'
+                  % slug)
+            continue
         name = re.sub(r'[^\w\- ]+', '', org_data['org']).strip()
         out = os.path.join(outdir, '%s — Questionnaire (Daria Wrubel D1).pdf' % name)
-        n = build(org_data, by_org.get(slug, {}), status.get(slug), out)
-        total = len(org_data.get('questions', []))
+        n = build(org_data, answers, status.get(slug), out)
         made.append((slug, out, n, total))
         print('  %-6s %2d/%-2d answered  ->  %s' % (slug, n, total, os.path.basename(out)))
 
