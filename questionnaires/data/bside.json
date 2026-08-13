@@ -1,0 +1,261 @@
+{
+  "slug": "bside",
+  "org": "Berkeleyside",
+  "cycle": "2026",
+  "candidate": "Daria Wrubel — Berkeley City Council D1",
+  "generated": "2026-08-11",
+  "last_factcheck": "2026-08-11",
+  "org_research": "Berkeleyside is Berkeley's main local news outlet, not an endorsing organization — the form states plainly that Berkeleyside does not endorse candidates. It reports more than a million page views in the past year, so this is likely the widest-read thing the campaign writes, and answers run essentially as submitted alongside every other candidate's. Character limits are hard and tight: 300 characters (about 50 words) for most prose answers and 600 for the priorities question. The letter-grade question is the one to get right — the District 1 incumbent sits on the council being graded. Deadline Sunday August 30, 11:59 p.m. A high-resolution horizontal headshot is required, at least 2000px on the long side at 300dpi, and can be emailed to editors@berkeleyside.org if the upload fails.",
+  "contact_fields": [
+    {
+      "k": "name",
+      "label": "What is your name?",
+      "v": "Daria Wrubel"
+    },
+    {
+      "k": "photo_credit",
+      "label": "To whom should the photo(s) be credited?",
+      "v": ""
+    },
+    {
+      "k": "age",
+      "label": "Age",
+      "v": ""
+    },
+    {
+      "k": "job",
+      "label": "Job (if retired, please say from what profession)",
+      "v": ""
+    },
+    {
+      "k": "tenure",
+      "label": "How long have you lived in Berkeley?",
+      "v": ""
+    },
+    {
+      "k": "office",
+      "label": "What office/district are you running for?",
+      "v": "Berkeley City Council, District 1"
+    },
+    {
+      "k": "incumbent",
+      "label": "Incumbent",
+      "v": "No"
+    },
+    {
+      "k": "first_office",
+      "label": "If you're an incumbent, what year did you first assume office?",
+      "v": ""
+    },
+    {
+      "k": "website",
+      "label": "Campaign website URL",
+      "v": ""
+    },
+    {
+      "k": "facebook",
+      "label": "Facebook page URL",
+      "v": ""
+    },
+    {
+      "k": "threads",
+      "label": "Threads URL",
+      "v": ""
+    },
+    {
+      "k": "bluesky",
+      "label": "Bluesky URL",
+      "v": ""
+    },
+    {
+      "k": "twitter",
+      "label": "X/Twitter URL",
+      "v": ""
+    },
+    {
+      "k": "instagram",
+      "label": "Instagram",
+      "v": ""
+    },
+    {
+      "k": "email",
+      "label": "Campaign email",
+      "v": ""
+    },
+    {
+      "k": "phone",
+      "label": "Campaign Phone Number",
+      "v": ""
+    },
+    {
+      "k": "private_cell",
+      "label": "NOT FOR PUBLICATION: best cellphone",
+      "v": ""
+    },
+    {
+      "k": "private_email",
+      "label": "NOT FOR PUBLICATION: best email",
+      "v": ""
+    }
+  ],
+  "questions": [
+    {
+      "id": "bside_q1",
+      "section": "Published",
+      "topic": "why_running",
+      "status": "done",
+      "question": "Why are you running and why should people vote for you?",
+      "analysis": "Hard cap of 300 characters, roughly 50 words. That is one idea plus one credential, not a platform. Berkeleyside is press rather than an endorsing body, and reported more than a million page views last year, so this is the widest-read thing the campaign will write. The temptation is to compress the whole platform; the version that survives compression is one specific and one line about why this candidacy exists.\n\nThe Flock vote is the sharpest available specific: Council extended the automated license plate reader contract 5-4 on May 7 2026, the District 1 incumbent voted with the majority, and the renewal lapses inside the next term. It is checkable, local, and it is the reason the campaign started.",
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "Vote on the Flock renewal when the twelve-month extension lapses next term"
+        },
+        {
+          "tier": "advocacy",
+          "text": "Nothing else here is a lever; this is a framing question"
+        }
+      ],
+      "char_limit": 300,
+      "suggested": [
+        {
+          "note": "",
+          "text": "Berkeley renewed its Flock surveillance contract 5-4 in May, and my councilmember voted yes. That renewal lapses next term. I'm an organizer — I ran my union's fight when Berkeley Unified moved to lay people off. I'd rather build the coalition than pick half of it."
+        }
+      ]
+    },
+    {
+      "id": "bside_q2",
+      "section": "Published",
+      "topic": "council_record",
+      "status": "done",
+      "question": "Give a letter grade to the performance of the current City Council (A-F). Explain.",
+      "analysis": "The most consequential question on the form and the one most likely to be quoted. The District 1 incumbent sits on the council being graded, Berkeleyside publishes the answer unedited, and every other candidate answers the same prompt.\n\nAn A reads as a challenger with no argument for replacement. An F is contradicted by the record and insults potential allies — this Council passed the sanctuary ordinance unanimously in September 2025, adopted the Middle Housing ordinance unanimously in July 2025, and approved Hopkins Street protected bike lanes 7-2 in July 2026.\n\nThe defensible position is a middle grade with named specifics on both sides. The two criticisms that are documented and survive scrutiny: the Flock extension carried 5-4, and the FY2027-28 budget passed unanimously on June 23 2026 while cutting roughly 20 filled positions and eliminating the Mobile Crisis Team, which had been staffed by city employees since 1979. SEIU 1021's spokesperson called that budget an austerity plan.\n\n300 characters means roughly one sentence of credit and one of criticism.",
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "Vote differently on the specific items named — Flock renewal, the next budget"
+        },
+        {
+          "tier": "advocacy",
+          "text": "Public criticism of a sitting council is the substance of this answer"
+        }
+      ],
+      "char_limit": 300,
+      "suggested": [
+        {
+          "note": "",
+          "text": "C. They passed real things unanimously — the sanctuary ordinance, Middle Housing, Hopkins bike lanes. Then they renewed Flock 5-4 and passed a budget that laid off city workers and closed a crisis team running since 1979. Good instincts, then a flinch when it costs something."
+        }
+      ]
+    },
+    {
+      "id": "bside_q3",
+      "section": "Published",
+      "topic": "priorities",
+      "status": "done",
+      "question": "What would be your top three priorities in office?",
+      "analysis": "600 characters, roughly 100 words, for three priorities — about 33 words each. Each one needs a verb and a number, not a value.\n\nAll three below are anchored to a documented Berkeley item so the answer is checkable: the Flock renewal lapsing next term; Council's May 20 2025 referral asking staff to identify land for sanctioned sites, which passed with no funding and drew a staff response on October 14 2025 declining to recommend new programs while existing shelters close; and North Berkeley BART, entitled December 2024 under AB 2011 for 739 homes including 381 affordable, still not under construction.\n\nThe RHNA split is the strongest single housing number available: Berkeley is 37 percent through its above-moderate allocation and 6.5 percent through very low income.",
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "Vote on the Flock renewal, the Corridors upzone, and the next biennial budget"
+        },
+        {
+          "tier": "authority",
+          "text": "Attach a funding source to the existing sanctioned-sites referral rather than re-referring it"
+        },
+        {
+          "tier": "advocacy",
+          "text": "Press BART and the developer on the North Berkeley construction timeline"
+        }
+      ],
+      "char_limit": 600,
+      "suggested": [
+        {
+          "note": "",
+          "text": "1. Cancel the Flock contract and move police reporting out of BPD. 2. Open a sanctioned site with services so the Harrison Street community can move together — Council already told staff to find the land and never funded it. 3. Build what's approved: 739 homes sit entitled at North Berkeley BART, and Berkeley is 37% through its market-rate housing goal but 6.5% through the affordable one."
+        }
+      ]
+    },
+    {
+      "id": "bside_q4",
+      "section": "Published",
+      "topic": "personal",
+      "status": "blank",
+      "question": "Could you share something surprising about yourself?",
+      "analysis": "300 characters. Purely biographical, and the campaign has to supply it — there is no research substitute for a personal detail and inventing one would be both obvious and unrecoverable if a reporter followed up.\n\nWhat makes this land in a press Q&A is specificity and a slight mismatch with the professional frame. Berkeleyside prints these next to each other across every candidate, so the generic answer is the one nobody remembers.\n\nLeft deliberately blank for the candidate to fill.",
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "None — biographical"
+        }
+      ],
+      "char_limit": 300
+    },
+    {
+      "id": "bside_q5",
+      "section": "Published",
+      "topic": "public_financing",
+      "status": "done",
+      "question": "Are you using public financing?",
+      "analysis": "Factual. The campaign is certified in Berkeley's Fair Elections Act program: contributions capped at $60, no corporate, business, labor union or PAC money accepted at all, and qualifying contributions from Berkeley residents matched six to one by the city. The 30-contributor certification threshold has been met.\n\nNo stated character limit, but the surrounding questions are short and the answer is strongest as one line plus the detail that distinguishes it — the $60 cap and the total exclusion of institutional money.",
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "None — descriptive"
+        },
+        {
+          "tier": "advocacy",
+          "text": "Maintain certification, since matching funds depend on continued compliance"
+        }
+      ],
+      "suggested": [
+        {
+          "note": "",
+          "text": "Yes, and we're certified. Every contribution is capped at $60. No corporation, business, union or PAC can give at all, and Berkeley matches resident contributions six to one. This campaign is funded by small-dollar Berkeley donors and nobody else."
+        }
+      ]
+    },
+    {
+      "id": "bside_q6",
+      "section": "Published",
+      "topic": "endorsements",
+      "status": "done",
+      "question": "What endorsements does your campaign have?",
+      "analysis": "Straight list. For a press Q&A the useful ordering is by relevance to the district rather than by volume — a former District 1 councilmember of 25 years reads louder to a Berkeleyside audience than a longer list of organizations.\n\nVerify every name is current and has agreed to be listed publicly before submission. This is published, not reviewed by an endorsing panel, so an error is corrected in public.",
+      "levers": [
+        {
+          "tier": "authority",
+          "text": "None — descriptive"
+        }
+      ],
+      "suggested": [
+        {
+          "note": "",
+          "text": "Linda Maio, who represented District 1 for over 25 years. Councilmember Cecilia Lunaparra. Former School Board Directors Ty Alper and Julie Sinai, and current Directors Jennifer Shanoski and Jen Corn. Rent Stabilization Board Chair Soli Alpert. Housing Advisory Commissioner Syrak Micael. Strong labor support, particularly in education."
+        }
+      ]
+    },
+    {
+      "id": "bside_q7",
+      "section": "Published",
+      "topic": "anything_else",
+      "status": "done",
+      "question": "Is there anything else you want us to know as we report on this race?",
+      "analysis": "Addressed to reporters rather than voters, and it is the one answer on the form that is not necessarily for publication. The useful content is what would help someone cover the race accurately: which votes are actually live in the next term, and where the candidates genuinely differ.\n\nOptional. A pitch here reads as a pitch; a useful fact reads as a source worth calling back.",
+      "levers": [
+        {
+          "tier": "advocacy",
+          "text": "Establish the campaign as a reliable source for reporters covering the race"
+        }
+      ],
+      "suggested": [
+        {
+          "note": "",
+          "text": "One thing that may be useful for coverage: the Flock contract renewal lapses during the next Council term, so whoever holds this seat casts that vote. District 1 is the only open seat where the incumbent's Flock vote is on the record. Happy to talk on background any time."
+        }
+      ]
+    }
+  ]
+}
