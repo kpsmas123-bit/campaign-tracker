@@ -1,0 +1,1180 @@
+{
+ "slug": "oreb",
+ "org": "Our Revolution East Bay",
+ "cycle": "2026",
+ "candidate": "Daria Wrubel — Berkeley City Council D1",
+ "generated": "2026-08-13",
+ "last_factcheck": "2026-08-13",
+ "contact_fields": [
+  {
+   "k": "name",
+   "label": "Name (as listed on the ballot)",
+   "v": "Daria Wrubel"
+  },
+  {
+   "k": "pronouns",
+   "label": "Preferred Pronouns",
+   "v": ""
+  },
+  {
+   "k": "position",
+   "label": "Position running for",
+   "v": "Berkeley City Council, District 1"
+  },
+  {
+   "k": "email",
+   "label": "Email",
+   "v": ""
+  },
+  {
+   "k": "phone",
+   "label": "Phone number",
+   "v": ""
+  },
+  {
+   "k": "website",
+   "label": "Campaign website",
+   "v": "https://www.dariaforberkeley.com/"
+  }
+ ],
+ "questions": [
+  {
+   "id": "oreb_q1",
+   "section": "Campaign Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "1. Name (as listed on the ballot):",
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q2",
+   "section": "Campaign Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "2. Preferred Pronouns:",
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q3",
+   "section": "Campaign Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "3.  Position running for",
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q4",
+   "section": "Campaign Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "4. Email",
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q5",
+   "section": "Campaign Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "5. Phone number",
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q6",
+   "section": "Campaign Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "6. Campaign website",
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q7",
+   "section": "Core Values",
+   "section_note": "Most questions in this section are Yes or No; the explanation box at the end of the section is where any nuance goes. OREB states it may publish any answer.",
+   "topic": "campaign_finance",
+   "status": "todo",
+   "question": "1.  Do you pledge to take no money from Super PACs?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": "Berkeley's Election Reform Act answers this by operation of law rather than by pledge. No political action committee may contribute to a Berkeley candidate at all, and the candidate is enrolled in the City's public financing program, where every contribution is capped at $60 per donor and qualifying contributions from Berkeley residents are matched six to one.\n\nThe distinction worth drawing is between a promise and a prohibition. A candidate in most races is pledging restraint; this candidate is describing a legal ceiling that applies whether or not the pledge is made. That is a more credible answer, and it costs nothing to say plainly.\n\nIndependent expenditures are the one real gap. The Act limits what a campaign may accept; it does not stop an outside committee from spending on its own. If OREB is testing for independence, the honest framing is that no PAC can give to this campaign and none has spent for it.",
+   "levers": [
+    {
+     "tier": "record",
+     "text": "Participation in Berkeley's public financing program is already on file with the City and is verifiable"
+    },
+    {
+     "tier": "authority",
+     "text": "Vote on any future amendment to the Election Reform Act or its per-donor cap"
+    }
+   ]
+  },
+  {
+   "id": "oreb_q8",
+   "section": "Core Values",
+   "topic": "general",
+   "status": "todo",
+   "question": "2.  Have you or will you accept contributions from AIPAC?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q9",
+   "section": "Core Values",
+   "topic": "general",
+   "status": "todo",
+   "question": "3.  Have you or will you accept contributions from police unions?:",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q10",
+   "section": "Core Values",
+   "topic": "campaign_finance",
+   "status": "todo",
+   "question": "4.  Have you or will you accept contributions from  landlord/real estate developers?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": "Under the Election Reform Act no corporation, business entity or labor union may contribute to a Berkeley candidate. Real estate developers and landlords are therefore excluded as entities by law. An individual who happens to own property may still give, up to the same $60 that binds everyone else.\n\nThat $60 ceiling is the substantive answer. At sixty dollars there is no contribution large enough to buy access from anyone, which is a more durable structural argument than a list of refused industries.",
+   "levers": [
+    {
+     "tier": "record",
+     "text": "The $60 per-donor cap and the ban on corporate, business and union money are set by ordinance, not by campaign policy"
+    }
+   ]
+  },
+  {
+   "id": "oreb_q11",
+   "section": "Core Values",
+   "topic": "public_financing",
+   "status": "todo",
+   "question": "5.  Do you support the Fair Elections/Clean Money Proposition (SB42)?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": "OREB refers to this as 'the Fair Elections/Clean Money Proposition (SB42)'. The bill number should be confirmed against the current Legislature before the answer commits to specifics, because a candidate who describes the wrong bill will be marked down harder than one who answers the principle. TO VERIFY before submission.\n\nThe principle is safe ground regardless, and this candidate has the strongest possible standing on it: Berkeley already runs the thing the measure is modelled on. The City's Fair Elections program matches qualifying resident contributions six to one and caps every contribution at $60, and the campaign is enrolled in it. An answer that says 'yes, and my campaign is currently being run under exactly this system' is worth more than an answer that only agrees.",
+   "levers": [
+    {
+     "tier": "record",
+     "text": "The campaign is enrolled in Berkeley's public financing program and is running under a 6:1 match right now"
+    },
+    {
+     "tier": "advocacy",
+     "text": "Berkeley's program is a working local model that can be pointed to in support of a statewide version"
+    }
+   ]
+  },
+  {
+   "id": "oreb_q12",
+   "section": "Core Values",
+   "topic": "general",
+   "status": "todo",
+   "question": "6.  Do you support and will work for Universal Single payer Healthcare?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q13",
+   "section": "Core Values",
+   "topic": "general",
+   "status": "todo",
+   "question": "7.  Do you oppose genocide and military occupation?  For example: Gaza? Venezuela? Ukraine? Cuba? Greenland?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q14",
+   "section": "Core Values",
+   "topic": "general",
+   "status": "todo",
+   "question": "8.  Do you support abolishing ICE?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q15",
+   "section": "Core Values",
+   "topic": "general",
+   "status": "todo",
+   "question": "9.  Do you support legislation to tax billionaires?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q16",
+   "section": "Core Values",
+   "topic": "general",
+   "status": "todo",
+   "question": "10.  Optional: explanation of your responses to questions in this section (please be brief)",
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q17",
+   "section": "Campaign finances and support",
+   "section_note": "The form asks for this section to be answered explicitly. Under Berkeley's Election Reform Act most of these categories are prohibited outright rather than merely declined, which is a stronger answer than most candidates can give.",
+   "topic": "campaign_finance",
+   "status": "todo",
+   "question": "1.  Who contributed to your campaign?  Other than individual donations, who have and who will you receive donations? List all groups, unions, businesses (especially those doing business with the entity in which you seek to hold office).",
+   "analysis": "The most invasive question on the form, and one of the easiest for this campaign to answer completely. Under the Election Reform Act there are no group, union or business contributions to list, because none are permitted. Every dollar raised is an individual contribution of $60 or less.\n\nThe question specifically flags businesses doing business with the entity the candidate seeks to serve. For a Berkeley Council candidate under public financing that category is empty by law, and saying so directly is better than leaving the box vague.",
+   "levers": [
+    {
+     "tier": "record",
+     "text": "Contribution records are filed with the City and are public, so the answer is checkable"
+    }
+   ]
+  },
+  {
+   "id": "oreb_q18",
+   "section": "Campaign finances and support",
+   "topic": "general",
+   "status": "todo",
+   "question": "2.  Which candidates will/have you endorse/d and/or contribute/d?",
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q19",
+   "section": "Campaign finances and support",
+   "topic": "general",
+   "status": "todo",
+   "question": "3.  Please list persons and organizations who have endorsed you.",
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q20",
+   "section": "Campaign finances and support",
+   "topic": "general",
+   "status": "todo",
+   "question": "4. Please list PACs, and independent expenditure committees supporting you.",
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q21",
+   "section": "Campaign finances and support",
+   "topic": "campaign_finance",
+   "status": "todo",
+   "question": "5.  List any/all industries, organizations and people that you will decline donations and endorsements from, please be inclusive.",
+   "analysis": "Asks what the campaign will refuse. Berkeley's ordinance already refuses most of it: no corporation, business entity or labor union may give, and no PAC may give at all. The answer is stronger if it separates what the law forbids from what the candidate would decline on top of that.\n\nThe surveillance industry is the obvious addition and is consistent with the campaign's central issue.",
+   "levers": [
+    {
+     "tier": "authority",
+     "text": "Refusal of surveillance-industry support is within the candidate's own control and aligns with the Flock position"
+    }
+   ]
+  },
+  {
+   "id": "oreb_q22",
+   "section": "Crime and Law Enforcement",
+   "topic": "police_accountability",
+   "status": "todo",
+   "question": "1. What do you think about the use of force by police? What and when is appropriate and what and when is not?",
+   "analysis": "Open-ended and the place to be concrete about Berkeley rather than general about policing. Berkeley has civilian oversight through its Department of Police Accountability, and the candidate has already argued elsewhere that reporting and data-collection requirements should sit with city staff or the DPA rather than inside BPD itself. That is a structural answer about who checks the account, which is more useful than a position on force in the abstract.\n\nKeep it concise. The form asks for brevity throughout and this section has its own explanation box.",
+   "levers": [
+    {
+     "tier": "authority",
+     "text": "Vote on the police budget and on any use-of-force policy that comes to Council"
+    },
+    {
+     "tier": "authority",
+     "text": "Move reporting and data-collection requirements under city staff or the Department of Police Accountability"
+    }
+   ]
+  },
+  {
+   "id": "oreb_q23",
+   "section": "Crime and Law Enforcement",
+   "topic": "general",
+   "status": "todo",
+   "question": "2.  Do you support banning private prisons?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q24",
+   "section": "Crime and Law Enforcement",
+   "topic": "surveillance",
+   "status": "todo",
+   "question": "3.  Do you support installing surveillance cameras such as FLOCK, which stores individual information, at public areas?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "sources": [
+    {
+     "label": "Berkeley Peace and Justice Commission",
+     "url": "https://berkeleyca.gov/your-government/boards-commissions/peace-and-justice-commission"
+    },
+    {
+     "label": "City of Berkeley — Surveillance Technology Reports",
+     "url": "https://berkeleyca.gov/safety-health/emergency-preparedness/surveillance-technology-reports"
+    }
+   ],
+   "suggested": [
+    {
+     "note": "",
+     "text": "No.\n\nI got into this race over Flock. On May 7, 2026 the Council declined the Peace and Justice Commission's recommendation to cancel the contracts, rejected a roughly $2 million expansion into more cameras and drones, and renewed the automated license plate reader contract for twelve months at up to $200,000. The vote was 5-4.\n\nI would have voted no, and that renewal lapses during the next Council term, so this is a vote the next councilmember actually casts.\n\nThis is not only a privacy question. Plate data collected in Berkeley has been reached by jurisdictions that criminalize abortion and gender-affirming care, and by federal agencies targeting immigrants and organizers. We cannot be a sanctuary city and also run the infrastructure that makes sanctuary unenforceable. District 1 is the open seat on a council split 5-4, and I am the only candidate in this race opposed to the expansion."
+    }
+   ],
+   "analysis": "The single best question on this form for this candidate, and it names Flock directly.\n\nTHE RECORD. On May 7, 2026 the Council declined the Peace and Justice Commission's recommendation to cancel the Flock Safety contracts, rejected a roughly $2 million expansion into additional cameras and drones, and adopted Resolution 72,254-N.S. renewing the automated license plate reader contract for twelve months at up to $200,000. The vote was 5-4. That renewal lapses inside the next Council term, which makes this a live vote rather than a retrospective complaint.\n\nWHY IT IS NOT ONLY A PRIVACY ARGUMENT. Plate data collected locally has been reached by outside jurisdictions, including ones that have criminalized abortion and gender-affirming care. That connects this answer to the immigration and civil rights sections of the same questionnaire, and it is the framing that has landed well in other questionnaires.\n\nDISTRICT 1 IS THE SEAT THAT DECIDES IT. On a 5-4 council this is the open seat where the majority can change, and the candidate is the only one in the race opposed to the expansion.",
+   "levers": [
+    {
+     "tier": "authority",
+     "text": "Vote against renewing the automated license plate reader contract when the twelve-month extension lapses next term"
+    },
+    {
+     "tier": "authority",
+     "text": "Vote against any expansion into additional cameras or drones"
+    },
+    {
+     "tier": "authority",
+     "text": "Tighten data-sharing and retention terms under Berkeley's surveillance technology ordinance"
+    }
+   ]
+  },
+  {
+   "id": "oreb_q25",
+   "section": "Crime and Law Enforcement",
+   "topic": "general",
+   "status": "todo",
+   "question": "4.  Do you oppose capital punishment?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q26",
+   "section": "Crime and Law Enforcement",
+   "topic": "general",
+   "status": "todo",
+   "question": "5.  Should convicted felons and prison in-mates be granted the right to vote?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q27",
+   "section": "Crime and Law Enforcement",
+   "topic": "general",
+   "status": "todo",
+   "question": "6.  Do you believe it is ever warranted to suspend due process?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q28",
+   "section": "Crime and Law Enforcement",
+   "topic": "general",
+   "status": "todo",
+   "question": "7. Optional: explanation of your responses to questions in this section (please be concise)",
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q29",
+   "section": "Human Rights, Immigration, and Civil Rights",
+   "topic": "general",
+   "status": "todo",
+   "question": "1.  Do you support DACA?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q30",
+   "section": "Human Rights, Immigration, and Civil Rights",
+   "topic": "general",
+   "status": "todo",
+   "question": "2.  Do you support closing immigration detention facilities?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q31",
+   "section": "Human Rights, Immigration, and Civil Rights",
+   "topic": "immigration",
+   "status": "todo",
+   "question": "3.  Do you support increased funding for immigration assistance?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": "Berkeley's sanctuary ordinance was updated in September 2025 and traces to the City of Refuge ordinance of November 1971. It contains no criminal carve-out: police may not transfer anyone to immigration authorities, and may notify only on an outstanding criminal warrant.\n\nFunding is the part a councilmember actually controls. Alameda County funds immigrant legal defense and a rapid-response hotline through the ACILEP partnership, and the City's role is to fund legal defense, know-your-rights education and coordination with that county network. The candidate already serves on Berkeley's Sanctuary City Taskforce and co-facilitates a neighborhood rapid-response pod, which makes this a description of existing work rather than a promise.",
+   "levers": [
+    {
+     "tier": "authority",
+     "text": "Vote on the city budget line for immigrant legal defense and know-your-rights education"
+    },
+    {
+     "tier": "advocacy",
+     "text": "Deepen coordination with Alameda County's ACILEP rapid-response network"
+    },
+    {
+     "tier": "record",
+     "text": "Current service on Berkeley's Sanctuary City Taskforce"
+    }
+   ]
+  },
+  {
+   "id": "oreb_q32",
+   "section": "Human Rights, Immigration, and Civil Rights",
+   "topic": "general",
+   "status": "todo",
+   "question": "4.  Should immigrants without felonies be given a path to citizenship?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q33",
+   "section": "Human Rights, Immigration, and Civil Rights",
+   "topic": "general",
+   "status": "todo",
+   "question": "5.  Do you support DEI? (Diversity, Equity and Inclusion)",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q34",
+   "section": "Human Rights, Immigration, and Civil Rights",
+   "topic": "reparations",
+   "status": "todo",
+   "question": "6.  Do you support reparations?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "sources": [
+    {
+     "label": "BUSD Reparations Task Force",
+     "url": "https://www.berkeleyschools.net/reparations-task-force/"
+    },
+    {
+     "label": "EdSource — Berkeley Unified creating a reparations task force",
+     "url": "https://edsource.org/updates/berkeley-unified-creating-a-task-force-to-look-into-reparations-for-black-students"
+    },
+    {
+     "label": "KQED — Berkeley housing analyst on Black resident decline, state reparations task force",
+     "url": "https://www.kqed.org/news/11897977/berkeley-housing-analyst-says-hell-highlight-black-resident-decline-at-state-reparations-task-force-meeting"
+    }
+   ],
+   "analysis": "Berkeley has taken real but limited action, and the answer should not overstate it. In July 2023 the Council approved a study of the City's history of discriminatory housing policy and its effect on the Black community's ability to remain in Berkeley. That is a study, not a program, and its status is not well documented publicly.\n\nSeparately, Berkeley Unified created its own Reparations Task Force focused on Black students. That is the elected School Board's work, not the Council's, and conflating the two is the error to avoid here.\n\nThe strongest Berkeley-specific point is the underlying fact the study exists to address: the sharp decline in Berkeley's Black population, which local housing analysts have raised at the state level.",
+   "levers": [
+    {
+     "tier": "authority",
+     "text": "Ask for the status of the July 2023 discriminatory-housing study and fund its completion"
+    },
+    {
+     "tier": "advocacy",
+     "text": "Support BUSD's separate Reparations Task Force without claiming it as Council work"
+    }
+   ]
+  },
+  {
+   "id": "oreb_q35",
+   "section": "Human Rights, Immigration, and Civil Rights",
+   "topic": "general",
+   "status": "todo",
+   "question": "7.  Optional: explanation of your responses to questions in this section (please be concise)",
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q36",
+   "section": "Infrastructure Issues",
+   "topic": "public_banking",
+   "status": "todo",
+   "question": "1.  Do you support public banking?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "sources": [
+    {
+     "label": "Berkeley City Council item — Initiative Petition: Ordinance Creating a Parcel Tax to Fund a Public Bank (July 14, 2026)",
+     "url": "https://berkeleyca.gov/sites/default/files/2026-07/2026-07-14%20Item%2003%20Initiative%20Petition%20%E2%80%93%20Public%20Bank.pdf"
+    },
+    {
+     "label": "Daily Cal — Berkeley ballot measure seeks to establish first California public bank",
+     "url": "https://www.dailycal.org/news/city/berkeley-ballot-measure-seeks-to-establish-first-california-public-bank/article_097c90c1-eb0d-4a77-9a9c-368d91929299.html"
+    },
+    {
+     "label": "Public Banking Institute — Berkeley approves PBEB viability study",
+     "url": "https://publicbankinginstitute.org/berkeley-city-council-approves-public-bank-east-bays-viability-study/"
+    },
+    {
+     "label": "Public Bank East Bay",
+     "url": "https://www.publicbankeastbay.org/"
+    },
+    {
+     "label": "CA Public Banking Alliance — East Bay",
+     "url": "https://capublicbanking.com/portfolio/eastbay/"
+    }
+   ],
+   "suggested": [
+    {
+     "note": "",
+     "text": "Yes.\n\nBerkeley approved Public Bank East Bay's viability study in 2023, joined Oakland and Richmond in the working group, and passed a resolution affirming our intent to be a founding member. Alameda County's Treasurer has committed capitalization funds. This is not a hypothetical for us.\n\nIt is also on my ballot. An initiative creating a parcel tax to fund the bank qualified for November 3, 2026, the same ballot I am on.\n\nI support public banking because keeping our deposits working locally, on housing and infrastructure, is better than paying fees to institutions that finance the things we spend our own budget fighting. I also want to be straight about the tension: we are cutting services in a shortfall and asking voters for a new parcel tax in the same year. Anyone who supports this measure owes voters a plain answer on cost, not just on principle."
+    }
+   ],
+   "analysis": "This is on the same ballot as the candidate, and it is the reason to answer with specifics.\n\nWHAT IS ACTUALLY PENDING. An initiative ordinance creating a parcel tax to fund a public bank qualified for Berkeley's November 3, 2026 ballot, placed by the Coalition to Keep Berkeley Money Local and Public Bank East Bay. As reported, it is a temporary six-year tax of $0.06 per square foot on dwelling units and $0.09 per square foot on other property. Confirm the final rates and duration against the City's own ballot item before quoting them.\n\nWHAT BERKELEY HAS ALREADY DONE. The Council approved Public Bank East Bay's viability study in April 2023, joining Oakland and Richmond in the working group, and passed a resolution affirming intent to join as a founding member. Alameda County's Treasurer has committed capitalization funds. PBEB has raised roughly its first million from local foundations, about half its projected start-up budget, and remains volunteer-run.\n\nTHE TENSION TO EXPECT. Berkeley is cutting services in a general fund shortfall while being asked to add a parcel tax. A candidate who supports public banking in principle should be ready for the affordability question, since the same voters decide both this measure and the Council race.",
+   "levers": [
+    {
+     "tier": "authority",
+     "text": "Vote on Berkeley's participation in and capitalization of Public Bank East Bay as a founding member"
+    },
+    {
+     "tier": "advocacy",
+     "text": "Take a public position on the November 3, 2026 public bank parcel tax measure, which shares the ballot with this race"
+    }
+   ]
+  },
+  {
+   "id": "oreb_q37",
+   "section": "Infrastructure Issues",
+   "topic": "transit",
+   "status": "todo",
+   "question": "2.  Do you think public transit should be free?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": "A flat Yes/No on a question where the candidate has already given a qualified answer elsewhere. In the WFP questionnaire the position was support for the goal of free transit, support for expanded free programs for youth, seniors, low-income riders and people with disabilities, and doubt that universal free service is fiscally responsible for AC Transit or BART right now. Answering a flat Yes here would contradict that on the record, and OREB says it may publish answers.\n\nTHE OPERATING CONTEXT. AC Transit's Board adopted a contingency plan in June 2026: a $53 million reduction, 16.4 percent of service, implemented June 2027 if the regional measure fails. Fare-free service is not the binding constraint on ridership when the buses themselves are at risk.\n\nThe consistent answer is to mark the box that matches the WFP answer and use the section's explanation box to say why, leading with support for the regional transit measure.",
+   "levers": [
+    {
+     "tier": "advocacy",
+     "text": "Campaign for the Bay Area regional transit measure, which determines whether AC Transit cuts 16.4 percent of service"
+    },
+    {
+     "tier": "authority",
+     "text": "Expand Berkeley-funded transit passes for youth, seniors, low-income residents and people with disabilities"
+    }
+   ]
+  },
+  {
+   "id": "oreb_q38",
+   "section": "Infrastructure Issues",
+   "topic": "general",
+   "status": "todo",
+   "question": "3. Optional: explanation of your responses to questions in this section (please be concise)",
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q39",
+   "section": "Current Labor Issues",
+   "topic": "wages",
+   "status": "todo",
+   "question": "1.  Do you support a California “living wage”? How?",
+   "sources": [
+    {
+     "label": "City of Berkeley — Workforce Standards and Enforcement",
+     "url": "https://berkeleyca.gov/doing-business/operating-berkeley/workforce-standards-and-enforcement"
+    },
+    {
+     "label": "City of Berkeley — Minimum Wage public notice",
+     "url": "https://berkeleyca.gov/sites/default/files/documents/Berkeley-Minimum-Wage-Poster-English.pdf"
+    }
+   ],
+   "suggested": [
+    {
+     "note": "",
+     "text": "Yes, and Berkeley already has one of its own rather than relying on the state floor.\n\nOur Minimum Wage Ordinance rises to $19.61 an hour on July 1, 2026, and indexes every July 1 to CPI-W for the San Francisco-Oakland-Hayward area. It covers anyone working two hours or more in a week inside city limits, whoever employs them and wherever they live, and California allows no tip credit, so the full amount is paid in wages.\n\nThe how is enforcement. An ordinance without capacity behind it is a poster on a break room wall. I would fund our Workforce Standards and Enforcement work so wage theft claims get investigated, and protect our Paid Sick Leave Ordinance alongside it, because a wage floor a worker cannot use without losing a shift is not a floor."
+    }
+   ],
+   "analysis": "Berkeley has its own minimum wage ordinance rather than relying on the state floor. It rises to $19.61 per hour on July 1, 2026, and adjusts every July 1 by the prior calendar year's CPI-W for the San Francisco-Oakland-Hayward area. It applies to anyone working at least two hours in a week inside city limits, regardless of where the employer is based, and California allows no tip credit, so the full amount is paid in direct wages.\n\nThe 'how' the question asks for is enforcement. An ordinance with no capacity behind it is a number on a poster, and the City's Workforce Standards and Enforcement function is the lever a councilmember funds.",
+   "levers": [
+    {
+     "tier": "authority",
+     "text": "Fund enforcement capacity for the Minimum Wage and Paid Sick Leave ordinances"
+    },
+    {
+     "tier": "authority",
+     "text": "Vote on amendments to Berkeley's Minimum Wage Ordinance and its indexing"
+    }
+   ]
+  },
+  {
+   "id": "oreb_q40",
+   "section": "Current Labor Issues",
+   "topic": "housing_cost",
+   "status": "todo",
+   "question": "2.  List 3 ideas to reduce the price of shelter in your community?",
+   "analysis": "Asks for three concrete ideas. Berkeley gives three that are real and already in motion, which beats three that are generic.\n\nSUPPLY. The Middle Housing ordinance was adopted July 8, 2025 and took effect November 1, 2025, allowing two to six units in R-1, R-2, R-2A and MU-R zones. Qualifying applications are ministerial, approved within 30 days, and cannot be appealed to the Zoning Adjustments Board or Council. Note the timeline honestly: Berkeley's famous 2021 announcement about ending single-family zoning was a resolution of intent, and the binding ordinance took four and a half years.\n\nENTITLED BUT UNBUILT. North Berkeley BART was entitled in December 2024 under AB 2011 for 739 homes, 381 of them affordable, and has not broken ground. It sits in District 1.\n\nOFF THE SPECULATIVE MARKET. Land trusts need land more than money. Berkeley has surplus and city-owned parcels, and can give priority in disposition and first-offer rights.",
+   "levers": [
+    {
+     "tier": "authority",
+     "text": "Defend the ministerial, non-appealable approval path in the Middle Housing ordinance"
+    },
+    {
+     "tier": "authority",
+     "text": "Direct surplus and city-owned parcels toward community land trusts with first-offer rights"
+    },
+    {
+     "tier": "advocacy",
+     "text": "Press BART and the developer on the North Berkeley BART construction timeline; the City is a partner, not the builder"
+    }
+   ]
+  },
+  {
+   "id": "oreb_q41",
+   "section": "Current Labor Issues",
+   "topic": "tenant_protections",
+   "status": "todo",
+   "question": "3.  What do you propose to protect renters in your community? Please comment on laws/acts, such as Costa Hawkins and others, to be repealed, and added/legislated?",
+   "sources": [
+    {
+     "label": "Daily Cal — City Council votes against Tenant Opportunity to Purchase Act",
+     "url": "https://www.dailycal.org/news/city/city-government/city-council-votes-against-tenant-opportunity-purchase-act/article_6fe2f5b6-8076-11ef-883e-e363616ab9ef.html"
+    }
+   ],
+   "suggested": [
+    {
+     "note": "",
+     "text": "Berkeley has to defend what it has and add what it lacks.\n\nCosta-Hawkins should be repealed. I want to be honest that California voters have declined three times, most recently Proposition 33 in 2024, so I am not going to promise repeal as if it were around the corner. What we did instead was Measure BB, which took effect in December 2024, changing the grounds for eviction, removing rent control and registration exemptions for certain units, and giving tenants the right to form tenant associations. Those protections are only as strong as the Rent Board's capacity to enforce them, and I would fund that.\n\nWhat Berkeley lacks is a right to counsel. We fund contracted eviction defense at roughly $800,000 a year through Measure U1, and in 2023 the Council was told it would run dry by January even after a $2 million supplement, in a month the Rent Board logged 130 eviction notices. That is a service that runs out, not a right. I would move Berkeley from funding services to guaranteeing representation by ordinance, with the allocation sized to filing volume.\n\nAnd I would bring back TOPA. The Council declined it in 2024 and my own councilmember voted against even studying the alternatives."
+    }
+   ],
+   "analysis": "The question names Costa-Hawkins, so the answer has to be accurate about it. Costa-Hawkins exempts single-family homes and newer construction from local rent control and lets rents reset at vacancy. California voters have declined to repeal it three times, most recently Proposition 33 in 2024. A candidate who promises repeal without acknowledging that record sounds unserious.\n\nWHAT BERKELEY DID INSTEAD. In November 2024 Berkeley voters passed Measure BB, effective December 2024, which changed the grounds for eviction, removed rent control and registration exemptions for certain units, and gave tenants the right to form tenant associations. New protections are only as good as the Rent Board's capacity to enforce them.\n\nTOPA. The Council declined to adopt it in 2024, citing administrative and financial capacity, and the current District 1 councilmember voted against even studying narrower alternatives.\n\nRIGHT TO COUNSEL. Berkeley does not have one. It funds contracted eviction defense at roughly $800,000 a year through Measure U1, delivered by the East Bay Community Law Center and the Eviction Defense Center. That is a service that can run out mid-year, not a right. Converting it to an ordinance-backed right, with an allocation sized to filing volume, is the concrete legislative proposal this question invites.",
+   "levers": [
+    {
+     "tier": "authority",
+     "text": "Adopt an ordinance establishing a right to counsel in eviction proceedings"
+    },
+    {
+     "tier": "authority",
+     "text": "Size the anti-displacement allocation to filing volume instead of a fixed appropriation that runs dry"
+    },
+    {
+     "tier": "authority",
+     "text": "Reintroduce TOPA and vote for it"
+    },
+    {
+     "tier": "authority",
+     "text": "Fund Rent Board staffing to enforce Measure BB"
+    }
+   ]
+  },
+  {
+   "id": "oreb_q42",
+   "section": "Current Labor Issues",
+   "topic": "homelessness",
+   "status": "todo",
+   "question": "4.  Do you support the repeal of all laws that criminalize or punish homeless people?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": "Three legal points a Berkeley candidate should not get wrong.\n\nGrants Pass v. Johnson abrogated Martin v. Boise in June 2024, so available shelter capacity is no longer an Eighth Amendment precondition to enforcement. Do not argue that a city is constitutionally barred from clearing encampments.\n\nThe April 3, 2026 order in Berkeley Homeless Union v. City of Berkeley holds expressly that the City is not required to designate or create sanctioned campsites. Sanctioned sites are a policy choice Berkeley can make, not an obligation it can be compelled into.\n\nBerkeley's own encampment policy already promises a shelter offer before closure whenever practicable. That is a self-imposed standard the Council can raise, which is the actual lever.\n\nOn money: Measure P funds should go to services, not to encampment enforcement and sweeps.",
+   "levers": [
+    {
+     "tier": "authority",
+     "text": "Raise Berkeley's own encampment policy standard on shelter offers before closure"
+    },
+    {
+     "tier": "authority",
+     "text": "Direct Measure P funds to services rather than enforcement"
+    },
+    {
+     "tier": "authority",
+     "text": "Vote to establish a sanctioned site with wraparound services for the Harrison Street community, which is in District 1"
+    }
+   ]
+  },
+  {
+   "id": "oreb_q43",
+   "section": "Current Labor Issues",
+   "topic": "affordable_housing",
+   "status": "todo",
+   "question": "How do we provide/develop more affordable and low-cost housing?  In your community and in California?",
+   "analysis": "Overlaps question 2 of this section; keep the two answers distinct by putting supply and process in the earlier one and permanent affordability here.\n\nBerkeley has a working local example: the Golden Bear on San Pablo Avenue, in District 1, converted a motel into permanent supportive homes that have housed formerly homeless neighbors since 2022. Conversion is faster and cheaper than new construction and Berkeley has already proved it can do it.\n\nOn preservation, the cheapest affordable housing is the affordable housing that already exists, which is what the Rental Housing Safety Program and Small Sites acquisition are for.",
+   "levers": [
+    {
+     "tier": "authority",
+     "text": "Fund acquisition and conversion of existing buildings into permanent supportive and social housing"
+    },
+    {
+     "tier": "authority",
+     "text": "Require union labor on publicly subsidized construction"
+    }
+   ]
+  },
+  {
+   "id": "oreb_q44",
+   "section": "Education",
+   "section_note": "Question 8 is labelled Optional but is flagged REQUIRED in the form and will block submission if left blank. Every other section's optional box is genuinely optional.",
+   "topic": "charter_schools",
+   "status": "todo",
+   "question": "1.  Do you support charter schools?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": "STRUCTURAL POINT FIRST. Berkeley City Council has no authority over charter schools. Charters are authorized and overseen by the separately elected Berkeley Unified School District Board. A candidate for Council who answers as though this were a Council decision will read as not understanding the office.\n\nThat does not make the question a trap, because this candidate has an unusually strong basis to answer it anyway: employment with BUSD from 2009 to 2015, membership in AFT Local 6192, a year as its Union Organizer, and site representative at Thousand Oaks Elementary. The endorsements include current and former School Board directors and a former Berkeley Federation of Teachers president.\n\nTO VERIFY: whether Berkeley currently has any charter schools operating within BUSD boundaries. Reporting is inconsistent and question 2 asks for examples from the community, so this should be checked rather than asserted.",
+   "levers": [
+    {
+     "tier": "advocacy",
+     "text": "Council has no charter authority; the lever is public support for BUSD and its elected board"
+    },
+    {
+     "tier": "record",
+     "text": "Former BUSD employee and AFT Local 6192 organizer"
+    }
+   ]
+  },
+  {
+   "id": "oreb_q45",
+   "section": "Education",
+   "topic": "general",
+   "status": "todo",
+   "question": "2.  Should charter schools be at no cost and unionized? Please use examples in your community.",
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q46",
+   "section": "Education",
+   "topic": "general",
+   "status": "todo",
+   "question": "3.  Do you support no cost public college and university?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q47",
+   "section": "Education",
+   "topic": "general",
+   "status": "todo",
+   "question": "4.  Do you support the cancellation of all student debt?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q48",
+   "section": "Education",
+   "topic": "general",
+   "status": "todo",
+   "question": "5.  Do you support free universal public pre-K?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q49",
+   "section": "Education",
+   "topic": "general",
+   "status": "todo",
+   "question": "6.  Do you support free universal childcare for children under 5?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q50",
+   "section": "Education",
+   "topic": "trans_rights",
+   "status": "todo",
+   "question": "7.  Do you support “strengthening” Title IX including trans rights?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": "Title IX itself is federal, but Berkeley has a live local vehicle: a Trans Sanctuary City Policy is in draft before the Peace and Justice Commission and would come to Council. California is a sanctuary state for gender-affirming care under SB 107, but state law only holds if cities back it with their own data practices and resources.\n\nThis is also where the surveillance answer connects. Plate and location data collected locally is exactly the data other jurisdictions have sought about people seeking gender-affirming care, which is why opposing Flock and supporting trans rights are the same position rather than two.\n\nThe candidate is the parent of a trans daughter and a clinician working with queer and marginalized youth, which is stated plainly elsewhere and belongs here.",
+   "levers": [
+    {
+     "tier": "authority",
+     "text": "Vote for the Trans Sanctuary City Policy when it reaches Council from the Peace and Justice Commission"
+    },
+    {
+     "tier": "authority",
+     "text": "Refuse data-sharing arrangements that expose residents seeking gender-affirming care"
+    }
+   ]
+  },
+  {
+   "id": "oreb_q51",
+   "section": "Education",
+   "topic": "general",
+   "status": "todo",
+   "question": "8. Optional: explanation of your responses to questions in this section (please be concise)",
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q52",
+   "section": "Environmental",
+   "topic": "environment",
+   "status": "todo",
+   "question": "1.  How will you work to uphold environmental regulations in the face of the government's attempt to eradicate? Include and use example from your community.",
+   "sources": [
+    {
+     "label": "CRA v. City of Berkeley, No. 21-16278 (9th Cir. 2023)",
+     "url": "https://law.justia.com/cases/federal/appellate-courts/ca9/21-16278/21-16278-2023-04-17.html"
+    },
+    {
+     "label": "Columbia Climate Law Blog — Ninth Circuit holds Berkeley's gas ban preempted by EPCA",
+     "url": "https://blogs.law.columbia.edu/climatechange/2023/04/18/ninth-circuit-holds-berkeleys-gas-ban-preempted-by-u-s-energy-policy-conservation-act/"
+    },
+    {
+     "label": "California Restaurant Association — settlement halting enforcement, Berkeley to repeal",
+     "url": "https://www.calrest.org/news/california-restaurant-association-and-berkeley-settle-gas-ban-lawsuit-berkeley-will-not-enforce"
+    }
+   ],
+   "suggested": [
+    {
+     "note": "",
+     "text": "I want to answer this with the Berkeley example rather than a general one, because ours did not fail the way people assume.\n\nBerkeley passed the first ban in the country on natural gas piping in new buildings. It was struck down by the Ninth Circuit in April 2023 in California Restaurant Association v. City of Berkeley, on the ground that the federal Energy Policy and Conservation Act preempted it. Rehearing was denied in January 2024 and the City settled and repealed rather than keep enforcing it.\n\nThe pressure came from a trade association using federal preemption, not from an agency rolling back a rule. That matters for what a city does next. Preemption reaches appliance and fuel mandates; it does not reach building performance standards, electrification incentives, how we permit, or what the City itself buys. I would put our effort into the instruments that survive a lawsuit, because an ordinance that gets enjoined delivers no emissions reductions at all."
+    }
+   ],
+   "analysis": "The question assumes the threat to environmental regulation comes from the federal government. Berkeley's own most significant loss came a different way, and naming that accurately is what demonstrates local fluency here.\n\nTHE EXAMPLE. Berkeley's first-in-the-nation ban on natural gas piping in new buildings was struck down in California Restaurant Association v. City of Berkeley, decided by the Ninth Circuit on April 17, 2023, on the ground that the federal Energy Policy and Conservation Act preempted it. Rehearing was denied in January 2024, and the City settled and moved to repeal the ordinance rather than continue enforcing it.\n\nSo the pressure came from a trade association using federal preemption, not from an agency rollback. The lesson a councilmember can act on is to choose instruments that survive preemption: building performance standards, electrification incentives, permitting and municipal purchasing, rather than appliance or fuel bans that EPCA reaches.\n\nA candidate who cites the gas ban as a Berkeley achievement without knowing it was overturned will be corrected. A candidate who explains why it lost and what to do instead will not.",
+   "levers": [
+    {
+     "tier": "authority",
+     "text": "Use building performance standards, permitting and municipal purchasing, which EPCA preemption does not reach"
+    },
+    {
+     "tier": "authority",
+     "text": "Vote on Berkeley's climate and electrification budget lines"
+    }
+   ]
+  },
+  {
+   "id": "oreb_q53",
+   "section": "Environmental",
+   "topic": "environment",
+   "status": "todo",
+   "question": "2.  What do you think is the most critical environmental issue?  In your community?",
+   "analysis": "Asks for the most critical issue locally, so a global answer is a wasted answer. Berkeley-specific candidates for the strongest response include the loss of the gas ban and what replaces it, transit service cuts as a climate issue given AC Transit's June 2027 contingency, and the fact that housing near transit is climate policy because it determines how far people drive.\n\nThe housing-as-climate framing has the advantage of tying this section back to the labor and housing answers rather than standing alone.",
+   "levers": [
+    {
+     "tier": "authority",
+     "text": "Approve density near transit so residents can live near where they work"
+    },
+    {
+     "tier": "advocacy",
+     "text": "Support the regional transit measure as climate policy, not only as service preservation"
+    }
+   ]
+  },
+  {
+   "id": "oreb_q54",
+   "section": "Environmental",
+   "topic": "general",
+   "status": "todo",
+   "question": "3. Do you support community and government oversight in the approval of and the construction of data centers for corporations?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q55",
+   "section": "Election",
+   "topic": "general",
+   "status": "todo",
+   "question": "1.  Do you support the Constitutional amendment to repeal Citizens United?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q56",
+   "section": "Election",
+   "topic": "general",
+   "status": "todo",
+   "question": "2.  Will you uphold the Voting Rights Act?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q57",
+   "section": "Election",
+   "topic": "general",
+   "status": "todo",
+   "question": "3.  Do you support universal mail-in ballots? (such as was used for Prop 50)",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q58",
+   "section": "Election",
+   "topic": "general",
+   "status": "todo",
+   "question": "4. Optional: explanation of your responses to questions in this section (please be concise)",
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q59",
+   "section": "US Foreign Policy – National Issues Affect Local Positions",
+   "topic": "general",
+   "status": "todo",
+   "question": "1.  Do you support the international campaign of BDS (Boycott, Divestment, Sanctions)?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q60",
+   "section": "US Foreign Policy – National Issues Affect Local Positions",
+   "topic": "general",
+   "status": "todo",
+   "question": "2.  What should the US policy be on Palestine/Israel?",
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q61",
+   "section": "US Foreign Policy – National Issues Affect Local Positions",
+   "topic": "general",
+   "status": "todo",
+   "question": "3.  Do you agree with the current economic sanctions?",
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q62",
+   "section": "US Foreign Policy – National Issues Affect Local Positions",
+   "topic": "general",
+   "status": "todo",
+   "question": "4. What are your views on the tariff policy?",
+   "analysis": ""
+  },
+  {
+   "id": "oreb_q63",
+   "section": " Anything Else?",
+   "topic": "closing",
+   "status": "todo",
+   "question": "1. Thanks for your time and thoughtfulness. Is there anything else we should know?",
+   "analysis": "Marked required. This is the place to state the one thing that distinguishes this race, and for OREB that is surveillance: the Flock renewal was 5-4, District 1 is the open seat that can change the majority, and the renewal lapses inside the next term. A closing answer that names a specific upcoming vote is more persuasive than one that restates values.",
+   "levers": [
+    {
+     "tier": "authority",
+     "text": "The Flock contract renewal comes back inside the next Council term on a Council currently split 5-4"
+    }
+   ]
+  }
+ ],
+ "org_research": "Our Revolution East Bay. Questions and section structure were read out of the live Google Form's own data payload, so the wording here is exactly what a respondent sees.\n\nWHAT THE FORM SAYS ABOUT ITSELF. Completing the questionnaire is the first step to an OREB endorsement. Every question is to be answered. Most are Yes or No, with one explanation box per section, and the form asks repeatedly for brevity. Two lines matter for risk: 'We may publish your answers to any question,' and OREB 'continually monitors the actions of endorsed candidates regarding their questionnaire responses.' Treat every answer as on the record and as a commitment that will be checked later. The form names Carol Coyote and Michael Cheng as contacts.\n\nSHAPE. 63 questions across 12 sections: 6 campaign-information fields, 34 Yes/No, 23 written.\n\nFORM BUG TO PLAN AROUND. Education question 8 is labelled 'Optional' but is flagged required and will block submission if left blank. Every other section's optional box is genuinely optional.\n\nWHERE THE WEIGHT IS FOR THIS CAMPAIGN. Crime and Law Enforcement question 3 names Flock directly and is the best question on the form for this candidate. The campaign finance section is unusually invasive and is close to self-answering under Berkeley's Election Reform Act, where PAC money is prohibited outright and every contribution is capped at $60 per donor. Infrastructure question 1 on public banking is live on the same November 3, 2026 ballot as this race.\n\nWHERE THE EXPOSURE IS. Core Values question 7 folds Gaza, Venezuela, Ukraine, Cuba and Greenland into a single Yes/No on genocide and military occupation, and the Foreign Policy section asks for a BDS position and an open-ended stance on Palestine/Israel. For a City Council race these carry the most risk of anything on the form and are the most likely to be quoted. No research has been attached to them here, by instruction.\n\nNOT YET RESEARCHED: OREB's own endorsement history, past questionnaire scoring, panel or interview process, and deadline."
+}
