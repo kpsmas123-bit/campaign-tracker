@@ -123,6 +123,12 @@
   .fbtn.active { color: var(--text); font-weight: 600; border-bottom-color: var(--accent); }
   .fbtn .cnt { color: var(--text-tertiary); margin-left: 5px; font-weight: 400; font-variant-numeric: tabular-nums; }
 
+  .legend {
+    font-size: 12px; color: var(--text-tertiary);
+    margin: -6px 0 14px;
+  }
+  .legend b { font-weight: 600; color: var(--text-secondary); }
+
   .thead, .row {
     display: grid;
     grid-template-columns: 14px 1fr 150px 34px 34px 34px 74px 1fr 24px;
@@ -240,12 +246,15 @@
   <div class="page-sub" id="pageSub"></div>
 
   <div class="filters" id="filters"></div>
+  <div class="legend">Attempts cycle on click: <b>log</b> &rarr; <b>reached</b> &rarr; <b>clear</b>. Green means you spoke to them.</div>
 
   <div class="thead">
     <div></div>
     <div>Name</div>
     <div class="c-contact">Contact</div>
-    <div>1</div><div>2</div><div>3</div>
+    <div class="c-att" title="Click to log an attempt · again to mark reached · again to clear">1</div>
+    <div class="c-att" title="Click to log an attempt · again to mark reached · again to clear">2</div>
+    <div class="c-att" title="Click to log an attempt · again to mark reached · again to clear">3</div>
     <div>Gave</div>
     <div class="c-notes">Notes</div>
     <div></div>
@@ -324,23 +333,22 @@
 
   function attemptsOf(c) { return Array.isArray(c.attempts) ? c.attempts : []; }
 
-  async function logAttempt(c, idx) {
+  // Click cycles: empty -> logged (no answer) -> reached -> empty.
+  // A cycle rather than a modifier key, because an accidental stamp has to be
+  // clearable by someone who does not know a shortcut, and these targets are
+  // too small to carry a separate delete control.
+  async function cycleAttempt(c, idx) {
     var a = attemptsOf(c).slice();
-    if (a[idx]) {
-      a[idx] = { at: a[idx].at, reached: !a[idx].reached };   // second click flips it
-    } else {
+    var cur = a[idx];
+    if (!cur) {
       while (a.length < idx) a.push(null);
       a[idx] = { at: new Date().toISOString(), reached: false };
+    } else if (!cur.reached) {
+      a[idx] = { at: cur.at, reached: true };
+    } else {
+      a[idx] = null;
+      while (a.length && a[a.length - 1] == null) a.pop();
     }
-    c.attempts = a;
-    render();
-    await patch(c.id, { attempts: a });
-  }
-
-  async function clearAttempt(c, idx) {
-    var a = attemptsOf(c).slice();
-    a[idx] = null;
-    while (a.length && a[a.length - 1] == null) a.pop();
     c.attempts = a;
     render();
     await patch(c.id, { attempts: a });
@@ -456,15 +464,14 @@
           var a = attemptsOf(c)[idx];
           var btn = el('button', 'att' + (a ? (a.reached ? ' done reached' : ' done') : ''));
           btn.textContent = a ? fmtWhen(a.at) : '+';
-          btn.title = a
-            ? fmtFull(a.at) + (a.reached ? ' — reached. Click to mark not reached.'
-                                         : ' — no answer. Click to mark reached.') +
-              ' Shift-click to clear.'
-            : 'Log an attempt';
-          btn.addEventListener('click', function (ev) {
-            if (ev.shiftKey && a) { clearAttempt(c, idx); return; }
-            logAttempt(c, idx);
-          });
+          // The tooltip names the NEXT action, so the cycle is discoverable
+          // without having to click through it to find out.
+          btn.title = !a
+            ? 'Log an attempt'
+            : a.reached
+              ? fmtFull(a.at) + ' — reached. Click to clear.'
+              : fmtFull(a.at) + ' — no answer. Click to mark reached.';
+          btn.addEventListener('click', function () { cycleAttempt(c, idx); });
           row.appendChild(btn);
         })(i);
       }
