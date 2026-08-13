@@ -309,6 +309,16 @@
   .task-due::-webkit-calendar-picker-indicator {
     opacity: 0; position: absolute; width: 100%; height: 100%; cursor: pointer;
   }
+  /* No due date: hide the mm/dd/yyyy spinner text and show an em dash, so an
+     unset date matches the other empty cells instead of shouting a format. */
+  .task-due.no-date::-webkit-datetime-edit { opacity: 0; }
+  .task-due.no-date { color: var(--text-tertiary); }
+  .due-wrap { position: relative; display: flex; align-items: center; }
+  .due-wrap .due-dash {
+    position: absolute; left: 0; pointer-events: none;
+    font-size: 13px; color: var(--text-tertiary);
+  }
+  .task-row:hover .due-wrap .due-dash { color: var(--text-secondary); }
 
   .assignee-cell {
     display: flex; align-items: center; gap: 3px;
@@ -1126,7 +1136,11 @@
         '<div class="task-check' + (t.done ? ' checked' : '') + '" data-id="' + t.id + '"></div>' +
         '<input class="task-name-input" value="' + escHtml(t.name) + '" placeholder="Task name" data-id="' + t.id + '">' +
         '<div class="tag-cell" data-id="' + t.id + '" title="Click to tag">' + tagChips(t.id) + '</div>' +
-        '<input class="task-due' + (overdue ? ' overdue' : '') + '" type="date" value="' + (t.due || '') + '" data-id="' + t.id + '">' +
+        '<div class="due-wrap">' +
+          '<input class="task-due' + (overdue ? ' overdue' : '') + (t.due ? '' : ' no-date') +
+            '" type="date" value="' + (t.due || '') + '" data-id="' + t.id + '">' +
+          (t.due ? '' : '<span class="due-dash">&mdash;</span>') +
+        '</div>' +
         '<div class="assignee-cell" data-id="' + t.id + '" title="Click to assign">' + assigneeAvatars(t.id) + '</div>' +
         '<button class="task-priority-btn" data-id="' + t.id + '" data-priority="' + t.priority + '">' +
           '<span class="dot"></span>' + PRIORITY_LABELS[t.priority] + '</button>' +
