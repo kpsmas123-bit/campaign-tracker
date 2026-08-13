@@ -123,11 +123,19 @@
   .fbtn.active { color: var(--text); font-weight: 600; border-bottom-color: var(--accent); }
   .fbtn .cnt { color: var(--text-tertiary); margin-left: 5px; font-weight: 400; font-variant-numeric: tabular-nums; }
 
+  /* A worked example rather than a sentence: the three states are visual, so
+     showing them costs less to read than describing them. */
   .legend {
+    display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
     font-size: 12px; color: var(--text-tertiary);
-    margin: -6px 0 14px;
+    margin: -6px 0 16px;
   }
-  .legend b { font-weight: 600; color: var(--text-secondary); }
+  .legend .key { display: inline-flex; align-items: center; gap: 7px; }
+  .legend .key-note { font-style: italic; }
+  .att.sample {
+    pointer-events: none; cursor: default;
+    width: 34px; display: inline-flex; align-items: center; justify-content: center;
+  }
 
   .thead, .row {
     display: grid;
@@ -176,9 +184,12 @@
     font-size: 9px; color: var(--text-tertiary); padding: 0;
   }
   .att:hover { border-color: var(--accent); color: var(--accent); }
+  /* Logged but not reached reads as unfinished business, so it carries the
+     same red as an overdue task rather than a neutral grey. Reached stays
+     green — the two states should be tellable apart at a glance down a column. */
   .att.done {
-    border-style: solid; border-color: var(--border);
-    background: var(--team-bg); color: var(--text-secondary);
+    border-style: solid; border-color: var(--priority-high);
+    background: var(--priority-high-bg); color: var(--priority-high);
   }
   .att.reached {
     border-color: var(--priority-low); background: var(--priority-low-bg);
@@ -246,7 +257,12 @@
   <div class="page-sub" id="pageSub"></div>
 
   <div class="filters" id="filters"></div>
-  <div class="legend">Attempts cycle on click: <b>log</b> &rarr; <b>reached</b> &rarr; <b>clear</b>. Green means you spoke to them.</div>
+  <div class="legend">
+    <span class="key"><span class="att sample">+</span> not called</span>
+    <span class="key"><span class="att sample done">8/13</span> called, no contact</span>
+    <span class="key"><span class="att sample reached">8/13</span> made contact</span>
+    <span class="key-note">click cycles through these</span>
+  </div>
 
   <div class="thead">
     <div></div>
