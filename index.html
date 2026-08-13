@@ -278,7 +278,7 @@
   .task-row.drop-below { box-shadow: inset 0 -2px 0 0 var(--accent); }
   .task-row.done .task-name-input { text-decoration: line-through; color: var(--done-text); }
   .task-row.done .task-due,
-  .task-row.done .task-assignee-select,
+  .task-row.done .assignee-cell,
   .task-row.done .task-priority-btn { opacity: 0.4; }
 
   .task-check {
@@ -310,12 +310,39 @@
     opacity: 0; position: absolute; width: 100%; height: 100%; cursor: pointer;
   }
 
-  .task-assignee-select {
-    font-family: inherit; font-size: 13px; color: var(--text-secondary);
-    background: none; border: none; outline: none; cursor: pointer;
-    padding: 2px 0; appearance: none; -webkit-appearance: none;
+  .assignee-cell {
+    display: flex; align-items: center; gap: 3px;
+    min-width: 0; cursor: pointer; padding: 2px 0;
   }
-  .task-assignee-select option { background: var(--surface); color: var(--text); }
+  .assignee-av {
+    width: 21px; height: 21px; border-radius: 50%; flex-shrink: 0;
+    background: var(--team-bg); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 9px; font-weight: 600; color: var(--text-secondary);
+    letter-spacing: -0.02em;
+  }
+  /* Past three, collapse to a count rather than letting the column grow. */
+  .assignee-more {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 10px; color: var(--text-tertiary); margin-left: 1px;
+  }
+  .assignee-empty { font-size: 12px; color: var(--text-tertiary); opacity: 0; transition: opacity .12s; }
+  .task-row:hover .assignee-empty { opacity: 1; }
+
+  .assign-opt {
+    display: flex; align-items: center; gap: 8px;
+    font-family: inherit; font-size: 13px;
+    color: var(--text-secondary); background: none; border: none;
+    border-radius: 3px; padding: 5px 6px; cursor: pointer; text-align: left;
+  }
+  .assign-opt:hover { background: var(--hover); }
+  .assign-opt .box {
+    width: 12px; height: 12px; border-radius: 2px; flex-shrink: 0;
+    border: 1px solid var(--border);
+  }
+  .assign-opt.on { color: var(--text); }
+  .assign-opt.on .box { background: var(--accent); border-color: var(--accent); }
+  .assign-none { font-size: 12px; color: var(--text-tertiary); padding: 6px; }
 
   .task-priority-btn {
     display: flex; align-items: center; gap: 4px;
@@ -445,7 +472,7 @@
     .task-list-header, .task-row { grid-template-columns: 16px 24px 1fr 80px 28px; }
     .task-list-header .col-tags, .task-row .tag-cell,
     .task-list-header .col-assignee, .task-list-header .col-priority,
-    .task-row .task-assignee-select, .task-row .task-priority-btn { display: none; }
+    .task-row .assignee-cell, .task-row .task-priority-btn { display: none; }
   }
 </style>
 </head>
@@ -585,10 +612,70 @@
     setSaveStatus('saved');
     buildFilterBar(); renderTasks();
   }
+  var taskAssignees = {}; // { taskId: [name, ...] }
   var taskTags = {};      // { taskId: [tagKey, ...] }
   var tagDragId = null;   // task being dragged onto a tag tab
 
   function tagsFor(id) { return taskTags[String(id)] || []; }
+  function assigneesFor(id) { return taskAssignees[String(id)] || []; }
+
+  async function saveAssignees() {
+    var r = await sb.from('campaign_settings')
+      .upsert({ key: 'taskAssignees', value: JSON.stringify(taskAssignees) });
+    if (r && r.error) setSaveStatus('error');
+  }
+
+  async function toggleAssignee(id, name) {
+    var k = String(id);
+    var cur = (taskAssignees[k] || []).slice();
+    var at = cur.indexOf(name);
+    if (at >= 0) cur.splice(at, 1); else cur.push(name);
+    if (cur.length) taskAssignees[k] = cur; else delete taskAssignees[k];
+    setSaveStatus('saving');
+    await saveAssignees();
+    // Keep the legacy single-assignee column meaningful, so the data is not
+    // stranded for anything reading the table directly.
+    var task = tasks.find(function (t) { return t.id === parseInt(id); });
+    if (task) {
+      task.assignee = cur[0] || '';
+      await updateTask(task.id, { assignee: task.assignee });
+    }
+    setSaveStatus('saved');
+    renderTasks();
+  }
+
+  function openAssignPop(anchor, id) {
+    closeTagPop();
+    var pop = document.createElement('div');
+    pop.className = 'tag-pop';
+    if (!team.length) {
+      var none = document.createElement('div');
+      none.className = 'assign-none';
+      none.textContent = 'Add team members first.';
+      pop.appendChild(none);
+    }
+    team.forEach(function (m) {
+      var on = assigneesFor(id).indexOf(m) >= 0;
+      var b = document.createElement('button');
+      b.className = 'assign-opt' + (on ? ' on' : '');
+      var box = document.createElement('span');
+      box.className = 'box';
+      b.appendChild(box);
+      b.appendChild(document.createTextNode(m));
+      b.addEventListener('click', function (ev) {
+        ev.stopPropagation();
+        toggleAssignee(id, m);
+        closeTagPop();
+      });
+      pop.appendChild(b);
+    });
+    document.body.appendChild(pop);
+    var r = anchor.getBoundingClientRect();
+    pop.style.left = Math.min(r.left, window.innerWidth - pop.offsetWidth - 12) + 'px';
+    pop.style.top = (r.bottom + window.scrollY + 4) + 'px';
+    openPop = pop;
+    setTimeout(function () { document.addEventListener('mousedown', onPopOutside, true); }, 0);
+  }
 
   async function saveTags() {
     var r = await sb.from('campaign_settings')
@@ -817,6 +904,8 @@
     if (orderRow) { try { taskOrder = JSON.parse(orderRow.value) || []; } catch (e) { taskOrder = []; } }
     var tagRow = (r3.data || []).find(function (x) { return x.key === 'taskTags'; });
     if (tagRow) { try { taskTags = JSON.parse(tagRow.value) || {}; } catch (e) { taskTags = {}; } }
+    var asgRow = (r3.data || []).find(function (x) { return x.key === 'taskAssignees'; });
+    if (asgRow) { try { taskAssignees = JSON.parse(asgRow.value) || {}; } catch (e) { taskAssignees = {}; } }
     var defRow = (r3.data || []).find(function (x) { return x.key === 'taskTagDefs'; });
     if (defRow) {
       try {
@@ -1006,24 +1095,39 @@
     }).join('');
   }
 
+  function assigneeAvatars(id) {
+    var names = assigneesFor(id);
+    if (!names.length) return '<span class="assignee-empty">+ assign</span>';
+    var shown = names.slice(0, 3);
+    var html = shown.map(function (n) {
+      return '<span class="assignee-av" title="' + escHtml(n) + '">' + escHtml(getInitials(n)) + '</span>';
+    }).join('');
+    if (names.length > 3) html += '<span class="assignee-more">+' + (names.length - 3) + '</span>';
+    return html;
+  }
+
   function renderTasks() {
+    // One-time migration: a task carrying the old single assignee and nothing
+    // in the map gets seeded, so existing assignments survive this change.
+    var seeded = false;
+    tasks.forEach(function (t) {
+      var k = String(t.id);
+      if (!taskAssignees[k] && t.assignee) { taskAssignees[k] = [t.assignee]; seeded = true; }
+    });
+    if (seeded) saveAssignees();
+
     var container = document.getElementById('taskList');
     var visible = filteredTasks();
 
     container.innerHTML = visible.map(function(t) {
       var overdue = !t.done && isOverdue(t.due);
-      var options = '<option value="">—</option>' +
-        team.map(function(m) {
-          return '<option value="' + escHtml(m) + '"' + (t.assignee === m ? ' selected' : '') + '>' + escHtml(m) + '</option>';
-        }).join('');
-
       return '<div class="task-row' + (t.done ? ' done' : '') + '" data-id="' + t.id + '" draggable="true">' +
         '<div class="task-grip" title="Drag to reorder">&#8942;&#8942;</div>' +
         '<div class="task-check' + (t.done ? ' checked' : '') + '" data-id="' + t.id + '"></div>' +
         '<input class="task-name-input" value="' + escHtml(t.name) + '" placeholder="Task name" data-id="' + t.id + '">' +
         '<div class="tag-cell" data-id="' + t.id + '" title="Click to tag">' + tagChips(t.id) + '</div>' +
         '<input class="task-due' + (overdue ? ' overdue' : '') + '" type="date" value="' + (t.due || '') + '" data-id="' + t.id + '">' +
-        '<select class="task-assignee-select" data-id="' + t.id + '">' + options + '</select>' +
+        '<div class="assignee-cell" data-id="' + t.id + '" title="Click to assign">' + assigneeAvatars(t.id) + '</div>' +
         '<button class="task-priority-btn" data-id="' + t.id + '" data-priority="' + t.priority + '">' +
           '<span class="dot"></span>' + PRIORITY_LABELS[t.priority] + '</button>' +
         '<button class="task-delete" data-id="' + t.id + '">&times;</button>' +
@@ -1033,6 +1137,13 @@
     // Drag to reorder. Only meaningful in the unfiltered view, since a
     // filtered list shows a subset and dropping into it cannot express a
     // position among the hidden rows.
+    container.querySelectorAll('.assignee-cell').forEach(function (cell) {
+      cell.addEventListener('click', function (e) {
+        e.stopPropagation();
+        openAssignPop(cell, parseInt(cell.dataset.id));
+      });
+    });
+
     container.querySelectorAll('.tag-cell').forEach(function (cell) {
       cell.addEventListener('click', function (e) {
         e.stopPropagation();
@@ -1109,13 +1220,6 @@
       el.addEventListener('change', function() {
         var task = tasks.find(function(t) { return t.id === parseInt(el.dataset.id); });
         if (task) { task.due = el.value; renderTasks(); updateTask(task.id, { due: task.due }); }
-      });
-    });
-
-    container.querySelectorAll('.task-assignee-select').forEach(function(el) {
-      el.addEventListener('change', function() {
-        var task = tasks.find(function(t) { return t.id === parseInt(el.dataset.id); });
-        if (task) { task.assignee = el.value; updateTask(task.id, { assignee: task.assignee }); }
       });
     });
 
