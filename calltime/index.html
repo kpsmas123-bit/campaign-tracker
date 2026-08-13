@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<!-- GitHub Pages cannot set response headers, so the policy rides in a meta
+     tag. connect-src is the load-bearing directive: this page handles contact
+     PII, and even if markup were injected it cannot phone data to another host. -->
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net;
+  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+  font-src https://fonts.gstatic.com;
+  connect-src 'self' https://qhrtqtnrduambvchjxqw.supabase.co wss://qhrtqtnrduambvchjxqw.supabase.co;
+  img-src 'self' data:;
+  object-src 'none';
+  base-uri 'none';
+  form-action 'none'">
+<title>Call Time</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ground: #F9F9F6; --surface: #FFFFFF;
+    --text: #2A2A2E; --text-secondary: #7C7C82; --text-tertiary: #A8A8AC;
+    --border: #E6E6E2; --border-light: #F0F0EC;
+    --accent: #4A6FA5; --accent-hover: #3D5E8C;
+    --priority-high: #C45240; --priority-high-bg: #C4524012;
+    --priority-medium: #C89B2A;
+    --priority-low: #6B956B; --priority-low-bg: #6B956B12;
+    --team-bg: #F2F2EE; --hover: #F4F4F0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #18181B; --surface: #1E1E22;
+      --text: #E4E4E0; --text-secondary: #8E8E92; --text-tertiary: #5A5A5E;
+      --border: #2E2E32; --border-light: #262628;
+      --accent: #6B8FC4; --accent-hover: #7DA0D0;
+      --priority-high: #D4705F; --priority-high-bg: #D4705F18;
+      --priority-medium: #D4AD4A;
+      --priority-low: #7DAF7D; --priority-low-bg: #7DAF7D18;
+      --team-bg: #222226; --hover: #24242A;
+    }
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--ground); color: var(--text);
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 14px; line-height: 1.5; -webkit-font-smoothing: antialiased;
+  }
+
+  .auth-gate { min-height: calc(100vh - 52px); display: flex; align-items: center; justify-content: center; padding: 24px; }
+  .auth-card { max-width: 340px; width: 100%; display: flex; flex-direction: column; gap: 14px; }
+  .auth-title { font-family: Georgia, 'Times New Roman', serif; font-size: 20px; font-weight: normal; }
+  .auth-sub { font-size: 13px; color: var(--text-secondary); }
+  .auth-input {
+    font-family: inherit; font-size: 14px; color: var(--text);
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 3px; padding: 10px 12px; width: 100%; outline: none;
+  }
+  .auth-input:focus { border-color: var(--accent); }
+  .auth-btn {
+    font-family: inherit; font-size: 13px; font-weight: 500; color: #FFF;
+    background: var(--accent); border: 1px solid var(--accent);
+    border-radius: 3px; padding: 10px 16px; cursor: pointer; width: 100%;
+  }
+  .auth-btn:hover { background: var(--accent-hover); }
+  .auth-error { font-size: 13px; color: var(--priority-high); }
+
+  .site-nav { display: flex; align-items: center; gap: 2px; max-width: 1060px; margin: 0 auto; padding: 16px 24px 0; }
+  .site-nav a {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--text-tertiary); text-decoration: none;
+    padding: 5px 10px; border-bottom: 2px solid transparent;
+  }
+  .site-nav a:hover { color: var(--text-secondary); }
+  .site-nav a.active { color: var(--text); border-bottom-color: var(--accent); }
+
+  .app { max-width: 1060px; margin: 0 auto; padding: 40px 24px 80px; }
+
+  .header {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 16px; margin-bottom: 6px;
+  }
+  .page-title { font-family: Georgia, 'Times New Roman', serif; font-size: 22px; font-weight: normal; }
+  .page-sub {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--text-tertiary); margin-bottom: 20px;
+  }
+
+  .save-indicator {
+    display: flex; align-items: center; gap: 6px; white-space: nowrap;
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11px;
+    color: var(--text-secondary); opacity: 0; transition: opacity .2s;
+  }
+  .save-indicator.visible { opacity: 1; }
+  .save-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--text-secondary); }
+  .save-indicator.saving .save-dot { background: var(--priority-medium); animation: pulse .8s ease-in-out infinite; }
+  .save-indicator.saved  .save-dot { background: var(--priority-low); }
+  .save-indicator.error  .save-dot { background: var(--priority-high); }
+  .save-indicator.error  { color: var(--priority-high); }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:.4;transform:scale(.7);} }
+
+  .setup-banner {
+    background: var(--priority-high-bg); border: 1px solid var(--priority-high);
+    border-radius: 3px; padding: 12px 16px; margin-bottom: 20px;
+    font-size: 13px; line-height: 1.6;
+  }
+
+  .filters { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 18px; }
+  .fbtn {
+    font-family: inherit; font-size: 13px; font-weight: 500;
+    color: var(--text-tertiary); background: none; border: none;
+    padding: 4px 1px 5px; cursor: pointer;
+    border-bottom: 2px solid transparent; transition: color .12s, border-color .12s;
+  }
+  .fbtn:hover { color: var(--text-secondary); }
+  .fbtn.active { color: var(--text); font-weight: 600; border-bottom-color: var(--accent); }
+  .fbtn .cnt { color: var(--text-tertiary); margin-left: 5px; font-weight: 400; font-variant-numeric: tabular-nums; }
+
+  .thead, .row {
+    display: grid;
+    grid-template-columns: 14px 1fr 150px 34px 34px 34px 74px 1fr 24px;
+    gap: 10px; align-items: center;
+  }
+  .thead {
+    padding: 8px 0; border-bottom: 1px solid var(--border);
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 10px; letter-spacing: 0.07em; text-transform: uppercase;
+    color: var(--text-tertiary);
+  }
+  .row { padding: 9px 0; border-bottom: 1px solid var(--border-light); }
+  .row:hover { background: var(--hover); }
+  .row.gave .nm { color: var(--text-secondary); }
+  .row.gave { opacity: .66; }
+  .row.gave:hover { opacity: 1; }
+
+  /* Berkeley residency drives the 6:1 match, so it gets the leftmost slot
+     rather than being buried in a column you have to scan for. */
+  .bky {
+    width: 10px; height: 10px; padding: 0; border-radius: 2px;
+    border: 1.5px solid var(--border); background: none; cursor: pointer;
+  }
+  .bky:hover { border-color: var(--priority-low); }
+  .bky.on { background: var(--priority-low); border-color: var(--priority-low); }
+
+  .cell { font-family: inherit; font-size: 14px; color: var(--text);
+          background: none; border: none; outline: none; width: 100%; padding: 1px 0; }
+  .cell::placeholder { color: var(--text-tertiary); }
+  .nm { font-size: 14px; }
+  .contact { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+  .contact a {
+    font-size: 12px; color: var(--text-secondary); text-decoration: none;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .contact a:hover { color: var(--accent); text-decoration: underline; }
+  .contact .tel { font-variant-numeric: tabular-nums; }
+
+  /* One click logs the attempt as not-reached, which is the common outcome.
+     A second click flips it to reached. */
+  .att {
+    height: 26px; border-radius: 3px; cursor: pointer;
+    border: 1px dashed var(--border); background: none;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 9px; color: var(--text-tertiary); padding: 0;
+  }
+  .att:hover { border-color: var(--accent); color: var(--accent); }
+  .att.done {
+    border-style: solid; border-color: var(--border);
+    background: var(--team-bg); color: var(--text-secondary);
+  }
+  .att.reached {
+    border-color: var(--priority-low); background: var(--priority-low-bg);
+    color: var(--priority-low); font-weight: 600;
+  }
+
+  .gave-cell { display: flex; align-items: center; gap: 6px; }
+  .gave-box {
+    width: 14px; height: 14px; flex-shrink: 0; border-radius: 2px;
+    border: 1.5px solid var(--border); background: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; color: #fff; line-height: 1;
+  }
+  .gave-box.on { background: var(--priority-low); border-color: var(--priority-low); }
+  .gave-date { font-size: 11px; color: var(--text-secondary); font-variant-numeric: tabular-nums; }
+
+  .del { background: none; border: none; color: var(--text-tertiary);
+         font-size: 15px; cursor: pointer; opacity: 0; padding: 0; }
+  .row:hover .del { opacity: 1; }
+  .del:hover { color: var(--priority-high); }
+
+  .add-row { padding: 14px 0; }
+  .add-btn {
+    font-family: inherit; font-size: 13px; color: var(--text-tertiary);
+    background: none; border: none; cursor: pointer; padding: 4px 0;
+  }
+  .add-btn:hover { color: var(--accent); }
+
+  .empty { padding: 40px 16px; text-align: center; color: var(--text-tertiary); font-size: 13px; }
+
+  @media (max-width: 820px) {
+    .app { padding: 24px 12px 60px; }
+    .thead, .row { grid-template-columns: 14px 1fr 34px 34px 34px 60px 24px; }
+    .thead .c-contact, .thead .c-notes, .row .contact, .row .notes { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav" id="siteNav">
+  <a href="../index.html">Tasks</a>
+  <a href="../questionnaires/index.html">Questionnaires</a>
+  <a href="../donors/index.html">Fundraising</a>
+  <a href="../calendar/index.html">Calendar</a>
+  <a href="index.html" class="active">Call Time</a>
+</nav>
+
+<div class="auth-gate" id="authGate">
+  <div class="auth-card">
+    <div class="auth-title">Call Time</div>
+    <div class="auth-sub">Enter the campaign passphrase to continue.</div>
+    <input class="auth-input" id="authPass" type="password" placeholder="Passphrase" autocomplete="current-password">
+    <button class="auth-btn" id="authBtn">Sign in</button>
+    <div class="auth-error" id="authError" style="display:none"></div>
+  </div>
+</div>
+
+<div class="app" id="app" style="display:none">
+  <div id="setupNotice" style="display:none"></div>
+
+  <div class="header">
+    <div class="page-title">Call time</div>
+    <div class="save-indicator" id="saveIndicator"><span class="save-dot"></span><span class="save-label"></span></div>
+  </div>
+  <div class="page-sub" id="pageSub"></div>
+
+  <div class="filters" id="filters"></div>
+
+  <div class="thead">
+    <div></div>
+    <div>Name</div>
+    <div class="c-contact">Contact</div>
+    <div>1</div><div>2</div><div>3</div>
+    <div>Gave</div>
+    <div class="c-notes">Notes</div>
+    <div></div>
+  </div>
+  <div id="rows"></div>
+  <div class="add-row"><button class="add-btn" id="addBtn">+ Add contact</button></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var SUPABASE_URL = 'https://qhrtqtnrduambvchjxqw.supabase.co';
+  var SUPABASE_KEY = 'sb_publishable_UAG7Ru6PRdNnOLCbchpQVg_8vE0jG5N';
+  var AUTH_EMAIL   = 'questionnaire@dariaforberkeley.com';
+
+  // Berkeley's Election Reform Act caps contributions at $60 per DONOR, not per
+  // gift, and only Berkeley residents' contributions draw the 6:1 match. So the
+  // ask is always the same number and the variable worth tracking is residency.
+  var CAP = 60;
+
+  var sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  var contacts = [];
+  var filter = 'todo';
+
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+
+  var saveTimer = null;
+  function setSave(state, msg) {
+    var e = document.getElementById('saveIndicator');
+    var l = e.querySelector('.save-label');
+    clearTimeout(saveTimer);
+    e.className = 'save-indicator visible ' + state;
+    l.textContent = msg || (state === 'saving' ? 'Saving' : state === 'saved' ? 'Saved' : 'Save failed');
+    if (state !== 'saving') saveTimer = setTimeout(function () { e.className = 'save-indicator'; }, 2400);
+  }
+
+  function fmtPhone(p) {
+    var d = String(p || '').replace(/\D/g, '');
+    if (d.length === 11 && d[0] === '1') d = d.slice(1);
+    if (d.length !== 10) return p || '';
+    return '(' + d.slice(0, 3) + ') ' + d.slice(3, 6) + '-' + d.slice(6);
+  }
+  function fmtWhen(iso) {
+    var d = new Date(iso);
+    if (isNaN(d)) return '';
+    return (d.getMonth() + 1) + '/' + d.getDate();
+  }
+  function fmtFull(iso) {
+    var d = new Date(iso);
+    if (isNaN(d)) return '';
+    var h = d.getHours(), ap = h >= 12 ? 'pm' : 'am', h12 = h % 12 || 12;
+    return (d.getMonth() + 1) + '/' + d.getDate() + ' ' + h12 + ':' +
+           String(d.getMinutes()).padStart(2, '0') + ap;
+  }
+
+  async function patch(id, fields) {
+    setSave('saving');
+    var r = await sb.from('call_contacts').update(fields).eq('id', id);
+    setSave(r.error ? 'error' : 'saved');
+    return !r.error;
+  }
+
+  // --- data ---
+  async function load() {
+    var r = await sb.from('call_contacts').select('*').order('sort_order').order('created_at');
+    if (r.error) throw r.error;
+    contacts = r.data || [];
+  }
+
+  function attemptsOf(c) { return Array.isArray(c.attempts) ? c.attempts : []; }
+
+  async function logAttempt(c, idx) {
+    var a = attemptsOf(c).slice();
+    if (a[idx]) {
+      a[idx] = { at: a[idx].at, reached: !a[idx].reached };   // second click flips it
+    } else {
+      while (a.length < idx) a.push(null);
+      a[idx] = { at: new Date().toISOString(), reached: false };
+    }
+    c.attempts = a;
+    render();
+    await patch(c.id, { attempts: a });
+  }
+
+  async function clearAttempt(c, idx) {
+    var a = attemptsOf(c).slice();
+    a[idx] = null;
+    while (a.length && a[a.length - 1] == null) a.pop();
+    c.attempts = a;
+    render();
+    await patch(c.id, { attempts: a });
+  }
+
+  async function toggleGave(c) {
+    c.gave = !c.gave;
+    c.gave_on = c.gave ? new Date().toISOString().slice(0, 10) : null;
+    render(); buildFilters();
+    await patch(c.id, { gave: c.gave, gave_on: c.gave_on });
+  }
+
+  async function addContact() {
+    var row = { name: '', email: '', phone: '', sort_order: contacts.length };
+    setSave('saving');
+    var r = await sb.from('call_contacts').insert(row).select().single();
+    if (r.error) { setSave('error'); return; }
+    setSave('saved');
+    contacts.push(r.data);
+    render(); buildFilters();
+    var inp = document.querySelector('.row[data-id="' + r.data.id + '"] .nm');
+    if (inp) inp.focus();
+  }
+
+  async function removeContact(c) {
+    if (!window.confirm('Remove ' + (c.name || 'this contact') + ' from the call list?')) return;
+    setSave('saving');
+    var r = await sb.from('call_contacts').delete().eq('id', c.id);
+    if (r.error) { setSave('error'); return; }
+    setSave('saved');
+    contacts = contacts.filter(function (x) { return x.id !== c.id; });
+    render(); buildFilters();
+  }
+
+  // --- filters ---
+  // Ordered the way call time actually runs: the list you are working, then the
+  // people who asked to be tried again, then the ones already closed out.
+  var FILTERS = [
+    { k: 'todo',     label: 'To call',  fn: function (c) { return !c.gave && attemptsOf(c).filter(Boolean).length < 3; } },
+    { k: 'reached',  label: 'Reached',  fn: function (c) { return attemptsOf(c).some(function (a) { return a && a.reached; }) && !c.gave; } },
+    { k: 'gave',     label: 'Gave',     fn: function (c) { return c.gave; } },
+    { k: 'all',      label: 'All',      fn: function () { return true; } }
+  ];
+
+  function buildFilters() {
+    var w = document.getElementById('filters');
+    w.innerHTML = '';
+    FILTERS.forEach(function (f) {
+      var b = el('button', 'fbtn' + (f.k === filter ? ' active' : ''), f.label);
+      var c = el('span', 'cnt', String(contacts.filter(f.fn).length));
+      b.appendChild(c);
+      b.addEventListener('click', function () { filter = f.k; buildFilters(); render(); });
+      w.appendChild(b);
+    });
+
+    var gave = contacts.filter(function (c) { return c.gave; }).length;
+    var bky  = contacts.filter(function (c) { return c.gave && c.berkeley; }).length;
+    document.getElementById('pageSub').textContent =
+      contacts.length + ' contacts · ' + gave + ' gave · ' +
+      bky + ' Berkeley (matched 6:1) · $' + (bky * CAP * 6).toLocaleString() + ' in match if all maxed';
+  }
+
+  // --- render ---
+  function render() {
+    var wrap = document.getElementById('rows');
+    wrap.textContent = '';
+    var f = FILTERS.filter(function (x) { return x.k === filter; })[0];
+    var list = contacts.filter(f.fn);
+
+    if (!list.length) {
+      wrap.appendChild(el('div', 'empty', 'Nothing here.'));
+      return;
+    }
+
+    list.forEach(function (c) {
+      var row = el('div', 'row' + (c.gave ? ' gave' : ''));
+      row.dataset.id = c.id;
+
+      // Berkeley toggle
+      var b = el('button', 'bky' + (c.berkeley ? ' on' : ''));
+      b.title = c.berkeley ? 'Berkeley resident — contributions matched 6:1' : 'Mark as Berkeley resident';
+      b.addEventListener('click', function () {
+        c.berkeley = !c.berkeley; render(); buildFilters();
+        patch(c.id, { berkeley: c.berkeley });
+      });
+      row.appendChild(b);
+
+      // name
+      var nm = document.createElement('input');
+      nm.className = 'cell nm'; nm.value = c.name || ''; nm.placeholder = 'Name';
+      nm.addEventListener('change', function () { c.name = nm.value.trim(); patch(c.id, { name: c.name }); });
+      row.appendChild(nm);
+
+      // contact — tel: and mailto: so a click starts the call
+      var ct = el('div', 'contact');
+      if (c.phone) {
+        var tel = el('a', 'tel', fmtPhone(c.phone));
+        tel.href = 'tel:' + String(c.phone).replace(/[^\d+]/g, '');
+        ct.appendChild(tel);
+      }
+      if (c.email) {
+        var em = el('a', null, c.email);
+        em.href = 'mailto:' + c.email;
+        em.title = c.email;
+        ct.appendChild(em);
+      }
+      if (!c.phone && !c.email) ct.appendChild(el('span', 'gave-date', 'no contact info'));
+      row.appendChild(ct);
+
+      // three attempt slots
+      for (var i = 0; i < 3; i++) {
+        (function (idx) {
+          var a = attemptsOf(c)[idx];
+          var btn = el('button', 'att' + (a ? (a.reached ? ' done reached' : ' done') : ''));
+          btn.textContent = a ? fmtWhen(a.at) : '+';
+          btn.title = a
+            ? fmtFull(a.at) + (a.reached ? ' — reached. Click to mark not reached.'
+                                         : ' — no answer. Click to mark reached.') +
+              ' Shift-click to clear.'
+            : 'Log an attempt';
+          btn.addEventListener('click', function (ev) {
+            if (ev.shiftKey && a) { clearAttempt(c, idx); return; }
+            logAttempt(c, idx);
+          });
+          row.appendChild(btn);
+        })(i);
+      }
+
+      // gave
+      var g = el('div', 'gave-cell');
+      var gb = el('button', 'gave-box' + (c.gave ? ' on' : ''), c.gave ? '✓' : '');
+      gb.title = c.gave ? 'Gave' + (c.gave_on ? ' on ' + c.gave_on : '') : 'Mark as given';
+      gb.addEventListener('click', function () { toggleGave(c); });
+      g.appendChild(gb);
+      if (c.gave && c.gave_on) g.appendChild(el('span', 'gave-date', c.gave_on.slice(5)));
+      row.appendChild(g);
+
+      // notes
+      var nt = document.createElement('input');
+      nt.className = 'cell notes'; nt.value = c.notes || ''; nt.placeholder = '—';
+      nt.addEventListener('change', function () { c.notes = nt.value.trim(); patch(c.id, { notes: c.notes }); });
+      row.appendChild(nt);
+
+      var d = el('button', 'del', '×');
+      d.title = 'Remove';
+      d.addEventListener('click', function () { removeContact(c); });
+      row.appendChild(d);
+
+      wrap.appendChild(row);
+    });
+  }
+
+  function setSetupNotice(msg) {
+    var box = document.getElementById('setupNotice');
+    box.textContent = '';
+    if (!msg) { box.style.display = 'none'; return; }
+    box.style.display = '';
+    box.appendChild(el('div', 'setup-banner', msg));
+  }
+
+  async function refresh() {
+    try {
+      await load();
+      setSetupNotice('');
+    } catch (e) {
+      if (e && (e.code === 'PGRST205' || /schema cache/i.test(e.message || ''))) {
+        setSetupNotice('The call_contacts table does not exist yet. Run calltime_setup.sql ' +
+                       'in the Supabase SQL Editor, then reload this page.');
+      } else {
+        setSave('error', 'Load failed');
+      }
+    }
+    buildFilters();
+    render();
+  }
+
+  document.getElementById('addBtn').addEventListener('click', addContact);
+
+  var booted = false;
+  async function showApp() {
+    if (booted) return;
+    booted = true;
+    document.getElementById('authGate').style.display = 'none';
+    document.getElementById('app').style.display = '';
+    await refresh();
+  }
+
+  async function doAuth() {
+    var pass = document.getElementById('authPass').value.trim();
+    var err = document.getElementById('authError');
+    var btn = document.getElementById('authBtn');
+    if (!pass) { err.textContent = 'Enter the passphrase.'; err.style.display = 'block'; return; }
+    btn.disabled = true; btn.textContent = 'Signing in...';
+    try {
+      var r = await sb.auth.signInWithPassword({ email: AUTH_EMAIL, password: pass });
+      if (r.error) throw r.error;
+      showApp();
+    } catch (e) {
+      btn.disabled = false; btn.textContent = 'Sign in';
+      err.textContent = 'Wrong passphrase.'; err.style.display = 'block';
+    }
+  }
+  document.getElementById('authBtn').addEventListener('click', doAuth);
+  document.getElementById('authPass').addEventListener('keydown', function (e) { if (e.key === 'Enter') doAuth(); });
+  sb.auth.getSession().then(function (r) { if (r.data && r.data.session) showApp(); });
+})();
+</script>
+</body>
+</html>

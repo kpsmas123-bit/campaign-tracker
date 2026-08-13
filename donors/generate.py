@@ -443,6 +443,7 @@ def generate(data_path, out_path):
   <a href="../questionnaires/index.html">Questionnaires</a>
   <a href="index.html" class="active">Fundraising</a>
   <a href="../calendar/index.html">Calendar</a>
+  <a href="../calltime/index.html">Call Time</a>
 </nav>
 {AUTH_HTML}
 
