@@ -217,6 +217,16 @@
     color: #FFF; background: var(--accent);
     border-radius: 3px; border-bottom-color: transparent;
   }
+  .org-cell { display: flex; align-items: flex-start; gap: 7px; min-width: 0; }
+  .org-cell .org-link { min-width: 0; }
+  .pri-toggle {
+    flex-shrink: 0; margin-top: 3px;
+    width: 11px; height: 11px; padding: 0; border-radius: 50%;
+    border: 1.5px solid var(--border); background: none; cursor: pointer;
+  }
+  .pri-toggle:hover { border-color: var(--priority-high); }
+  .pri-toggle.on { background: var(--priority-high); border-color: var(--priority-high); }
+
   .row.finished { opacity: .62; }
   .row.finished:hover { opacity: 1; }
   .row.finished .org-name { color: var(--text-secondary); }
@@ -416,8 +426,10 @@
   // across a divider rather than computed from percent complete: a
   // questionnaire can be submitted with questions deliberately left blank, and
   // one sitting at 100% may still be unsent.
+  // Two groups, not three. Priority is a flag inside In progress rather than a
+  // separate list — a priority questionnaire is still in progress, and splitting
+  // them meant looking in two places for outstanding work.
   var GROUPS = [
-    { key: 'priority', label: 'Priority' },
     { key: 'active',   label: 'In progress' },
     { key: 'finished', label: 'Done' }
   ];
@@ -426,8 +438,17 @@
   }
   function groupOf(slug) {
     var s = statusData[slug];
-    // Anything unset or holding a legacy value lands in the middle group.
-    return (s && isGroupKey(s.status)) ? s.status : 'active';
+    // 'priority' is stored in the same column but is not a group; it sorts
+    // within In progress. Anything unset or legacy lands in In progress too.
+    return (s && s.status === 'finished') ? 'finished' : 'active';
+  }
+  function isPriority(slug) {
+    var s = statusData[slug];
+    return !!(s && s.status === 'priority');
+  }
+  function togglePriority(slug) {
+    return saveField(slug, 'status', isPriority(slug) ? 'active' : 'priority')
+      .then(function () { buildFilters(); render(); });
   }
   function setGroup(slug, key) {
     return saveField(slug, 'status', key).then(function () { buildFilters(); render(); });
@@ -520,6 +541,13 @@
       return;
     }
 
+    // Priority floats to the top without leaving the list. Manual drag order is
+    // preserved within each band, so reordering still behaves.
+    slugs.sort(function (a, b) {
+      var pa = isPriority(a) ? 0 : 1, pb = isPriority(b) ? 0 : 1;
+      return pa - pb;
+    });
+
     function makeRow(slug) {
       var d = orgData[slug];
       var st = statusData[slug] || {};
@@ -575,16 +603,29 @@
         saveOrgOrder(next).then(render);
       });
 
-      // Org name cell — clickable link
+      // Org name cell — priority toggle plus clickable link
       var c1 = document.createElement('div');
+      c1.className = 'org-cell';
       var link = document.createElement('a');
       link.className = 'org-link';
       link.href = 'questionnaire.html?org=' + slug;
       link.innerHTML = '<div class="org-name">' +
-        (groupOf(slug) === 'finished' ? '<span class="done-mark">&#10003;</span>'
-         : groupOf(slug) === 'priority' ? '<span class="pri-mark">&#9679;</span>' : '') +
+        (groupOf(slug) === 'finished' ? '<span class="done-mark">&#10003;</span>' : '') +
         esc(d.org) + '</div>' +
         '<div class="org-sub">' + esc(d.cycle) + ' · ' + esc(d.candidate) + '</div>';
+
+      // Priority toggle. Sits outside the link so clicking it does not navigate.
+      if (groupOf(slug) !== 'finished') {
+        var star = document.createElement('button');
+        star.className = 'pri-toggle' + (isPriority(slug) ? ' on' : '');
+        star.title = isPriority(slug) ? 'Remove priority' : 'Mark priority';
+        star.setAttribute('aria-pressed', isPriority(slug) ? 'true' : 'false');
+        star.addEventListener('click', function (e) {
+          e.preventDefault(); e.stopPropagation();
+          togglePriority(slug);
+        });
+        c1.appendChild(star);
+      }
       c1.appendChild(link);
 
       // % complete

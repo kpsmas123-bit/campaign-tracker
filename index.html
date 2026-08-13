@@ -247,7 +247,7 @@
 
   .task-list-header {
     display: grid;
-    grid-template-columns: 16px 28px 1fr 90px 100px 80px 28px;
+    grid-template-columns: 16px 28px 1fr 128px 90px 100px 80px 28px;
     gap: 8px; align-items: center; padding: 8px 0;
     border-bottom: 1px solid var(--border);
     font-size: 11px; letter-spacing: 0.06em;
@@ -258,7 +258,7 @@
 
   .task-row {
     display: grid;
-    grid-template-columns: 16px 28px 1fr 90px 100px 80px 28px;
+    grid-template-columns: 16px 28px 1fr 128px 90px 100px 80px 28px;
     gap: 8px; align-items: center; padding: 7px 0;
     border-bottom: 1px solid var(--border-light);
     transition: background 0.1s ease;
@@ -357,13 +357,71 @@
   }
   .filter-btn:hover { color: var(--text-secondary); }
   .filter-btn.active { color: var(--text); border-bottom-color: var(--text); }
-  .filter-sep { width: 1px; height: 14px; background: var(--border); }
+  .filter-sep { width: 1px; height: 14px; background: var(--border-light); }
+
+  /* --- Category tags --- */
+  :root {
+    --tag-field:       #6B956B;
+    --tag-fundraising: #C89B2A;
+    --tag-house:       #C4784A;
+    --tag-kitchen:     #8B6BA5;
+    --tag-copy:        #4A6FA5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --tag-field:       #7DAF7D;
+      --tag-fundraising: #D4AD4A;
+      --tag-house:       #D89468;
+      --tag-kitchen:     #A487BE;
+      --tag-copy:        #6B8FC4;
+    }
+  }
+
+  .tag-cell {
+    display: flex; flex-wrap: wrap; gap: 3px; align-items: center;
+    min-width: 0; cursor: pointer; padding: 2px 0;
+  }
+  .tag-chip {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 9px; letter-spacing: 0.04em; text-transform: uppercase;
+    color: var(--tc); border: 1px solid var(--tc);
+    background: color-mix(in srgb, var(--tc) 12%, transparent);
+    border-radius: 2px; padding: 1px 4px; white-space: nowrap;
+  }
+  .tag-empty { font-size: 12px; color: var(--text-tertiary); opacity: 0; transition: opacity .12s; }
+  .task-row:hover .tag-empty { opacity: 1; }
+
+  .tag-pop {
+    position: absolute; z-index: 40;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 4px; padding: 6px; min-width: 172px;
+    box-shadow: 0 6px 20px rgba(0,0,0,.10);
+    display: flex; flex-direction: column; gap: 2px;
+  }
+  .tag-opt {
+    display: flex; align-items: center; gap: 7px;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 10px; letter-spacing: 0.04em; text-transform: uppercase;
+    color: var(--text-secondary); background: none; border: none;
+    border-radius: 3px; padding: 5px 6px; cursor: pointer; text-align: left;
+  }
+  .tag-opt:hover { background: var(--hover); }
+  .tag-opt .box { width: 11px; height: 11px; border-radius: 2px; flex-shrink: 0; border: 1px solid var(--tc); }
+  .tag-opt.on { color: var(--text); }
+  .tag-opt.on .box { background: var(--tc); }
+
+  .filter-btn .cnt { color: var(--text-tertiary); margin-left: 4px; }
+  .filter-btn.drop-target {
+    color: #fff; background: var(--accent);
+    border-radius: 3px; border-bottom-color: transparent; padding: 3px 8px;
+  }
 
   .task-due.overdue { color: var(--priority-high); }
 
   @media (max-width: 640px) {
     .app { padding: 24px 16px 60px; }
     .task-list-header, .task-row { grid-template-columns: 16px 24px 1fr 80px 28px; }
+    .task-list-header .col-tags, .task-row .tag-cell,
     .task-list-header .col-assignee, .task-list-header .col-priority,
     .task-row .task-assignee-select, .task-row .task-priority-btn { display: none; }
   }
@@ -415,19 +473,12 @@
     </div>
   </div>
 
-  <div class="filter-bar" id="filterBar">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="active">Active</button>
-    <button class="filter-btn" data-filter="done">Done</button>
-    <div class="filter-sep"></div>
-    <button class="filter-btn" data-filter="high">High</button>
-    <button class="filter-btn" data-filter="med">Medium</button>
-    <button class="filter-btn" data-filter="low">Low</button>
-  </div>
+  <div class="filter-bar" id="filterBar"></div>
 
   <div class="task-list-header"><div></div>
     <span></span>
     <span class="col-name">Task</span>
+    <span class="col-tags">Tags</span>
     <span class="col-due">Due</span>
     <span class="col-assignee">Assigned</span>
     <span class="col-priority">Priority</span>
@@ -451,7 +502,127 @@
 
   var PRIORITIES = ['high', 'med', 'low'];
   var PRIORITY_LABELS = { high: 'High', med: 'Med', low: 'Low' };
+  // One axis now: 'done', or 'all'/<tag> meaning outstanding work. Priority is
+  // no longer a filter — it stays as the per-row button and sorts to the top.
   var currentFilter = 'all';
+
+  var TAGS = [
+    { key: 'field',       label: 'Field',           css: 'field' },
+    { key: 'fundraising', label: 'Fundraising',     css: 'fundraising' },
+    { key: 'house_party', label: 'House Parties',   css: 'house' },
+    { key: 'kitchen',     label: 'Kitchen Cabinet', css: 'kitchen' },
+    { key: 'copy',        label: 'Copy Writing',    css: 'copy' }
+  ];
+  function tagDef(k) {
+    for (var i = 0; i < TAGS.length; i++) if (TAGS[i].key === k) return TAGS[i];
+    return null;
+  }
+  var taskTags = {};      // { taskId: [tagKey, ...] }
+  var tagDragId = null;   // task being dragged onto a tag tab
+
+  function tagsFor(id) { return taskTags[String(id)] || []; }
+
+  async function saveTags() {
+    var r = await sb.from('campaign_settings')
+      .upsert({ key: 'taskTags', value: JSON.stringify(taskTags) });
+    if (r && r.error) setSaveStatus('error');
+  }
+
+  async function toggleTag(id, key) {
+    var k = String(id);
+    var cur = (taskTags[k] || []).slice();
+    var at = cur.indexOf(key);
+    if (at >= 0) cur.splice(at, 1); else cur.push(key);
+    if (cur.length) taskTags[k] = cur; else delete taskTags[k];
+    setSaveStatus('saving');
+    await saveTags();
+    setSaveStatus('saved');
+    buildFilterBar(); renderTasks();
+  }
+
+  function buildFilterBar() {
+    var bar = document.getElementById('filterBar');
+    if (!bar) return;
+    bar.innerHTML = '';
+
+    function chip(key, label, count, droppable) {
+      var b = document.createElement('button');
+      b.className = 'filter-btn' + (key === currentFilter ? ' active' : '');
+      b.textContent = label;
+      if (count != null) {
+        var c = document.createElement('span');
+        c.className = 'cnt'; c.textContent = count;
+        b.appendChild(c);
+      }
+      b.addEventListener('click', function () {
+        currentFilter = key; buildFilterBar(); renderTasks();
+      });
+      if (droppable) {
+        b.addEventListener('dragover', function (e) {
+          if (tagDragId == null || tagsFor(tagDragId).indexOf(key) >= 0) return;
+          e.preventDefault();
+          e.dataTransfer.dropEffect = 'copy';
+          b.classList.add('drop-target');
+        });
+        b.addEventListener('dragleave', function () { b.classList.remove('drop-target'); });
+        b.addEventListener('drop', function (e) {
+          e.preventDefault();
+          b.classList.remove('drop-target');
+          if (tagDragId == null || tagsFor(tagDragId).indexOf(key) >= 0) return;
+          toggleTag(tagDragId, key);
+        });
+      }
+      bar.appendChild(b);
+    }
+
+    // Done sits first, separated, because it is a different kind of thing from
+    // the category tabs beside it.
+    chip('done', 'Done', tasks.filter(function (t) { return t.done; }).length, false);
+    var sep = document.createElement('div');
+    sep.className = 'filter-sep';
+    bar.appendChild(sep);
+
+    chip('all', 'All', tasks.filter(function (t) { return !t.done; }).length, false);
+    TAGS.forEach(function (t) {
+      var n = tasks.filter(function (x) {
+        return !x.done && tagsFor(x.id).indexOf(t.key) >= 0;
+      }).length;
+      chip(t.key, t.label, n, true);
+    });
+  }
+
+  // --- Tag picker popover ---
+  var openPop = null;
+  function closeTagPop() {
+    if (openPop) { openPop.remove(); openPop = null; }
+    document.removeEventListener('mousedown', onPopOutside, true);
+  }
+  function onPopOutside(e) { if (openPop && !openPop.contains(e.target)) closeTagPop(); }
+  function openTagPop(anchor, id) {
+    closeTagPop();
+    var pop = document.createElement('div');
+    pop.className = 'tag-pop';
+    TAGS.forEach(function (t) {
+      var on = tagsFor(id).indexOf(t.key) >= 0;
+      var b = document.createElement('button');
+      b.className = 'tag-opt' + (on ? ' on' : '');
+      b.style.setProperty('--tc', 'var(--tag-' + t.css + ')');
+      var box = document.createElement('span');
+      box.className = 'box';
+      b.appendChild(box);
+      b.appendChild(document.createTextNode(t.label));
+      b.addEventListener('click', function (ev) {
+        ev.stopPropagation(); toggleTag(id, t.key); closeTagPop();
+      });
+      pop.appendChild(b);
+    });
+    document.body.appendChild(pop);
+    var r = anchor.getBoundingClientRect();
+    pop.style.left = Math.min(r.left, window.innerWidth - pop.offsetWidth - 12) + 'px';
+    pop.style.top = (r.bottom + window.scrollY + 4) + 'px';
+    openPop = pop;
+    setTimeout(function () { document.addEventListener('mousedown', onPopOutside, true); }, 0);
+  }
   var tasks = [];
   var team = [];
   var campaignName = '';
@@ -540,6 +711,8 @@
     tasks = r1.data || [];
     var orderRow = (r3.data || []).find(function (x) { return x.key === 'taskOrder'; });
     if (orderRow) { try { taskOrder = JSON.parse(orderRow.value) || []; } catch (e) { taskOrder = []; } }
+    var tagRow = (r3.data || []).find(function (x) { return x.key === 'taskTags'; });
+    if (tagRow) { try { taskTags = JSON.parse(tagRow.value) || {}; } catch (e) { taskTags = {}; } }
     applyTaskOrder();
     team = (r2.data || []).map(function(m) { return m.name; });
     var settings = r3.data || [];
@@ -566,7 +739,7 @@
     var r = await sb.from('tasks').select('*').order('id');
     if (!r.error) {
       tasks = r.data || [];
-      if (!isEditing) renderTasks();
+      if (!isEditing) { buildFilterBar(); renderTasks(); }
       updateCount();
     }
   }
@@ -659,6 +832,7 @@
   function renderAll() {
     document.getElementById('campaignName').value = campaignName;
     renderTeam();
+    buildFilterBar();
     renderTasks();
     updateCount();
   }
@@ -692,14 +866,33 @@
   }
 
   function filteredTasks() {
-    return tasks.filter(function(t) {
-      if (currentFilter === 'active') return !t.done;
+    // Done is its own view. Every other tab shows outstanding work only, which
+    // is what makes checking a task move it out of the tab you are looking at.
+    var out = tasks.filter(function (t) {
       if (currentFilter === 'done') return t.done;
-      if (currentFilter === 'high') return t.priority === 'high' && !t.done;
-      if (currentFilter === 'med') return t.priority === 'med' && !t.done;
-      if (currentFilter === 'low') return t.priority === 'low' && !t.done;
-      return true;
+      if (t.done) return false;
+      if (currentFilter === 'all') return true;
+      return tagsFor(t.id).indexOf(currentFilter) >= 0;
     });
+    // High priority floats up without leaving the list; manual drag order is
+    // preserved inside each band.
+    var rank = { high: 0, med: 1, low: 2 };
+    return out.sort(function (a, b) {
+      return (rank[a.priority] == null ? 1 : rank[a.priority]) -
+             (rank[b.priority] == null ? 1 : rank[b.priority]);
+    });
+  }
+
+  // Tag keys come from the fixed TAGS list, never from user input. Labels are
+  // escaped anyway.
+  function tagChips(id) {
+    var ts = tagsFor(id);
+    if (!ts.length) return '<span class="tag-empty">+ tag</span>';
+    return ts.map(function (k) {
+      var d = tagDef(k);
+      return d ? '<span class="tag-chip" style="--tc:var(--tag-' + d.css + ')">' +
+                 escHtml(d.label) + '</span>' : '';
+    }).join('');
   }
 
   function renderTasks() {
@@ -717,6 +910,7 @@
         '<div class="task-grip" title="Drag to reorder">&#8942;&#8942;</div>' +
         '<div class="task-check' + (t.done ? ' checked' : '') + '" data-id="' + t.id + '"></div>' +
         '<input class="task-name-input" value="' + escHtml(t.name) + '" placeholder="Task name" data-id="' + t.id + '">' +
+        '<div class="tag-cell" data-id="' + t.id + '" title="Click to tag">' + tagChips(t.id) + '</div>' +
         '<input class="task-due' + (overdue ? ' overdue' : '') + '" type="date" value="' + (t.due || '') + '" data-id="' + t.id + '">' +
         '<select class="task-assignee-select" data-id="' + t.id + '">' + options + '</select>' +
         '<button class="task-priority-btn" data-id="' + t.id + '" data-priority="' + t.priority + '">' +
@@ -728,17 +922,27 @@
     // Drag to reorder. Only meaningful in the unfiltered view, since a
     // filtered list shows a subset and dropping into it cannot express a
     // position among the hidden rows.
+    container.querySelectorAll('.tag-cell').forEach(function (cell) {
+      cell.addEventListener('click', function (e) {
+        e.stopPropagation();
+        openTagPop(cell, parseInt(cell.dataset.id));
+      });
+    });
+
     var dragId = null;
     container.querySelectorAll('.task-row').forEach(function (row) {
       row.addEventListener('dragstart', function (e) {
-        if (currentFilter !== 'all') { e.preventDefault(); return; }
+        // Allowed under a filter: a task can be dragged onto a tag tab, and
+        // reordering stays correct because the drop handler splices into the
+        // FULL order adjacent to the target.
         dragId = parseInt(row.dataset.id);
+        tagDragId = dragId;
         row.classList.add('dragging');
         e.dataTransfer.effectAllowed = 'move';
         try { e.dataTransfer.setData('text/plain', String(dragId)); } catch (err) {}
       });
       row.addEventListener('dragend', function () {
-        dragId = null;
+        dragId = null; tagDragId = null;
         container.querySelectorAll('.task-row').forEach(function (r) {
           r.classList.remove('dragging', 'drop-above', 'drop-below');
         });
@@ -773,7 +977,7 @@
     container.querySelectorAll('.task-check').forEach(function(el) {
       el.addEventListener('click', function() {
         var task = tasks.find(function(t) { return t.id === parseInt(el.dataset.id); });
-        if (task) { task.done = !task.done; renderTasks(); updateCount(); updateTask(task.id, { done: task.done }); }
+        if (task) { task.done = !task.done; renderTasks(); buildFilterBar(); updateCount(); updateTask(task.id, { done: task.done }); }
       });
     });
 
