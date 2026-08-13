@@ -280,7 +280,16 @@
   var statusData = {};
   var answerCounts = {};
   var dueDates = {};
-  var activeFilter = 'all';
+  // No "All" tab: the list is always one group, and a row moves between groups
+  // by being dragged onto another tab. Defaults to In progress, which is where
+  // anything with no status set lands.
+  var activeFilter = (function () {
+    try {
+      var v = localStorage.getItem('qFilter');
+      if (v) return v;
+    } catch (e) {}
+    return 'active';
+  })();
   // Module scope: the filter chips are drop targets, and they are built in a
   // different function from the rows being dragged.
   var dragSlug = null;
@@ -427,8 +436,14 @@
   // --- Filters ---
   function buildFilters() {
     var wrap = document.getElementById('filters');
+    // A remembered tab can outlive the thing it pointed at — a removed category,
+    // or the old 'all' value. Fall back rather than render an empty page.
+    if (!isGroupKey(activeFilter) &&
+        !Object.values(statusData).some(function (s) { return s.category === activeFilter; })) {
+      activeFilter = 'active';
+    }
     wrap.innerHTML = '';
-    var opts = [{ k: 'all', label: 'All' }];
+    var opts = [];
     GROUPS.forEach(function (g) {
       opts.push({
         k: g.key, label: g.label,
@@ -450,11 +465,15 @@
       var b = document.createElement('button');
       b.className = 'fbtn' + (o.k === activeFilter ? ' active' : '');
       b.textContent = o.label + (o.n != null ? ' ' + o.n : '');
-      b.addEventListener('click', function () { activeFilter = o.k; buildFilters(); render(); });
+      b.addEventListener('click', function () {
+        activeFilter = o.k;
+        try { localStorage.setItem('qFilter', o.k); } catch (e) {}
+        buildFilters(); render();
+      });
 
       // Group chips double as drop targets: drag a row up onto "Priority" or
-      // "Done" to move it there. Category chips and "All" are not targets,
-      // since neither names a group a questionnaire can belong to.
+      // "Done" to move it there. Category chips are not targets, since a
+      // category is a different axis from group membership.
       if (isGroupKey(o.k)) {
         b.addEventListener('dragover', function (e) {
           if (!dragSlug || groupOf(dragSlug) === o.k) return;
@@ -491,7 +510,6 @@
     var wrap = document.getElementById('rows');
     wrap.innerHTML = '';
     var slugs = orderedSlugs(KNOWN_ORGS).filter(function (slug) {
-      if (activeFilter === 'all') return true;
       if (isGroupKey(activeFilter)) return groupOf(slug) === activeFilter;
       var s = statusData[slug];
       return s && s.category === activeFilter;
@@ -513,10 +531,12 @@
       row.draggable = true;
       row.dataset.slug = slug;
 
-      // Drag to reorder. Disabled while a category filter is active, since a
-      // filtered list cannot express a position among the hidden rows.
+      // Dragging is always allowed now that there is no unfiltered view: a row
+      // is dragged either onto another tab to change group, or onto a sibling
+      // row to reorder. Reordering stays correct under a filter because the
+      // drop handler splices into the FULL ordered list adjacent to the target,
+      // so hidden rows keep their relative positions.
       row.addEventListener('dragstart', function (e) {
-        if (activeFilter !== 'all') { e.preventDefault(); return; }
         dragSlug = slug;
         row.classList.add('dragging');
         e.dataTransfer.effectAllowed = 'move';
