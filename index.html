@@ -350,32 +350,54 @@
     display: flex; gap: 12px; align-items: center;
     margin-bottom: 16px; flex-wrap: wrap;
   }
+  .filter-bar { gap: 14px; }
   .filter-btn {
-    font-family: inherit; font-size: 12px; color: var(--text-tertiary);
-    background: none; border: none; cursor: pointer; padding: 3px 0;
-    border-bottom: 1.5px solid transparent; letter-spacing: 0.02em;
+    font-family: inherit; font-size: 13px; font-weight: 500;
+    color: var(--text-tertiary);
+    background: none; border: none; cursor: pointer;
+    padding: 4px 1px 5px; letter-spacing: 0.01em;
+    border-bottom: 2px solid transparent;
+    transition: color .12s, border-color .12s;
   }
   .filter-btn:hover { color: var(--text-secondary); }
-  .filter-btn.active { color: var(--text); border-bottom-color: var(--text); }
+  .filter-btn.active {
+    color: var(--text); font-weight: 600;
+    border-bottom-color: var(--accent);
+  }
+  /* The count is supporting information, so it stays quiet even when the tab
+     is active — otherwise the number competes with the label. */
+  .filter-btn .cnt {
+    color: var(--text-tertiary); margin-left: 5px; font-weight: 400;
+    font-variant-numeric: tabular-nums;
+  }
+  .filter-btn.drop-target {
+    color: #fff; background: var(--accent);
+    border-radius: 3px; border-bottom-color: transparent; padding: 4px 8px 5px;
+  }
+  .filter-btn.drop-target .cnt { color: #fff; }
+
+  /* Add / remove a tag */
+  .tag-add {
+    font-family: inherit; font-size: 15px; line-height: 1;
+    color: var(--text-tertiary); background: none; border: none;
+    cursor: pointer; padding: 3px 5px; border-radius: 3px;
+  }
+  .tag-add:hover { color: var(--accent); background: var(--hover); }
+  .tag-new {
+    font-family: inherit; font-size: 13px; color: var(--text);
+    background: var(--surface); border: 1px solid var(--accent);
+    border-radius: 3px; padding: 3px 8px; width: 132px; outline: none;
+  }
+  .tag-del {
+    font-size: 13px; line-height: 1; color: var(--text-tertiary);
+    background: none; border: none; cursor: pointer; padding: 0 0 0 5px;
+  }
+  .tag-del:hover { color: var(--priority-high); }
   .filter-sep { width: 1px; height: 14px; background: var(--border-light); }
 
   /* --- Category tags --- */
-  :root {
-    --tag-field:       #6B956B;
-    --tag-fundraising: #C89B2A;
-    --tag-house:       #C4784A;
-    --tag-kitchen:     #8B6BA5;
-    --tag-copy:        #4A6FA5;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --tag-field:       #7DAF7D;
-      --tag-fundraising: #D4AD4A;
-      --tag-house:       #D89468;
-      --tag-kitchen:     #A487BE;
-      --tag-copy:        #6B8FC4;
-    }
-  }
+  /* Colours live on the tag definition in campaign_settings, not in CSS,
+     because tags are user-creatable. Chips read them from --tc. */
 
   .tag-cell {
     display: flex; flex-wrap: wrap; gap: 3px; align-items: center;
@@ -506,16 +528,62 @@
   // no longer a filter — it stays as the per-row button and sorts to the top.
   var currentFilter = 'all';
 
-  var TAGS = [
-    { key: 'field',       label: 'Field',           css: 'field' },
-    { key: 'fundraising', label: 'Fundraising',     css: 'fundraising' },
-    { key: 'house_party', label: 'House Parties',   css: 'house' },
-    { key: 'kitchen',     label: 'Kitchen Cabinet', css: 'kitchen' },
-    { key: 'copy',        label: 'Copy Writing',    css: 'copy' }
+  // Palette for tags created in the UI. Cycled by position so a new tag is
+  // distinguishable without making anyone choose a colour.
+  var TAG_PALETTE = ['#6B956B','#C89B2A','#C4784A','#8B6BA5','#4A6FA5',
+                     '#4A9E9E','#B5568C','#7A8B4A','#9C6B4A','#5F7FA5'];
+
+  var DEFAULT_TAGS = [
+    { key: 'field',       label: 'Field',           color: '#6B956B' },
+    { key: 'fundraising', label: 'Fundraising',     color: '#C89B2A' },
+    { key: 'house_party', label: 'House Parties',   color: '#C4784A' },
+    { key: 'kitchen',     label: 'Kitchen Cabinet', color: '#8B6BA5' },
+    { key: 'copy',        label: 'Copy Writing',    color: '#4A6FA5' }
   ];
+  var TAGS = DEFAULT_TAGS.slice();
+
   function tagDef(k) {
     for (var i = 0; i < TAGS.length; i++) if (TAGS[i].key === k) return TAGS[i];
     return null;
+  }
+
+  async function saveTagDefs() {
+    var r = await sb.from('campaign_settings')
+      .upsert({ key: 'taskTagDefs', value: JSON.stringify(TAGS) });
+    if (r && r.error) setSaveStatus('error');
+  }
+
+  async function addTag(label) {
+    label = (label || '').trim();
+    if (!label) return;
+    var key = label.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '');
+    if (!key) return;
+    // Adding a name that already exists just switches to it rather than
+    // creating a duplicate that looks identical and filters differently.
+    if (tagDef(key)) { currentFilter = key; buildFilterBar(); renderTasks(); return; }
+    TAGS.push({ key: key, label: label, color: TAG_PALETTE[TAGS.length % TAG_PALETTE.length] });
+    setSaveStatus('saving');
+    await saveTagDefs();
+    setSaveStatus('saved');
+    currentFilter = key;
+    buildFilterBar(); renderTasks();
+  }
+
+  async function removeTag(key) {
+    var d = tagDef(key);
+    if (!d) return;
+    if (!window.confirm('Delete the "' + d.label + '" tag? It will be removed from every task.')) return;
+    TAGS = TAGS.filter(function (t) { return t.key !== key; });
+    Object.keys(taskTags).forEach(function (id) {
+      var next = taskTags[id].filter(function (k) { return k !== key; });
+      if (next.length) taskTags[id] = next; else delete taskTags[id];
+    });
+    if (currentFilter === key) currentFilter = 'all';
+    setSaveStatus('saving');
+    await saveTagDefs();
+    await saveTags();
+    setSaveStatus('saved');
+    buildFilterBar(); renderTasks();
   }
   var taskTags = {};      // { taskId: [tagKey, ...] }
   var tagDragId = null;   // task being dragged onto a tag tab
@@ -588,7 +656,43 @@
         return !x.done && tagsFor(x.id).indexOf(t.key) >= 0;
       }).length;
       chip(t.key, t.label, n, true);
+      // Delete is offered only on the tab you are currently looking at, so the
+      // bar is not littered with destructive controls.
+      if (t.key === currentFilter) {
+        var del = document.createElement('button');
+        del.className = 'tag-del';
+        del.textContent = '\u00d7';
+        del.title = 'Delete this tag';
+        del.addEventListener('click', function (e) { e.stopPropagation(); removeTag(t.key); });
+        bar.lastChild.appendChild(del);
+      }
     });
+
+    var add = document.createElement('button');
+    add.className = 'tag-add';
+    add.textContent = '+';
+    add.title = 'Add a tag';
+    add.addEventListener('click', function () {
+      var input = document.createElement('input');
+      input.className = 'tag-new';
+      input.placeholder = 'Tag name';
+      input.maxLength = 28;
+      bar.replaceChild(input, add);
+      input.focus();
+      var done = false;
+      function commit(save) {
+        if (done) return;
+        done = true;
+        var v = input.value;
+        if (save && v.trim()) addTag(v); else buildFilterBar();
+      }
+      input.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') commit(true);
+        if (e.key === 'Escape') commit(false);
+      });
+      input.addEventListener('blur', function () { commit(true); });
+    });
+    bar.appendChild(add);
   }
 
   // --- Tag picker popover ---
@@ -606,7 +710,7 @@
       var on = tagsFor(id).indexOf(t.key) >= 0;
       var b = document.createElement('button');
       b.className = 'tag-opt' + (on ? ' on' : '');
-      b.style.setProperty('--tc', 'var(--tag-' + t.css + ')');
+      b.style.setProperty('--tc', t.color);
       var box = document.createElement('span');
       box.className = 'box';
       b.appendChild(box);
@@ -713,6 +817,13 @@
     if (orderRow) { try { taskOrder = JSON.parse(orderRow.value) || []; } catch (e) { taskOrder = []; } }
     var tagRow = (r3.data || []).find(function (x) { return x.key === 'taskTags'; });
     if (tagRow) { try { taskTags = JSON.parse(tagRow.value) || {}; } catch (e) { taskTags = {}; } }
+    var defRow = (r3.data || []).find(function (x) { return x.key === 'taskTagDefs'; });
+    if (defRow) {
+      try {
+        var parsed = JSON.parse(defRow.value);
+        if (Array.isArray(parsed) && parsed.length) TAGS = parsed;
+      } catch (e) { /* keep the defaults */ }
+    }
     applyTaskOrder();
     team = (r2.data || []).map(function(m) { return m.name; });
     var settings = r3.data || [];
@@ -890,7 +1001,7 @@
     if (!ts.length) return '<span class="tag-empty">+ tag</span>';
     return ts.map(function (k) {
       var d = tagDef(k);
-      return d ? '<span class="tag-chip" style="--tc:var(--tag-' + d.css + ')">' +
+      return d ? '<span class="tag-chip" style="--tc:' + escHtml(d.color) + '">' +
                  escHtml(d.label) + '</span>' : '';
     }).join('');
   }
