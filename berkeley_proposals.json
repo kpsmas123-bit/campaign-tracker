@@ -1,0 +1,914 @@
+{
+  "_meta": {
+    "purpose": "Register of actual Berkeley City Council policy proposals ~2021-2026, so a candidate answering endorsement questionnaires knows what has already been tried, adopted, killed, or shelved.",
+    "compiled": "2026-08-12",
+    "coverage_note": "Breadth pass, ~15 web lookups plus local extraction of the Feb 10 2026 Council Referral Prioritization staff report (Res. 72,120-N.S.) and prior verified research logs. Verification level is stated in each item's note. 'verified' = read in a primary City document or confirmed by named reporting; 'inferred' = consistent with sources but not directly confirmed this pass.",
+    "key_recurring_source": "2026 City Council Referral Prioritization Results Using Re-Weighted Range Voting, Special Meeting Item 01, February 10, 2026 — lists all 39 surviving long-term referrals with tracking number, referral date, sponsor, and rank. 14 referrals were removed by Council on January 27, 2026.",
+    "key_recurring_source_url": "https://berkeleyca.gov/sites/default/files/2026-02/2026-02-10%20Special%20Item%2001%202026%20City%20Council%20Referral.pdf",
+    "rank_meaning": "Rank is the 2026 RRV priority out of 39 surviving referrals. A high rank number means Council deprioritized it. Rank 34 or worse is functionally shelved."
+  },
+  "topics": {
+    "housing_production": {
+      "items": [
+        {
+          "name": "Middle Housing Zoning Amendments (ends single-family-only zoning; up to 8 units / 3 stories on a typical 5,000 sq ft lot)",
+          "date": "2025-07-08 (adopted; Council approved 2025-06-26; effective 2025-11-01)",
+          "sponsors": "Staff/Planning Commission item advanced under the 2021 Council direction to end exclusionary zoning; adopted unanimously",
+          "outcome": "adopted",
+          "vote": "Unanimous",
+          "number": "Zoning Ordinance and General Plan Amendments Relating to Middle Housing (BMC Title 23)",
+          "note": "verified. Applies citywide except the hill fire zones, where density was not increased. This is the single most-cited Berkeley housing action of the period — do not propose 'ending single-family zoning' as new.",
+          "url": "https://berkeleyca.gov/construction-development/land-use-development/general-plan-and-area-plans/middle-housing-zoning"
+        },
+        {
+          "name": "Middle Housing staff report / ordinance package to Council",
+          "date": "2025-04-29",
+          "sponsors": "City Manager / Planning & Development",
+          "outcome": "adopted",
+          "vote": "n/a (report)",
+          "number": "Item 30",
+          "note": "verified. Full text of the zoning and General Plan amendments as presented.",
+          "url": "https://berkeleyca.gov/sites/default/files/documents/2025-04-29%20Item%2030%20Zoning%20Ordinance%20and%20General%20Plan%20Amendments%20Relating%20to%20Middle%20Housing.pdf"
+        },
+        {
+          "name": "Resolution declaring intent to end exclusionary / single-family zoning",
+          "date": "2021 (February)",
+          "sponsors": "Lori Droste, with Jesse Arreguin, Sophie Hahn, Rigel Robinson, Terry Taplin (co-sponsors)",
+          "outcome": "adopted",
+          "vote": "Reported unanimous",
+          "number": "not captured",
+          "note": "INFERRED — widely reported but not re-verified in this pass. This is the 2021 resolution that set the Middle Housing process in motion; confirm date, sponsors, and resolution number before citing.",
+          "url": "https://www.berkeleyside.org/2021/09/29/sb9-berkeley-single-family-zoning-gavin-newsom"
+        },
+        {
+          "name": "Southside / Telegraph upzoning plan (heights to 16 stories, ~2,650 additional units)",
+          "date": "2023-11-21",
+          "sponsors": "Rigel Robinson (author), Mark Humbert (co-sponsor)",
+          "outcome": "adopted",
+          "vote": "not captured",
+          "number": "not captured",
+          "note": "verified via Daily Cal. Southside is already upzoned — a proposal to 'upzone Southside' is redundant.",
+          "url": "https://www.dailycal.org/news/city/housing/a-more-livable-berkeley-city-council-passes-southside-upzoning-plan-allowing-for-denser-taller-housing/article_cd2c4a69-a43d-5aff-bf5a-6ee5dadde0af.html"
+        },
+        {
+          "name": "Corridors Zoning Update (upper Solano Ave, North Shattuck, commercial College Ave)",
+          "date": "2025-08-15 alternatives report; 2025-11-06 Council reviewed draft alternatives and gave direction; Planning Commission review through 2026",
+          "sponsors": "City Manager / Planning & Development",
+          "outcome": "pending",
+          "vote": "n/a — direction only, no adoption vote yet",
+          "number": "n/a",
+          "note": "verified as pending. Final zoning ordinance adoption hearings had not occurred as of this pass. This is the live upzoning fight, not a settled question.",
+          "url": "https://berkeleyca.gov/construction-development/land-use-development/general-plan-and-area-plans/corridors-zoning-update"
+        },
+        {
+          "name": "SB 9 local implementation ordinance",
+          "date": "2022",
+          "sponsors": "n/a",
+          "outcome": "shelved",
+          "vote": "n/a — never brought",
+          "number": "none",
+          "number_note": "No ordinance exists",
+          "note": "verified in substance: Berkeley chose NOT to adopt a local SB 9 implementing ordinance; state law applies directly with no local objective-standards overlay. Council instead pursued the broader Middle Housing rewrite. Proposing a 'Berkeley SB 9 ordinance' is proposing something Council deliberately declined.",
+          "url": "https://www.berkeleyside.org/2021/09/29/sb9-berkeley-single-family-zoning-gavin-newsom"
+        },
+        {
+          "name": "SB 10 opt-in ordinance",
+          "date": "n/a",
+          "sponsors": "n/a",
+          "outcome": "shelved",
+          "vote": "n/a",
+          "number": "none",
+          "note": "UNRESOLVED — no evidence found that Berkeley ever opted in to SB 10 (which requires an affirmative local ordinance by two-thirds vote). Treat as never taken up.",
+          "url": "https://berkeleyca.gov/construction-development/land-use-development/general-plan-and-area-plans/middle-housing-zoning"
+        },
+        {
+          "name": "SB 79 (transit-oriented upzoning near Ashby, Downtown Berkeley, North Berkeley BART) local implementation",
+          "date": "2026-04-15 Planning Commission staff report on SB 79 and AB 893; SB 79 effective 2026-07-01",
+          "sponsors": "City Manager / Planning & Development",
+          "outcome": "pending",
+          "vote": "n/a",
+          "number": "PC Item 10A",
+          "note": "verified. No Berkeley City Council resolution supporting or opposing SB 79 was found — flagged unresolved in prior research. Local implementation is genuinely open.",
+          "url": "https://berkeleyca.gov/sites/default/files/2026-04/2026-04-15_PC_Item%2010A_SB%2079%20and%20AB%20893.pdf"
+        },
+        {
+          "name": "Referral to Establish a Citywide Local Density Bonus Program to Facilitate Lower-Cost Ownership Homes (Condominiums)",
+          "date": "2026-04-14",
+          "sponsors": "Rashi Kesarwani (author); Igor Tregub and Mayor Adena Ishii (co-sponsors)",
+          "outcome": "referred",
+          "vote": "Consent Calendar",
+          "number": "Item 13",
+          "note": "verified from the item text. Would let condo projects pay the in-lieu fee for all units instead of building on-site for-sale BMR units, and directs that concession rules 'uphold the City's workforce standards.' Aimed at stalled downtown/San Pablo rental projects. Outcome after referral not confirmed.",
+          "url": "https://berkeleyca.gov/sites/default/files/documents/2025-02-25%20Item%2014%20Inclusionary%20Housing%20Ordinance.pdf"
+        },
+        {
+          "name": "Referral to Rezone Gilman Street to Maximize Housing",
+          "date": "2023-09-19",
+          "sponsors": "Rashi Kesarwani (lead; additional co-sponsors truncated in source)",
+          "outcome": "referred",
+          "vote": "n/a",
+          "number": "DMND0004124",
+          "note": "verified. 2026 RRV rank 4 of 39 — a live, high-priority referral. Planning & Development.",
+          "url": "https://berkeleyca.gov/sites/default/files/2026-02/2026-02-10%20Special%20Item%2001%202026%20City%20Council%20Referral.pdf"
+        },
+        {
+          "name": "Adding BMC Chapter 13.107, Helping Achieve (housing) — referral to City Manager and Planning Commission",
+          "date": "2023-05-02",
+          "sponsors": "Jesse Arreguin",
+          "outcome": "referred",
+          "vote": "n/a",
+          "number": "DMND0004099",
+          "note": "verified as an outstanding referral; 2026 RRV rank 5. Full subject line truncated in the source table — confirm the chapter's subject before citing.",
+          "url": "https://berkeleyca.gov/sites/default/files/2026-02/2026-02-10%20Special%20Item%2001%202026%20City%20Council%20Referral.pdf"
+        },
+        {
+          "name": "Referral: Neighborhood-Scale Commercial (corner stores in residential zones)",
+          "date": "2024-01-16",
+          "sponsors": "Ben Bartlett, Terry Taplin",
+          "outcome": "referred",
+          "vote": "n/a",
+          "number": "DMND0004145",
+          "note": "verified. 2026 RRV rank 8. Planning & Development.",
+          "url": "https://berkeleyca.gov/sites/default/files/2026-02/2026-02-10%20Special%20Item%2001%202026%20City%20Council%20Referral.pdf"
+        },
+        {
+          "name": "Efficiency Unit Ordinance referral",
+          "date": "2022-09-13",
+          "sponsors": "Terry Taplin, Rigel Robinson",
+          "outcome": "referred",
+          "vote": "n/a",
+          "number": "DMND0004048",
+          "note": "verified. 2026 RRV rank 24 — four years old and deprioritized.",
+          "url": "https://berkeleyca.gov/sites/default/files/2026-02/2026-02-10%20Special%20Item%2001%202026%20City%20Council%20Referral.pdf"
+        },
+        {
+          "name": "Referral: objective design standards for R-1, R-2, R-3 zones",
+          "date": "2025-06-26",
+          "sponsors": "blank in source table",
+          "outcome": "referred",
+          "vote": "n/a",
+          "number": "DMND0004216",
+          "note": "verified. 2026 RRV rank 21. Companion to Middle Housing implementation.",
+          "url": "https://berkeleyca.gov/sites/default/files/2026-02/2026-02-10%20Special%20Item%2001%202026%20City%20Council%20Referral.pdf"
+        },
+        {
+          "name": "Affordable Housing for Artists: AB 812 implementation referral",
+          "date": "2024-12-03",
+          "sponsors": "Terry Taplin, Sophie Hahn",
+          "outcome": "referred",
+          "vote": "n/a",
+          "number": "DMND0004184",
+          "note": "verified. 2026 RRV rank 12. Uses Gov. Code 65914.8 to set aside units for artists.",
+          "url": "https://berkeleyca.gov/sites/default/files/2026-02/2026-02-10%20Special%20Item%2001%202026%20City%20Council%20Referral.pdf"
+        }
+      ]
+    },
+    "affordable_funding": {
+      "items": [
+        {
+          "name": "Inclusionary Housing Ordinance / Affordable Housing Mitigation Fee restructure — in-lieu fee moved from per-unit to per-square-foot ($56.25/sq ft of Residential Unit Floor Area)",
+          "date": "2023-02-14",
+          "sponsors": "City Manager / HHCS",
+          "outcome": "adopted",
+          "vote": "not captured",
+          "number": "Resolution No. 71,674-N.S.",
+          "note": "verified. Also established automatic biennial adjustment by the California Construction Cost Index (CCI +9.4% in 2023, +2.3% in 2024; next automatic increase July 1, 2027). This replaced the old AHMF approach — a proposal to 'switch to a per-square-foot fee' is already law.",
+          "url": "https://berkeleyca.gov/construction-development/permits-design-parameters/design-parameters/affordable-housing"
+        },
+        {
+          "name": "Inclusionary Housing Ordinance In-Lieu Fee; Amending BMC Chapter 23.328 (fee tiers calibrated for middle housing)",
+          "date": "2025-02-25",
+          "sponsors": "City Manager / HHCS",
+          "outcome": "adopted, with an attached study referral",
+          "vote": "not captured",
+          "number": "Item 14; referral tracking DMND0004203",
+          "note": "verified. Council adopted the fee change and referred an economic feasibility study to be conducted within three years of the Middle Housing amendments. That study referral ranks 32 of 39 in the 2026 RRV list — i.e., Council deprioritized its own follow-up study.",
+          "url": "https://berkeleyca.gov/sites/default/files/documents/2025-02-25%20Item%2014%20Inclusionary%20Housing%20Ordinance.pdf"
+        },
+        {
+          "name": "Inclusionary Housing Program Annual Report FY2025",
+          "date": "2025-10-28",
+          "sponsors": "City Manager / HHCS",
+          "outcome": "adopted (information calendar)",
+          "vote": "n/a",
+          "number": "Item 34",
+          "note": "verified. FY2025: 1,813 units entitled including 163 BMR units; projected in-lieu fee revenue $11.2 million. Cumulative in-lieu fees since 2016 exceed $51 million.",
+          "url": "https://berkeleyca.gov/sites/default/files/documents/2025-10-28%20Item%2034%20Inclusionary%20Housing%20Program%20Annual%20Report%20Fiscal%20Year%2025.pdf"
+        },
+        {
+          "name": "Measure O affordable housing general obligation bond",
+          "date": "2018-11 (passed 77.5%); issuance ongoing through period",
+          "sponsors": "Council-placed",
+          "outcome": "adopted",
+          "vote": "77.5% of voters",
+          "number": "Measure O — $135 million authorization",
+          "note": "verified. $76.7 million issued of $135 million authorized, and the City reports all of it committed or reserved. Measure A1 (county) roughly 97% committed. There is no uncommitted Measure O capacity to promise.",
+          "url": "https://berkeleyca.gov/your-government/our-work/bond-revenue-measures/measure-o"
+        },
+        {
+          "name": "Extending Reservations for Housing Trust Fund Projects (24-month extensions)",
+          "date": "2026-02-10",
+          "sponsors": "City Manager / HHCS (Scott Gilman)",
+          "outcome": "adopted",
+          "vote": "Consent Calendar",
+          "number": "Item 10",
+          "note": "verified from the item text. Extends reservations of HTF, Measure O, Measure U1, AHMF and State funds for: Ashby Lofts (2909-2919 Ninth St) $850,000; Supportive Housing in People's Park (2556 Haste) $14,359,593; Ephesian Legacy Court (1708 Harmon) $14,531,301; North Berkeley BART Project $21,500,000. HTF policy caps reservations at 24 months.",
+          "url": "https://berkeleyca.gov/sites/default/files/2026-02/2026-02-10%20Special%20Item%2001%202026%20City%20Council%20Referral.pdf"
+        },
+        {
+          "name": "Small Sites Program (acquisition of existing occupied buildings)",
+          "date": "ongoing; third project since 2017 approved in 2024",
+          "sponsors": "City Manager / HHCS",
+          "outcome": "adopted but severely undercapitalized",
+          "vote": "n/a",
+          "number": "n/a",
+          "note": "verified in prior research. Program holds roughly $3.8 million and is the only live acquisition money. Two nonprofits have acquired four occupied buildings in Berkeley in nine years, against roughly 245 multifamily sales annually. The 2024 approval followed receipt of a single proposal. Any acquisition or anti-speculation proposal has to reckon with this capacity gap.",
+          "url": "https://berkeleyca.gov/sites/default/files/documents/2025-03-28%20Item%2018%20Housing%20Element%20Annual%20Progress%20Report.pdf"
+        },
+        {
+          "name": "Companion Report: Affordable Housing for Artists (Rec #3) — place an affordable housing bond measure on the 2028 ballot",
+          "date": "2025-12-02",
+          "sponsors": "blank in source table (City Manager's Office responsible)",
+          "outcome": "referred, then deprioritized",
+          "vote": "n/a",
+          "number": "DMND0004240",
+          "note": "verified. Ranked 36 of 39 — dead last in substance. Council did NOT place an affordable housing bond on the November 2026 ballot; the 2026 bond (Measure U) is general public infrastructure.",
+          "url": "https://berkeleyca.gov/sites/default/files/2026-02/2026-02-10%20Special%20Item%2001%202026%20City%20Council%20Referral.pdf"
+        },
+        {
+          "name": "Companion Report: Affordable Housing for Artists (Rec #2) — integrate incentives for affordable housing and affordable artist space",
+          "date": "2025-12-02",
+          "sponsors": "blank in source table",
+          "outcome": "referred",
+          "vote": "n/a",
+          "number": "DMND0004239",
+          "note": "verified. 2026 RRV rank 26.",
+          "url": "https://berkeleyca.gov/sites/default/files/2026-02/2026-02-10%20Special%20Item%2001%202026%20City%20Council%20Referral.pdf"
+        },
+        {
+          "name": "Referral: Southside Impact Fee Nexus Study (development impact fee for Southside projects)",
+          "date": "2023-02-14",
+          "sponsors": "Rigel Robinson, Ben Bartlett",
+          "outcome": "referred",
+          "vote": "n/a",
+          "number": "DMND0004072",
+          "note": "verified. 2026 RRV rank 27 — three years old, deprioritized, no nexus study completed.",
+          "url": "https://berkeleyca.gov/sites/default/files/2026-02/2026-02-10%20Special%20Item%2001%202026%20City%20Council%20Referral.pdf"
+        }
+      ]
+    },
+    "tenant_protections": {
+      "items": [
+        {
+          "name": "Adopt BMC Chapter 13.89: Community/Tenant Opportunity to Purchase Act (COPA/TOPA)",
+          "date": "2024-09-30 (Special Meeting, Action Calendar Item 1)",
+          "sponsors": "Councilmember Kate Harrison (District 4), who resigned shortly after; originally introduced 2020 by Mayor Jesse Arreguin and dropped",
+          "outcome": "shelved — NOT defeated on the merits",
+          "vote": "Motion to refer the ordinance to the City Manager for fiscal and operational analysis FAILED 3-6. Substitute motion to study a San Francisco-style COPA program CARRIED 6-3.",
+          "number": "Referral tracking DMND0004197; prioritization adopted by Resolution No. 72,120-N.S. (2026-02-10)",
+          "note": "VERIFIED and CORRECTS A COMMON MISSTATEMENT: Council never took an up-or-down vote on the TOPA ordinance itself. The Land Use, Housing & Economic Development Committee had sent it forward with a negative recommendation. The surviving substitute directs study of an SF-style COPA including a 'go coop' requirement, an application threshold, administration costs, a tenant right of first refusal, other jurisdictions' models, and a $100,000 budget referral for the study. Say the proposal stalled, not that it was defeated. The COPA study referral now ranks 34 of 39, is assigned to the City Manager's Office with a BLANK sponsor field, no staff report has returned, and no COPA/TOPA item appeared on any 2026 Council agenda through July. It is functionally dead unless revived.",
+          "url": "https://berkeleyca.gov/city-council-special-meeting-eagenda-september-30-2024"
+        },
+        {
+          "name": "Right to counsel / guaranteed eviction defense ordinance",
+          "date": "n/a",
+          "sponsors": "n/a",
+          "outcome": "never adopted",
+          "vote": "n/a",
+          "number": "none",
+          "note": "VERIFIED ABSENCE. No Berkeley ordinance creates a right to counsel; searches of the Municipal Code, Charter and ordinances for 'right to counsel', 'legal defense' and 'eviction defense' return no match. What exists is contracted service funding, not an entitlement: roughly $800,000/year via Measure U1 anti-displacement lines — Rent Board legal services (EDC & EBCLC) $550,000/yr and the Eviction Defense Center $250,000/yr. A right-to-counsel proposal is genuinely new in Berkeley.",
+          "url": "https://berkeleyca.gov/sites/default/files/legislative-body-meeting-attachments/2025-05-22%20Item%2002%20Supplemental%20Material%20-%20Fiscal%20Year%202026%20Mid-Biennial%20Budget%20Update%20(Measure%20U1%20Forecast).pdf"
+        },
+        {
+          "name": "Budget Referral: Supplemental Funding for Housing Retention Program",
+          "date": "2023-11-07",
+          "sponsors": "not captured",
+          "outcome": "referred",
+          "vote": "Consent Calendar Item 13",
+          "number": "Item 13",
+          "note": "verified. Followed a $2 million supplement in March 2023; the referral anticipated funds running out by January 2024, against 130 eviction notices received by the Rent Board in September 2023 alone. Demonstrates chronic underfunding of rent-arrears assistance.",
+          "url": "https://berkeleyca.gov/sites/default/files/documents/2023-11-07%20Item%2013%20Budget%20Referral%20Supplemental%20Funding.pdf"
+        },
+        {
+          "name": "Relocation assistance payments (owner move-in and Ellis Act evictions)",
+          "date": "adjusted annually; 2023 standard payment $18,011, additional payment for qualifying households $6,003",
+          "sponsors": "Rent Stabilization Board, not City Council",
+          "outcome": "adopted / ongoing",
+          "vote": "Rent Board action",
+          "number": "Rent Stabilization and Good Cause for Eviction Ordinance; Ellis Implementation Ordinance",
+          "note": "verified. IMPORTANT JURISDICTIONAL POINT: both ordinances index relocation payments to inflation and require the Rent Board — not Council — to publish yearly increases. A Council proposal to 'raise relocation assistance' would be addressing a Rent Board function.",
+          "url": "https://rentboard.berkeleyca.gov/community-recreation/news/2023-adjustments-relocation-assistance-payments"
+        },
+        {
+          "name": "Measure X — Council-placed Amendments to the Rent Stabilization Ordinance (November 3, 2026 ballot)",
+          "date": "2026 (placed for the 2026-11-03 election)",
+          "sponsors": "City Council",
+          "outcome": "pending — before voters",
+          "vote": "not captured",
+          "number": "Measure X",
+          "note": "verified that Measure X is a Council-placed RSO amendment on the November 2026 ballot. The substance of the amendments was not confirmed in this pass — read the ballot question before commenting.",
+          "url": "https://berkeleyca.gov/your-government/elections/ballot-measures"
+        },
+        {
+          "name": "Initiative Ordinance Amending the Rent Stabilization Ordinance",
+          "date": "2026-06-30 (Item 45, placing the initiative before voters)",
+          "sponsors": "Citizen initiative; Council action was to place it on the ballot",
+          "outcome": "pending — before voters",
+          "vote": "not captured",
+          "number": "Item 45",
+          "note": "verified that Council placed an initiative ordinance amending the RSO on the November 3, 2026 ballot. Relationship between this initiative and Council's own Measure X is UNRESOLVED — they may be competing measures. Check before taking a position.",
+          "url": "https://berkeleyca.gov/sites/default/files/2026-06/2026-06-30%20Item%2045%20Placing%20an%20Initiative%20Ordinance%20Amending.pdf"
+        },
+        {
+          "name": "Rent registry",
+          "date": "n/a",
+          "sponsors": "n/a",
+          "outcome": "unresolved",
+          "vote": "n/a",
+          "number": "n/a",
+          "note": "UNRESOLVED. No separate Council rent registry ordinance found in this pass. Note that the Berkeley Rent Board already operates a mandatory unit registration system with annual registration fees, which may make a 'rent registry' proposal redundant — but this was not confirmed.",
+          "url": "https://rentboard.berkeleyca.gov/"
+        }
+      ]
+    },
+    "homelessness": {
+      "items": [
+        {
+          "name": "Alternative Housing Options — identify City-owned or leased land for 24/7 staffed shelter, sanctioned indoor/outdoor camping, and safe RV/car parking",
+          "date": "2025-05-20 (Consent Calendar Item 29); staff Referral Response 2025-10-14",
+          "sponsors": "Councilmember Shoshana O'Keefe (author); Mayor Adena Ishii, Councilmember Brent Blackaby, Councilmember Cecilia Lunaparra (co-sponsors)",
+          "outcome": "referred, then effectively shelved by staff response",
+          "vote": "Passed as a referral rather than binding policy; vote count not captured",
+          "number": "Item 29",
+          "note": "VERIFIED — this is the May 2025 O'Keefe item and its outcome is the key finding. The item contained no funding mechanism. Staff responded on October 14, 2025 that absent new external funding they do NOT recommend opening new programs while existing shelter programs face imminent closure. Item 29 did establish as Council goal that some sites 'would have capacity to support the relocation of an entire encampment, to preserve an existing supportive community.' So the concept is adopted in principle and blocked on money — a candidate proposing a sanctioned site is re-proposing this, and must answer the funding question staff raised.",
+          "url": "https://berkeleyca.gov/sites/default/files/documents/2025-05-20%20Item%2029%20Alternative%20Housing%20Options.pdf"
+        },
+        {
+          "name": "Encampment policy (post-Grants Pass) — notice and property storage standards",
+          "date": "2024-09-10",
+          "sponsors": "City Manager",
+          "outcome": "adopted",
+          "vote": "not captured",
+          "number": "Resolution No. 71,513-N.S.; Administrative Regulations 10.1 and 10.2",
+          "note": "verified. Sets 14 days' notice; 90 days' storage for property with apparent resale value of $100 or more; minimum 45 days for tents, tarps and sleeping bags. VERIFIED GAP: contains NO provision on pets, service animals, partners, households, or keeping a community together during a closure. That gap is amendable by Council and is a genuinely open proposal.",
+          "url": "https://berkeleyca.gov/sites/default/files/documents/2025-05-20%20Item%2029%20Alternative%20Housing%20Options.pdf"
+        },
+        {
+          "name": "Horizon Transitional Village and SPARK safe-parking site, 742 Grayson Street",
+          "date": "operated July 2021 – October 2022",
+          "sponsors": "City program",
+          "outcome": "adopted, then closed",
+          "vote": "n/a",
+          "number": "n/a",
+          "note": "verified. Up to 40 RVs and about 50 indoor beds, serving roughly 150 people, with about 30 connected to permanent housing. Residents were primarily people displaced from the unsanctioned RV encampments at 8th and Harrison. It closed when the City's lease expired, NOT on performance — an important distinction if arguing for a new site.",
+          "url": "https://berkeleyca.gov/sites/default/files/documents/2025-05-20%20Item%2029%20Alternative%20Housing%20Options.pdf"
+        },
+        {
+          "name": "Berkeley Homeless Union v. City of Berkeley — summary judgment order",
+          "date": "2026-04-03",
+          "sponsors": "n/a (litigation)",
+          "outcome": "court order",
+          "vote": "n/a",
+          "number": "No. 3:25-cv-01414-EMC, Dkt. 288",
+          "note": "verified. The order states the City 'is not required to designate, create, or identify' enforcement-free relocation zones or City-sanctioned campsites. A sanctioned site is legally permitted but NOT compelled — do not claim a court requires one. The City did lose on ADA grounds regarding individualized assessment, moving assistance, and property storage.",
+          "url": "https://berkeleyca.gov/sites/default/files/documents/2025-05-20%20Item%2029%20Alternative%20Housing%20Options.pdf"
+        },
+        {
+          "name": "Mobile Crisis Team elimination (FY2027–FY2028 biennial budget)",
+          "date": "2026-06-24 budget adopted; MCT shut down July 2026",
+          "sponsors": "City Manager budget proposal, adopted by Council",
+          "outcome": "adopted (program eliminated)",
+          "vote": "not captured",
+          "number": "Resolution No. 72,340-N.S.",
+          "note": "verified. The Mobile Crisis Team operated alongside Berkeley police since 1979 — 47 years, possibly the first such program in the nation — and was completely eliminated to help close a ~$30 million deficit. Berkeley now relies on Alameda County for crisis response; a Council report itself notes the county's long-term capacity to serve Berkeley is unclear. Effect: police become default responders to more psychiatric emergencies. Also in the same budget: authorized staffing for the Office of the Director of Police Accountability falls 6.00 to 4.00 FTE.",
+          "url": "https://www.berkeleyside.org/2026/07/06/mobile-crisis-team-berkeley-winter-shelter-closures"
+        },
+        {
+          "name": "Winter shelter program elimination and STAIR Center funding reduction",
+          "date": "2026-06-24 (FY27/FY28 budget); construction on Second Street STAIR Center site improvements began May 2025",
+          "sponsors": "City Manager budget proposal, adopted by Council",
+          "outcome": "adopted (cuts)",
+          "vote": "not captured",
+          "number": "Resolution No. 72,340-N.S.",
+          "note": "verified. Winter shelter eliminated (Old City Hall became uninhabitable); STAIR Center operations cut roughly 23%, with some State funding backfilling. BOSS Step Up Housing preserved by shifting it to Measure U1 rather than the General Fund.",
+          "url": "https://www.berkeleyside.org/2026/07/06/mobile-crisis-team-berkeley-winter-shelter-closures"
+        },
+        {
+          "name": "Measure P (real property transfer tax) as the homelessness funding source",
+          "date": "2018-11 (passed 72.4%); City Manager impact memo 2025-03-28",
+          "sponsors": "Council-placed",
+          "outcome": "adopted",
+          "vote": "72.4% of voters",
+          "number": "Measure P",
+          "note": "verified. Raises roughly $11 million a year on average with wide swings by market conditions. In FY26 Berkeley spent $18.9 million on homelessness including $13 million of Measure P. Berkeley is NOT a direct recipient of state HHAP funds — do not assume that revenue.",
+          "url": "https://berkeleyca.gov/sites/default/files/documents/2025-03-28%20Measure%20P%20and%20Impact%20on%20Homeless%20Services%20in%20Berkeley.pdf"
+        },
+        {
+          "name": "Proposal to make it easier for the City to tow abandoned RVs",
+          "date": "2025-09-23 reported; Council moved toward adoption",
+          "sponsors": "Councilmember Rashi Kesarwani (District 1, West Berkeley)",
+          "outcome": "pending / partially advanced",
+          "vote": "not captured",
+          "number": "not captured",
+          "note": "PARTIALLY VERIFIED. Reported by Berkeleyside (Sept 2025) and Daily Cal ('Berkeley moves toward removing abandoned RVs'). Final ordinance status and vote count not confirmed in this pass.",
+          "url": "https://www.berkeleyside.org/2025/09/23/west-berkeley-rep-wants-to-make-it-easier-for-city-to-tow-rvs"
+        },
+        {
+          "name": "Harrison Street / 8th Street encampment abatement",
+          "date": "2026-06-10 public health update",
+          "sponsors": "City Manager; Council Item 37 (Kesarwani, District 1)",
+          "outcome": "ongoing enforcement",
+          "vote": "n/a",
+          "number": "Public Notice and Order to Abate",
+          "note": "verified. Harrison Street from 10th to 6th and 8th Street from Gilman to Codornices Creek. 40 tons of garbage removed since February 2026; site still occupied. Last primary population figure is 51 people from a 2023 census.",
+          "url": "https://berkeleyca.gov/sites/default/files/documents/2025-05-20%20Item%2029%20Alternative%20Housing%20Options.pdf"
+        },
+        {
+          "name": "Referral: RFP for Development of West Berkeley Service Center",
+          "date": "2024-02-13",
+          "sponsors": "Jesse Arreguin, Rashi Kesarwani",
+          "outcome": "referred",
+          "vote": "n/a",
+          "number": "DMND0004148",
+          "note": "verified. 2026 RRV rank 18. Health, Housing & Community Services.",
+          "url": "https://berkeleyca.gov/sites/default/files/2026-02/2026-02-10%20Special%20Item%2001%202026%20City%20Council%20Referral.pdf"
+        }
+      ]
+    },
+    "transit_streets": {
+      "items": [
+        {
+          "name": "Transit-First Policy Implementation Plan",
+          "date": "2023-03-21",
+          "sponsors": "City Manager / Public Works, adopted by Council",
+          "outcome": "adopted",
+          "vote": "not captured",
+          "number": "Resolution No. 70,751-N.S.",
+          "note": "verified. Also appointed councilmembers to the Inter-Agency Liaison Committee with AC Transit, meeting quarterly. Berkeley already has a Transit-First policy — proposing one is redundant; proposing funding for it is not. The FY2027–FY2031 Capital Improvement Program identifies roughly $59.75 million (2026 dollars) of citywide transit improvements that are largely UNFUNDED.",
+          "url": "https://berkeleyca.gov/sites/default/files/city-council-meetings/2023-03-21%20Annotated%20Agenda%20-%20Council.pdf"
+        },
+        {
+          "name": "Telegraph Avenue Multimodal Corridor Project — conceptual design (Concept 3B)",
+          "date": "2025-10-28",
+          "sponsors": "City Manager / Public Works (Terrance Davis, Director)",
+          "outcome": "adopted",
+          "vote": "not captured",
+          "number": "Resolution No. 72,014-N.S.",
+          "note": "verified from both the staff report and the adopted resolution text. Telegraph Ave between Dwight Way and Woolsey Street, 0.85 miles. Approves Concept 3B and authorizes the City Manager to proceed to detailed engineering design. Goals: Vision Zero, transit travel time and reliability, all-ages-and-abilities bike facilities, pavement state of good repair.",
+          "url": "https://berkeleyca.gov/sites/default/files/documents/08.18.2025_BerkeleyCorridors__Alternatives_Report.pdf"
+        },
+        {
+          "name": "Hopkins Street corridor — protected bike lanes and repaving",
+          "date": "Project shelved 2022–2023 after a fraught process; Council voted 2026-07-28/29 to revive it",
+          "sponsors": "2026 revival plan put forward by Councilmember Rashi Kesarwani (District 1)",
+          "outcome": "adopted (2026), after having been shelved for more than three years",
+          "vote": "7-2 in favor of the repavement plan with one-way bike lanes on each side; Council narrowly rejected a competing proposal to study routing cyclists onto other nearby streets",
+          "number": "not captured",
+          "note": "VERIFIED. Separated bike lanes to run from The Alameda west to the Ohlone Greenway at Peralta Avenue, built when Hopkins is repaved in 2027-28. Preliminary total project cost roughly $20 million, of which up to $6 million relates to the protected bike lanes; includes pedestrian safety improvements and painted bike lanes from Sutter Street to The Alameda. Public comment ran past midnight. This is the marquee resolved street fight of the period — it is decided, not open.",
+          "url": "https://www.berkeleyside.org/2026/07/29/hopkins-bike-lane-berkeley-city-council"
+        },
+        {
+          "name": "Vision Zero Action Plan",
+          "date": "2019-03-10 (per the adopted plan document); some reporting says March 2020",
+          "sponsors": "Council-adopted",
+          "outcome": "adopted",
+          "vote": "not captured",
+          "number": "n/a",
+          "note": "verified from the plan document itself, which reads 'Approved March 10, 2019 by the Berkeley City Council.' DISCREPANCY FLAGGED: secondary reporting dates it to March 2020 and states a target of zero traffic deaths by 2028. Use the 2019 date from the primary document, or verify before citing a year.",
+          "url": "https://www.berkeleyside.org/2025/06/24/berkeley-street-safety-vision-zero-measure-ff"
+        },
+        {
+          "name": "Measure FF — parcel tax for sidewalk and street repair",
+          "date": "2024-11",
+          "sponsors": "Council-placed",
+          "outcome": "adopted (passed)",
+          "vote": "passed",
+          "number": "Measure FF",
+          "note": "verified. Implementation pace has drawn scrutiny; see Berkeley Scanner follow-up (Oct 2025).",
+          "url": "https://www.berkeleyscanner.com/2025/10/14/traffic-safety/berkeley-measure-ff-safe-streets-whats-happening/"
+        },
+        {
+          "name": "Budget Referral: Vision Zero Rapid Response on Bicycle Boulevards",
+          "date": "2024-05-07",
+          "sponsors": "Terry Taplin, Mark Humbert",
+          "outcome": "referred",
+          "vote": "n/a",
+          "number": "DMND0004159",
+          "note": "verified. 2026 RRV rank 1 (tied for top priority). Adopts Oakland's Neighborhood Bike Route Implementation Guide for all Bicycle Boulevards in Berkeley's Bicycle Plan, with quick-build interventions.",
+          "url": "https://berkeleyca.gov/sites/default/files/2026-02/2026-02-10%20Special%20Item%2001%202026%20City%20Council%20Referral.pdf"
+        },
+        {
+          "name": "Referral to Implement State Law AB 43 for Reduced Speed Limits on High-Injury Commercial Corridors",
+          "date": "2022-03-08",
+          "sponsors": "Rashi Kesarwani, Terry Taplin, Rigel Robinson, Susan Wengraf",
+          "outcome": "referred",
+          "vote": "n/a",
+          "number": "DMND0004008",
+          "note": "verified. 2026 RRV rank 1 (tied for top priority) — but note it has been outstanding since March 2022 and still needs $25,000–$50,000 for signage. Top-ranked does not mean done.",
+          "url": "https://berkeleyca.gov/sites/default/files/2026-02/2026-02-10%20Special%20Item%2001%202026%20City%20Council%20Referral.pdf"
+        },
+        {
+          "name": "Southside Complete Streets — Limiting Cars on Telegraph",
+          "date": "2022-02-22",
+          "sponsors": "blank in source table",
+          "outcome": "referred",
+          "vote": "n/a",
+          "number": "DMND0004191",
+          "note": "verified. 2026 RRV rank 1 (tied for top priority). Directs a community process to explore limits on private automobiles on Telegraph Avenue while preserving transit, emergency, refuse, delivery and disability access. Four years outstanding.",
+          "url": "https://berkeleyca.gov/sites/default/files/2026-02/2026-02-10%20Special%20Item%2001%202026%20City%20Council%20Referral.pdf"
+        },
+        {
+          "name": "Referral: Oxford for All",
+          "date": "2025-06-03",
+          "sponsors": "Igor Tregub, Cecilia Lunaparra",
+          "outcome": "referred",
+          "vote": "n/a",
+          "number": "DMND0004213",
+          "note": "verified. 2026 RRV rank 6. Directs implementation of the city-adopted 2017 Bike Plan on Oxford Street.",
+          "url": "https://berkeleyca.gov/sites/default/files/2026-02/2026-02-10%20Special%20Item%2001%202026%20City%20Council%20Referral.pdf"
+        },
+        {
+          "name": "Equitable Safe Streets and Climate Justice — revised resolution committing City and state/federal expenditures",
+          "date": "2022-09-13",
+          "sponsors": "Terry Taplin",
+          "outcome": "referred",
+          "vote": "n/a",
+          "number": "DMND0004047",
+          "note": "verified. 2026 RRV rank 13.",
+          "url": "https://berkeleyca.gov/sites/default/files/2026-02/2026-02-10%20Special%20Item%2001%202026%20City%20Council%20Referral.pdf"
+        },
+        {
+          "name": "Residential Preferential Parking (RPP) Program expansion referral",
+          "date": "2022-10-11",
+          "sponsors": "Rashi Kesarwani (plus co-sponsors truncated)",
+          "outcome": "referred",
+          "vote": "n/a",
+          "number": "DMND0004053",
+          "note": "verified. 2026 RRV rank 14.",
+          "url": "https://berkeleyca.gov/sites/default/files/2026-02/2026-02-10%20Special%20Item%2001%202026%20City%20Council%20Referral.pdf"
+        },
+        {
+          "name": "Referral to Develop a Curb Management Plan",
+          "date": "2024-07-30",
+          "sponsors": "blank in source table",
+          "outcome": "referred",
+          "vote": "n/a",
+          "number": "DMND0004169",
+          "note": "verified. 2026 RRV rank 16.",
+          "url": "https://berkeleyca.gov/sites/default/files/2026-02/2026-02-10%20Special%20Item%2001%202026%20City%20Council%20Referral.pdf"
+        },
+        {
+          "name": "Referral: On-Street Secure Bike Parking",
+          "date": "2023-03-21",
+          "sponsors": "Rigel Robinson (plus co-sponsors truncated)",
+          "outcome": "referred",
+          "vote": "n/a",
+          "number": "DMND0004078",
+          "note": "verified. 2026 RRV rank 29 — deprioritized.",
+          "url": "https://berkeleyca.gov/sites/default/files/2026-02/2026-02-10%20Special%20Item%2001%202026%20City%20Council%20Referral.pdf"
+        },
+        {
+          "name": "Budget Referral: No Right on Red Signs",
+          "date": "2022-11-03",
+          "sponsors": "Terry Taplin, Kate Harrison, Sophie Hahn",
+          "outcome": "referred, deprioritized",
+          "vote": "n/a",
+          "number": "DMND0004059",
+          "note": "verified. 2026 RRV rank 35 of 39 — functionally shelved. Would prohibit right turns on red in commercial districts, on high-injury corridors, and/or citywide; $135,000 was referred to the November 2022 Annual Appropriations Ordinance.",
+          "url": "https://berkeleyca.gov/sites/default/files/2026-02/2026-02-10%20Special%20Item%2001%202026%20City%20Council%20Referral.pdf"
+        },
+        {
+          "name": "Consideration of Expansion of Paid Parking to Support the Parking Meter Fund",
+          "date": "2021-12-14",
+          "sponsors": "Sophie Hahn, Kate Harrison, Terry Taplin, Rigel Robinson",
+          "outcome": "referred, deprioritized",
+          "vote": "n/a",
+          "number": "DMND0003994",
+          "note": "verified. 2026 RRV rank 33 of 39. Would extend paid metered parking to all days of the week, with a possible pilot and phase-in, and direct surplus revenue to pedestrian and bicycle facilities once the Parking Meter Fund recovers from COVID losses.",
+          "url": "https://berkeleyca.gov/sites/default/files/2026-02/2026-02-10%20Special%20Item%2001%202026%20City%20Council%20Referral.pdf"
+        },
+        {
+          "name": "Regulation of Autonomous Vehicles referral to the City Attorney",
+          "date": "2022-10-11",
+          "sponsors": "Terry Taplin, Kate Harrison (plus co-sponsors truncated)",
+          "outcome": "referred, deprioritized",
+          "vote": "n/a",
+          "number": "DMND0004054",
+          "note": "verified. 2026 RRV rank 31.",
+          "url": "https://berkeleyca.gov/sites/default/files/2026-02/2026-02-10%20Special%20Item%2001%202026%20City%20Council%20Referral.pdf"
+        },
+        {
+          "name": "Prioritizing Pedestrians at (intersections) — referral to City Manager and Transportation Commission",
+          "date": "2017-05-16",
+          "sponsors": "Lori Droste, Susan Wengraf",
+          "outcome": "referred, still outstanding after nine years",
+          "vote": "n/a",
+          "number": "DMND0002584",
+          "note": "verified. 2026 RRV rank 22. Oldest surviving referral on the list — a useful illustration that referrals without funding do not complete.",
+          "url": "https://berkeleyca.gov/sites/default/files/2026-02/2026-02-10%20Special%20Item%2001%202026%20City%20Council%20Referral.pdf"
+        },
+        {
+          "name": "San Pablo Avenue Corridor Projects (safety and transit improvements)",
+          "date": "Spring 2025 (project phase)",
+          "sponsors": "City Manager / Public Works, multi-agency",
+          "outcome": "in implementation",
+          "vote": "n/a",
+          "number": "n/a",
+          "note": "verified that the project is underway as of spring 2025. Specific Council actions and dates not captured in this pass.",
+          "url": "https://berkeleyca.gov/construction-development/land-use-development/general-plan-and-area-plans/corridors-zoning-update"
+        },
+        {
+          "name": "Notifying Residents of Upcoming Public Works Projects",
+          "date": "2025-12-02",
+          "sponsors": "Brent Blackaby, Igor Tregub",
+          "outcome": "referred",
+          "vote": "n/a",
+          "number": "DMND0004236",
+          "note": "verified. 2026 RRV rank 9.",
+          "url": "https://berkeleyca.gov/sites/default/files/2026-02/2026-02-10%20Special%20Item%2001%202026%20City%20Council%20Referral.pdf"
+        }
+      ]
+    },
+    "labor": {
+      "items": [
+        {
+          "name": "Wage Theft Prevention Ordinance (BMC Chapter 13.104)",
+          "date": "adopted 2016 — predates the 2021-2026 window",
+          "sponsors": "Councilmember Laurie Capitelli (author), co-sponsored by a majority of Council",
+          "outcome": "adopted",
+          "vote": "not captured",
+          "number": "BMC Ch. 13.104",
+          "note": "verified as existing law. Requires developers and builders to certify that all contractors on large projects have complied with state wage and hour laws as a condition of receiving a certificate of occupancy. Described at adoption as first-of-its-kind. NO 2021-2026 amendment or enforcement-funding increase was found — enforcement funding is a genuine gap, not a settled question.",
+          "url": "https://berkeley.municipal.codes/BMC/13.104"
+        },
+        {
+          "name": "Construction workforce standards on private development ≥50,000 sq ft (healthcare expenditure + state-accredited apprenticeship)",
+          "date": "ongoing; Healthcare Expenditure Rate effective 2026-01-01",
+          "sponsors": "City program (Workforce Standards and Enforcement)",
+          "outcome": "adopted / in force",
+          "vote": "n/a",
+          "number": "n/a",
+          "note": "verified. Rate effective Jan 1, 2026: $5.07 per worker per hour into a health plan or HSA, or $7.61 per hour as cash-in-lieu. Contractors may use a Community Benefits Agreement Exception or a Collective Bargaining Agreement Exception. This is Berkeley's functional equivalent of a community workforce agreement for private projects — a PLA proposal should be framed against it, not as if nothing exists.",
+          "url": "https://berkeleyca.gov/doing-business/operating-berkeley/workforce-standards-and-enforcement"
+        },
+        {
+          "name": "Berkeley Green New Deal: Workforce — feasibility analysis and recommendations",
+          "date": "2025-07-29",
+          "sponsors": "Terry Taplin, Cecilia Lunaparra",
+          "outcome": "referred",
+          "vote": "n/a",
+          "number": "DMND0004218",
+          "note": "verified. 2026 RRV rank 25, assigned to the City Manager's Office. The main live green-jobs / workforce referral.",
+          "url": "https://berkeleyca.gov/sites/default/files/2026-02/2026-02-10%20Special%20Item%2001%202026%20City%20Council%20Referral.pdf"
+        },
+        {
+          "name": "FY2027–FY2028 biennial budget — layoffs and service cuts to close a ~$30 million deficit",
+          "date": "2026-06-24",
+          "sponsors": "City Manager, adopted by Council",
+          "outcome": "adopted",
+          "vote": "not captured",
+          "number": "Resolution No. 72,340-N.S.",
+          "note": "verified. Projected deficits $29.2M (FY27) and $29.5M (FY28). Closed largely by service cuts, layoffs, and a sales tax measure. Fire department jobs spared for now; one fire station closure was contemplated. Office of the Director of Police Accountability staffing cut from 6.00 to 4.00 FTE, eliminating an analyst and an investigator already frozen in June 2025. This is the defining city-workforce action of the period.",
+          "url": "https://www.berkeleyside.org/2026/06/24/berkeley-budget-sales-tax-firefighters"
+        },
+        {
+          "name": "Minimum wage ordinance amendments (BMC 13.99.040)",
+          "date": "no 2021-2026 amendment identified",
+          "sponsors": "n/a",
+          "outcome": "unresolved",
+          "vote": "n/a",
+          "number": "BMC 13.99.040; Ordinance No. 7,505-N.S. (2016 era)",
+          "note": "UNRESOLVED. Berkeley's minimum wage is indexed and adjusts automatically; no discretionary Council amendment in the 2021-2026 window was found in this pass. Verify before claiming Council has or has not acted.",
+          "url": "https://berkeley.municipal.codes/BMC/13.99.040"
+        },
+        {
+          "name": "Contracting-out / anti-privatization policy for city services",
+          "date": "n/a",
+          "sponsors": "n/a",
+          "outcome": "unresolved",
+          "vote": "n/a",
+          "number": "n/a",
+          "note": "UNRESOLVED — no Berkeley contracting-out or anti-privatization policy item found in this pass. This was the weakest-covered topic. Recommend a targeted follow-up search of Council agendas and SEIU 1021 / Berkeley labor coalition materials, especially around the FY27 budget layoffs.",
+          "url": "https://berkeleyca.gov/doing-business/operating-berkeley/workforce-standards-and-enforcement"
+        },
+        {
+          "name": "Recommendations for the Formulation of Advanced Fiscal Policies",
+          "date": "2025-11-18",
+          "sponsors": "Terry Taplin",
+          "outcome": "referred, with a Qualified Positive Recommendation from the policy committee",
+          "vote": "Policy Committee sent to Council with a Qualified Positive Recommendation",
+          "number": "DMND0004232",
+          "note": "verified. 2026 RRV rank 2 — one of the highest-priority referrals. Finance Department. Relevant to staffing and structural budget questions.",
+          "url": "https://berkeleyca.gov/sites/default/files/2026-02/2026-02-10%20Special%20Item%2001%202026%20City%20Council%20Referral.pdf"
+        }
+      ]
+    },
+    "revenue": {
+      "items": [
+        {
+          "name": "Measure M — Vacancy Tax / Empty Homes Tax (residential)",
+          "date": "Placed on the ballot August 2022; passed November 8, 2022; effective January 1, 2024",
+          "sponsors": "Councilmember Kate Harrison (proponent)",
+          "outcome": "adopted",
+          "vote": "Ballot placement carried by a single vote — ayes included Arreguin, Harrison, Bartlett, Robinson, Hahn; Kesarwani and Taplin ABSTAINED, citing inability to take input on late changes",
+          "number": "Measure M; BMC Chapter 7.54",
+          "note": "VERIFIED, AND IT CORRECTS THE PREMISE: Berkeley's enacted vacancy tax is RESIDENTIAL, not commercial. $3,000 per unit for the first vacant calendar year, $6,000 for the second and subsequent; applies to units vacant more than 182 days (consecutive or not); projected $4-6 million/year; sunsets December 31, 2035 unless extended. Exempts non-profits and owner-occupied properties of 4 or fewer units where the owner owns no other Berkeley residential property.",
+          "url": "https://www.berkeleyside.org/2022/10/23/election-2022-measure-m-berkeleys-vacancy-tax"
+        },
+        {
+          "name": "Amending BMC Chapter 7.54 (the Empty Homes Tax)",
+          "date": "2025-10-28",
+          "sponsors": "not captured",
+          "outcome": "unresolved",
+          "vote": "not captured",
+          "number": "Item 03",
+          "note": "PARTIALLY VERIFIED — the item exists on the October 28, 2025 agenda but its content and outcome were not confirmed. Likely an implementation or exemption cleanup. Read before proposing changes to the vacancy tax.",
+          "url": "https://berkeleyca.gov/sites/default/files/documents/2025-10-28%20Item%2003%20Amending%20Berkeley%20Municipal%20Code%20Chapter%207.54.pdf"
+        },
+        {
+          "name": "Commercial vacancy tax",
+          "date": "Explored February 2018; not enacted. Related: 'Vibrant Storefront Policy' referral, 2025-12-02 Item 33",
+          "sponsors": "2025 referral to the City Manager and City Attorney; sponsors not captured",
+          "outcome": "referred, never completed",
+          "vote": "n/a",
+          "number": "Item 33 (2025-12-02)",
+          "note": "USER'S PREMISE LARGELY CONFIRMED, with a correction: a commercial vacancy tax was floated in 2018 and again around the 2022 measure, but what Council actually enacted (Measure M) covers RESIDENTIAL units only. The live successor is the Vibrant Storefront Policy referral of December 2, 2025, which is a policy referral rather than a tax. Commercial vacancies remain above pre-pandemic levels in South Berkeley, San Pablo and University Avenue corridors, and Downtown. A commercial vacancy tax proposal is genuinely un-tried in Berkeley.",
+          "url": "https://berkeleyca.gov/sites/default/files/documents/2025-12-02%20Item%2033%20Referral%20to%20the%20City%20Manager%20and%20City.pdf"
+        },
+        {
+          "name": "Referral to study the fiscal impacts and feasibility of a (real property) transfer tax change",
+          "date": "2025-03-11",
+          "sponsors": "Igor Tregub, Ben Bartlett",
+          "outcome": "referred",
+          "vote": "n/a",
+          "number": "DMND0004204",
+          "note": "verified. 2026 RRV rank 10 — a live, reasonably high-priority progressive revenue referral assigned to Health, Housing & Community Services. The most promising surviving progressive revenue vehicle on the list.",
+          "url": "https://berkeleyca.gov/sites/default/files/2026-02/2026-02-10%20Special%20Item%2001%202026%20City%20Council%20Referral.pdf"
+        },
+        {
+          "name": "Measure U1 — gross receipts tax on large residential rental income",
+          "date": "adopted 2016; forecast and appropriation ongoing (FY2026 Mid-Biennial Budget Update, 2025-05-22)",
+          "sponsors": "Council-placed",
+          "outcome": "adopted / ongoing",
+          "vote": "n/a",
+          "number": "Measure U1",
+          "note": "verified. Council appropriates the revenue; the forecast's Anti-Displacement lines fund Rent Board legal services (EDC & EBCLC, $550,000/yr) and the Eviction Defense Center ($250,000/yr). U1 was also used in the FY27 budget to preserve BOSS Step Up Housing off the General Fund. U1 allocation is a real lever a councilmember controls.",
+          "url": "https://berkeleyca.gov/sites/default/files/legislative-body-meeting-attachments/2025-05-22%20Item%2002%20Supplemental%20Material%20-%20Fiscal%20Year%202026%20Mid-Biennial%20Budget%20Update%20(Measure%20U1%20Forecast).pdf"
+        },
+        {
+          "name": "Measure P — real property transfer tax for homeless services",
+          "date": "2018-11 (passed 72.4%)",
+          "sponsors": "Council-placed",
+          "outcome": "adopted",
+          "vote": "72.4%",
+          "number": "Measure P",
+          "note": "verified. ~$11 million/year average, highly volatile. See homelessness topic for spending detail.",
+          "url": "https://berkeleyca.gov/sites/default/files/documents/2025-03-28%20Measure%20P%20and%20Impact%20on%20Homeless%20Services%20in%20Berkeley.pdf"
+        },
+        {
+          "name": "November 3, 2026 ballot — Measure U, General Obligation Bond for Public Infrastructure and Facilities",
+          "date": "Discussed 2025-12-02 (Special Item 02, potential ballot measures); election called 2026-04-21 (Item 01)",
+          "sponsors": "City Council-placed",
+          "outcome": "pending — before voters",
+          "vote": "not captured",
+          "number": "Measure U",
+          "note": "verified as Council-placed. Council discussed a bond of up to $300 million; the predecessor $650 million infrastructure bond (November 2022) FAILED, which is why the 2026 version was scaled down. Individual councilmember sponsors of the 2026 placement were NOT identified in this pass.",
+          "url": "https://berkeleyca.gov/your-government/elections/ballot-measures"
+        },
+        {
+          "name": "November 3, 2026 ballot — Measure V, Transactions and Use (Sales) General Tax",
+          "date": "placed for 2026-11-03",
+          "sponsors": "City Council-placed",
+          "outcome": "pending — before voters",
+          "vote": "not captured",
+          "number": "Measure V",
+          "note": "verified as Council-placed. This is the sales tax increase relied on in the FY27/FY28 budget to help close the ~$30 million deficit. Individual sponsors not identified.",
+          "url": "https://berkeleyca.gov/your-government/elections/ballot-measures"
+        },
+        {
+          "name": "November 3, 2026 ballot — Measure W, Charter Amendment to Amend Multiple Administrative Provisions",
+          "date": "placed for 2026-11-03",
+          "sponsors": "City Council-placed",
+          "outcome": "pending — before voters",
+          "vote": "not captured",
+          "number": "Measure W",
+          "note": "verified as Council-placed. Reported to include election procedure changes: reducing council candidate filing fees from $150 to $25, eliminating the signatures-in-lieu-of-fee option, and removing the requirement that candidates list place of residence, birthplace and taxpayer status. NOTE: this is Berkeley's 2026 Measure W — do not confuse it with Alameda County's 2020 Measure W sales tax.",
+          "url": "https://berkeleyca.gov/your-government/elections/ballot-measures"
+        },
+        {
+          "name": "November 3, 2026 ballot — Measures Y (arts parcel tax), Z (public bank parcel tax), AA (sugar-sweetened beverage tax increase)",
+          "date": "qualified 2026; Measure Y signatures announced 2026-05-15",
+          "sponsors": "CITIZEN INITIATIVES, not Council-sponsored",
+          "outcome": "pending — before voters",
+          "vote": "n/a — qualified by signature",
+          "number": "Measures Y, Z, AA",
+          "note": "verified as citizen initiatives. Measure Y (Berkeley Arts Coalition): 75% of funds to nonprofit performing arts grants, remainder to civic arts grants, arts infrastructure and community festivals. Measure AA would roughly double the existing soda tax. Important distinction: a candidate should not describe these as Council proposals.",
+          "url": "https://www.berkeleyside.org/2026/07/24/berkeley-election-2026-ballot-measures-public-bank-soda-tax"
+        },
+        {
+          "name": "Measure FF — parcel tax for sidewalks and streets",
+          "date": "2024-11",
+          "sponsors": "Council-placed",
+          "outcome": "adopted",
+          "vote": "passed",
+          "number": "Measure FF",
+          "note": "verified. See transit_streets.",
+          "url": "https://www.berkeleyscanner.com/2025/10/14/traffic-safety/berkeley-measure-ff-safe-streets-whats-happening/"
+        }
+      ]
+    },
+    "sanctuary": {
+      "items": [
+        {
+          "name": "Resolution Reaffirming Berkeley as a Sanctuary City",
+          "date": "2025-01-21 (Consent Calendar Item 27)",
+          "sponsors": "Councilmember Brent Blackaby (author); Mayor Adena Ishii, Councilmember Cecilia Lunaparra, Councilmember Terry Taplin (co-sponsors)",
+          "outcome": "adopted",
+          "vote": "Consent Calendar",
+          "number": "Item 27",
+          "note": "VERIFIED from the item text. Three parts: (1) reaffirm sanctuary status and direct the City Clerk to notify every Department Director; (2) refer to the City Attorney to explore pledging City legal support to help 'sensitive sites' defend against civil litigation; (3) the Mayor creates a taskforce of councilmembers, CBOs, immigration and civil rights organizations, faith leaders, legal experts, school and university officials and activists to assess threats and CODIFY sanctuary protections through a city ordinance. That taskforce directly produced the September 2025 ordinance.",
+          "url": "https://berkeleyca.gov/sites/default/files/documents/2025-01-21%20Item%2027%20Reaffirming%20Berkeley%20as%20a%20Sanctuary%20City.pdf"
+        },
+        {
+          "name": "Sanctuary City Ordinance — codifying sanctuary protections into the Municipal Code",
+          "date": "2025-09-09 (Item 25, Council Referral); adopted September 2025",
+          "sponsors": "Grew out of the Blackaby/Ishii/Lunaparra/Taplin January 2025 referral and the Mayor's taskforce",
+          "outcome": "adopted",
+          "vote": "UNANIMOUS",
+          "number": "Item 25 (2025-09-09)",
+          "note": "VERIFIED. Prohibits city departments and staff from responding to or sharing information with ICE without a JUDICIAL warrant; requires city departments to report any contracts with federal officials; defines 'protected personal information'; clarifies that city policy applies equally in all settings including schools, hospitals and places of worship. Adopted over explicit Trump administration pressure. Berkeley's sanctuary policy is now codified — 'make Berkeley a sanctuary city' is not an available proposal.",
+          "url": "https://berkeleyca.gov/sites/default/files/documents/2025-09-09%20Item%2025%20Proposed%20Sanctuary%20City%20Ordinance.pdf"
+        },
+        {
+          "name": "City property inventory — keeping federal immigration agents off City-owned property",
+          "date": "2025-10-28 (reported 2025-10-29)",
+          "sponsors": "not captured",
+          "outcome": "adopted (direction to staff)",
+          "vote": "not captured",
+          "number": "not captured",
+          "note": "VERIFIED in substance. Council ordered staff to inventory all property the City owns — parks, parking lots and the like — and to tighten rules on who may use it and how, with the objective of preventing ICE and other federal agencies from co-opting City-owned locations for deportation operations. Sponsor names and vote count were NOT captured — worth a targeted follow-up.",
+          "url": "https://www.berkeleyside.org/2025/10/29/berkeley-property-inventory-ban-immigration-agents"
+        },
+        {
+          "name": "Sanctuary City Contracting Ordinance Updates",
+          "date": "2025-11-18 (Item 27)",
+          "sponsors": "not captured",
+          "outcome": "unresolved",
+          "vote": "not captured",
+          "number": "Item 27",
+          "note": "PARTIALLY VERIFIED — the item exists; content and outcome not confirmed. Appears to extend sanctuary requirements into City contracting/procurement, following the September ordinance's federal-contract reporting requirement.",
+          "url": "https://berkeleyca.gov/sites/default/files/documents/2025-11-18%20Item%2027%20Sanctuary%20City%20Contracting%20Ordinance%20Updates.pdf"
+        },
+        {
+          "name": "Flock Safety automated license plate reader contract — renewal and expansion package",
+          "date": "2026-05-07 (Special Meeting)",
+          "sponsors": "City Manager / BPD proposal; Peace and Justice Commission recommended cancellation",
+          "outcome": "adopted in part — expansion rejected, ALPR extended",
+          "vote": "MOTION SEVERED. Declining to execute the full agreement carried 8-1. The twelve-month ALPR extension up to $200,000 carried 5-4 — AYES Kesarwani, Taplin, O'Keefe, Blackaby, Humbert; NOES Bartlett, Tregub, Lunaparra, Ishii. The Peace and Justice Commission's recommendation to cancel received NO ACTION.",
+          "number": "Resolution No. 72,254-N.S.",
+          "note": "VERIFIED, and the most contested surveillance/immigration vote of the period. Council rejected a roughly $2 million expansion into cameras and drones (proposed package: $1,465,000 committed, up to $2,085,000 with options) but extended the existing ALPR contract 12 months with a negotiated per-violation penalty and a referral for competitive procurement. The 5-4 split is the key vote for endorsement questionnaires.",
+          "url": "https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-05-07%20Annotated%20Agenda%20-%20Council.pdf"
+        },
+        {
+          "name": "Annual Surveillance Technology Report — ICE/CBP appearing in Berkeley's own ALPR audit",
+          "date": "2025-11-10",
+          "sponsors": "City Manager submits; Chief of Police authors; Police Accountability Board Chair responded by letter",
+          "outcome": "information item; drove later Council action",
+          "vote": "n/a",
+          "number": "Report under BMC Chapter 2.99 (Ordinance No. 7,676-N.S.)",
+          "note": "VERIFIED AND HIGHLY LOAD-BEARING for the ALPR/ICE question. BPD's own audit recorded outside agencies entering 'ICE' once and 'CBP' twice in the reason field when searching statewide data that included Berkeley's. BPD declined to conclude a violation occurred but disabled the statewide lookup and tightened sharing. The PAB asked Council to require BPD to name the agencies — this is the origin of the per-violation penalty Council later directed staff to negotiate. Berkeley has 52 fixed Flock readers. Facial recognition is prohibited outright; there is no gunshot detection and no predictive policing authorization; BPD owns no drones.",
+          "url": "https://berkeleyca.gov/sites/default/files/documents/2025-11-10%20Letter%20re%20Annual%20Surveillance%20Technology%20Report_Final%20(wAttachments).pdf"
+        },
+        {
+          "name": "BMC Chapter 2.100 — independent review of BPD's annual equipment report",
+          "date": "2026-01-27",
+          "sponsors": "not captured",
+          "outcome": "adopted",
+          "vote": "not captured",
+          "number": "Ordinance No. 8,001-N.S.",
+          "note": "VERIFIED and strategically useful. Chapter 2.100 requires the Police Accountability Board to agendize BPD's annual equipment report within 60 days and permits a revocation recommendation; if Council does not act within four meetings, BPD must cease using the equipment. By contrast Chapter 2.99, which governs surveillance technology including ALPRs, gives the Board NO role in the annual report. Extending the 2.100 model to 2.99 requires no new framework — it is the cleanest available ALPR-oversight proposal.",
+          "url": "https://berkeley.municipal.codes/BMC/2.100"
+        }
+      ]
+    }
+  },
+  "unverified": [
+    "Sponsors and vote counts for the October 28, 2025 city property inventory / keep-ICE-off-city-property item — the substance is confirmed by Berkeleyside but no sponsor names or roll call were located.",
+    "Individual councilmember sponsors of the four Council-placed November 2026 ballot measures (U bond, V sales tax, W charter amendment, X rent stabilization). The city ballot-measure page lists them as Council-placed but names no sponsors; the April 21, 2026 Item 01 calling the election and the December 2, 2025 Special Item 02 potential-ballot-measures discussion would resolve this.",
+    "The substance of Measure X (Council's own RSO amendments) and its relationship to the competing citizen initiative amending the RSO placed on the same ballot (June 30, 2026 Item 45). These may be competing measures — do not take a position before reading both.",
+    "Contracting-out / anti-privatization policy: NO Berkeley Council item found in the 2021-2026 window. This was the weakest-covered topic in this pass and needs a dedicated search of Council agendas plus SEIU 1021 materials around the FY27 budget layoffs.",
+    "Minimum wage: no discretionary Council amendment identified in 2021-2026 (the ordinance is indexed and self-adjusting). Not confirmed as an absence.",
+    "Wage theft enforcement FUNDING: BMC 13.104 exists, but no budget item increasing or cutting enforcement staffing was located.",
+    "Project labor agreements / community workforce agreements for CITY capital projects: not found. Berkeley's construction workforce standards apply to private development over 50,000 sq ft; whether a PLA policy covers city-let contracts is unresolved.",
+    "The February 2021 resolution declaring intent to end single-family zoning: date, exact sponsors, and resolution number are INFERRED from secondary reporting, not verified against a primary document.",
+    "Vision Zero Action Plan adoption date: the plan document says approved March 10, 2019; secondary reporting says March 2020. Discrepancy unresolved.",
+    "Content and outcome of the October 28, 2025 Item 03 amendment to BMC Chapter 7.54 (Empty Homes Tax).",
+    "Content and outcome of the November 18, 2025 Item 27 Sanctuary City Contracting Ordinance Updates.",
+    "Final ordinance status and vote count for Kesarwani's abandoned-RV towing proposal (reported September 2025).",
+    "Whether Berkeley ever opted in to SB 10 by local ordinance — no evidence found, treated as never taken up.",
+    "Whether Berkeley has a rent registry ordinance distinct from the Rent Board's existing mandatory unit registration system.",
+    "Outcome of the April 14, 2026 local density bonus referral (Kesarwani/Tregub/Ishii) after referral.",
+    "Vote counts are missing for most items. The Annotated Agenda PDFs at berkeleyca.gov/sites/default/files/city-council-meetings/[DATE]%20Annotated%20Agenda%20-%20Council.pdf carry roll calls and resolution numbers and are the right source for any specific vote a questionnaire turns on.",
+    "The 14 referrals Council REMOVED from the list on January 27, 2026 are not enumerated in the February 10 staff report. That removal list is the single highest-value missing document — it is literally the register of what Council killed, and it should be requested from the City Clerk."
+  ]
+}

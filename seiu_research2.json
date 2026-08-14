@@ -1,0 +1,626 @@
+{
+  "_meta": {
+    "candidate": "Daria Wrubel, Berkeley City Council District 1, Nov 3 2026",
+    "purpose": "SEIU 1021 Cities questionnaire — Berkeley/Alameda County factual flags",
+    "compiled": "2026-08-11",
+    "scope_note": "Breadth pass, one search per topic. Facts marked confirmed were seen in at least one named source; 'inferred' means reasoned from confirmed facts, not directly sourced. Nothing here is suggested copy or strategy."
+  },
+  "topics": {
+    "budget": {
+      "verification": [
+        {
+          "claim": "Berkeley has a structural General Fund deficit, projected roughly $29-30M per year in FY2027 and FY2028",
+          "result": "confirmed",
+          "source": "City of Berkeley proposed FY2027-FY2028 biennial budget; Berkeleyside 2026-04-15; Berkeley Scanner 2026-05-19",
+          "date": "2026-04 to 2026-06",
+          "note": "Commonly cited as '$30 million.' More precise figures reported: ~$29.2M in FY27, ~$29.5M in FY28. The deficit predates the pandemic and had been papered over with one-time fixes for several years."
+        },
+        {
+          "claim": "Council adopted the FY2027-FY2028 biennial budget on June 23, 2026",
+          "result": "confirmed",
+          "source": "berkeleyca.gov budget timeline; Berkeley Scanner 2026-06-25; Berkeleyside 2026-06-24",
+          "date": "2026-06-23",
+          "note": "Berkeley Scanner headline says the vote was unanimous. Some coverage dates it June 24 (reporting the night of the meeting)."
+        },
+        {
+          "claim": "The adopted budget includes layoffs of filled positions",
+          "result": "confirmed",
+          "source": "Berkeleyside 2026-06-24; Berkeley Scanner 2026-06-25",
+          "date": "2026-06",
+          "note": "City Manager's PROPOSAL was 38 layoffs of filled positions plus ~100 vacant positions eliminated (138 total out of ~1,600 employees). What was ADOPTED reduced layoffs to about 20 filled positions, with more than 100 vacant roles eliminated; fire department jobs were spared. City said it was trying to place some laid-off workers into funded vacancies. Do not conflate 38 (proposed) with 20 (adopted) — this is the single easiest number to get wrong."
+        },
+        {
+          "claim": "SEIU 1021 members were directly hit by the adopted layoffs",
+          "result": "confirmed",
+          "source": "Berkeleyside 2026-06-24 (via search summary)",
+          "date": "2026-06",
+          "note": "Reported that six workers in one SEIU 1021 unit were slated to lose jobs. Total per-unit breakdown unresolved."
+        },
+        {
+          "claim": "Berkeley previously adopted a hiring freeze",
+          "result": "confirmed",
+          "source": "Berkeley Scanner 2026-04-25 (reported April 2025 action, '$27M deficit looming')",
+          "date": "2025-04",
+          "note": "Hiring freeze adopted in spring 2025 ahead of the FY26 budget; ~45 vacant positions eliminated in the prior budget cycle; ~42 vacant positions frozen in the FY26 budget."
+        },
+        {
+          "claim": "Council was told it has run out of vacancies to freeze",
+          "result": "confirmed",
+          "source": "Daily Californian, June 2025 FY2026 budget coverage",
+          "date": "2025-06",
+          "note": "Councilmember Terry Taplin quoted saying the next step is layoffs. This 2025 statement was borne out by the 2026 budget."
+        },
+        {
+          "claim": "The FY2026 budget (adopted June 2025) totaled $829M with a $28.9M structural deficit",
+          "result": "confirmed",
+          "source": "Daily Californian",
+          "date": "2025-06",
+          "note": "This is the PRIOR cycle, not the current one. Search results frequently surface this article for '2026 budget' queries. FY2026 balancing used one-time moves: ~$6.1M redirected to General Fund, $3M drawn from the pension trust, $2.5M reallocated from the Small Sites affordable housing program, ~42 vacant positions frozen. BPD received roughly $17M more than the prior year."
+        },
+        {
+          "claim": "The two-year budget plan is contingent on a November 2026 sales tax measure",
+          "result": "confirmed",
+          "source": "berkeleyca.gov; Berkeleyside 2026-06-17 and 2026-06-24",
+          "date": "2026-06",
+          "note": "Additional staffing cuts were deferred pending voter approval of a 0.5% city sales tax (~$9M/yr). If it fails, further cuts are the stated fallback. This is the direct budget-to-ballot link an SEIU panel will care about."
+        },
+        {
+          "claim": "Specific safety-net services were eliminated, not just positions",
+          "result": "confirmed",
+          "source": "Berkeleyside 2026-07-06; Daily Californian",
+          "date": "2026-07",
+          "note": "Mobile Crisis Team (operating alongside BPD since 1979, possibly the first such unit in the nation) shut down July 2026; Berkeley Winter Shelter (25 beds, run by nonprofit Dorothy Day House) eliminated; STAIR Center funding cut. Crisis response function shifted to Alameda County, whose capacity is itself uncertain."
+        }
+      ],
+      "quotes": [
+        {
+          "text": "We are now out of positions to freeze. The next step is layoffs.",
+          "source": "Councilmember Terry Taplin, Daily Californian, FY2026 budget adoption",
+          "url": "https://www.dailycal.org/news/city/city-council-approves-829m-budget-amid-structural-deficit/article_def5f03d-63cf-47f3-9130-193fc42068a1.html",
+          "date": "2025-06"
+        },
+        {
+          "text": "These are band-aids, not solutions. We can't keep relying on them year after year.",
+          "source": "Councilmember Igor Tregub, on redirecting Measure U1 funds, Daily Californian",
+          "url": "https://www.dailycal.org/news/city/city-council-approves-829m-budget-amid-structural-deficit/article_def5f03d-63cf-47f3-9130-193fc42068a1.html",
+          "date": "2025-06"
+        },
+        {
+          "text": "These cuts are painful, and the goal of the proposed plan is to guide the City towards a sound, smart, and stable path.",
+          "source": "City Manager Paul Buddenhagen, City of Berkeley news release on the proposed FY27-28 budget",
+          "url": "https://berkeleyca.gov/community-recreation/news/proposed-budget-looks-stabilize-city-finances",
+          "date": "2026-05"
+        }
+      ],
+      "sources": [
+        {"label": "Proposed FY2027 & FY2028 Biennial Budget (Council Item 21, 5/19/2026)", "url": "https://berkeleyca.gov/sites/default/files/2026-05/2026-05-19%20Item%2021%20Proposed%20FY%202027%20and%20FY%202028.pdf"},
+        {"label": "City of Berkeley — Proposed budget looks to stabilize City finances", "url": "https://berkeleyca.gov/community-recreation/news/proposed-budget-looks-stabilize-city-finances"},
+        {"label": "Budget & Finance Cttee, Mayor Ishii FY27-FY28 budget recommendations (6/11/2026)", "url": "https://berkeleyca.gov/sites/default/files/legislative-body-meeting-attachments/Item%2002%20Budget%20and%20Finance_%20Mayor%20Ishii%20FY27-FY28%20Buget%20Reccomendations.docx_.pdf"},
+        {"label": "Berkeleyside — Berkeley approves budget with cuts and layoffs (6/24/2026)", "url": "https://www.berkeleyside.org/2026/06/24/berkeley-budget-sales-tax-firefighters"},
+        {"label": "Berkeleyside — Layoffs, service cuts, sales tax hike (4/15/2026)", "url": "https://www.berkeleyside.org/2026/04/15/berkeley-budget-deficit-sales-tax-layoffs"},
+        {"label": "Berkeley Scanner — Berkeley approves balanced budget with unanimous vote (6/25/2026)", "url": "https://www.berkeleyscanner.com/2026/06/25/community/berkeley-approves-balanced-budget-unanimous-vote/"},
+        {"label": "Berkeley Scanner — Berkeley budget plan: 138 positions slated for cuts (4/15/2026)", "url": "https://www.berkeleyscanner.com/2026/04/15/community/berkeley-budget-plan-138-positions-slated-for-cuts/"},
+        {"label": "Berkeleyside — Berkeley slashes 2 safety net programs (7/6/2026)", "url": "https://www.berkeleyside.org/2026/07/06/mobile-crisis-team-berkeley-winter-shelter-closures"},
+        {"label": "Berkeley Scanner — With $27M deficit looming, Berkeley adopts hiring freeze", "url": "https://www.berkeleyscanner.com/2025/04/25/community/berkeley-hiring-freeze-27-million-deficit/"},
+        {"label": "Daily Cal — City Council approves $829M budget amid structural deficit", "url": "https://www.dailycal.org/news/city/city-council-approves-829m-budget-amid-structural-deficit/article_def5f03d-63cf-47f3-9130-193fc42068a1.html"}
+      ]
+    },
+    "seiu_chapter": {
+      "verification": [
+        {
+          "claim": "SEIU 1021 represents three City of Berkeley bargaining units: Maintenance, Clerical, and Community Services Unit (CSU) / Part-Time Recreation Leaders Association (PTRLA)",
+          "result": "confirmed",
+          "source": "seiu1021.org/city-berkeley; berkeleyca.gov union agreements page",
+          "date": "2026-08",
+          "note": "The city's posted MOUs include an SEIU CSU MOU and an SEIU 'Paraprofessional' MOU, so the unit naming on city documents may not match SEIU's chapter naming exactly. Berkeley's other unions include the Berkeley Police Association, Berkeley Fire Fighters Association, Public Employees Union Local 1 (professional/technical), and IBEW/Local 1245-type units — verify the full roster before asserting SEIU is the largest."
+        },
+        {
+          "claim": "The current SEIU 1021 City of Berkeley contracts run 2024-2027 and expire in late June 2027",
+          "result": "confirmed",
+          "source": "seiu1021.org; City Council Item 26, 6/25/2024 MOU report",
+          "date": "2024-06 to 2027-06",
+          "note": "Council report states the prior contract expired June 26, 2024. Maintenance/Clerical term reported as June 27, 2024 to June 23, 2027; SEIU's own page gives June 26, 2027. Treat as 'expires June 2027' unless the exact day matters. Practical implication: the next council term begins with a full citywide SEIU contract fight already on the calendar, in the middle of a structural deficit."
+        },
+        {
+          "claim": "Wage terms of the 2024-2027 contracts",
+          "result": "confirmed",
+          "source": "seiu1021.org chapter posts",
+          "date": "2024",
+          "note": "Maintenance/Clerical: 4% COLA July 2025, 2.5% July 2026, 2% January 2027. CSU/PTRLA: 14.5% over 3 years — 6% at ratification, 4% July 2025, 2.5% July 2026, 2% January 2027. CSU/PTRLA also won Juneteenth and Cesar Chavez Day as paid holidays and vision benefits."
+        },
+        {
+          "claim": "SEIU 1021 city workers took a strike authorization vote and noticed a citywide strike in 2024",
+          "result": "confirmed",
+          "source": "seiu1021.org ('Berkeley City Workers Overwhelmingly Vote To Authorize A Strike By 99%', 'City of Berkeley Workers to Strike Citywide'); Daily Cal, Nov 2024",
+          "date": "2024-11",
+          "note": "99% strike authorization; notice of intent to strike Wednesday Nov 20 and Thursday Nov 21, 2024 over unfair labor practices. Strike was averted — CSU/PTRLA reached a tentative agreement just before the strike date and ratified it by 93%. Berkeley Day Camp workers did strike for two days in August 2024 over compensation and recruitment practices. So: a real, recent, near-miss citywide strike, plus one actual work stoppage."
+        },
+        {
+          "claim": "SEIU 1021 publicly opposed the June 2026 Berkeley budget",
+          "result": "confirmed",
+          "source": "Berkeleyside 2026-06-24",
+          "date": "2026-06",
+          "note": "Thomas Gregory, an ADA coordinator for the city speaking for SEIU 1021, called the budget a flawed 'austerity plan.' Reported that ~250 SEIU 1021 workers rallied outside the council meeting on June 25. This is the most load-bearing fact for the questionnaire: the union is on record against the budget every sitting councilmember voted for."
+        },
+        {
+          "claim": "SEIU 1021 represents BUSD classified staff",
+          "result": "refuted",
+          "source": "bcce6192.org; CFT (cft.org) local union listing; FPPC enforcement record",
+          "date": "2026-08",
+          "note": "BUSD classified employees are represented by the Berkeley Council of Classified Employees, AFT Local 6192 (BCCE) — roughly 600 employees in nearly 100 classifications including clerical, special education instructional assistants, and bus drivers. Affiliated with CFT/AFT, not SEIU. This is the candidate's own former local. Historically BUSD classified workers were split between two unions before a majority petitioned for BCCE representation. SEIU 1021 does represent classified staff at OTHER districts (e.g., SFUSD), which is likely the source of the confusion."
+        }
+      ],
+      "quotes": [
+        {
+          "text": "austerity plan",
+          "source": "Thomas Gregory, City ADA coordinator, speaking on behalf of SEIU Local 1021, on the FY27-28 budget",
+          "url": "https://www.berkeleyside.org/2026/06/24/berkeley-budget-sales-tax-firefighters",
+          "date": "2026-06-24"
+        },
+        {
+          "text": "our best contract in 20 years",
+          "source": "SEIU 1021 Maintenance Chapter President, on the 2024-2027 agreement",
+          "url": "https://www.seiu1021.org/post/city-berkeley-clerical-and-maintenance-workers-stick-together-and-win-strong-contract",
+          "date": "2024"
+        }
+      ],
+      "sources": [
+        {"label": "SEIU 1021 — City of Berkeley chapter page", "url": "https://www.seiu1021.org/city-berkeley"},
+        {"label": "Berkeley SEIU 1021 (local chapter site)", "url": "https://berkeleyseiu1021.org/"},
+        {"label": "Berkeley SEIU 1021 — 2024 Contract Bargaining", "url": "https://berkeleyseiu1021.org/2024-bargaining/"},
+        {"label": "SEIU 1021 — Clerical & Maintenance ratify (71% yes)", "url": "https://www.seiu1021.org/article/overwhelming-supermajority-71-yes-votes-city-berkeleys-clerical-and-maintenance-chapters"},
+        {"label": "SEIU 1021 — 99% strike authorization vote", "url": "https://www.seiu1021.org/post/berkeley-city-workers-overwhelmingly-vote-authorize-strike-99"},
+        {"label": "SEIU 1021 — City of Berkeley Workers to Strike Citywide", "url": "https://www.seiu1021.org/article/city-berkeley-workers-strike-citywide"},
+        {"label": "City of Berkeley — Union Agreements and Employee Manuals", "url": "https://berkeleyca.gov/your-government/jobs/union-agreements-and-employee-manuals"},
+        {"label": "SEIU Maintenance & Clerical MOU (Council Item 26, 6/25/2024)", "url": "https://berkeleyca.gov/sites/default/files/documents/2024-06-25%20Item%2026%20Memorandum%20of%20Understanding%20%20SEIU.pdf"},
+        {"label": "SEIU CSU Local 1021 MOU", "url": "https://berkeleyca.gov/sites/default/files/documents/SEIU-CSU-Local1021-MOU.pdf"},
+        {"label": "BCCE / AFT Local 6192 (BUSD classified)", "url": "https://www.bcce6192.org/about-us"},
+        {"label": "CFT — Berkeley workers succeed in quest for AFT representation", "url": "https://www.cft.org/california-teacher/berkeley-workers-succeed-quest-aft-representation"},
+        {"label": "Berkeleyside — SEIU Local 1021 tag archive", "url": "https://www.berkeleyside.org/tag/seiu-local-1021"}
+      ]
+    },
+    "contracting_out": {
+      "verification": [
+        {
+          "claim": "The SEIU 1021 City of Berkeley MOU contains a contracting-out article",
+          "result": "unresolved",
+          "source": "Search result snippet referencing 'Section 11 — Contracting Out' in the City of Berkeley / SEIU MOU",
+          "date": "2024",
+          "note": "The section heading was surfaced in search results but the MOU PDF would not yield extractable text in this pass (the posted Council item PDF appears to be image-scanned). The exact language — notice period, meet-and-confer trigger, displacement protections, cost-comparison requirement — was NOT read. Do not quote or characterize the provision without pulling the MOU directly."
+        },
+        {
+          "claim": "Berkeley has a standalone adopted ordinance or council policy governing contracting out of city services",
+          "result": "unresolved",
+          "source": "No ordinance located in one search pass",
+          "date": "2026-08",
+          "note": "Berkeley does have adopted labor-standards policies that touch contractors — Living Wage Ordinance (BMC 13.27) and Equal Benefits Ordinance apply to city contractors — but those regulate contractor pay, not the decision to contract out. Whether Berkeley has a displacement/service-contracting policy comparable to those in other CA charter cities was not established."
+        },
+        {
+          "claim": "Berkeley has recently shifted city-employee-delivered services to outside or other-government providers",
+          "result": "confirmed",
+          "source": "Berkeleyside 2026-07-06",
+          "date": "2026-07",
+          "note": "Functionally the sharpest contracting-out fact available. The Mobile Crisis Team, staffed by city employees since 1979, was eliminated and crisis response was shifted to Alameda County. The Winter Shelter was operated by nonprofit Dorothy Day House and defunded. Berkeley's Specialized Care Unit (SCU) alternative-response program is contractor-operated (Bay Area Community Services) — the SCU/Mobile Crisis relationship and whether SCU absorbed any Mobile Crisis function is unresolved and should be checked before making any claim about it."
+        }
+      ],
+      "quotes": [],
+      "sources": [
+        {"label": "SEIU Maintenance & Clerical MOU (Council Item, contains Contracting Out section)", "url": "https://berkeleyca.gov/sites/default/files/documents/2024-06-25%20Item%2026%20Memorandum%20of%20Understanding%20%20SEIU.pdf"},
+        {"label": "SEIU CSU Local 1021 MOU", "url": "https://berkeleyca.gov/sites/default/files/documents/SEIU-CSU-Local1021-MOU.pdf"},
+        {"label": "Berkeleyside — Berkeley slashes 2 safety net programs (7/6/2026)", "url": "https://www.berkeleyside.org/2026/07/06/mobile-crisis-team-berkeley-winter-shelter-closures"},
+        {"label": "Comprehensive Summary of Berkeley's Homeless Response (7/29/2025)", "url": "https://berkeleyca.gov/sites/default/files/documents/2025-07-29%20Special%20Item%2002a%20Comprehensive%20Summary%20of%20Berkeley%E2%80%99s%20Homeless%20Response.pdf"}
+      ]
+    },
+    "pensions": {
+      "verification": [
+        {
+          "claim": "Berkeley's CalPERS plans are funded at roughly 80% (Misc.), 69% (Police), 81% (Fire)",
+          "result": "confirmed",
+          "source": "City of Berkeley, Unfunded Liability Obligations report, Council Action Calendar item, 5/23/2023",
+          "date": "valuation date 6/30/2021, report 2023-05-23",
+          "note": "Exact figures from the report: Miscellaneous 80.1% funded ($1,181.2M liability / $946.3M assets / $234.9M unfunded); Police Safety 68.7% ($483.8M / $332.5M / $151.3M unfunded); Fire Safety 80.9% ($306.7M / $248.1M / $58.6M unfunded). Total CalPERS UAL approximately $444.8M. STALE — this is a June 30, 2021 valuation. CalPERS systemwide funded status has since moved (73.9% at FY2023-24, 79% at FY2024-25 close). Berkeley's current plan-level numbers were NOT located; pull the latest ACFR or CalPERS actuarial valuations before citing."
+        },
+        {
+          "claim": "Berkeley has issued pension obligation bonds",
+          "result": "unresolved",
+          "source": "No POB issuance found in the 2023 unfunded liability report",
+          "date": "2026-08",
+          "note": "The report describes a Section 115 pension trust as the city's chosen tool, not POBs. Absence of mention is suggestive but not proof. Do not assert either way without checking EMMA or the ACFR long-term debt note."
+        },
+        {
+          "claim": "Berkeley maintains an IRS Section 115 pension trust",
+          "result": "confirmed",
+          "source": "City of Berkeley unfunded liability report",
+          "date": "2023",
+          "note": "Authorized by Council June 26, 2018; Keenan Financial Services contract authorized May 14, 2019. Balance $14,762,850.42 as of June 30, 2022. A June 28, 2022 fiscal policy allocates one-third of investment revenue above a $6M annual baseline to the trust. NOTE the labor angle: the FY2026 budget drew $3M OUT of the pension trust as a one-time balancing move."
+        },
+        {
+          "claim": "Pension costs are rising sharply and are non-discretionary",
+          "result": "confirmed",
+          "source": "City of Berkeley unfunded liability report",
+          "date": "2023",
+          "note": "Report projects close to a $32M increase in annual pension costs from FY2025 to FY2034, and states plainly that regardless of the city's financial position the payments must be made. This is the framing the city uses to justify cuts elsewhere — expect an SEIU panel to be alert to pension costs being used as a rationale for service reductions."
+        },
+        {
+          "claim": "Berkeley also carries large unfunded retiree medical (OPEB) liabilities",
+          "result": "confirmed",
+          "source": "City of Berkeley unfunded liability report",
+          "date": "2023 (valuations as stated in report)",
+          "note": "Separate trusts per bargaining unit. Reported unfunded accrued liabilities by plan include $60.18M, $34.67M, $20.12M, $29.99M, and $1.13M (SRIP-related), across the various retiree medical and safety plans. Plan-to-figure mapping was not fully captured in this pass — do not attribute a specific number to a specific bargaining unit without rereading the report."
+        }
+      ],
+      "quotes": [
+        {
+          "text": "regardless of the City's financial position the payments will have to be made to CalPERS",
+          "source": "City of Berkeley, Unfunded Liability Obligations and Unfunded Infrastructure Needs, Council Action Calendar",
+          "url": "https://berkeleyca.gov/sites/default/files/documents/2023-05-23%20Special%20Item%2001%20Unfunded%20Liability%20Obligations_0.pdf",
+          "date": "2023-05-23"
+        }
+      ],
+      "sources": [
+        {"label": "City of Berkeley — Unfunded Liability Obligations and Unfunded Infrastructure Needs (5/23/2023)", "url": "https://berkeleyca.gov/sites/default/files/documents/2023-05-23%20Special%20Item%2001%20Unfunded%20Liability%20Obligations_0.pdf"},
+        {"label": "CalPERS — 2024 Annual Review of Funding Levels and Risks", "url": "https://www.calpers.ca.gov/sites/default/files/spf/docs/board-agendas/202411/financeadmin/item06a-01_a.pdf"},
+        {"label": "Equable Institute — California Pension Funded Status 2025", "url": "https://equable.org/resource/california-pensions-calpers-calstrs-2025/"}
+      ]
+    },
+    "vote_threshold": {
+      "verification": [
+        {
+          "claim": "The Taxpayer Protection and Government Accountability Act (TPA) is on the ballot",
+          "result": "refuted",
+          "source": "Legislature v. Weber, California Supreme Court, June 2024; Courthouse News; California Globe",
+          "date": "2024-06",
+          "note": "The California Supreme Court removed the TPA from the November 2024 ballot in Legislature v. Weber, holding it was an improper constitutional revision rather than an amendment. It has NOT returned. The related legislative vehicle ACA 23 also went nowhere. Anyone describing the TPA as pending or as the 2026 fight is out of date."
+        },
+        {
+          "claim": "ACA 1 became Proposition 5 and passed",
+          "result": "refuted",
+          "source": "Ballotpedia; CBS Bay Area; SPUR voter guide",
+          "date": "2024-11",
+          "note": "ACA 1 became Proposition 5 on the November 2024 ballot — it would have lowered the supermajority for local affordable-housing and public-infrastructure BONDS (and related special taxes) from two-thirds to 55%. It FAILED, with about 55.0% voting no. The two-thirds threshold for local bonds therefore remains in place. This one is very commonly stated backwards."
+        },
+        {
+          "claim": "ACA 13 is on the November 2026 ballot",
+          "result": "refuted",
+          "source": "California Legislative Information / Secretary of State ballot measure status",
+          "date": "2026-06-25",
+          "note": "ACA 13 (Res. Ch. 176, 2023) — the 'poison pill' requiring a citizen initiative that raises a future vote threshold to itself pass by that same threshold — was pulled from the November 2024 ballot after Legislature v. Weber and redirected to November 2026. It was then REMOVED from the November 3, 2026 ballot on June 25, 2026, pursuant to ACA 21 (Res. Ch. 131, 2026). It is not before voters. This is the single most likely thing for a candidate to state wrong right now."
+        },
+        {
+          "claim": "There IS a live 2026 threshold measure: Proposition 43",
+          "result": "confirmed",
+          "source": "CA Secretary of State news release assigning November 2026 proposition numbers (6/29/2026); California Budget & Policy Center; Seamless Bay Area",
+          "date": "2026-06-29",
+          "note": "Proposition 43 would amend the state Constitution to require two-thirds voter approval for local SPECIAL taxes including CITIZEN-initiated ones. Background: under California Cannabis Coalition v. City of Upland (2017) and subsequent appellate decisions, citizen-initiated special taxes could pass by simple majority; local-government-placed special taxes already require two-thirds. Prop 43 would close that route. Prop 43 itself needs only a simple majority to pass — precisely the asymmetry ACA 13 would have blocked, which is why ACA 13's removal matters."
+        },
+        {
+          "claim": "Prop 43 arose from a deal with the Howard Jarvis Taxpayers Association",
+          "result": "confirmed",
+          "source": "California Budget & Policy Center; San Diego Voice & Viewpoint; Seamless Bay Area",
+          "date": "2026-06 to 2026-07",
+          "note": "An eleventh-hour compromise before the certification deadline: HJTA withdrew a broader tax-limitation initiative (the 'Two-Thirds Vote Requirement for Special Taxes and Charter City Real Estate Transfer Tax Prohibition Initiative') from the November 2026 ballot in exchange for the Legislature placing ACA 22 before voters, which became Prop 43. The withdrawn HJTA initiative would ALSO have banned charter-city real estate transfer taxes; Prop 43 as certified does not appear to include that, which matters to Berkeley — see revenue_measures. Supporters: HJTA, Reform California (Asm. Carl DeMaio). Opponents include Evolve California and Asm. Buffy Wicks (whose district includes Berkeley)."
+        }
+      ],
+      "quotes": [
+        {
+          "text": "the real target of ACA 13 is the Taxpayer Protection and Government Accountability Act",
+          "source": "Jon Coupal, President, Howard Jarvis Taxpayers Association",
+          "url": "https://www.hjta.org/news-events/taxing-times/taxing-times-online-spring-2025-vol-51-issue-2/aca-13-aims-to-crack-prop-13/",
+          "date": "2025"
+        }
+      ],
+      "sources": [
+        {"label": "CA SoS — Weber assigns numbers to November 2026 ballot measures (6/29/2026)", "url": "https://www.sos.ca.gov/administration/news-releases-and-advisories/2026-news-releases-and-advisories/secretary-state-shirley-n-weber-phd-assigns-numbers-november-ballot-measures-invites-ballot-arguments"},
+        {"label": "CA SoS — Qualified Statewide Ballot Measures", "url": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"},
+        {"label": "Ballotpedia — California 2026 ballot propositions", "url": "https://ballotpedia.org/California_2026_ballot_propositions"},
+        {"label": "California Budget & Policy Center — Should California Voters Approve Proposition 43?", "url": "https://calbudgetcenter.org/resources/should-california-voters-approve-proposition-43/"},
+        {"label": "Seamless Bay Area — Prop 43, the Anti-Tax Ballot Measure and Transit Funding (7/10/2026)", "url": "https://www.seamlessbayarea.org/blog/2026/7/10/prop-43-the-anti-tax-ballot-measure-and-transit-funding"},
+        {"label": "CA Legislative Info — ACA 13 (2023-24)", "url": "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240ACA13"},
+        {"label": "Ballotpedia — Proposition 5 (2024)", "url": "https://ballotpedia.org/California_Proposition_5,_Lower_Supermajority_Requirement_to_55%25_for_Local_Bond_Measures_to_Fund_Housing_and_Public_Infrastructure_Amendment_(2024)"},
+        {"label": "Courthouse News — Californians won't vote on taxpayer measure this November (TPA removal)", "url": "https://www.courthousenews.com/californians-wont-vote-on-taxpayer-measure-this-november/"},
+        {"label": "Ballotpedia — HJTA 2026 two-thirds / transfer tax initiative (withdrawn)", "url": "https://ballotpedia.org/California_Two-Thirds_Vote_Requirement_for_Special_Taxes_and_Charter_City_Real_Estate_Transfer_Tax_Prohibition_Initiative_(2026)"}
+      ]
+    },
+    "revenue_measures": {
+      "verification": [
+        {
+          "claim": "Berkeley has seven local measures on the November 3, 2026 ballot",
+          "result": "confirmed",
+          "source": "berkeleyca.gov Ballot Measures page; Berkeleyside 2026-07-24",
+          "date": "2026-07",
+          "note": "Measure U — General Obligation Bond for Public Infrastructure and Facilities, TWO-THIRDS threshold (reported at roughly $300M). Measure V — Transactions and Use (sales) GENERAL tax, majority threshold (0.5%, ~$9M/yr, would take Berkeley from 10.25% to 10.75%). Measure W — Charter amendment, administrative provisions, majority. Measure X — Amendments to the Rent Stabilization Ordinance, majority. Measure Y — Parcel tax for arts institutions and programs, majority. Measure Z — Parcel tax for a public bank, majority. Measure AA — Sugar-sweetened beverage special tax (reported as doubling the soda tax), majority. Verify each threshold against the city's own table before relying on it; a general tax needs a majority while a special tax normally needs two-thirds, and the city's page lists several parcel/special taxes at 'majority,' which may reflect citizen-initiative status — this is exactly the distinction Prop 43 would eliminate."
+        },
+        {
+          "claim": "Prop 43 could directly affect Berkeley's own ballot measures",
+          "result": "inferred",
+          "source": "Reasoning from Prop 43's text as described plus Berkeley's Nov 2026 measure list",
+          "date": "2026-08",
+          "note": "INFERRED, not confirmed. Prop 43 applies prospectively to citizen-initiated local special taxes. Several Berkeley measures on the same ballot are special/parcel taxes listed at a majority threshold. Whether Prop 43 would apply retroactively to measures on the same ballot, and whether Berkeley's specific measures are citizen-initiated or council-placed, was NOT verified. Do not assert a direct collision without checking."
+        },
+        {
+          "claim": "Measure U1 (2016) is a business license tax on large residential landlords funding affordable housing",
+          "result": "confirmed",
+          "source": "City of Berkeley General Fund revenue reports; Berkeleyside",
+          "date": "2016 passage; FY2025-26 revenue data",
+          "note": "U1 revenue projection increased from $6.5M to $6.6M, consistent with FY2025 actual of $6.6M. U1 passed in 2016 over Measure DD, the landlord-backed alternative — the Berkeley Property Owners Association spent $892,540 for DD against $76,400 for U1, and U1 still won. Politically live: the FY2026 budget redirected U1 funds toward general purposes, drawing the Tregub 'band-aids, not solutions' objection."
+        },
+        {
+          "claim": "Measure P (2018) is a supplemental real property transfer tax on high-value transfers funding homeless services",
+          "result": "confirmed",
+          "source": "City of Berkeley General Fund revenue narratives",
+          "date": "2018 passage; FY2025-29 projections",
+          "note": "Staff projected 30.7% growth in Measure P revenue in FY2025 then 5% annual growth FY2026-FY2029. Exact rate and threshold (commonly cited as an increased rate on transfers above roughly $1.6M-$1.9M, indexed) was NOT verified in this pass. IMPORTANT: the HJTA initiative withdrawn from the 2026 ballot would have banned charter-city real estate transfer taxes, which would have threatened Measure P directly. Its withdrawal is a real, checkable win to point at — but Prop 43 replaced it, so the threat did not vanish, it changed shape."
+        },
+        {
+          "claim": "Berkeley's vacancy tax is Measure M (November 2022)",
+          "result": "confirmed",
+          "source": "berkeleyca.gov Measure M ballot document; californiachoices.org",
+          "date": "2022-11",
+          "note": "Taxes owners of residential units vacant more than 182 days/year. $3,000 per nonexempt condo, duplex, single-family or townhouse vacant unit in year one, rising to $6,000 in subsequent years; $6,000 for all other residential vacant units in year one, rising to $12,000 subsequently. Effective January 1, 2024 through December 31, 2034. Estimated $3.9M-$5.9M annually. Actual collections vs. estimate NOT verified — vacancy taxes nationally have underperformed projections, so do not cite the estimate as if it were revenue received."
+        },
+        {
+          "claim": "Measure GG (November 2024), the natural gas tax on large buildings, passed",
+          "result": "refuted",
+          "source": "Ballotpedia; Berkeleyside 2024-11-07",
+          "date": "2024-11",
+          "note": "Measure GG FAILED decisively, reported at roughly 68% to 31% against. It was a citizen initiative that would have taxed natural gas at a little over $2.96 per therm in most buildings 15,000 sq ft or larger, starting 2025 with first payment due February 2026, proposed after Berkeley's gas-hookup ban was struck down in court. Frequently misremembered as having passed. It did not."
+        },
+        {
+          "claim": "'Measure O' is a current Berkeley revenue measure",
+          "result": "unresolved",
+          "source": "No 2024/2026 Berkeley Measure O located",
+          "date": "2026-08",
+          "note": "Berkeley Measure O (2018) was a $135M affordable-housing general obligation bond — NOT confirmed in this pass. A November 2024 Berkeley measure funding roughly $267M for street repair was reported leading in early results; its letter was not captured. Confirm the letter and year before naming Measure O in any answer."
+        }
+      ],
+      "quotes": [],
+      "sources": [
+        {"label": "City of Berkeley — Ballot Measures (Nov 2026 list with thresholds)", "url": "https://berkeleyca.gov/your-government/elections/ballot-measures"},
+        {"label": "Berkeleyside — Berkeley voters will decide on these 7 ballot measures in November (7/24/2026)", "url": "https://www.berkeleyside.org/2026/07/24/berkeley-election-2026-ballot-measures-public-bank-soda-tax"},
+        {"label": "Berkeleyside — Berkeley puts sales tax hike, $300M infrastructure bond on ballot (6/17/2026)", "url": "https://www.berkeleyside.org/2026/06/17/berkeley-2026-election-sales-tax-infrastructure-bond-budget"},
+        {"label": "City of Berkeley — Measure M Vacancy Tax (Nov 8, 2022)", "url": "https://berkeleyca.gov/sites/default/files/documents/Measure%20M%20-%20November%208,%202022%20Election.pdf"},
+        {"label": "City of Berkeley — FY2026 Mid-Year General Fund Revenue Report", "url": "https://berkeleyca.gov/sites/default/files/legislative-body-meeting-attachments/Item%2002%20General%20Fund%20Revenue%20Update%20and%20Overview%20of%20Revenue%20Enhancements%20(FY%202026%20Mid-Year%20General%20Fund%20Revenue%20Report-Final).pdf"},
+        {"label": "City of Berkeley — GF Revenue Narratives FY2024 vs FY2023", "url": "https://berkeleyca.gov/sites/default/files/legislative-body-meeting-attachments/2024-11-07%20Item%2002%20Supplemental%20Material%20-%20GF%20FY%202024%20vs%20FY%202023%20%20Revenue%20Narratives.pdf"},
+        {"label": "Ballotpedia — Berkeley Measure GG, Natural Gas Tax (Nov 2024)", "url": "https://ballotpedia.org/Berkeley,_California,_Measure_GG,_Natural_Gas_Tax_Measure_(November_2024)"},
+        {"label": "Berkeleyside — Berkeley's natural gas tax headed for defeat (11/7/2024)", "url": "https://www.berkeleyside.org/2024/11/07/berkeleys-natural-gas-tax-big-buildings-headed-defeat-whats-next-for-electrification-movement"},
+        {"label": "LWV Berkeley Albany Emeryville — Berkeley measures pros & cons", "url": "https://www.lwvbae.org/league-news/berkeley-measures-pros-cons/"}
+      ]
+    },
+    "wages": {
+      "verification": [
+        {
+          "claim": "Berkeley has its own minimum wage ordinance above the state floor, currently $19.61/hour",
+          "result": "confirmed",
+          "source": "City of Berkeley Minimum Wage Public Notice, July 2026; berkeleyca.gov Workforce Standards page",
+          "date": "effective 2026-07-01",
+          "note": "Rate rose to $19.61 on July 1, 2026. Indexed: increases each July 1 by the prior calendar year's CPI-W for the San Francisco-Oakland-Hayward area. Berkeley's ordinance has no small-business tier or tip credit; it originally passed in 2014 and was strengthened in 2016."
+        },
+        {
+          "claim": "Berkeley has a city wage-theft ordinance and an enforcement program",
+          "result": "confirmed",
+          "source": "Berkeley Municipal Code Ch. 13.104 (Wage Theft Prevention); berkeleyca.gov Workforce Standards and Enforcement",
+          "date": "2026-08",
+          "note": "BMC 13.104 is the Wage Theft Prevention chapter. The city's Labor Standards and Enforcement Program investigates violations, accesses payroll records, and orders corrective action. Penalties reported at $50 per day per affected employee, capped at $1,000 per employee per year — that cap is low, and staffing of the program was NOT verified, which is a fair thing for a panel to probe given the budget cuts. Berkeley also has a Living Wage Ordinance (BMC 13.27) covering city contractors, a Paid Sick Leave ordinance, and a Family Friendly and Environment Friendly Workplace ordinance."
+        },
+        {
+          "claim": "Alameda County has a county-level wage theft enforcement body",
+          "result": "unresolved",
+          "source": "Not established in one search pass",
+          "date": "2026-08",
+          "note": "Enforcement in the county is primarily the CA Labor Commissioner's Office (DLSE), which has a Bay Area office structure, plus city-level programs in Berkeley, Oakland, and Emeryville. Whether Alameda County itself (e.g., through the DA's office or a dedicated wage theft unit) runs an enforcement program was NOT confirmed. Do not assert one exists. Note also that unincorporated Alameda County and most county cities have no local minimum wage, so the state rate applies there."
+        }
+      ],
+      "quotes": [],
+      "sources": [
+        {"label": "City of Berkeley — Minimum Wage Public Notice, July 2026", "url": "https://berkeleyca.gov/sites/default/files/2026-04/MinimumWagePublicNotice-July2026-English-ADA_0.pdf"},
+        {"label": "City of Berkeley — Workforce Standards and Enforcement", "url": "https://berkeleyca.gov/doing-business/operating-berkeley/workforce-standards-and-enforcement"},
+        {"label": "Berkeley Municipal Code Ch. 13.104 — Wage Theft Prevention", "url": "https://berkeley.municipal.codes/BMC/13.104"},
+        {"label": "City of Berkeley — Minimum Wage Poster", "url": "https://berkeleyca.gov/sites/default/files/documents/Berkeley-Minimum-Wage-Poster-English.pdf"}
+      ]
+    },
+    "sanctuary": {
+      "verification": [
+        {
+          "claim": "Berkeley's 1971 'City of Refuge' resolution is Resolution 44,784-N.S.",
+          "result": "confirmed",
+          "source": "City of Berkeley Council Item 27, 1/21/2025, 'Reaffirming Berkeley as a Sanctuary City' — footnote 1 and WHEREAS clauses",
+          "date": "1971; recited 2025-01-21",
+          "note": "The city's own item states Berkeley 'was the first City in the Nation to declare itself a City of Refuge in 1971 (Resolution 44,784-N.S.).'"
+        },
+        {
+          "claim": "The 1971 resolution concerned Vietnam-era war resisters, NOT immigrants",
+          "result": "confirmed",
+          "source": "Historical accounts (FoundSF, Berkeleyside sanctuary-movement history); the 1971 resolution's own subject matter",
+          "date": "1971",
+          "note": "PRIOR RESEARCH IS CORRECT. The 1971 action declared Berkeley a City of Refuge in the context of anti-Vietnam War protest, sheltering crew members / sailors and draft resisters and designating a city-approved sanctuary site. It was not an immigration measure. CAUTION: the City's OWN 2025 council item blurs this by presenting the 1986 immigrant action as a 'reaffirmation' of the 1971 policy, so a candidate reading only city documents will get it wrong. The immigrant sanctuary lineage properly begins in the mid-1980s Central American sanctuary movement, and Berkeley is genuinely credited with helping start the modern sanctuary movement."
+        },
+        {
+          "claim": "The immigrant sanctuary reaffirmation is 1986, Resolution No. 52,596-N.S.",
+          "result": "confirmed",
+          "source": "City of Berkeley Council Item 27, 1/21/2025 — WHEREAS clause",
+          "date": "1986; recited 2025-01-21",
+          "note": "Exact recited text: 'Berkeley reaffirmed its City of Refuge status in 1986 (Resolution No. 52,596-N.S.), 2007 (Resolution No. 63,711-N.S.), 2015 (Resolution No. 67,325-N.S.), 2016 (Resolution No. 67,598-N.S. & No. 67,763-N.S.) and 2017 (Resolution No. 68,131-N.S.).' DISCREPANCY WORTH KNOWING: footnote 1 of the SAME document cites 'Resolution No. 52,558-N.S.' instead of 52,596-N.S. The city's own paperwork is internally inconsistent on this number. Separately, press accounts date the citywide sanctuary-for-undocumented-refugees vote to February 19, 1985 (8-1), so the 1985 vs. 1986 dating is genuinely muddy. SAFEST FRAMING: cite Res. 52,596-N.S. as the city's own recited 1986 reaffirmation and describe the mid-1980s as when Berkeley extended refuge to immigrants — do not stake a claim on a single day."
+        },
+        {
+          "claim": "Berkeley adopted a Sanctuary City ORDINANCE in September 2025",
+          "result": "confirmed",
+          "source": "Berkeleyside 2025-09-10; Daily Californian",
+          "date": "2025-09-09",
+          "note": "Council voted UNANIMOUSLY to codify longstanding City of Refuge policy into the municipal code — a shift from resolution to ordinance. Adds public reporting requirements and a clearer prohibition on city officials disclosing 'protected personal information' to federal immigration enforcement. Built on the January 2025 reaffirming resolution passed the day after the inauguration."
+        },
+        {
+          "claim": "Berkeley took further ICE-related actions after the September 2025 ordinance",
+          "result": "confirmed",
+          "source": "Berkeleyside 2025-10-29 and 2025-11-20",
+          "date": "2025-10 to 2025-11",
+          "note": "October 2025: council action on a city property inventory to bar immigration agents from city property. November 2025: ongoing controversy over whether Berkeley's Flock automated license plate reader network can be kept from ICE/CBP, with Secure Justice and Councilmember Lunaparra raising data-collection objections. The data-collection critique — that the only guarantee is not collecting data at all — is the live edge of this issue."
+        },
+        {
+          "claim": "The 2017 refinement is Resolution 68,131-N.S.",
+          "result": "confirmed",
+          "source": "City of Berkeley Council Item 27, 1/21/2025, footnote 1",
+          "date": "2017",
+          "note": "Described as 'Amending of Refuge Policy Regarding Interaction with U.S. Immigration and Customs Enforcement.' Adopted under Mayor Jesse Arreguin at the start of the first Trump term."
+        }
+      ],
+      "quotes": [
+        {
+          "text": "In spite of this ordinance, we know that the only way to make certain that Trump won't get our data is to not collect it in the first place.",
+          "source": "Councilmember Lunaparra, on the September 2025 Sanctuary City Ordinance and the Flock camera contract",
+          "url": "https://www.berkeleyside.org/2025/09/10/berkeley-sanctuary-city-policy-trump-council",
+          "date": "2025-09"
+        },
+        {
+          "text": "Berkeley reaffirmed its City of Refuge status in 1986 (Resolution No. 52,596-N.S.), 2007 (Resolution No. 63,711-N.S.), 2015 (Resolution No. 67,325-N.S.), 2016 (Resolution No. 67,598-N.S. & No. 67,763-N.S.) and 2017 (Resolution No. 68,131-N.S.)",
+          "source": "City of Berkeley, Council Item 27, Reaffirming Berkeley as a Sanctuary City",
+          "url": "https://berkeleyca.gov/sites/default/files/documents/2025-01-21%20Item%2027%20Reaffirming%20Berkeley%20as%20a%20Sanctuary%20City.pdf",
+          "date": "2025-01-21"
+        }
+      ],
+      "sources": [
+        {"label": "City of Berkeley — Council Item 27, Reaffirming Berkeley as a Sanctuary City (1/21/2025)", "url": "https://berkeleyca.gov/sites/default/files/documents/2025-01-21%20Item%2027%20Reaffirming%20Berkeley%20as%20a%20Sanctuary%20City.pdf"},
+        {"label": "Berkeleyside — Defying Trump pressure, Berkeley strengthens sanctuary city status (9/10/2025)", "url": "https://www.berkeleyside.org/2025/09/10/berkeley-sanctuary-city-policy-trump-council"},
+        {"label": "Berkeleyside — Berkeley started modern sanctuary movement (2/23/2025)", "url": "https://www.berkeleyside.org/2025/02/23/sanctuary-movement-history-berkeley-trump-administration-immigration-deportation"},
+        {"label": "Berkeleyside — Berkeley reaffirms it's a sanctuary city (1/22/2025)", "url": "https://www.berkeleyside.org/2025/01/22/sanctuary-city-berkeley-immigration"},
+        {"label": "Berkeleyside — Berkeley to ICE: Stay off city property (10/29/2025)", "url": "https://www.berkeleyside.org/2025/10/29/berkeley-property-inventory-ban-immigration-agents"},
+        {"label": "Berkeleyside — Flock surveillance cameras and ICE/CBP (11/20/2025)", "url": "https://www.berkeleyside.org/2025/11/20/berkeley-flock-surveillance-cameras-ice-cbp-secure-justice"},
+        {"label": "FoundSF — Berkeley's Sanctuary Movement", "url": "https://www.foundsf.org/Berkeley's_Sanctuary_Movement"},
+        {"label": "Daily Cal — Council to vote on sanctuary city ordinance codifying policy into municipal code", "url": "https://www.dailycal.org/news/city/berkeley-city-council-to-vote-on-sanctuary-city-ordinance-codifying-policy-into-municipal-code/article_e03f8036-920d-4071-832f-896f69210dd0.html"}
+      ]
+    },
+    "schools_ice": {
+      "verification": [
+        {
+          "claim": "BUSD has a board policy protecting undocumented students",
+          "result": "confirmed",
+          "source": "BUSD; Berkeleyside 2025-02-06; Daily Californian",
+          "date": "2025-02",
+          "note": "Board Policy 5111.5 — Protection of Undocumented Students. Commits the district to protecting every student's right to attend public school regardless of immigration status of the student or family."
+        },
+        {
+          "claim": "BUSD policy restricts staff cooperation with immigration enforcement and data sharing",
+          "result": "confirmed",
+          "source": "Berkeleyside 2025-02-06; Daily Californian 2025-02",
+          "date": "2025-02",
+          "note": "BUSD employees, contractors and volunteers are not required to cooperate with immigration enforcement agents, answer officers' questions, or provide access to protected data. Immigration enforcement agents are barred from entering school grounds without prior approval from the superintendent and legal review. Board voted UNANIMOUSLY in February 2025 to reaffirm campuses as a safe zone. BUSD issued further guidance in October 2025 regarding potential ICE activity in the Bay Area. NOTE: this is where the candidate's AFT 6192 background is directly relevant — classified staff (front office clerks, instructional assistants, bus drivers) are the people who actually field an agent at the door and hold the student records."
+        },
+        {
+          "claim": "AB 699 (2017) constrains school district cooperation with immigration enforcement",
+          "result": "confirmed",
+          "source": "CA Legislative Information, AB-699 (2017-2018), Educational equity: immigration and citizenship status; ILRC overview",
+          "date": "2017 (compliance deadline 2018-07-01)",
+          "note": "Required the Attorney General, by April 1, 2018, to publish model policies limiting assistance with immigration enforcement at public schools to the fullest extent possible consistent with federal and state law. All local educational agencies were required to adopt the model policies or equivalent policies by July 1, 2018. CAUTION: there are multiple distinct bills numbered AB 699 in different sessions (a 2013 school safety bill and a 2015 ed-tech grants bill). Cite the 2017-2018 session bill specifically."
+        },
+        {
+          "claim": "SB 54 (California Values Act) constrains state and local agency cooperation with immigration enforcement",
+          "result": "unresolved",
+          "source": "Not directly verified in this pass",
+          "date": "2017",
+          "note": "SB 54 (2017) is well established as the California Values Act limiting state and local law enforcement resources for immigration enforcement, and it is the statutory backstop under Berkeley's sanctuary ordinance. Its specific application to school districts (vs. law enforcement agencies) was NOT verified here — AB 699 is the school-specific authority; SB 54 is the general one. Do not blur them."
+        }
+      ],
+      "quotes": [],
+      "sources": [
+        {"label": "BUSD — Resources for Immigrant Families", "url": "https://www.berkeleyschools.net/resources-for-immigrant-families/"},
+        {"label": "BUSD — Supporting our Undocumented Students and Families (12/2024)", "url": "https://www.berkeleyschools.net/2024/12/supporting-our-undocumented-students-and-families/"},
+        {"label": "BUSD — Potential ICE Activity in the Bay Area (10/2025)", "url": "https://www.berkeleyschools.net/2025/10/potential-ice-activity-in-the-bay-area-posible-actividad-de-ice-en-el-area-de-la-bahia/"},
+        {"label": "Berkeleyside — BUSD pushes back on Trump, strengthens policy (2/6/2025)", "url": "https://www.berkeleyside.org/2025/02/06/busd-immigration-sancuary-campus-safe-zones"},
+        {"label": "Daily Cal — BUSD reaffirms campuses as safe zone", "url": "https://www.dailycal.org/news/city/local-schools/busd-reaffirms-campuses-as-safe-zone-from-immigration-enforcement/article_32dba07c-e52b-11ef-939d-dfa79efc8e59.html"},
+        {"label": "CA Legislative Info — AB 699 (2017-2018)", "url": "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=201720180AB699"},
+        {"label": "ILRC — Overview of AB 699", "url": "https://www.ilrc.org/resources/overview-ab-699"},
+        {"label": "BUSD — Union Contracts, Calendars and Salary Schedules", "url": "https://www.berkeleyschools.net/departments/human-resources/union-contracts-and-salary-schedules/"}
+      ]
+    },
+    "red_flags": {
+      "verification": [
+        {
+          "claim": "SEIU 1021 is on record opposing the budget the entire sitting council voted for",
+          "result": "confirmed",
+          "source": "Berkeleyside 2026-06-24; Berkeley Scanner 2026-06-25",
+          "date": "2026-06",
+          "note": "BIGGEST FLAG. The FY27-28 budget passed unanimously; SEIU 1021's spokesperson called it a flawed 'austerity plan'; ~250 members rallied at the June 25 meeting; six SEIU members in one unit were slated for layoff. Any candidate asked 'would you have voted for that budget?' is being asked to take a side against a unanimous council. There is no evasive answer that a panel will not notice."
+        },
+        {
+          "claim": "The candidate's union background is AFT/CFT, not SEIU",
+          "result": "confirmed",
+          "source": "bcce6192.org; CFT",
+          "date": "2026-08",
+          "note": "AFT Local 6192 is BCCE, the BUSD classified employees union — a CFT/AFT affiliate. Real and relevant credential (classified staff, not teachers; same kind of workers SEIU represents at the city). But an SEIU panel may probe whether the candidate understands MUNICIPAL bargaining, which differs from school-district bargaining: different employer, different revenue base, no ADA/state apportionment, no Personnel Commission merit system, and city budget cycles tied to the General Fund and local tax measures rather than LCFF. Also worth knowing: BUSD classified workers were historically split between two unions before consolidating under BCCE — a representation history a panel could ask about."
+        },
+        {
+          "claim": "Pro-housing/pro-development positioning creates friction with public-sector labor in Berkeley",
+          "result": "inferred",
+          "source": "Reasoning from Berkeley's housing politics and the candidate's stated affordable-housing focus; Housing Action Coalition and Berkeley Neighbors for Housing and Climate Action endorsement slates exist for 2026",
+          "date": "2026-08",
+          "note": "INFERRED — no specific Berkeley council fight was found in this pass placing YIMBY-aligned members against SEIU. The structural friction points a panel may press: (a) streamlining/by-right approvals reduce discretionary review, which is public-sector planning and inspection WORK — staffing implications; (b) developer-fee reductions or impact-fee waivers to induce construction shrink the same General Fund that pays city workers; (c) the FY2026 budget REALLOCATED $2.5M from the Small Sites affordable housing program and cut $1.4M from it to close the gap, so housing money and payroll are already in direct competition in Berkeley's own ledger; (d) project labor agreements and prevailing wage on city-supported housing — a building-trades issue that SEIU panels track. VERIFY the candidate's actual endorsement slate before assuming YIMBY alignment; her campaign site frames the platform as affordable housing plus 'preserving Berkeley's unique character,' which is not a standard YIMBY frame."
+        },
+        {
+          "claim": "Budget austerity is already producing service eliminations SEIU will ask about specifically",
+          "result": "confirmed",
+          "source": "Berkeleyside 2026-07-06",
+          "date": "2026-07",
+          "note": "The Mobile Crisis Team — city employees, operating since 1979, arguably the first such unit nationally — was shut down in July 2026 and the function handed to Alameda County, whose own capacity is uncertain amid county budget problems. Clinicians and city workers warned police will become the default responder to psychiatric emergencies while BPD itself has a staffing crisis. Meanwhile BPD received ~$17M more than the prior year in the FY2026 budget. A panel can construct 'cut mental health workers, grew the police budget' from published facts. Be ready for it; note the two figures are from different budget cycles."
+        },
+        {
+          "claim": "The sales tax measure creates a labor-adjacent bind",
+          "result": "confirmed",
+          "source": "berkeleyca.gov; Berkeleyside",
+          "date": "2026-06",
+          "note": "Measure V (0.5% sales tax, ~$9M/yr) is what stands between the city and a further round of cuts. Sales taxes are regressive — a standard progressive-labor objection — but SEIU 1021 typically backs local revenue measures that protect jobs and services. Berkeley would go to 10.75%. A candidate who criticizes regressivity without committing to the measure will read as unwilling to fund the workforce; a candidate who backs it without acknowledging regressivity will read as unreflective. Whether SEIU 1021 has endorsed Measure V was NOT determined."
+        },
+        {
+          "claim": "The next contract expires inside the next council term",
+          "result": "confirmed",
+          "source": "SEIU 1021; City Council MOU item",
+          "date": "expires June 2027",
+          "note": "A member elected in November 2026 is seated in December 2026 and faces SEIU citywide bargaining within months, against a structural deficit and after a round of layoffs. Expect direct questions on: whether the candidate will vote to authorize a strike-contingency posture, whether the candidate will meet with members during bargaining, and the candidate's position on the city's use of outside labor negotiators. Also expect a question about the 2024 unfair labor practice allegations that drove the 99% strike authorization."
+        },
+        {
+          "claim": "Prop 43 is the live statewide threat and a candidate is likely to name the wrong measure",
+          "result": "confirmed",
+          "source": "CA SoS 6/29/2026; ACA 21 removing ACA 13 on 6/25/2026",
+          "date": "2026-06",
+          "note": "SECOND BIGGEST FLAG. The TPA is dead (2024), Prop 5 failed (2024), ACA 13 was pulled from this very ballot on June 25, 2026. Naming any of those as the current fight, or claiming the two-thirds threshold was lowered, will be immediately audible to an SEIU panel as stale prep. The live measure is Prop 43."
+        },
+        {
+          "claim": "Berkeley's own Nov 2026 ballot includes a two-thirds bond (Measure U) alongside Prop 43",
+          "result": "confirmed",
+          "source": "berkeleyca.gov ballot measures page",
+          "date": "2026-07",
+          "note": "Measure U, the ~$300M infrastructure GO bond, needs two-thirds — a live local demonstration of why the threshold fight is not abstract. Prop 5's failure in 2024 is why that bond still faces two-thirds rather than 55%."
+        }
+      ],
+      "quotes": [],
+      "sources": [
+        {"label": "Berkeleyside — Berkeley approves budget with cuts and layoffs (6/24/2026)", "url": "https://www.berkeleyside.org/2026/06/24/berkeley-budget-sales-tax-firefighters"},
+        {"label": "Berkeleyside — Berkeley slashes 2 safety net programs (7/6/2026)", "url": "https://www.berkeleyside.org/2026/07/06/mobile-crisis-team-berkeley-winter-shelter-closures"},
+        {"label": "Daily Cal — Berkeley budget proposal eliminates mental health response team, unhoused services", "url": "https://www.dailycal.org/news/city/housing/berkeley-budget-proposal-eliminates-mental-health-response-team-unhoused-services-amid-30-million-deficit/article_7c35617c-1462-4cc8-a89f-cc0cde6273e4.html"},
+        {"label": "Daria for Berkeley (campaign site)", "url": "https://www.dariaforberkeley.com/"},
+        {"label": "Berkeley Neighbors for Housing and Climate Action — endorsements", "url": "https://bnhca.org/endorsements.html"},
+        {"label": "Berkeley Tenants Union — endorsements archive", "url": "https://www.berkeleytenants.org/category/endorsements/"},
+        {"label": "City of Berkeley — Council Roster", "url": "https://berkeleyca.gov/your-government/city-council/council-roster"}
+      ]
+    }
+  },
+  "unverified": [
+    "Exact text of the Contracting Out section (reportedly Section 11) in the City of Berkeley / SEIU 1021 MOU — the posted PDF would not yield extractable text. Do not characterize notice, meet-and-confer, or displacement protections without reading it.",
+    "Whether Berkeley has any standalone adopted ordinance or council policy governing the decision to contract out city services (as distinct from the Living Wage and Equal Benefits ordinances that regulate contractors' pay).",
+    "Berkeley's CURRENT CalPERS funded ratios and unfunded liability. The figures captured (Misc 80.1%, Police 68.7%, Fire 80.9%, ~$444.8M total UAL) are from a June 30, 2021 valuation reported in a May 2023 council item. Pull the latest ACFR or CalPERS valuations.",
+    "Whether Berkeley has ever issued pension obligation bonds. The 2023 unfunded liability report describes a Section 115 trust, not POBs, but does not affirmatively rule POBs out.",
+    "Which specific OPEB unfunded liability figure ($60.18M, $34.67M, $20.12M, $29.99M, $1.13M) maps to which plan or bargaining unit.",
+    "The precise per-unit breakdown of the ~20 adopted layoffs across SEIU 1021, Local 1, and other units — only 'six workers in one SEIU 1021 unit' was captured.",
+    "Whether SEIU 1021 has endorsed or opposed Berkeley Measure V (sales tax) or Measure U (infrastructure bond) for November 2026.",
+    "Whether Prop 43, if passed, would apply to citizen-initiated special taxes appearing on the SAME November 2026 ballot, and which Berkeley measures are citizen-initiated vs. council-placed. The vote thresholds listed on berkeleyca.gov should be confirmed measure by measure.",
+    "The letter and year of the Berkeley affordable-housing bond commonly called 'Measure O,' and the letter of the ~$267M November 2024 street repair measure.",
+    "Measure P's exact supplemental transfer tax rate and the property-value threshold at which it applies, and actual Measure M vacancy tax collections vs. the $3.9M-$5.9M estimate.",
+    "Whether Alameda County (as opposed to the state Labor Commissioner or individual cities) operates any wage theft enforcement program.",
+    "Staffing level of Berkeley's Labor Standards and Enforcement Program, and whether the FY27-28 budget cut it.",
+    "The 1985 vs. 1986 dating of Berkeley's immigrant sanctuary declaration. Press reports a February 19, 1985 council vote (8-1); the City's own 2025 item recites 1986 with Res. No. 52,596-N.S. The same city document ALSO cites Res. No. 52,558-N.S. in a footnote. The resolution NUMBER 52,596-N.S. is safe to cite as the city's own recitation; the exact date is not.",
+    "The full substantive text of the September 2025 Berkeley Sanctuary City Ordinance, including its BMC chapter number and its reporting requirements.",
+    "SB 54's specific application to school districts as opposed to law enforcement agencies.",
+    "Any specific Berkeley council vote in which labor and the candidate's known allies were on opposite sides — none was located. The pro-housing/labor friction described in red_flags is structural and inferred, not documented from a Berkeley roll call.",
+    "The candidate's actual 2026 endorsement slate, including whether she has sought or received Housing Action Coalition or BNHCA support.",
+    "The complete roster of City of Berkeley bargaining units and which is largest — do not assert SEIU 1021 is the city's largest union without checking.",
+    "Whether Berkeley's contractor-operated Specialized Care Unit absorbed any Mobile Crisis Team function after the July 2026 shutdown."
+  ]
+}
