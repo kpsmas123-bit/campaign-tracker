@@ -383,12 +383,14 @@
   }
 
   async function toggleTag(c, key) {
-    var cur = tagsOf(c).slice();
+    var prev = tagsOf(c).slice();
+    var cur = prev.slice();
     var i = cur.indexOf(key);
     if (i >= 0) cur.splice(i, 1); else cur.push(key);
     c.tags = cur;
     render(); buildTagFilters();
-    await patch(c.id, { tags: cur });
+    var ok = await patch(c.id, { tags: cur });
+    if (!ok) { c.tags = prev; render(); buildTagFilters(); }
   }
 
   function closeTagPop() {
@@ -497,8 +499,20 @@
   async function patch(id, fields) {
     setSave('saving');
     var r = await sb.from('call_contacts').update(fields).eq('id', id);
-    setSave(r.error ? 'error' : 'saved');
-    return !r.error;
+    if (r.error) {
+      setSave('error', r.error.message);
+      // 42703 is undefined_column. A rejected write that still shows on screen is
+      // worse than a visible failure, so name the missing migration rather than
+      // leaving a generic error next to a change that looks like it saved.
+      if (r.error.code === '42703' && /tags/.test(r.error.message || '')) {
+        setSetupNotice('Tags need a column that does not exist yet. Run this in the ' +
+          'Supabase SQL Editor, then reload:  alter table call_contacts ' +
+          "add column if not exists tags jsonb not null default '[]'::jsonb;");
+      }
+      return false;
+    }
+    setSave('saved');
+    return true;
   }
 
   // --- data ---
