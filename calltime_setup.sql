@@ -26,12 +26,20 @@ create table if not exists call_contacts (
   gave_on     date,
   gave_amount numeric(8,2),
 
+  -- Categories (fundraise, endorsement, ...). An array on the row rather than a
+  -- join table, because the tag set is small and the only query is "does this
+  -- contact carry this tag". Definitions live in campaign_settings.callTagDefs.
+  tags        jsonb not null default '[]'::jsonb,
+
   notes       text not null default '',
   sort_order  int not null default 0,
 
   created_at  timestamptz not null default now(),
   updated_at  timestamptz not null default now()
 );
+
+-- Safe to re-run against a table created before tags existed.
+alter table call_contacts add column if not exists tags jsonb not null default '[]'::jsonb;
 
 alter table call_contacts enable row level security;
 
