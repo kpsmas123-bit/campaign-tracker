@@ -87,11 +87,6 @@
     gap: 16px; margin-bottom: 6px;
   }
   .page-title { font-family: Georgia, 'Times New Roman', serif; font-size: 22px; font-weight: normal; }
-  .page-sub {
-    font-family: "IBM Plex Mono", ui-monospace, monospace;
-    font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
-    color: var(--text-tertiary); margin-bottom: 20px;
-  }
 
   .save-indicator {
     display: flex; align-items: center; gap: 6px; white-space: nowrap;
@@ -312,7 +307,6 @@
     <div class="page-title">Call time</div>
     <div class="save-indicator" id="saveIndicator"><span class="save-dot"></span><span class="save-label"></span></div>
   </div>
-  <div class="page-sub" id="pageSub"></div>
 
   <div class="filters" id="filters"></div>
   <div class="tagfilters" id="tagFilters"></div>
@@ -347,11 +341,6 @@
   var SUPABASE_URL = 'https://qhrtqtnrduambvchjxqw.supabase.co';
   var SUPABASE_KEY = 'sb_publishable_UAG7Ru6PRdNnOLCbchpQVg_8vE0jG5N';
   var AUTH_EMAIL   = 'questionnaire@dariaforberkeley.com';
-
-  // Berkeley's Election Reform Act caps contributions at $60 per DONOR, not per
-  // gift, and only Berkeley residents' contributions draw the 6:1 match. So the
-  // ask is always the same number and the variable worth tracking is residency.
-  var CAP = 60;
 
   var sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
   var contacts = [];
@@ -603,12 +592,6 @@
       b.addEventListener('click', function () { filter = f.k; buildFilters(); buildTagFilters(); render(); });
       w.appendChild(b);
     });
-
-    var gave = contacts.filter(function (c) { return c.gave; }).length;
-    var bky  = contacts.filter(function (c) { return c.gave && c.berkeley; }).length;
-    document.getElementById('pageSub').textContent =
-      contacts.length + ' contacts · ' + gave + ' gave · ' +
-      bky + ' Berkeley (matched 6:1) · $' + (bky * CAP * 6).toLocaleString() + ' in match if all maxed';
   }
 
   // --- render ---
