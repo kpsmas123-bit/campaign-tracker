@@ -118,15 +118,24 @@
   .fbtn.active { color: var(--text); font-weight: 600; border-bottom-color: var(--accent); }
   .fbtn .cnt { color: var(--text-tertiary); margin-left: 5px; font-weight: 400; font-variant-numeric: tabular-nums; }
 
-  /* A worked example rather than a sentence: the three states are visual, so
-     showing them costs less to read than describing them. */
-  .legend {
+  /* Collapsed by default: after the first day nobody needs to be told what a
+     green box means, so this is a reference to reopen, not a banner to read. */
+  .legend { margin: -6px 0 16px; }
+  .legend summary {
+    display: inline-block; list-style: none; cursor: pointer;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 10px; letter-spacing: 0.07em; text-transform: uppercase;
+    color: var(--text-tertiary);
+  }
+  .legend summary::-webkit-details-marker { display: none; }
+  .legend summary::after { content: ' +'; }
+  .legend[open] summary::after { content: ' \2212'; }
+  .legend summary:hover { color: var(--text-secondary); }
+  .legend .keys {
     display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
-    font-size: 12px; color: var(--text-tertiary);
-    margin: -6px 0 16px;
+    font-size: 12px; color: var(--text-tertiary); margin-top: 9px;
   }
   .legend .key { display: inline-flex; align-items: center; gap: 7px; }
-  .legend .key-note { font-style: italic; }
   .att.sample {
     pointer-events: none; cursor: default;
     width: 34px; display: inline-flex; align-items: center; justify-content: center;
@@ -316,12 +325,14 @@
 
   <div class="filters" id="filters"></div>
   <div class="tagfilters" id="tagFilters"></div>
-  <div class="legend">
-    <span class="key"><span class="att sample">+</span> not called</span>
-    <span class="key"><span class="att sample done">8/13</span> called, no contact</span>
-    <span class="key"><span class="att sample reached">8/13</span> made contact</span>
-    <span class="key-note">click cycles through these</span>
-  </div>
+  <details class="legend" id="legend">
+    <summary>Key</summary>
+    <div class="keys">
+      <span class="key"><span class="att sample">+</span> not called</span>
+      <span class="key"><span class="att sample done">8/13</span> no contact</span>
+      <span class="key"><span class="att sample reached">8/13</span> reached</span>
+    </div>
+  </details>
 
   <div class="thead">
     <div></div>
@@ -756,6 +767,12 @@
     buildTagFilters();
     render();
   }
+
+  var legend = document.getElementById('legend');
+  if (localStorage.getItem('calltimeKey') === 'open') legend.open = true;
+  legend.addEventListener('toggle', function () {
+    localStorage.setItem('calltimeKey', legend.open ? 'open' : 'closed');
+  });
 
   document.getElementById('addBtn').addEventListener('click', addContact);
 
