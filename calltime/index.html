@@ -185,7 +185,7 @@
     border-radius: 3px; padding: 5px 6px; cursor: pointer; text-align: left;
   }
   .tag-opt:hover { background: var(--hover); }
-  .tag-opt .box { width: 11px; height: 11px; border-radius: 2px; flex-shrink: 0; border: 1px solid var(--tc); }
+  .tag-opt .box { width: 11px; height: 11px; border-radius: 50%; flex-shrink: 0; border: 1px solid var(--tc); }
   .tag-opt.on { color: var(--text); }
   .tag-opt.on .box { background: var(--tc); }
 
@@ -382,14 +382,16 @@
     await saveTagDefs();
   }
 
-  async function toggleTag(c, key) {
+  // A contact belongs to one category, so picking a tag replaces whatever was
+  // there rather than adding to it. Picking the one already set clears it, which
+  // is the only way to get back to untagged. Still stored as an array so the
+  // column and the backfill SQL do not need to change.
+  async function setTag(c, key) {
     var prev = tagsOf(c).slice();
-    var cur = prev.slice();
-    var i = cur.indexOf(key);
-    if (i >= 0) cur.splice(i, 1); else cur.push(key);
-    c.tags = cur;
+    var next = (prev.length === 1 && prev[0] === key) ? [] : [key];
+    c.tags = next;
     render(); buildTagFilters();
-    var ok = await patch(c.id, { tags: cur });
+    var ok = await patch(c.id, { tags: next });
     if (!ok) { c.tags = prev; render(); buildTagFilters(); }
   }
 
@@ -399,7 +401,7 @@
   }
   function onPopOutside(e) { if (openPop && !openPop.contains(e.target)) closeTagPop(); }
 
-  function openTagPop(anchor, c) {
+  function openTagPop(ev, c) {
     closeTagPop();
     var pop = el('div', 'tag-pop');
     TAGS.forEach(function (t) {
@@ -409,14 +411,19 @@
       b.appendChild(el('span', 'box'));
       b.appendChild(document.createTextNode(t.label));
       b.addEventListener('click', function (ev) {
-        ev.stopPropagation(); toggleTag(c, t.key); closeTagPop();
+        ev.stopPropagation(); setTag(c, t.key); closeTagPop();
       });
       pop.appendChild(b);
     });
     document.body.appendChild(pop);
-    var r = anchor.getBoundingClientRect();
-    pop.style.left = Math.max(8, Math.min(r.left, window.innerWidth - pop.offsetWidth - 12)) + 'px';
-    pop.style.top = (r.bottom + window.scrollY + 4) + 'px';
+    // Prefer the cell's rect, but fall back to the pointer when that rect is
+    // degenerate — a zero-width rect would otherwise clamp the popover into the
+    // top-left corner instead of placing it under the tag.
+    var r = ev.currentTarget && ev.currentTarget.getBoundingClientRect();
+    var x = (r && r.width) ? r.left : ev.clientX;
+    var y = (r && r.width) ? r.bottom : ev.clientY;
+    pop.style.left = Math.max(8, Math.min(x, window.innerWidth - pop.offsetWidth - 12)) + 'px';
+    pop.style.top = (y + window.scrollY + 4) + 'px';
     openPop = pop;
     setTimeout(function () { document.addEventListener('mousedown', onPopOutside, true); }, 0);
   }
@@ -661,18 +668,14 @@
 
       // tags
       var tc = el('div', 'tag-cell');
-      var ts = tagsOf(c);
-      if (ts.length) {
-        ts.forEach(function (k) {
-          var d = tagDef(k);
-          if (!d) return;
-          var chip = el('span', 'tag-chip', d.label);
-          chip.style.setProperty('--tc', d.color);
-          tc.appendChild(chip);
-        });
+      var d = tagsOf(c).length ? tagDef(tagsOf(c)[0]) : null;
+      if (d) {
+        var chip = el('span', 'tag-chip', d.label);
+        chip.style.setProperty('--tc', d.color);
+        tc.appendChild(chip);
       }
       if (!tc.childNodes.length) tc.appendChild(el('span', 'tag-empty', '+ tag'));
-      tc.addEventListener('click', function (ev) { ev.stopPropagation(); openTagPop(tc, c); });
+      tc.addEventListener('click', function (ev) { ev.stopPropagation(); openTagPop(ev, c); });
       row.appendChild(tc);
 
       // three attempt slots
