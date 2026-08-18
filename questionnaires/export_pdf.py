@@ -85,8 +85,13 @@ def draw_furniture(canvas, doc):
     canvas.restoreState()
 
 
-def build(org_data, answers, status_row, out_path):
-    """One PDF for one organisation. Returns the number of answered questions."""
+def build(org_data, answers, status_row, out_path, blank=False):
+    """One PDF for one organisation. Returns the number of answered questions.
+
+    blank=True emits every question unanswered, as a working copy to draft or
+    review away from the screen. It is labelled as such on the first page so a
+    blank form can never be mistaken for a record of what was submitted.
+    """
     doc = BaseDocTemplate(out_path, pagesize=letter,
                           leftMargin=0.9 * inch, rightMargin=0.9 * inch,
                           topMargin=0.85 * inch, bottomMargin=0.95 * inch,
@@ -106,10 +111,15 @@ def build(org_data, answers, status_row, out_path):
     ]
 
     st = status_row or {}
-    submitted = st.get('submitted_at') or st.get('updated_at') or ''
-    if submitted:
-        label = 'Submitted' if st.get('submitted_at') else 'Marked done'
-        story.append(Paragraph('%s %s' % (label, esc(str(submitted)[:10])), S['meta']))
+    if blank:
+        story.append(Paragraph(
+            'BLANK WORKING COPY &mdash; questions only, no answers. '
+            'Not a record of any submission.', S['meta']))
+    else:
+        submitted = st.get('submitted_at') or st.get('updated_at') or ''
+        if submitted:
+            label = 'Submitted' if st.get('submitted_at') else 'Marked done'
+            story.append(Paragraph('%s %s' % (label, esc(str(submitted)[:10])), S['meta']))
     story.append(Spacer(1, 6))
 
     contact = [f for f in org_data.get('contact_fields', []) if (f.get('v') or '').strip()]
@@ -126,9 +136,10 @@ def build(org_data, answers, status_row, out_path):
         qid = q['id']
         text = (answers.get(qid) or '').strip()
         picks = [c for c in (answers.get('__c__' + qid) or '').split('\n') if c.strip()]
-        if not text and not picks:
+        if not blank and not text and not picks:
             continue
-        answered += 1
+        if text or picks:
+            answered += 1
 
         # The question stem, any section header above it and the checkbox picks
         # stay on one page together — a question stranded at the foot of a page
@@ -141,17 +152,39 @@ def build(org_data, answers, status_row, out_path):
             if q.get('section_note'):
                 head.append(Paragraph(esc(q['section_note']), S['note']))
         head.append(Paragraph(esc(q['question']), S['q']))
-        for c in picks:
-            head.append(Paragraph('&#9632;&nbsp; %s' % esc(c.strip()), S['choice']))
+        if blank:
+            # ASCII brackets rather than a box glyph: the base-14 fonts are
+            # WinAnsi and have no U+25A1, so a drawn box would come out blank.
+            for c in q.get('choices') or []:
+                head.append(Paragraph('[&nbsp;&nbsp;&nbsp;]&nbsp; %s'
+                                      % esc(c.get('label', '')), S['choice']))
+        else:
+            for c in picks:
+                head.append(Paragraph('&#9632;&nbsp; %s' % esc(c.strip()), S['choice']))
         story.append(KeepTogether(head))
         if text:
             story.append(Paragraph(esc(text), S['a']))
+        elif blank and not (q.get('choices') or []):
+            story.append(Spacer(1, 42))   # room to write a long-form answer
 
     doc.build(story)
     return answered
 
 
 def main():
+    if len(sys.argv) == 4 and sys.argv[1] == '--blank':
+        slug, outdir = sys.argv[2], sys.argv[3]
+        path = os.path.join(DATA, slug + '.json')
+        if not os.path.exists(path):
+            sys.exit('No data file for %r' % slug)
+        org_data = json.load(open(path))
+        os.makedirs(outdir, exist_ok=True)
+        name = re.sub(r'[^\w\- ]+', '', org_data['org']).strip()
+        out = os.path.join(outdir, '%s — Questionnaire (blank).pdf' % name)
+        build(org_data, {}, None, out, blank=True)
+        print('%d questions  ->  %s' % (len(org_data.get('questions', [])), out))
+        return
+
     if len(sys.argv) != 3:
         sys.exit(__doc__)
     export = json.load(open(sys.argv[1]))
