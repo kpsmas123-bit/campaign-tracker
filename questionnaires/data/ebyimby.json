@@ -1,0 +1,174 @@
+{
+ "slug": "ebyimby",
+ "org": "East Bay YIMBY",
+ "cycle": "2026",
+ "candidate": "Daria Wrubel — Berkeley City Council D1",
+ "generated": "2026-08-15",
+ "last_factcheck": "",
+ "contact_fields": [
+  {
+   "k": "name",
+   "label": "Candidate Name",
+   "v": "Daria Wrubel"
+  },
+  {
+   "k": "office",
+   "label": "Office sought",
+   "v": "Berkeley City Council, District 1"
+  },
+  {
+   "k": "website",
+   "label": "Campaign website",
+   "v": "https://www.dariaforberkeley.com/"
+  }
+ ],
+ "questions": [
+  {
+   "id": "ebyimby_q1",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Candidate Name",
+   "analysis": ""
+  },
+  {
+   "id": "ebyimby_q2",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Campaign email address",
+   "analysis": ""
+  },
+  {
+   "id": "ebyimby_q3",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Office you are running for",
+   "analysis": ""
+  },
+  {
+   "id": "ebyimby_q4",
+   "section": "Housing",
+   "topic": "general",
+   "status": "todo",
+   "question": "In brief, what are your top three priorities? List them in order of importance / urgency.",
+   "analysis": ""
+  },
+  {
+   "id": "ebyimby_q5",
+   "section": "Housing",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you have a section of your website devoted to housing? If so, provide the link; if not, write N/A.",
+   "analysis": ""
+  },
+  {
+   "id": "ebyimby_q6",
+   "section": "Housing",
+   "topic": "general",
+   "status": "todo",
+   "question": "Are there pro-housing policies or specific housing developments you have supported in the past that you would like to highlight?",
+   "analysis": ""
+  },
+  {
+   "id": "ebyimby_q7",
+   "section": "Housing",
+   "topic": "general",
+   "status": "todo",
+   "question": "What's an example of a housing project that you would like to see more of in your city?",
+   "analysis": ""
+  },
+  {
+   "id": "ebyimby_q8",
+   "section": "Housing",
+   "topic": "general",
+   "status": "todo",
+   "question": "What are some tenant protections you support, either existing protections or ones you would expand?",
+   "analysis": ""
+  },
+  {
+   "id": "ebyimby_q9",
+   "section": "Housing",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you believe that adding new market-rate housing brings down rents across all income levels?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "ebyimby_q10",
+   "section": "Housing",
+   "topic": "general",
+   "status": "todo",
+   "question": "What would you do to increase the production of market-rate housing in your city?",
+   "analysis": ""
+  },
+  {
+   "id": "ebyimby_q11",
+   "section": "Housing",
+   "topic": "general",
+   "status": "todo",
+   "question": "What would you do to increase the production of subsidized, below-market-rate housing in your city?",
+   "analysis": ""
+  },
+  {
+   "id": "ebyimby_q12",
+   "section": "Housing",
+   "topic": "general",
+   "status": "todo",
+   "question": "What would you do to address homelessness?",
+   "analysis": ""
+  },
+  {
+   "id": "ebyimby_q13",
+   "section": "Housing",
+   "topic": "general",
+   "status": "todo",
+   "question": "Existing zoning codes and regulations have led to significant patterns of spatial segregation, where some neighborhoods are accessible only to the very wealthy. What would you do to Affirmatively Further Fair Housing in your city?",
+   "analysis": ""
+  },
+  {
+   "id": "ebyimby_q14",
+   "section": "Housing",
+   "topic": "general",
+   "status": "todo",
+   "question": "The state has passed several laws which streamline approvals and/or offer additional height and density for housing proposals. Should cities embrace these laws or pursue exemptions and limitations on their effect where possible to maintain local control of the planning process?",
+   "analysis": ""
+  },
+  {
+   "id": "ebyimby_q15",
+   "section": "Housing",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you support the Connect Bay Area ballot measure to fund transit?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "ebyimby_q16",
+   "section": "Housing",
+   "topic": "general",
+   "status": "todo",
+   "question": "Which California politician is doing work you admire on housing right now? Why?",
+   "analysis": ""
+  }
+ ],
+ "org_research": "East Bay YIMBY — 2026 Housing Questionnaire. Pulled from the form's own data payload, so wording is verbatim.\n\nDUE END OF DAY, AUGUST 25. \"Especially if you would like to be considered for endorsement.\" Only name, email and office are required; every substantive question is optional.\n\nOVERLAPS EAST BAY FOR EVERYONE. EB4E is already ingested and researched, and covers much of the same ground — housing production, tenant protections, state streamlining laws and Connect Bay Area. Answers should be consistent between the two.\n\nTHE ONE TO WATCH is the yes/no on whether new market-rate housing brings down rents across all income levels. It is the sharpest test on the form and admits no nuance in the box itself; the surrounding written questions are where any qualification goes.\n\nResearch not attached."
+}
