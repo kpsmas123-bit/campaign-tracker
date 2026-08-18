@@ -1,0 +1,185 @@
+{
+ "slug": "bayrising",
+ "org": "Bay Rising Action",
+ "cycle": "2026",
+ "candidate": "Daria Wrubel — Berkeley City Council D1",
+ "generated": "2026-08-15",
+ "last_factcheck": "",
+ "contact_fields": [
+  {
+   "k": "name",
+   "label": "Candidate Name",
+   "v": "Daria Wrubel"
+  },
+  {
+   "k": "office",
+   "label": "Office sought",
+   "v": "Berkeley City Council, District 1"
+  },
+  {
+   "k": "website",
+   "label": "Campaign website",
+   "v": "https://www.dariaforberkeley.com/"
+  }
+ ],
+ "questions": [
+  {
+   "id": "bayrising_q1",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Email",
+   "analysis": ""
+  },
+  {
+   "id": "bayrising_q2",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Name as it will appear on ballot",
+   "analysis": ""
+  },
+  {
+   "id": "bayrising_q3",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you have a Chinese version of your name? Our voter guide will be printed in Spanish and Chinese.",
+   "analysis": ""
+  },
+  {
+   "id": "bayrising_q4",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "What position are you running for?",
+   "analysis": ""
+  },
+  {
+   "id": "bayrising_q5",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "In what city, county or jurisdiction?",
+   "analysis": ""
+  },
+  {
+   "id": "bayrising_q6",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Campaign Manager name",
+   "analysis": ""
+  },
+  {
+   "id": "bayrising_q7",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Campaign Manager phone or email (best way to reach)",
+   "analysis": ""
+  },
+  {
+   "id": "bayrising_q8",
+   "section": "Questions",
+   "topic": "general",
+   "status": "todo",
+   "question": "Why are you running for office?",
+   "analysis": ""
+  },
+  {
+   "id": "bayrising_q9",
+   "section": "Questions",
+   "topic": "general",
+   "status": "todo",
+   "question": "Please share the top 3-5 issues/problems you would like to address in office and your plans for addressing them. Feel free to attach your policy platform.",
+   "analysis": ""
+  },
+  {
+   "id": "bayrising_q10",
+   "section": "Questions",
+   "topic": "general",
+   "status": "todo",
+   "question": "What do you see as the most significant racial justice issues we are facing in the Bay Area and how do you plan to address them?",
+   "analysis": ""
+  },
+  {
+   "id": "bayrising_q11",
+   "section": "Questions",
+   "topic": "general",
+   "status": "todo",
+   "question": "How will you engage community organizations while you are in office? What relationships do you have or what relationships will you build?",
+   "analysis": ""
+  },
+  {
+   "id": "bayrising_q12",
+   "section": "Pledges",
+   "section_note": "Each of these is Yes / No / Other on the form. The Co-Governance Pledge is a standing commitment for the whole term, not a statement of position.",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you commit to having regular meetings with community organizations such as Bay Rising and Bay Rising member groups if you are elected into office?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    },
+    {
+     "label": "Other"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "bayrising_q13",
+   "section": "Pledges",
+   "topic": "general",
+   "status": "todo",
+   "question": "Will you take our Co-Governance Pledge? — Be in relationship with Bay Rising Action towards the vision of co-governance; consult with Bay Rising Action when considering endorsement of local candidates and measures; participate in Bay Rising Action meetings when called upon; call for and welcome input from Bay Rising Action on relevant policy matters; expand traditional relations through joint development of legislative proposals; attend policy briefing sessions; ensure opportunity for direct access to you, independent of your staff; work to appoint qualified, progressive leaders to boards and commissions who prioritize community input and engagement.",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    },
+    {
+     "label": "Other"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "bayrising_q14",
+   "section": "Pledges",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you commit to signing the Working Families Party People's Charter? https://www.peoplescharter.us/",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    },
+    {
+     "label": "Other"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "bayrising_q15",
+   "section": "Additional",
+   "topic": "general",
+   "status": "todo",
+   "question": "Anything else you would like to share with us?",
+   "analysis": ""
+  }
+ ],
+ "org_research": "Bay Rising Action — Candidate Questionnaire and Pledge. Transcribed verbatim. A grassroots political network building the political power of working-class, immigrant, Black, Latinx and Asian communities.\n\nNO DUE DATE STATED — \"as soon as possible\". Estimated 15 minutes. Keep responses to one or two paragraphs per question. The form is headed \"2024 Candidate Questionnaire and Pledge\", an authoring leftover on their end. Requires a Google sign-in to save progress. Contact: Kimi Lee, Director, Kimi@bayrisingaction.org\n\nANSWERS MAY BE PUBLISHED. \"Your answers may be made public to our partners and supporters and may also appear in our voter education materials.\" Private contact information is not published. Responses are TRANSLATED INTO CHINESE AND SPANISH unless the campaign supplies its own translation — worth deciding, since a self-supplied translation controls the wording. The form also asks whether there is a Chinese version of the candidate name for the printed voter guide.\n\nCOORDINATED PROCESS. Bay Rising Action coordinates with the Bay Area chapter of the California Working Families Party and the local Rising Action Funds, and may co-host endorsement interviews with them. The WFP questionnaire is already complete, so answers here should be consistent with it. An interview may be requested.\n\nTWO PLEDGES. The Co-Governance Pledge carries eight specific ongoing commitments, including consulting Bay Rising Action before endorsing other local candidates and measures, and direct access independent of staff. Separately it asks for a commitment to sign the Working Families Party People's Charter.\n\nResearch not attached."
+}
