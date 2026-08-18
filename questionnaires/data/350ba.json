@@ -1,0 +1,507 @@
+{
+ "slug": "350ba",
+ "org": "350 Bay Area Action",
+ "cycle": "2026",
+ "candidate": "Daria Wrubel — Berkeley City Council D1",
+ "generated": "2026-08-15",
+ "last_factcheck": "",
+ "contact_fields": [
+  {
+   "k": "name",
+   "label": "Candidate Name",
+   "v": "Daria Wrubel"
+  },
+  {
+   "k": "office",
+   "label": "Office sought",
+   "v": "Berkeley City Council, District 1"
+  },
+  {
+   "k": "website",
+   "label": "Campaign website",
+   "v": "https://www.dariaforberkeley.com/"
+  }
+ ],
+ "questions": [
+  {
+   "id": "350ba_q1",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Email",
+   "analysis": ""
+  },
+  {
+   "id": "350ba_q2",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Name",
+   "analysis": ""
+  },
+  {
+   "id": "350ba_q3",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Race - City / Town & District, Mayor or At Large",
+   "analysis": ""
+  },
+  {
+   "id": "350ba_q4",
+   "section": "Energy & Fossil Fuels",
+   "topic": "general",
+   "status": "todo",
+   "question": "Describe your vision for moving to renewable energy and away from fossil fuels. Please include what specific policies you would work to pass to achieve this, and why doing so is important to you.",
+   "analysis": ""
+  },
+  {
+   "id": "350ba_q5",
+   "section": "Energy & Fossil Fuels",
+   "topic": "general",
+   "status": "todo",
+   "question": "Describe how you would take into consideration low-income communities in moving off of fossil fuels.",
+   "analysis": ""
+  },
+  {
+   "id": "350ba_q6",
+   "section": "Energy & Fossil Fuels",
+   "topic": "general",
+   "status": "todo",
+   "question": "What is your position on natural gas as a fuel? (For the purposes of this question, “new natural gas projects” refers specifically to gas extraction - wells, drilling, production, etc.)",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "It’s a critical fuel source and should be supported in California."
+    },
+    {
+     "label": "I do not oppose continued investments in new natural gas projects, as long as they protect communities disproportionately impacted by fossil fuel facilities and pollution."
+    },
+    {
+     "label": "I support natural gas as a transition fuel, but I do not support continued investments in new natural gas projects."
+    },
+    {
+     "label": "I support an end to the use of natural gas as quickly as possible."
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "350ba_q7",
+   "section": "Regional & Local Measures",
+   "topic": "general",
+   "status": "todo",
+   "question": "If you were appointed to the Metropolitan Transportation Commission board, would you support MTC in declaring a climate emergency and funding a regional plan to fully support California's 2045 goal to eliminate fossil fuels from transportation?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "350ba_q8",
+   "section": "Regional & Local Measures",
+   "topic": "general",
+   "status": "todo",
+   "question": "Donald Trump has announced that he wants to put $75 million toward financing a new coal terminal in Oakland. If elected, would you vote to urge the Bay Area Air District to require stringent controls on dust from transport and handling of coal, as well as a new Environmental Impact Report on the proposed project? (The last EIR, in 2012, didn't include coal.)",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "350ba_q9",
+   "section": "Regional & Local Measures",
+   "topic": "general",
+   "status": "todo",
+   "question": "Comments (optional) — coal terminal / Air District",
+   "analysis": ""
+  },
+  {
+   "id": "350ba_q10",
+   "section": "Regional & Local Measures",
+   "topic": "general",
+   "status": "todo",
+   "question": "The Bay Area Air District has passed rules (9-4 and 9-6) that require both new and replacement gas furnaces and gas water heaters to be pollution-free (in 2029 and 2027 respectively). These rules will need continued support to ensure their implementation. 350 Bay Area is working to secure resolutions in support of these rules. Would you work to pass such a resolution for your city, and urge support for the rules by your County’s members of the Bay Area Air District?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    },
+    {
+     "label": "I don't know"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "350ba_q11",
+   "section": "Regional & Local Measures",
+   "topic": "general",
+   "status": "todo",
+   "question": "Comments (optional) — Air District rules 9-4 and 9-6",
+   "analysis": ""
+  },
+  {
+   "id": "350ba_q12",
+   "section": "Data Centers",
+   "topic": "general",
+   "status": "todo",
+   "question": "If a data center were proposed in your municipality (or nearby) you would — check all that apply: Welcome the economic opportunities / Require local hiring and well-paid construction jobs / Require a community benefits plan (housing, broadband, health and childcare, climate mitigation and resilience) / Require no utility rate increases for residents / Require that data centers use clean energy for generation and back-up storage / Push for community involvement and minimize NDAs so the community has access to proposals and their impacts on air, water, grid and noise, before and after contracts are signed / Oppose a data center in your city or town",
+   "analysis": ""
+  },
+  {
+   "id": "350ba_q13",
+   "section": "Data Centers",
+   "topic": "general",
+   "status": "todo",
+   "question": "Comments (optional) — data centers",
+   "analysis": ""
+  },
+  {
+   "id": "350ba_q14",
+   "section": "Land Use & Budget — rate your support",
+   "topic": "general",
+   "status": "todo",
+   "question": "Design that supports active transportation. (Such as biking and walking)",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "I would like to lead on this issue"
+    },
+    {
+     "label": "I am likely to support this"
+    },
+    {
+     "label": "Neutral / I don’t know"
+    },
+    {
+     "label": "I am not likely to support this at this time"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "350ba_q15",
+   "section": "Land Use & Budget — rate your support",
+   "topic": "general",
+   "status": "todo",
+   "question": "Developing denser, affordable, multi-family, transit-oriented housing (without displacing existing communities)",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "I would like to lead on this issue"
+    },
+    {
+     "label": "I am likely to support this"
+    },
+    {
+     "label": "Neutral / I don’t know"
+    },
+    {
+     "label": "I am not likely to support this at this time"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "350ba_q16",
+   "section": "Land Use & Budget — rate your support",
+   "topic": "general",
+   "status": "todo",
+   "question": "Reduction of minimum parking requirements in / near commercial areas",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "I would like to lead on this issue"
+    },
+    {
+     "label": "I am likely to support this"
+    },
+    {
+     "label": "Neutral / I don’t know"
+    },
+    {
+     "label": "I am not likely to support this at this time"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "350ba_q17",
+   "section": "Land Use & Budget — rate your support",
+   "topic": "general",
+   "status": "todo",
+   "question": "Moving back urban growth boundaries to increase zones for housing",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "I would like to lead on this issue"
+    },
+    {
+     "label": "I am likely to support this"
+    },
+    {
+     "label": "Neutral / I don’t know"
+    },
+    {
+     "label": "I am not likely to support this at this time"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "350ba_q18",
+   "section": "Land Use & Budget — rate your support",
+   "topic": "general",
+   "status": "todo",
+   "question": "Banning new gas stations (where needs are reasonably met)",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "I would like to lead on this issue"
+    },
+    {
+     "label": "I am likely to support this"
+    },
+    {
+     "label": "Neutral / I don’t know"
+    },
+    {
+     "label": "I am not likely to support this at this time"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "350ba_q19",
+   "section": "Land Use & Budget — rate your support",
+   "topic": "general",
+   "status": "todo",
+   "question": "Converting the city’s fleet to electric vehicles",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "I would like to lead on this issue"
+    },
+    {
+     "label": "I am likely to support this"
+    },
+    {
+     "label": "Neutral / I don’t know"
+    },
+    {
+     "label": "I am not likely to support this at this time"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "350ba_q20",
+   "section": "Land Use & Budget — rate your support",
+   "topic": "general",
+   "status": "todo",
+   "question": "Comments (optional) — land use and budget ratings",
+   "analysis": ""
+  },
+  {
+   "id": "350ba_q21",
+   "section": "Environmental Protection & Equity — rate your support",
+   "topic": "general",
+   "status": "todo",
+   "question": "For City-wide programs, implement your jurisdiction’s climate action plan first in areas disproportionately affected by toxic emissions",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "I would like to lead on this issue"
+    },
+    {
+     "label": "I am likely to support this"
+    },
+    {
+     "label": "Neutral / I don’t know"
+    },
+    {
+     "label": "I am not likely to support this at this time"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "350ba_q22",
+   "section": "Environmental Protection & Equity — rate your support",
+   "topic": "general",
+   "status": "todo",
+   "question": "Opposing new fossil fuel infrastructure, e.g. export facilities, refinery expansions, pipelines, new drilling / fracking",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "I would like to lead on this issue"
+    },
+    {
+     "label": "I am likely to support this"
+    },
+    {
+     "label": "Neutral / I don’t know"
+    },
+    {
+     "label": "I am not likely to support this at this time"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "350ba_q23",
+   "section": "Environmental Protection & Equity — rate your support",
+   "topic": "general",
+   "status": "todo",
+   "question": "Seek funding to provide education and subsidies for programs for disadvantaged communities such as switching to clean energy, building electrification and EV charging stations",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "I would like to lead on this issue"
+    },
+    {
+     "label": "I am likely to support this"
+    },
+    {
+     "label": "Neutral / I don’t know"
+    },
+    {
+     "label": "I am not likely to support this at this time"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "350ba_q24",
+   "section": "Environmental Protection & Equity — rate your support",
+   "topic": "general",
+   "status": "todo",
+   "question": "Create EV charging solutions for people who have to park on the street or who live in multi-family dwellings.",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "I would like to lead on this issue"
+    },
+    {
+     "label": "I am likely to support this"
+    },
+    {
+     "label": "Neutral / I don’t know"
+    },
+    {
+     "label": "I am not likely to support this at this time"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "350ba_q25",
+   "section": "Environmental Protection & Equity — rate your support",
+   "topic": "general",
+   "status": "todo",
+   "question": "Comments (optional) — environmental protection and equity ratings",
+   "analysis": ""
+  },
+  {
+   "id": "350ba_q26",
+   "section": "Fossil Fuel Money Pledge",
+   "topic": "general",
+   "status": "todo",
+   "question": "Have you taken or will you take a No Fossil Fuel Money Pledge? “The pledge means that a politician or candidate’s campaign will adopt a policy to not knowingly accept any contributions over $200 from the PACs, lobbyists, or SEC-named executives of fossil fuel companies — companies whose primary business is the extraction, processing, distribution, or sale of oil, gas, or coal.”",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "I have or will sign the public No Fossil Fuel Pledge"
+    },
+    {
+     "label": "I will affirm to 350 Bay Area Action that I am adhering to a NFFM pledge as described above"
+    },
+    {
+     "label": "I will not sign the pledge"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "350ba_q27",
+   "section": "Experience",
+   "topic": "general",
+   "status": "todo",
+   "question": "1. Activity, Organization, Your Role and Year(s)",
+   "analysis": ""
+  },
+  {
+   "id": "350ba_q28",
+   "section": "Experience",
+   "topic": "general",
+   "status": "todo",
+   "question": "2. Activity, Organization, Your Role and Year(s)",
+   "analysis": ""
+  },
+  {
+   "id": "350ba_q29",
+   "section": "Experience",
+   "topic": "general",
+   "status": "todo",
+   "question": "3. Activity, Organization, Your Role and Year(s)",
+   "analysis": ""
+  },
+  {
+   "id": "350ba_q30",
+   "section": "Additional Information & Files",
+   "topic": "general",
+   "status": "todo",
+   "question": "Is there anything else you'd like for us to know about your positions, vision, experience (or anything you'd like to explain about your responses in this survey)? You may answer in detail here (include links if you like)",
+   "analysis": ""
+  },
+  {
+   "id": "350ba_q31",
+   "section": "Additional Information & Files",
+   "topic": "general",
+   "status": "todo",
+   "question": "File uploads — up to 5 files, max 10 MB each. May also be emailed to electoral-endorsements@350bayareaaction.org",
+   "analysis": ""
+  },
+  {
+   "id": "350ba_q32",
+   "section": "Additional Information & Files",
+   "topic": "general",
+   "status": "todo",
+   "question": "High resolution candidate photo — optional but speeds endorsement if the race is endorsed. Note who owns / gives permission for use.",
+   "analysis": ""
+  },
+  {
+   "id": "350ba_q33",
+   "section": "Additional Information & Files",
+   "topic": "general",
+   "status": "todo",
+   "question": "Photo permission is granted by",
+   "analysis": ""
+  },
+  {
+   "id": "350ba_q34",
+   "section": "Additional Information & Files",
+   "topic": "general",
+   "status": "todo",
+   "question": "Photo credit or attribution (optional)",
+   "analysis": ""
+  }
+ ],
+ "org_research": "350 Bay Area Action — 2026 Candidate Survey, Alameda County city races. Transcribed verbatim from the live form.\n\nDUE AUGUST 27, 2026. Estimated 30 minutes. Submitted through a Google account; a copy is emailed on submission and the form warns to confirm that copy arrives. Files and a candidate photo may be uploaded or emailed to electoral-endorsements@350bayareaaction.org\n\nTHE ORGANISATION ASKS THAT AI NOT BE USED. Verbatim: \"Because it's important we get to know your positions and thinking, we request no use of AI in answering questions.\" That request is recorded here so it travels with the questionnaire. Drafting assistance should not be used on this one; fact-checking a claim the candidate has already written is a separate matter and the candidate's call.\n\nFORM SHAPE. Two rating grids are split here into one item per row — six land use and budget items, four environmental protection and equity items — each rated on the same four-point scale, so they can be answered and tracked individually. The data centre question is check-all-that-apply and its options are kept in the question text.\n\nResearch not attached."
+}
