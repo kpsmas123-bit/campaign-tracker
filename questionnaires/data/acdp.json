@@ -1,0 +1,240 @@
+{
+ "slug": "acdp",
+ "org": "Alameda County Democratic Party",
+ "cycle": "2026",
+ "candidate": "Daria Wrubel — Berkeley City Council D1",
+ "generated": "2026-08-15",
+ "last_factcheck": "",
+ "contact_fields": [
+  {
+   "k": "name",
+   "label": "Candidate Name",
+   "v": "Daria Wrubel"
+  },
+  {
+   "k": "office",
+   "label": "Office sought",
+   "v": "Berkeley City Council, District 1"
+  },
+  {
+   "k": "website",
+   "label": "Campaign website",
+   "v": "https://www.dariaforberkeley.com/"
+  }
+ ],
+ "questions": [
+  {
+   "id": "acdp_q1",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Additional Preferred Email (Optional)",
+   "analysis": ""
+  },
+  {
+   "id": "acdp_q2",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Name",
+   "analysis": ""
+  },
+  {
+   "id": "acdp_q3",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Street Address as Registered to Vote",
+   "analysis": ""
+  },
+  {
+   "id": "acdp_q4",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "City as Registered to Vote",
+   "analysis": ""
+  },
+  {
+   "id": "acdp_q5",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "ZIP Code as Registered to Vote",
+   "analysis": ""
+  },
+  {
+   "id": "acdp_q6",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Mailing address if different (optional)",
+   "analysis": ""
+  },
+  {
+   "id": "acdp_q7",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Phone number",
+   "analysis": ""
+  },
+  {
+   "id": "acdp_q8",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "What office are you running for (include jurisdiction, office and district if applicable, for example \"Oakland Mayor\" or \"Berkeley City Council District 1\")?",
+   "analysis": ""
+  },
+  {
+   "id": "acdp_q9",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "What is your ballot designation as it will appear below your name on the ballot (usually occupation or current office)?",
+   "analysis": ""
+  },
+  {
+   "id": "acdp_q10",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Campaign Committee Name and ID #",
+   "analysis": ""
+  },
+  {
+   "id": "acdp_q11",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Campaign Phone Number (Optional)",
+   "analysis": ""
+  },
+  {
+   "id": "acdp_q12",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Campaign Website Link (Optional)",
+   "analysis": ""
+  },
+  {
+   "id": "acdp_q13",
+   "section": "Campaign",
+   "topic": "general",
+   "status": "todo",
+   "question": "Please provide the ballot statement you submitted when filing. If you aren't submitting a ballot statement, instead state briefly why you are seeking this office.",
+   "analysis": ""
+  },
+  {
+   "id": "acdp_q14",
+   "section": "Campaign",
+   "topic": "general",
+   "status": "todo",
+   "question": "What are your top issues in this campaign?",
+   "analysis": ""
+  },
+  {
+   "id": "acdp_q15",
+   "section": "Campaign",
+   "topic": "general",
+   "status": "todo",
+   "question": "List your prominent endorsers, both organizations and individuals. NOTE: List only endorsements for the current election; DO NOT include past endorsements that are not confirmed for the current election. Note dual endorsements with asterisk (*), note ranked choice endorsements with your rank (e.g. #2).",
+   "analysis": ""
+  },
+  {
+   "id": "acdp_q16",
+   "section": "Campaign",
+   "topic": "general",
+   "status": "todo",
+   "question": "List who you have endorsed and/or donated to in this election cycle.",
+   "analysis": ""
+  },
+  {
+   "id": "acdp_q17",
+   "section": "Campaign",
+   "topic": "general",
+   "status": "todo",
+   "question": "Brief description of your campaign – include the names and contact information of any consultants or campaign managers you will use, funds you have raised to date, and how much to expect to have to raise to win.",
+   "analysis": ""
+  },
+  {
+   "id": "acdp_q18",
+   "section": "Platform & Commitments",
+   "topic": "general",
+   "status": "todo",
+   "question": "Indicate below that you have read the platform of the California Democratic Party as it pertains to the office you are seeking (required for endorsement) and note any substantive disagreements. https://cadem.org/our-platform/",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "I have read the platform of the California Democratic Party."
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "acdp_q19",
+   "section": "Platform & Commitments",
+   "topic": "general",
+   "status": "todo",
+   "question": "Use this field to denote any substantive disagreement with the platform.",
+   "analysis": ""
+  },
+  {
+   "id": "acdp_q20",
+   "section": "Platform & Commitments",
+   "topic": "general",
+   "status": "todo",
+   "question": "Have you ever crossed a union-sanctioned picket line? If so, please explain.",
+   "analysis": ""
+  },
+  {
+   "id": "acdp_q21",
+   "section": "Platform & Commitments",
+   "topic": "general",
+   "status": "todo",
+   "question": "The Alameda County Democratic Party urges Democratic candidates to refuse contributions and endorsements from police officer unions. Please list below all such contributions or endorsements you have received since 2018 or indicate that none has been received. For each contribution received, indicate whether you intend to retain the funds, return them, or donate them to organizations in Alameda County advancing racial justice. Contributions and endorsements from police officer unions DO NOT automatically disqualify you from endorsement consideration.",
+   "analysis": ""
+  },
+  {
+   "id": "acdp_q22",
+   "section": "Platform & Commitments",
+   "topic": "general",
+   "status": "todo",
+   "question": "The Alameda County Democratic Party urges Democratic candidates to refuse contributions and endorsements from fossil fuel entities as defined by: fossil fuel corporations; California-based investor-owned utilities; and fossil fuel industry executives, lobbyists, and political action committees (see www.NoFossilFuelMoney.org). Please list below all such contributions or endorsements you have received since 2018 or indicate that none has been received. For each contribution received, indicate whether you intend to retain the funds, return them, or donate them to organizations in Alameda County advancing climate justice. These DO NOT automatically disqualify you from endorsement consideration.",
+   "analysis": ""
+  },
+  {
+   "id": "acdp_q23",
+   "section": "Platform & Commitments",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you support the LGBTQ+ Community including but not limited to: marriage equality, display of the pride flag, inclusive restrooms, sex education, athletic participation and anti-bullying curriculum? If not, please specify any concerns.",
+   "analysis": ""
+  },
+  {
+   "id": "acdp_q24",
+   "section": "Platform & Commitments",
+   "topic": "general",
+   "status": "todo",
+   "question": "Summarize your history of engagement with the Democratic Party, including the year you first registered as a Democrat, any other party affiliations, and Democratic clubs or organizations you have supported or contributed to financially.",
+   "analysis": ""
+  },
+  {
+   "id": "acdp_q25",
+   "section": "Declaration",
+   "topic": "general",
+   "status": "todo",
+   "question": "I declare under penalty of perjury under the laws of the State of California that I am a registered Democrat and that the above statements in this document and those in any attachments are true and correct. If any part of this application or any information provided during the endorsement process is found to be false, it may be cause for an immediate revocation of any endorsement. I understand that my application is available to any ACDCC member upon request.",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "I agree to the above declaration"
+    }
+   ],
+   "analysis": ""
+  }
+ ],
+ "org_research": "Alameda County Democratic Party — Candidate Questionnaire, General 2026. Pulled from the form's own data payload, so wording is verbatim.\n\nDUE AUGUST 28, 2026 AT 12 P.M. for full consideration.\n\nSCREENING INTERVIEW REQUIRED — schedule separately at calendly.com/acdems-info/interview. The questionnaire alone is not the whole process.\n\nELIGIBILITY. Endorsement goes only to registered Democrats, and the Party will not endorse more candidates for an office than there are seats to fill. This form is only for Alameda County races on the November 2026 ballot, not state or federal races already considered by the California Democratic Party.\n\nSIGNED UNDER PENALTY OF PERJURY, and the application is available to any ACDCC member on request — the same central committee members held in the call list under Endorsement – ACD. Treat every answer as visible to the people who vote on it.\n\nTWO MONEY QUESTIONS reach back to 2018 and ask what will be done with any funds received: police officer unions, and fossil fuel entities. Neither is automatically disqualifying.\n\nREADING THE CA DEM PLATFORM is a required checkbox, with space to note substantive disagreement.\n\nResearch not attached."
+}
