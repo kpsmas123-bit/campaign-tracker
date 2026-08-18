@@ -1,0 +1,269 @@
+{
+ "slug": "apa",
+ "org": "Asian Pacific American Democratic Caucus of Alameda County",
+ "cycle": "2026",
+ "candidate": "Daria Wrubel — Berkeley City Council D1",
+ "generated": "2026-08-15",
+ "last_factcheck": "",
+ "contact_fields": [
+  {
+   "k": "name",
+   "label": "Candidate Name",
+   "v": "Daria Wrubel"
+  },
+  {
+   "k": "office",
+   "label": "Office sought",
+   "v": "Berkeley City Council, District 1"
+  },
+  {
+   "k": "website",
+   "label": "Campaign website",
+   "v": "https://www.dariaforberkeley.com/"
+  }
+ ],
+ "questions": [
+  {
+   "id": "apa_q1",
+   "section": "Personal Information",
+   "section_note": "The office field is a checkbox list of 98 seats on the live form; the applicable option is \"Berkeley, City Council, D1\".",
+   "topic": "general",
+   "status": "todo",
+   "question": "Candidate Name",
+   "analysis": ""
+  },
+  {
+   "id": "apa_q2",
+   "section": "Personal Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "City and zip code of residence.",
+   "analysis": ""
+  },
+  {
+   "id": "apa_q3",
+   "section": "Personal Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "What is your campaign website address?",
+   "analysis": ""
+  },
+  {
+   "id": "apa_q4",
+   "section": "Personal Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "What is the best email to reach you?",
+   "analysis": ""
+  },
+  {
+   "id": "apa_q5",
+   "section": "Personal Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "What is the office that you are seeking?",
+   "analysis": ""
+  },
+  {
+   "id": "apa_q6",
+   "section": "Personal Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Are you a registered Democrat? The APA Democratic Caucus can only endorse registered Democrats",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "apa_q7",
+   "section": "Personal Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Are you an APA Dem Caucus member?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "apa_q8",
+   "section": "Personal Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "List ONLY the top 5 endorsements that you have received.",
+   "analysis": ""
+  },
+  {
+   "id": "apa_q9",
+   "section": "Personal Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "If we endorse you, will you use our name in your campaign materials?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    },
+    {
+     "label": "Maybe"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "apa_q10",
+   "section": "Personal Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Are you the incumbent?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "apa_q11",
+   "section": "Personal Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "How long have you lived in the district that you are seeking to represent?",
+   "analysis": ""
+  },
+  {
+   "id": "apa_q12",
+   "section": "Personal Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Educational background: What schools have you attended, date graduated, major and degree(s) earned.",
+   "analysis": ""
+  },
+  {
+   "id": "apa_q13",
+   "section": "Personal Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Employment: List the last three (3) paid positions, indicating name of employer, job title, and length of employment.",
+   "analysis": ""
+  },
+  {
+   "id": "apa_q14",
+   "section": "Personal Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "What are the names of any community or nonprofit organizations with which you have been an active volunteer in the past 3-5 years.",
+   "analysis": ""
+  },
+  {
+   "id": "apa_q15",
+   "section": "Candidate Questions",
+   "section_note": "250 words or less per answer. All responses are posted publicly on apademcaucus.org.",
+   "topic": "general",
+   "status": "todo",
+   "question": "1. Asian Americans comprise the largest racial group in Alameda County -- and the fastest growing and represent 30% of the eligible voters in Alameda County. What are the top three Asian ethnic groups in the specific area you are running to represent?",
+   "analysis": ""
+  },
+  {
+   "id": "apa_q16",
+   "section": "Candidate Questions",
+   "topic": "general",
+   "status": "todo",
+   "question": "2. If elected or re-elected, what actions will you take to uplift the needs and concerns of API in your district? Please be specific.",
+   "analysis": ""
+  },
+  {
+   "id": "apa_q17",
+   "section": "Candidate Questions",
+   "topic": "general",
+   "status": "todo",
+   "question": "3. Have you engaged in outreach in the neighborhoods/communities with an Asian plurality? If yes, please describe the type of outreach and what you have learned.",
+   "analysis": ""
+  },
+  {
+   "id": "apa_q18",
+   "section": "Candidate Questions",
+   "topic": "general",
+   "status": "todo",
+   "question": "4. What insights/inspirations did you gain from reviewing this toolkit on how to reach AAPI voters? [v1.0 draft] 2026 AAPI Voters Data and Narrative Toolkit",
+   "analysis": ""
+  },
+  {
+   "id": "apa_q19",
+   "section": "Candidate Questions",
+   "topic": "general",
+   "status": "todo",
+   "question": "5. Which of the findings in this report surprised you and why? What It Means to Be “Truly American” Divides AAPIs and the U.S. Public, New Survey Finds | TAAF",
+   "analysis": ""
+  },
+  {
+   "id": "apa_q20",
+   "section": "Candidate Questions",
+   "topic": "general",
+   "status": "todo",
+   "question": "6. Name 5 Asian Americans serving in elective office in Alameda County and identify their specific ethnicity.",
+   "analysis": ""
+  },
+  {
+   "id": "apa_q21",
+   "section": "Candidate Questions",
+   "topic": "general",
+   "status": "todo",
+   "question": "7. Close to 20% of Alameda County residents speak an Asian language in their home with about half speaking Chinese. How do you plan to have your message reach these multigenerational households which include voters? Asian Americans represent 30% of the voting population in Alameda County.",
+   "analysis": ""
+  },
+  {
+   "id": "apa_q22",
+   "section": "Candidate Questions",
+   "topic": "general",
+   "status": "todo",
+   "question": "8. Tell us what steps you have taken and/or intend to take to familiarize yourself with the issues of concern in Asian/Pacific communities.",
+   "analysis": ""
+  },
+  {
+   "id": "apa_q23",
+   "section": "Candidate Questions",
+   "topic": "general",
+   "status": "todo",
+   "question": "9. What resources (people/organizations) will you tap to increase your knowledge and understanding of the on-going needs of the Asian and Pacific Americans living in your district?",
+   "analysis": ""
+  },
+  {
+   "id": "apa_q24",
+   "section": "Candidate Questions",
+   "topic": "general",
+   "status": "todo",
+   "question": "10. Please name the 4 cities in Alameda County which are led by Asian American mayors? (City/Name of Mayor/ethnicity)",
+   "analysis": ""
+  },
+  {
+   "id": "apa_q25",
+   "section": "Candidate Questions",
+   "topic": "general",
+   "status": "todo",
+   "question": "11. What kinds of assistance did you get in completing this questionnaire? Check all that apply. — Volunteer/intern/staff / Chat GBT or other A.I. / Reviewed the materials in this questionnaire / None. I knew all the answers already. / Other",
+   "analysis": ""
+  }
+ ],
+ "org_research": "Asian Pacific American Democratic Caucus of Alameda County — 2026 General Endorsement Questionnaire. Pulled from the form's own data payload, so wording is verbatim.\n\nDEADLINE. 5PM Monday, August 24, 2026. Endorsement meetings by Zoom on August 29 and 30. Only candidates who complete the questionnaire appear on the endorsement ballot. No changes can be made after submission. City council candidates are interviewed; other seats get one minute to speak.\n\nANSWERS ARE PUBLISHED. \"Your questionnaire will be posted on our website for Caucus members to review\" — responses go up on apademcaucus.org. Answer each question in 250 words or less.\n\nTHIS ONE IS PART RESEARCH QUIZ. Several questions have verifiable answers rather than positions: the top three Asian ethnic groups in District 1, five Asian Americans in elective office in Alameda County with their specific ethnicity, and the four Alameda County cities led by Asian American mayors. Two questions require reading named documents — an AAPI voters toolkit and a TAAF survey — and reporting what was learned.\n\nQUESTION 11 asks what assistance was used in completing the questionnaire, including a checkbox for AI. Responses are public. That answer is the candidate's to give.\n\nResearch not yet attached."
+}

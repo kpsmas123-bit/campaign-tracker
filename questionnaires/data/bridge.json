@@ -1,0 +1,173 @@
+{
+ "slug": "bridge",
+ "org": "Bridge Association of REALTORS®",
+ "cycle": "2026",
+ "candidate": "Daria Wrubel — Berkeley City Council D1",
+ "generated": "2026-08-15",
+ "last_factcheck": "",
+ "contact_fields": [
+  {
+   "k": "name",
+   "label": "Candidate Name",
+   "v": "Daria Wrubel"
+  },
+  {
+   "k": "office",
+   "label": "Office sought",
+   "v": "Berkeley City Council, District 1"
+  },
+  {
+   "k": "website",
+   "label": "Campaign website",
+   "v": "https://www.dariaforberkeley.com/"
+  }
+ ],
+ "questions": [
+  {
+   "id": "bridge_q1",
+   "section": "Candidate & Committee Information",
+   "section_note": "All fields on this form are required.",
+   "topic": "general",
+   "status": "todo",
+   "question": "Name",
+   "analysis": ""
+  },
+  {
+   "id": "bridge_q2",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Office Sought",
+   "analysis": ""
+  },
+  {
+   "id": "bridge_q3",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Address (Including City/State/Zip Code)",
+   "analysis": ""
+  },
+  {
+   "id": "bridge_q4",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Phone Number",
+   "analysis": ""
+  },
+  {
+   "id": "bridge_q5",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Email Address",
+   "analysis": ""
+  },
+  {
+   "id": "bridge_q6",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Website",
+   "analysis": ""
+  },
+  {
+   "id": "bridge_q7",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Legal Name of Campaign Committee",
+   "analysis": ""
+  },
+  {
+   "id": "bridge_q8",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "FPPC#",
+   "analysis": ""
+  },
+  {
+   "id": "bridge_q9",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Treasurer",
+   "analysis": ""
+  },
+  {
+   "id": "bridge_q10",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Treasurer's Address (Including City/State/Zip Code)",
+   "analysis": ""
+  },
+  {
+   "id": "bridge_q11",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Treasurer's Phone Number",
+   "analysis": ""
+  },
+  {
+   "id": "bridge_q12",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Campaign Committee Chair/Consultant",
+   "analysis": ""
+  },
+  {
+   "id": "bridge_q13",
+   "section": "Questionnaire",
+   "topic": "general",
+   "status": "todo",
+   "question": "Describe your civic leadership experience including any appointed or elected offices you have held:",
+   "analysis": ""
+  },
+  {
+   "id": "bridge_q14",
+   "section": "Questionnaire",
+   "topic": "general",
+   "status": "todo",
+   "question": "What inspired you to run for elected office? What are the key components of your legislative agenda?",
+   "analysis": ""
+  },
+  {
+   "id": "bridge_q15",
+   "section": "Questionnaire",
+   "topic": "general",
+   "status": "todo",
+   "question": "What type of skills or experience do you think distinguish yourself from other candidates running for the same office? How do you think those traits will serve you if elected?",
+   "analysis": ""
+  },
+  {
+   "id": "bridge_q16",
+   "section": "Questionnaire",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you believe homeownership is an integral part of your community? If so, what type of long term policies would you implement, or refrain from implementing, to ensure more homeownership opportunities in your community? Do you know of any current policies that directly address homeownership in your jurisdiction, and if so, what are your thoughts on those policies?",
+   "analysis": ""
+  },
+  {
+   "id": "bridge_q17",
+   "section": "Questionnaire",
+   "topic": "general",
+   "status": "todo",
+   "question": "What is your position on point-of-sale mandates, real estate transfer taxes, and parcel taxes, and how would you balance the need to fund city services and achieve policy goals with the impact these measures can have on housing affordability, property owners, and the local real estate market?",
+   "analysis": ""
+  },
+  {
+   "id": "bridge_q18",
+   "section": "Questionnaire",
+   "topic": "general",
+   "status": "todo",
+   "question": "Is there any additional information you would like to share with the Committee?",
+   "analysis": ""
+  }
+ ],
+ "org_research": "Bridge Association of REALTORS® — 2026 Candidate Questionnaire. Pulled from the form's own data payload, so wording is verbatim. Every question is required.\n\nDUE AUGUST 21, 2026.\n\nCONFIDENTIAL, unlike most of the others. \"The information provided will be kept strictly confidential and be used only by the Local Candidate Recommendation Committee (LCRC) Trustees of Bridge to determine candidate support.\" Sent to candidates who have filed within Bridge's jurisdictional boundaries.\n\nFLAG BEFORE ANSWERING. The tax question asks directly about point-of-sale mandates, real estate transfer taxes and parcel taxes. Berkeley has live measures in all of these areas — the public bank parcel tax and the 0.5% sales tax are both on the November 3 ballot, and Measure M already taxes vacant residential units. The campaign also supports TOPA, which realtor associations have generally opposed. Answers here will not align with this audience on every point, and should be written knowing that.\n\nResearch not yet attached."
+}

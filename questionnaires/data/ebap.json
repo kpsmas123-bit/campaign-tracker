@@ -1,0 +1,285 @@
+{
+ "slug": "ebap",
+ "org": "East Bay Animal PAC",
+ "cycle": "2026",
+ "candidate": "Daria Wrubel — Berkeley City Council D1",
+ "generated": "2026-08-15",
+ "last_factcheck": "",
+ "contact_fields": [
+  {
+   "k": "name",
+   "label": "Candidate Name",
+   "v": "Daria Wrubel"
+  },
+  {
+   "k": "office",
+   "label": "Office sought",
+   "v": "Berkeley City Council, District 1"
+  },
+  {
+   "k": "website",
+   "label": "Campaign website",
+   "v": "https://www.dariaforberkeley.com/"
+  }
+ ],
+ "questions": [
+  {
+   "id": "ebap_q1",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Candidate First Name",
+   "analysis": ""
+  },
+  {
+   "id": "ebap_q2",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Candidate Last Name",
+   "analysis": ""
+  },
+  {
+   "id": "ebap_q3",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Office Sought",
+   "analysis": ""
+  },
+  {
+   "id": "ebap_q4",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Candidate Email Address",
+   "analysis": ""
+  },
+  {
+   "id": "ebap_q5",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Campaign Website URL",
+   "analysis": ""
+  },
+  {
+   "id": "ebap_q6",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Please list any additional campaign social media sites",
+   "analysis": ""
+  },
+  {
+   "id": "ebap_q7",
+   "section": "2026 Candidate Questionnaire",
+   "section_note": "Answer only the questions relevant to the office sought; most are optional. Several are explicitly conditional (\"if relevant to your position\", \"if an incumbent\").",
+   "topic": "general",
+   "status": "todo",
+   "question": "Are you a member of the East Bay Animal PAC?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "ebap_q8",
+   "section": "2026 Candidate Questionnaire",
+   "topic": "general",
+   "status": "todo",
+   "question": "Are you a dues paying member of any other animal protection organizations? If so, please list them below.",
+   "analysis": ""
+  },
+  {
+   "id": "ebap_q9",
+   "section": "2026 Candidate Questionnaire",
+   "topic": "general",
+   "status": "todo",
+   "question": "What have you done to directly advocate for animals? If an elected official, what legislation to support animal protection have you sponsored?",
+   "analysis": ""
+  },
+  {
+   "id": "ebap_q10",
+   "section": "2026 Candidate Questionnaire",
+   "topic": "general",
+   "status": "todo",
+   "question": "Research has found that eating meat raises risk of heart disease, diabetes and other illnesses. The East Bay Animal PAC has worked with other animal rights organizations requesting that cities and counties adopt ordinances reducing the amount of meat purchased in schools, jails and other public entities, thereby reducing meat consumption. Do you support such efforts?",
+   "analysis": ""
+  },
+  {
+   "id": "ebap_q11",
+   "section": "2026 Candidate Questionnaire",
+   "topic": "general",
+   "status": "todo",
+   "question": "Scientific studies show that animal agriculture is responsible for 14.5-16.5% of global greenhouse gas emissions and causes significant environmental degradation, from biodiversity loss to deforestation. If relevant to your position, do you support efforts to reduce animal agriculture and how would you accomplish this?",
+   "analysis": ""
+  },
+  {
+   "id": "ebap_q12",
+   "section": "2026 Candidate Questionnaire",
+   "topic": "general",
+   "status": "todo",
+   "question": "Public animal shelters often transfer animals to private rescue organizations to increase live-release rates. If an organization receiving animals from a shelter in your jurisdiction misrepresented its operations, mistreated or killed transferred animals, or otherwise violated animal-welfare laws, what actions would you support to hold that organization accountable and protect animals from similar future harm? Would you support suspending transfers, strengthening oversight and reporting requirements, and, where appropriate, pursuing civil or criminal remedies?",
+   "analysis": ""
+  },
+  {
+   "id": "ebap_q13",
+   "section": "2026 Candidate Questionnaire",
+   "topic": "general",
+   "status": "todo",
+   "question": "Given budgetary challenges, how do you propose maintaining vital animal services?",
+   "analysis": ""
+  },
+  {
+   "id": "ebap_q14",
+   "section": "2026 Candidate Questionnaire",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you support Assemblyman Matt Haney's AB 2344, which prohibits individuals charged with animal cruelty from owning, possessing, or living with animals and tracks felony animal abusers to prevent repeat offenses and protect vulnerable pets?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "YES"
+    },
+    {
+     "label": "NO"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "ebap_q15",
+   "section": "2026 Candidate Questionnaire",
+   "topic": "general",
+   "status": "todo",
+   "question": "Please explain how you would address complaints related to wild animals (i.e., turkeys, coyotes, deer, birds etc.) while also considering their well being as an important priority?",
+   "analysis": ""
+  },
+  {
+   "id": "ebap_q16",
+   "section": "2026 Candidate Questionnaire",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you support keeping trails and parks available to dogs? How would you deal with potential conflicts with wild animals and other park uses?",
+   "analysis": ""
+  },
+  {
+   "id": "ebap_q17",
+   "section": "2026 Candidate Questionnaire",
+   "topic": "general",
+   "status": "todo",
+   "question": "If an incumbent, do you currently have or will you have a dedicated staff person who regularly checks in with your local animal services department?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "YES"
+    },
+    {
+     "label": "NO"
+    },
+    {
+     "label": "NOT APPLICABLE"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "ebap_q18",
+   "section": "2026 Candidate Questionnaire",
+   "topic": "general",
+   "status": "todo",
+   "question": "Would you support adding animal protections into General Plan Amendments, which cover land use, transportation, housing, open space, conservation, safety, noise, and environmental justice?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "YES"
+    },
+    {
+     "label": "NO"
+    },
+    {
+     "label": "OTHER"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "ebap_q19",
+   "section": "2026 Candidate Questionnaire",
+   "topic": "general",
+   "status": "todo",
+   "question": "If relevant to your position, will you pledge to ask commission appointments about their support for animal protection, as well as maintaining and expanding access to trails and parks?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "YES"
+    },
+    {
+     "label": "NO"
+    },
+    {
+     "label": "NOT APPLICABLE"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "ebap_q20",
+   "section": "2026 Candidate Questionnaire",
+   "topic": "general",
+   "status": "todo",
+   "question": "If relevant to your position, will you commit to authoring an animal protection bill during the next legislative cycle?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "YES"
+    },
+    {
+     "label": "NO"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "ebap_q21",
+   "section": "2026 Candidate Questionnaire",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you consider non-human animals sentient? If so, which ones? Why or why not?",
+   "analysis": ""
+  },
+  {
+   "id": "ebap_q22",
+   "section": "2026 Candidate Questionnaire",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you support Governor Newsom’s budget recommendation to turn Golden Gate Fields into a waterfront park?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "YES"
+    },
+    {
+     "label": "NO"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "ebap_q23",
+   "section": "2026 Candidate Questionnaire",
+   "topic": "general",
+   "status": "todo",
+   "question": "Please tell us about the animals in your household, pets you grew up, or anything else you would like to add.",
+   "analysis": ""
+  }
+ ],
+ "org_research": "East Bay Animal PAC — 2026 Candidate Survey. Pulled from the form's own data payload, so wording and options are verbatim.\n\nABOUT THE PAC. A voluntary, nonprofit, unincorporated organization supporting animal-friendly candidates, proposing animal-friendly legislation, and educating candidates and public officials on animal welfare.\n\nNO DEADLINE STATED on the form. The form is titled \"2024 Candidate Survey\" while its description says 2026 — an authoring leftover on their end, not a different form.\n\nSCOPE. \"Please answer any questions you feel are relevant to the office you're seeking\" — only the candidate name, last name, office and email are required, and several questions are explicitly conditional on the office. All responses are shared with dues paying members.\n\nResearch not yet attached."
+}

@@ -1,0 +1,508 @@
+{
+ "slug": "ebsd",
+ "org": "East Bay Stonewall Democratic Club",
+ "cycle": "2026",
+ "candidate": "Daria Wrubel — Berkeley City Council D1",
+ "generated": "2026-08-15",
+ "last_factcheck": "",
+ "contact_fields": [
+  {
+   "k": "name",
+   "label": "Candidate Name",
+   "v": "Daria Wrubel"
+  },
+  {
+   "k": "office",
+   "label": "Office sought",
+   "v": "Berkeley City Council, District 1"
+  },
+  {
+   "k": "website",
+   "label": "Campaign website",
+   "v": "https://www.dariaforberkeley.com/"
+  }
+ ],
+ "questions": [
+  {
+   "id": "ebsd_q1",
+   "section": "Candidate Information",
+   "section_note": "Endorsement requires a registered Democrat. Club membership in good standing is asked separately. The self-identification answer is stated to be used publicly.",
+   "topic": "general",
+   "status": "todo",
+   "question": "Name (First Last)",
+   "analysis": ""
+  },
+  {
+   "id": "ebsd_q2",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Email",
+   "analysis": ""
+  },
+  {
+   "id": "ebsd_q3",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Phone Number",
+   "analysis": ""
+  },
+  {
+   "id": "ebsd_q4",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Are you a registered Democrat",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "ebsd_q5",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Office you are seeking? (e.g. City Council, School Board, Supervisor, etc)",
+   "analysis": ""
+  },
+  {
+   "id": "ebsd_q6",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Jurisdiction",
+   "analysis": ""
+  },
+  {
+   "id": "ebsd_q7",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "District",
+   "analysis": ""
+  },
+  {
+   "id": "ebsd_q8",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Are you an East Bay Stonewall Democratic Club member in good standing? If you are unsure, email eastbaystonewalldems@gmail.com.",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "ebsd_q9",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "I self-identify as: (check all boxes that apply; note these identifiers will be used publicly during our endorsement process.) — Gay / Lesbian / Transgender / Gender non-conforming / Bisexual / Queer / Straight",
+   "analysis": ""
+  },
+  {
+   "id": "ebsd_q10",
+   "section": "Record & Platform",
+   "topic": "general",
+   "status": "todo",
+   "question": "How have you participated in East Bay Stonewall Democratic Club activities, and/or supported the Club other ways? What other LGBTQ+ organizations are you affiliated with and in what capacity? What other Democratic clubs are you affiliated with?",
+   "analysis": ""
+  },
+  {
+   "id": "ebsd_q11",
+   "section": "Record & Platform",
+   "topic": "general",
+   "status": "todo",
+   "question": "Using specific examples, please identify the causes you have advocated for and the ways you have helped advance LGBTQ+ rights or otherwise helped foster a community of inclusivity for LGBTQ+ individuals and families.",
+   "analysis": ""
+  },
+  {
+   "id": "ebsd_q12",
+   "section": "Record & Platform",
+   "topic": "general",
+   "status": "todo",
+   "question": "Have you previously supported LGBTQ+ candidates for office? If yes, how did you support them, volunteer, donate, endorsement?",
+   "analysis": ""
+  },
+  {
+   "id": "ebsd_q13",
+   "section": "Record & Platform",
+   "topic": "general",
+   "status": "todo",
+   "question": "Which LGBTQ+ organizations and elected officials have formally endorsed you for this race?",
+   "analysis": ""
+  },
+  {
+   "id": "ebsd_q14",
+   "section": "Record & Platform",
+   "topic": "general",
+   "status": "todo",
+   "question": "Please describe a policy/goal that is part of your formal platform that benefits the LGTBQ+ community?",
+   "analysis": ""
+  },
+  {
+   "id": "ebsd_q15",
+   "section": "Record & Platform",
+   "topic": "general",
+   "status": "todo",
+   "question": "What makes you uniquely qualified for the office and how are you different or unique from the other candidates in your race?",
+   "analysis": ""
+  },
+  {
+   "id": "ebsd_q16",
+   "section": "Policy Positions",
+   "section_note": "Each of these is YES / NO / DECLINE TO ANSWER on the form.",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you support transgender students and athletes participating in school sports and activities consistent with their gender identity?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "YES"
+    },
+    {
+     "label": "NO"
+    },
+    {
+     "label": "DECLINE TO ANSWER"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "ebsd_q17",
+   "section": "Policy Positions",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you support protecting access to medically appropriate, evidence-based gender-affirming health care for transgender youth, consistent with California law?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "YES"
+    },
+    {
+     "label": "NO"
+    },
+    {
+     "label": "DECLINE TO ANSWER"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "ebsd_q18",
+   "section": "Policy Positions",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you support ensuring LGBTQ+ youth have access to age-appropriate, evidence-based educational resources, including online resources, through schools and public institutions?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "YES"
+    },
+    {
+     "label": "NO"
+    },
+    {
+     "label": "DECLINE TO ANSWER"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "ebsd_q19",
+   "section": "Policy Positions",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you support maintaining and enforcing nondiscrimination protections for LGBTQ+ people in employment, housing, education, public accommodations, and local government services?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "YES"
+    },
+    {
+     "label": "NO"
+    },
+    {
+     "label": "DECLINE TO ANSWER"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "ebsd_q20",
+   "section": "Policy Positions",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you support inclusive curricula that accurately reflect the history and contributions of LGBTQ+ people, as required by California law?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "YES"
+    },
+    {
+     "label": "NO"
+    },
+    {
+     "label": "DECLINE TO ANSWER"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "ebsd_q21",
+   "section": "Policy Positions",
+   "topic": "general",
+   "status": "todo",
+   "question": "Would you oppose efforts to ban books or educational materials solely because they include LGBTQ+ people, families, or themes?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "YES"
+    },
+    {
+     "label": "NO"
+    },
+    {
+     "label": "DECLINE TO ANSWER"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "ebsd_q22",
+   "section": "Policy Positions",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you support allowing students to use their chosen name and pronouns at school without discrimination, consistent with California law?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "YES"
+    },
+    {
+     "label": "NO"
+    },
+    {
+     "label": "DECLINE TO ANSWER"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "ebsd_q23",
+   "section": "Policy Positions",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you support funding and maintaining programs and services that address the unique needs of LGBTQ+ youth, seniors, and other vulnerable community members?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "YES"
+    },
+    {
+     "label": "NO"
+    },
+    {
+     "label": "DECLINE TO ANSWER"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "ebsd_q24",
+   "section": "Policy Positions",
+   "topic": "general",
+   "status": "todo",
+   "question": "Would you support publicly recognizing and celebrating LGBTQ+ communities through actions such as Pride proclamations, flag raisings, or community events?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "YES"
+    },
+    {
+     "label": "NO"
+    },
+    {
+     "label": "DECLINE TO ANSWER"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "ebsd_q25",
+   "section": "Policy Positions",
+   "topic": "general",
+   "status": "todo",
+   "question": "If elected, will you oppose local policies that discriminate against LGBTQ+ people or weaken existing legal protections?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "YES"
+    },
+    {
+     "label": "NO"
+    },
+    {
+     "label": "DECLINE TO ANSWER"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "ebsd_q26",
+   "section": "Policy Positions",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you support making your city or school district a safe and welcoming place for transgender and nonbinary people?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "YES"
+    },
+    {
+     "label": "NO"
+    },
+    {
+     "label": "DECLINE TO ANSWER"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "ebsd_q27",
+   "section": "Policy Positions",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you support providing regular LGBTQ+ cultural competency training for city or school district employees?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "YES"
+    },
+    {
+     "label": "NO"
+    },
+    {
+     "label": "DECLINE TO ANSWER"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "ebsd_q28",
+   "section": "Policy Positions",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you support protecting a student's privacy regarding their sexual orientation or gender identity, consistent with California law?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "YES"
+    },
+    {
+     "label": "NO"
+    },
+    {
+     "label": "DECLINE TO ANSWER"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "ebsd_q29",
+   "section": "Policy Positions",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you support continued local funding for HIV prevention, treatment, and sexual health programs?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "YES"
+    },
+    {
+     "label": "NO"
+    },
+    {
+     "label": "DECLINE TO ANSWER"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "ebsd_q30",
+   "section": "Policy Positions",
+   "topic": "general",
+   "status": "todo",
+   "question": "Would you oppose local ordinances or policies that restrict lawful drag performances or other lawful LGBTQ+ expression?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "YES"
+    },
+    {
+     "label": "NO"
+    },
+    {
+     "label": "DECLINE TO ANSWER"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "ebsd_q31",
+   "section": "Policy Positions",
+   "topic": "general",
+   "status": "todo",
+   "question": "Would you oppose policies requiring school staff to disclose a student's sexual orientation or gender identity to parents without the student's consent, except as required by law?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "YES"
+    },
+    {
+     "label": "NO"
+    },
+    {
+     "label": "DECLINE TO ANSWER"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "ebsd_q32",
+   "section": "Policy Positions",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you support allowing transgender people to use public facilities, including restrooms and locker rooms, that correspond with their gender identity?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "YES"
+    },
+    {
+     "label": "NO"
+    },
+    {
+     "label": "DECLINE TO ANSWER"
+    }
+   ],
+   "analysis": ""
+  }
+ ],
+ "org_research": "East Bay Stonewall Democratic Club — Nov 3 2026 endorsement questionnaire. Pulled from the form's own data payload, so wording and options are verbatim.\n\nDEADLINE. August 31 at 5PM, hard. \"Any candidate submitting a questionnaire that is received after the deadline will not appear on the endorsement ballot. To ensure a fair process, no grace period will be granted.\" All submissions are final. Contact: Ryan LaLonde, ryanclalonde@gmail.com.\n\nELIGIBILITY AND THRESHOLD. Endorsement requires being a registered Democrat. The general membership votes. In a race with just two candidates the threshold is 60% of votes cast; with more than two candidates it is above 50%. District 1 is a two-candidate race, so 60% applies.\n\nSELF-IDENTIFICATION. The form requires a self-identification checkbox and states the identifiers will be used publicly during the endorsement process. That is the candidate's own disclosure to make.\n\nResearch not yet attached."
+}

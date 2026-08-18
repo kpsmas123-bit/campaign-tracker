@@ -1,0 +1,399 @@
+{
+ "slug": "oe3",
+ "org": "Operating Engineers Local Union No. 3",
+ "cycle": "2026",
+ "candidate": "Daria Wrubel — Berkeley City Council D1",
+ "generated": "2026-08-15",
+ "last_factcheck": "",
+ "contact_fields": [
+  {
+   "k": "name",
+   "label": "Candidate Name",
+   "v": "Daria Wrubel"
+  },
+  {
+   "k": "office",
+   "label": "Office sought",
+   "v": "Berkeley City Council, District 1"
+  },
+  {
+   "k": "website",
+   "label": "Campaign website",
+   "v": "https://www.dariaforberkeley.com/"
+  }
+ ],
+ "questions": [
+  {
+   "id": "oe3_q1",
+   "section": "Candidate & Committee Information",
+   "section_note": "Every field on page 1 is required. No endorsement or contribution will be considered if the form is incomplete, and a physical address must be given.",
+   "topic": "general",
+   "status": "todo",
+   "question": "NAME OF CANDIDATE (OR BALLOT MEASURE)",
+   "analysis": ""
+  },
+  {
+   "id": "oe3_q2",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "EXACT Committee Name",
+   "analysis": ""
+  },
+  {
+   "id": "oe3_q3",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Committee Mailing Address",
+   "analysis": ""
+  },
+  {
+   "id": "oe3_q4",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Committee Physical Address",
+   "analysis": ""
+  },
+  {
+   "id": "oe3_q5",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Telephone",
+   "analysis": ""
+  },
+  {
+   "id": "oe3_q6",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Fax",
+   "analysis": ""
+  },
+  {
+   "id": "oe3_q7",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Email",
+   "analysis": ""
+  },
+  {
+   "id": "oe3_q8",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Committee ID No. (FPPC#)",
+   "analysis": ""
+  },
+  {
+   "id": "oe3_q9",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Treasurer’s Name",
+   "analysis": ""
+  },
+  {
+   "id": "oe3_q10",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Office sought by Candidate (District/County)",
+   "analysis": ""
+  },
+  {
+   "id": "oe3_q11",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "ELECTION DATE (Required)",
+   "analysis": ""
+  },
+  {
+   "id": "oe3_q12",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Election Location (County)",
+   "analysis": ""
+  },
+  {
+   "id": "oe3_q13",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Incumbent (Check One)",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "oe3_q14",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Contribution Limit? (Check One) — if yes, state the limit",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "oe3_q15",
+   "section": "Background",
+   "topic": "general",
+   "status": "todo",
+   "question": "With which party are you registered to vote?",
+   "analysis": ""
+  },
+  {
+   "id": "oe3_q16",
+   "section": "Background",
+   "topic": "general",
+   "status": "todo",
+   "question": "Political Position",
+   "analysis": ""
+  },
+  {
+   "id": "oe3_q17",
+   "section": "Background",
+   "topic": "general",
+   "status": "todo",
+   "question": "Office Currently held",
+   "analysis": ""
+  },
+  {
+   "id": "oe3_q18",
+   "section": "Background",
+   "topic": "general",
+   "status": "todo",
+   "question": "What is your background?",
+   "analysis": ""
+  },
+  {
+   "id": "oe3_q19",
+   "section": "Background",
+   "topic": "general",
+   "status": "todo",
+   "question": "Have you received endorsement or contributions from other Labor Union PAC's? If so, please list",
+   "analysis": ""
+  },
+  {
+   "id": "oe3_q20",
+   "section": "Background",
+   "topic": "general",
+   "status": "todo",
+   "question": "Have you ever been a union member? If so, please list Union(s) and Local #",
+   "analysis": ""
+  },
+  {
+   "id": "oe3_q21",
+   "section": "Background",
+   "topic": "general",
+   "status": "todo",
+   "question": "What was your participation in the Union? (Steward, Officer, etc.)",
+   "analysis": ""
+  },
+  {
+   "id": "oe3_q22",
+   "section": "Labor",
+   "topic": "general",
+   "status": "todo",
+   "question": "What is your position on the use, by government, of labor management, consultants, or law firms with a reputation of \"union busting\"?",
+   "analysis": ""
+  },
+  {
+   "id": "oe3_q23",
+   "section": "Labor",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you support the right to strike of: A.) Private employees",
+   "analysis": ""
+  },
+  {
+   "id": "oe3_q24",
+   "section": "Labor",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you support the right to strike of: B.) Public employees",
+   "analysis": ""
+  },
+  {
+   "id": "oe3_q25",
+   "section": "Labor",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you favor, or oppose \"contracting out\" for the provision of public services?",
+   "analysis": ""
+  },
+  {
+   "id": "oe3_q26",
+   "section": "Labor",
+   "topic": "general",
+   "status": "todo",
+   "question": "Would you cross an organized labor (AFL-CIO) picket line? — and explain",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    },
+    {
+     "label": "Maybe"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "oe3_q27",
+   "section": "Labor",
+   "topic": "general",
+   "status": "todo",
+   "question": "Would you honor an AFL-CIO boycott? — and explain",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    },
+    {
+     "label": "Maybe"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "oe3_q28",
+   "section": "Labor",
+   "topic": "general",
+   "status": "todo",
+   "question": "As an elected official, would you be accessible to workers, or their union representatives on work related matters? If so, how?",
+   "analysis": ""
+  },
+  {
+   "id": "oe3_q29",
+   "section": "Labor",
+   "topic": "general",
+   "status": "todo",
+   "question": "What is your view concerning the Federal Davis-Bacon Law and the State Prevailing Wage?",
+   "analysis": ""
+  },
+  {
+   "id": "oe3_q30",
+   "section": "Labor",
+   "topic": "general",
+   "status": "todo",
+   "question": "If government funds were used in constructing a facility in your jurisdiction as an elected Official, would you request and encourage the use of union labor for construction and operation? If so, how?",
+   "analysis": ""
+  },
+  {
+   "id": "oe3_q31",
+   "section": "Issues & Campaign",
+   "topic": "general",
+   "status": "todo",
+   "question": "What is your stand on environmental issues?",
+   "analysis": ""
+  },
+  {
+   "id": "oe3_q32",
+   "section": "Issues & Campaign",
+   "topic": "general",
+   "status": "todo",
+   "question": "What is your involvement in the community?",
+   "analysis": ""
+  },
+  {
+   "id": "oe3_q33",
+   "section": "Issues & Campaign",
+   "topic": "general",
+   "status": "todo",
+   "question": "Who in the business community has supported you?",
+   "analysis": ""
+  },
+  {
+   "id": "oe3_q34",
+   "section": "Issues & Campaign",
+   "topic": "general",
+   "status": "todo",
+   "question": "From where do you expect to receive your main financial commitments from?",
+   "analysis": ""
+  },
+  {
+   "id": "oe3_q35",
+   "section": "Issues & Campaign",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you have a written campaign plan and a written budget?",
+   "analysis": ""
+  },
+  {
+   "id": "oe3_q36",
+   "section": "Issues & Campaign",
+   "topic": "general",
+   "status": "todo",
+   "question": "What do you see as the major issues in this campaign?",
+   "analysis": ""
+  },
+  {
+   "id": "oe3_q37",
+   "section": "Issues & Campaign",
+   "topic": "general",
+   "status": "todo",
+   "question": "What distinguishes your candidacy and your campaign from your opponent(s)?",
+   "analysis": ""
+  },
+  {
+   "id": "oe3_q38",
+   "section": "Issues & Campaign",
+   "topic": "general",
+   "status": "todo",
+   "question": "If financial cutbacks become necessary in your term of office where would you make them? Please list by priority of cutback",
+   "analysis": ""
+  },
+  {
+   "id": "oe3_q39",
+   "section": "Endorsement",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you want the endorsement of the Operating Engineers Local Union No. 3?",
+   "analysis": ""
+  },
+  {
+   "id": "oe3_q40",
+   "section": "Endorsement",
+   "topic": "general",
+   "status": "todo",
+   "question": "Which would be more helpful to you? Check Priority (1/2/3): A) Get out the vote  B) Printing  C) Monetary Contribution",
+   "analysis": ""
+  },
+  {
+   "id": "oe3_q41",
+   "section": "Endorsement",
+   "topic": "general",
+   "status": "todo",
+   "question": "Where do you see your support coming from and what do you see as your strengths and your weaknesses when it comes to getting elected?",
+   "analysis": ""
+  }
+ ],
+ "org_research": "Operating Engineers Local Union No. 3 — Political Action Committee Questionnaire, Form 594 revised 8/19/2025. Five pages, 97 fillable fields. Questions transcribed from the PDF text layer, verbatim.\n\nFORM RULES. The candidate must complete every part, and a PHYSICAL address is required — the Secretary of State no longer accepts P.O. boxes. \"No endorsement or contribution will be considered if incomplete.\" The district office must receive the completed form in advance of the next PAC meeting before the candidate is placed on the PAC agenda.\n\nFLAG — the form assumes a PAC contribution is possible. Berkeley's Election Reform Act bars corporate, business and union contributions outright, bars PAC contributions entirely, and caps every contribution at $60 per donor. The final question asks the candidate to rank whether get-out-the-vote, printing, or a monetary contribution would help most; the monetary option is not available to a publicly financed Berkeley candidate. Worth answering directly rather than leaving blank.\n\nNO DUE DATE RECORDED. Research not yet attached."
+}
