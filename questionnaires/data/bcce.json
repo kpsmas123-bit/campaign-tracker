@@ -1,0 +1,357 @@
+{
+ "slug": "bcce",
+ "org": "Berkeley Council of Classified Employees (AFT Local 6192)",
+ "cycle": "2026",
+ "candidate": "Daria Wrubel — Berkeley City Council D1",
+ "generated": "2026-08-15",
+ "last_factcheck": "",
+ "contact_fields": [
+  {
+   "k": "name",
+   "label": "Candidate Name",
+   "v": "Daria Wrubel"
+  },
+  {
+   "k": "office",
+   "label": "Office sought",
+   "v": "Berkeley City Council, District 1"
+  },
+  {
+   "k": "website",
+   "label": "Campaign website",
+   "v": "https://www.dariaforberkeley.com/"
+  }
+ ],
+ "questions": [
+  {
+   "id": "bcce_q1",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Name of Candidate",
+   "analysis": ""
+  },
+  {
+   "id": "bcce_q2",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Office Sought (indicate district #)",
+   "analysis": ""
+  },
+  {
+   "id": "bcce_q3",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Occupation",
+   "analysis": ""
+  },
+  {
+   "id": "bcce_q4",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Employer",
+   "analysis": ""
+  },
+  {
+   "id": "bcce_q5",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Candidate phone number",
+   "analysis": ""
+  },
+  {
+   "id": "bcce_q6",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Candidate Email",
+   "analysis": ""
+  },
+  {
+   "id": "bcce_q7",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Campaign Website",
+   "analysis": ""
+  },
+  {
+   "id": "bcce_q8",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Campaign ID",
+   "analysis": ""
+  },
+  {
+   "id": "bcce_q9",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Political Party (if applicable)",
+   "analysis": ""
+  },
+  {
+   "id": "bcce_q10",
+   "section": "Candidate Background",
+   "topic": "general",
+   "status": "todo",
+   "question": "1. Why are you running for office?",
+   "analysis": ""
+  },
+  {
+   "id": "bcce_q11",
+   "section": "Candidate Background",
+   "topic": "general",
+   "status": "todo",
+   "question": "2. Have you held public office in the past? If so, what office, where, when, and for how long?",
+   "analysis": ""
+  },
+  {
+   "id": "bcce_q12",
+   "section": "Candidate Background",
+   "topic": "general",
+   "status": "todo",
+   "question": "3. Briefly describe your educational background.",
+   "analysis": ""
+  },
+  {
+   "id": "bcce_q13",
+   "section": "Candidate Background",
+   "topic": "general",
+   "status": "todo",
+   "question": "4. What experience do you have advocating for issues dealing with education and worker's rights?",
+   "analysis": ""
+  },
+  {
+   "id": "bcce_q14",
+   "section": "Candidate Background",
+   "topic": "general",
+   "status": "todo",
+   "question": "5. Are you in a union? If so, what union do you belong to and what is your involvement?",
+   "analysis": ""
+  },
+  {
+   "id": "bcce_q15",
+   "section": "Candidate Background",
+   "topic": "general",
+   "status": "todo",
+   "question": "6. Do you have any children enrolled in Berkeley schools and/or did you attend Berkeley schools?",
+   "analysis": ""
+  },
+  {
+   "id": "bcce_q16",
+   "section": "Candidate Background",
+   "topic": "general",
+   "status": "todo",
+   "question": "7. What other groups are you seeking endorsements from? Why?",
+   "analysis": ""
+  },
+  {
+   "id": "bcce_q17",
+   "section": "Candidate Background",
+   "topic": "general",
+   "status": "todo",
+   "question": "8. Please attach a current list of all your endorsements.",
+   "analysis": ""
+  },
+  {
+   "id": "bcce_q18",
+   "section": "Candidate Background",
+   "topic": "general",
+   "status": "todo",
+   "question": "9. What is your campaign budget? How much have you raised so far and what is your fundraising plan going forward?",
+   "analysis": ""
+  },
+  {
+   "id": "bcce_q19",
+   "section": "Candidate Background",
+   "topic": "general",
+   "status": "todo",
+   "question": "10. Briefly describe your plan to win this race. Include details about your voter outreach plan.",
+   "analysis": ""
+  },
+  {
+   "id": "bcce_q20",
+   "section": "Candidate Background",
+   "topic": "general",
+   "status": "todo",
+   "question": "11. For School Board Candidates: What do you believe the role of a school board member is?",
+   "analysis": ""
+  },
+  {
+   "id": "bcce_q21",
+   "section": "Candidate Background",
+   "topic": "general",
+   "status": "todo",
+   "question": "12. Incumbents: What are your accomplishments as a Board member? Explain one goal you have achieved. Citing at least one example, how effective have you been in effecting change in BUSD?",
+   "analysis": ""
+  },
+  {
+   "id": "bcce_q22",
+   "section": "Candidate Background",
+   "topic": "general",
+   "status": "todo",
+   "question": "13. Non-Incumbents: Please describe a campaign (not just electoral), initiative or issue where you have been a leader and brought change to pass.",
+   "analysis": ""
+  },
+  {
+   "id": "bcce_q23",
+   "section": "Our story, our values, our challenges",
+   "topic": "general",
+   "status": "todo",
+   "question": "1. Tell us one meaningful experience that you have had with a classified staff person.",
+   "analysis": ""
+  },
+  {
+   "id": "bcce_q24",
+   "section": "Our story, our values, our challenges",
+   "topic": "general",
+   "status": "todo",
+   "question": "2. We have lost countless talented staff during the pandemic. It has become harder and harder to retain, promote, and recruit classified staff. As an elected official, what would you do to support BUSD in retaining, promoting, and recruiting?",
+   "analysis": ""
+  },
+  {
+   "id": "bcce_q25",
+   "section": "Our story, our values, our challenges",
+   "topic": "general",
+   "status": "todo",
+   "question": "3. Affordable housing is a major issue for our members. Only ⅓ of our members live in Berkeley and about 100 have a commute longer than 90 min. What are your thoughts on keeping the newly built educator and staff housing project in BUSD affordable? What else should BUSD do to address the issue of affordable housing for all BUSD staff?",
+   "analysis": ""
+  },
+  {
+   "id": "bcce_q26",
+   "section": "Our story, our values, our challenges",
+   "topic": "general",
+   "status": "todo",
+   "question": "4. Being able to take collective action to support our members, teachers, and students is fundamental to our union. Please describe the actions you have taken to support workers’ rights.",
+   "analysis": ""
+  },
+  {
+   "id": "bcce_q27",
+   "section": "Our story, our values, our challenges",
+   "topic": "general",
+   "status": "todo",
+   "question": "5. What should your role be as an elected official during contract negotiations, in the event of an impasse in negotiations, and/or during a strike?",
+   "analysis": ""
+  },
+  {
+   "id": "bcce_q28",
+   "section": "Our story, our values, our challenges",
+   "topic": "general",
+   "status": "todo",
+   "question": "6. If elected, HOW will you consult with us on decisions that affect our members?",
+   "analysis": ""
+  },
+  {
+   "id": "bcce_q29",
+   "section": "Our story, our values, our challenges",
+   "topic": "general",
+   "status": "todo",
+   "question": "7a. We believe that budgets are moral documents that outline our priorities. If you controlled the budget what would you prioritize? Why?",
+   "analysis": ""
+  },
+  {
+   "id": "bcce_q30",
+   "section": "Our story, our values, our challenges",
+   "topic": "general",
+   "status": "todo",
+   "question": "7b. What would you do to ensure that we preserve programs for students and continue to retain talented staff?",
+   "analysis": ""
+  },
+  {
+   "id": "bcce_q31",
+   "section": "Our story, our values, our challenges",
+   "topic": "general",
+   "status": "todo",
+   "question": "8. What’s a major issue that you see in BUSD and what would you do to address it?",
+   "analysis": ""
+  },
+  {
+   "id": "bcce_q32",
+   "section": "Our story, our values, our challenges",
+   "topic": "general",
+   "status": "todo",
+   "question": "9. The cost of healthcare has been steadily increasing making it difficult for our members to provide health care for their entire family. Do you believe healthcare is a human right? How would you help BUSD offset those costs for staff and their families? Will you pledge to keep BCCE members’ healthcare 100% covered?",
+   "analysis": ""
+  },
+  {
+   "id": "bcce_q33",
+   "section": "Our story, our values, our challenges",
+   "topic": "general",
+   "status": "todo",
+   "question": "10. In the aftermath of the COVID pandemic and risk of future epidemics, what do you think we should do to keep school safe for all?",
+   "analysis": ""
+  },
+  {
+   "id": "bcce_q34",
+   "section": "Our story, our values, our challenges",
+   "topic": "general",
+   "status": "todo",
+   "question": "11. In your opinion, how can we meet the needs of students with Individual Education Plans (IEPs), especially in regard to Special Education support staff?",
+   "analysis": ""
+  },
+  {
+   "id": "bcce_q35",
+   "section": "Our story, our values, our challenges",
+   "topic": "general",
+   "status": "todo",
+   "question": "12. What is your plan for supporting the recruitment and retention of excellent classified staff in BUSD as salaries in neighboring districts have become more competitive? How do you think the cost of living, housing, and health care impact educators?",
+   "analysis": ""
+  },
+  {
+   "id": "bcce_q36",
+   "section": "Our story, our values, our challenges",
+   "topic": "general",
+   "status": "todo",
+   "question": "13. If endorsed, will you carry the union endorsement on your mail and materials?",
+   "analysis": ""
+  },
+  {
+   "id": "bcce_q37",
+   "section": "Our story, our values, our challenges",
+   "topic": "general",
+   "status": "todo",
+   "question": "14. In years of budget cuts, the staff in charge of making budget decisions have made those decisions without risk to their own positions, while our members who have nothing to do with making and approving the budget are the ones whose livelihoods are threatened when there are deficits. What do you think about this situation and what would you do about it?",
+   "analysis": ""
+  },
+  {
+   "id": "bcce_q38",
+   "section": "Our story, our values, our challenges",
+   "topic": "general",
+   "status": "todo",
+   "question": "15. Will you materially defend education staff against McCarthyite witch hunts seeking to punish us for standing up for Berkeley values such as opposition to ICE raids, genocide, imperialism, war, etc.?",
+   "analysis": ""
+  },
+  {
+   "id": "bcce_q39",
+   "section": "Pledges",
+   "section_note": "Both pledges are written for a BUSD school board member and carry a signature line. City Council has no vote on BUSD matters.",
+   "topic": "general",
+   "status": "todo",
+   "question": "Merit system pledge — \"I, ______, vow that if the subject of eliminating the Berkeley Unified School District merit system and personnel commission comes to a vote, I will vote against its elimination, and furthermore, if the subject becomes a ballot measure, I will stand with the union in campaigning against any such elimination.\" Will you sign?",
+   "analysis": ""
+  },
+  {
+   "id": "bcce_q40",
+   "section": "Pledges",
+   "topic": "general",
+   "status": "todo",
+   "question": "Contract staffing pledge — \"I, ______, commit to voting against any expenditure of BUSD funds on a private contract staffing company for the duration of my term should I be elected to the BUSD school board. If such services are needed in an emergency, my vote to approve will be conditional upon any/all such work being made available to classified employees through the creation of positions with job posting(s) and examination(s) scheduled at time of and as part of funding request.\" Will you sign?",
+   "analysis": ""
+  },
+  {
+   "id": "bcce_q41",
+   "section": "Signature",
+   "topic": "general",
+   "status": "todo",
+   "question": "I attest that these answers represent my actions and beliefs, are not part of my public record, and may be used by the Berkeley Council of Classified Employees to keep union members informed about important issues. — Signature and date",
+   "analysis": ""
+  }
+ ],
+ "org_research": "Berkeley Council of Classified Employees — Candidate Questionnaire 2026. Transcribed verbatim from the Google Doc. BCCE represents over 700 non-managerial classified staff at Berkeley Unified — accounting, maintenance, instructional assistants, custodians.\n\nDUE DATE ON THE FORM HAS PASSED. It reads \"return the completed questionnaire by Sunday, June 21st to Frank Hernandez at frankh.bcce@gmail.com\". June 21 is behind us; either the document was not updated for this cycle or the deadline has moved. Confirm with Frank Hernandez before assuming it is open.\n\nTHIS IS THE CANDIDATE'S OWN FORMER UNION. Daria worked for Berkeley Unified from 2009 to 2015, belonged to AFT Local 6192 — the Berkeley Council of Classified Employees — served as Site Representative for Thousand Oaks Elementary, and was its Union Organizer for the 2013-14 school year on a California Federation of Teachers grant. Several questions here ask for exactly that history.\n\nMUCH OF THE FORM ASSUMES A SCHOOL BOARD CANDIDACY. Both signed pledges are written for a BUSD board member — the merit system and personnel commission pledge, and the contract staffing pledge, which commits to \"voting against any expenditure of BUSD funds\" for the duration of a term \"should I be elected to the BUSD school board\". A City Council member casts no BUSD votes. The questionnaire is addressed to \"all the candidates who are running for office in Berkeley\", so the honest approach is to answer what applies and be explicit about where Council authority ends.\n\nResearch not attached."
+}
