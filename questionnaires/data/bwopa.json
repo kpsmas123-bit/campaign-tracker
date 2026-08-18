@@ -1,0 +1,326 @@
+{
+ "slug": "bwopa",
+ "org": "BWOPA-PAC (Black Women Organized for Political Action)",
+ "cycle": "2026",
+ "candidate": "Daria Wrubel — Berkeley City Council D1",
+ "generated": "2026-08-15",
+ "last_factcheck": "",
+ "contact_fields": [
+  {
+   "k": "name",
+   "label": "Candidate Name",
+   "v": "Daria Wrubel"
+  },
+  {
+   "k": "office",
+   "label": "Office sought",
+   "v": "Berkeley City Council, District 1"
+  },
+  {
+   "k": "website",
+   "label": "Campaign website",
+   "v": "https://www.dariaforberkeley.com/"
+  }
+ ],
+ "questions": [
+  {
+   "id": "bwopa_q1",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Name",
+   "analysis": ""
+  },
+  {
+   "id": "bwopa_q2",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Office Sought",
+   "analysis": ""
+  },
+  {
+   "id": "bwopa_q3",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Election Date",
+   "analysis": ""
+  },
+  {
+   "id": "bwopa_q4",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Email",
+   "analysis": ""
+  },
+  {
+   "id": "bwopa_q5",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Campaign Committee Name",
+   "analysis": ""
+  },
+  {
+   "id": "bwopa_q6",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "FPPC#",
+   "analysis": ""
+  },
+  {
+   "id": "bwopa_q7",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Treasurer",
+   "analysis": ""
+  },
+  {
+   "id": "bwopa_q8",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Chair/Consultant",
+   "analysis": ""
+  },
+  {
+   "id": "bwopa_q9",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Campaign Budget",
+   "analysis": ""
+  },
+  {
+   "id": "bwopa_q10",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Campaign Contribution Limits",
+   "analysis": ""
+  },
+  {
+   "id": "bwopa_q11",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Address",
+   "analysis": ""
+  },
+  {
+   "id": "bwopa_q12",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Phone",
+   "analysis": ""
+  },
+  {
+   "id": "bwopa_q13",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "County",
+   "analysis": ""
+  },
+  {
+   "id": "bwopa_q14",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Website",
+   "analysis": ""
+  },
+  {
+   "id": "bwopa_q15",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Occupation",
+   "analysis": ""
+  },
+  {
+   "id": "bwopa_q16",
+   "section": "Candidate Background",
+   "topic": "general",
+   "status": "todo",
+   "question": "Briefly describe your professional background and experience, including key endorsements (max 300 words)",
+   "analysis": ""
+  },
+  {
+   "id": "bwopa_q17",
+   "section": "Candidate Background",
+   "topic": "general",
+   "status": "todo",
+   "question": "What motivated you to run for office? (max 300 words)",
+   "analysis": ""
+  },
+  {
+   "id": "bwopa_q18",
+   "section": "Candidate Background",
+   "topic": "general",
+   "status": "todo",
+   "question": "Have you previously held elected or appointed office?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "YES"
+    },
+    {
+     "label": "NO"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "bwopa_q19",
+   "section": "Policy Areas",
+   "section_note": "The Economic Security question is duplicated on the application; it appears once here.",
+   "topic": "general",
+   "status": "todo",
+   "question": "Economic Security — What specific policies will you champion to close the racial wealth gap and expand economic security and job opportunities for Black women and families?",
+   "analysis": ""
+  },
+  {
+   "id": "bwopa_q20",
+   "section": "Policy Areas",
+   "topic": "general",
+   "status": "todo",
+   "question": "Education — How will you work to ensure equitable access to quality education and career pathways for Black students and students from underserved communities?",
+   "analysis": ""
+  },
+  {
+   "id": "bwopa_q21",
+   "section": "Policy Areas",
+   "topic": "general",
+   "status": "todo",
+   "question": "Health — What policies will you advance to address health inequities, particularly in maternal health, reproductive justice, and mental health for Black women and families?",
+   "analysis": ""
+  },
+  {
+   "id": "bwopa_q22",
+   "section": "Policy Areas",
+   "topic": "general",
+   "status": "todo",
+   "question": "Criminal Justice Reform — What reforms will you champion to address racial disparities in policing, sentencing, and incarceration, and to promote community-based alternatives?",
+   "analysis": ""
+  },
+  {
+   "id": "bwopa_q23",
+   "section": "Policy Areas",
+   "topic": "general",
+   "status": "todo",
+   "question": "List your top 3 platform issues and why they are important to BWOPA",
+   "analysis": ""
+  },
+  {
+   "id": "bwopa_q24",
+   "section": "Alignment with BWOPA Values",
+   "topic": "general",
+   "status": "todo",
+   "question": "BWOPA's mission is to advance, educate, and support Black Women in politics, leadership and public service. How does your candidacy align with this mission? (Max 300 words)",
+   "analysis": ""
+  },
+  {
+   "id": "bwopa_q25",
+   "section": "Alignment with BWOPA Values",
+   "topic": "general",
+   "status": "todo",
+   "question": "Please identify the top 3 policy areas most important to your platform? Explain how they address racial equity, gender justice, and community empowerment. (Max 300 words)",
+   "analysis": ""
+  },
+  {
+   "id": "bwopa_q26",
+   "section": "Alignment with BWOPA Values",
+   "topic": "general",
+   "status": "todo",
+   "question": "What policies or initiatives have you supported or implemented that directly impacted Black women, families and communities of color? (Max 300 words)",
+   "analysis": ""
+  },
+  {
+   "id": "bwopa_q27",
+   "section": "Community Engagement",
+   "topic": "general",
+   "status": "todo",
+   "question": "Describe your past and current involvement with community organizations, particularly those serving Black women, Black communities or underserved communities (Max 300 words)",
+   "analysis": ""
+  },
+  {
+   "id": "bwopa_q28",
+   "section": "Community Engagement",
+   "topic": "general",
+   "status": "todo",
+   "question": "Have you previously engaged with BWOPA or a local chapter? If yes, which one?",
+   "analysis": ""
+  },
+  {
+   "id": "bwopa_q29",
+   "section": "Campaign Viability",
+   "topic": "general",
+   "status": "todo",
+   "question": "Total Funds Raised?",
+   "analysis": ""
+  },
+  {
+   "id": "bwopa_q30",
+   "section": "Campaign Viability",
+   "topic": "general",
+   "status": "todo",
+   "question": "Endorsements received to-date",
+   "analysis": ""
+  },
+  {
+   "id": "bwopa_q31",
+   "section": "Campaign Viability",
+   "topic": "general",
+   "status": "todo",
+   "question": "Voter Base/demographics of the district/region you are seeking office in?",
+   "analysis": ""
+  },
+  {
+   "id": "bwopa_q32",
+   "section": "Commitment to Partnership",
+   "topic": "general",
+   "status": "todo",
+   "question": "If endorsed, how will you actively support BWOPA's mission during and after your campaign?",
+   "analysis": ""
+  },
+  {
+   "id": "bwopa_q33",
+   "section": "Commitment to Partnership",
+   "topic": "general",
+   "status": "todo",
+   "question": "Will you publicly acknowledge and promote BWOPA PAC's endorsement?",
+   "analysis": ""
+  },
+  {
+   "id": "bwopa_q34",
+   "section": "Commitment to Partnership",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you agree to meet with BWOPA's leadership during the campaign, if requested to discuss strategies for advancing shared priorities?",
+   "analysis": ""
+  },
+  {
+   "id": "bwopa_q35",
+   "section": "Conflict of Interest Disclosure",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you or your campaign have any professional or financial conflicts of interest that BWOPA should be aware of? If yes, please explain",
+   "analysis": ""
+  },
+  {
+   "id": "bwopa_q36",
+   "section": "Conflict of Interest Disclosure",
+   "topic": "general",
+   "status": "todo",
+   "question": "Date",
+   "analysis": ""
+  }
+ ],
+ "org_research": "BWOPA-PAC — Statewide Candidate Endorsement Application. Transcribed verbatim.\n\nNO DUE DATE STATED.\n\nMISSION. \"To advance, educate, and support Black Women in politics, leadership and public service.\" Several questions ask directly how the candidacy aligns with that mission and what the candidate has done that directly impacted Black women, families and communities of colour.\n\nMOST ANSWERS ARE CAPPED AT 300 WORDS.\n\nFORM QUIRK. The Economic Security question appears twice under Policy Areas on the application, with identical wording; it is kept once here.\n\nNOTE ON THE MONEY FIELDS. The form asks for campaign budget and contribution limits. Berkeley's Election Reform Act caps every contribution at $60 per donor and bars corporate, business, union and PAC money, so those fields are answered by ordinance rather than by choice.\n\nResearch not attached."
+}
