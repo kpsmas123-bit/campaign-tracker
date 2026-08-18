@@ -1,0 +1,388 @@
+{
+ "slug": "afscme",
+ "org": "AFSCME Council 57",
+ "cycle": "2026",
+ "candidate": "Daria Wrubel — Berkeley City Council D1",
+ "generated": "2026-08-15",
+ "last_factcheck": "",
+ "contact_fields": [
+  {
+   "k": "name",
+   "label": "Candidate Name",
+   "v": "Daria Wrubel"
+  },
+  {
+   "k": "office",
+   "label": "Office sought",
+   "v": "Berkeley City Council, District 1"
+  },
+  {
+   "k": "website",
+   "label": "Campaign website",
+   "v": "https://www.dariaforberkeley.com/"
+  }
+ ],
+ "questions": [
+  {
+   "id": "afscme_q1",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Candidate Name",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q2",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Office Sought, Date of Election",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q3",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Cell Phone",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q4",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Occupation",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q5",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Employer",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q6",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Campaign Address",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q7",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Campaign Consultant",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q8",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Campaign Phone",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q9",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Campaign Email",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q10",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Campaign ID Number (FPPC)",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q11",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Political Party",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q12",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Fundraiser",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q13",
+   "section": "Candidate & Committee Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Campaign Committee Name",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q14",
+   "section": "Candidate Background and Viability",
+   "topic": "general",
+   "status": "todo",
+   "question": "1. Which public offices (elected and appointed) have you held? (Include dates of service).",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q15",
+   "section": "Candidate Background and Viability",
+   "topic": "general",
+   "status": "todo",
+   "question": "2. Have you ever been endorsed by AFSCME or AFL-CIO COPE? If so, for what offices?",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q16",
+   "section": "Candidate Background and Viability",
+   "topic": "general",
+   "status": "todo",
+   "question": "3. Have you ever been turned down by AFSCME for an endorsement?",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q17",
+   "section": "Candidate Background and Viability",
+   "topic": "general",
+   "status": "todo",
+   "question": "4. Are you or have you been a union member? To which union(s) do you or did you belong? Please indicate which years.",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q18",
+   "section": "Candidate Background and Viability",
+   "topic": "general",
+   "status": "todo",
+   "question": "5. What was your level of participation in your union?",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q19",
+   "section": "Candidate Background and Viability",
+   "topic": "general",
+   "status": "todo",
+   "question": "6. Briefly describe your work background.",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q20",
+   "section": "Candidate Background and Viability",
+   "topic": "general",
+   "status": "todo",
+   "question": "7. Briefly describe your educational background.",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q21",
+   "section": "Candidate Background and Viability",
+   "topic": "general",
+   "status": "todo",
+   "question": "8. To what fraternal, professional, civic or social organizations do you belong",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q22",
+   "section": "Candidate Background and Viability",
+   "topic": "general",
+   "status": "todo",
+   "question": "9. What is your fundraising goal? How much have you raised to date? Current cash on hand?",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q23",
+   "section": "Candidate Background and Viability",
+   "topic": "general",
+   "status": "todo",
+   "question": "10. What is your plan to win?",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q24",
+   "section": "Leadership and Priorities",
+   "topic": "general",
+   "status": "todo",
+   "question": "11. Describe your goals and priorities for this office?",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q25",
+   "section": "Leadership and Priorities",
+   "topic": "general",
+   "status": "todo",
+   "question": "12. What do you think is the biggest challenge facing the elected body you seek to serve on?",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q26",
+   "section": "Working with Unions",
+   "topic": "general",
+   "status": "todo",
+   "question": "13. Please give examples of how you have worked with public sector unions on policy issues and/or budgets in the past.",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q27",
+   "section": "Working with Unions",
+   "topic": "general",
+   "status": "todo",
+   "question": "14. As an elected official, the Brown Act allows you to be accessible to workers and their representatives on work-related issues, including the negotiation process. What steps will you take to be accessible to workers and their representatives, and if need be, to act as a facilitator if negotiations reach an impasse?",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q28",
+   "section": "Working with Unions",
+   "topic": "general",
+   "status": "todo",
+   "question": "15. Please check which actions you would be willing to undertake: Sign a letter of support to public workers / Personally speak to an employer during difficult contract negotiations / Speak at a public forum on the right to organize / Speak at a public forum about the right of public sector workers to determine wages and benefits through the collective bargaining process",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q29",
+   "section": "Working with Unions",
+   "topic": "general",
+   "status": "todo",
+   "question": "16. Have you ever crossed a picket line? In what cases would you do so?",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q30",
+   "section": "Working with Unions",
+   "topic": "general",
+   "status": "todo",
+   "question": "17. What would an endorsement from AFSCME mean to you?",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q31",
+   "section": "Worker Rights",
+   "topic": "general",
+   "status": "todo",
+   "question": "18. Do you support public workers’ rights to collectively bargain wages, benefits, and working conditions? Please discuss the steps you have taken to support these rights in the past.",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q32",
+   "section": "Worker Rights",
+   "topic": "general",
+   "status": "todo",
+   "question": "19. Do you support the right of public employees to strike?",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q33",
+   "section": "Total Compensation",
+   "topic": "general",
+   "status": "todo",
+   "question": "20. Do you support employer-paid medical, vision, dental, and retiree medical plans for public employees, including part timers, temporary and seasonal workers? At what level of employment do you think coverage should begin?",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q34",
+   "section": "Total Compensation",
+   "topic": "general",
+   "status": "todo",
+   "question": "21. During an economic crisis, many public employees do their part by foregoing raises and COLAs, taking pay reductions, increasing co-payments and employee contributions, agreeing to furloughs, and doing more work as positions are left unfilled. If employees make sacrifices for the fiscal health of their agency during hard times, do you support making them whole for whatever concessions they gave during the crisis?",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q35",
+   "section": "Total Compensation",
+   "topic": "general",
+   "status": "todo",
+   "question": "22. Middle income and low wage public employees continue to see their paychecks shrink due to stagnant wages, reduced hours and increased medical and retirement contributions, meanwhile, the compensation for those at the top is growing. Do you believe that benefit and wage increases offered to management, fire, and safety also be offered to rank and file union members?",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q36",
+   "section": "Job Security",
+   "topic": "general",
+   "status": "todo",
+   "question": "23. In what instances do you support the outsourcing (privatization) of public services?",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q37",
+   "section": "Job Security",
+   "topic": "general",
+   "status": "todo",
+   "question": "24. Do you support insourcing? When?",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q38",
+   "section": "Job Security",
+   "topic": "general",
+   "status": "todo",
+   "question": "25. What is your position on using permanent temporary workers? Should part-time workers, seasonal workers, and temporary workers in the public sector be afforded the same rights as are permanent employees?",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q39",
+   "section": "Public Health, Worker Safety and Continuity of Employment",
+   "topic": "general",
+   "status": "todo",
+   "question": "26. If elected, what will you do to ensure worker safety and continuity of employment as a result of public health crises, including heat waves, wildfires and unsafe air quality?",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q40",
+   "section": "Racial and Gender Equity in the Workforce",
+   "topic": "general",
+   "status": "todo",
+   "question": "27. How do you define equity?",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q41",
+   "section": "Racial and Gender Equity in the Workforce",
+   "topic": "general",
+   "status": "todo",
+   "question": "28. If elected, what will you do to work towards racial and gender equity in the workplace?",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q42",
+   "section": "Climate Change",
+   "topic": "general",
+   "status": "todo",
+   "question": "29. Do you think climate change is an important issue? What types of programs or legislation do you think are needed to address climate change?",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q43",
+   "section": "Other",
+   "topic": "general",
+   "status": "todo",
+   "question": "30. What is your position on Charter Schools? Do you believe that public funds should be spent on Charter Schools?",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q44",
+   "section": "Other",
+   "topic": "general",
+   "status": "todo",
+   "question": "31. As elected officials, it is incumbent upon you to develop the next generation of leaders. What type of work have you done in this area and what will you do when you take office to ensure we are developing the next generation?",
+   "analysis": ""
+  },
+  {
+   "id": "afscme_q45",
+   "section": "Other",
+   "topic": "general",
+   "status": "todo",
+   "question": "32. If you receive our endorsement, are you requesting a donation? If so, what amount are you looking for?",
+   "analysis": ""
+  }
+ ],
+ "org_research": "AFSCME Council 57 — 2026 Election Cycle Candidate Questionnaire. Transcribed from the fillable PDF text layer, verbatim. Council 57 is the parent body of Public Employees Union Local One, which represents City of Berkeley workers alongside SEIU 1021.\n\nRETURN TO. Al Austin II, Political and Legislative Director, Al.Austin@ca.afscme57.org\n\nDUE AUGUST 31.\n\nFLAG — question 32 asks whether the candidate is requesting a donation and for what amount. Berkeley's Election Reform Act bars union and PAC contributions entirely and caps every contribution at $60 per donor, so the answer is a legal fact rather than a choice.\n\nResearch not yet attached."
+}

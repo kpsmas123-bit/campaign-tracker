@@ -1,0 +1,220 @@
+{
+ "slug": "lcv",
+ "org": "League of Conservation Voters of the East Bay",
+ "cycle": "2026",
+ "candidate": "Daria Wrubel — Berkeley City Council D1",
+ "generated": "2026-08-15",
+ "last_factcheck": "",
+ "contact_fields": [
+  {
+   "k": "name",
+   "label": "Candidate Name",
+   "v": "Daria Wrubel"
+  },
+  {
+   "k": "office",
+   "label": "Office sought",
+   "v": "Berkeley City Council, District 1"
+  },
+  {
+   "k": "website",
+   "label": "Campaign website",
+   "v": "https://www.dariaforberkeley.com/"
+  }
+ ],
+ "questions": [
+  {
+   "id": "lcv_q1",
+   "section": "Background Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Candidate",
+   "analysis": ""
+  },
+  {
+   "id": "lcv_q2",
+   "section": "Background Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Address",
+   "analysis": ""
+  },
+  {
+   "id": "lcv_q3",
+   "section": "Background Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Telephone",
+   "analysis": ""
+  },
+  {
+   "id": "lcv_q4",
+   "section": "Background Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Email",
+   "analysis": ""
+  },
+  {
+   "id": "lcv_q5",
+   "section": "Background Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Campaign Chair",
+   "analysis": ""
+  },
+  {
+   "id": "lcv_q6",
+   "section": "Background Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Treasurer",
+   "analysis": ""
+  },
+  {
+   "id": "lcv_q7",
+   "section": "Background Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "FPPC Number",
+   "analysis": ""
+  },
+  {
+   "id": "lcv_q8",
+   "section": "Background Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "District You Are Running For",
+   "analysis": ""
+  },
+  {
+   "id": "lcv_q9",
+   "section": "Background Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Education",
+   "analysis": ""
+  },
+  {
+   "id": "lcv_q10",
+   "section": "Background Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Occupation",
+   "analysis": ""
+  },
+  {
+   "id": "lcv_q11",
+   "section": "Background Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "If retired, occupation prior to retirement",
+   "analysis": ""
+  },
+  {
+   "id": "lcv_q12",
+   "section": "Questions",
+   "topic": "general",
+   "status": "todo",
+   "question": "1. Why are you running for City Council?",
+   "analysis": ""
+  },
+  {
+   "id": "lcv_q13",
+   "section": "Questions",
+   "topic": "general",
+   "status": "todo",
+   "question": "2. What are the three key environmental issues you see for Berkeley in the next two to four years?",
+   "analysis": ""
+  },
+  {
+   "id": "lcv_q14",
+   "section": "Questions",
+   "topic": "general",
+   "status": "todo",
+   "question": "3. What is your view about housing projects in Berkeley and in-fill housing?",
+   "analysis": ""
+  },
+  {
+   "id": "lcv_q15",
+   "section": "Questions",
+   "topic": "general",
+   "status": "todo",
+   "question": "4. What can Berkeley do to further enhance its creeks and to promote creek restoration?",
+   "analysis": ""
+  },
+  {
+   "id": "lcv_q16",
+   "section": "Questions",
+   "topic": "general",
+   "status": "todo",
+   "question": "5. As a council member you will get a chance to sit on various countywide advisory bodies. Are there environmental issues that you would like to promote or work on at the countywide level?",
+   "analysis": ""
+  },
+  {
+   "id": "lcv_q17",
+   "section": "Questions",
+   "topic": "general",
+   "status": "todo",
+   "question": "6. What is your vision for the San Pablo Avenue corridor from Oakland to Richmond?",
+   "analysis": ""
+  },
+  {
+   "id": "lcv_q18",
+   "section": "Questions",
+   "topic": "general",
+   "status": "todo",
+   "question": "7. What is your view of vegetation management along the Urban/Wildland Interface?",
+   "analysis": ""
+  },
+  {
+   "id": "lcv_q19",
+   "section": "Questions",
+   "topic": "general",
+   "status": "todo",
+   "question": "8. What is your position regarding the proposal for the Trust for Public Land and East Bay Regional Park District to purchase Golden Gate Fields for a park. What would you want to see on that site?",
+   "analysis": ""
+  },
+  {
+   "id": "lcv_q20",
+   "section": "Questions",
+   "topic": "general",
+   "status": "todo",
+   "question": "9. How should Berkeley address sea level rise and the development of a RSAP?",
+   "analysis": ""
+  },
+  {
+   "id": "lcv_q21",
+   "section": "Questions",
+   "topic": "general",
+   "status": "todo",
+   "question": "10. What is your position on the proposed Berkeley Ferry? What do you see are the environmental issues concerning the Berkeley Ferry?",
+   "analysis": ""
+  },
+  {
+   "id": "lcv_q22",
+   "section": "Questions",
+   "topic": "general",
+   "status": "todo",
+   "question": "10. [second question numbered 10 on the form] What is your vision for integrating an environmental vision for Berkeley with the needs of Berkeley residents for economic development?",
+   "analysis": ""
+  },
+  {
+   "id": "lcv_q23",
+   "section": "Questions",
+   "topic": "general",
+   "status": "todo",
+   "question": "11. Please identify those you consider your key supporters.",
+   "analysis": ""
+  },
+  {
+   "id": "lcv_q24",
+   "section": "Endorsement Pledge",
+   "topic": "general",
+   "status": "todo",
+   "question": "All candidates must agree to sign a pledge on the use of the League endorsement and its name and logo. If you will not sign it, please explain why you will not. — \"I pledge not to misrepresent any League support of me nor any of my opponents; nor to quote the League to give any such misimpressions. I pledge to represent the League position honestly and fully, and to seek guidance from the League on interpretation of this pledge.\"",
+   "analysis": ""
+  }
+ ],
+ "org_research": "League of Conservation Voters of the East Bay — Confidential Questionnaire for Berkeley City Council, November 2026. Transcribed from the .docx, verbatim.\n\nCONFIDENTIAL per the form's own title.\n\nNOTE ON IDENTITY — this is the League of CONSERVATION Voters, not the League of Women Voters. A due date of August 21 was given verbally for \"League of…\"; confirm which body it belongs to before relying on it.\n\nFORM QUIRK. The form numbers two consecutive questions as 10; both are kept here.\n\nENDORSEMENT PLEDGE. Endorsement requires signing a pledge governing use of the League name and logo, or explaining why not.\n\nResearch not yet attached."
+}

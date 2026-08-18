@@ -1,0 +1,518 @@
+{
+ "slug": "green",
+ "org": "Green Party of Alameda County",
+ "cycle": "2026",
+ "candidate": "Daria Wrubel — Berkeley City Council D1",
+ "generated": "2026-08-15",
+ "last_factcheck": "",
+ "contact_fields": [
+  {
+   "k": "name",
+   "label": "Candidate Name",
+   "v": "Daria Wrubel"
+  },
+  {
+   "k": "office",
+   "label": "Office sought",
+   "v": "Berkeley City Council, District 1"
+  },
+  {
+   "k": "website",
+   "label": "Campaign website",
+   "v": "https://www.dariaforberkeley.com/"
+  }
+ ],
+ "questions": [
+  {
+   "id": "green_q1",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Name",
+   "analysis": ""
+  },
+  {
+   "id": "green_q2",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Address",
+   "analysis": ""
+  },
+  {
+   "id": "green_q3",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Email and Phone",
+   "analysis": ""
+  },
+  {
+   "id": "green_q4",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Campaign Web Site",
+   "analysis": ""
+  },
+  {
+   "id": "green_q5",
+   "section": "Candidate Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Candidate for what District Office",
+   "analysis": ""
+  },
+  {
+   "id": "green_q6",
+   "section": "1. Motivation",
+   "topic": "general",
+   "status": "todo",
+   "question": "Why did you choose to run for this office?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q7",
+   "section": "2. Priorities",
+   "topic": "general",
+   "status": "todo",
+   "question": "What do you believe are the major issues facing the City? What are some specific tasks (e.g. specific legislation, policies, etc.) you intend to accomplish while in office?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q8",
+   "section": "3. Qualifications",
+   "topic": "general",
+   "status": "todo",
+   "question": "Please give a brief summary of your background and qualifications for this office.",
+   "analysis": ""
+  },
+  {
+   "id": "green_q9",
+   "section": "4. Budget",
+   "topic": "general",
+   "status": "todo",
+   "question": "What budget experience will you bring to the Council or Mayor’s Office?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q10",
+   "section": "4. Budget",
+   "topic": "general",
+   "status": "todo",
+   "question": "What do you believe to be the primary budget challenges facing Berkeley?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q11",
+   "section": "4. Budget",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you favor a tax on vacant commercial real estate? Why or why not?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q12",
+   "section": "4. Budget",
+   "topic": "general",
+   "status": "todo",
+   "question": "Which revenues are up/down (Hotel tax, Property tax, Parking revenue, Business revenue, Fees, etc.)?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q13",
+   "section": "4. Budget",
+   "topic": "general",
+   "status": "todo",
+   "question": "Berkeley Measure P revenues go into the general fund, but were promoted for mental health and homeless services. Do you favor the Council restricting use of these funds in this manner? Elaborate.",
+   "analysis": ""
+  },
+  {
+   "id": "green_q14",
+   "section": "4. Budget",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you envision changes in capital expenditures?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q15",
+   "section": "4. Budget",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you foresee any budget changes or priority changes working with the City Manager?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q16",
+   "section": "4. Budget",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you favor a reexamination of budgeting assumptions to assure Council oversight and transparency?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q17",
+   "section": "5. Police",
+   "topic": "general",
+   "status": "todo",
+   "question": "What is your position on Flock and similar police surveillance technology?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q18",
+   "section": "5. Police",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you think the city should expand Flock, maintain the current level, or eliminate it?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q19",
+   "section": "5. Police",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you favor shifting police resources for non-violent incidents to mental health units or professional, peer, community resources? How will you implement this shift?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q20",
+   "section": "5. Police",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you support strengthening the Police Accountability Board (PAB)? For example, would you favor policies that require the City Manager and BPD to comply promptly with PAB requests for departmental records, and giving the PAB greater power over BPD policies?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q21",
+   "section": "5. Police",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you plan to work to fill vacancies on the PAB?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q22",
+   "section": "5. Police",
+   "topic": "general",
+   "status": "todo",
+   "question": "On which of the following do you favor a ban on police use: tear gas, pepper spray, less-lethal projectiles, smoke grenades, tasers?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q23",
+   "section": "5. Police",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you favor requiring city administration to ban mutual aid agencies (when operating within Berkeley city limits) from using weapons the BPD is not allowed to use?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q24",
+   "section": "5. Police",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you favor the Berkeley City Council signing of MOUs with NCRIC (Northern California Regional Intelligence Center), with ICE (Immigration and Customs) and with UASI (Urban Area Security Initiative)?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q25",
+   "section": "5. Police",
+   "topic": "general",
+   "status": "todo",
+   "question": "Stark racial disparities in stops have barely changed over the years. Do you favor a Council effort, in cooperation with the PAB, to finally address this racially discriminatory pattern and/or practice?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q26",
+   "section": "6. Land Use",
+   "topic": "general",
+   "status": "todo",
+   "question": "What do you think are the most important land use issues facing the city today?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q27",
+   "section": "6. Land Use",
+   "topic": "general",
+   "status": "todo",
+   "question": "What actions should the Council take to revitalize Shattuck Avenue south of University Ave?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q28",
+   "section": "6. Land Use",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you think agreements between the City and UCB should be re-visited?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q29",
+   "section": "6. Land Use",
+   "topic": "general",
+   "status": "todo",
+   "question": "What can the city do to reduce the impact on residents of the extreme increase in UCB enrollment?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q30",
+   "section": "7. Affordable housing",
+   "topic": "general",
+   "status": "todo",
+   "question": "What is your position on prioritizing low-income and affordable housing versus market-rate housing?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q31",
+   "section": "7. Affordable housing",
+   "topic": "general",
+   "status": "todo",
+   "question": "What are the advantages/disadvantages of inclusionary affordable housing versus 100% affordable?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q32",
+   "section": "7. Affordable housing",
+   "topic": "general",
+   "status": "todo",
+   "question": "How can Berkeley change its zoning to maximize affordable units?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q33",
+   "section": "7. Affordable housing",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you believe building mostly market-rate helps or hinders affordability in Berkeley?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q34",
+   "section": "7. Affordable housing",
+   "topic": "general",
+   "status": "todo",
+   "question": "What affirmative steps would you take to increase the availability of new or refurbished affordable housing in Berkeley? Are there any particular demographics or neighborhoods that you would target?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q35",
+   "section": "7. Affordable housing",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you think Berkeley can/should tackle gentrification? If so, how?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q36",
+   "section": "7. Affordable housing",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you favor housing at Ashby and North Berkeley BART stations? What type (height, % affordable)?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q37",
+   "section": "8. Rent Control",
+   "topic": "general",
+   "status": "todo",
+   "question": "How important is it to keep Berkeley's strong rent control and eviction protections?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q38",
+   "section": "8. Rent Control",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you support any candidates for the Berkeley Rent Stabilization Board? If so, which one(s) and why?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q39",
+   "section": "8. Rent Control",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you support the repeal of Costa-Hawkins?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q40",
+   "section": "9. Homelessness",
+   "topic": "general",
+   "status": "todo",
+   "question": "Will you oppose police sweeps of encampments and evictions of houseless RV dwellers?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q41",
+   "section": "9. Homelessness",
+   "topic": "general",
+   "status": "todo",
+   "question": "Will you provide for a sanctioned space for safe, clean, and productive encampments until there is sufficient permanent housing?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q42",
+   "section": "9. Homelessness",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you think the Pathways is a good use of city funds?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q43",
+   "section": "9. Homelessness",
+   "topic": "general",
+   "status": "todo",
+   "question": "How do you think essential services for the homeless should be provided?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q44",
+   "section": "10. Race",
+   "topic": "general",
+   "status": "todo",
+   "question": "What directions will you take to overcome white supremacy, addressing the particular needs of Black and Brown communities, and working with leaders in those communities to understand and support their demands for change?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q45",
+   "section": "11. Health",
+   "topic": "general",
+   "status": "todo",
+   "question": "What efforts should Berkeley take to fight against an Oakland coal terminal which threatens the health of Berkeley residents which live along the coal rail route?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q46",
+   "section": "11. Health",
+   "topic": "general",
+   "status": "todo",
+   "question": "What will you do to support strong, enforceable regulation by the Air District to minimize harm?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q47",
+   "section": "11. Health",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you support single-payer healthcare in California?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q48",
+   "section": "11. Health",
+   "topic": "general",
+   "status": "todo",
+   "question": "Regarding Sutter Health’s plan to close Alta Bates, what actions should Council take to prevent this?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q49",
+   "section": "11. Health",
+   "topic": "general",
+   "status": "todo",
+   "question": "What is your position on a localized food system? GMO labeling? 5G?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q50",
+   "section": "12. Climate Change",
+   "topic": "general",
+   "status": "todo",
+   "question": "What specific actions/policies should Council prioritize to address climate change?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q51",
+   "section": "13. National Policy Statements",
+   "topic": "general",
+   "status": "todo",
+   "question": "Should the Berkeley City Council take positions on national and international issues?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q52",
+   "section": "13. National Policy Statements",
+   "topic": "general",
+   "status": "todo",
+   "question": "Would you sponsor or support a resolution on Gaza in support of an immediate and permanent ceasefire and an end to military aid for Israel?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q53",
+   "section": "13. National Policy Statements",
+   "topic": "general",
+   "status": "todo",
+   "question": "What problems do you think Artificial Intelligence poses to society, and what actions would you support on the City Council to eliminate or reduce these threats?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q54",
+   "section": "14. Commissions and City Council Meetings",
+   "section_note": "The form prefaces this section with a statement that Council \"has shifted away from any semblance of listening and assessing public input\", citing the shift of agenda items to Consent and minimal comment time.",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you want to further reduce the number and the power of Commissions? Why or why not?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q55",
+   "section": "14. Commissions and City Council Meetings",
+   "topic": "general",
+   "status": "todo",
+   "question": "As a Council member, what will you do to restore, encourage and foster more public participation?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q56",
+   "section": "15. State Propositions and Berkeley City Measures",
+   "section_note": "BERKELEY MEASURES AS LISTED ON THE FORM — 1: GO Bond for Public Infrastructure and Facilities. 2: Transactions and Use (Sales) General Tax. 3: Charter Amendment, multiple administrative provisions. 4: Amendments to the Rent Stabilization Ordinance. 5: Parcel Tax to Fund Arts Institutions and Programs. 6: Parcel Tax to Fund a Public Bank. 7: Sugar-Sweetened Beverage Special Tax. STATE PROPS listed: 1 Housing Bonds, 2 Budget Stabilization, 3 Higher Education Funding, 4 Campaign Finance (public funds for candidates), 5 Recall reform, 37 Housing 2nd mortgage bonds, 38 Healthcare research bonds, 39 Voter ID, 40 one-time 5% tax on wealth over $1B, 41 Tax admin/spending limits, 42 prohibit new wealth taxes, 43 2/3 vote for local special taxes, 44 clinic revenue requirement, 45 Land Use review timelines.",
+   "topic": "general",
+   "status": "todo",
+   "question": "What are your positions on State Propositions? (Props 1–5 and 37–45 are listed on the form)",
+   "analysis": ""
+  },
+  {
+   "id": "green_q57",
+   "section": "15. State Propositions and Berkeley City Measures",
+   "topic": "general",
+   "status": "todo",
+   "question": "What are your positions on Berkeley Ballot Measures? (Measures 1–7 are listed on the form)",
+   "analysis": ""
+  },
+  {
+   "id": "green_q58",
+   "section": "16. Endorsements",
+   "topic": "general",
+   "status": "todo",
+   "question": "Are you endorsing anyone else in your own race, considering that we have instant runoff voting?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q59",
+   "section": "16. Endorsements",
+   "topic": "general",
+   "status": "todo",
+   "question": "Have you endorsed other Council races? Who has endorsed you?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q60",
+   "section": "17. Campaign Financing",
+   "topic": "general",
+   "status": "todo",
+   "question": "Will you obtain public financing for your campaign?",
+   "analysis": ""
+  },
+  {
+   "id": "green_q61",
+   "section": "18. Move to Amend",
+   "topic": "general",
+   "status": "todo",
+   "question": "Have you signed the Move to Amend pledge? https://movetoamend.org/candidate-questionnaire",
+   "analysis": ""
+  }
+ ],
+ "org_research": "Green Party of Alameda County — 2026 Candidate Questionnaire for Berkeley City Council. Transcribed from the .doc, verbatim. Eighteen numbered topics, most containing several sub-questions; each sub-question is a separate item here so they can be drafted and tracked individually.\n\nNO DUE DATE RECORDED.\n\nTHE MOST BERKELEY-SPECIFIC FORM OF THE SET. It names Flock directly, asks whether to expand, maintain or eliminate it, and asks about NCRIC, ICE and UASI MOUs — the campaign's central issue, asked more precisely than anywhere else.\n\nIT ALSO CARRIES THE NOVEMBER BALLOT. Section 15 lists Berkeley Measures 1 through 7, including the sales tax (Measure 2) and the public bank parcel tax (Measure 6), plus fifteen state propositions. Positions taken here are positions on the same ballot the candidate is on.\n\nResearch not yet attached."
+}
