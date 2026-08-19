@@ -154,3 +154,45 @@ Until then the page uses the one-click button and never calls the function.
 In Dashboard → Settings → API, set **Max rows** to something like `1000`. It caps
 how much any single request can pull, which limits bulk extraction if a policy is
 ever loosened by mistake.
+
+---
+
+## 3. Optional — mirror the Google Calendar onto the page
+
+One-way, Google -> site. The calendar stays **private**; nothing is published and
+no event text is written to this repo.
+
+Two facts drive the design. The *public* ical address only works on a published
+calendar, and Google sends no `Access-Control-Allow-Origin` header on `.ics`, so
+a browser can never fetch it directly. The read therefore happens server-side in
+a scheduled GitHub Action, which writes to Supabase behind RLS.
+
+### Run the table
+
+`gcal_setup.sql` in the SQL Editor. Verify as above — signed out, an anonymous
+read of `gcal_events` must return `[]`.
+
+### Add two repository secrets
+
+GitHub -> Settings -> Secrets and variables -> Actions -> New repository secret.
+
+| Secret | Where it comes from |
+| --- | --- |
+| `GCAL_ICS_URL` | Google Calendar -> Settings -> *the campaign calendar* -> Integrate calendar -> **Secret address in iCal format**. The path contains `/private-<token>/`, not `/public/`. |
+| `CAMPAIGN_PASSWORD` | The Supabase password for `questionnaire@dariaforberkeley.com` — the same shared user the pages log in as. |
+
+The Supabase URL and publishable key are already in the workflow. That key is
+public by design; RLS is what keeps the calendar private.
+
+> The secret ical address is a **credential** — anyone holding it can read the
+> whole calendar. Keep it in repository secrets only. Pressing *Reset* on it in
+> Google invalidates it, and the sync then fails with a message saying exactly
+> that rather than quietly syncing nothing.
+
+### Run it
+
+Actions -> **Sync Google Calendar** -> Run workflow. It also runs hourly.
+
+Events appear as a fourth filter layer on the calendar page, next to Events,
+Questionnaire Due and Task Due. They are **read-only** there: Google is the
+source of truth, so edits belong in Google.
