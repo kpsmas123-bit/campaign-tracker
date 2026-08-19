@@ -203,6 +203,35 @@
   .filter-chip[data-layer="tasks"].on          { --c: var(--ov-task); }
   .filter-chip[data-layer="gcal"].on           { --c: var(--ov-gcal); }
   .filter-chip.on .swatch { background: var(--c); }
+
+  /* Day / Week / Month. One segmented control rather than three loose buttons,
+     so the active view reads as a state and not as an action. */
+  .viewswitch { display: inline-flex; gap: 0; margin-left: 4px; }
+  .viewswitch .nav-btn { border-radius: 0; margin-left: -1px; }
+  .viewswitch .nav-btn:first-child { border-radius: 4px 0 0 4px; margin-left: 0; }
+  .viewswitch .nav-btn:last-child  { border-radius: 0 4px 4px 0; }
+
+  /* Week gives each day room to show everything, so nothing is truncated. */
+  .grid.view-week .cell.tall { min-height: 300px; align-content: start; }
+  .cell-empty { color: var(--text-tertiary); font-size: 12px; padding: 2px 0; }
+
+  /* Day is a list, not a grid: one column, time on the left. */
+  .grid.view-day { display: block; border: none; }
+  .daylist { display: flex; flex-direction: column; }
+  .dayrow {
+    display: grid; grid-template-columns: 76px 1fr; gap: 14px;
+    align-items: baseline; padding: 11px 2px;
+    border-bottom: 1px solid var(--border-light);
+  }
+  .dayrow:last-child { border-bottom: none; }
+  .dayrow-time {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px; letter-spacing: 0.04em;
+    color: var(--text-tertiary); font-variant-numeric: tabular-nums;
+  }
+  .dayrow-body { min-width: 0; }
+  .dayrow-sub { font-size: 12px; color: var(--text-tertiary); margin-top: 4px; }
+  .day-empty { color: var(--text-tertiary); font-size: 13px; padding: 26px 2px; }
   .filter-count { color: var(--text-tertiary); font-variant-numeric: tabular-nums; }
 
   /* --- month grid --- */
@@ -390,10 +419,14 @@
     <div class="month-title" id="monthTitle"></div>
     <div class="header-right">
       <div class="save-indicator" id="saveIndicator"><span class="save-dot"></span><span class="save-label"></span></div>
-      <button class="nav-btn" id="prevBtn" title="Previous month">&larr;</button>
+      <button class="nav-btn" id="prevBtn" title="Previous">&larr;</button>
       <button class="nav-btn" id="todayBtn">Today</button>
-      <button class="nav-btn" id="nextBtn" title="Next month">&rarr;</button>
-      <button class="nav-btn primary" id="newBtn">+ Event</button>
+      <button class="nav-btn" id="nextBtn" title="Next">&rarr;</button>
+      <div class="viewswitch" id="viewSwitch">
+        <button class="nav-btn" data-view="day">Day</button>
+        <button class="nav-btn" data-view="week">Week</button>
+        <button class="nav-btn" data-view="month">Month</button>
+      </div>
     </div>
   </div>
 
@@ -419,7 +452,6 @@
   // Flip to true only after the calendar-sync Edge Function is deployed
   // (calendar/SETUP.md section 2). Until then every save stays local and the
   // per-event "Add to Google Calendar" button is the path to Google.
-  var AUTO_SYNC = false;
 
   // Note: the Google Calendar template URL has no working way to preselect a
   // calendar. The `src=` parameter is widely copy-pasted but originates from a
@@ -462,12 +494,36 @@
   var today = new Date();
   var viewY = today.getFullYear();
   var viewM = today.getMonth();
+  // Anchor for the day and week views. Month view still reads viewY/viewM so
+  // the existing grid maths is untouched; go() keeps the two in step.
+  var anchor = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+  var viewMode = loadViewMode();
   var events = [];
   var overlays = { questionnaires: [], tasks: [], gcal: [] };
   var filters = loadFilters();
   var expanded = {};
 
   // ---------- helpers ----------
+
+  function loadViewMode() {
+    try {
+      var v = localStorage.getItem('calViewMode');
+      if (v === 'day' || v === 'week' || v === 'month') return v;
+    } catch (e) {}
+    return 'month';
+  }
+  function saveViewMode() {
+    try { localStorage.setItem('calViewMode', viewMode); } catch (e) {}
+  }
+
+  // Sunday of the week containing d.
+  function weekStart(d) {
+    return new Date(d.getFullYear(), d.getMonth(), d.getDate() - d.getDay());
+  }
+  function addDays(d, n) {
+    return new Date(d.getFullYear(), d.getMonth(), d.getDate() + n);
+  }
+  function isoOf(d) { return iso(d.getFullYear(), d.getMonth(), d.getDate()); }
 
   function loadFilters() {
     try {
@@ -622,6 +678,8 @@
             date: row.event_date,
             title: row.title || 'Untitled',
             layer: 'gcal',
+            start: row.all_day ? '' : (row.start_time || ''),
+            allDay: !!row.all_day,
             detail: [when, row.location, row.notes].filter(Boolean).join(' · ')
                     || 'From the campaign Google Calendar.'
           });
@@ -679,24 +737,39 @@
   function inView(e) { return inViewDate(e.event_date); }
   function inViewDate(d) {
     if (!d) return false;
+    if (viewMode === 'day') return d === isoOf(anchor);
+    if (viewMode === 'week') {
+      var ws = weekStart(anchor);
+      return d >= isoOf(ws) && d <= isoOf(addDays(ws, 6));
+    }
     var p = d.split('-');
     return parseInt(p[0], 10) === viewY && parseInt(p[1], 10) - 1 === viewM;
   }
 
   function render() {
-    var title = document.getElementById('monthTitle');
-    title.textContent = '';
-    title.appendChild(document.createTextNode(MONTHS[viewM] + ' '));
-    title.appendChild(el('span', 'yr', String(viewY)));
-
-    var wd = document.getElementById('weekdays');
-    wd.textContent = '';
-    DOW.forEach(function (d) { wd.appendChild(el('div', 'weekday', d)); });
-
+    renderSwitch();
+    renderTitle();
     renderFilters();
 
     var grid = document.getElementById('grid');
     grid.textContent = '';
+    grid.className = 'grid view-' + viewMode;
+
+    var wd = document.getElementById('weekdays');
+    wd.textContent = '';
+    if (viewMode === 'month') {
+      DOW.forEach(function (d) { wd.appendChild(el('div', 'weekday', d)); });
+    } else if (viewMode === 'week') {
+      var ws0 = weekStart(anchor);
+      for (var w = 0; w < 7; w++) {
+        var wd0 = addDays(ws0, w);
+        wd.appendChild(el('div', 'weekday', DOW[w] + ' ' + wd0.getDate()));
+      }
+    }
+    wd.style.display = viewMode === 'day' ? 'none' : '';
+
+    if (viewMode === 'day')  { renderDay(grid);  return; }
+    if (viewMode === 'week') { renderWeek(grid); return; }
 
     var first = new Date(viewY, viewM, 1);
     var startOffset = first.getDay();
@@ -724,20 +797,99 @@
         cell.appendChild(more);
       }
 
-      cell.addEventListener('click', function (dsv) {
-        return function () { openEditor(null, dsv); };
-      }(ds));
       grid.appendChild(cell);
     }
   }
 
-  function makePill(it) {
+  function renderTitle() {
+    var title = document.getElementById('monthTitle');
+    title.textContent = '';
+    if (viewMode === 'month') {
+      title.appendChild(document.createTextNode(MONTHS[viewM] + ' '));
+      title.appendChild(el('span', 'yr', String(viewY)));
+      return;
+    }
+    if (viewMode === 'day') {
+      title.appendChild(document.createTextNode(
+        DOW[anchor.getDay()] + ', ' + MONTHS[anchor.getMonth()] + ' ' + anchor.getDate() + ' '));
+      title.appendChild(el('span', 'yr', String(anchor.getFullYear())));
+      return;
+    }
+    var a = weekStart(anchor), b = addDays(a, 6);
+    var span = a.getMonth() === b.getMonth()
+      ? MONTHS[a.getMonth()] + ' ' + a.getDate() + '–' + b.getDate()
+      : MONTHS[a.getMonth()] + ' ' + a.getDate() + ' – ' + MONTHS[b.getMonth()] + ' ' + b.getDate();
+    title.appendChild(document.createTextNode(span + ' '));
+    title.appendChild(el('span', 'yr', String(b.getFullYear())));
+  }
+
+  function renderSwitch() {
+    [].forEach.call(document.querySelectorAll('#viewSwitch .nav-btn'), function (b) {
+      var on = b.getAttribute('data-view') === viewMode;
+      b.classList.toggle('primary', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+
+  // Day and week show everything, in time order — the whole point of dropping
+  // into them is to see a day in full rather than the first three of it.
+  function sortItems(items) {
+    return items.slice().sort(function (a, b) {
+      var ta = a.kind === 'event' ? (a.data.all_day ? '' : a.data.start_time || '')
+                                  : (a.data.start || '');
+      var tb = b.kind === 'event' ? (b.data.all_day ? '' : b.data.start_time || '')
+                                  : (b.data.start || '');
+      if (!ta && tb) return -1;
+      if (ta && !tb) return 1;
+      return ta < tb ? -1 : ta > tb ? 1 : 0;
+    });
+  }
+
+  function renderWeek(grid) {
+    var ws = weekStart(anchor), tISO = todayISO();
+    for (var i = 0; i < 7; i++) {
+      var d = addDays(ws, i), ds = isoOf(d);
+      var cell = el('div', 'cell tall' + (ds === tISO ? ' today' : ''));
+      var items = sortItems(itemsFor(ds));
+      if (!items.length) cell.appendChild(el('div', 'cell-empty', '—'));
+      items.forEach(function (it) { cell.appendChild(makePill(it)); });
+      grid.appendChild(cell);
+    }
+  }
+
+  function renderDay(grid) {
+    var ds = isoOf(anchor);
+    var items = sortItems(itemsFor(ds));
+    var list = el('div', 'daylist');
+    if (!items.length) {
+      list.appendChild(el('div', 'day-empty', 'Nothing scheduled.'));
+    } else {
+      items.forEach(function (it) {
+        var row = el('div', 'dayrow');
+        var t = it.kind === 'event'
+          ? (it.data.all_day ? 'All day' : (it.data.start_time ? fmtTime(it.data.start_time) : ''))
+          : (it.data.start ? fmtTime(it.data.start) : (it.data.allDay ? 'All day' : ''));
+        row.appendChild(el('div', 'dayrow-time', t || '—'));
+        var body = el('div', 'dayrow-body');
+        body.appendChild(makePill(it, true));
+        var sub = it.kind === 'event' ? typeLabel(it.data.event_type) : it.data.detail;
+        if (sub) body.appendChild(el('div', 'dayrow-sub', sub));
+        row.appendChild(body);
+        list.appendChild(row);
+      });
+    }
+    grid.appendChild(list);
+  }
+
+  // hideTime: the day view puts the time in its own column, so repeating it
+  // inside the pill just reads as "9a 9a".
+  function makePill(it, hideTime) {
     var b;
     if (it.kind === 'event') {
       var e = it.data;
       b = el('button', 'pill event');
       b.style.setProperty('--pc', 'var(--ev-' + (TYPE_IDS.indexOf(e.event_type) >= 0 ? e.event_type : 'special') + ')');
-      if (!e.all_day && e.start_time) b.appendChild(el('span', 't', fmtTime(e.start_time)));
+      if (!hideTime && !e.all_day && e.start_time) b.appendChild(el('span', 't', fmtTime(e.start_time)));
       b.appendChild(document.createTextNode(e.title || 'Untitled'));
       b.title = (e.title || 'Untitled') + ' — ' + typeLabel(e.event_type);
       b.addEventListener('click', function (ev) { ev.stopPropagation(); openDetail(e); });
@@ -816,13 +968,7 @@
       'calendar from the dropdown there, then save to send invites.'));
 
     var acts = el('div', 'modal-actions');
-    var del = el('button', 'nav-btn danger', 'Delete');
-    del.addEventListener('click', function () { removeEvent(e); });
-    acts.appendChild(del);
     acts.appendChild(el('span', 'spacer'));
-    var edit = el('button', 'nav-btn', 'Edit');
-    edit.addEventListener('click', function () { openEditor(e, e.event_date); });
-    acts.appendChild(edit);
     var close = el('button', 'nav-btn primary', 'Close');
     close.addEventListener('click', closeModal);
     acts.appendChild(close);
@@ -878,160 +1024,10 @@
     return 'https://calendar.google.com/calendar/render?' + q.join('&');
   }
 
-  function openEditor(existing, dateStr) {
-    var m = shell();
-    var e = existing || {
-      title: '', event_type: 'special', event_date: dateStr,
-      start_time: '', end_time: '', all_day: false, location: '', notes: ''
-    };
-    m.appendChild(el('div', 'modal-sub', existing ? 'Edit event' : 'New event'));
-    m.appendChild(el('h2', null, existing ? 'Edit' : prettyDate(e.event_date)));
-
-    var fTitle = field('Title', 'input');
-    fTitle.input.value = e.title || '';
-    fTitle.input.maxLength = 200;
-    fTitle.input.placeholder = 'House party at the Kims';
-    m.appendChild(fTitle.wrap);
-
-    var typeWrap = el('div', 'field');
-    typeWrap.appendChild(el('label', null, 'Type'));
-    var picker = el('div', 'type-picker');
-    var chosen = TYPE_IDS.indexOf(e.event_type) >= 0 ? e.event_type : 'special';
-    EVENT_TYPES.forEach(function (t) {
-      var b = el('button', 'type-opt' + (t.id === chosen ? ' sel' : ''), t.label);
-      b.type = 'button';
-      b.style.setProperty('--pc', 'var(--ev-' + t.id + ')');
-      b.addEventListener('click', function () {
-        chosen = t.id;
-        Array.prototype.forEach.call(picker.children, function (c) { c.classList.remove('sel'); });
-        b.classList.add('sel');
-      });
-      picker.appendChild(b);
-    });
-    typeWrap.appendChild(picker);
-    m.appendChild(typeWrap);
-
-    var fDate = field('Date', 'input'); fDate.input.type = 'date';
-    fDate.input.value = e.event_date;
-    m.appendChild(fDate.wrap);
-
-    var allWrap = el('div', 'allday-row');
-    var allIn = document.createElement('input');
-    allIn.type = 'checkbox'; allIn.id = 'allDay'; allIn.checked = !!e.all_day;
-    var allLbl = el('label', null, 'All day'); allLbl.htmlFor = 'allDay';
-    allWrap.appendChild(allIn); allWrap.appendChild(allLbl);
-    m.appendChild(allWrap);
-
-    var timeRow = el('div', 'row');
-    var fStart = field('Start', 'input'); fStart.input.type = 'time'; fStart.input.value = e.start_time ? String(e.start_time).slice(0,5) : '';
-    var fEnd   = field('End', 'input');   fEnd.input.type = 'time';   fEnd.input.value = e.end_time ? String(e.end_time).slice(0,5) : '';
-    timeRow.appendChild(fStart.wrap); timeRow.appendChild(fEnd.wrap);
-    m.appendChild(timeRow);
-    function syncTimes() { timeRow.style.display = allIn.checked ? 'none' : 'flex'; }
-    allIn.addEventListener('change', syncTimes); syncTimes();
-
-    var fLoc = field('Location', 'input');
-    fLoc.input.value = e.location || ''; fLoc.input.maxLength = 300;
-    fLoc.input.placeholder = 'Optional';
-    m.appendChild(fLoc.wrap);
-
-    var fNotes = field('Details', 'textarea');
-    fNotes.input.value = e.notes || ''; fNotes.input.maxLength = 5000;
-    fNotes.input.placeholder = 'Optional — shown when the event is expanded';
-    m.appendChild(fNotes.wrap);
-
-    var err = el('div', 'auth-error'); err.style.display = 'none';
-    m.appendChild(err);
-
-    var acts = el('div', 'modal-actions');
-    if (existing) {
-      var del = el('button', 'nav-btn danger', 'Delete');
-      del.addEventListener('click', function () { removeEvent(existing); });
-      acts.appendChild(del);
-    }
-    acts.appendChild(el('span', 'spacer'));
-    var cancel = el('button', 'nav-btn', 'Cancel');
-    cancel.addEventListener('click', closeModal);
-    acts.appendChild(cancel);
-    var save = el('button', 'nav-btn primary', 'Save');
-    acts.appendChild(save);
-    m.appendChild(acts);
-
-    save.addEventListener('click', async function () {
-      var title = fTitle.input.value.trim();
-      if (!title) { err.textContent = 'Give the event a title.'; err.style.display = 'block'; fTitle.input.focus(); return; }
-      if (!fDate.input.value) { err.textContent = 'Pick a date.'; err.style.display = 'block'; return; }
-      var allDay = allIn.checked;
-      var st = allDay ? null : (fStart.input.value || null);
-      var en = allDay ? null : (fEnd.input.value || null);
-      if (st && en && en < st) { err.textContent = 'End time is before the start time.'; err.style.display = 'block'; return; }
-
-      var row = {
-        title: title,
-        event_type: TYPE_IDS.indexOf(chosen) >= 0 ? chosen : 'special',
-        event_date: fDate.input.value,
-        start_time: st, end_time: en, all_day: allDay,
-        location: fLoc.input.value.trim(),
-        notes: fNotes.input.value.trim()
-      };
-
-      save.disabled = true; setSave('saving');
-      try {
-        // select().single() on insert so we get the generated id back and can
-        // hand it to the sync call.
-        var r = existing
-          ? await sb.from('campaign_events').update(row).eq('id', existing.id).select().single()
-          : await sb.from('campaign_events').insert(row).select().single();
-        if (r.error) throw r.error;
-        setSave('saved');
-        await refresh();
-        // Closed only after everything that can throw, so a failure still has
-        // a live modal to report into.
-        closeModal();
-        pushToGoogle(r.data && r.data.id, 'upsert');
-      } catch (ex) {
-        save.disabled = false;
-        setSave('error');
-        err.textContent = 'Could not save. ' + (ex && ex.message ? ex.message : '');
-        err.style.display = 'block';
-      }
-    });
-
-    setTimeout(function () { fTitle.input.focus(); }, 30);
-  }
-
-  function field(label, tag) {
-    var wrap = el('div', 'field');
-    wrap.appendChild(el('label', null, label));
-    var input = document.createElement(tag);
-    wrap.appendChild(input);
-    return { wrap: wrap, input: input };
-  }
-
-  async function removeEvent(e) {
-    if (!window.confirm('Delete "' + (e.title || 'Untitled') + '"?')) return;
-    setSave('saving');
-    try {
-      // Retract from Google first — once the row is gone we no longer know the
-      // Google event id, and the event would be orphaned on the calendar.
-      if (AUTO_SYNC && e.google_event_id) await pushToGoogle(e.id, 'delete');
-      var r = await sb.from('campaign_events').delete().eq('id', e.id);
-      if (r.error) throw r.error;
-      setSave('saved'); closeModal(); await refresh();
-    } catch (ex) { setSave('error'); }
-  }
-
-  // No-op until the Edge Function is deployed. A failure here must not lose the
-  // event: the row is already saved, so this only reports.
-  async function pushToGoogle(id, action) {
-    if (!AUTO_SYNC || !id) return;
-    try {
-      var r = await sb.functions.invoke('calendar-sync', { body: { event_id: id, action: action } });
-      if (r.error) throw r.error;
-    } catch (ex) {
-      setSave('error', 'Saved, not on Google');
-    }
-  }
+  // Event creation and editing were removed when the calendar became view-only:
+  // events are authored in Google Calendar and mirrored here by the hourly sync.
+  // The campaign_events table and its rows are untouched and still render; only
+  // the write path is gone. Recoverable from git history if it is ever wanted back.
 
   // ---------- wiring ----------
 
@@ -1061,22 +1057,34 @@
   }
 
   function go(delta) {
-    viewM += delta;
-    if (viewM < 0) { viewM = 11; viewY--; }
-    if (viewM > 11) { viewM = 0; viewY++; }
+    if (viewMode === 'day')       anchor = addDays(anchor, delta);
+    else if (viewMode === 'week') anchor = addDays(anchor, delta * 7);
+    else {
+      viewM += delta;
+      if (viewM < 0) { viewM = 11; viewY--; }
+      if (viewM > 11) { viewM = 0; viewY++; }
+      anchor = new Date(viewY, viewM, 1);
+    }
+    if (viewMode !== 'month') { viewY = anchor.getFullYear(); viewM = anchor.getMonth(); }
     expanded = {};
+    refresh();
+  }
+
+  function setView(mode) {
+    if (mode === viewMode) return;
+    viewMode = mode; saveViewMode(); expanded = {};
     refresh();
   }
 
   document.getElementById('prevBtn').addEventListener('click', function () { go(-1); });
   document.getElementById('nextBtn').addEventListener('click', function () { go(1); });
   document.getElementById('todayBtn').addEventListener('click', function () {
-    viewY = today.getFullYear(); viewM = today.getMonth(); expanded = {}; refresh();
+    viewY = today.getFullYear(); viewM = today.getMonth();
+    anchor = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    expanded = {}; refresh();
   });
-  document.getElementById('newBtn').addEventListener('click', function () {
-    var d = (viewY === today.getFullYear() && viewM === today.getMonth())
-      ? todayISO() : iso(viewY, viewM, 1);
-    openEditor(null, d);
+  [].forEach.call(document.querySelectorAll('#viewSwitch .nav-btn'), function (b) {
+    b.addEventListener('click', function () { setView(b.getAttribute('data-view')); });
   });
   document.addEventListener('keydown', function (e) {
     if (openModal) return;

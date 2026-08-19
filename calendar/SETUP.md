@@ -30,8 +30,15 @@ curl -s "https://qhrtqtnrduambvchjxqw.supabase.co/rest/v1/campaign_events?select
 
 `[]` is correct. Any rows means the policy is wrong — stop and fix it.
 
-That's it. The page works, and every event gets an **Add to Google Calendar**
-button that opens Google prefilled.
+The page is **view-only**. Events are authored in Google Calendar and mirrored
+here by the hourly sync (section 3); the page shows Day, Week and Month views of
+them alongside questionnaire and task deadlines.
+
+Creating and editing events on the page was removed once that workflow settled.
+`campaign_events` and its rows are untouched and still render — only the write
+path is gone, and it is recoverable from git history if it is ever wanted back.
+Those legacy events still carry an **Add to Google Calendar** button, which is
+the way to migrate them across.
 
 > **Why there's a button instead of silent syncing at this stage:** the Google
 > template URL has no working way to preselect a destination calendar. The `src=`
