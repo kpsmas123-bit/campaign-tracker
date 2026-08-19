@@ -49,6 +49,7 @@
     --ev-deadline:    #C45240;
     --ov-questionnaire: #C89B2A;
     --ov-task:          #5F8AA0;
+    --ov-gcal:          #7A6BA5;
     --pill-tint: 16%;
   }
 
@@ -79,6 +80,7 @@
       --ev-deadline:    #D4705F;
       --ov-questionnaire: #D4AD4A;
       --ov-task:          #7BA5BC;
+      --ov-gcal:          #9C8DC4;
       --pill-tint: 22%;
     }
   }
@@ -199,6 +201,7 @@
   .filter-chip[data-layer="events"].on         { --c: var(--accent); }
   .filter-chip[data-layer="questionnaires"].on { --c: var(--ov-questionnaire); }
   .filter-chip[data-layer="tasks"].on          { --c: var(--ov-task); }
+  .filter-chip[data-layer="gcal"].on           { --c: var(--ov-gcal); }
   .filter-chip.on .swatch { background: var(--c); }
   .filter-count { color: var(--text-tertiary); font-variant-numeric: tabular-nums; }
 
@@ -442,10 +445,17 @@
     seiu: 'SEIU 1021', bside: 'Berkeleyside Q&A'
   };
 
+  // Overlay layers share one pill renderer; these keep the colour token and the
+  // modal caption in one place rather than branching at each call site.
+  var OV_TOKEN = { questionnaires: 'questionnaire', tasks: 'task', gcal: 'gcal' };
+  var OV_LABEL = { questionnaires: 'Questionnaire due', tasks: 'Task due',
+                   gcal: 'Google Calendar' };
+
   var LAYERS = [
     { id: 'events',         label: 'Events' },
     { id: 'questionnaires', label: 'Questionnaire Due' },
-    { id: 'tasks',          label: 'Task Due' }
+    { id: 'tasks',          label: 'Task Due' },
+    { id: 'gcal',           label: 'Google Calendar' }
   ];
 
   var sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
@@ -453,7 +463,7 @@
   var viewY = today.getFullYear();
   var viewM = today.getMonth();
   var events = [];
-  var overlays = { questionnaires: [], tasks: [] };
+  var overlays = { questionnaires: [], tasks: [], gcal: [] };
   var filters = loadFilters();
   var expanded = {};
 
@@ -467,11 +477,12 @@
         return {
           events: p.events !== false,
           questionnaires: p.questionnaires !== false,
-          tasks: p.tasks !== false
+          tasks: p.tasks !== false,
+          gcal: p.gcal !== false
         };
       }
     } catch (e) { /* fall through to defaults */ }
-    return { events: true, questionnaires: true, tasks: true };
+    return { events: true, questionnaires: true, tasks: true, gcal: true };
   }
   function saveFilters() {
     try { localStorage.setItem('calFilters', JSON.stringify(filters)); } catch (e) {}
@@ -561,7 +572,7 @@
   }
 
   async function loadOverlays() {
-    var out = { questionnaires: [], tasks: [] };
+    var out = { questionnaires: [], tasks: [], gcal: [] };
 
     try {
       var res = await fetch('../questionnaires/data/due_dates.json', { cache: 'no-store' });
@@ -595,6 +606,29 @@
       }
     } catch (e) { /* ditto */ }
 
+    // Mirror of the campaign's private Google Calendar, refreshed by the
+    // scheduled sync. Read-only here: Google is the source of truth, so an edit
+    // belongs in Google rather than on this page.
+    try {
+      var g = await sb.from('gcal_events')
+        .select('uid,title,event_date,start_time,end_time,all_day,location,notes');
+      if (!g.error && g.data) {
+        g.data.forEach(function (row) {
+          if (!row.event_date) return;
+          var when = row.all_day ? 'All day'
+                   : (row.start_time || '').slice(0, 5)
+                     + (row.end_time ? '–' + row.end_time.slice(0, 5) : '');
+          out.gcal.push({
+            date: row.event_date,
+            title: row.title || 'Untitled',
+            layer: 'gcal',
+            detail: [when, row.location, row.notes].filter(Boolean).join(' · ')
+                    || 'From the campaign Google Calendar.'
+          });
+        });
+      }
+    } catch (e) { /* ditto */ }
+
     overlays = out;
   }
 
@@ -611,7 +645,7 @@
         if (e.event_date === dateStr) out.push({ kind: 'event', data: e });
       });
     }
-    ['questionnaires', 'tasks'].forEach(function (layer) {
+    ['questionnaires', 'tasks', 'gcal'].forEach(function (layer) {
       if (!filters[layer]) return;
       overlays[layer].forEach(function (o) {
         if (o.date === dateStr) out.push({ kind: 'overlay', data: o });
@@ -710,7 +744,7 @@
     } else {
       var o = it.data;
       b = el('button', 'pill overlay');
-      b.style.setProperty('--pc', 'var(--ov-' + (o.layer === 'tasks' ? 'task' : 'questionnaire') + ')');
+      b.style.setProperty('--pc', 'var(--ov-' + OV_TOKEN[o.layer] + ')');
       b.appendChild(document.createTextNode((o.done ? '✓ ' : '') + o.title));
       b.title = o.title + ' — ' + o.detail;
       b.addEventListener('click', function (ev) { ev.stopPropagation(); openOverlayDetail(o); });
@@ -741,7 +775,7 @@
 
   function openOverlayDetail(o) {
     var m = shell();
-    m.appendChild(el('div', 'modal-sub', o.layer === 'tasks' ? 'Task due' : 'Questionnaire due'));
+    m.appendChild(el('div', 'modal-sub', OV_LABEL[o.layer]));
     m.appendChild(el('h2', null, o.title));
     m.appendChild(el('div', 'detail-line', prettyDate(o.date)));
     m.appendChild(el('div', 'gcal-hint', o.detail + ' Edit it on its own page — this is a read-only view.'));

@@ -1,0 +1,42 @@
+name: Sync Google Calendar
+
+# One-way mirror: the campaign's private Google Calendar -> Supabase, which the
+# calendar page reads as its own layer. The calendar is never made public; this
+# reads it through the SECRET ical address held in repository secrets.
+#
+# Nothing from the calendar is written to this repository. Event text goes only
+# to Supabase, behind RLS.
+
+on:
+  schedule:
+    - cron: '20 * * * *'   # hourly at :20
+  workflow_dispatch: {}
+
+permissions:
+  contents: read           # writes go to Supabase, never to the repo
+
+concurrency:
+  group: gcal-sync
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install parser
+        run: pip install --quiet icalendar recurring-ical-events
+
+      - name: Mirror calendar into Supabase
+        env:
+          GCAL_ICS_URL:      ${{ secrets.GCAL_ICS_URL }}
+          SUPABASE_URL:      https://qhrtqtnrduambvchjxqw.supabase.co
+          SUPABASE_KEY:      sb_publishable_UAG7Ru6PRdNnOLCbchpQVg_8vE0jG5N
+          CAMPAIGN_EMAIL:    questionnaire@dariaforberkeley.com
+          CAMPAIGN_PASSWORD: ${{ secrets.CAMPAIGN_PASSWORD }}
+        run: python3 calendar/gcal_sync.py
