@@ -15,6 +15,13 @@
 const COOKIE = 'hq_pass';
 const MAX_AGE = 60 * 60 * 24 * 30; // 30 days
 
+// Once the passcode is accepted the edge hands the page its Supabase login, so
+// the team types one code instead of two. The trade is deliberate and worth
+// stating: this passcode now grants data access on its own, where previously an
+// attacker needed the site code AND the Supabase passphrase. Everything still
+// depends on Supabase RLS underneath.
+const SESSION_PATH = '/__hq/session';
+
 const enc = new TextEncoder();
 
 async function sign(value, secret) {
@@ -85,7 +92,22 @@ export async function onRequest(context) {
   const expected = await sign('ok', secret);
 
   const cookie = getCookie(request, COOKIE);
-  if (cookie && safeEqual(cookie, expected)) return next();
+  if (cookie && safeEqual(cookie, expected)) {
+    if (new URL(request.url).pathname === SESSION_PATH) {
+      // Reachable only with a valid cookie: the check above has already run.
+      const email = env.HQ_SUPABASE_EMAIL || 'questionnaire@dariaforberkeley.com';
+      const pw = env.HQ_SUPABASE_PASSWORD || '';
+      return new Response(JSON.stringify(pw ? { email, password: pw } : {}), {
+        status: 200,
+        headers: {
+          'Content-Type': 'application/json',
+          // Never let this sit in a shared cache or the browser's back-forward store.
+          'Cache-Control': 'no-store, private',
+        },
+      });
+    }
+    return next();
+  }
 
   if (request.method === 'POST') {
     const form = await request.formData();

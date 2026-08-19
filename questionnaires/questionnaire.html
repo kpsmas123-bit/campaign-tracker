@@ -684,13 +684,32 @@
   authPass.addEventListener('keydown', function (e) { if (e.key === 'Enter') doAuth(); });
 
   // Check for existing session
-  sb.auth.getSession().then(function (res) {
-    if (res.data && res.data.session) {
-      authGate.style.display = 'none';
-      document.getElementById('siteNav').style.display = '';
-      appRoot.style.display = 'block';
-      boot();
-    }
+  // The Cloudflare edge gate hands us the Supabase login once its passcode has
+  // been accepted, so the team types one code rather than two. Falls back to the
+  // passphrase box whenever that endpoint is absent — local files, GitHub Pages,
+  // or any host without the middleware.
+  async function edgeSignIn(reveal) {
+    try {
+      var r = await fetch('/__hq/session', { cache: 'no-store', credentials: 'same-origin' });
+      if (!r.ok) return false;
+      var j = await r.json();
+      if (!j || !j.password) return false;
+      var a = await sb.auth.signInWithPassword({ email: j.email, password: j.password });
+      if (a.error) return false;
+      reveal();
+      return true;
+    } catch (e) { return false; }
+  }
+
+  function revealApp() {
+    authGate.style.display = 'none';
+    document.getElementById('siteNav').style.display = '';
+    appRoot.style.display = 'block';
+    boot();
+  }
+  sb.auth.getSession().then(async function (res) {
+    if (res.data && res.data.session) { revealApp(); return; }
+    await edgeSignIn(revealApp);
   });
 
   // --- Boot ---
