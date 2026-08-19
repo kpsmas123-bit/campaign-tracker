@@ -1,752 +1,589 @@
 {
-  "slug": "alc",
-  "org": "Alameda Labor Council, AFL-CIO",
-  "cycle": "2026",
-  "candidate": "Daria Wrubel — Berkeley City Council D1",
-  "generated": "2026-07-22",
-  "last_factcheck": "2026-07-22",
-  "org_research": "The Alameda Labor Council represents over 140 local unions and 140,000+ working families across Alameda County. Their endorsement process centers on candidates' history with organized labor, willingness to actively support organizing drives, and alignment on healthcare, contracting, and worker rights. The questionnaire emphasizes concrete commitments — signing letters, speaking at forums, refusing to cross picket lines — not just policy positions.",
-  "contact_fields": [
+ "slug": "alc",
+ "org": "Alameda Labor Council, AFL-CIO",
+ "cycle": "2026",
+ "candidate": "Daria Wrubel — Berkeley City Council D1",
+ "generated": "2026-07-22",
+ "last_factcheck": "2026-07-22",
+ "org_research": "The Alameda Labor Council represents over 140 local unions and 140,000+ working families across Alameda County. Their endorsement process centers on candidates' history with organized labor, willingness to actively support organizing drives, and alignment on healthcare, contracting, and worker rights. The questionnaire emphasizes concrete commitments — signing letters, speaking at forums, refusing to cross picket lines — not just policy positions.",
+ "contact_fields": [
+  {
+   "k": "name",
+   "label": "Name",
+   "v": "Daria Wrubel"
+  },
+  {
+   "k": "office",
+   "label": "Office Sought",
+   "v": "Berkeley City Council"
+  },
+  {
+   "k": "district",
+   "label": "District",
+   "v": "1"
+  },
+  {
+   "k": "city_zip",
+   "label": "City & Zip Code",
+   "v": ""
+  },
+  {
+   "k": "cell",
+   "label": "Cell Phone",
+   "v": ""
+  },
+  {
+   "k": "occ",
+   "label": "Occupation",
+   "v": "Licensed Marriage & Family Therapist"
+  },
+  {
+   "k": "emp",
+   "label": "Employer",
+   "v": "self-employed (Grounded Therapy)"
+  },
+  {
+   "k": "party",
+   "label": "Political Party",
+   "v": "Democratic"
+  },
+  {
+   "k": "consultant",
+   "label": "Consultant and/or Campaign Manager",
+   "v": "Sam Kaplan-Pettus"
+  },
+  {
+   "k": "fppc",
+   "label": "Campaign ID (FPPC #)",
+   "v": "pending"
+  },
+  {
+   "k": "committee",
+   "label": "Committee Name",
+   "v": ""
+  }
+ ],
+ "questions": [
+  {
+   "id": "alc_bg1",
+   "section": "Background",
+   "topic": "background_bio",
+   "status": "thin",
+   "question": "Have you failed to vote in any national, state, local or special elections?",
+   "analysis": "Litmus question for a labor council. The ALC uses voting history as a basic engagement screen. Gaps are common (relocation for college, etc.) and explainable — dishonesty about them is not.",
+   "references": [],
+   "levers": [],
+   "sources": [
     {
-      "k": "name",
-      "label": "Name",
-      "v": "Daria Wrubel"
-    },
-    {
-      "k": "office",
-      "label": "Office Sought",
-      "v": "Berkeley City Council"
-    },
-    {
-      "k": "district",
-      "label": "District",
-      "v": "1"
-    },
-    {
-      "k": "city_zip",
-      "label": "City & Zip Code",
-      "v": ""
-    },
-    {
-      "k": "cell",
-      "label": "Cell Phone",
-      "v": ""
-    },
-    {
-      "k": "occ",
-      "label": "Occupation",
-      "v": "Licensed Marriage & Family Therapist"
-    },
-    {
-      "k": "emp",
-      "label": "Employer",
-      "v": "self-employed (Grounded Therapy)"
-    },
-    {
-      "k": "party",
-      "label": "Political Party",
-      "v": "Democratic"
-    },
-    {
-      "k": "consultant",
-      "label": "Consultant and/or Campaign Manager",
-      "v": "Sam Kaplan-Pettus"
-    },
-    {
-      "k": "fppc",
-      "label": "Campaign ID (FPPC #)",
-      "v": "pending"
-    },
-    {
-      "k": "committee",
-      "label": "Committee Name",
-      "v": ""
+     "label": "Alameda County Registrar: Voter lookup",
+     "url": "https://www.acvote.org/index"
     }
-  ],
-  "questions": [
+   ]
+  },
+  {
+   "id": "alc_bg2",
+   "section": "Background",
+   "topic": "background_bio",
+   "status": "done",
+   "question": "Which public offices have you held? (Include dates of service)",
+   "analysis": "Standard background question. The ALC uses this to assess political experience and incumbency status.",
+   "references": [],
+   "levers": [],
+   "sources": []
+  },
+  {
+   "id": "alc_bg3",
+   "section": "Background",
+   "topic": "labor_solidarity",
+   "status": "done",
+   "question": "Describe your work with union members in previous positions.",
+   "analysis": "Core credibility question for a labor body. The ALC weighs direct union work — organizing, representation, solidarity actions — over general volunteer or community work.",
+   "references": [],
+   "levers": [],
+   "sources": []
+  },
+  {
+   "id": "alc_bg4",
+   "section": "Background",
+   "topic": "background_bio",
+   "status": "done",
+   "question": "Briefly describe your work background.",
+   "analysis": "The ALC reads work history through a labor lens. Career stages that involved public-facing or community-serving roles, especially any union-affiliated positions, carry the most weight for this audience.",
+   "references": [],
+   "levers": [],
+   "sources": []
+  },
+  {
+   "id": "alc_bg5",
+   "section": "Background",
+   "topic": "background_bio",
+   "status": "done",
+   "question": "Briefly describe your educational background.",
+   "analysis": "Standard background question. No specific ALC expectations beyond factual accuracy.",
+   "references": [],
+   "levers": [],
+   "sources": []
+  },
+  {
+   "id": "alc_bg6",
+   "section": "Background",
+   "topic": "labor_solidarity",
+   "status": "done",
+   "question": "Are you a union member? To which unions have you belonged?",
+   "analysis": "Union membership is a threshold credential for the ALC. Current eligibility matters less than history and demonstrated commitment. Former membership combined with ongoing solidarity work is credible.",
+   "references": [],
+   "levers": [],
+   "sources": []
+  },
+  {
+   "id": "alc_bg7",
+   "section": "Background",
+   "topic": "labor_solidarity",
+   "status": "done",
+   "question": "What was your level of participation (steward, officer, member of bargaining team, etc.)?",
+   "analysis": "Follow-up to the membership question. The ALC distinguishes between passive membership and active participation (steward, officer, bargaining team). Higher levels of participation signal deeper labor commitment.",
+   "references": [],
+   "levers": [],
+   "sources": []
+  },
+  {
+   "id": "alc_bg8",
+   "section": "Background",
+   "topic": "background_bio",
+   "status": "done",
+   "question": "To what fraternal, professional, civic or social organizations do you belong? What is your level of participation?",
+   "analysis": "The ALC reads organizational affiliations for labor alignment. Organizations with union connections or solidarity functions carry the most weight for this audience.",
+   "references": [],
+   "levers": [],
+   "sources": []
+  },
+  {
+   "id": "alc_bg9",
+   "section": "Background",
+   "topic": "background_bio",
+   "status": "thin",
+   "question": "Will you seek higher office?",
+   "analysis": "The ALC invests in long-term relationships with endorsed candidates. This question screens for whether the candidate views the seat as a stepping stone or a commitment.",
+   "references": [],
+   "levers": [],
+   "sources": []
+  },
+  {
+   "id": "alc_bg10",
+   "section": "Background",
+   "topic": "campaign_plan",
+   "status": "thin",
+   "question": "How much money does your campaign expect to raise? How much do you currently have on hand?",
+   "analysis": "Viability question. The ALC wants evidence the campaign is funded enough to win, since an endorsement spent on a non-viable campaign is wasted political capital. For Berkeley, the public financing match threshold is a relevant benchmark.",
+   "references": [],
+   "levers": [],
+   "sources": []
+  },
+  {
+   "id": "alc_bg11",
+   "section": "Background",
+   "topic": "campaign_plan",
+   "status": "thin",
+   "question": "What is your plan to win?",
+   "analysis": "The ALC wants to know their endorsement will translate into an effective campaign. For a Berkeley D1 race, relevant factors include turnout targets, voter universe size, and what labor support would specifically enable.",
+   "references": [],
+   "levers": [],
+   "sources": []
+  },
+  {
+   "id": "alc_q1",
+   "section": "Leadership & Priorities",
+   "topic": "why_running",
+   "status": "done",
+   "question": "What are your goals and priorities in elected office? What issues will this election help to shape?",
+   "analysis": "The ALC asks about goals and priorities in office. For a labor council, priorities should connect to worker issues — affordability as a worker concern, city services as city jobs, public safety intersecting with worker rights.",
+   "references": [],
+   "levers": [
     {
-      "id": "alc_bg1",
-      "section": "Background",
-      "topic": "background_bio",
-      "status": "thin",
-      "question": "Have you failed to vote in any national, state, local or special elections?",
-      "analysis": "Litmus question for a labor council. The ALC uses voting history as a basic engagement screen. Gaps are common (relocation for college, etc.) and explainable — dishonesty about them is not.",
-      "references": [],
-      "levers": [],
-      "sources": [
-        {
-          "label": "Alameda County Registrar: Voter lookup",
-          "url": "https://www.acvote.org/index"
-        }
-      ],
-      "suggested": [
-        {
-          "text": "[DARIA: Check your Alameda County voter history. If you voted in every election since returning to Berkeley, say so. If there are gaps during college in Pennsylvania or early career, name them honestly — e.g., 'I missed [X election] while living in Pennsylvania for college.' A clean record is best; an honest gap is fine; a vague dodge is not.]",
-          "note": ""
-        }
-      ]
+     "tier": "authority",
+     "text": "The council sets the city budget, staffing levels, and contracting policy — all direct authority over how city workers are treated."
     },
     {
-      "id": "alc_bg2",
-      "section": "Background",
-      "topic": "background_bio",
-      "status": "done",
-      "question": "Which public offices have you held? (Include dates of service)",
-      "analysis": "Standard background question. The ALC uses this to assess political experience and incumbency status.",
-      "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": []
-    },
-    {
-      "id": "alc_bg3",
-      "section": "Background",
-      "topic": "labor_solidarity",
-      "status": "done",
-      "question": "Describe your work with union members in previous positions.",
-      "analysis": "Core credibility question for a labor body. The ALC weighs direct union work — organizing, representation, solidarity actions — over general volunteer or community work.",
-      "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": [
-        {
-          "text": "As a classified employee at Berkeley Unified, I was a member of AFT Local 6192, the Berkeley Council of Classified Employees. I served as Site Representative at Thousand Oaks Elementary and then as the Union Organizer for the entire local for the 2013-14 school year, on a grant from the California Federation of Teachers. That year I represented the classified staff across the district.\n\nOutside formal union roles, I am a member of the Brass Liberation Orchestra, which provides musical support for labor actions and aligned protests. We have played at the Richmond Teachers Union action and the Kaiser Nurse Practitioners strike, among others.",
-          "note": ""
-        }
-      ]
-    },
-    {
-      "id": "alc_bg4",
-      "section": "Background",
-      "topic": "background_bio",
-      "status": "done",
-      "question": "Briefly describe your work background.",
-      "analysis": "The ALC reads work history through a labor lens. Career stages that involved public-facing or community-serving roles, especially any union-affiliated positions, carry the most weight for this audience.",
-      "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": [
-        {
-          "text": "My first career was as a gardener, horticulturist, and garden educator. I worked for the Berkeley Unified School District from 2009 to 2015, where I became a member of AFT Local 6192 and served as the union organizer for the 2013-14 school year on a California Federation of Teachers grant. In 2014 I returned to school for a master's in counseling psychology, and I have been in private practice as a licensed child and adolescent therapist since 2020.",
-          "note": ""
-        }
-      ]
-    },
-    {
-      "id": "alc_bg5",
-      "section": "Background",
-      "topic": "background_bio",
-      "status": "done",
-      "question": "Briefly describe your educational background.",
-      "analysis": "Standard background question. No specific ALC expectations beyond factual accuracy.",
-      "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": [
-        {
-          "text": "I attended Berkeley Public Schools through 6th grade and high school in Oakland. I received my bachelor's degree in Urban Studies from Bryn Mawr College in Pennsylvania. I hold a master's degree in Counseling Psychology and am a Licensed Marriage and Family Therapist.",
-          "note": ""
-        }
-      ]
-    },
-    {
-      "id": "alc_bg6",
-      "section": "Background",
-      "topic": "labor_solidarity",
-      "status": "done",
-      "question": "Are you a union member? To which unions have you belonged?",
-      "analysis": "Union membership is a threshold credential for the ALC. Current eligibility matters less than history and demonstrated commitment. Former membership combined with ongoing solidarity work is credible.",
-      "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": [
-        {
-          "text": "I am currently self-employed as a therapist and ineligible for union membership. I was a member of AFT Local 6192, the Berkeley Council of Classified Employees, when I worked for the Berkeley Unified School District.",
-          "note": ""
-        }
-      ]
-    },
-    {
-      "id": "alc_bg7",
-      "section": "Background",
-      "topic": "labor_solidarity",
-      "status": "done",
-      "question": "What was your level of participation (steward, officer, member of bargaining team, etc.)?",
-      "analysis": "Follow-up to the membership question. The ALC distinguishes between passive membership and active participation (steward, officer, bargaining team). Higher levels of participation signal deeper labor commitment.",
-      "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": [
-        {
-          "text": "I was a Site Representative at Thousand Oaks Elementary School, and for the 2013-14 school year I was the Union Organizer for the local, a full-time position funded by a grant from the California Federation of Teachers.",
-          "note": ""
-        }
-      ]
-    },
-    {
-      "id": "alc_bg8",
-      "section": "Background",
-      "topic": "background_bio",
-      "status": "done",
-      "question": "To what fraternal, professional, civic or social organizations do you belong? What is your level of participation?",
-      "analysis": "The ALC reads organizational affiliations for labor alignment. Organizations with union connections or solidarity functions carry the most weight for this audience.",
-      "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": [
-        {
-          "text": "Brass Liberation Orchestra (member — provides musical support for labor actions and street protests, including the Richmond Teachers Union and Kaiser Nurse Practitioners actions). Berkeley Sanctuary City Taskforce (member). Bay Resistance Pod for the 94702 zip code (co-facilitator — rapid-response network for immigrant rights). Safe Pathways to School volunteer program at Berkeley High School (coordinator). Friends of Ohlone Park (member).\n\n[DARIA: Add CAMFT or any other professional association if you are a member.]",
-          "note": ""
-        }
-      ]
-    },
-    {
-      "id": "alc_bg9",
-      "section": "Background",
-      "topic": "background_bio",
-      "status": "thin",
-      "question": "Will you seek higher office?",
-      "analysis": "The ALC invests in long-term relationships with endorsed candidates. This question screens for whether the candidate views the seat as a stepping stone or a commitment.",
-      "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": [
-        {
-          "text": "I am focused entirely on this race and on serving the residents of District 1. I have no plans to seek higher office.\n\n[DARIA: Adjust if this does not match — the key is not to sound like the seat is a stepping stone.]",
-          "note": ""
-        }
-      ]
-    },
-    {
-      "id": "alc_bg10",
-      "section": "Background",
-      "topic": "campaign_plan",
-      "status": "thin",
-      "question": "How much money does your campaign expect to raise? How much do you currently have on hand?",
-      "analysis": "Viability question. The ALC wants evidence the campaign is funded enough to win, since an endorsement spent on a non-viable campaign is wasted political capital. For Berkeley, the public financing match threshold is a relevant benchmark.",
-      "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": [
-        {
-          "text": "I expect to raise at least $8,667 in qualifying contributions to reach the maximum Berkeley public financing match, for a total campaign budget of approximately $60,000. As of [DATE], I have raised [AMOUNT] and have [AMOUNT] on hand.\n\n[DARIA: Update these figures from ActBlue before submitting.]",
-          "note": ""
-        }
-      ]
-    },
-    {
-      "id": "alc_bg11",
-      "section": "Background",
-      "topic": "campaign_plan",
-      "status": "thin",
-      "question": "What is your plan to win?",
-      "analysis": "The ALC wants to know their endorsement will translate into an effective campaign. For a Berkeley D1 race, relevant factors include turnout targets, voter universe size, and what labor support would specifically enable.",
-      "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": [
-        {
-          "text": "[DARIA: This answer needs your actual campaign plan. Key elements to include:\n- District 1 voter universe and turnout target\n- Field operation: doors knocked, volunteer capacity\n- Communications plan: mailers, digital\n- How labor endorsements and person-power fit into the plan (door-knocking, phone/text banking)\n- Timeline to November\n- What distinguishes the ground game from opponents']",
-          "note": ""
-        }
-      ]
-    },
-    {
-      "id": "alc_q1",
-      "section": "Leadership & Priorities",
-      "topic": "why_running",
-      "status": "done",
-      "question": "What are your goals and priorities in elected office? What issues will this election help to shape?",
-      "analysis": "The ALC asks about goals and priorities in office. For a labor council, priorities should connect to worker issues — affordability as a worker concern, city services as city jobs, public safety intersecting with worker rights.",
-      "references": [],
-      "levers": [
-        {
-          "tier": "authority",
-          "text": "The council sets the city budget, staffing levels, and contracting policy — all direct authority over how city workers are treated."
-        },
-        {
-          "tier": "authority",
-          "text": "Zoning, density, and tenant protections are council powers that directly affect housing affordability for working families."
-        }
-      ],
-      "sources": [
-        {
-          "label": "Berkeleyside: Mobile Crisis Team + shelter closures",
-          "url": "https://www.berkeleyside.org/2026/07/06/mobile-crisis-team-berkeley-winter-shelter-closures"
-        }
-      ],
-      "suggested": [
-        {
-          "text": "My priorities center on livability for working families: increasing affordability so the people who work in Berkeley can live here, improving city services and protecting the workers who deliver them, preserving our educational and cultural excellence, and investing in public safety that does not jeopardize civil liberties. I would add two that reflect my own background. First, protecting our behavioral health infrastructure — Berkeley just closed its Mobile Crisis Team and a winter shelter, and I want to make sure residents do not lose care in the transition. Second, standing with our city workers, because how we treat the people who deliver public services is how we protect those services.\n\nThis election will shape how Berkeley navigates a serious budget deficit while honoring its commitments to its workforce, its tenants, and its most vulnerable residents.",
-          "note": ""
-        }
-      ],
-      "verification": [
-        {
-          "claim": "Council sets city budget, staffing levels, and contracting policy",
-          "result": "confirmed",
-          "source": "Generic charter city structural authority",
-          "date": "2026-07-23",
-          "note": "Generic municipal power."
-        },
-        {
-          "claim": "Zoning, density, and tenant protections are council powers",
-          "result": "confirmed",
-          "source": "Generic charter city structural authority",
-          "date": "2026-07-23",
-          "note": "Generic municipal power."
-        }
-      ]
-    },
-    {
-      "id": "alc_q2",
-      "section": "Leadership & Priorities",
-      "topic": "labor_solidarity",
-      "status": "done",
-      "question": "How will you achieve these objectives? Please describe how you have worked with unions in the past to meet goals.",
-      "analysis": "Two-part question: (1) how the candidate will achieve stated priorities, and (2) past collaboration with unions. The ALC values concrete municipal tools (budgets, MOUs, contracting standards) and specific examples of past union work.",
-      "references": [],
-      "levers": [
-        {
-          "tier": "authority",
-          "text": "The council approves MOUs with city employee unions — that is direct power over working conditions."
-        },
-        {
-          "tier": "authority",
-          "text": "Contracting and procurement standards can require union labor, prevailing wages, and anti-contracting-out protections."
-        }
-      ],
-      "sources": [],
-      "suggested": [
-        {
-          "text": "I have worked with unions from the inside. As a classified employee at Berkeley Unified, I was a site representative for AFT Local 6192 at Thousand Oaks Elementary, and then the union organizer for the entire local for the 2013-14 school year, on a California Federation of Teachers grant. I organized alongside the people I represented.\n\nOutside my own workplace, I have supported labor actions through the Brass Liberation Orchestra, including the Richmond Teachers Union and the Kaiser Nurse Practitioners strike, and I have met directly with state legislators alongside union members to advocate for shared priorities like single-payer healthcare.\n\nAs a councilmember I would achieve these objectives through the tools the council actually has: the budget, MOU negotiations that respect and strengthen city workers, contracting standards that require union labor and prevent contracting out, and a commitment to consulting with labor before decisions are made, not after.",
-          "note": ""
-        }
-      ],
-      "verification": [
-        {
-          "claim": "Council approves MOUs with city employee unions",
-          "result": "confirmed",
-          "source": "Generic charter city structural authority",
-          "date": "2026-07-23",
-          "note": "Generic municipal power."
-        },
-        {
-          "claim": "Contracting and procurement standards can require union labor and prevailing wages",
-          "result": "confirmed",
-          "source": "Generic charter city structural authority; California Labor Code",
-          "date": "2026-07-23",
-          "note": "Prevailing wage for public works reinforced by state law."
-        }
-      ]
-    },
-    {
-      "id": "alc_q3",
-      "section": "Leadership & Priorities",
-      "topic": "background_bio",
-      "status": "done",
-      "question": "What public administration or leadership experience do you have? Please explain the programs you have developed and implemented for the benefit of the public.",
-      "analysis": "The ALC distinguishes between elected office experience and program-building experience. Non-office leadership — organizing, program coordination, community facilitation — counts if it demonstrates public-benefit impact.",
-      "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": [
-        {
-          "text": "I have not held elected office, but I have built and led programs that serve the public. I coordinate the Safe Pathways to School volunteer program at Berkeley High School, organizing community members to ensure students travel safely. I founded the mediation team at a summer music and arts camp, creating a conflict resolution program from scratch. As the AFT Local 6192 organizer, I built and ran the organizing operation for an entire local of classified school employees. And I co-facilitate a Bay Resistance Pod for the 94702 zip code, coordinating rapid-response teams for immigrant defense in our neighborhood.",
-          "note": ""
-        }
-      ]
-    },
-    {
-      "id": "alc_q4",
-      "section": "Leadership & Priorities",
-      "topic": "why_running",
-      "status": "done",
-      "question": "What do you think are the three (3) largest challenges facing your district and the city today and how will you solve them?",
-      "analysis": "The ALC wants challenges framed through a worker lens. Each challenge should connect to a labor issue and a concrete council lever.",
-      "references": [],
-      "levers": [
-        {
-          "tier": "authority",
-          "text": "Zoning, density bonuses, and inclusionary requirements are council powers."
-        },
-        {
-          "tier": "authority",
-          "text": "The council sets the city budget and approves staffing levels — cuts fall on city workers first."
-        },
-        {
-          "tier": "authority",
-          "text": "Berkeley's BHSA plan and the county handoff contract are live council decisions."
-        }
-      ],
-      "sources": [
-        {
-          "label": "Berkeleyside: Mobile Crisis Team + shelter closures",
-          "url": "https://www.berkeleyside.org/2026/07/06/mobile-crisis-team-berkeley-winter-shelter-closures"
-        },
-        {
-          "label": "City of Berkeley: Rental Housing Safety Program",
-          "url": "https://berkeleyca.gov/doing-business/operating-berkeley/landlords/rental-housing-safety-program-rhsp"
-        }
-      ],
-      "suggested": [
-        {
-          "text": "First, housing affordability. The nurses, teachers, city workers, and clinicians who serve Berkeley increasingly cannot afford to live here. I am a pro-housing and pro-tenant candidate. I support building density near transit, preserving existing affordable units through programs like our Rental Housing Safety Program, requiring union labor on new construction, and strengthening tenant protections.\n\nSecond, the city budget and protecting city services. Berkeley faces a structural deficit, and the pressure to cut will fall first on the workers who deliver public services. I would protect staffing levels, resist contracting out, and find revenue solutions rather than making city workers absorb the gap.\n\nThird, the transition in behavioral health and public safety. Berkeley just closed its Mobile Crisis Team and a winter shelter while handing crisis response to the county. Done wrong, this means fewer jobs, worse service, and workers caught in the middle. I would fight for staffing and response-time guarantees in the county agreement and make sure the clinicians and frontline workers delivering care help shape the transition.",
-          "note": ""
-        }
-      ],
-      "verification": [
-        {
-          "claim": "Zoning, density bonuses, and inclusionary requirements are council powers",
-          "result": "confirmed",
-          "source": "Generic charter city structural authority",
-          "date": "2026-07-23",
-          "note": "Generic municipal power."
-        },
-        {
-          "claim": "Council sets city budget and approves staffing levels",
-          "result": "confirmed",
-          "source": "Generic charter city structural authority",
-          "date": "2026-07-23",
-          "note": "Generic municipal power."
-        },
-        {
-          "claim": "Berkeley's BHSA plan and county handoff contract are council decisions",
-          "result": "confirmed",
-          "source": "City of Berkeley BHSA Three-Year Integrated Plan; Berkeleyside MCT reporting",
-          "date": "2026-07-23",
-          "note": ""
-        }
-      ]
-    },
-    {
-      "id": "alc_q5",
-      "section": "Leadership & Priorities",
-      "topic": "why_running",
-      "status": "done",
-      "question": "What distinguishes your goals and priorities from other candidates'?",
-      "analysis": "Differentiation question. The ALC wants to understand what this candidate offers that others do not, with emphasis on labor-relevant distinctions.",
-      "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": [
-        {
-          "text": "Most candidates in this race will say they support labor. I have done the work. I was a union site representative and then the organizer for an entire local of classified school employees. I have been on the picket line, not just in the endorsement interview. I am also a practicing clinician, which means I understand healthcare worker conditions and behavioral health access not as a policy position but as my daily professional reality. I bring both the labor experience and the subject-matter expertise to a council that will be making hard decisions about city staffing, contracting, and the behavioral health transition.",
-          "note": ""
-        }
-      ]
-    },
-    {
-      "id": "alc_q6",
-      "section": "Leadership & Priorities",
-      "topic": "labor_law",
-      "status": "done",
-      "question": "What is your view on artificial intelligence? How do your views on artificial intelligence relate to working class families?",
-      "analysis": "A newer question reflecting labor's growing concern about workplace automation, algorithmic management, and displacement of union jobs. For healthcare workers specifically, there is an additional dimension: automated decision-making (prior authorization algorithms, chatbot triage) substituting for licensed clinical judgment.",
-      "references": [],
-      "levers": [
-        {
-          "tier": "authority",
-          "text": "The council can set policy on how the City of Berkeley itself uses AI in employment, services, and procurement — that is direct authority."
-        },
-        {
-          "tier": "authority",
-          "text": "City contracts and MOUs can require that AI deployment be subject to bargaining and that workers affected by automation have retraining and transition protections."
-        },
-        {
-          "tier": "advocacy",
-          "text": "State-level AI regulation (AB 331, SB 1047 precedents) is advocacy, not city authority, but the council can pass resolutions and lobby the delegation."
-        }
-      ],
-      "sources": [],
-      "suggested": [
-        {
-          "text": "Technology should serve workers, not replace them and not surveil them. My concern with artificial intelligence is straightforward: when it is deployed without worker input, it becomes a tool for cutting jobs, automating management decisions, and eroding the conditions that unions have fought to win.\n\nAs a clinician, I see this in healthcare already. Insurance companies use algorithms to deny care and replace clinical judgment with automated systems. I have said elsewhere that I would resist letting carriers or city contractors substitute automated tools for licensed clinical judgment, and I mean it.\n\nMore broadly, working class families bear the cost when AI is introduced without guardrails. As a councilmember I would ensure that the City of Berkeley's own use of AI is transparent, that any deployment affecting city workers is subject to collective bargaining, and that our procurement and contracting standards require the same of vendors. Workers must have a seat at the table before new technology changes their jobs, not after.",
-          "note": ""
-        }
-      ],
-      "verification": [
-        {
-          "claim": "Council can set policy on how the City of Berkeley uses AI in employment, services, and procurement",
-          "result": "confirmed",
-          "source": "Generic charter city structural authority (ordinance/policy)",
-          "date": "2026-07-23",
-          "note": "Generic municipal power — internal policy."
-        },
-        {
-          "claim": "City contracts and MOUs can require AI deployment be subject to bargaining",
-          "result": "confirmed",
-          "source": "Generic charter city structural authority (MOU ratification)",
-          "date": "2026-07-23",
-          "note": "Generic municipal power — MOU terms are bargained."
-        }
-      ]
-    },
-    {
-      "id": "alc_q7",
-      "section": "Right to Organize",
-      "topic": "labor_solidarity",
-      "status": "done",
-      "question": "Please describe the actions you have taken to support workers' right to organize locally.",
-      "analysis": "Direct ask for specific past actions supporting organizing. The ALC distinguishes between abstract support and concrete participation — doing the organizing versus endorsing the concept.",
-      "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": [
-        {
-          "text": "As a BUSD classified employee and member of AFT Local 6192, I served as Site Representative at Thousand Oaks Elementary and then as Union Organizer for the entire local for the 2013-14 school year, on a California Federation of Teachers grant. That was my job: supporting workers' right to organize.\n\nAs a member of the Brass Liberation Orchestra, I have provided musical support at labor actions including the Richmond Teachers Union and the Kaiser Nurse Practitioners strike. I have also met with state legislators, including Assemblymember Buffy Wicks, to advocate alongside union members for shared priorities including healthcare and worker protections.",
-          "note": ""
-        }
-      ]
-    },
-    {
-      "id": "alc_q8",
-      "section": "Right to Organize",
-      "topic": "labor_solidarity",
-      "status": "done",
-      "question": "If elected, how will you help workers who desire to form a union?",
-      "analysis": "The question asks for concrete council actions to help workers organize, not just philosophical support. Berkeley has specific municipal tools: labor peace ordinances, card-check neutrality requirements in city contracts, and public backing of organizing drives.",
-      "references": [],
-      "levers": [
-        {
-          "tier": "authority",
-          "text": "Berkeley has a labor peace ordinance (BMC 2.102) requiring labor peace agreements for hospitality operations in the Marina Zone. The council has demonstrated this power and can expand the model to other city contracts and subsidized projects."
-        },
-        {
-          "tier": "unverified",
-          "text": "Card-check neutrality requirements in city contracts. Berkeley's existing labor peace ordinance (BMC 2.102) explicitly does not require employer recognition of unions or collective bargaining. Whether the council can impose card-check neutrality via contract conditions has not been confirmed for this jurisdiction."
-        },
-        {
-          "tier": "authority",
-          "text": "The council can publicly support organizing drives, write letters to employers, and use the city's voice."
-        },
-        {
-          "tier": "authority",
-          "text": "Preventing the use of city funds or resources against workers during organizing campaigns is a direct budget and policy decision."
-        }
-      ],
-      "sources": [],
-      "suggested": [
-        {
-          "text": "I would use the tools a councilmember actually has. Berkeley already requires labor peace agreements for hospitality operations in the Marina Zone under BMC 2.102 — I would work to expand that model to all city contracts and city-subsidized developments, so that public dollars never underwrite union-busting. I would publicly support workers seeking to organize — signing letters, speaking at forums, and using the council platform to make clear that Berkeley stands with workers exercising their rights. I would work to ensure that no city funds or resources are used against workers during organizing campaigns. And I would personally speak to employers about remaining neutral, as someone who has been on both sides of an organizing drive and understands what neutrality actually requires.",
-          "note": ""
-        }
-      ],
-      "verification": [
-        {
-          "claim": "Berkeley can impose labor peace requirements in city contracts",
-          "result": "confirmed",
-          "source": "Berkeley Municipal Code Chapter 2.102",
-          "date": "2026-07-23",
-          "note": "BMC 2.102 requires labor peace agreements for hospitality operations in the Marina Zone. Mechanism exists; current scope is limited to Marina hospitality."
-        },
-        {
-          "claim": "Berkeley can impose card-check neutrality requirements in city contracts",
-          "result": "unresolved",
-          "source": "Berkeley Municipal Code Chapter 2.102",
-          "date": "2026-07-23",
-          "note": "BMC 2.102 explicitly does not require recognition or collective bargaining. LA and Long Beach have card-check ordinances but Berkeley has not enacted one. State preemption status unresolved."
-        }
-      ]
-    },
-    {
-      "id": "alc_q9",
-      "section": "Right to Organize",
-      "topic": "labor_solidarity",
-      "status": "done",
-      "question": "Please check which actions you would be willing to undertake: Sign a letter of support to workers and the public; Personally speak to an employer about remaining neutral during an organizing drive; Speak at a public forum on the right to organize; Refuse to patronize an employer who conducts an antiunion campaign; Pass an ordinance or support an initiative supporting worker rights and living wages; Support legislative action to prevent taxpayer funds from being used against workers during organizing campaigns; Assist workers in obtaining a first contract.",
-      "analysis": "Checklist of solidarity commitments. The ALC expects all items checked. For a candidate with organizing experience, these are credible commitments, not aspirational ones.",
-      "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": [
-        {
-          "text": "All seven checked. I have already done several of these in practice: I have spoken publicly on the right to organize, I have been present at labor actions, and I spent a year as a union organizer helping workers build power in their workplace.",
-          "note": ""
-        }
-      ]
-    },
-    {
-      "id": "alc_q10",
-      "section": "Health Care",
-      "topic": "healthcare_standards",
-      "status": "done",
-      "question": "Would you support or oppose efforts to cap the amount hospitals can charge the uninsured for medical services?",
-      "analysis": "The question asks about capping hospital charges for the uninsured. For a city councilmember, the direct lever is limited — hospital pricing is largely state and federal — but the council can pass resolutions, advocate to the state delegation, and use city contracting to support facilities that serve uninsured patients fairly.",
-      "references": [],
-      "levers": [
-        {
-          "tier": "advocacy",
-          "text": "Hospital pricing regulation is primarily state authority (Health & Safety Code, OSHPD oversight). A councilmember advocates and passes resolutions."
-        },
-        {
-          "tier": "advocacy",
-          "text": "The council can advocate for fair pricing for uninsured patients and pass resolutions supporting state-level caps. It can also prefer facilities with fair pricing policies when choosing partners for city health programs, though no formal contracting mechanism exists."
-        }
-      ],
-      "sources": [],
-      "suggested": [
-        {
-          "text": "I would support it. As a clinician, I see what happens when patients face uncapped charges — they avoid care until a manageable problem becomes a crisis, and the cost shifts to emergency rooms and public systems. No one should face financial ruin for getting sick. I would support state-level efforts to cap hospital charges for the uninsured and use the council platform to advocate for it with our state delegation.",
-          "note": ""
-        }
-      ],
-      "verification": [
-        {
-          "claim": "The council can direct city contracts toward facilities based on pricing policies for uninsured patients",
-          "result": "refuted",
-          "source": "Berkeley Municipal Code; web search July 2026",
-          "date": "2026-07-23",
-          "note": "No evidence Berkeley contracts with hospitals for general patient care or has any mechanism to direct partnerships based on uninsured pricing. Hospital pricing is state-regulated. Lever retiered to advocacy."
-        }
-      ]
-    },
-    {
-      "id": "alc_q11",
-      "section": "Health Care",
-      "topic": "healthcare_standards",
-      "status": "done",
-      "question": "Will you consult with the impacted union before contracting out workers compensation carriers?",
-      "analysis": "Principle question about labor consultation before contracting decisions. The ALC treats this as a basic respect-for-the-relationship standard, not a policy position.",
-      "references": [],
-      "levers": [
-        {
-          "tier": "authority",
-          "text": "Workers compensation carrier selection is a city procurement decision. The council can require consultation with affected unions before any change."
-        }
-      ],
-      "sources": [],
-      "suggested": [
-        {
-          "text": "Yes, absolutely. Contracting decisions that affect workers should never be made without consulting the workers they affect. I would consult with the impacted union before any change to workers compensation carriers, and I would apply that same principle to contracting decisions broadly — labor should be at the table before the decision is made, not notified after.",
-          "note": ""
-        }
-      ],
-      "verification": [
-        {
-          "claim": "Workers compensation carrier selection is a city procurement decision; council can require union consultation",
-          "result": "confirmed",
-          "source": "Generic charter city structural authority (procurement)",
-          "date": "2026-07-23",
-          "note": "Generic municipal power."
-        }
-      ]
-    },
-    {
-      "id": "alc_q12",
-      "section": "Principles",
-      "topic": "labor_solidarity",
-      "status": "done",
-      "question": "Have you ever crossed a picket line?",
-      "analysis": "Litmus question. The ALC treats anything other than a clean No as disqualifying.",
-      "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": [
-        {
-          "text": "No, I have never crossed a picket line. I have been on the other side of them — providing musical support through the Brass Liberation Orchestra at labor actions including the Kaiser Nurse Practitioners strike and the Richmond Teachers Union.",
-          "note": ""
-        }
-      ]
-    },
-    {
-      "id": "alc_q13",
-      "section": "Principles",
-      "topic": "labor_solidarity",
-      "status": "done",
-      "question": "Are there circumstances under which you would cross a picket line?",
-      "analysis": "Follow-up litmus question. The ALC is screening for hypothetical qualifications that would weaken the previous answer. Any nuance is read as a hedge.",
-      "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": [
-        {
-          "text": "No.",
-          "note": ""
-        }
-      ]
-    },
-    {
-      "id": "alc_q14",
-      "section": "Principles",
-      "topic": "labor_solidarity",
-      "status": "done",
-      "question": "What steps would you take to support a boycott, when sanctioned by a Central Labor Council, California Labor Federation or AFL-CIO? Will your campaign refuse to use restaurants, hotels, or other public accommodations on the boycott list (available at www.calaborfed.org)?",
-      "analysis": "Two-part question: (1) personal and official steps to support ALC-sanctioned boycotts, and (2) whether campaign operations specifically will comply (restaurants, hotels, vendors). The ALC expects commitment on both parts.",
-      "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": [
-        {
-          "text": "I would honor any boycott sanctioned by a Central Labor Council, the California Labor Federation, or the AFL-CIO. That means personally refusing to patronize boycotted businesses, using the council platform to amplify the boycott, and publicly explaining why. Yes, my campaign will refuse to use restaurants, hotels, or other public accommodations on the boycott list, and I will check the list before booking any campaign event or venue.",
-          "note": ""
-        }
-      ]
-    },
-    {
-      "id": "alc_q15",
-      "section": "Principles",
-      "topic": "endorsement_ask",
-      "status": "done",
-      "question": "If endorsed, will you carry the union endorsement on your mail and materials?",
-      "analysis": "Commitment question. The ALC wants endorsed candidates to prominently display the labor endorsement in campaign materials.",
-      "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": [
-        {
-          "text": "Yes. A labor endorsement from the Alameda Labor Council is a credential I would carry prominently on all campaign mail, materials, and digital communications.",
-          "note": ""
-        }
-      ]
-    },
-    {
-      "id": "alc_q16",
-      "section": "Principles",
-      "topic": "labor_solidarity",
-      "status": "done",
-      "question": "Will you consult with the Alameda Labor Council prior to making appointments to boards and commissions?",
-      "analysis": "Relationship question. The ALC wants input on city appointments that affect workers — the Planning Commission, the Housing Advisory Commission, the Personnel Board. This is about the ongoing working relationship, not just the endorsement.",
-      "references": [],
-      "levers": [
-        {
-          "tier": "authority",
-          "text": "Councilmembers make appointments to city boards and commissions. The Personnel Board, Planning Commission, and Housing Advisory Commission have direct impact on workers and labor priorities."
-        }
-      ],
-      "sources": [],
-      "suggested": [
-        {
-          "text": "Yes. I would consult with the Alameda Labor Council before making appointments to boards and commissions, particularly those with direct impact on workers and labor: the Personnel Board, the Planning Commission, and the Housing Advisory Commission, among others. Good appointments start with asking the people most affected who they trust.",
-          "note": ""
-        }
-      ],
-      "verification": [
-        {
-          "claim": "Councilmembers make appointments to city boards and commissions",
-          "result": "confirmed",
-          "source": "Generic charter city structural authority",
-          "date": "2026-07-23",
-          "note": "Generic municipal power."
-        }
-      ]
-    },
-    {
-      "id": "alc_q17",
-      "section": "Principles",
-      "topic": "endorsements",
-      "status": "done",
-      "question": "Will you consult with the Alameda Labor Council prior to making endorsements of other candidates?",
-      "analysis": "Relationship question. The ALC wants assurance that endorsed candidates will not endorse opponents of labor in other races.",
-      "references": [],
-      "levers": [],
-      "sources": [],
-      "suggested": [
-        {
-          "text": "Yes. I value the relationship with the Alameda Labor Council and would consult before endorsing in other races. Labor solidarity means alignment across the ballot, not just in one race.",
-          "note": ""
-        }
-      ]
+     "tier": "authority",
+     "text": "Zoning, density, and tenant protections are council powers that directly affect housing affordability for working families."
     }
-  ]
+   ],
+   "sources": [
+    {
+     "label": "Berkeleyside: Mobile Crisis Team + shelter closures",
+     "url": "https://www.berkeleyside.org/2026/07/06/mobile-crisis-team-berkeley-winter-shelter-closures"
+    }
+   ],
+   "verification": [
+    {
+     "claim": "Council sets city budget, staffing levels, and contracting policy",
+     "result": "confirmed",
+     "source": "Generic charter city structural authority",
+     "date": "2026-07-23",
+     "note": "Generic municipal power."
+    },
+    {
+     "claim": "Zoning, density, and tenant protections are council powers",
+     "result": "confirmed",
+     "source": "Generic charter city structural authority",
+     "date": "2026-07-23",
+     "note": "Generic municipal power."
+    }
+   ]
+  },
+  {
+   "id": "alc_q2",
+   "section": "Leadership & Priorities",
+   "topic": "labor_solidarity",
+   "status": "done",
+   "question": "How will you achieve these objectives? Please describe how you have worked with unions in the past to meet goals.",
+   "analysis": "Two-part question: (1) how the candidate will achieve stated priorities, and (2) past collaboration with unions. The ALC values concrete municipal tools (budgets, MOUs, contracting standards) and specific examples of past union work.",
+   "references": [],
+   "levers": [
+    {
+     "tier": "authority",
+     "text": "The council approves MOUs with city employee unions — that is direct power over working conditions."
+    },
+    {
+     "tier": "authority",
+     "text": "Contracting and procurement standards can require union labor, prevailing wages, and anti-contracting-out protections."
+    }
+   ],
+   "sources": [],
+   "verification": [
+    {
+     "claim": "Council approves MOUs with city employee unions",
+     "result": "confirmed",
+     "source": "Generic charter city structural authority",
+     "date": "2026-07-23",
+     "note": "Generic municipal power."
+    },
+    {
+     "claim": "Contracting and procurement standards can require union labor and prevailing wages",
+     "result": "confirmed",
+     "source": "Generic charter city structural authority; California Labor Code",
+     "date": "2026-07-23",
+     "note": "Prevailing wage for public works reinforced by state law."
+    }
+   ]
+  },
+  {
+   "id": "alc_q3",
+   "section": "Leadership & Priorities",
+   "topic": "background_bio",
+   "status": "done",
+   "question": "What public administration or leadership experience do you have? Please explain the programs you have developed and implemented for the benefit of the public.",
+   "analysis": "The ALC distinguishes between elected office experience and program-building experience. Non-office leadership — organizing, program coordination, community facilitation — counts if it demonstrates public-benefit impact.",
+   "references": [],
+   "levers": [],
+   "sources": []
+  },
+  {
+   "id": "alc_q4",
+   "section": "Leadership & Priorities",
+   "topic": "why_running",
+   "status": "done",
+   "question": "What do you think are the three (3) largest challenges facing your district and the city today and how will you solve them?",
+   "analysis": "The ALC wants challenges framed through a worker lens. Each challenge should connect to a labor issue and a concrete council lever.",
+   "references": [],
+   "levers": [
+    {
+     "tier": "authority",
+     "text": "Zoning, density bonuses, and inclusionary requirements are council powers."
+    },
+    {
+     "tier": "authority",
+     "text": "The council sets the city budget and approves staffing levels — cuts fall on city workers first."
+    },
+    {
+     "tier": "authority",
+     "text": "Berkeley's BHSA plan and the county handoff contract are live council decisions."
+    }
+   ],
+   "sources": [
+    {
+     "label": "Berkeleyside: Mobile Crisis Team + shelter closures",
+     "url": "https://www.berkeleyside.org/2026/07/06/mobile-crisis-team-berkeley-winter-shelter-closures"
+    },
+    {
+     "label": "City of Berkeley: Rental Housing Safety Program",
+     "url": "https://berkeleyca.gov/doing-business/operating-berkeley/landlords/rental-housing-safety-program-rhsp"
+    }
+   ],
+   "verification": [
+    {
+     "claim": "Zoning, density bonuses, and inclusionary requirements are council powers",
+     "result": "confirmed",
+     "source": "Generic charter city structural authority",
+     "date": "2026-07-23",
+     "note": "Generic municipal power."
+    },
+    {
+     "claim": "Council sets city budget and approves staffing levels",
+     "result": "confirmed",
+     "source": "Generic charter city structural authority",
+     "date": "2026-07-23",
+     "note": "Generic municipal power."
+    },
+    {
+     "claim": "Berkeley's BHSA plan and county handoff contract are council decisions",
+     "result": "confirmed",
+     "source": "City of Berkeley BHSA Three-Year Integrated Plan; Berkeleyside MCT reporting",
+     "date": "2026-07-23",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "alc_q5",
+   "section": "Leadership & Priorities",
+   "topic": "why_running",
+   "status": "done",
+   "question": "What distinguishes your goals and priorities from other candidates'?",
+   "analysis": "Differentiation question. The ALC wants to understand what this candidate offers that others do not, with emphasis on labor-relevant distinctions.",
+   "references": [],
+   "levers": [],
+   "sources": []
+  },
+  {
+   "id": "alc_q6",
+   "section": "Leadership & Priorities",
+   "topic": "labor_law",
+   "status": "done",
+   "question": "What is your view on artificial intelligence? How do your views on artificial intelligence relate to working class families?",
+   "analysis": "A newer question reflecting labor's growing concern about workplace automation, algorithmic management, and displacement of union jobs. For healthcare workers specifically, there is an additional dimension: automated decision-making (prior authorization algorithms, chatbot triage) substituting for licensed clinical judgment.",
+   "references": [],
+   "levers": [
+    {
+     "tier": "authority",
+     "text": "The council can set policy on how the City of Berkeley itself uses AI in employment, services, and procurement — that is direct authority."
+    },
+    {
+     "tier": "authority",
+     "text": "City contracts and MOUs can require that AI deployment be subject to bargaining and that workers affected by automation have retraining and transition protections."
+    },
+    {
+     "tier": "advocacy",
+     "text": "State-level AI regulation (AB 331, SB 1047 precedents) is advocacy, not city authority, but the council can pass resolutions and lobby the delegation."
+    }
+   ],
+   "sources": [],
+   "verification": [
+    {
+     "claim": "Council can set policy on how the City of Berkeley uses AI in employment, services, and procurement",
+     "result": "confirmed",
+     "source": "Generic charter city structural authority (ordinance/policy)",
+     "date": "2026-07-23",
+     "note": "Generic municipal power — internal policy."
+    },
+    {
+     "claim": "City contracts and MOUs can require AI deployment be subject to bargaining",
+     "result": "confirmed",
+     "source": "Generic charter city structural authority (MOU ratification)",
+     "date": "2026-07-23",
+     "note": "Generic municipal power — MOU terms are bargained."
+    }
+   ]
+  },
+  {
+   "id": "alc_q7",
+   "section": "Right to Organize",
+   "topic": "labor_solidarity",
+   "status": "done",
+   "question": "Please describe the actions you have taken to support workers' right to organize locally.",
+   "analysis": "Direct ask for specific past actions supporting organizing. The ALC distinguishes between abstract support and concrete participation — doing the organizing versus endorsing the concept.",
+   "references": [],
+   "levers": [],
+   "sources": []
+  },
+  {
+   "id": "alc_q8",
+   "section": "Right to Organize",
+   "topic": "labor_solidarity",
+   "status": "done",
+   "question": "If elected, how will you help workers who desire to form a union?",
+   "analysis": "The question asks for concrete council actions to help workers organize, not just philosophical support. Berkeley has specific municipal tools: labor peace ordinances, card-check neutrality requirements in city contracts, and public backing of organizing drives.",
+   "references": [],
+   "levers": [
+    {
+     "tier": "authority",
+     "text": "Berkeley has a labor peace ordinance (BMC 2.102) requiring labor peace agreements for hospitality operations in the Marina Zone. The council has demonstrated this power and can expand the model to other city contracts and subsidized projects."
+    },
+    {
+     "tier": "unverified",
+     "text": "Card-check neutrality requirements in city contracts. Berkeley's existing labor peace ordinance (BMC 2.102) explicitly does not require employer recognition of unions or collective bargaining. Whether the council can impose card-check neutrality via contract conditions has not been confirmed for this jurisdiction."
+    },
+    {
+     "tier": "authority",
+     "text": "The council can publicly support organizing drives, write letters to employers, and use the city's voice."
+    },
+    {
+     "tier": "authority",
+     "text": "Preventing the use of city funds or resources against workers during organizing campaigns is a direct budget and policy decision."
+    }
+   ],
+   "sources": [],
+   "verification": [
+    {
+     "claim": "Berkeley can impose labor peace requirements in city contracts",
+     "result": "confirmed",
+     "source": "Berkeley Municipal Code Chapter 2.102",
+     "date": "2026-07-23",
+     "note": "BMC 2.102 requires labor peace agreements for hospitality operations in the Marina Zone. Mechanism exists; current scope is limited to Marina hospitality."
+    },
+    {
+     "claim": "Berkeley can impose card-check neutrality requirements in city contracts",
+     "result": "unresolved",
+     "source": "Berkeley Municipal Code Chapter 2.102",
+     "date": "2026-07-23",
+     "note": "BMC 2.102 explicitly does not require recognition or collective bargaining. LA and Long Beach have card-check ordinances but Berkeley has not enacted one. State preemption status unresolved."
+    }
+   ]
+  },
+  {
+   "id": "alc_q9",
+   "section": "Right to Organize",
+   "topic": "labor_solidarity",
+   "status": "done",
+   "question": "Please check which actions you would be willing to undertake: Sign a letter of support to workers and the public; Personally speak to an employer about remaining neutral during an organizing drive; Speak at a public forum on the right to organize; Refuse to patronize an employer who conducts an antiunion campaign; Pass an ordinance or support an initiative supporting worker rights and living wages; Support legislative action to prevent taxpayer funds from being used against workers during organizing campaigns; Assist workers in obtaining a first contract.",
+   "analysis": "Checklist of solidarity commitments. The ALC expects all items checked. For a candidate with organizing experience, these are credible commitments, not aspirational ones.",
+   "references": [],
+   "levers": [],
+   "sources": []
+  },
+  {
+   "id": "alc_q10",
+   "section": "Health Care",
+   "topic": "healthcare_standards",
+   "status": "done",
+   "question": "Would you support or oppose efforts to cap the amount hospitals can charge the uninsured for medical services?",
+   "analysis": "The question asks about capping hospital charges for the uninsured. For a city councilmember, the direct lever is limited — hospital pricing is largely state and federal — but the council can pass resolutions, advocate to the state delegation, and use city contracting to support facilities that serve uninsured patients fairly.",
+   "references": [],
+   "levers": [
+    {
+     "tier": "advocacy",
+     "text": "Hospital pricing regulation is primarily state authority (Health & Safety Code, OSHPD oversight). A councilmember advocates and passes resolutions."
+    },
+    {
+     "tier": "advocacy",
+     "text": "The council can advocate for fair pricing for uninsured patients and pass resolutions supporting state-level caps. It can also prefer facilities with fair pricing policies when choosing partners for city health programs, though no formal contracting mechanism exists."
+    }
+   ],
+   "sources": [],
+   "verification": [
+    {
+     "claim": "The council can direct city contracts toward facilities based on pricing policies for uninsured patients",
+     "result": "refuted",
+     "source": "Berkeley Municipal Code; web search July 2026",
+     "date": "2026-07-23",
+     "note": "No evidence Berkeley contracts with hospitals for general patient care or has any mechanism to direct partnerships based on uninsured pricing. Hospital pricing is state-regulated. Lever retiered to advocacy."
+    }
+   ]
+  },
+  {
+   "id": "alc_q11",
+   "section": "Health Care",
+   "topic": "healthcare_standards",
+   "status": "done",
+   "question": "Will you consult with the impacted union before contracting out workers compensation carriers?",
+   "analysis": "Principle question about labor consultation before contracting decisions. The ALC treats this as a basic respect-for-the-relationship standard, not a policy position.",
+   "references": [],
+   "levers": [
+    {
+     "tier": "authority",
+     "text": "Workers compensation carrier selection is a city procurement decision. The council can require consultation with affected unions before any change."
+    }
+   ],
+   "sources": [],
+   "verification": [
+    {
+     "claim": "Workers compensation carrier selection is a city procurement decision; council can require union consultation",
+     "result": "confirmed",
+     "source": "Generic charter city structural authority (procurement)",
+     "date": "2026-07-23",
+     "note": "Generic municipal power."
+    }
+   ]
+  },
+  {
+   "id": "alc_q12",
+   "section": "Principles",
+   "topic": "labor_solidarity",
+   "status": "done",
+   "question": "Have you ever crossed a picket line?",
+   "analysis": "Litmus question. The ALC treats anything other than a clean No as disqualifying.",
+   "references": [],
+   "levers": [],
+   "sources": []
+  },
+  {
+   "id": "alc_q13",
+   "section": "Principles",
+   "topic": "labor_solidarity",
+   "status": "done",
+   "question": "Are there circumstances under which you would cross a picket line?",
+   "analysis": "Follow-up litmus question. The ALC is screening for hypothetical qualifications that would weaken the previous answer. Any nuance is read as a hedge.",
+   "references": [],
+   "levers": [],
+   "sources": []
+  },
+  {
+   "id": "alc_q14",
+   "section": "Principles",
+   "topic": "labor_solidarity",
+   "status": "done",
+   "question": "What steps would you take to support a boycott, when sanctioned by a Central Labor Council, California Labor Federation or AFL-CIO? Will your campaign refuse to use restaurants, hotels, or other public accommodations on the boycott list (available at www.calaborfed.org)?",
+   "analysis": "Two-part question: (1) personal and official steps to support ALC-sanctioned boycotts, and (2) whether campaign operations specifically will comply (restaurants, hotels, vendors). The ALC expects commitment on both parts.",
+   "references": [],
+   "levers": [],
+   "sources": []
+  },
+  {
+   "id": "alc_q15",
+   "section": "Principles",
+   "topic": "endorsement_ask",
+   "status": "done",
+   "question": "If endorsed, will you carry the union endorsement on your mail and materials?",
+   "analysis": "Commitment question. The ALC wants endorsed candidates to prominently display the labor endorsement in campaign materials.",
+   "references": [],
+   "levers": [],
+   "sources": []
+  },
+  {
+   "id": "alc_q16",
+   "section": "Principles",
+   "topic": "labor_solidarity",
+   "status": "done",
+   "question": "Will you consult with the Alameda Labor Council prior to making appointments to boards and commissions?",
+   "analysis": "Relationship question. The ALC wants input on city appointments that affect workers — the Planning Commission, the Housing Advisory Commission, the Personnel Board. This is about the ongoing working relationship, not just the endorsement.",
+   "references": [],
+   "levers": [
+    {
+     "tier": "authority",
+     "text": "Councilmembers make appointments to city boards and commissions. The Personnel Board, Planning Commission, and Housing Advisory Commission have direct impact on workers and labor priorities."
+    }
+   ],
+   "sources": [],
+   "verification": [
+    {
+     "claim": "Councilmembers make appointments to city boards and commissions",
+     "result": "confirmed",
+     "source": "Generic charter city structural authority",
+     "date": "2026-07-23",
+     "note": "Generic municipal power."
+    }
+   ]
+  },
+  {
+   "id": "alc_q17",
+   "section": "Principles",
+   "topic": "endorsements",
+   "status": "done",
+   "question": "Will you consult with the Alameda Labor Council prior to making endorsements of other candidates?",
+   "analysis": "Relationship question. The ALC wants assurance that endorsed candidates will not endorse opponents of labor in other races.",
+   "references": [],
+   "levers": [],
+   "sources": []
+  }
+ ]
 }
