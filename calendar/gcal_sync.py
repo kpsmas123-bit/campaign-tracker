@@ -131,8 +131,20 @@ def main():
     if b'BEGIN:VCALENDAR' not in ics:
         sys.exit('feed did not return an ical document; refusing to sync')
 
+    # Distinguish an empty calendar from a broken sync. Both used to print
+    # "0 occurrences" under a green check, which is the same signal for "nothing
+    # scheduled yet" and "the feed silently stopped working".
+    raw = ics.count(b'BEGIN:VEVENT')
     rows = parse(ics)
-    print('parsed %d occurrences' % len(rows))
+    print('feed contains %d VEVENT block(s); %d occurrence(s) in window'
+          % (raw, len(rows)))
+    if raw == 0:
+        print('::notice::Calendar feed is valid but has no events. Nothing to '
+              'mirror — add events in Google Calendar and re-run.')
+    elif not rows:
+        print('::warning::Feed has %d event(s) but none fall within %d days back '
+              'to %d days ahead. Check the window in gcal_sync.py.'
+              % (raw, DAYS_BACK, DAYS_AHEAD))
 
     auth = post('%s/auth/v1/token?grant_type=password' % sb_url,
                 {'email': email, 'password': password},
@@ -158,7 +170,7 @@ def main():
         headers=h, method='DELETE')
     urllib.request.urlopen(req, timeout=60).read()
 
-    print('synced %d events' % len(rows))
+    print('synced %d event(s) into gcal_events' % len(rows))
 
 
 if __name__ == '__main__':
