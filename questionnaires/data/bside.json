@@ -1,225 +1,399 @@
 {
-  "slug": "bside",
-  "org": "Berkeleyside",
-  "cycle": "2026",
-  "candidate": "Daria Wrubel — Berkeley City Council D1",
-  "generated": "2026-08-11",
-  "last_factcheck": "2026-08-11",
-  "org_research": "Berkeleyside is Berkeley's main local news outlet, not an endorsing organization — the form states plainly that Berkeleyside does not endorse candidates. It reports more than a million page views in the past year, so this is likely the widest-read thing the campaign writes, and answers run essentially as submitted alongside every other candidate's. Character limits are hard and tight: 300 characters (about 50 words) for most prose answers and 600 for the priorities question. The letter-grade question is the one to get right — the District 1 incumbent sits on the council being graded. Deadline Sunday August 30, 11:59 p.m. A high-resolution horizontal headshot is required, at least 2000px on the long side at 300dpi, and can be emailed to editors@berkeleyside.org if the upload fails.",
-  "contact_fields": [
+ "slug": "bside",
+ "org": "Berkeleyside",
+ "cycle": "2026",
+ "candidate": "Daria Wrubel — Berkeley City Council D1",
+ "generated": "2026-08-20",
+ "last_factcheck": "2026-08-11",
+ "org_research": "Berkeleyside is Berkeley's main local news outlet, not an endorsing organisation — the form states plainly that Berkeleyside does not endorse candidates. More than a million page views last year, so this is likely the widest-read thing the campaign writes, and answers run essentially as submitted alongside every other candidate's.\n\nDEADLINE Sunday August 30, 11:59 p.m.\n\nLIMITS ARE CHARACTERS, AND ARE GUIDANCE. The form says 'Please keep your response under 300 characters (around 50 words)' — 600 for the priorities question. Phrased as a request rather than an enforced cap; the 2024 answers ran slightly over in places. Budget on characters, not words: 300 characters is about 50 words, not 300.\n\nTHREE POLICY QUESTIONS CARRY THE WEIGHT, each capped at 300 characters:\n- HOUSING asks whether the city is on the right track, naming the density upzoning on College, Solano and northern Shattuck. The campaign is pro-housing and pro-tenant, and Solano sits in District 1.\n- POLICING bundles three things into one question: BPD rewriting its use of force policy, council approval for new surveillance technology, and dialing back restrictions on pepper spray and tear gas. This is the campaign's central issue and the answer has 300 characters to address all three.\n- BALLOT MEASURES asks how the candidate will vote on the sales tax increase and a $300 million infrastructure bond — the same measures the Green Party questionnaire lists as Berkeley Measures 2 and 1. A position here is a public position on the candidate's own ballot.\n\nTHE LETTER GRADE is the other sharp one: the District 1 incumbent sits on the council being graded.\n\nA high-resolution horizontal headshot is required, at least 2000px on the long side at 300dpi, and can be emailed to editors@berkeleyside.org if the upload fails. Two fields are explicitly NOT FOR PUBLICATION: a cellphone and an email for reaching the campaign in a time crunch.",
+ "contact_fields": [
+  {
+   "k": "name",
+   "label": "What is your name?",
+   "v": "Daria Wrubel"
+  },
+  {
+   "k": "photo_credit",
+   "label": "To whom should the photo(s) be credited?",
+   "v": ""
+  },
+  {
+   "k": "age",
+   "label": "Age",
+   "v": ""
+  },
+  {
+   "k": "job",
+   "label": "Job (if retired, please say from what profession)",
+   "v": ""
+  },
+  {
+   "k": "tenure",
+   "label": "How long have you lived in Berkeley?",
+   "v": ""
+  },
+  {
+   "k": "office",
+   "label": "What office/district are you running for?",
+   "v": "Berkeley City Council, District 1"
+  },
+  {
+   "k": "incumbent",
+   "label": "Incumbent",
+   "v": "No"
+  },
+  {
+   "k": "first_office",
+   "label": "If you're an incumbent, what year did you first assume office?",
+   "v": ""
+  },
+  {
+   "k": "website",
+   "label": "Campaign website URL",
+   "v": ""
+  },
+  {
+   "k": "facebook",
+   "label": "Facebook page URL",
+   "v": ""
+  },
+  {
+   "k": "threads",
+   "label": "Threads URL",
+   "v": ""
+  },
+  {
+   "k": "bluesky",
+   "label": "Bluesky URL",
+   "v": ""
+  },
+  {
+   "k": "twitter",
+   "label": "X/Twitter URL",
+   "v": ""
+  },
+  {
+   "k": "instagram",
+   "label": "Instagram",
+   "v": ""
+  },
+  {
+   "k": "email",
+   "label": "Campaign email",
+   "v": ""
+  },
+  {
+   "k": "phone",
+   "label": "Campaign Phone Number",
+   "v": ""
+  },
+  {
+   "k": "private_cell",
+   "label": "NOT FOR PUBLICATION: best cellphone",
+   "v": ""
+  },
+  {
+   "k": "private_email",
+   "label": "NOT FOR PUBLICATION: best email",
+   "v": ""
+  }
+ ],
+ "questions": [
+  {
+   "id": "bside_name",
+   "section": "About you",
+   "topic": "general",
+   "status": "todo",
+   "question": "What is your name?",
+   "analysis": ""
+  },
+  {
+   "id": "bside_credit",
+   "section": "About you",
+   "section_note": "Upload a horizontal high-resolution headshot, at least 2000px on the longest side at 300dpi. JPEG preferred, PNG accepted. No vertical or square images. If upload fails, email editors@berkeleyside.org.",
+   "topic": "general",
+   "status": "todo",
+   "question": "To whom should the photo(s) be credited?",
+   "analysis": ""
+  },
+  {
+   "id": "bside_age",
+   "section": "About you",
+   "topic": "general",
+   "status": "todo",
+   "question": "Age",
+   "analysis": ""
+  },
+  {
+   "id": "bside_job",
+   "section": "About you",
+   "topic": "general",
+   "status": "todo",
+   "question": "Job (if retired, please say from what profession)",
+   "analysis": ""
+  },
+  {
+   "id": "bside_tenure",
+   "section": "About you",
+   "topic": "general",
+   "status": "todo",
+   "question": "How long have you lived in Berkeley?",
+   "analysis": ""
+  },
+  {
+   "id": "bside_office",
+   "section": "About you",
+   "topic": "general",
+   "status": "todo",
+   "question": "What office/district are you running for?",
+   "analysis": ""
+  },
+  {
+   "id": "bside_incumbent",
+   "section": "About you",
+   "topic": "general",
+   "status": "todo",
+   "question": "Incumbent",
+   "analysis": ""
+  },
+  {
+   "id": "bside_inc_year",
+   "section": "About you",
+   "topic": "general",
+   "status": "todo",
+   "question": "If you're an incumbent, what year did you first assume office? (Format: Integer)",
+   "analysis": ""
+  },
+  {
+   "id": "bside_q1",
+   "section": "Published",
+   "section_note": "Please keep your response under 300 characters (around 50 words).",
+   "topic": "general",
+   "status": "todo",
+   "question": "Why are you running and why should people vote for you?",
+   "levers": [
     {
-      "k": "name",
-      "label": "What is your name?",
-      "v": "Daria Wrubel"
+     "tier": "authority",
+     "text": "Vote on the Flock renewal when the twelve-month extension lapses next term"
     },
     {
-      "k": "photo_credit",
-      "label": "To whom should the photo(s) be credited?",
-      "v": ""
-    },
-    {
-      "k": "age",
-      "label": "Age",
-      "v": ""
-    },
-    {
-      "k": "job",
-      "label": "Job (if retired, please say from what profession)",
-      "v": ""
-    },
-    {
-      "k": "tenure",
-      "label": "How long have you lived in Berkeley?",
-      "v": ""
-    },
-    {
-      "k": "office",
-      "label": "What office/district are you running for?",
-      "v": "Berkeley City Council, District 1"
-    },
-    {
-      "k": "incumbent",
-      "label": "Incumbent",
-      "v": "No"
-    },
-    {
-      "k": "first_office",
-      "label": "If you're an incumbent, what year did you first assume office?",
-      "v": ""
-    },
-    {
-      "k": "website",
-      "label": "Campaign website URL",
-      "v": ""
-    },
-    {
-      "k": "facebook",
-      "label": "Facebook page URL",
-      "v": ""
-    },
-    {
-      "k": "threads",
-      "label": "Threads URL",
-      "v": ""
-    },
-    {
-      "k": "bluesky",
-      "label": "Bluesky URL",
-      "v": ""
-    },
-    {
-      "k": "twitter",
-      "label": "X/Twitter URL",
-      "v": ""
-    },
-    {
-      "k": "instagram",
-      "label": "Instagram",
-      "v": ""
-    },
-    {
-      "k": "email",
-      "label": "Campaign email",
-      "v": ""
-    },
-    {
-      "k": "phone",
-      "label": "Campaign Phone Number",
-      "v": ""
-    },
-    {
-      "k": "private_cell",
-      "label": "NOT FOR PUBLICATION: best cellphone",
-      "v": ""
-    },
-    {
-      "k": "private_email",
-      "label": "NOT FOR PUBLICATION: best email",
-      "v": ""
+     "tier": "advocacy",
+     "text": "Nothing else here is a lever; this is a framing question"
     }
-  ],
-  "questions": [
+   ],
+   "analysis": "Hard cap of 300 characters, roughly 50 words. That is one idea plus one credential, not a platform. Berkeleyside is press rather than an endorsing body, and reported more than a million page views last year, so this is the widest-read thing the campaign will write. The temptation is to compress the whole platform; the version that survives compression is one specific and one line about why this candidacy exists.\n\nThe Flock vote is the sharpest available specific: Council extended the automated license plate reader contract 5-4 on May 7 2026, the District 1 incumbent voted with the majority, and the renewal lapses inside the next term. It is checkable, local, and it is the reason the campaign started."
+  },
+  {
+   "id": "bside_q2",
+   "section": "Published",
+   "section_note": "Please keep your response under 300 characters (around 50 words).",
+   "topic": "general",
+   "status": "todo",
+   "question": "Give a letter grade to the performance of the current City Council (A-F). Explain.",
+   "levers": [
     {
-      "id": "bside_q1",
-      "section": "Published",
-      "topic": "why_running",
-      "status": "thin",
-      "question": "Why are you running and why should people vote for you?",
-      "analysis": "Hard cap of 300 characters, roughly 50 words. That is one idea plus one credential, not a platform. Berkeleyside is press rather than an endorsing body, and reported more than a million page views last year, so this is the widest-read thing the campaign will write. The temptation is to compress the whole platform; the version that survives compression is one specific and one line about why this candidacy exists.\n\nThe Flock vote is the sharpest available specific: Council extended the automated license plate reader contract 5-4 on May 7 2026, the District 1 incumbent voted with the majority, and the renewal lapses inside the next term. It is checkable, local, and it is the reason the campaign started.",
-      "levers": [
-        {
-          "tier": "authority",
-          "text": "Vote on the Flock renewal when the twelve-month extension lapses next term"
-        },
-        {
-          "tier": "advocacy",
-          "text": "Nothing else here is a lever; this is a framing question"
-        }
-      ],
-      "char_limit": 300
+     "tier": "authority",
+     "text": "Vote differently on the specific items named — Flock renewal, the next budget"
     },
     {
-      "id": "bside_q2",
-      "section": "Published",
-      "topic": "council_record",
-      "status": "thin",
-      "question": "Give a letter grade to the performance of the current City Council (A-F). Explain.",
-      "analysis": "The most consequential question on the form and the one most likely to be quoted. The District 1 incumbent sits on the council being graded, Berkeleyside publishes the answer unedited, and every other candidate answers the same prompt.\n\nAn A reads as a challenger with no argument for replacement. An F is contradicted by the record and insults potential allies — this Council passed the sanctuary ordinance unanimously in September 2025, adopted the Middle Housing ordinance unanimously in July 2025, and approved Hopkins Street protected bike lanes 7-2 in July 2026.\n\nThe defensible position is a middle grade with named specifics on both sides. The two criticisms that are documented and survive scrutiny: the Flock extension carried 5-4, and the FY2027-28 budget passed unanimously on June 23 2026 while cutting roughly 20 filled positions and eliminating the Mobile Crisis Team, which had been staffed by city employees since 1979. SEIU 1021's spokesperson called that budget an austerity plan.\n\n300 characters means roughly one sentence of credit and one of criticism.",
-      "levers": [
-        {
-          "tier": "authority",
-          "text": "Vote differently on the specific items named — Flock renewal, the next budget"
-        },
-        {
-          "tier": "advocacy",
-          "text": "Public criticism of a sitting council is the substance of this answer"
-        }
-      ],
-      "char_limit": 300
-    },
-    {
-      "id": "bside_q3",
-      "section": "Published",
-      "topic": "priorities",
-      "status": "thin",
-      "question": "What would be your top three priorities in office?",
-      "analysis": "600 characters, roughly 100 words, for three priorities — about 33 words each. Each one needs a verb and a number, not a value.\n\nAll three below are anchored to a documented Berkeley item so the answer is checkable: the Flock renewal lapsing next term; Council's May 20 2025 referral asking staff to identify land for sanctioned sites, which passed with no funding and drew a staff response on October 14 2025 declining to recommend new programs while existing shelters close; and North Berkeley BART, entitled December 2024 under AB 2011 for 739 homes including 381 affordable, still not under construction.\n\nThe RHNA split is the strongest single housing number available: Berkeley is 37 percent through its above-moderate allocation and 6.5 percent through very low income.",
-      "levers": [
-        {
-          "tier": "authority",
-          "text": "Vote on the Flock renewal, the Corridors upzone, and the next biennial budget"
-        },
-        {
-          "tier": "authority",
-          "text": "Attach a funding source to the existing sanctioned-sites referral rather than re-referring it"
-        },
-        {
-          "tier": "advocacy",
-          "text": "Press BART and the developer on the North Berkeley construction timeline"
-        }
-      ],
-      "char_limit": 600
-    },
-    {
-      "id": "bside_q4",
-      "section": "Published",
-      "topic": "personal",
-      "status": "thin",
-      "question": "Could you share something surprising about yourself?",
-      "analysis": "300 characters. Purely biographical, and the campaign has to supply it — there is no research substitute for a personal detail and inventing one would be both obvious and unrecoverable if a reporter followed up.\n\nWhat makes this land in a press Q&A is specificity and a slight mismatch with the professional frame. Berkeleyside prints these next to each other across every candidate, so the generic answer is the one nobody remembers.\n\nLeft deliberately blank for the candidate to fill.",
-      "levers": [
-        {
-          "tier": "authority",
-          "text": "None — biographical"
-        }
-      ],
-      "char_limit": 300
-    },
-    {
-      "id": "bside_q5",
-      "section": "Published",
-      "topic": "public_financing",
-      "status": "thin",
-      "question": "Are you using public financing?",
-      "analysis": "Factual. The campaign is certified in Berkeley's Fair Elections Act program: contributions capped at $60, no corporate, business, labor union or PAC money accepted at all, and qualifying contributions from Berkeley residents matched six to one by the city. The 30-contributor certification threshold has been met.\n\nNo stated character limit, but the surrounding questions are short and the answer is strongest as one line plus the detail that distinguishes it — the $60 cap and the total exclusion of institutional money.",
-      "levers": [
-        {
-          "tier": "authority",
-          "text": "None — descriptive"
-        },
-        {
-          "tier": "advocacy",
-          "text": "Maintain certification, since matching funds depend on continued compliance"
-        }
-      ]
-    },
-    {
-      "id": "bside_q6",
-      "section": "Published",
-      "topic": "endorsements",
-      "status": "thin",
-      "question": "What endorsements does your campaign have?",
-      "analysis": "Straight list. For a press Q&A the useful ordering is by relevance to the district rather than by volume — a former District 1 councilmember of 25 years reads louder to a Berkeleyside audience than a longer list of organizations.\n\nVerify every name is current and has agreed to be listed publicly before submission. This is published, not reviewed by an endorsing panel, so an error is corrected in public.",
-      "levers": [
-        {
-          "tier": "authority",
-          "text": "None — descriptive"
-        }
-      ]
-    },
-    {
-      "id": "bside_q7",
-      "section": "Published",
-      "topic": "anything_else",
-      "status": "thin",
-      "question": "Is there anything else you want us to know as we report on this race?",
-      "analysis": "Addressed to reporters rather than voters, and it is the one answer on the form that is not necessarily for publication. The useful content is what would help someone cover the race accurately: which votes are actually live in the next term, and where the candidates genuinely differ.\n\nOptional. A pitch here reads as a pitch; a useful fact reads as a source worth calling back.",
-      "levers": [
-        {
-          "tier": "advocacy",
-          "text": "Establish the campaign as a reliable source for reporters covering the race"
-        }
-      ]
+     "tier": "advocacy",
+     "text": "Public criticism of a sitting council is the substance of this answer"
     }
-  ]
+   ],
+   "analysis": "The most consequential question on the form and the one most likely to be quoted. The District 1 incumbent sits on the council being graded, Berkeleyside publishes the answer unedited, and every other candidate answers the same prompt.\n\nAn A reads as a challenger with no argument for replacement. An F is contradicted by the record and insults potential allies — this Council passed the sanctuary ordinance unanimously in September 2025, adopted the Middle Housing ordinance unanimously in July 2025, and approved Hopkins Street protected bike lanes 7-2 in July 2026.\n\nThe defensible position is a middle grade with named specifics on both sides. The two criticisms that are documented and survive scrutiny: the Flock extension carried 5-4, and the FY2027-28 budget passed unanimously on June 23 2026 while cutting roughly 20 filled positions and eliminating the Mobile Crisis Team, which had been staffed by city employees since 1979. SEIU 1021's spokesperson called that budget an austerity plan.\n\n300 characters means roughly one sentence of credit and one of criticism."
+  },
+  {
+   "id": "bside_housing",
+   "section": "Published",
+   "section_note": "Please keep your response under 300 characters (around 50 words).",
+   "topic": "general",
+   "status": "todo",
+   "question": "HOUSING — The current City Council has backed efforts to increase housing construction around Berkeley, such as zoning changes that allow for greater density in most residential neighborhoods and along major streets such as College, Solano and northern Shattuck avenues. Do you think the city is on the right track with its housing policies? If not, what would you change?",
+   "analysis": ""
+  },
+  {
+   "id": "bside_policing",
+   "section": "Published",
+   "section_note": "Please keep your response under 300 characters (around 50 words).",
+   "topic": "general",
+   "status": "todo",
+   "question": "POLICING — The Berkeley Police Department is rewriting its use of force policy and has sought council approval to use new surveillance technology, while the council is also considering dialing back restrictions on the department’s use of pepper spray and tear gas. Do you support these proposals?",
+   "analysis": ""
+  },
+  {
+   "id": "bside_ballot",
+   "section": "Published",
+   "section_note": "Please keep your response under 300 characters (around 50 words).",
+   "topic": "general",
+   "status": "todo",
+   "question": "BALLOT MEASURES — How do you plan to vote on the proposed sales tax increase and $300 million infrastructure bond that will appear on this year’s ballot?",
+   "analysis": ""
+  },
+  {
+   "id": "bside_q3",
+   "section": "Published",
+   "section_note": "Please keep your response under 600 characters (around 100 words).",
+   "topic": "general",
+   "status": "todo",
+   "question": "What would be your top three priorities in office?",
+   "levers": [
+    {
+     "tier": "authority",
+     "text": "Vote on the Flock renewal, the Corridors upzone, and the next biennial budget"
+    },
+    {
+     "tier": "authority",
+     "text": "Attach a funding source to the existing sanctioned-sites referral rather than re-referring it"
+    },
+    {
+     "tier": "advocacy",
+     "text": "Press BART and the developer on the North Berkeley construction timeline"
+    }
+   ],
+   "analysis": "600 characters, roughly 100 words, for three priorities — about 33 words each. Each one needs a verb and a number, not a value.\n\nAll three below are anchored to a documented Berkeley item so the answer is checkable: the Flock renewal lapsing next term; Council's May 20 2025 referral asking staff to identify land for sanctioned sites, which passed with no funding and drew a staff response on October 14 2025 declining to recommend new programs while existing shelters close; and North Berkeley BART, entitled December 2024 under AB 2011 for 739 homes including 381 affordable, still not under construction.\n\nThe RHNA split is the strongest single housing number available: Berkeley is 37 percent through its above-moderate allocation and 6.5 percent through very low income."
+  },
+  {
+   "id": "bside_q4",
+   "section": "Published",
+   "section_note": "Please keep your response under 300 characters (around 50 words).",
+   "topic": "general",
+   "status": "todo",
+   "question": "Could you share something surprising about yourself?",
+   "levers": [
+    {
+     "tier": "authority",
+     "text": "None — biographical"
+    }
+   ],
+   "analysis": "300 characters. Purely biographical, and the campaign has to supply it — there is no research substitute for a personal detail and inventing one would be both obvious and unrecoverable if a reporter followed up.\n\nWhat makes this land in a press Q&A is specificity and a slight mismatch with the professional frame. Berkeleyside prints these next to each other across every candidate, so the generic answer is the one nobody remembers.\n\nLeft deliberately blank for the candidate to fill."
+  },
+  {
+   "id": "bside_q5",
+   "section": "Published",
+   "topic": "general",
+   "status": "todo",
+   "question": "Are you using public financing?",
+   "levers": [
+    {
+     "tier": "authority",
+     "text": "None — descriptive"
+    },
+    {
+     "tier": "advocacy",
+     "text": "Maintain certification, since matching funds depend on continued compliance"
+    }
+   ],
+   "analysis": "Factual. The campaign is certified in Berkeley's Fair Elections Act program: contributions capped at $60, no corporate, business, labor union or PAC money accepted at all, and qualifying contributions from Berkeley residents matched six to one by the city. The 30-contributor certification threshold has been met.\n\nNo stated character limit, but the surrounding questions are short and the answer is strongest as one line plus the detail that distinguishes it — the $60 cap and the total exclusion of institutional money."
+  },
+  {
+   "id": "bside_q6",
+   "section": "Published",
+   "topic": "general",
+   "status": "todo",
+   "question": "What endorsements does your campaign have?",
+   "levers": [
+    {
+     "tier": "authority",
+     "text": "None — descriptive"
+    }
+   ],
+   "analysis": "Straight list. For a press Q&A the useful ordering is by relevance to the district rather than by volume — a former District 1 councilmember of 25 years reads louder to a Berkeleyside audience than a longer list of organizations.\n\nVerify every name is current and has agreed to be listed publicly before submission. This is published, not reviewed by an endorsing panel, so an error is corrected in public."
+  },
+  {
+   "id": "bside_web",
+   "section": "Links & contact",
+   "topic": "general",
+   "status": "todo",
+   "question": "List the URL (link) for your campaign website.",
+   "analysis": ""
+  },
+  {
+   "id": "bside_fb",
+   "section": "Links & contact",
+   "topic": "general",
+   "status": "todo",
+   "question": "List the URL (link) for your Facebook page.",
+   "analysis": ""
+  },
+  {
+   "id": "bside_threads",
+   "section": "Links & contact",
+   "topic": "general",
+   "status": "todo",
+   "question": "List the URL (link) for your Threads account",
+   "analysis": ""
+  },
+  {
+   "id": "bside_bluesky",
+   "section": "Links & contact",
+   "topic": "general",
+   "status": "todo",
+   "question": "List the URL (link) for your Bluesky account",
+   "analysis": ""
+  },
+  {
+   "id": "bside_x",
+   "section": "Links & contact",
+   "topic": "general",
+   "status": "todo",
+   "question": "List the URL (link) for your X/Twitter account",
+   "analysis": ""
+  },
+  {
+   "id": "bside_ig",
+   "section": "Links & contact",
+   "topic": "general",
+   "status": "todo",
+   "question": "Instagram",
+   "analysis": ""
+  },
+  {
+   "id": "bside_email",
+   "section": "Links & contact",
+   "topic": "general",
+   "status": "todo",
+   "question": "Campaign email",
+   "analysis": ""
+  },
+  {
+   "id": "bside_phone",
+   "section": "Links & contact",
+   "topic": "general",
+   "status": "todo",
+   "question": "Campaign Phone Number",
+   "analysis": ""
+  },
+  {
+   "id": "bside_np_cell",
+   "section": "Not for publication",
+   "section_note": "NOT FOR PUBLICATION.",
+   "topic": "general",
+   "status": "todo",
+   "question": "Please provide the best cellphone number for us to reach you, particularly in a time crunch.",
+   "analysis": ""
+  },
+  {
+   "id": "bside_np_email",
+   "section": "Not for publication",
+   "section_note": "NOT FOR PUBLICATION.",
+   "topic": "general",
+   "status": "todo",
+   "question": "Please provide the best email for us to reach you, particularly in a time crunch.",
+   "analysis": ""
+  },
+  {
+   "id": "bside_q7",
+   "section": "Published",
+   "topic": "general",
+   "status": "todo",
+   "question": "Is there anything else you want us to know as we report on this race?",
+   "levers": [
+    {
+     "tier": "advocacy",
+     "text": "Establish the campaign as a reliable source for reporters covering the race"
+    }
+   ],
+   "analysis": "Addressed to reporters rather than voters, and it is the one answer on the form that is not necessarily for publication. The useful content is what would help someone cover the race accurately: which votes are actually live in the next term, and where the candidates genuinely differ.\n\nOptional. A pitch here reads as a pitch; a useful fact reads as a source worth calling back."
+  }
+ ]
 }
