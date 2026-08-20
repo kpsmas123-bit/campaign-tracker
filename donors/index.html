@@ -247,18 +247,18 @@
 <div class="app" id="appRoot" style="display:none">
 
   <h1 class="page-title">Fundraising</h1>
-  <p class="page-sub">Updated 2026-08-19 &middot; data through 2026-08-19</p>
+  <p class="page-sub">Updated 2026-08-20 &middot; data through 2026-08-20</p>
 
   <div class="stats">
     <div class="stat">
       <div class="label">Total raised</div>
       <div class="stat-value">$4,875</div>
-      <span class="delta up">&uarr; $685 this week</span>
+      <span class="delta up">&uarr; $565 this week</span>
     </div>
     <div class="stat">
       <div class="label">Donors</div>
       <div class="stat-value">90</div>
-      <span class="delta up">&uarr; 12 this week</span>
+      <span class="delta up">&uarr; 10 this week</span>
     </div>
     <div class="stat">
       <div class="label">Average gift</div>
@@ -346,26 +346,8 @@
 
   authBtn.addEventListener('click', doAuth);
   authPass.addEventListener('keydown', function (e) { if (e.key === 'Enter') doAuth(); });
-  // The Cloudflare edge gate hands us the Supabase login once its passcode has
-  // been accepted, so the team types one code rather than two. Falls back to the
-  // passphrase box whenever that endpoint is absent — local files, GitHub Pages,
-  // or any host without the middleware.
-  async function edgeSignIn(reveal) {
-    try {
-      var r = await fetch('/__hq/session', { cache: 'no-store', credentials: 'same-origin' });
-      if (!r.ok) return false;
-      var j = await r.json();
-      if (!j || !j.password) return false;
-      var a = await sb.auth.signInWithPassword({ email: j.email, password: j.password });
-      if (a.error) return false;
-      reveal();
-      return true;
-    } catch (e) { return false; }
-  }
-
-  sb.auth.getSession().then(async function (r) {
-    if (r.data && r.data.session) { reveal(); return; }
-    await edgeSignIn(reveal);
+  sb.auth.getSession().then(function (r) {
+    if (r.data && r.data.session) reveal();
   });
 })();
 </script>
