@@ -1,0 +1,523 @@
+{
+ "slug": "ebyd",
+ "org": "East Bay Young Democrats",
+ "cycle": "2026",
+ "candidate": "Daria Wrubel — Berkeley City Council D1",
+ "generated": "2026-08-20",
+ "last_factcheck": "",
+ "contact_fields": [
+  {
+   "k": "name",
+   "label": "Candidate Name",
+   "v": "Daria Wrubel"
+  },
+  {
+   "k": "office",
+   "label": "Office sought",
+   "v": "Berkeley City Council, District 1"
+  },
+  {
+   "k": "website",
+   "label": "Campaign website",
+   "v": "https://www.dariaforberkeley.com/"
+  }
+ ],
+ "questions": [
+  {
+   "id": "ebyd_q1",
+   "section": "Candidate",
+   "topic": "general",
+   "status": "todo",
+   "question": "Political Party Affiliation",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "American Independent Party"
+    },
+    {
+     "label": "Democratic Party"
+    },
+    {
+     "label": "Green Party"
+    },
+    {
+     "label": "Libertarian Party"
+    },
+    {
+     "label": "Peace and Freedom Party"
+    },
+    {
+     "label": "Republican Party"
+    },
+    {
+     "label": "No Party Preference"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q2",
+   "section": "Candidate",
+   "topic": "general",
+   "status": "todo",
+   "question": "Full Name",
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q3",
+   "section": "Candidate",
+   "topic": "general",
+   "status": "todo",
+   "question": "Gender Pronouns",
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q4",
+   "section": "Candidate",
+   "topic": "general",
+   "status": "todo",
+   "question": "Are You a Young Democrat (13-35)? Please list \"yes\" if you were 35 at any point during the election cycle and are now 36 or will turn 36 from now until Election Day.",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q5",
+   "section": "Candidate",
+   "topic": "general",
+   "status": "todo",
+   "question": "Elected Office Sought",
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q6",
+   "section": "Campaign Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Mailing Address (Street, City, State, ZIP Code)",
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q7",
+   "section": "Campaign Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Candidate Email Address",
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q8",
+   "section": "Campaign Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Candidate Phone Number",
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q9",
+   "section": "Campaign Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Website",
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q10",
+   "section": "Campaign Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Campaign Manager Full Name",
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q11",
+   "section": "Campaign Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Campaign Manager Email Address",
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q12",
+   "section": "Campaign Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Campaign Manager Phone Number",
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q13",
+   "section": "Campaign Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Treasurer Full Name",
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q14",
+   "section": "Campaign Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Consultant Full Name",
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q15",
+   "section": "Campaign Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Consulting Firm Full Name",
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q16",
+   "section": "Campaign Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Full Campaign Committee Name",
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q17",
+   "section": "Campaign Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "FC ID Number",
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q18",
+   "section": "Campaign Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Who are your top endorsers?",
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q19",
+   "section": "Campaign Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Which candidates have you endorsed in this cycle? State their name and office they are seeking",
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q20",
+   "section": "Campaign Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "What percentage of your paid staff on your campaign are between the ages of 13 and 35?",
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q21",
+   "section": "Biography",
+   "topic": "general",
+   "status": "todo",
+   "question": "Please enter your biography/candidate statement here.",
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q22",
+   "section": "Experience and Priorities",
+   "topic": "general",
+   "status": "todo",
+   "question": "Why are you running for public office?",
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q23",
+   "section": "Experience and Priorities",
+   "topic": "general",
+   "status": "todo",
+   "question": "Why are you seeking our endorsement?",
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q24",
+   "section": "Experience and Priorities",
+   "topic": "general",
+   "status": "todo",
+   "question": "What have you done to empower young people (age 13-35)? Please provide examples of projects, votes, or propositions through which you have supported/led young people.",
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q25",
+   "section": "Experience and Priorities",
+   "topic": "general",
+   "status": "todo",
+   "question": "What do you think are the top three issues impacting young people (age 13-35) that are relevant to the office you are seeking? (please rank in order of priority)",
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q26",
+   "section": "Experience and Priorities",
+   "topic": "general",
+   "status": "todo",
+   "question": "For each of the three issues listed above, what is a policy you would propose to address that issue?",
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q27",
+   "section": "Experience and Priorities",
+   "topic": "general",
+   "status": "todo",
+   "question": "How would you address the obstacles (political, budgetary, etc.) that you would need to overcome to implement the policies you proposed? Please be reasonably specific; a plan with no real prospect of enactment does little to help young people (age 13-35).",
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q28",
+   "section": "Issues and Policies",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you support the abolition of ICE and/or the defunding of DHS? What will you do to protect immigrant communities of all statuses?",
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q29",
+   "section": "Issues and Policies",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you support and what will you do to further CalCare (California specific Medicare for All)?",
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q30",
+   "section": "Issues and Policies",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you support and what will you do to further Make Polluters Pay in California?",
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q31",
+   "section": "Issues and Policies",
+   "topic": "general",
+   "status": "todo",
+   "question": "Will you refuse money from foreign right wing adjacent orgs like AIPAC and Americans 4 Hindus?",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Yes"
+    },
+    {
+     "label": "No"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q32",
+   "section": "Issues and Policies",
+   "topic": "general",
+   "status": "todo",
+   "question": "Do you support the repeal of Costa Hawkins? What is your position on rent stabilization / rent control?",
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q33",
+   "section": "Issues and Policies",
+   "topic": "general",
+   "status": "todo",
+   "question": "What is your position on social housing?",
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q34",
+   "section": "Ballot measures — Support / Oppose / No Position",
+   "section_note": "One grid question on the live form: nine measures, each Support / Oppose / No Position. Links to all nine are provided on the form.",
+   "topic": "general",
+   "status": "todo",
+   "question": "The regional transit measure",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Support"
+    },
+    {
+     "label": "Oppose"
+    },
+    {
+     "label": "No Position"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q35",
+   "section": "Ballot measures — Support / Oppose / No Position",
+   "topic": "general",
+   "status": "todo",
+   "question": "A measure to levy a one-time billionaire tax",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Support"
+    },
+    {
+     "label": "Oppose"
+    },
+    {
+     "label": "No Position"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q36",
+   "section": "Ballot measures — Support / Oppose / No Position",
+   "topic": "general",
+   "status": "todo",
+   "question": "A measure to allow public campaign financing in general law cities",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Support"
+    },
+    {
+     "label": "Oppose"
+    },
+    {
+     "label": "No Position"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q37",
+   "section": "Ballot measures — Support / Oppose / No Position",
+   "topic": "general",
+   "status": "todo",
+   "question": "A measure to make permanent the taxes on wealthy Californians",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Support"
+    },
+    {
+     "label": "Oppose"
+    },
+    {
+     "label": "No Position"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q38",
+   "section": "Ballot measures — Support / Oppose / No Position",
+   "topic": "general",
+   "status": "todo",
+   "question": "A measure to hold rideshare companies liable for sexual assaults",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Support"
+    },
+    {
+     "label": "Oppose"
+    },
+    {
+     "label": "No Position"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q39",
+   "section": "Ballot measures — Support / Oppose / No Position",
+   "topic": "general",
+   "status": "todo",
+   "question": "A measure to require voter ID",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Support"
+    },
+    {
+     "label": "Oppose"
+    },
+    {
+     "label": "No Position"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q40",
+   "section": "Ballot measures — Support / Oppose / No Position",
+   "topic": "general",
+   "status": "todo",
+   "question": "A measure to implement school vouchers for religious / private schools",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Support"
+    },
+    {
+     "label": "Oppose"
+    },
+    {
+     "label": "No Position"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q41",
+   "section": "Ballot measures — Support / Oppose / No Position",
+   "topic": "general",
+   "status": "todo",
+   "question": "A measure to limit healthcare worker's unions from spending on political matters",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Support"
+    },
+    {
+     "label": "Oppose"
+    },
+    {
+     "label": "No Position"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q42",
+   "section": "Ballot measures — Support / Oppose / No Position",
+   "topic": "general",
+   "status": "todo",
+   "question": "A measure to exempt those 60 and older from property taxes",
+   "choice_type": "single",
+   "choices": [
+    {
+     "label": "Support"
+    },
+    {
+     "label": "Oppose"
+    },
+    {
+     "label": "No Position"
+    }
+   ],
+   "analysis": ""
+  },
+  {
+   "id": "ebyd_q43",
+   "section": "Additional Information",
+   "topic": "general",
+   "status": "todo",
+   "question": "Please enter any additional information you want to provide here.",
+   "analysis": ""
+  }
+ ],
+ "org_research": "East Bay Young Democrats — 2026 Local Candidates Questionnaire. Pulled from the form's own data payload, so wording and options are verbatim.\n\nNO DUE DATE STATED. Contact: info@ebyd.org\n\nEVERYTHING IS PUBLISHED. The form opens with \"PLEASE NOTE: Anything submitted here will be published online.\" That includes the campaign information block — mailing address, phone numbers, treasurer and consultant names — so treat every field as public.\n\nEBYD works to encourage young people in Alameda and West Contra Costa counties to take an active role through activism, policy and politics, and promotes candidates and measures advancing economic, environmental and social justice.\n\nTWO AGE QUESTIONS. Whether the candidate is a Young Democrat aged 13-35, and what percentage of paid campaign staff fall in that range. Neither is stated to gate endorsement, but both are asked directly and answered honestly.\n\nTHE BALLOT GRID is one question on the live form covering nine statewide and regional measures, each Support / Oppose / No Position. Split here into one item per measure so each position can be decided and tracked separately. Note the third — public campaign financing in general law cities — sits close to the campaign's own experience of Berkeley's programme.\n\nResearch not attached."
+}
