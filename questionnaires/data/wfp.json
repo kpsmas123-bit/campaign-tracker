@@ -169,18 +169,6 @@
     {
      "label": "Council Item 29 — Alternative Housing Options (May 20, 2025)",
      "url": "https://berkeleyca.gov/sites/default/files/documents/2025-05-20%20Item%2029%20Alternative%20Housing%20Options.pdf"
-    },
-    {
-     "label": "City Manager — Measure P and Impact on Homeless Services in Berkeley (Mar 28, 2025)",
-     "url": "https://berkeleyca.gov/sites/default/files/documents/2025-03-28%20Measure%20P%20and%20Impact%20on%20Homeless%20Services%20in%20Berkeley.pdf"
-    },
-    {
-     "label": "CNHED — Sustaining Affordability: TOPA outcomes in Washington DC, 2006–2020",
-     "url": "https://www.cnhed.org/"
-    },
-    {
-     "label": "City of Berkeley — Housing Element Annual Progress Report (Mar 28, 2025)",
-     "url": "https://berkeleyca.gov/sites/default/files/documents/2025-03-28%20Item%2018%20Housing%20Element%20Annual%20Progress%20Report.pdf"
     }
    ],
    "verification": [
@@ -255,32 +243,11 @@
      "note": "The order states the City 'is not required to designate, create, or identify' enforcement-free relocation zones or City-sanctioned campsites. A sanctioned site is legally permitted but not compelled — it is a policy choice. The City did lose on ADA grounds regarding individualized assessment, moving assistance, and property storage."
     },
     {
-     "claim": "Berkeley has previously operated a sanctioned site serving people displaced from Harrison Street",
-     "result": "confirmed",
-     "source": "Council Item 29, Alternative Housing Options",
-     "date": "2025-05-20",
-     "note": "The Horizon Transitional Village and SPARK safe-parking site at 742 Grayson Street operated July 2021 to October 2022 with up to 40 RVs and about 50 indoor beds, serving roughly 150 people with about 30 connected to permanent housing. Its residents were primarily individuals displaced from the unsanctioned RV encampments at 8th and Harrison. It closed when the City's lease expired, not on performance."
-    },
-    {
-     "claim": "Council has already adopted the goal of relocating an encampment together to preserve its community",
-     "result": "confirmed",
-     "source": "Council Item 29, Alternative Housing Options; Referral Response, Oct 14, 2025",
-     "date": "2025-05-20",
-     "note": "Item 29 states that ideally some sites 'would have capacity to support the relocation of an entire encampment, to preserve an existing supportive community.' It passed as a referral rather than binding policy, and staff responded on October 14, 2025 that absent new external funding they do not recommend opening new programs while existing shelter programs face imminent closure."
-    },
-    {
      "claim": "Berkeley's adopted encampment policy protects pets, partners, or community cohesion during closures",
      "result": "refuted",
      "source": "Resolution 71,513-N.S.; Administrative Regulations 10.1 and 10.2",
      "date": "2024-09-10",
      "note": "The adopted policy and administrative regulations govern notice and property storage — 14 days, 90 days for property with apparent resale value of $100 or more, and a minimum 45 days for tents, tarps, and sleeping bags — but contain no provision on pets, service animals, partners, households, or keeping a community together. That gap is amendable by Council."
-    },
-    {
-     "claim": "Measure P is the revenue a Berkeley councilmember appropriates for homelessness",
-     "result": "confirmed",
-     "source": "City Manager memo, Measure P and Impact on Homeless Services in Berkeley",
-     "date": "2025-03-28",
-     "note": "Real property transfer tax passed November 2018 with 72.4%, raising roughly $11 million a year on average with wide swings by market conditions. In FY26 Berkeley spent $18.9 million on homelessness including $13 million of Measure P. Berkeley is not a direct recipient of state HHAP funds."
     },
     {
      "claim": "Alternative or interim shelter is cheaper per person than permanent supportive housing",
