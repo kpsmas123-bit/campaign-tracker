@@ -910,15 +910,30 @@
   }
 
   // --- Reuse ---
+  // Cap on what the panel will ever show. Past this it stops being "here is what
+  // you said before" and becomes a wall nobody reads.
+  var REUSE_MAX = 5;
+  // Shortest answer worth offering. "yes." reused from another questionnaire
+  // helps nobody, and those make up most of the short answers.
+  var REUSE_MIN_CHARS = 40;
+
   async function refreshReuse(topic) {
-    if (!topic) return;
+    // 'general' is the placeholder topic every un-researched ingest carries, so
+    // matching on it pulled every answer in the database onto every question.
+    // It is not a real topic and never was.
+    if (!topic || topic === 'general') return;
     try {
       var r = await sb.from('questionnaire_answers')
-        .select('org_slug,question_id,answer_text')
+        .select('org_slug,question_id,answer_text,updated_at')
         .eq('topic', topic)
         .neq('org_slug', orgSlug)
-        .neq('answer_text', '');
-      reuseCache[topic] = (r.data || []);
+        .neq('answer_text', '')
+        .order('updated_at', { ascending: false })
+        .limit(40);
+      var rows = (r.data || []).filter(function (x) {
+        return (x.answer_text || '').trim().length >= REUSE_MIN_CHARS;
+      });
+      reuseCache[topic] = rows.slice(0, REUSE_MAX);
     } catch (e) { /* keep stale cache */ }
   }
 
@@ -1237,7 +1252,7 @@
     }
 
     // Reuse panel — candidate's own words from other questionnaires
-    var reuse = reuseCache[q.topic] || [];
+    var reuse = (reuseCache[q.topic] || []).slice(0, REUSE_MAX);
     if (reuse.length) {
       var rwrap = document.createElement('div'); rwrap.className = 'block reuse';
       rwrap.innerHTML = '<div class="bhead"><span class="dot"></span>Candidate\'s own words &mdash; available to reuse</div>';
