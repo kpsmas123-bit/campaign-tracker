@@ -732,8 +732,12 @@
     // fields back onto the question objects here means every render path below
     // keeps reading q.analysis / q.levers / q.suggested unchanged.
     try {
+      // Only the columns questionnaire_research actually has. Selecting
+      // verification/quotes/sources made PostgREST reject the whole request with
+      // "column does not exist", so the overlay silently returned nothing and
+      // every research edit saved to the database was invisible on the page.
       var rr = await sb.from('questionnaire_research')
-        .select('question_id,analysis,levers,suggested,verification,quotes,sources')
+        .select('question_id,analysis,levers,suggested')
         .eq('org_slug', orgSlug);
       if (rr.data && rr.data.length) {
         var byId = {};
@@ -745,11 +749,6 @@
           if (row.analysis     != null) qq.analysis     = row.analysis;
           if (row.levers       != null) qq.levers       = row.levers;
           if (row.suggested    != null) qq.suggested    = row.suggested;
-          // Fact-check layer. Older orgs still carry these in the JSON and are
-          // left alone; newer ones (eb4e, seiu) have them only in Supabase.
-          if (row.verification != null) qq.verification = row.verification;
-          if (row.quotes       != null) qq.quotes       = row.quotes;
-          if (row.sources      != null) qq.sources      = row.sources;
         });
       }
     } catch (e) { /* questions still render; research panes stay empty */ }
