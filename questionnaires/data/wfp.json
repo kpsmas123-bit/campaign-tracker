@@ -173,32 +173,11 @@
    ],
    "verification": [
     {
-     "claim": "Berkeley's Council renewed the Flock Safety license plate reader contract in May 2026 while rejecting a larger expansion",
-     "result": "confirmed",
-     "source": "Berkeley City Council Resolution 72,254-N.S.; KQED Flock Safety coverage",
-     "date": "2026-05-07",
-     "note": "Council declined the Peace and Justice Commission's recommendation to cancel and instead extended the ALPR contract twelve months for up to $200,000 with amended language, while rejecting a roughly $2 million expansion into cameras and drones."
-    },
-    {
-     "claim": "The May 2026 Flock renewal passed narrowly and the District 1 incumbent supported it",
-     "result": "confirmed",
-     "source": "Annotated Agenda, Berkeley City Council, Special Meeting May 7, 2026 (Resolution 72,254-N.S.)",
-     "date": "2026-05-07",
-     "note": "The motion was severed. Declining to execute the full agreement carried 8-1. The twelve-month ALPR extension up to $200,000, with a negotiated per-violation penalty and a referral for a competitive procurement, carried 5-4 — ayes Kesarwani, Taplin, O'Keefe, Blackaby, Humbert; noes Bartlett, Tregub, Lunaparra, Ishii. The Peace and Justice Commission's recommendation to cancel received no action. The proposed package totaled $1,465,000 committed and up to $2,085,000 with options."
-    },
-    {
      "claim": "Berkeley operates AI-powered cameras, facial recognition, gunshot detection, or police drones",
      "result": "refuted",
      "source": "Annual Surveillance Technology Report (Nov 10, 2025); Ordinance 7,676-N.S.; BMC Chapter 2.99",
      "date": "2025-11-10",
      "note": "Seven technologies are approved: body-worn cameras, 52 fixed Flock license plate readers, parking enforcement readers, fixed Avigilon cameras at three sites, GPS trackers unused since March 2020, drones for mutual aid only, and a Public Works street imagery project. Facial recognition is prohibited outright. There is no gunshot detection and no predictive policing authorization, and BPD owns no drones — all five deployments last year used other agencies' equipment. Say automated license plate readers, not AI-powered cameras."
-    },
-    {
-     "claim": "Federal immigration agencies appear in Berkeley's own license plate reader audit",
-     "result": "confirmed",
-     "source": "Police Accountability Board Chair letter to Council on the Annual Surveillance Technology Report",
-     "date": "2025-11-10",
-     "note": "BPD's audit recorded outside agencies entering 'ICE' once and 'CBP' twice in the reason field when searching statewide data that included Berkeley's. BPD declined to conclude a violation occurred, stating the presence of such terms does not by itself establish one, but disabled the statewide lookup and tightened sharing. The Board asked Council to require BPD to name the agencies; this is the origin of the per-violation penalty Council later directed staff to negotiate."
     },
     {
      "claim": "Berkeley's oversight body is a Department of Police Accountability",
@@ -222,109 +201,11 @@
      "note": "Authorized staffing for the Office of the Director of Police Accountability falls from 6.00 to 4.00 FTE, eliminating an analyst and an investigator already frozen in June 2025, and the office received none of the contingent sales tax allocation that preserved positions elsewhere. Council voted 8-0 on February 9, 2026 to dismiss the Director; an interim Director is serving."
     },
     {
-     "claim": "Berkeley law already contains a model for independent review of police reporting",
-     "result": "confirmed",
-     "source": "BMC Chapter 2.100, adopted by Ordinance 8,001-N.S.; BMC Chapter 2.99",
-     "date": "2026-01-27",
-     "note": "Chapter 2.100 requires the Police Accountability Board to agendize BPD's annual equipment report within 60 days and permits a revocation recommendation; if Council does not act within four meetings, BPD must cease using the equipment. Chapter 2.99, governing surveillance technology, gives the Board no role in the annual report, which the City Manager submits and the Chief of Police authors. Extending the 2.100 model to 2.99 requires no new framework."
-    },
-    {
-     "claim": "The Harrison Street encampment is in District 1 and remains occupied",
-     "result": "confirmed",
-     "source": "City Manager Public Notice and Order to Abate; Council Item 37 (Kesarwani, District 1); City of Berkeley Public Health Update",
-     "date": "2026-06-10",
-     "note": "Harrison Street from 10th to 6th and 8th Street from Gilman to Codornices Creek. The June 10, 2026 update records 40 tons of garbage removed since February 2026 and outreach to occupants, so the site is still occupied. Last primary population figure is 51 people from a 2023 census."
-    },
-    {
      "claim": "A court requires Berkeley to create a sanctioned campsite",
      "result": "refuted",
      "source": "Berkeley Homeless Union v. City of Berkeley, No. 3:25-cv-01414-EMC, order on cross-motions for summary judgment (Dkt. 288)",
      "date": "2026-04-03",
      "note": "The order states the City 'is not required to designate, create, or identify' enforcement-free relocation zones or City-sanctioned campsites. A sanctioned site is legally permitted but not compelled — it is a policy choice. The City did lose on ADA grounds regarding individualized assessment, moving assistance, and property storage."
-    },
-    {
-     "claim": "Berkeley's adopted encampment policy protects pets, partners, or community cohesion during closures",
-     "result": "refuted",
-     "source": "Resolution 71,513-N.S.; Administrative Regulations 10.1 and 10.2",
-     "date": "2024-09-10",
-     "note": "The adopted policy and administrative regulations govern notice and property storage — 14 days, 90 days for property with apparent resale value of $100 or more, and a minimum 45 days for tents, tarps, and sleeping bags — but contain no provision on pets, service animals, partners, households, or keeping a community together. That gap is amendable by Council."
-    },
-    {
-     "claim": "Alternative or interim shelter is cheaper per person than permanent supportive housing",
-     "result": "refuted",
-     "source": "Portland State University Homelessness Research & Action Collaborative, Alternative Shelter Evaluation Report (Multnomah County); Los Angeles City Controller, Pathways to Permanent Housing",
-     "date": "2024-12-10",
-     "note": "Portland operating cost per unit per year: congregate $20,386, villages $30,927, motels $43,401, Safe Rest Villages $55,000 — against supportive housing at $16,500 to $22,500 per tenant year. Los Angeles non-congregate interim runs about $57,000 per bed per year. Village capital costs are lower only where land is free and pod replacement is excluded. The cost argument for sanctioned sites does not survive contact with the two jurisdictions that actually account for it."
-    },
-    {
-     "claim": "Alameda County Measure W funding is currently available for acquisition",
-     "result": "refuted",
-     "source": "Alameda County Board Resolution 2026-85; County housing funding opportunities",
-     "date": "2026-03-06",
-     "note": "Litigation over Measure W, the County's 2020 sales tax, ended when the Supreme Court denied review in April 2025. The County then awarded $52,950,000 across ten projects, including $7,000,000 for Ephesian Legacy Court and $8,050,000 for People's Park Supportive Housing in Berkeley — but that round was expressly for new construction and acquisition was not an eligible use. An acquisition and preservation round of roughly $10 million was planned for late 2026 and had not been released. Note this is Alameda County's Measure W, not Berkeley's own 2024 Measure W transfer tax."
-    },
-    {
-     "claim": "Berkeley voted down a Tenant Opportunity to Purchase ordinance",
-     "result": "refuted",
-     "source": "Annotated Agenda, Berkeley City Council Special Meeting, September 30, 2024, Action Calendar Item 1",
-     "date": "2024-09-30",
-     "note": "Council never took an up-or-down vote on the ordinance. A motion to refer it to the City Manager for fiscal and operational analysis failed 3-6, and a substitute motion to study a program modeled on San Francisco's COPA, with a cooperative-conversion requirement and a $100,000 budget referral, carried 6-3. The District 1 incumbent voted no on both. Say the proposal stalled, not that it was defeated."
-    },
-    {
-     "claim": "The Berkeley TOPA referral is active",
-     "result": "refuted",
-     "source": "Resolution 72,120-N.S. adopting the prioritized referral list",
-     "date": "2026-02-10",
-     "note": "The COPA study referral, tracking number DMND0004197, is ranked 34th of 39, assigned to the City Manager's Office with a blank sponsor field. No staff report has returned, and no COPA or TOPA item appeared on any 2026 Council agenda through July."
-    },
-    {
-     "claim": "TOPA delivers tenant ownership at scale",
-     "result": "refuted",
-     "source": "CNHED, Sustaining Affordability, Council-commissioned analysis of DHCD data for Washington DC, 2006-2020",
-     "date": "2023-11-15",
-     "note": "Of 37,471 units sold following a TOPA notice, tenant associations registered on 23,266, 18,399 were assigned to a developer, and tenants purchased 771 — 2.1 percent. Assignment outstrips tenant purchase roughly 24 to 1. What TOPA reliably produces is leverage: about 40 percent of assigned units had affordability preserved or added and 78 percent were renovated. Properties with a registered tenant association took 329 days to sell against 168 without."
-    },
-    {
-     "claim": "Washington DC has maintained its TOPA law unchanged",
-     "result": "refuted",
-     "source": "D.C. Law 22-120 (2018); RENTAL Amendment Act of 2025, D.C. Law 26-80",
-     "date": "2025-12-31",
-     "note": "DC exempted single-family accommodations in 2018 and, effective December 31, 2025, added a fifteen-year new-construction exemption, exempted two-to-four unit buildings not majority-owned by a corporation, and created a cooling-off period restricting assignment. The tenant-support provisions enacted alongside — tenant support providers, a qualified purchaser program, a transparency portal — are subject to appropriation, unfunded, and legally inoperative."
-    },
-    {
-     "claim": "Berkeley has the acquisition capital and nonprofit capacity to make a purchase right effective",
-     "result": "refuted",
-     "source": "City of Berkeley Housing Element Annual Progress Report; Small Sites Program guidelines; Measure O and Measure A1 commitment reports",
-     "date": "2025-03-28",
-     "note": "The Small Sites Program holds about $3.8 million and is the only live acquisition money; Measure O has issued $76.7 million of $135 million and reports it all committed or reserved; Measure A1 is roughly 97 percent committed; the state Foreclosure Intervention Housing Preservation Program reverted $236.5 million without making a single award. Berkeley approved its third Small Sites project since 2017 in 2024, after receiving one proposal. Two nonprofits have acquired four occupied buildings in Berkeley in nine years, against roughly 245 multifamily sales annually."
-    },
-    {
-     "claim": "San Francisco publishes outcome data showing how many buildings COPA has preserved",
-     "result": "refuted",
-     "source": "San Francisco COPA program page and MOHCD Program Rules; SF Administrative Code Chapter 41B",
-     "date": "2026-07-31",
-     "note": "In the program's seventh year the City publishes forms, FAQs and a qualified-nonprofit list, and no acquisition count, unit count, or cost figure. The '38 buildings and 308 units' figure in circulation is San Francisco's Small Sites Program since 2014, which predates COPA by five years — the two overlap because Small Sites funds COPA purchases, but citing it as a COPA result would be wrong."
-    },
-    {
-     "claim": "San Francisco's COPA gives nonprofits a workable window to act",
-     "result": "refuted",
-     "source": "SF Ordinance 79-19 adding Administrative Code Chapter 41B, sections 41B.6 and 41B.7",
-     "date": "2019-06-03",
-     "note": "Qualified nonprofits get five calendar days to express interest, twenty-five more to make an offer, and sixty days of due diligence. On a right of first refusal they must match the third-party offer within five calendar days where they previously had a first-offer opportunity. Berkeley's own 2022 analysis concluded San Francisco's timeframes 'are insufficient' and 'have resulted in lost opportunities.' Rights run to nonprofits only; there is no tenant-ownership pathway."
-    },
-    {
-     "claim": "Other California cities have adopted opportunity-to-purchase laws Berkeley could follow",
-     "result": "refuted",
-     "source": "ABAG/MTC Tenant and Community Opportunity to Purchase policy profile; East Palo Alto, Richmond, San Jose, and Oakland council records",
-     "date": "2025-09-25",
-     "note": "San Francisco is the only California jurisdiction with such a law in force. East Palo Alto's failed 2-3 on second reading in December 2023; Richmond's Council voted 6-0 in November 2019 to cease all drafting; San Jose's Council voted in April 2023 not to accept its COPA proposal; Oakland's 2020 files sunset without enactment. Los Angeles County is the live counterexample — on July 7, 2026 its Board directed a recommended COPA ordinance within 180 days."
-    },
-    {
-     "claim": "A statewide California opportunity-to-purchase law is in progress",
-     "result": "refuted",
-     "source": "California Legislative Information, AB 919 (Kalra, 2023-2024), Residential real property: sale of rental properties: right of first offer",
-     "date": "2024-01-31",
-     "note": "AB 919, the Stable Homes Act, died pursuant to Article IV Section 10(c) without ever receiving a policy-committee vote — its hearing was postponed and never rescheduled. No successor bill was found in the 2025-26 session. Note that AB 2782, sometimes cited as the statewide TOPA bill, is a mobilehome measure by a different author that was chaptered in 2020."
     }
    ],
    "quotes": [
@@ -2129,13 +2010,6 @@
      "source": "BMC 2.12.440 (Berkeley Election Reform Act)",
      "date": "2026-07-29",
      "note": "No proprietorship, firm, partnership, joint venture, syndicate, business trust, company, corporation including non-profit corporations, or labor union may contribute to any candidate or committee."
-    },
-    {
-     "claim": "Participation in Berkeley's Public Financing Program caps contributions at $60 and bars PAC money",
-     "result": "confirmed",
-     "source": "City of Berkeley Public Financing Program Guide",
-     "date": "2026-07-29",
-     "note": "The contribution limit for a participating candidate is $60, and participating candidates may not accept contributions from political action committees."
     },
     {
      "claim": "The candidate entered this race over Berkeley's surveillance contracting",

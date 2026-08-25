@@ -464,13 +464,6 @@
      "note": "99% strike authorization; notice of intent to strike Wednesday Nov 20 and Thursday Nov 21, 2024 over unfair labor practices. Strike was averted — CSU/PTRLA reached a tentative agreement just before the strike date and ratified it by 93%. Berkeley Day Camp workers did strike for two days in August 2024 over compensation and recruitment practices. So: a real, recent, near-miss citywide strike, plus one actual work stoppage."
     },
     {
-     "claim": "SEIU 1021 publicly opposed the June 2026 Berkeley budget",
-     "result": "confirmed",
-     "source": "Berkeleyside 2026-06-24",
-     "date": "2026-06",
-     "note": "Thomas Gregory, an ADA coordinator for the city speaking for SEIU 1021, called the budget a flawed 'austerity plan.' Reported that ~250 SEIU 1021 workers rallied outside the council meeting on June 25. This is the most load-bearing fact for the questionnaire: the union is on record against the budget every sitting councilmember voted for."
-    },
-    {
      "claim": "SEIU 1021 represents BUSD classified staff",
      "result": "refuted",
      "source": "bcce6192.org; CFT (cft.org) local union listing; FPPC enforcement record",
@@ -836,13 +829,6 @@
      "note": "Measure U — General Obligation Bond for Public Infrastructure and Facilities, TWO-THIRDS threshold (reported at roughly $300M). Measure V — Transactions and Use (sales) GENERAL tax, majority threshold (0.5%, ~$9M/yr, would take Berkeley from 10.25% to 10.75%). Measure W — Charter amendment, administrative provisions, majority. Measure X — Amendments to the Rent Stabilization Ordinance, majority. Measure Y — Parcel tax for arts institutions and programs, majority. Measure Z — Parcel tax for a public bank, majority. Measure AA — Sugar-sweetened beverage special tax (reported as doubling the soda tax), majority. Verify each threshold against the city's own table before relying on it; a general tax needs a majority while a special tax normally needs two-thirds, and the city's page lists several parcel/special taxes at 'majority,' which may reflect citizen-initiative status — this is exactly the distinction Prop 43 would eliminate."
     },
     {
-     "claim": "Prop 43 could directly affect Berkeley's own ballot measures",
-     "result": "inferred",
-     "source": "Reasoning from Prop 43's text as described plus Berkeley's Nov 2026 measure list",
-     "date": "2026-08",
-     "note": "INFERRED, not confirmed. Prop 43 applies prospectively to citizen-initiated local special taxes. Several Berkeley measures on the same ballot are special/parcel taxes listed at a majority threshold. Whether Prop 43 would apply retroactively to measures on the same ballot, and whether Berkeley's specific measures are citizen-initiated or council-placed, was NOT verified. Do not assert a direct collision without checking."
-    },
-    {
      "claim": "Measure U1 (2016) is a business license tax on large residential landlords funding affordable housing",
      "result": "confirmed",
      "source": "City of Berkeley General Fund revenue reports; Berkeleyside",
@@ -855,13 +841,6 @@
      "source": "City of Berkeley General Fund revenue narratives",
      "date": "2018 passage; FY2025-29 projections",
      "note": "Staff projected 30.7% growth in Measure P revenue in FY2025 then 5% annual growth FY2026-FY2029. Exact rate and threshold (commonly cited as an increased rate on transfers above roughly $1.6M-$1.9M, indexed) was NOT verified in this pass. IMPORTANT: the HJTA initiative withdrawn from the 2026 ballot would have banned charter-city real estate transfer taxes, which would have threatened Measure P directly. Its withdrawal is a real, checkable win to point at — but Prop 43 replaced it, so the threat did not vanish, it changed shape."
-    },
-    {
-     "claim": "Berkeley's vacancy tax is Measure M (November 2022)",
-     "result": "confirmed",
-     "source": "berkeleyca.gov Measure M ballot document; californiachoices.org",
-     "date": "2022-11",
-     "note": "Taxes owners of residential units vacant more than 182 days/year. $3,000 per nonexempt condo, duplex, single-family or townhouse vacant unit in year one, rising to $6,000 in subsequent years; $6,000 for all other residential vacant units in year one, rising to $12,000 subsequently. Effective January 1, 2024 through December 31, 2034. Estimated $3.9M-$5.9M annually. Actual collections vs. estimate NOT verified — vacancy taxes nationally have underperformed projections, so do not cite the estimate as if it were revenue received."
     },
     {
      "claim": "Measure GG (November 2024), the natural gas tax on large buildings, passed",
@@ -1221,13 +1200,6 @@
      "source": "seiu1021.org ('Berkeley City Workers Overwhelmingly Vote To Authorize A Strike By 99%', 'City of Berkeley Workers to Strike Citywide'); Daily Cal, Nov 2024",
      "date": "2024-11",
      "note": "99% strike authorization; notice of intent to strike Wednesday Nov 20 and Thursday Nov 21, 2024 over unfair labor practices. Strike was averted — CSU/PTRLA reached a tentative agreement just before the strike date and ratified it by 93%. Berkeley Day Camp workers did strike for two days in August 2024 over compensation and recruitment practices. So: a real, recent, near-miss citywide strike, plus one actual work stoppage."
-    },
-    {
-     "claim": "SEIU 1021 publicly opposed the June 2026 Berkeley budget",
-     "result": "confirmed",
-     "source": "Berkeleyside 2026-06-24",
-     "date": "2026-06",
-     "note": "Thomas Gregory, an ADA coordinator for the city speaking for SEIU 1021, called the budget a flawed 'austerity plan.' Reported that ~250 SEIU 1021 workers rallied outside the council meeting on June 25. This is the most load-bearing fact for the questionnaire: the union is on record against the budget every sitting councilmember voted for."
     },
     {
      "claim": "SEIU 1021 represents BUSD classified staff",

@@ -39,25 +39,11 @@
      "note": "NOT FOUND in this pass. EB4E's public output is mostly endorsement posts (e.g. Berkeley D4 2024: Rubén Hernández Story #1, Igor Tregub #2; Ishii for mayor). No published attack pieces on Berkeley councilmembers located. If a specific EB4E position is needed, read their endorsement writeups and their X/Twitter feed directly rather than inferring."
     },
     {
-     "claim": "FLAG 1 — The Corridors vote is the live litmus test and it touches District 1",
-     "result": "confirmed (as a flag; the underlying facts are verified above)",
-     "source": "Berkeleyside 2026-05; Darrell Owens substack",
-     "date": "2026",
-     "note": "The Planning Commission SCALED BACK the corridors upzone after neighborhood backlash. Solano Avenue's 617-unit capacity is the D1 piece. EB4E will almost certainly ask whether the candidate supports the fuller version, and whether she would vote against her own district's homeowners. Hedging here is the most likely single point of failure. Related: Council must adopt by roughly December 2026 or risk Housing Element non-compliance and Builder's Remedy exposure — Owens frames it exactly that way."
-    },
-    {
      "claim": "FLAG 2 — Berkeley's Middle Housing ordinance is ministerial and NON-APPEALABLE to ZAB or Council",
      "result": "confirmed",
      "source": "City of Berkeley Middle Housing Zoning page",
      "date": "2025-11-01",
      "note": "A candidate who campaigns on 'preserving Berkeley's unique character' and community input will be asked whether she would keep ministerial approval and the appeal ban. Her own site's framing ('preserving Berkeley's unique character') sits awkwardly next to it. This is the sharpest process question available."
-    },
-    {
-     "claim": "FLAG 3 — TOPA is a real YIMBY/tenant-left fault line in Berkeley and Council already rejected it",
-     "result": "confirmed (on the Berkeley history); unresolved (on EB4E's own position)",
-     "source": "Daily Cal; KQED; EBHO",
-     "date": "2024-10",
-     "note": "Berkeley Council FAILED TO ADOPT TOPA at a special meeting in October 2024, with a majority citing the City's financial and administrative capacity — NOT ideology. That is the important nuance: the stated Berkeley objection was 'we cannot administer or fund this,' which is a fiscal argument, not an anti-tenant one, and it is still available as a challenge. Opposition was led by Berkeley Property Owners Association (Krista Gulbransen). EBHO supports TOPA. NO EB4E POSITION ON TOPA FOUND — do not assume they oppose it. Nationally, YIMBY-tenant friction on TOPA is about transaction delay, not principle."
     },
     {
      "claim": "FLAG 4 — Sanctioned encampments have a documented Berkeley funding hole",
@@ -179,13 +165,6 @@
      "note": "Above Moderate is 36.7% complete (1,344/3,664) roughly 3 years into an 8-year cycle. Very Low is 6.5% (160/2,446), Low 4.8% (67/1,408), Moderate 5.9% (83/1,416). This is the single strongest number in the file: Berkeley is on pace or better for market-rate and roughly one-fifth of pace on deed-restricted."
     },
     {
-     "claim": "Berkeley needs roughly 1,100 units permitted per year to hit RHNA",
-     "result": "confirmed",
-     "source": "Berkeleyside, 'Housing production slumps in Berkeley after 2022 peak'",
-     "date": "2024-04-19",
-     "note": "8,934 over 8 years = 1,117/yr. Actual: 887 (2022), 431 (2023), 731 (2024)."
-    },
-    {
      "claim": "The CY2025 APR (covering calendar 2025, submitted to HCD ~March 2026) numbers",
      "result": "unresolved",
      "source": "Referenced in search results as submitted to HCD 2026-03-26; document not located",
@@ -285,13 +264,6 @@
      "source": "Berkeleyside / Berkeley Scanner reporting on the Harrison closure",
      "date": "approximately 2025-2026, exact date unresolved",
      "note": "Reported: six total congregate shelter beds available (four men, two women) and NO vacancies across the four motels the City acquired as non-congregate shelter. DATE OF THIS SNAPSHOT IS NOT PINNED DOWN — it is a point-in-time count, not a standing capacity figure. Verify before citing."
-    },
-    {
-     "claim": "A sanctioned encampment / safe RV parking proposal has been formally before Berkeley Council",
-     "result": "confirmed",
-     "source": "Berkeley staff report, 2025-05-20 Item 29 'Alternative Housing Options'; Berkeley Scanner (2025-04-05)",
-     "date": "2025-05-20",
-     "note": "IMPORTANT FOR THIS CANDIDATE. The item recommends identifying city-owned or leased land for 24/7 staffed shelters including sanctioned camping areas and safe RV parking zones. AUTHOR: Councilmember Shoshana O'Keefe (D5), written after February 2025 concern about the Civic Center Park encampment across from Berkeley High. Precedents cited: the Grayson Street Shelter and the existing safe RV zone. KEY WEAKNESS: the proposal contains NO funding mechanism, and the City already faces a deficit in a key homelessness funding source. Any pro-sanctioned-encampment answer will be met with 'how do you pay for it' — and the answer has a documented Berkeley-specific hole."
     },
     {
      "claim": "Outcome of the May 20, 2025 Alternative Housing Options item",
@@ -395,39 +367,11 @@
      "note": "First reading / council approval covered by Berkeleyside on 2025-06-26 and 2025-06-27; final adoption July 8, 2025; unanimous."
     },
     {
-     "claim": "Middle Housing allows 2 to 6 units in R-1, R-2, R-2A and MU-R zones, max 35 feet, 60% lot coverage, 5-foot minimum front and rear setbacks totaling at least 20 feet",
-     "result": "confirmed",
-     "source": "City of Berkeley Middle Housing Zoning page",
-     "date": "2025-11-01",
-     "note": "Forms allowed: duplex, triplex, fourplex, courtyard apartments and other small-scale multifamily. 35 feet is a hard cap."
-    },
-    {
-     "claim": "Qualifying Middle Housing applications are MINISTERIAL, approved within 30 days, and cannot be appealed to the Zoning Adjustments Board or City Council",
-     "result": "confirmed",
-     "source": "City of Berkeley Middle Housing Zoning page",
-     "date": "2025-11-01",
-     "note": "Vehicle is a 'Middle Housing zoning certificate.' This is the strongest procedural-reform fact Berkeley has, and it is exactly the kind of thing EB4E rewards. It is also a live tension for any candidate who campaigns on more neighborhood input."
-    },
-    {
      "claim": "How many units the Middle Housing ordinance has actually produced since November 1, 2025",
      "result": "unresolved",
      "source": "Searched; no permit data located",
      "date": "2026-08-11",
      "note": "Only ~9 months of effect and the CY2025 APR would capture only two months of it. DO NOT claim a production figure. The honest answer is 'too early, and the CY2026 APR in spring 2027 is the first real read.' Statewide experience (SB 9) is that such ordinances produce very few units; expect EB4E to probe whether the candidate knows that."
-    },
-    {
-     "claim": "Berkeley's Southside/Telegraph upzoning passed and could add ~2,650 units",
-     "result": "confirmed",
-     "source": "Daily Californian; CBS SF",
-     "date": "2025",
-     "note": "Sponsored by D7 Councilmember Rigel Robinson with cosponsor Mark Humbert. Roughly 1,000 of the units were already accounted for in an earlier Telegraph/Southside upzoning. Not in D1, but it is the comparison case for what a real upzone produces on paper."
-    },
-    {
-     "claim": "Measure O is a $135 million affordable housing general obligation bond",
-     "result": "confirmed",
-     "source": "City of Berkeley Measure O page",
-     "date": "2026",
-     "note": "Passed 2018. Administered by the Department of Health, Housing and Community Services through the Housing Trust Fund."
     },
     {
      "claim": "Current Measure U1 fund balance and forecast",
@@ -527,13 +471,6 @@
      "source": "California Building Standards Commission",
      "date": "2026-01-01",
      "note": "CURRENT CODE IN EFFECT AS OF THE QUESTIONNAIRE. The next cycle would produce a 2028 edition."
-    },
-    {
-     "claim": "California is required BY LAW to adopt the most recent editions of the ICC, IAPMO and NFPA model codes each triennial cycle",
-     "result": "confirmed",
-     "source": "California Building Standards Commission, CALCode Quarterly",
-     "date": "2024",
-     "note": "THE CORE POINT OF EB4E'S Q6. The state has no discretion to skip a cycle; it adopts the 2024 ICC editions and the 2023 NEC as the base, then amends. So a private 501(c)(6) trade association effectively writes California's baseline building code, and cost-increasing model-code changes flow through automatically unless the state or a local jurisdiction affirmatively amends them out."
     },
     {
      "claim": "Local jurisdictions may amend the state code only with express findings (climatic, topographical, geological) filed with the state",
@@ -717,20 +654,6 @@
      "source": "MTC Transit Priority Roadway Assessment page",
      "date": "2026-07-14",
      "note": "No TPN exists as of Aug 2026 — no draft, no corridor list, no map. Res. 4739 is future-tense throughout. Draft slated summer/fall 2026, adoption winter-spring 2027. Any such claim is premature by at least six months."
-    },
-    {
-     "claim": "Berkeley has its own adopted transit priority corridors",
-     "result": "confirmed",
-     "source": "Berkeley Transit-First Policy Implementation Plan, Ch.4",
-     "date": "2023-03-21",
-     "note": "Six corridors: San Pablo (Caltrans/Alameda CTC-led), Telegraph, Adeline, Shattuck (2027), University (2029), College. MLK Jr. Way and Ashby are NOT designated study corridors. Berkeley's Transit-First Policy dates to Dec 18 2001; Complete Streets Policy Dec 11 2012, adopted to keep OBAG eligibility."
-    },
-    {
-     "claim": "Berkeley has adopted a local policy responding to Res. 4739",
-     "result": "unresolved",
-     "source": "berkeleyca.gov search",
-     "date": "2026-08-10",
-     "note": "No Berkeley council item referencing Res. 4739 found, but 2026 agendas were not exhaustively reviewed. Plausible: the policy is ~6 months old and local adoption is optional."
     }
    ],
    "sources": [
@@ -802,13 +725,6 @@
      "note": "37% is a superseded 2025-era figure still in circulation. The adopted contingency is $53M / 16.4%. Berkeley effects: Line F loses ALL weekend service; Lines 65 and 67 to hourly 7am-7pm, interlined; Line 7 to 7am-7pm; Line 12 to 30-min; Line 88 30-min after 7pm. Lines 1T, 51A, 51B, 72L, 72M, 800, 851 unchanged."
     },
     {
-     "claim": "AC Transit faces roughly $50M annual deficits beginning FY2027-28",
-     "result": "confirmed",
-     "source": "AC Transit SR 26-090 and 26-090a",
-     "date": "2026-03-25",
-     "note": "Verbatim. FY28 $42.8M, FY29 $52.6M, FY30 $48.0M, FY31 $53.0M. NOTE the Budget FAQ gives different figures (FY27 $60M, FY28 $43M) — do not treat any single deficit number as canonical; cite the document."
-    },
-    {
      "claim": "The FY2026-27 budget requires service cuts",
      "result": "refuted",
      "source": "AC Transit SR 26-079c, Res. 26-003",
@@ -821,13 +737,6 @@
      "source": "AC Transit SR 26-090a",
      "date": "2026-06-10",
      "note": "SB 63 is the Connect Bay Area Act — half-cent sales tax in Alameda, Contra Costa, Santa Clara, San Mateo; one cent in SF; ~$980M/yr regionally, ~$51M/yr to AC Transit. But SR 26-090a still says 'if the regional revenue measure does not qualify for the ballot and pass', so qualification was not final as of June 10 2026 and was not verified for Aug 2026. CHECK BEFORE ASSERTING."
-    },
-    {
-     "claim": "BART would also cut deeply if the measure fails",
-     "result": "confirmed",
-     "source": "AC Transit SR 26-090a citing BART",
-     "date": "2026-06-10",
-     "note": "BART's Alternative Service Plan reduces frequencies about 66% — three-line service every half hour — beginning January 2027."
     },
     {
      "claim": "AC Transit Lines 1, 25 and 79 serve Berkeley",
@@ -909,20 +818,6 @@
      "source": "Berkeley Scanner",
      "date": "2026-07-30",
      "note": "The strongest single number on the pro side."
-    },
-    {
-     "claim": "History: planning began 2018, project blocked in 2022, revived without bike lanes in April 2026",
-     "result": "confirmed",
-     "source": "Darrell Owens, 'The Final Battle of Hopkins Bike Lanes'; Berkeleyside (2026-04-01)",
-     "date": "2026-04",
-     "note": "Owens reports the 2022 fight was so divisive it 'caused a mass-exodus of traffic planners from city government,' and that Save Hopkins blocked the project. In April 2026, Councilmember O'Keefe revived the repaving project explicitly WITHOUT bike lanes, which triggered the final round. Berkeleyside's April 2026 headline calls it a 'toxic' debate."
-    },
-    {
-     "claim": "Organized sides: Walk Bike Berkeley and the Sierra Club for; Save Hopkins against",
-     "result": "confirmed",
-     "source": "Darrell Owens substack; Berkeleyside",
-     "date": "2026",
-     "note": "Named supporters: Kesarwani (D1), Humbert (D8), Mayor Adena Ishii. Named opponent: O'Keefe (D5). Blackaby and Bartlett put forward alternatives."
     },
     {
      "claim": "55% of voters in the Hopkins area supported bike lanes at the ballot box in 2024",
@@ -1029,20 +924,6 @@
      "source": "Berkeleyside (2025-04-04) and Berkeleyside (2024-04-19)",
      "date": "2025-04-04",
      "note": "Insurance costs and city fees were NOT the causes cited in the sources found. Do not assert fees as a documented cause without a source."
-    },
-    {
-     "claim": "North Berkeley BART: 739 homes, 381 affordable, approved December 11, 2024 under AB 2011",
-     "result": "confirmed",
-     "source": "Berkeley 2024 General Plan APR highlights",
-     "date": "2024-12-11",
-     "note": "Developer: North Berkeley Housing Partners; application submitted Feb 2024 for AB 2011 streamlined entitlement. THIS IS IN DISTRICT 1 — the single biggest housing item in the district."
-    },
-    {
-     "claim": "North Berkeley BART construction has slipped to at least early 2027",
-     "result": "confirmed",
-     "source": "Berkeleyside, 'North Berkeley BART housing won't start to rise until at least early 2027'",
-     "date": "2025-12-23",
-     "note": "Officials once planned groundbreaking in 2025, then early 2026, now at least early 2027. A fully entitled 739-unit project in D1 with 381 affordable homes that has not broken ground is the concrete local example of the stalled pipeline."
     },
     {
      "claim": "A named third-party tracker quantifies the stalled pipeline",
@@ -1156,13 +1037,6 @@
      "source": "Berkeleyside coverage of Planning Commission action; Berkeley Corridors Zoning Update staff report",
      "date": "2026-05",
      "note": "These are the SCALED-BACK figures the Planning Commission endorsed. Darrell Owens frames the Housing Element commitment as roughly 2,000 homes, so the scaled-back version is a shortfall of ~300. Solano Avenue capacity (617) is the D1-relevant number."
-    },
-    {
-     "claim": "District 1 specifics",
-     "result": "confirmed",
-     "source": "Composite of city documents and news coverage",
-     "date": "2026",
-     "note": "D1 (North/West Berkeley) contains: North Berkeley BART (739 units entitled, 381 affordable, not yet built); the western end of the Solano Ave corridor now being upzoned; the San Pablo Ave corridor (1740 San Pablo, 54 affordable units, Measure O-funded); the 8th & Harrison encampment; the western half of the Hopkins Street project. It is a mixed district — West Berkeley flats plus higher-income North Berkeley — so the 'wealthier districts don't build' frame applies unevenly within D1 itself."
     }
    ],
    "quotes": [
