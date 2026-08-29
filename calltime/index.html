@@ -88,6 +88,18 @@
   }
   .page-title { font-family: Georgia, 'Times New Roman', serif; font-size: 22px; font-weight: normal; }
 
+  /* Pushed right so the title keeps the left edge and the save indicator stays
+     adjacent, rather than the three children spreading across the header. */
+  .sync-btn {
+    margin-left: auto; font-family: inherit; font-size: 11px;
+    color: var(--text-tertiary); background: none;
+    border: 1px solid var(--border); border-radius: 4px;
+    padding: 3px 8px; cursor: pointer; white-space: nowrap;
+    transition: color .12s, border-color .12s;
+  }
+  .sync-btn:hover { color: var(--text); border-color: var(--text-tertiary); }
+  .sync-btn[disabled] { opacity: .5; cursor: default; }
+
   .save-indicator {
     display: flex; align-items: center; gap: 6px; white-space: nowrap;
     font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11px;
@@ -324,6 +336,7 @@
 
   <div class="header">
     <div class="page-title">Call time</div>
+    <button class="sync-btn" id="syncBtn" title="Re-read the spreadsheet">Refresh from sheet</button>
     <div class="save-indicator" id="saveIndicator"><span class="save-dot"></span><span class="save-label"></span></div>
   </div>
 
@@ -366,6 +379,134 @@
   var sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
   var contacts = [];
   var filter = 'todo';
+
+  // --- the sheet ---------------------------------------------------------
+  // The Google Sheet is the source of truth. Supabase is kept as a warm mirror
+  // so the page still opens when the sheet is unreachable, but on a normal load
+  // every row on screen came from the sheet.
+  //
+  // Talks to /__hq/sheet on this origin, never to Google directly: the shared
+  // token lives in a Cloudflare secret and must not reach the browser.
+  var SHEET = {
+    live: false,          // did this session's rows actually come from the sheet
+    tabByKey: {}          // tag key -> tab name
+  };
+
+  function slugOf(s) {
+    return String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '');
+  }
+
+  // A tab name IS the category: "Endorsement ACD" -> endorsement_acd, which is
+  // already the tag key the portal stores. "Untagged" is the one special case —
+  // it means no tag at all, not a tag called "untagged".
+  function tabToKey(tab) {
+    var s = slugOf(tab);
+    return s === 'untagged' ? '' : s;
+  }
+  function keyToTab(key) {
+    return SHEET.tabByKey[key || ''] || (key ? null : 'Untagged');
+  }
+
+  async function sheetCall(method, body) {
+    var opt = { method: method, cache: 'no-store', credentials: 'same-origin' };
+    if (body) {
+      opt.headers = { 'Content-Type': 'application/json' };
+      opt.body = JSON.stringify(body);
+    }
+    var r = await fetch('/__hq/sheet', opt);
+    var j = null;
+    try { j = await r.json(); } catch (e) { /* fall through to the throw */ }
+    if (!r.ok || !j || j.ok === false) {
+      var e2 = new Error((j && j.error) || ('Sheet request failed (HTTP ' + r.status + ')'));
+      e2.code = (j && j.code) || 'error';
+      throw e2;
+    }
+    return j;
+  }
+
+  // Writes go one at a time. Clicking an attempt box three times fires three
+  // saves; sent in parallel they race for the script lock in Apps Script and the
+  // losers can time out, so the second write is held until the first returns.
+  // Order matters too — these are read-modify-write on the same row.
+  var writeChain = Promise.resolve();
+  function enqueue(fn) {
+    var run = writeChain.then(fn, fn);   // run whether or not the last one failed
+    writeChain = run.then(function () {}, function () {});
+    return run;
+  }
+
+  // Sheet dates carry no time of day. Anchoring at local noon keeps a date from
+  // sliding to the previous day once it is rendered back in Pacific time.
+  function dateToIso(d) {
+    var m = String(d || '').trim().match(/^(\d{4})-(\d{2})-(\d{2})/);
+    if (!m) return null;
+    return new Date(+m[1], +m[2] - 1, +m[3], 12, 0, 0).toISOString();
+  }
+
+  function sheetRowToContact(r, tab, idx) {
+    var attempts = [];
+    (r.attempts || []).forEach(function (a) {
+      var iso = dateToIso(a);
+      attempts.push(iso ? { at: iso, reached: /✓/.test(String(a)) } : null);
+    });
+    while (attempts.length && attempts[attempts.length - 1] == null) attempts.pop();
+    var key = tabToKey(tab);
+    return {
+      id: r.id,
+      name: r.name || '',
+      email: r.email || '',
+      phone: r.phone || '',
+      berkeley: !!r.berkeley,
+      attempts: attempts,
+      gave: !!r.gave,
+      gave_on: r.gave_on || null,
+      gave_amount: r.gave_amount == null ? null : r.gave_amount,
+      tags: key ? [key] : [],
+      notes: r.notes || '',
+      priority: String(r.priority || ''),
+      sort_order: idx,
+      // Which tab this row was read from, so a write can say where to look
+      // instead of making the script scan the whole workbook.
+      _tab: tab
+    };
+  }
+
+  function attemptCell(a) {
+    if (!a || !a.at) return '';
+    var d = new Date(a.at);
+    if (isNaN(d)) return '';
+    var s = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') +
+            '-' + String(d.getDate()).padStart(2, '0');
+    return a.reached ? s + ' ✓' : s;
+  }
+
+  // Portal-shaped fields in, sheet column headers out. Attempts and tags are the
+  // two that do not map one-to-one: three columns out of one array, and a tab
+  // move out of one tag.
+  function toSheetFields(fields, c) {
+    var out = {};
+    if ('name' in fields)  out['Name'] = fields.name;
+    if ('email' in fields) out['Email'] = fields.email;
+    if ('phone' in fields) out['Phone'] = fields.phone;
+    if ('notes' in fields) out['Notes'] = fields.notes;
+    if ('berkeley' in fields) out['Berkeley'] = fields.berkeley ? 'TRUE' : 'FALSE';
+    if ('gave' in fields) out['Gave'] = fields.gave ? 'YES' : '';
+    if ('gave_on' in fields) out['Gave on'] = fields.gave_on || '';
+    if ('gave_amount' in fields) out['Amount'] = fields.gave_amount == null ? '' : fields.gave_amount;
+    if ('attempts' in fields) {
+      var a = fields.attempts || [];
+      out['Attempt 1'] = attemptCell(a[0]);
+      out['Attempt 2'] = attemptCell(a[1]);
+      out['Attempt 3'] = attemptCell(a[2]);
+      out['Reached'] = a.some(function (x) { return x && x.reached; }) ? 'YES' : '';
+    }
+    if ('tags' in fields) {
+      var k = (fields.tags && fields.tags[0]) || '';
+      var d = k ? tagDef(k) : null;
+      out['Category'] = d ? d.label : (k || 'Untagged');
+    }
+    return out;
+  }
 
   // Seeded, not hardcoded: definitions persist in campaign_settings so tags can
   // be added from the UI without a migration or a deploy.
@@ -531,7 +672,43 @@
            String(d.getMinutes()).padStart(2, '0') + ap;
   }
 
+  // Mirror into Supabase so the fallback copy stays warm. Deliberately not
+  // awaited by the caller and deliberately silent: the sheet is the source of
+  // truth, and a mirror failure must not make a successful save look failed.
+  function mirror(id, fields) {
+    sb.from('call_contacts').update(fields).eq('id', id).then(function (r) {
+      if (r && r.error) console.warn('mirror to Supabase failed', r.error.message);
+    });
+  }
+
   async function patch(id, fields) {
+    if (SHEET.live) {
+      setSave('saving');
+      var c = contacts.filter(function (x) { return x.id === id; })[0];
+      var body = { action: 'update', id: id, fields: toSheetFields(fields, c) };
+      if (c && c._tab) body.from = c._tab;
+      // A category change is a move between tabs, so the destination has to
+      // travel with the write. An unknown tag has no tab to move to; the
+      // Category cell still updates, the row just stays where it is.
+      var moveTo = null;
+      if ('tags' in fields) {
+        moveTo = keyToTab((fields.tags && fields.tags[0]) || '');
+        if (moveTo) { body.tab = moveTo; body.category = body.fields['Category']; }
+      }
+      try {
+        await enqueue(function () { return sheetCall('POST', body); });
+      } catch (e) {
+        setSave('error', e.message);
+        return false;
+      }
+      // Track where the row now lives, so the next write's tab hint is right
+      // rather than pointing at the tab it just left.
+      if (c && moveTo) c._tab = moveTo;
+      setSave('saved');
+      mirror(id, fields);
+      return true;
+    }
+
     setSave('saving');
     var r = await sb.from('call_contacts').update(fields).eq('id', id);
     if (r.error) {
@@ -551,11 +728,70 @@
   }
 
   // --- data ---
-  async function load() {
+  // Priority is set in the sheet and is the whole point of the sheet round
+  // trip, so it drives the order here. Blank sorts last rather than first: an
+  // unranked contact is not a top priority.
+  function sortContacts() {
+    contacts.sort(function (a, b) {
+      var pa = parseInt(a.priority, 10), pb = parseInt(b.priority, 10);
+      if (isNaN(pa)) pa = 99;
+      if (isNaN(pb)) pb = 99;
+      if (pa !== pb) return pa - pb;
+      return (a.sort_order || 0) - (b.sort_order || 0);
+    });
+  }
+
+  async function loadFromSheet() {
+    var j = await sheetCall('GET');
+    var rows = [], idx = 0;
+    SHEET.tabByKey = {};
+    (j.tabs || []).forEach(function (t) {
+      SHEET.tabByKey[tabToKey(t.tab)] = t.tab;
+      (t.rows || []).forEach(function (r) {
+        if (!r.id) return;   // a row the sheet has not been given an id for yet
+        rows.push(sheetRowToContact(r, t.tab, idx++));
+      });
+    });
+    contacts = rows;
+    SHEET.live = true;
+
+    // The sheet owns the category list now, so a tab the portal has never seen
+    // has to become a tag here or its contacts render with no chip and get no
+    // filter — invisible except under "All". Existing definitions are left
+    // alone so a hand-picked label and colour survive.
+    var palette = ['#C89B2A', '#C4784A', '#6B956B', '#4A6FA5', '#8B6BA5', '#C45240', '#4A8B8B'];
+    var added = false;
+    (j.tabs || []).forEach(function (t) {
+      var k = tabToKey(t.tab);
+      if (!k || tagDef(k)) return;
+      TAGS.push({ key: k, label: t.tab, color: palette[TAGS.length % palette.length] });
+      added = true;
+    });
+    if (added) saveTagDefs();
+  }
+
+  async function loadFromSupabase() {
     var r = await sb.from('call_contacts').select('*').order('sort_order').order('created_at');
     if (r.error) throw r.error;
-    contacts = r.data || [];
-    await loadTagDefs();
+    contacts = (r.data || []).map(function (c) { c.priority = c.priority || ''; return c; });
+    SHEET.live = false;
+  }
+
+  async function load() {
+    await loadTagDefs();          // tag labels are needed to write Category back
+    try {
+      await loadFromSheet();
+      setSetupNotice('');
+    } catch (e) {
+      // Falling back rather than failing: a call list you cannot open is worse
+      // than one that is a few minutes stale. Say plainly which copy is on
+      // screen, because edits made here will not be in the sheet.
+      await loadFromSupabase();
+      setSetupNotice('Working from the backup copy — the sheet is unreachable (' +
+        (e.message || 'unknown error') + '). Changes made now will NOT appear in ' +
+        'the spreadsheet. Reload once it is back.');
+    }
+    sortContacts();
   }
 
   // Tag definitions are shared campaign state, so they live in campaign_settings
@@ -600,11 +836,50 @@
   }
 
   async function addContact() {
-    var row = { name: '', email: '', phone: '', sort_order: contacts.length };
     setSave('saving');
+
+    if (SHEET.live) {
+      // The id is minted here rather than by the sheet so the new row can be
+      // focused immediately and so a retry cannot append the person twice.
+      var id = (window.crypto && crypto.randomUUID) ? crypto.randomUUID()
+             : 'x' + Date.now() + Math.random().toString(16).slice(2);
+      // New contacts land in whichever list is being worked. Adding someone
+      // while filtered to Endorsement ACD and finding them in Untagged is a
+      // small papercut that costs a drag in the sheet to undo.
+      var tab = keyToTab(tagFilter) || 'Untagged';
+      try {
+        await enqueue(function () {
+          return sheetCall('POST', {
+            action: 'insert', id: id, tab: tab,
+            fields: { 'Name': '', 'Berkeley': 'FALSE', 'Category': tab }
+          });
+        });
+      } catch (e) { setSave('error', e.message); return; }
+      setSave('saved');
+      var fresh = {
+        id: id, name: '', email: '', phone: '', berkeley: false, attempts: [],
+        gave: false, gave_on: null, gave_amount: null,
+        tags: tagFilter ? [tagFilter] : [], notes: '', priority: '',
+        sort_order: contacts.length, _tab: tab
+      };
+      contacts.push(fresh);
+      sb.from('call_contacts').insert({
+        id: id, name: '', email: '', phone: '',
+        tags: fresh.tags, sort_order: fresh.sort_order
+      }).then(function (r) {
+        if (r && r.error) console.warn('mirror insert failed', r.error.message);
+      });
+      render(); buildFilters(); buildTagFilters();
+      var el2 = document.querySelector('.row[data-id="' + id + '"] .nm');
+      if (el2) el2.focus();
+      return;
+    }
+
+    var row = { name: '', email: '', phone: '', sort_order: contacts.length };
     var r = await sb.from('call_contacts').insert(row).select().single();
     if (r.error) { setSave('error'); return; }
     setSave('saved');
+    r.data.priority = '';
     contacts.push(r.data);
     render(); buildFilters(); buildTagFilters();
     var inp = document.querySelector('.row[data-id="' + r.data.id + '"] .nm');
@@ -614,6 +889,22 @@
   async function removeContact(c) {
     if (!window.confirm('Remove ' + (c.name || 'this contact') + ' from the call list?')) return;
     setSave('saving');
+
+    if (SHEET.live) {
+      try {
+        await enqueue(function () {
+          return sheetCall('POST', { action: 'delete', id: c.id, from: c._tab });
+        });
+      } catch (e) { setSave('error', e.message); return; }
+      setSave('saved');
+      sb.from('call_contacts').delete().eq('id', c.id).then(function (r) {
+        if (r && r.error) console.warn('mirror delete failed', r.error.message);
+      });
+      contacts = contacts.filter(function (x) { return x.id !== c.id; });
+      render(); buildFilters(); buildTagFilters();
+      return;
+    }
+
     var r = await sb.from('call_contacts').delete().eq('id', c.id);
     if (r.error) { setSave('error'); return; }
     setSave('saved');
@@ -757,8 +1048,10 @@
 
   async function refresh() {
     try {
+      // load() owns the notice: it is the only thing that knows whether the
+      // rows came from the sheet or the fallback, so clearing it here would
+      // wipe the "backup copy" warning the moment it was set.
       await load();
-      setSetupNotice('');
     } catch (e) {
       if (e && (e.code === 'PGRST205' || /schema cache/i.test(e.message || ''))) {
         setSetupNotice('The call_contacts table does not exist yet. Run calltime_setup.sql ' +
@@ -779,6 +1072,20 @@
   });
 
   document.getElementById('addBtn').addEventListener('click', addContact);
+
+  // The sheet is edited elsewhere — in Drive, by someone reprioritising — so the
+  // page needs a way to pick that up without a full reload and re-auth.
+  var syncBtn = document.getElementById('syncBtn');
+  syncBtn.addEventListener('click', async function () {
+    syncBtn.disabled = true;
+    var was = syncBtn.textContent;
+    syncBtn.textContent = 'Reading…';
+    setSave('saving', 'Reading sheet');
+    await refresh();
+    syncBtn.textContent = was;
+    syncBtn.disabled = false;
+    setSave(SHEET.live ? 'saved' : 'error', SHEET.live ? 'Up to date' : 'Sheet unreachable');
+  });
 
   var booted = false;
   async function showApp() {
