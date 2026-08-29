@@ -54,16 +54,24 @@ export async function onRequest(context) {
   delete body.token;
   const payload = JSON.stringify({ ...body, token });
 
+  // Apps Script consumes the POST at /exec, then 302s to a googleusercontent.com
+  // URL that holds the result — and that URL answers GET only, returning 405 to
+  // a POST. The Fetch spec says a followed 302 downgrades POST to GET, but the
+  // whole integration hinges on it, so the hop is done by hand instead of
+  // trusting the runtime to rewrite the method.
   let res;
   try {
     res = await fetch(url, {
       method: 'POST',
-      // Apps Script answers /exec with a 302 to googleusercontent.com; the
-      // default redirect: 'follow' is what actually returns the JSON.
-      redirect: 'follow',
+      redirect: 'manual',
       headers: { 'Content-Type': 'application/json' },
       body: payload,
     });
+    if (res.status >= 300 && res.status < 400) {
+      const loc = res.headers.get('Location');
+      if (!loc) return fail(502, 'Sheet redirected with no Location header.', 'upstream');
+      res = await fetch(loc, { method: 'GET', redirect: 'follow' });
+    }
   } catch (e) {
     return fail(502, 'Could not reach the sheet: ' + e.message, 'unreachable');
   }

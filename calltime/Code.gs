@@ -219,9 +219,8 @@ function doPost(e) {
         var dest = sheetByName_(body.tab);
         if (!dest) return err_('No tab named ' + body.tab, 'notfound');
         var width = hit.sheet.getLastColumn();
-        var vals = hit.sheet.getRange(hit.row, 1, 1, width).getValues()[0];
         writeFields_(hit.sheet, hit.map, hit.row, body.fields || {});
-        vals = hit.sheet.getRange(hit.row, 1, 1, width).getValues()[0];
+        var vals = hit.sheet.getRange(hit.row, 1, 1, width).getValues()[0];
         dest.appendRow(vals);
         var dmap = colMap_(dest);
         if (dmap['Category']) dest.getRange(dest.getLastRow(), dmap['Category']).setValue(body.category || body.tab);
