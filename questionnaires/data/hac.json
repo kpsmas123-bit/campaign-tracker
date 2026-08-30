@@ -1,0 +1,280 @@
+{
+  "slug": "hac",
+  "org": "Housing Action Coalition",
+  "cycle": "2026",
+  "candidate": "Daria Wrubel — Berkeley City Council D1",
+  "generated": "2026-08-29",
+  "last_factcheck": "",
+  "contact_fields": [
+    {
+      "k": "first_name",
+      "label": "First Name",
+      "v": "Daria"
+    },
+    {
+      "k": "last_name",
+      "label": "Last Name",
+      "v": "Wrubel"
+    },
+    {
+      "k": "office",
+      "label": "Office you are running for",
+      "v": "Berkeley City Council, District 1"
+    },
+    {
+      "k": "email",
+      "label": "Email",
+      "v": ""
+    },
+    {
+      "k": "phone",
+      "label": "Phone Number",
+      "v": ""
+    }
+  ],
+  "questions": [
+    {
+      "id": "hac_q1",
+      "section": "Housing policy",
+      "topic": "general",
+      "status": "todo",
+      "question": "1.) Do you support increasing the supply of market-rate housing to meet demand?",
+      "choice_type": "single",
+      "choices": [
+        {
+          "label": "Yes"
+        },
+        {
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "id": "hac_q2",
+      "section": "Housing policy",
+      "topic": "general",
+      "status": "todo",
+      "question": "1. (continued) Do you support increasing the supply of market-rate housing to meet demand? Please explain your answer/or provide examples based on experience."
+    },
+    {
+      "id": "hac_q3",
+      "section": "Housing policy",
+      "topic": "general",
+      "status": "todo",
+      "question": "2.) Do you support increasing the supply of subsidized affordable housing to meet demand?",
+      "choice_type": "single",
+      "choices": [
+        {
+          "label": "Yes"
+        },
+        {
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "id": "hac_q4",
+      "section": "Housing policy",
+      "topic": "general",
+      "status": "todo",
+      "question": "2. (continued) Do you support increasing the supply of subsidized affordable housing to meet demand? Please explain your answer/or provide examples based on experience."
+    },
+    {
+      "id": "hac_q5",
+      "section": "Housing policy",
+      "topic": "general",
+      "status": "todo",
+      "question": "3.) Do you support the creation of historic districts?",
+      "choice_type": "single",
+      "choices": [
+        {
+          "label": "Yes"
+        },
+        {
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "id": "hac_q6",
+      "section": "Housing policy",
+      "topic": "general",
+      "status": "todo",
+      "question": "3. (continued) Do you support the creation of historic districts? What is your process in determining if something is historic? Should those districts be exempt from state housing laws focused on increasing supply, yes or no? Please explain your answer/or provide examples based on experience."
+    },
+    {
+      "id": "hac_q7",
+      "section": "Housing policy",
+      "topic": "general",
+      "status": "todo",
+      "question": "4.) If elected, do you pledge to support legislation that would legalize the development of at least six-story apartments on all infill sites near public transit and high-opportunity job centers?",
+      "choice_type": "single",
+      "choices": [
+        {
+          "label": "Yes"
+        },
+        {
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "id": "hac_q8",
+      "section": "Housing policy",
+      "topic": "general",
+      "status": "todo",
+      "question": "4. (continued) If elected, do you pledge to support legislation that would legalize the development of at least six-story apartments on all infill sites near public transit and high-opportunity job centers? If not, are there any conditions that would move you to be supportive? Please explain your answer/or provide examples based on experience."
+    },
+    {
+      "id": "hac_q9",
+      "section": "Housing policy",
+      "topic": "general",
+      "status": "todo",
+      "question": "5.) If elected, do you pledge to support cities in meeting their RHNA goals?",
+      "choice_type": "single",
+      "choices": [
+        {
+          "label": "Yes"
+        },
+        {
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "id": "hac_q10",
+      "section": "Housing policy",
+      "topic": "general",
+      "status": "todo",
+      "question": "5. (continued) If elected, do you pledge to support cities in meeting their RHNA goals? Please explain your answer/or provide examples based on experience."
+    },
+    {
+      "id": "hac_q11",
+      "section": "Housing policy",
+      "topic": "general",
+      "status": "todo",
+      "question": "6.) If elected, do you pledge to support legislation that would allow for denser housing in traditionally exclusionary areas?",
+      "choice_type": "single",
+      "choices": [
+        {
+          "label": "Yes"
+        },
+        {
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "id": "hac_q12",
+      "section": "Housing policy",
+      "topic": "general",
+      "status": "todo",
+      "question": "6. (continued) If elected, do you pledge to support legislation that would allow for denser housing in traditionally exclusionary areas? If yes, how many units would you want to allow on all currently zoned single family lots in California? Please explain your answer/or provide examples based on experience."
+    },
+    {
+      "id": "hac_q13",
+      "section": "Housing policy",
+      "topic": "general",
+      "status": "todo",
+      "question": "7.) Do you support setting minimum density standards for infill projects?",
+      "choice_type": "single",
+      "choices": [
+        {
+          "label": "Yes"
+        },
+        {
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "id": "hac_q14",
+      "section": "Housing policy",
+      "topic": "general",
+      "status": "todo",
+      "question": "7. (continued) Do you support setting minimum density standards for infill projects? Why or why not? Please explain your answer/or provide examples based on experience."
+    },
+    {
+      "id": "hac_q15",
+      "section": "Housing policy",
+      "topic": "general",
+      "status": "todo",
+      "question": "8.) Have you ever voted against a housing project? If so, why?"
+    },
+    {
+      "id": "hac_q16",
+      "section": "Housing policy",
+      "topic": "general",
+      "status": "todo",
+      "question": "9.) If elected, would you support legislation that mandates that overall exactions (impact fees, e.g., Quimby, inclusionary/affordable housing requirements, etc.) are set at a rate that maximizes the production of mixed-income, multi-family housing projects?",
+      "choice_type": "single",
+      "choices": [
+        {
+          "label": "Yes"
+        },
+        {
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "id": "hac_q17",
+      "section": "Housing policy",
+      "topic": "general",
+      "status": "todo",
+      "question": "9. (continued) If elected, would you support legislation that mandates that overall exactions (impact fees, e.g., Quimby, inclusionary/affordable housing requirements, etc.) are set at a rate that maximizes the production of mixed-income, multi-family housing projects? Please explain your answer/or provide examples based on experience."
+    },
+    {
+      "id": "hac_q18",
+      "section": "Housing policy",
+      "topic": "general",
+      "status": "todo",
+      "question": "10.) Do you support legalizing single-stair multifamily construction up to six stories?",
+      "choice_type": "single",
+      "choices": [
+        {
+          "label": "Yes"
+        },
+        {
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "id": "hac_q19",
+      "section": "Housing policy",
+      "topic": "general",
+      "status": "todo",
+      "question": "10. (continued) Do you support reforming outdated building and fire codes to enable greater housing affordability and habitability? Specifically, do you support legalizing single-stair multifamily construction up to six stories? Please explain your answer/or provide examples based on experience."
+    },
+    {
+      "id": "hac_q20",
+      "section": "Housing policy",
+      "topic": "general",
+      "status": "todo",
+      "question": "11.) What is your opinion on real estate transfer taxes? What safeguards, if any, should be put in place to ensure they do not limit new construction of multifamily housing?"
+    },
+    {
+      "id": "hac_q21",
+      "section": "Housing policy",
+      "topic": "general",
+      "status": "todo",
+      "question": "12.) Diversity, Equity, and Inclusion is important to the Housing Action Coalition and a major factor in housing disparity. How have you incorporated DEI into your candidacy and how is it reflected in your housing policy positions as an elected official?"
+    },
+    {
+      "id": "hac_q22",
+      "section": "Housing policy",
+      "topic": "general",
+      "status": "todo",
+      "question": "13.) What’s your political analysis of the race?"
+    },
+    {
+      "id": "hac_q23",
+      "section": "Housing policy",
+      "topic": "general",
+      "status": "todo",
+      "question": "14.) What is your personal experience with the issue of housing and why do you seek our endorsement?"
+    }
+  ],
+  "org_research": "The Housing Action Coalition (HAC) is a member-supported nonprofit that advocates for producing more homes for people of all income levels to help alleviate California’s housing shortage, affordability and displacement crisis. We believe that everyone should have a safe, stable, affordable place to live in a community of their choice. California is experiencing a severe housing shortage that is driving historic economic, environmental, and social crises statewide. While several state-level housing policies have been enacted, they have not resulted in enough new homes near jobs, transit, and opportunity to meet this need. Some of the many dire consequences of this failure include: A disproportionate negative impact on renters and people on color. More than half of the state’s renters and nearly a third of its homeowners are burdened by housing costs. Overcrowding as a common response to high housing costs. Many endure substandard living conditions that threaten their health or safety, fearing that reporting code violations will lead to eviction into an overpriced, tight housing market. A lack of stable housing, combined with extremely high housing costs, displaces individuals and, o"
+}
