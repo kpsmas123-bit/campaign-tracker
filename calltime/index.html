@@ -116,12 +116,14 @@
   /* --- focus view -------------------------------------------------------
      A sheet over the list rather than a separate page: the filter and position
      behind it stay exactly as they were when the session ends. */
+  /* Expands in place under its row rather than covering the list, so the
+     surrounding names stay visible and closing it does not lose your place. */
   .focus {
-    position: fixed; inset: 0; z-index: 40; overflow-y: auto;
-    background: var(--ground); padding: 24px 20px 60px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 4px; padding: 20px 20px 22px; margin: 2px 0 10px;
   }
   .focus[hidden] { display: none; }
-  .focus-card { max-width: 620px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+  .focus-card { max-width: 680px; display: flex; flex-direction: column; gap: 18px; }
   .focus-top { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
   .focus-prog {
     font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 10px;
@@ -137,7 +139,7 @@
   .focus-bar > div { height: 100%; background: var(--priority-low); transition: width .2s; }
 
   .focus-name { display: flex; align-items: flex-start; gap: 12px; }
-  .fname { font-family: Georgia, 'Times New Roman', serif; font-size: 34px; line-height: 1.1; }
+  .fname { font-family: Georgia, 'Times New Roman', serif; font-size: 26px; line-height: 1.15; }
   .fpri {
     font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11px;
     letter-spacing: 0.06em; border-radius: 2px; padding: 3px 7px; margin-top: 7px;
@@ -148,10 +150,10 @@
 
   /* The dominant target on the screen: this is the thing you press. */
   .focus-tel {
-    display: flex; align-items: center; justify-content: center; min-height: 64px;
+    display: flex; align-items: center; justify-content: center; min-height: 56px;
     border: 1px solid var(--accent); background: color-mix(in srgb, var(--accent) 6%, transparent);
     border-radius: 4px; text-decoration: none; color: var(--accent);
-    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 28px; letter-spacing: .02em;
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 24px; letter-spacing: .02em;
   }
   .focus-tel.none { border-style: dashed; border-color: var(--border); color: var(--text-tertiary); font-size: 15px; }
   .focus-mail { font-size: 13px; color: var(--text-secondary); text-decoration: none; margin-top: -12px; }
@@ -244,6 +246,10 @@
     border: 1px solid var(--border); border-radius: 2px; padding: 1px 4px;
     white-space: nowrap;
   }
+
+  .row.open { background: var(--hover); }
+  .row-open.on { color: var(--accent); transform: rotate(90deg); }
+  .row-open { transition: transform .12s, color .12s; }
 
   .start-btn {
     font-family: inherit; font-size: 11px; font-weight: 500; color: #FFF;
@@ -1326,8 +1332,15 @@
     }
 
     list.forEach(function (c) {
-      var row = el('div', 'row' + (c.gave ? ' gave' : '') + (c.priority === '3' ? ' dim' : ''));
+      var row = el('div', 'row' + (c.gave ? ' gave' : '') + (c.priority === '3' ? ' dim' : '') +
+                        (expandedId === c.id ? ' open' : ''));
       row.dataset.id = c.id;
+      // The whole row is the target, minus the controls already on it — the
+      // arrow is an affordance, not the only way in.
+      row.addEventListener('click', function (ev) {
+        if (ev.target.closest('button, input, a, textarea, .tag-cell')) return;
+        toggleExpand(c);
+      });
 
       // Cycles 1 -> 2 -> 3 -> unranked. Editable here because the sheet is not
       // open mid-session, and the sort is what the session runs on.
@@ -1423,9 +1436,9 @@
 
       // The way into the focus view. Trailing, so it reads as "go work this
       // one" rather than competing with the inline edits to its left.
-      var open = el('button', 'row-open', '\u2192');
-      open.title = 'Call ' + (c.name || 'this contact');
-      open.addEventListener('click', function () { enterFocus(c); });
+      var open = el('button', 'row-open' + (expandedId === c.id ? ' on' : ''), '\u203A');
+      open.title = (expandedId === c.id ? 'Close ' : 'Open ') + (c.name || 'this contact');
+      open.addEventListener('click', function (ev) { ev.stopPropagation(); toggleExpand(c); });
       row.appendChild(open);
 
       var d = el('button', 'del', '×');
@@ -1434,7 +1447,24 @@
       row.appendChild(d);
 
       wrap.appendChild(row);
+
+      // The panel is a single element that moves to whichever row is open,
+      // rather than one per row — so its state and listeners survive a repaint.
+      if (expandedId === c.id) {
+        var card = focusCard();
+        card.hidden = false;
+        wrap.appendChild(card);
+        renderFocus();
+      }
     });
+
+    if (!list.some(function (c) { return c.id === expandedId; })) {
+      // The open row was filtered away; park the panel and forget it.
+      var card2 = focusCard();
+      if (card2 && card2.parentElement) card2.remove();
+      if (card2) card2.hidden = true;
+      expandedId = null;
+    }
   }
 
   // kind 'info' is for a passing state like "loading the spreadsheet" — the red
@@ -1447,6 +1477,14 @@
   var STATUS_MONEY = ['Gave', 'Will think', 'Not now', 'No'];
   var STATUS_ENDORSE = ['Committed', 'Leaning yes', 'Undecided', 'No'];
   var focusList = [], focusIdx = -1;
+  var expandedId = null;   // at most one row open at a time
+  // render() clears #rows wholesale, so once the panel has been moved in there
+  // a repaint would destroy it and every listener on it. Hold the node.
+  var focusEl = null;
+  function focusCard() {
+    if (!focusEl) focusEl = document.getElementById('focus');
+    return focusEl;
+  }
 
   function isMoneyCall(c) {
     var k = (tagsOf(c)[0] || '');
@@ -1464,19 +1502,23 @@
     focusList = currentList();
     focusIdx = focusList.indexOf(c);
     if (focusIdx < 0) { focusList = [c]; focusIdx = 0; }
-    document.getElementById('focus').hidden = false;
-    document.body.style.overflow = 'hidden';
-    renderFocus();
+    expandedId = c.id;
+    paint();
+    // Bring the opened card into view without yanking the page around.
+    var card = focusCard();
+    if (card && card.scrollIntoView) card.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
   }
   function exitFocus() {
-    document.getElementById('focus').hidden = true;
-    document.body.style.overflow = '';
+    expandedId = null;
     focusIdx = -1;
     paint();
   }
+  function toggleExpand(c) {
+    if (expandedId === c.id) exitFocus(); else enterFocus(c);
+  }
   function focusNext() {
     if (focusIdx + 1 >= focusList.length) { exitFocus(); return; }
-    focusIdx++; renderFocus();
+    enterFocus(focusList[focusIdx + 1]);
   }
 
   function el2(id) { return document.getElementById(id); }
@@ -1514,7 +1556,9 @@
     mail.href = c.email ? 'mailto:' + c.email : '';
     mail.hidden = !c.email;
 
-    el2('fWho').value = c.notes || '';
+    // A repaint must not yank the cursor out of a note being typed.
+    var who = el2('fWho');
+    if (document.activeElement !== who) who.value = c.notes || '';
 
     // The ask, and the one fact worth saying alongside it.
     el2('fAsk').innerHTML = money
@@ -1544,7 +1588,7 @@
         var b = el('button', 'fatt' + (a ? (a.reached ? ' done reached' : ' done') : ''));
         b.textContent = a ? fmtWhen(a.at) : '+';
         b.addEventListener('click', function () {
-          cycleAttempt(c, idx).then(renderFocus);
+          cycleAttempt(c, idx).then(paint);
         });
         wrap.appendChild(b);
       })(i);
@@ -1576,7 +1620,8 @@
     amt.hidden = !(money && c.status === 'Gave');
     el2('fAmtIn').value = c.gave_amount == null ? '' : c.gave_amount;
 
-    el2('fNote').value = c.notes || '';
+    var nt = el2('fNote');
+    if (document.activeElement !== nt) nt.value = c.notes || '';
   }
 
   // "Talked" stamps an attempt as reached; the other two stamp it as tried.
@@ -1588,7 +1633,7 @@
     c.attempts = a;
     if (!reached && label === 'Left message') c.notes = c.notes;   // no note change
     patch(c.id, { attempts: a });
-    renderFocus();
+    paint();
   }
 
   function setStatus(c, label, money) {
@@ -1603,7 +1648,7 @@
       }
     }
     patch(c.id, fields);
-    renderFocus();
+    paint();
   }
 
   function setSetupNotice(msg, kind) {
@@ -1613,6 +1658,8 @@
     box.style.display = '';
     box.appendChild(el('div', 'setup-banner' + (kind ? ' ' + kind : ''), msg));
   }
+
+  focusCard();   // resolve the node once, while it is still in its original slot
 
   function paint() {
     buildFilters();
@@ -1656,21 +1703,32 @@
   document.getElementById('fNext').addEventListener('click', focusNext);
   document.getElementById('fSkip').addEventListener('click', focusNext);
   document.addEventListener('keydown', function (e) {
-    if (document.getElementById('focus').hidden) return;
+    if (!expandedId) return;
     if (e.key === 'Escape') exitFocus();
     // Enter advances, but not while someone is mid-sentence in a note.
     if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) focusNext();
   });
   // Notes and the who-they-are field are the same cell; both write on blur so a
   // half-typed thought is never queued.
+  // Saved as you type, debounced, rather than only on blur. The queue coalesces
+  // the keystrokes into one write, and it means a note can no longer be lost by
+  // clicking away, repainting, or the tab closing mid-sentence.
+  var noteTimer = null;
   ['fNote', 'fWho'].forEach(function (id) {
-    document.getElementById(id).addEventListener('change', function () {
+    var box = document.getElementById(id);
+    function commit() {
       var c = focusList[focusIdx];
       if (!c) return;
-      c.notes = this.value.trim();
-      document.getElementById(id === 'fNote' ? 'fWho' : 'fNote').value = c.notes;
+      c.notes = box.value.trim();
+      var twin = document.getElementById(id === 'fNote' ? 'fWho' : 'fNote');
+      if (document.activeElement !== twin) twin.value = c.notes;
       patch(c.id, { notes: c.notes });
+    }
+    box.addEventListener('input', function () {
+      clearTimeout(noteTimer);
+      noteTimer = setTimeout(commit, 600);
     });
+    box.addEventListener('change', function () { clearTimeout(noteTimer); commit(); });
   });
   document.getElementById('fAmtIn').addEventListener('change', function () {
     var c = focusList[focusIdx];
