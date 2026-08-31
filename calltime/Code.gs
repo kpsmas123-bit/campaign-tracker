@@ -225,6 +225,121 @@ function writeFields_(sh, map, rowIdx, fields) {
   if (touched) sh.getRange(rowIdx, 1, 1, width).setValues([row]);
 }
 
+/**
+ * Make the tabs readable and safe to edit by hand. Run once from the Call list
+ * menu; safe to re-run.
+ *
+ * Every rule here is chosen so it cannot break the round trip to the portal:
+ * Berkeley becomes a real checkbox because the reader already accepts a boolean,
+ * but Gave stays text with a dropdown, because the reader tests it for the
+ * string "YES" and a checkbox would silently read as not-given.
+ */
+var COL_HELP = {
+  'Priority': 'Call order. 1 = call first, 3 = last. Blank sorts to the bottom.\n' +
+              'Sorts the list in the HQ portal.',
+  'Name': 'First and last. Editing this is safe — rows are matched by id, not name.',
+  'Email': 'Used for endorsement follow-up.',
+  'Phone': 'Any format. The portal reformats it for display and dials it on tap.',
+  'Berkeley': 'Tick ONLY if they live in Berkeley. Berkeley residents are matched\n' +
+              '6:1, so a Berkeley $60 is worth $420 and a non-Berkeley $60 is worth $60.',
+  'Attempt 1': 'Date called, YYYY-MM-DD. Add a space and ✓ if you actually spoke\n' +
+               'to them, e.g. 2026-08-17 ✓. Leave blank for no attempt.',
+  'Reached': 'Filled in automatically when any attempt is marked ✓. Do not edit.',
+  'Gave': 'YES once they have contributed. Leave blank otherwise.',
+  'Gave on': 'Date of the contribution, YYYY-MM-DD.',
+  'Amount': 'Berkeley caps contributions at $60 PER DONOR — not per gift.',
+  'Notes': 'Anything useful on the call. Shows in the portal next to the name.',
+  'Category': 'Mirrors the tab. To recategorise someone, cut the row and paste it\n' +
+              'into the other tab; do not just retype this.',
+  'id (do not edit)': 'Links this row to the HQ portal. Leave BLANK on rows you add —\n' +
+                      'one is generated automatically. Changing it orphans the row.'
+};
+
+function setupSheet_() {
+  var shs = sheets_(), touched = 0;
+  for (var i = 0; i < shs.length; i++) {
+    var sh = shs[i], map = colMap_(sh);
+    var lastCol = sh.getLastColumn();
+    if (!lastCol) continue;
+    var rows = Math.max(sh.getMaxRows() - 1, 1);
+
+    sh.setFrozenRows(1);
+    sh.setFrozenColumns(2);          // keep Priority and Name in view when scrolling
+    var head = sh.getRange(1, 1, 1, lastCol);
+    head.setFontWeight('bold').setBackground('#EFEFEA').setVerticalAlignment('middle');
+    sh.setRowHeight(1, 34);
+
+    // The column note is the label doing the explaining — it is attached to the
+    // header, so hovering any column says what belongs in it.
+    for (var h in COL_HELP) {
+      if (map[h]) sh.getRange(1, map[h]).setNote(COL_HELP[h]);
+    }
+    if (map['Attempt 2'] && map['Attempt 3']) {
+      sh.getRange(1, map['Attempt 2']).setNote(COL_HELP['Attempt 1']);
+      sh.getRange(1, map['Attempt 3']).setNote(COL_HELP['Attempt 1']);
+    }
+
+    if (map['Priority']) {
+      var pv = SpreadsheetApp.newDataValidation()
+        .requireValueInList(['1', '2', '3'], true).setAllowInvalid(true)
+        .setHelpText('1 = call first, 3 = last. Blank is unranked.').build();
+      sh.getRange(2, map['Priority'], rows, 1).setDataValidation(pv)
+        .setHorizontalAlignment('center');
+    }
+    if (map['Berkeley']) {
+      sh.getRange(2, map['Berkeley'], rows, 1).insertCheckboxes();
+    }
+    if (map['Gave']) {
+      var gv = SpreadsheetApp.newDataValidation()
+        .requireValueInList(['YES'], true).setAllowInvalid(true)
+        .setHelpText('YES once they have given; otherwise leave blank.').build();
+      sh.getRange(2, map['Gave'], rows, 1).setDataValidation(gv)
+        .setHorizontalAlignment('center');
+    }
+    if (map['Amount']) {
+      sh.getRange(2, map['Amount'], rows, 1).setNumberFormat('$#,##0.00');
+    }
+    if (map['Notes']) sh.getRange(2, map['Notes'], rows, 1).setWrap(true);
+    if (map[ID_HEADER]) {
+      sh.getRange(1, map[ID_HEADER], rows + 1, 1)
+        .setFontColor('#B0B0B0').setFontSize(8);
+    }
+
+    // Priority 1 is the only thing worth colouring: it is what the list is
+    // worked from. Colouring all three would just be decoration.
+    var rules = [];
+    if (map['Priority']) {
+      var band = sh.getRange(2, 1, rows, lastCol);
+      rules.push(SpreadsheetApp.newConditionalFormatRule()
+        .whenFormulaSatisfied('=$' + colLetter_(map['Priority']) + '2="1"')
+        .setBackground('#FBF3E4').setRanges([band]).build());
+      rules.push(SpreadsheetApp.newConditionalFormatRule()
+        .whenFormulaSatisfied('=$' + colLetter_(map['Priority']) + '2="3"')
+        .setFontColor('#9A9A9A').setRanges([band]).build());
+    }
+    sh.setConditionalFormatRules(rules);
+    touched++;
+  }
+  return touched;
+}
+
+function colLetter_(n) {
+  var s = '';
+  while (n > 0) { var m = (n - 1) % 26; s = String.fromCharCode(65 + m) + s; n = (n - m - 1) / 26; }
+  return s;
+}
+
+function onOpen() {
+  SpreadsheetApp.getUi().createMenu('Call list')
+    .addItem('Format tabs for editing', 'menuSetup')
+    .addToUi();
+}
+
+function menuSetup() {
+  var n = setupSheet_();
+  SpreadsheetApp.getUi().alert('Formatted ' + n + ' tab(s). Hover any column header for what belongs in it.');
+}
+
 function doGet(e) {
   var bad = checkToken_(e && e.parameter && e.parameter.token);
   if (bad) return err_(bad, 'forbidden');
