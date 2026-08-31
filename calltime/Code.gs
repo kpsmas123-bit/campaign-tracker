@@ -18,8 +18,14 @@
 var HEADERS = [
   'Priority', 'Name', 'Email', 'Phone', 'Berkeley',
   'Attempt 1', 'Attempt 2', 'Attempt 3', 'Reached', 'Gave',
-  'Gave on', 'Amount', 'Notes', 'Category', 'id (do not edit)'
+  'Gave on', 'Amount', 'Status', 'Notes', 'Category', 'id (do not edit)'
 ];
+
+// Where a call actually landed. Fundraising and endorsement calls end in
+// different places, so both vocabularies live in one column rather than two
+// half-empty ones.
+var STATUS_MONEY = ['Gave', 'Will think', 'Not now', 'No'];
+var STATUS_ENDORSE = ['Committed', 'Leaning yes', 'Undecided', 'No'];
 var ID_HEADER = 'id (do not edit)';
 var SKIP_TABS = ['READ ME'];
 
@@ -153,6 +159,7 @@ function readAll_() {
         gave: String(r['Gave'] || '').toUpperCase() === 'YES',
         gave_on: isoDate_(r['Gave on']),
         gave_amount: r['Amount'] === '' || r['Amount'] == null ? null : Number(r['Amount']),
+        status: String(r['Status'] || ''),
         notes: String(r['Notes'] || ''),
         category: String(r['Category'] || '')
       });
@@ -248,6 +255,8 @@ var COL_HELP = {
   'Gave': 'YES once they have contributed. Leave blank otherwise.',
   'Gave on': 'Date of the contribution, YYYY-MM-DD.',
   'Amount': 'Berkeley caps contributions at $60 PER DONOR — not per gift.',
+  'Status': 'Where the call landed.\nMoney calls: Gave / Will think / Not now / No.\n' +
+            'Endorsement calls: Committed / Leaning yes / Undecided / No.',
   'Notes': 'Anything useful on the call. Shows in the portal next to the name.',
   'Category': 'Mirrors the tab. To recategorise someone, cut the row and paste it\n' +
               'into the other tab; do not just retype this.',
@@ -255,10 +264,28 @@ var COL_HELP = {
                       'one is generated automatically. Changing it orphans the row.'
 };
 
+/**
+ * Add the Status column if the sheet predates it, immediately left of Notes.
+ *
+ * Everything here addresses columns by header name rather than position, so
+ * inserting one shifts nothing that matters — which is what lets the schema
+ * grow without a migration or a re-paste of the data.
+ */
+function ensureStatusColumn_(sh) {
+  var map = colMap_(sh);
+  if (map['Status']) return false;
+  var at = map['Notes'] || map['Category'] || (sh.getLastColumn() + 1);
+  sh.insertColumnBefore(at);
+  sh.getRange(1, at).setValue('Status');
+  return true;
+}
+
 function setupSheet_() {
   var shs = sheets_(), touched = 0;
   for (var i = 0; i < shs.length; i++) {
-    var sh = shs[i], map = colMap_(sh);
+    var sh = shs[i];
+    ensureStatusColumn_(sh);
+    var map = colMap_(sh);
     var lastCol = sh.getLastColumn();
     if (!lastCol) continue;
     var rows = Math.max(sh.getMaxRows() - 1, 1);
@@ -298,6 +325,16 @@ function setupSheet_() {
     }
     if (map['Amount']) {
       sh.getRange(2, map['Amount'], rows, 1).setNumberFormat('$#,##0.00');
+    }
+    if (map['Status']) {
+      // Both vocabularies in one list: the tab already says which half applies,
+      // and a viewer picking by hand should not be blocked by that.
+      var sv = SpreadsheetApp.newDataValidation()
+        .requireValueInList(STATUS_MONEY.concat(STATUS_ENDORSE.slice(0, 3)), true)
+        .setAllowInvalid(true)
+        .setHelpText('Money: Gave / Will think / Not now / No. ' +
+                     'Endorsement: Committed / Leaning yes / Undecided / No.').build();
+      sh.getRange(2, map['Status'], rows, 1).setDataValidation(sv);
     }
     if (map['Notes']) sh.getRange(2, map['Notes'], rows, 1).setWrap(true);
     if (map[ID_HEADER]) {
@@ -368,48 +405,26 @@ function doPost(e) {
   try {
     if (body.action === 'read') return ok_(readAll_());
 
-    if (body.action === 'update') {
-      var hit = findById_(String(body.id || ''), body.from);
-      if (!hit) return err_('No row with that id.', 'notfound');
-
-      // A category change is a move between tabs, not a cell edit: read the whole
-      // row, append it to the destination, then delete the original. Done in this
-      // order so a failure midway leaves a duplicate rather than losing the row.
-      if (body.tab && body.tab !== hit.sheet.getName()) {
-        var dest = sheetByName_(body.tab);
-        if (!dest) return err_('No tab named ' + body.tab, 'notfound');
-        var width = hit.sheet.getLastColumn();
-        writeFields_(hit.sheet, hit.map, hit.row, body.fields || {});
-        var vals = hit.sheet.getRange(hit.row, 1, 1, width).getValues()[0];
-        dest.appendRow(vals);
-        var dmap = colMap_(dest);
-        if (dmap['Category']) dest.getRange(dest.getLastRow(), dmap['Category']).setValue(body.category || body.tab);
-        hit.sheet.deleteRow(hit.row);
-        return ok_({ ok: true, moved: true, tab: body.tab });
+    // One execution for a whole session's worth of edits. Each op is reported
+    // on individually so a single bad row cannot strand the rest — the caller
+    // clears what succeeded and retries only what did not.
+    if (body.action === 'batch') {
+      var ops = body.ops || [];
+      if (ops.length > 200) return err_('Too many ops in one batch.', 'toobig');
+      var results = [];
+      for (var i = 0; i < ops.length; i++) {
+        try {
+          results.push(applyOp_(ops[i]));
+        } catch (opErr) {
+          results.push({ ok: false, error: String(opErr) });
+        }
       }
-
-      writeFields_(hit.sheet, hit.map, hit.row, body.fields || {});
-      return ok_({ ok: true });
+      return ok_({ ok: true, results: results });
     }
 
-    if (body.action === 'insert') {
-      var sh = sheetByName_(body.tab) || sheets_()[0];
-      if (!sh) return err_('No writable tab.', 'notfound');
-      var map = colMap_(sh);
-      var width = Math.max(sh.getLastColumn(), HEADERS.length);
-      var line = new Array(width).fill('');
-      var f = body.fields || {};
-      for (var h in f) if (map[h]) line[map[h] - 1] = f[h] == null ? '' : f[h];
-      if (map[ID_HEADER]) line[map[ID_HEADER] - 1] = String(body.id || '');
-      sh.appendRow(line);
-      return ok_({ ok: true, id: body.id, tab: sh.getName() });
-    }
-
-    if (body.action === 'delete') {
-      var d = findById_(String(body.id || ''), body.from);
-      if (!d) return ok_({ ok: true, already: true });
-      d.sheet.deleteRow(d.row);
-      return ok_({ ok: true });
+    if (body.action === 'update' || body.action === 'insert' || body.action === 'delete') {
+      var single = applyOp_(body);
+      return single.ok ? ok_(single) : err_(single.error, single.code);
     }
 
     return err_('Unknown action.', 'badrequest');
@@ -418,4 +433,61 @@ function doPost(e) {
   } finally {
     lock.releaseLock();
   }
+}
+
+/** One create/update/delete against the sheet. Shared by batch and single. */
+function applyOp_(body) {
+  if (body.action === 'update') {
+    var hit = findById_(String(body.id || ''), body.from);
+    if (!hit) return { ok: false, error: 'No row with that id.', code: 'notfound', id: body.id };
+
+    // A category change is a move between tabs, not a cell edit: write the new
+    // values, read the finished row, append it to the destination, then delete
+    // the original — in that order, so a failure midway leaves a duplicate
+    // rather than losing the row.
+    if (body.tab && body.tab !== hit.sheet.getName()) {
+      var dest = sheetByName_(body.tab);
+      if (!dest) return { ok: false, error: 'No tab named ' + body.tab, code: 'notfound', id: body.id };
+      var width = hit.sheet.getLastColumn();
+      writeFields_(hit.sheet, hit.map, hit.row, body.fields || {});
+      var vals = hit.sheet.getRange(hit.row, 1, 1, width).getValues()[0];
+      dest.appendRow(vals);
+      var dmap = colMap_(dest);
+      if (dmap['Category']) dest.getRange(dest.getLastRow(), dmap['Category']).setValue(body.category || body.tab);
+      hit.sheet.deleteRow(hit.row);
+      return { ok: true, moved: true, tab: body.tab, id: body.id };
+    }
+
+    writeFields_(hit.sheet, hit.map, hit.row, body.fields || {});
+    return { ok: true, id: body.id };
+  }
+
+  if (body.action === 'insert') {
+    // An insert replayed after a dropped connection must not add the person
+    // twice, so an id that is already present is treated as an update.
+    var existing = findById_(String(body.id || ''), body.tab);
+    if (existing) {
+      writeFields_(existing.sheet, existing.map, existing.row, body.fields || {});
+      return { ok: true, id: body.id, deduped: true };
+    }
+    var sh = sheetByName_(body.tab) || sheets_()[0];
+    if (!sh) return { ok: false, error: 'No writable tab.', code: 'notfound', id: body.id };
+    var map = colMap_(sh);
+    var width = Math.max(sh.getLastColumn(), HEADERS.length);
+    var line = new Array(width).fill('');
+    var f = body.fields || {};
+    for (var h in f) if (map[h]) line[map[h] - 1] = f[h] == null ? '' : f[h];
+    if (map[ID_HEADER]) line[map[ID_HEADER] - 1] = String(body.id || '');
+    sh.appendRow(line);
+    return { ok: true, id: body.id, tab: sh.getName() };
+  }
+
+  if (body.action === 'delete') {
+    var d = findById_(String(body.id || ''), body.from);
+    if (!d) return { ok: true, already: true, id: body.id };
+    d.sheet.deleteRow(d.row);
+    return { ok: true, id: body.id };
+  }
+
+  return { ok: false, error: 'Unknown action.', code: 'badrequest', id: body.id };
 }

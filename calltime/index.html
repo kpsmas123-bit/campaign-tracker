@@ -113,6 +113,129 @@
   .save-indicator.error  { color: var(--priority-high); }
   @keyframes pulse { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:.4;transform:scale(.7);} }
 
+  /* --- focus view -------------------------------------------------------
+     A sheet over the list rather than a separate page: the filter and position
+     behind it stay exactly as they were when the session ends. */
+  .focus {
+    position: fixed; inset: 0; z-index: 40; overflow-y: auto;
+    background: var(--ground); padding: 24px 20px 60px;
+  }
+  .focus[hidden] { display: none; }
+  .focus-card { max-width: 620px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+  .focus-top { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+  .focus-prog {
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 10px;
+    letter-spacing: 0.07em; text-transform: uppercase; color: var(--text-secondary);
+  }
+  .focus-x {
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 10px;
+    letter-spacing: 0.07em; text-transform: uppercase; color: var(--text-tertiary);
+    background: none; border: none; cursor: pointer; padding: 2px 0;
+  }
+  .focus-x:hover { color: var(--text); }
+  .focus-bar { height: 2px; background: var(--border-light); border-radius: 2px; overflow: hidden; margin-top: -12px; }
+  .focus-bar > div { height: 100%; background: var(--priority-low); transition: width .2s; }
+
+  .focus-name { display: flex; align-items: flex-start; gap: 12px; }
+  .fname { font-family: Georgia, 'Times New Roman', serif; font-size: 34px; line-height: 1.1; }
+  .fpri {
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11px;
+    letter-spacing: 0.06em; border-radius: 2px; padding: 3px 7px; margin-top: 7px;
+    border: 1px solid var(--border); color: var(--text-tertiary);
+  }
+  .fpri.p1 { color: var(--priority-medium); border-color: var(--priority-medium);
+             background: color-mix(in srgb, var(--priority-medium) 12%, transparent); }
+
+  /* The dominant target on the screen: this is the thing you press. */
+  .focus-tel {
+    display: flex; align-items: center; justify-content: center; min-height: 64px;
+    border: 1px solid var(--accent); background: color-mix(in srgb, var(--accent) 6%, transparent);
+    border-radius: 4px; text-decoration: none; color: var(--accent);
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 28px; letter-spacing: .02em;
+  }
+  .focus-tel.none { border-style: dashed; border-color: var(--border); color: var(--text-tertiary); font-size: 15px; }
+  .focus-mail { font-size: 13px; color: var(--text-secondary); text-decoration: none; margin-top: -12px; }
+  .focus-mail:hover { color: var(--accent); }
+
+  .fblock { display: flex; flex-direction: column; gap: 6px; }
+  .flabel {
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 10px;
+    letter-spacing: 0.07em; text-transform: uppercase; color: var(--text-secondary);
+  }
+  .fgrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .fask, .fside { border-left: 2px solid var(--priority-low); padding: 2px 0 2px 11px; font-size: 14px; }
+  .fside { border-left-color: var(--border); color: var(--text-secondary); }
+  .fside.on { border-left-color: var(--priority-low); color: var(--text); }
+  .fside b, .fask b { font-weight: 600; }
+
+  .fnotes {
+    font-family: inherit; font-size: 14px; line-height: 1.55; color: var(--text);
+    background: var(--surface); border: 1px solid var(--border); border-radius: 3px;
+    padding: 11px 13px; width: 100%; resize: vertical; outline: none;
+  }
+  .fnotes:focus { border-color: var(--accent); }
+  .fwho { background: transparent; }
+
+  .fatts { display: flex; align-items: center; gap: 8px; }
+  .fatt {
+    width: 74px; height: 44px; border-radius: 3px; cursor: pointer;
+    border: 1px dashed var(--border); background: none;
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11px; color: var(--text-tertiary);
+  }
+  .fatt.done { border-style: solid; border-color: var(--priority-high);
+               background: var(--priority-high-bg); color: var(--priority-high); }
+  .fatt.reached { border-color: var(--priority-low); background: var(--priority-low-bg); color: var(--priority-low); }
+  .fatt-note { font-size: 13px; color: var(--text-tertiary); margin-left: 4px; }
+
+  .fouts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px; }
+  .fouts.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .fout {
+    min-height: 52px; border: 1px solid var(--border); border-radius: 3px;
+    background: var(--surface); cursor: pointer;
+    font-family: inherit; font-size: 14px; color: var(--text);
+  }
+  .fout:hover { border-color: var(--accent); }
+  .fout.on { border-color: var(--priority-low); background: var(--priority-low); color: #FFF; font-weight: 500; }
+  .fstage { display: flex; flex-direction: column; gap: 9px;
+            border-left: 2px solid var(--priority-low); padding: 4px 0 2px 14px; margin-top: 10px; }
+  .fstage[hidden] { display: none; }
+  .famt { display: flex; align-items: center; gap: 2px; border: 1px solid var(--priority-low);
+          background: var(--surface); border-radius: 3px; min-height: 46px; padding: 0 14px;
+          width: 140px; font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 20px; }
+  .famt[hidden] { display: none; }
+  .famt span { color: var(--text-secondary); }
+  .famt input { font-family: inherit; font-size: 20px; color: var(--text); background: none;
+                border: none; outline: none; width: 100%; }
+
+  .focus-foot { display: flex; align-items: center; justify-content: space-between;
+                gap: 12px; border-top: 1px solid var(--border-light); padding-top: 16px; }
+  .fskip { font-family: inherit; font-size: 13px; color: var(--text-secondary);
+           background: none; border: none; cursor: pointer; padding: 6px 2px; }
+  .fskip:hover { color: var(--text); }
+  .fnext { min-height: 44px; padding: 0 20px; border: 1px solid var(--accent); background: var(--accent);
+           color: #FFF; border-radius: 3px; cursor: pointer; font-family: inherit;
+           font-size: 14px; font-weight: 500; }
+  .fnext:hover { background: var(--accent-hover); }
+
+  @media (max-width: 560px) {
+    .fgrid { grid-template-columns: 1fr; }
+    .fouts, .fouts.four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .fname { font-size: 28px; }
+  }
+
+  .start-btn {
+    font-family: inherit; font-size: 11px; font-weight: 500; color: #FFF;
+    background: var(--accent); border: 1px solid var(--accent); border-radius: 4px;
+    padding: 4px 10px; cursor: pointer; white-space: nowrap;
+  }
+  .start-btn:hover { background: var(--accent-hover); }
+  .row-open {
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 13px;
+    color: var(--text-tertiary); background: none; border: none;
+    cursor: pointer; padding: 0; line-height: 1;
+  }
+  .row-open:hover { color: var(--accent); }
+
   .setup-banner {
     background: var(--priority-high-bg); border: 1px solid var(--priority-high);
     border-radius: 3px; padding: 12px 16px; margin-bottom: 20px;
@@ -226,7 +349,7 @@
 
   .thead, .row {
     display: grid;
-    grid-template-columns: 14px 1fr 150px 132px 34px 34px 34px 74px 1fr 24px;
+    grid-template-columns: 14px 1fr 150px 132px 34px 34px 34px 74px 1fr 26px 24px;
     gap: 10px; align-items: center;
   }
   .thead {
@@ -309,7 +432,7 @@
 
   @media (max-width: 820px) {
     .app { padding: 24px 12px 60px; }
-    .thead, .row { grid-template-columns: 14px 1fr 34px 34px 34px 60px 24px; }
+    .thead, .row { grid-template-columns: 14px 1fr 34px 34px 34px 60px 26px 24px; }
     .thead .c-contact, .thead .c-notes, .thead .c-tags,
     .row .contact, .row .notes, .row .tag-cell { display: none; }
   }
@@ -341,6 +464,7 @@
   <div class="header">
     <div class="page-title">Call time</div>
     <button class="sync-btn" id="syncBtn" title="Re-read the spreadsheet">Refresh from sheet</button>
+    <button class="start-btn" id="startBtn" title="Work this list one at a time">Start calling &rarr;</button>
     <div class="save-indicator" id="saveIndicator"><span class="save-dot"></span><span class="save-label"></span></div>
   </div>
 
@@ -369,6 +493,72 @@
   </div>
   <div id="rows"></div>
   <div class="add-row"><button class="add-btn" id="addBtn">+ Add contact</button></div>
+</div>
+
+<!-- Focus view. One person at a time, for use while actually on the phone; the
+     table behind it is for planning a session, not for working through one. -->
+<div class="focus" id="focus" hidden>
+  <div class="focus-card">
+    <div class="focus-top">
+      <div class="focus-prog" id="fProg"></div>
+      <button class="focus-x" id="fClose" title="Back to the list (Esc)">Close</button>
+    </div>
+    <div class="focus-bar"><div id="fBar"></div></div>
+
+    <div class="focus-name">
+      <span class="fpri" id="fPri"></span>
+      <div>
+        <div class="fname" id="fName"></div>
+        <span class="tag-chip" id="fTag"></span>
+      </div>
+    </div>
+
+    <a class="focus-tel" id="fTel"></a>
+    <a class="focus-mail" id="fMail"></a>
+
+    <div class="fblock">
+      <div class="flabel">Who they are</div>
+      <textarea class="fnotes fwho" id="fWho" rows="2"></textarea>
+    </div>
+
+    <div class="fgrid">
+      <div class="fblock">
+        <div class="flabel">The ask</div>
+        <div class="fask" id="fAsk"></div>
+      </div>
+      <div class="fblock">
+        <div class="flabel" id="fSideLabel"></div>
+        <div class="fside" id="fSide"></div>
+      </div>
+    </div>
+
+    <div class="fblock">
+      <div class="flabel">Call history</div>
+      <div class="fatts" id="fAtts"></div>
+    </div>
+
+    <div class="fblock">
+      <div class="flabel">How did it go</div>
+      <div class="fouts" id="fOut1"></div>
+      <div class="fstage" id="fStage" hidden>
+        <div class="flabel">And the outcome</div>
+        <div class="fouts four" id="fOut2"></div>
+        <div class="famt" id="fAmt" hidden>
+          <span>$</span><input id="fAmtIn" type="number" min="0" max="60" step="1" inputmode="numeric">
+        </div>
+      </div>
+    </div>
+
+    <div class="fblock">
+      <div class="flabel">Notes</div>
+      <textarea class="fnotes" id="fNote" rows="3" placeholder="What did they say?"></textarea>
+    </div>
+
+    <div class="focus-foot">
+      <button class="fskip" id="fSkip">Skip</button>
+      <button class="fnext" id="fNext">Next &rarr;</button>
+    </div>
+  </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
@@ -428,16 +618,104 @@
     return j;
   }
 
-  // Writes go one at a time. Clicking an attempt box three times fires three
-  // saves; sent in parallel they race for the script lock in Apps Script and the
-  // losers can time out, so the second write is held until the first returns.
-  // Order matters too — these are read-modify-write on the same row.
-  var writeChain = Promise.resolve();
-  function enqueue(fn) {
-    var run = writeChain.then(fn, fn);   // run whether or not the last one failed
-    writeChain = run.then(function () {}, function () {});
-    return run;
+  // --- the write queue -----------------------------------------------------
+  // Every edit is queued rather than sent, for three reasons that only show up
+  // under real use: a round trip to Apps Script costs seconds, so waiting on
+  // each one makes a call session crawl; a dropped connection would otherwise
+  // lose the click outright, because the UI has already moved on; and rapid
+  // edits sent in parallel race for the script lock and time each other out.
+  //
+  // The queue coalesces per row, persists across reloads, and retries with
+  // backoff. Nothing is lost because a phone locked or wifi blipped.
+  var QKEY = 'calltimeQueue.v1';
+  var queue = [];
+  var flushTimer = null, inFlight = false, backoff = 0;
+
+  function saveQueue() {
+    try { localStorage.setItem(QKEY, JSON.stringify(queue)); } catch (e) { /* private mode */ }
   }
+  function loadQueue() {
+    try {
+      var raw = localStorage.getItem(QKEY);
+      var q = raw ? JSON.parse(raw) : [];
+      if (Array.isArray(q)) queue = q;
+    } catch (e) { queue = []; }
+  }
+
+  function pendingNote() {
+    if (!queue.length) return;
+    setSave('saving', queue.length === 1 ? '1 unsaved' : queue.length + ' unsaved');
+  }
+
+  // Merge into a pending write for the same row instead of appending. Logging an
+  // attempt, marking the outcome and typing a note become ONE write rather than
+  // three, which is where most of the speed comes from.
+  function enqueueOp(op) {
+    if (op.action === 'update') {
+      for (var i = queue.length - 1; i >= 0; i--) {
+        var q = queue[i];
+        if (q.id !== op.id) continue;
+        if (q.action === 'update' || q.action === 'insert') {
+          for (var k in op.fields) q.fields[k] = op.fields[k];
+          if (op.tab) { q.tab = op.tab; q.category = op.category; }
+          if (op.from && !q.from) q.from = op.from;
+          saveQueue(); scheduleFlush(); return;
+        }
+        break;   // a delete sits between: do not merge across it
+      }
+    }
+    if (op.action === 'delete') {
+      queue = queue.filter(function (q) { return q.id !== op.id; });
+    }
+    queue.push(op); saveQueue(); scheduleFlush();
+  }
+
+  function scheduleFlush(delay) {
+    if (flushTimer || inFlight || !queue.length) return;
+    flushTimer = setTimeout(flush, delay == null ? 700 : delay);
+  }
+
+  async function flush() {
+    flushTimer = null;
+    if (inFlight || !queue.length || !SHEET.live) return;
+    inFlight = true;
+    var batch = queue.slice(0, 50);
+    var ok = false;
+    try {
+      var res = await sheetCall('POST', { action: 'batch', ops: batch });
+      ok = true;
+      // Drop exactly what was sent. Anything queued while in flight stays.
+      queue = queue.slice(batch.length);
+      saveQueue();
+      backoff = 0;
+      var failed = (res.results || []).filter(function (r) { return r && r.ok === false; });
+      if (failed.length) {
+        setSave('error', failed.length + ' row(s) rejected');
+        console.warn('sheet rejected', failed);
+      } else if (queue.length) {
+        pendingNote();
+      } else {
+        setSave('saved');
+      }
+    } catch (e) {
+      // Keep the batch and come back for it. Doubling from 2s to a 30s ceiling
+      // rides out a tunnel or a flaky hotspot without hammering the script.
+      backoff = Math.min(backoff ? backoff * 2 : 2000, 30000);
+      setSave('error', 'Offline — ' + queue.length + ' unsaved, retrying');
+    } finally {
+      inFlight = false;
+    }
+    if (queue.length) scheduleFlush(ok ? 120 : backoff);
+  }
+
+  // A locked phone or a closed tab should not strand the queue: try once more on
+  // the way out, and again as soon as the page is looked at.
+  document.addEventListener('visibilitychange', function () {
+    if (document.visibilityState === 'visible') scheduleFlush(0);
+  });
+  window.addEventListener('beforeunload', function (e) {
+    if (queue.length) { e.preventDefault(); e.returnValue = ''; }
+  });
 
   // Sheet dates carry no time of day. Anchoring at local noon keeps a date from
   // sliding to the previous day once it is rendered back in Pacific time.
@@ -467,6 +745,7 @@
       gave_amount: r.gave_amount == null ? null : r.gave_amount,
       tags: key ? [key] : [],
       notes: r.notes || '',
+      status: r.status || '',
       priority: String(r.priority || ''),
       sort_order: idx,
       // Which tab this row was read from, so a write can say where to look
@@ -493,6 +772,7 @@
     if ('email' in fields) out['Email'] = fields.email;
     if ('phone' in fields) out['Phone'] = fields.phone;
     if ('notes' in fields) out['Notes'] = fields.notes;
+    if ('status' in fields) out['Status'] = fields.status;
     if ('berkeley' in fields) out['Berkeley'] = fields.berkeley ? 'TRUE' : 'FALSE';
     if ('gave' in fields) out['Gave'] = fields.gave ? 'YES' : '';
     if ('gave_on' in fields) out['Gave on'] = fields.gave_on || '';
@@ -687,28 +967,22 @@
 
   async function patch(id, fields) {
     if (SHEET.live) {
-      setSave('saving');
       var c = contacts.filter(function (x) { return x.id === id; })[0];
-      var body = { action: 'update', id: id, fields: toSheetFields(fields, c) };
-      if (c && c._tab) body.from = c._tab;
-      // A category change is a move between tabs, so the destination has to
-      // travel with the write. An unknown tag has no tab to move to; the
-      // Category cell still updates, the row just stays where it is.
-      var moveTo = null;
+      var op = { action: 'update', id: id, fields: toSheetFields(fields, c) };
+      if (c && c._tab) op.from = c._tab;
+      // A category change is a move between tabs, so the destination travels
+      // with the write. An unknown tag has no tab to move to; the Category cell
+      // still updates and the row simply stays where it is.
       if ('tags' in fields) {
-        moveTo = keyToTab((fields.tags && fields.tags[0]) || '');
-        if (moveTo) { body.tab = moveTo; body.category = body.fields['Category']; }
+        var moveTo = keyToTab((fields.tags && fields.tags[0]) || '');
+        if (moveTo) {
+          op.tab = moveTo;
+          op.category = op.fields['Category'];
+          if (c) c._tab = moveTo;   // so the next write hints at the new tab
+        }
       }
-      try {
-        await enqueue(function () { return sheetCall('POST', body); });
-      } catch (e) {
-        setSave('error', e.message);
-        return false;
-      }
-      // Track where the row now lives, so the next write's tab hint is right
-      // rather than pointing at the tab it just left.
-      if (c && moveTo) c._tab = moveTo;
-      setSave('saved');
+      enqueueOp(op);
+      pendingNote();
       mirror(id, fields);
       return true;
     }
@@ -844,6 +1118,7 @@
       setSetupNotice('');
       paint();
       reconcileMirror();
+      scheduleFlush(0);   // SHEET.live is only true now; drain anything held over
       if (j.minted) {
         setSave('saved', j.minted + ' new from sheet');
       }
@@ -914,15 +1189,9 @@
       // while filtered to Endorsement ACD and finding them in Untagged is a
       // small papercut that costs a drag in the sheet to undo.
       var tab = keyToTab(tagFilter) || 'Untagged';
-      try {
-        await enqueue(function () {
-          return sheetCall('POST', {
-            action: 'insert', id: id, tab: tab,
-            fields: { 'Name': '', 'Berkeley': 'FALSE', 'Category': tab }
-          });
-        });
-      } catch (e) { setSave('error', e.message); return; }
-      setSave('saved');
+      enqueueOp({ action: 'insert', id: id, tab: tab,
+                  fields: { 'Name': '', 'Berkeley': 'FALSE', 'Category': tab } });
+      pendingNote();
       var fresh = {
         id: id, name: '', email: '', phone: '', berkeley: false, attempts: [],
         gave: false, gave_on: null, gave_amount: null,
@@ -958,12 +1227,8 @@
     setSave('saving');
 
     if (SHEET.live) {
-      try {
-        await enqueue(function () {
-          return sheetCall('POST', { action: 'delete', id: c.id, from: c._tab });
-        });
-      } catch (e) { setSave('error', e.message); return; }
-      setSave('saved');
+      enqueueOp({ action: 'delete', id: c.id, from: c._tab });
+      pendingNote();
       sb.from('call_contacts').delete().eq('id', c.id).then(function (r) {
         if (r && r.error) console.warn('mirror delete failed', r.error.message);
       });
@@ -1035,6 +1300,7 @@
       nm.addEventListener('change', function () { c.name = nm.value.trim(); patch(c.id, { name: c.name }); });
       row.appendChild(nm);
 
+
       // contact — tel: and mailto: so a click starts the call
       var ct = el('div', 'contact');
       if (c.phone) {
@@ -1096,6 +1362,13 @@
       nt.addEventListener('change', function () { c.notes = nt.value.trim(); patch(c.id, { notes: c.notes }); });
       row.appendChild(nt);
 
+      // The way into the focus view. Trailing, so it reads as "go work this
+      // one" rather than competing with the inline edits to its left.
+      var open = el('button', 'row-open', '\u2192');
+      open.title = 'Call ' + (c.name || 'this contact');
+      open.addEventListener('click', function () { enterFocus(c); });
+      row.appendChild(open);
+
       var d = el('button', 'del', '×');
       d.title = 'Remove';
       d.addEventListener('click', function () { removeContact(c); });
@@ -1108,6 +1381,172 @@
   // kind 'info' is for a passing state like "loading the spreadsheet" — the red
   // treatment is reserved for something actually being wrong, so that it keeps
   // meaning something when it does appear.
+  // --- focus view ---------------------------------------------------------
+  // A money ask and an endorsement ask are different calls. The card renders
+  // whichever the contact's category implies, so nothing about dollars ever
+  // appears on a call that is not about dollars.
+  var STATUS_MONEY = ['Gave', 'Will think', 'Not now', 'No'];
+  var STATUS_ENDORSE = ['Committed', 'Leaning yes', 'Undecided', 'No'];
+  var focusList = [], focusIdx = -1;
+
+  function isMoneyCall(c) {
+    var k = (tagsOf(c)[0] || '');
+    return k.indexOf('fundraise') === 0 || k.indexOf('house_party') === 0;
+  }
+
+  function currentList() {
+    var f = FILTERS.filter(function (x) { return x.k === filter; })[0];
+    return contacts.filter(f.fn).filter(function (c) {
+      return !tagFilter || tagsOf(c).indexOf(tagFilter) >= 0;
+    });
+  }
+
+  function enterFocus(c) {
+    focusList = currentList();
+    focusIdx = focusList.indexOf(c);
+    if (focusIdx < 0) { focusList = [c]; focusIdx = 0; }
+    document.getElementById('focus').hidden = false;
+    document.body.style.overflow = 'hidden';
+    renderFocus();
+  }
+  function exitFocus() {
+    document.getElementById('focus').hidden = true;
+    document.body.style.overflow = '';
+    focusIdx = -1;
+    paint();
+  }
+  function focusNext() {
+    if (focusIdx + 1 >= focusList.length) { exitFocus(); return; }
+    focusIdx++; renderFocus();
+  }
+
+  function el2(id) { return document.getElementById(id); }
+
+  function renderFocus() {
+    var c = focusList[focusIdx];
+    if (!c) { exitFocus(); return; }
+    var money = isMoneyCall(c);
+
+    var d = tagsOf(c).length ? tagDef(tagsOf(c)[0]) : null;
+    el2('fProg').textContent = (focusIdx + 1) + ' of ' + focusList.length +
+      (d ? ' \u00B7 ' + d.label : '');
+    el2('fBar').style.width = Math.round(((focusIdx + 1) / focusList.length) * 100) + '%';
+
+    var pri = el2('fPri');
+    pri.textContent = c.priority || '\u2013';
+    pri.className = 'fpri' + (c.priority === '1' ? ' p1' : '');
+    el2('fName').textContent = c.name || 'Unnamed';
+
+    var tag = el2('fTag');
+    if (d) { tag.textContent = d.label; tag.style.setProperty('--tc', d.color); tag.hidden = false; }
+    else { tag.hidden = true; }
+
+    var tel = el2('fTel');
+    if (c.phone) {
+      tel.textContent = fmtPhone(c.phone);
+      tel.href = 'tel:' + String(c.phone).replace(/[^\d+]/g, '');
+      tel.className = 'focus-tel';
+    } else {
+      tel.textContent = 'No phone number'; tel.removeAttribute('href');
+      tel.className = 'focus-tel none';
+    }
+    var mail = el2('fMail');
+    mail.textContent = c.email || '';
+    mail.href = c.email ? 'mailto:' + c.email : '';
+    mail.hidden = !c.email;
+
+    el2('fWho').value = c.notes || '';
+
+    // The ask, and the one fact worth saying alongside it.
+    el2('fAsk').innerHTML = money
+      ? '<b>$60 maximum</b> \u00B7 per donor'
+      : '<b>Endorsement vote</b>';
+    var sideL = el2('fSideLabel'), side = el2('fSide');
+    if (money) {
+      sideL.textContent = 'Berkeley';
+      side.className = 'fside' + (c.berkeley ? ' on' : '');
+      side.innerHTML = c.berkeley
+        ? '<b>Berkeley resident</b> \u00B7 matched 6:1 \u00B7 <b>$420</b>'
+        : 'Not set \u00B7 matched 6:1 if they are';
+    } else {
+      sideL.textContent = 'Seat';
+      side.className = 'fside on';
+      // The note already carries the seat; show its first segment rather than
+      // inventing a field the sheet does not have.
+      side.textContent = (c.notes || '').split(' \u00B7 ').slice(0, 3).join(' \u00B7 ') || '\u2014';
+    }
+
+    // history
+    var wrap = el2('fAtts');
+    wrap.textContent = '';
+    for (var i = 0; i < 3; i++) {
+      (function (idx) {
+        var a = attemptsOf(c)[idx];
+        var b = el('button', 'fatt' + (a ? (a.reached ? ' done reached' : ' done') : ''));
+        b.textContent = a ? fmtWhen(a.at) : '+';
+        b.addEventListener('click', function () {
+          cycleAttempt(c, idx).then(renderFocus);
+        });
+        wrap.appendChild(b);
+      })(i);
+    }
+    var n = attemptsOf(c).filter(Boolean).length;
+    wrap.appendChild(el('span', 'fatt-note', n ? (n === 1 ? 'One attempt' : n + ' attempts') : 'No attempts yet'));
+
+    // first stage
+    var o1 = el2('fOut1');
+    o1.textContent = '';
+    [['No answer', false], ['Left message', false], ['Talked', true]].forEach(function (pair) {
+      var b = el('button', 'fout' + (pair[1] && c.status ? ' on' : ''), pair[0]);
+      b.addEventListener('click', function () { logOutcome(c, pair[0], pair[1]); });
+      o1.appendChild(b);
+    });
+
+    // second stage — only once the call actually connected
+    var stage = el2('fStage');
+    var reached = attemptsOf(c).some(function (a) { return a && a.reached; });
+    stage.hidden = !reached;
+    var o2 = el2('fOut2');
+    o2.textContent = '';
+    (money ? STATUS_MONEY : STATUS_ENDORSE).forEach(function (label) {
+      var b = el('button', 'fout' + (c.status === label ? ' on' : ''), label);
+      b.addEventListener('click', function () { setStatus(c, label, money); });
+      o2.appendChild(b);
+    });
+    var amt = el2('fAmt');
+    amt.hidden = !(money && c.status === 'Gave');
+    el2('fAmtIn').value = c.gave_amount == null ? '' : c.gave_amount;
+
+    el2('fNote').value = c.notes || '';
+  }
+
+  // "Talked" stamps an attempt as reached; the other two stamp it as tried.
+  function logOutcome(c, label, reached) {
+    var a = attemptsOf(c).slice();
+    var idx = a.filter(Boolean).length;
+    if (idx > 2) idx = 2;
+    a[idx] = { at: new Date().toISOString(), reached: !!reached };
+    c.attempts = a;
+    if (!reached && label === 'Left message') c.notes = c.notes;   // no note change
+    patch(c.id, { attempts: a });
+    renderFocus();
+  }
+
+  function setStatus(c, label, money) {
+    c.status = (c.status === label) ? '' : label;
+    var fields = { status: c.status };
+    if (money) {
+      var gave = c.status === 'Gave';
+      if (gave !== c.gave) {
+        c.gave = gave;
+        c.gave_on = gave ? new Date().toISOString().slice(0, 10) : null;
+        fields.gave = c.gave; fields.gave_on = c.gave_on;
+      }
+    }
+    patch(c.id, fields);
+    renderFocus();
+  }
+
   function setSetupNotice(msg, kind) {
     var box = document.getElementById('setupNotice');
     box.textContent = '';
@@ -1141,10 +1580,52 @@
     paint();
   }
 
+  // Anything unsent from a previous session comes back before the first flush,
+  // so a phone that died mid-call picks up exactly where it stopped.
+  loadQueue();
+  if (queue.length) pendingNote();
+
   var legend = document.getElementById('legend');
   if (localStorage.getItem('calltimeKey') === 'open') legend.open = true;
   legend.addEventListener('toggle', function () {
     localStorage.setItem('calltimeKey', legend.open ? 'open' : 'closed');
+  });
+
+  // --- focus wiring ---
+  document.getElementById('fClose').addEventListener('click', exitFocus);
+  document.getElementById('fNext').addEventListener('click', focusNext);
+  document.getElementById('fSkip').addEventListener('click', focusNext);
+  document.addEventListener('keydown', function (e) {
+    if (document.getElementById('focus').hidden) return;
+    if (e.key === 'Escape') exitFocus();
+    // Enter advances, but not while someone is mid-sentence in a note.
+    if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) focusNext();
+  });
+  // Notes and the who-they-are field are the same cell; both write on blur so a
+  // half-typed thought is never queued.
+  ['fNote', 'fWho'].forEach(function (id) {
+    document.getElementById(id).addEventListener('change', function () {
+      var c = focusList[focusIdx];
+      if (!c) return;
+      c.notes = this.value.trim();
+      document.getElementById(id === 'fNote' ? 'fWho' : 'fNote').value = c.notes;
+      patch(c.id, { notes: c.notes });
+    });
+  });
+  document.getElementById('fAmtIn').addEventListener('change', function () {
+    var c = focusList[focusIdx];
+    if (!c) return;
+    var v = this.value === '' ? null : Math.max(0, Math.min(60, Number(this.value)));
+    this.value = v == null ? '' : v;
+    c.gave_amount = v;
+    patch(c.id, { gave_amount: v });
+  });
+
+  var startBtn = document.getElementById('startBtn');
+  startBtn.addEventListener('click', function () {
+    var list = currentList();
+    if (!list.length) { setSave('error', 'Nothing to call'); return; }
+    enterFocus(list[0]);
   });
 
   document.getElementById('addBtn').addEventListener('click', addContact);
