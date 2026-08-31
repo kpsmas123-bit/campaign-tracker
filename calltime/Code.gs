@@ -90,9 +90,52 @@ function isoDate_(v) {
   return String(v == null ? '' : v).trim();
 }
 
+/**
+ * Give every named row an id, and break duplicate ids apart.
+ *
+ * This is what makes bulk upload work. Rows pasted into the sheet by hand have
+ * no id, and the portal keys everything by id — without one they were read and
+ * then silently dropped, so 200 pasted contacts looked like nothing happened.
+ * Minting here, at the moment the sheet is read, means paste-and-refresh just
+ * works and no other component has to know.
+ *
+ * Duplicates matter as much as blanks: copying a filled row in the sheet copies
+ * its id too, and two rows sharing an id means an edit to one silently lands on
+ * whichever came first. The second copy gets a fresh id instead.
+ *
+ * `seen` is shared across tabs so a row copied from one tab to another is
+ * caught. One batched write per tab, and none at all when nothing changed.
+ */
+function ensureIds_(sh, seen) {
+  var map = colMap_(sh);
+  var idCol = map[ID_HEADER], nameCol = map['Name'];
+  if (!idCol || !nameCol) return 0;
+  var lastRow = sh.getLastRow();
+  if (lastRow < 2) return 0;
+
+  var ids = sh.getRange(2, idCol, lastRow - 1, 1).getValues();
+  var names = sh.getRange(2, nameCol, lastRow - 1, 1).getValues();
+  var changed = 0;
+  for (var i = 0; i < ids.length; i++) {
+    var id = String(ids[i][0] || '').trim();
+    var named = String(names[i][0] || '').trim();
+    if (!named && !id) continue;          // a genuinely blank row: leave it be
+    if (!id || seen[id]) {
+      id = Utilities.getUuid();
+      ids[i][0] = id;
+      changed++;
+    }
+    seen[id] = true;
+  }
+  if (changed) sh.getRange(2, idCol, ids.length, 1).setValues(ids);
+  return changed;
+}
+
 function readAll_() {
   var tabs = [];
   var shs = sheets_();
+  var seen = {}, minted = 0;
+  for (var m = 0; m < shs.length; m++) minted += ensureIds_(shs[m], seen);
   for (var i = 0; i < shs.length; i++) {
     var sh = shs[i];
     var got = rowsOf_(sh);
@@ -116,7 +159,9 @@ function readAll_() {
     }
     tabs.push({ tab: sh.getName(), rows: out });
   }
-  return { ok: true, tabs: tabs, at: new Date().toISOString() };
+  // `minted` lets the portal report "12 new contacts picked up from the sheet"
+  // rather than leaving an upload to be confirmed by counting rows.
+  return { ok: true, tabs: tabs, minted: minted, at: new Date().toISOString() };
 }
 
 function scanFor_(sh, id) {

@@ -118,6 +118,10 @@
     border-radius: 3px; padding: 12px 16px; margin-bottom: 20px;
     font-size: 13px; line-height: 1.6;
   }
+  .setup-banner.info {
+    background: transparent; border-color: var(--border);
+    color: var(--text-secondary); padding: 7px 12px; margin-bottom: 14px;
+  }
 
   .filters { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 18px; }
   .fbtn {
@@ -741,8 +745,7 @@
     });
   }
 
-  async function loadFromSheet() {
-    var j = await sheetCall('GET');
+  function applySheet(j) {
     var rows = [], idx = 0;
     SHEET.tabByKey = {};
     (j.tabs || []).forEach(function (t) {
@@ -777,21 +780,85 @@
     SHEET.live = false;
   }
 
-  async function load() {
+  // Bring the mirror in line with the sheet, which is the source of truth.
+  // Without this the two drift apart in both directions: someone deleted in the
+  // sheet by hand lingers in Supabase and comes back the next time the fallback
+  // is used, and someone pasted in never gets there at all. Best-effort and
+  // never awaited — the sheet is already on screen by this point.
+  function reconcileMirror() {
+    sb.from('call_contacts').select('id').then(function (r) {
+      if (!r || r.error || !r.data) return;
+      var live = {}, have = {};
+      contacts.forEach(function (c) { live[c.id] = c; });
+      r.data.forEach(function (x) { have[x.id] = true; });
+
+      var stale = r.data.filter(function (x) { return !live[x.id]; }).map(function (x) { return x.id; });
+      if (stale.length) sb.from('call_contacts').delete().in('id', stale).then(function () {});
+
+      var missing = contacts.filter(function (c) { return !have[c.id]; }).map(function (c) {
+        return {
+          id: c.id, name: c.name, email: c.email, phone: c.phone,
+          berkeley: c.berkeley, attempts: c.attempts, gave: c.gave,
+          gave_on: c.gave_on, gave_amount: c.gave_amount, tags: c.tags,
+          notes: c.notes, sort_order: c.sort_order
+        };
+      });
+      if (missing.length) sb.from('call_contacts').insert(missing).then(function () {});
+      if (stale.length || missing.length) {
+        console.info('mirror reconciled: +' + missing.length + ' -' + stale.length);
+      }
+    });
+  }
+
+  /**
+   * The sheet is authoritative but slow — a full read measures around four
+   * seconds. Rather than hold a blank page for that, the mirror and the sheet
+   * are fetched together and the mirror paints first if it wins, then the sheet
+   * replaces it. The list is usable almost immediately and settles on the real
+   * data without anyone waiting on it.
+   *
+   * `paint` re-renders; it is passed in so this stays out of the render layer.
+   */
+  async function load(paint) {
     await loadTagDefs();          // tag labels are needed to write Category back
+    paint = paint || function () {};
+
+    var settled = false;
+    var sheetP = sheetCall('GET');
+    sheetP.catch(function () {});   // handled below; this only stops an unhandled rejection
+
+    var mirrorP = loadFromSupabase().then(function () {
+      // Only paint the mirror if the sheet has not already landed, so nobody
+      // sees the list rebuild itself for no reason.
+      if (settled) return;
+      sortContacts();
+      setSetupNotice('Loading the spreadsheet…', 'info');
+      paint();
+    }, function () {});
+
     try {
-      await loadFromSheet();
+      var j = await sheetP;
+      settled = true;
+      applySheet(j);
+      sortContacts();
       setSetupNotice('');
+      paint();
+      reconcileMirror();
+      if (j.minted) {
+        setSave('saved', j.minted + ' new from sheet');
+      }
     } catch (e) {
+      settled = true;
       // Falling back rather than failing: a call list you cannot open is worse
       // than one that is a few minutes stale. Say plainly which copy is on
-      // screen, because edits made here will not be in the sheet.
-      await loadFromSupabase();
+      // screen, because edits made here will not reach the spreadsheet.
+      await mirrorP;
+      sortContacts();
       setSetupNotice('Working from the backup copy — the sheet is unreachable (' +
         (e.message || 'unknown error') + '). Changes made now will NOT appear in ' +
         'the spreadsheet. Reload once it is back.');
+      paint();
     }
-    sortContacts();
   }
 
   // Tag definitions are shared campaign state, so they live in campaign_settings
@@ -1038,12 +1105,21 @@
     });
   }
 
-  function setSetupNotice(msg) {
+  // kind 'info' is for a passing state like "loading the spreadsheet" — the red
+  // treatment is reserved for something actually being wrong, so that it keeps
+  // meaning something when it does appear.
+  function setSetupNotice(msg, kind) {
     var box = document.getElementById('setupNotice');
     box.textContent = '';
     if (!msg) { box.style.display = 'none'; return; }
     box.style.display = '';
-    box.appendChild(el('div', 'setup-banner', msg));
+    box.appendChild(el('div', 'setup-banner' + (kind ? ' ' + kind : ''), msg));
+  }
+
+  function paint() {
+    buildFilters();
+    buildTagFilters();
+    render();
   }
 
   async function refresh() {
@@ -1051,7 +1127,9 @@
       // load() owns the notice: it is the only thing that knows whether the
       // rows came from the sheet or the fallback, so clearing it here would
       // wipe the "backup copy" warning the moment it was set.
-      await load();
+      // paint() runs twice on a normal load: once on the mirror so the list is
+      // usable immediately, once when the sheet lands and replaces it.
+      await load(paint);
     } catch (e) {
       if (e && (e.code === 'PGRST205' || /schema cache/i.test(e.message || ''))) {
         setSetupNotice('The call_contacts table does not exist yet. Run calltime_setup.sql ' +
@@ -1060,9 +1138,7 @@
         setSave('error', 'Load failed');
       }
     }
-    buildFilters();
-    buildTagFilters();
-    render();
+    paint();
   }
 
   var legend = document.getElementById('legend');
