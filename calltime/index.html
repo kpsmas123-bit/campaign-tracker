@@ -131,11 +131,7 @@
   /* Centred rather than left-hugging: the panel spans the list, so a card
      pinned to the left edge left a lone gap down the right of it. */
   .focus-card { max-width: 560px; margin: 0 auto; display: flex; flex-direction: column; gap: 13px; }
-  .focus-top { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
-  .focus-prog {
-    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 10px;
-    letter-spacing: 0.07em; text-transform: uppercase; color: var(--text-secondary);
-  }
+  .focus-top { display: flex; align-items: baseline; justify-content: flex-end; }
   .focus-x {
     font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 10px;
     letter-spacing: 0.07em; text-transform: uppercase; color: var(--text-secondary);
@@ -143,8 +139,6 @@
     cursor: pointer; padding: 3px 10px;
   }
   .focus-x:hover { color: var(--text); border-color: var(--text-tertiary); background: var(--hover); }
-  .focus-bar { height: 2px; background: var(--border-light); border-radius: 2px; overflow: hidden; margin-top: -12px; }
-  .focus-bar > div { height: 100%; background: var(--priority-low); transition: width .2s; }
 
   .focus-name { display: flex; align-items: flex-start; gap: 12px; }
   .fname { font-family: Georgia, 'Times New Roman', serif; font-size: 22px; line-height: 1.15; }
@@ -556,10 +550,8 @@
 <div class="focus" id="focus" hidden>
   <div class="focus-card">
     <div class="focus-top">
-      <div class="focus-prog" id="fProg"></div>
       <button class="focus-x" id="fClose" title="Back to the list (Esc)">Close</button>
     </div>
-    <div class="focus-bar"><div id="fBar"></div></div>
 
     <div class="focus-name">
       <span class="fpri" id="fPri"></span>
@@ -1565,9 +1557,6 @@
     var money = isMoneyCall(c);
 
     var d = tagsOf(c).length ? tagDef(tagsOf(c)[0]) : null;
-    el2('fProg').textContent = (focusIdx + 1) + ' of ' + focusList.length +
-      (d ? ' \u00B7 ' + d.label : '');
-    el2('fBar').style.width = Math.round(((focusIdx + 1) / focusList.length) * 100) + '%';
 
     var pri = el2('fPri');
     pri.textContent = c.priority || '\u2013';
