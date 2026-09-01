@@ -239,9 +239,12 @@
     font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11px; font-weight: 600;
     border: 1px solid var(--border-light); border-radius: 999px;
     color: var(--text-tertiary); background: none; cursor: pointer;
-    padding: 3px 0; width: 24px; text-align: center; line-height: 1.2;
+    padding: 3px 0; width: 26px; line-height: 1.2; outline: none;
+    text-align: center; text-align-last: center;
+    appearance: none; -webkit-appearance: none;
     transition: color .12s, border-color .12s, background .12s;
   }
+  .pri-chip:focus-visible { box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent); }
   .pri-chip:hover { border-color: var(--text-tertiary); color: var(--text-secondary); }
   .pri-chip.p1, .pri-chip.p2, .pri-chip.p3 {
     color: var(--rc); border-color: var(--rc);
@@ -1194,11 +1197,12 @@
     await patch(c.id, { attempts: a });
   }
 
-  // 1 -> 2 -> 3 -> unranked. Re-sorts immediately so the effect is visible.
-  async function cyclePriority(c) {
-    var next = { '': '1', '1': '2', '2': '3', '3': '' }[c.priority || ''];
-    c.priority = next;
-    await patch(c.id, { priority: next });
+  // Set outright rather than cycled: a mis-click on a cycling control silently
+  // reassigns someone, and three of them blank the round entirely.
+  async function setPriority(c, value) {
+    if ((c.priority || '') === value) return;
+    c.priority = value;
+    await patch(c.id, { priority: value });
     sortContacts();
     paint();
   }
@@ -1364,10 +1368,17 @@
 
       // Cycles 1 -> 2 -> 3 -> unranked. Editable here because the sheet is not
       // open mid-session, and the sort is what the session runs on.
-      var pc = el('button', 'pri-chip' + (c.priority ? ' p' + c.priority : ''),
-                  c.priority || '\u2013');
-      pc.title = 'Call order — click to change';
-      pc.addEventListener('click', function () { cyclePriority(c); });
+      var pc = document.createElement('select');
+      pc.className = 'pri-chip' + (c.priority ? ' p' + c.priority : '');
+      pc.title = 'Round — pick to change';
+      [['', '\u2013'], ['1', '1'], ['2', '2'], ['3', '3']].forEach(function (o) {
+        var op = document.createElement('option');
+        op.value = o[0]; op.textContent = o[1];
+        if ((c.priority || '') === o[0]) op.selected = true;
+        pc.appendChild(op);
+      });
+      pc.addEventListener('click', function (ev) { ev.stopPropagation(); });
+      pc.addEventListener('change', function () { setPriority(c, this.value); });
       row.appendChild(pc);
 
       // Berkeley toggle
