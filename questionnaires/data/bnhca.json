@@ -1,0 +1,72 @@
+{
+  "slug": "bnhca",
+  "org": "Berkeley Neighbors for Housing & Climate Action",
+  "cycle": "2026",
+  "candidate": "Daria Wrubel — Berkeley City Council D1",
+  "generated": "2026-09-01",
+  "last_factcheck": "",
+  "contact_fields": [
+    {
+      "k": "name",
+      "label": "Candidate Name",
+      "v": "Daria Wrubel"
+    },
+    {
+      "k": "office",
+      "label": "District / Office being sought",
+      "v": "Berkeley City Council, District 1"
+    }
+  ],
+  "questions": [
+    {
+      "id": "bnhca_q1",
+      "section": "Housing and climate",
+      "topic": "general",
+      "status": "todo",
+      "question": "Berkeley’s Housing Element lays out the city’s plan for new housing construction through 2031, ensuring the city can meet its Regional Housing Needs Allocation (RHNA) of ~9,000 homes across a range of income levels.\nThe Housing Element commits Berkeley to a number of major policy changes in order to meet state requirements for affirmatively furthering fair housing, including a San Pablo Specific Plan and upzoning along North Shattuck, Solano, and College Ave, among other items.\nWhat is your view on the Housing Element and these policies? What are the most important things we need to do to implement the City’s Housing Element?\nPlease discuss your ideas and priorities around:\nSan Pablo specific plan\nZoning for housing in high-resource commercial areas like North Shattuck, Solano, and College Ave\nExtending ‘middle housing’ zoning to some parts of the Hills, while balancing fire risk\nOther strategies for Berkeley to affirmatively further fair housing"
+    },
+    {
+      "id": "bnhca_q2",
+      "section": "Housing and climate",
+      "topic": "general",
+      "status": "todo",
+      "question": "Berkeley’s Climate Action Plan sets forth a goal of 80% reduction in greenhouse gas (GHG) emissions by 2050. Today, the two major sources of GHG emissions in Berkeley are from gas-powered automobiles and natural gas used in buildings.\nBerkeley has a variety of plans and programs intended to help address these emissions, including the Electric Mobility Roadmap and the Berkeley Existing Building Electrification Strategy. Other related efforts include the Bicycle Plan and Pedestrian Master Plan, as well as the City’s now-defunct natural gas ban on new buildings.\nWhat is your view on the Climate Action Plan and these strategies? What are the most important things we need to do to address greenhouse gas emissions?"
+    },
+    {
+      "id": "bnhca_q3",
+      "section": "Housing and climate",
+      "topic": "general",
+      "status": "todo",
+      "question": "In your opinion, what was the most important City Council vote on Berkeley’s housing crisis in the past four years? Briefly describe the issue, what you think of the Council’s decision, and what you would have done had you been on the Council. For incumbents, please describe why you voted the way you did, and what you think now about that vote."
+    },
+    {
+      "id": "bnhca_q4",
+      "section": "Housing and climate",
+      "topic": "general",
+      "status": "todo",
+      "question": "In your opinion, what was the most important climate or environmental issue faced by the Berkeley City Council in the last four years? Briefly describe the issue, what you think of the Council’s decision, and what you would have done had you been on the Council. For incumbents, please describe why you voted the way you did, and what you think now about that vote."
+    },
+    {
+      "id": "bnhca_q5",
+      "section": "Housing and climate",
+      "topic": "general",
+      "status": "todo",
+      "question": "To achieve its RHNA goals, Berkeley must continue to build homes for all income levels. These new residents will need to travel within Berkeley. Greenhouse gas (GHG) emissions from transportation comprise roughly 60% of total emissions in Berkeley.\nHow would you ensure that Berkeley continues to reduce GHG emissions while adding new homes?"
+    },
+    {
+      "id": "bnhca_q6",
+      "section": "Housing and climate",
+      "topic": "general",
+      "status": "todo",
+      "question": "Walking and biking presents opportunities to help Berkeley residents reduce their GHG emissions, but safety concerns can be a major deterrent.\nWhat is your perspective on how we should address pedestrian and cyclist safety on our streets?"
+    },
+    {
+      "id": "bnhca_q7",
+      "section": "Housing and climate",
+      "topic": "general",
+      "status": "todo",
+      "question": "Berkeley has a long history of using zoning, restrictive covenants and redlining to achieve racial and economic segregation. This history continues to shape Berkeley today.\nRecent research by the Terner Center at UC Berkeley suggests that inclusionary zoning requirements, which mandate on-site restricted affordable housing in new developments, may have the effect of reducing overall housing construction, including the production of affordable units. However, on-site affordable housing can also be an effective tool for desegregating neighborhoods.\nWhat is your perspective on how Berkeley should use inclusionary zoning requirements, versus other affordable housing development options (such as in-lieu fees)?"
+    }
+  ],
+  "org_research": "Berkeley Neighbors for Housing & Climate Action — 2026 Candidate Questionnaire, transcribed from the Word document the group circulated. Seven long-form questions on the Housing Element, the Climate Action Plan, past Council votes, transport emissions, street safety and inclusionary zoning. Each carries framing paragraphs the answer is expected to engage with."
+}
