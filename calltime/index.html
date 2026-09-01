@@ -276,29 +276,28 @@
   .row-open.on { color: var(--accent); transform: rotate(90deg); }
   .row-open { transition: transform .12s, color .12s; }
 
-  /* One hue per round, used by the pill and the row chip alike, so the colour
-     carries the meaning rather than decorating it: 1 first, 2 next, 3 last. */
-  .roundfilters { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: -4px 0 18px; }
-  .rfbtn {
+  /* One control, one choice. A dropdown cannot be half-selected the way a row
+     of toggles could, and it keeps the round's hue so the colour still reads. */
+  .roundfilters { display: flex; align-items: center; gap: 10px; margin: -4px 0 18px; }
+  .rlabel {
     font-family: "IBM Plex Mono", ui-monospace, monospace;
-    font-size: 10px; letter-spacing: 0.07em; text-transform: uppercase; font-weight: 500;
-    border-radius: 999px; padding: 6px 14px; cursor: pointer; background: var(--surface);
-    /* Tinted even when unselected, so the colour code can be read at rest
-       rather than only confirming a choice already made. */
-    color: color-mix(in srgb, var(--rc, var(--text-secondary)) 72%, var(--text-secondary));
-    border: 1px solid color-mix(in srgb, var(--rc, var(--border)) 38%, var(--border));
-    transition: color .12s, border-color .12s, background .12s;
+    font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--text-secondary);
   }
-  .rfbtn:hover { border-color: var(--rc, var(--text-tertiary)); }
-  .rfbtn.on {
-    color: var(--rc, var(--text)); border-color: var(--rc, var(--text-tertiary));
-    background: color-mix(in srgb, var(--rc, var(--text)) 15%, var(--surface));
-    font-weight: 600;
+  .rselect {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px; letter-spacing: 0.05em; font-weight: 600;
+    color: var(--rc, var(--text)); background: var(--surface);
+    border: 1px solid var(--rc, var(--border)); border-radius: 999px;
+    padding: 6px 30px 6px 14px; cursor: pointer; outline: none;
+    appearance: none; -webkit-appearance: none;
+    background-image: linear-gradient(45deg, transparent 50%, currentColor 50%),
+                      linear-gradient(135deg, currentColor 50%, transparent 50%);
+    background-position: calc(100% - 15px) 52%, calc(100% - 10px) 52%;
+    background-size: 5px 5px, 5px 5px;
+    background-repeat: no-repeat;
   }
-  .rfbtn .cnt {
-    margin-left: 7px; font-variant-numeric: tabular-nums; font-weight: 400;
-    opacity: .75;
-  }
+  .rselect:focus-visible { box-shadow: 0 0 0 3px color-mix(in srgb, var(--rc, var(--accent)) 25%, transparent); }
 
   .start-btn {
     font-family: inherit; font-size: 11px; font-weight: 500; color: #FFF;
@@ -518,7 +517,10 @@
   </div>
 
   <div class="filters" id="filters"></div>
-  <div class="roundfilters" id="roundFilters"></div>
+  <div class="roundfilters">
+    <label class="rlabel" for="roundSelect">Round</label>
+    <select class="rselect" id="roundSelect"></select>
+  </div>
   <details class="legend" id="legend">
     <summary>Key</summary>
     <div class="keys">
@@ -914,39 +916,31 @@
   }
 
   function buildRoundFilters() {
-    var w = document.getElementById('roundFilters');
-    if (!w) return;
-    w.textContent = '';
+    var sel = document.getElementById('roundSelect');
+    if (!sel) return;
     var f = FILTERS.filter(function (x) { return x.k === filter; })[0];
-    // Counted against the tag list in view, so the numbers describe the list
-    // about to be worked rather than the whole book.
     var base = contacts.filter(f.fn);
 
-    ['1', '2', '3'].forEach(function (r) {
-      var b = el('button', 'rfbtn r' + r + (roundFilter === r ? ' on' : ''), 'Round ' + r);
-      b.appendChild(el('span', 'cnt', String(base.filter(function (c) {
-        return (c.priority || '') === r;
-      }).length)));
-      b.addEventListener('click', function () {
-        roundFilter = (roundFilter === r) ? '' : r;
-        paint();
-      });
-      w.appendChild(b);
-    });
+    function count(fn) { return base.filter(fn).length; }
+    var opts = [
+      ['1',    'Round 1',    function (c) { return c.priority === '1'; }],
+      ['2',    'Round 2',    function (c) { return c.priority === '2'; }],
+      ['3',    'Round 3',    function (c) { return c.priority === '3'; }],
+      ['none', 'Unassigned', function (c) { return !c.priority; }],
+      ['',     'Any round',  function () { return true; }]
+    ];
 
-    var un = base.filter(function (c) { return !c.priority; }).length;
-    var u = el('button', 'rfbtn rnone' + (roundFilter === 'none' ? ' on' : ''), 'Unassigned');
-    u.appendChild(el('span', 'cnt', String(un)));
-    u.addEventListener('click', function () {
-      roundFilter = (roundFilter === 'none') ? '' : 'none';
-      paint();
+    sel.textContent = '';
+    opts.forEach(function (o) {
+      var op = document.createElement('option');
+      op.value = o[0];
+      op.textContent = o[1] + '  (' + count(o[2]) + ')';
+      if (roundFilter === o[0]) op.selected = true;
+      sel.appendChild(op);
     });
-    w.appendChild(u);
-
-    var all = el('button', 'rfbtn all' + (roundFilter ? '' : ' on'), 'Any round');
-    all.appendChild(el('span', 'cnt', String(base.length)));
-    all.addEventListener('click', function () { roundFilter = ''; paint(); });
-    w.appendChild(all);
+    // The control wears the selected round's colour, matching the row chips.
+    sel.className = 'rselect' + (roundFilter === 'none' ? ' rnone'
+                                : roundFilter ? ' r' + roundFilter : '');
   }
 
 
@@ -1787,6 +1781,11 @@
 
   // The sheet is edited elsewhere — in Drive, by someone reprioritising — so the
   // page needs a way to pick that up without a full reload and re-auth.
+  document.getElementById('roundSelect').addEventListener('change', function () {
+    roundFilter = this.value;
+    paint();
+  });
+
   var syncBtn = document.getElementById('syncBtn');
   syncBtn.addEventListener('click', async function () {
     syncBtn.disabled = true;
