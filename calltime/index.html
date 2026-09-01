@@ -119,11 +119,16 @@
   /* Expands in place under its row rather than covering the list, so the
      surrounding names stay visible and closing it does not lose your place. */
   .focus {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: 4px; padding: 20px 20px 22px; margin: 2px 0 10px;
+    background: var(--surface);
+    border: 1px solid var(--text-tertiary);
+    border-radius: 6px; padding: 16px 18px 18px; margin: 4px 0 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.07), 0 0 0 4px var(--ground);
+    /* Never taller than the screen, whatever the outcome stage adds — it
+       scrolls inside itself rather than pushing the list out of reach. */
+    max-height: calc(100vh - 90px); overflow-y: auto;
   }
   .focus[hidden] { display: none; }
-  .focus-card { max-width: 680px; display: flex; flex-direction: column; gap: 18px; }
+  .focus-card { max-width: 560px; display: flex; flex-direction: column; gap: 13px; }
   .focus-top { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
   .focus-prog {
     font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 10px;
@@ -131,15 +136,16 @@
   }
   .focus-x {
     font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 10px;
-    letter-spacing: 0.07em; text-transform: uppercase; color: var(--text-tertiary);
-    background: none; border: none; cursor: pointer; padding: 2px 0;
+    letter-spacing: 0.07em; text-transform: uppercase; color: var(--text-secondary);
+    background: none; border: 1px solid var(--border); border-radius: 999px;
+    cursor: pointer; padding: 3px 10px;
   }
-  .focus-x:hover { color: var(--text); }
+  .focus-x:hover { color: var(--text); border-color: var(--text-tertiary); background: var(--hover); }
   .focus-bar { height: 2px; background: var(--border-light); border-radius: 2px; overflow: hidden; margin-top: -12px; }
   .focus-bar > div { height: 100%; background: var(--priority-low); transition: width .2s; }
 
   .focus-name { display: flex; align-items: flex-start; gap: 12px; }
-  .fname { font-family: Georgia, 'Times New Roman', serif; font-size: 26px; line-height: 1.15; }
+  .fname { font-family: Georgia, 'Times New Roman', serif; font-size: 22px; line-height: 1.15; }
   .fpri {
     font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11px;
     letter-spacing: 0.06em; border-radius: 2px; padding: 3px 7px; margin-top: 7px;
@@ -150,12 +156,12 @@
 
   /* The dominant target on the screen: this is the thing you press. */
   .focus-tel {
-    display: flex; align-items: center; justify-content: center; min-height: 56px;
+    display: flex; align-items: center; justify-content: center; min-height: 46px;
     border: 1px solid var(--accent); background: color-mix(in srgb, var(--accent) 6%, transparent);
     border-radius: 4px; text-decoration: none; color: var(--accent);
-    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 24px; letter-spacing: .02em;
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 21px; letter-spacing: .02em;
   }
-  .focus-tel.none { border-style: dashed; border-color: var(--border); color: var(--text-tertiary); font-size: 15px; }
+  .focus-tel.none { border-style: dashed; border-color: var(--border); color: var(--text-tertiary); font-size: 14px; }
   .focus-mail { font-size: 13px; color: var(--text-secondary); text-decoration: none; margin-top: -12px; }
   .focus-mail:hover { color: var(--accent); }
 
@@ -173,14 +179,13 @@
   .fnotes {
     font-family: inherit; font-size: 14px; line-height: 1.55; color: var(--text);
     background: var(--surface); border: 1px solid var(--border); border-radius: 3px;
-    padding: 11px 13px; width: 100%; resize: vertical; outline: none;
+    padding: 9px 12px; width: 100%; resize: vertical; outline: none; min-height: 62px;
   }
   .fnotes:focus { border-color: var(--accent); }
-  .fwho { background: transparent; }
-
+  
   .fatts { display: flex; align-items: center; gap: 8px; }
   .fatt {
-    width: 74px; height: 44px; border-radius: 3px; cursor: pointer;
+    width: 66px; height: 38px; border-radius: 3px; cursor: pointer;
     border: 1px dashed var(--border); background: none;
     font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11px; color: var(--text-tertiary);
   }
@@ -192,7 +197,7 @@
   .fouts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px; }
   .fouts.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .fout {
-    min-height: 52px; border: 1px solid var(--border); border-radius: 3px;
+    min-height: 44px; border: 1px solid var(--border); border-radius: 3px;
     background: var(--surface); cursor: pointer;
     font-family: inherit; font-size: 14px; color: var(--text);
   }
@@ -210,7 +215,7 @@
                 border: none; outline: none; width: 100%; }
 
   .focus-foot { display: flex; align-items: center; justify-content: space-between;
-                gap: 12px; border-top: 1px solid var(--border-light); padding-top: 16px; }
+                gap: 12px; border-top: 1px solid var(--border-light); padding-top: 12px; }
   .fskip { font-family: inherit; font-size: 13px; color: var(--text-secondary);
            background: none; border: none; cursor: pointer; padding: 6px 2px; }
   .fskip:hover { color: var(--text); }
@@ -560,11 +565,6 @@
     <a class="focus-tel" id="fTel"></a>
     <a class="focus-mail" id="fMail"></a>
 
-    <div class="fblock">
-      <div class="flabel">Who they are</div>
-      <textarea class="fnotes fwho" id="fWho" rows="2"></textarea>
-    </div>
-
     <div class="fgrid">
       <div class="fblock">
         <div class="flabel">The ask</div>
@@ -595,7 +595,7 @@
 
     <div class="fblock">
       <div class="flabel">Notes</div>
-      <textarea class="fnotes" id="fNote" rows="3" placeholder="What did they say?"></textarea>
+      <textarea class="fnotes" id="fNote" rows="2" placeholder="What did they say?"></textarea>
     </div>
 
     <div class="focus-foot">
@@ -1333,6 +1333,20 @@
     var f = FILTERS.filter(function (x) { return x.k === filter; })[0];
     var list = contacts.filter(f.fn).filter(inRound);
 
+    // Logging an outcome can move someone out of the filter they were called
+    // under — marking "Gave" while on the To-call list is the common case. The
+    // open row is pinned in place so the card does not vanish mid-call, before
+    // there has been a chance to write the note.
+    if (expandedId && !list.some(function (c) { return c.id === expandedId; })) {
+      var pinned = contacts.filter(function (c) { return c.id === expandedId; })[0];
+      if (pinned) {
+        var at = list.findIndex(function (c) {
+          return contacts.indexOf(c) > contacts.indexOf(pinned);
+        });
+        list.splice(at < 0 ? list.length : at, 0, pinned);
+      }
+    }
+
     if (!list.length) {
       var why = roundFilter === 'none' ? 'Nobody is unassigned here.'
               : roundFilter ? 'Nobody in round ' + roundFilter + ' here.'
@@ -1468,8 +1482,9 @@
       }
     });
 
-    if (!list.some(function (c) { return c.id === expandedId; })) {
-      // The open row was filtered away; park the panel and forget it.
+    // Only when the contact no longer exists at all — deleted, or gone from the
+    // sheet on a refresh. A filter change alone keeps the card open.
+    if (expandedId && !contacts.some(function (c) { return c.id === expandedId; })) {
       var card2 = focusCard();
       if (card2 && card2.parentElement) card2.remove();
       if (card2) card2.hidden = true;
@@ -1570,9 +1585,6 @@
     mail.href = c.email ? 'mailto:' + c.email : '';
     mail.hidden = !c.email;
 
-    // A repaint must not yank the cursor out of a note being typed.
-    var who = el2('fWho');
-    if (document.activeElement !== who) who.value = c.notes || '';
 
     // The ask, and the one fact worth saying alongside it.
     el2('fAsk').innerHTML = money
@@ -1590,7 +1602,8 @@
       side.className = 'fside on';
       // The note already carries the seat; show its first segment rather than
       // inventing a field the sheet does not have.
-      side.textContent = (c.notes || '').split(' \u00B7 ').slice(0, 3).join(' \u00B7 ') || '\u2014';
+      var seg = (c.notes || '').split(' \u00B7 ');
+      side.textContent = seg.slice(1, 3).join(' \u00B7 ') || seg[0] || '\u2014';
     }
 
     // history
@@ -1738,14 +1751,12 @@
   // the keystrokes into one write, and it means a note can no longer be lost by
   // clicking away, repainting, or the tab closing mid-sentence.
   var noteTimer = null;
-  ['fNote', 'fWho'].forEach(function (id) {
-    var box = document.getElementById(id);
+  (function () {
+    var box = document.getElementById('fNote');
     function commit() {
       var c = focusList[focusIdx];
       if (!c) return;
       c.notes = box.value.trim();
-      var twin = document.getElementById(id === 'fNote' ? 'fWho' : 'fNote');
-      if (document.activeElement !== twin) twin.value = c.notes;
       patch(c.id, { notes: c.notes });
     }
     box.addEventListener('input', function () {
@@ -1753,7 +1764,7 @@
       noteTimer = setTimeout(commit, 600);
     });
     box.addEventListener('change', function () { clearTimeout(noteTimer); commit(); });
-  });
+  })();
   document.getElementById('fAmtIn').addEventListener('change', function () {
     var c = focusList[focusIdx];
     if (!c) return;
