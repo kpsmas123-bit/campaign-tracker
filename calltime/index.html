@@ -141,14 +141,41 @@
   .focus-x:hover { color: var(--text); border-color: var(--text-tertiary); background: var(--hover); }
 
   .focus-name { display: flex; align-items: flex-start; gap: 12px; }
-  .fname { font-family: Georgia, 'Times New Roman', serif; font-size: 22px; line-height: 1.15; }
-  .fpri {
-    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11px;
-    letter-spacing: 0.06em; border-radius: 2px; padding: 3px 7px; margin-top: 7px;
-    border: 1px solid var(--border); color: var(--text-tertiary);
+  .fident { display: flex; flex-direction: column; gap: 5px; align-items: flex-start; flex: 1 1 auto; min-width: 0; }
+  /* An input that reads as the heading it replaces — the card doubles as the
+     place a new contact is filled in, so identity has to be editable. */
+  .fname {
+    font-family: Georgia, 'Times New Roman', serif; font-size: 22px; line-height: 1.2;
+    color: var(--text); background: none; border: none; outline: none;
+    padding: 0; width: 100%; border-bottom: 1px solid transparent;
   }
-  .fpri.p1 { color: var(--priority-medium); border-color: var(--priority-medium);
-             background: color-mix(in srgb, var(--priority-medium) 12%, transparent); }
+  .fname:hover { border-bottom-color: var(--border); }
+  .fname:focus { border-bottom-color: var(--accent); }
+  .fname::placeholder { color: var(--text-tertiary); }
+  .fcat {
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 9.5px;
+    letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600;
+    color: var(--tc, var(--text-secondary));
+    border: 1px solid var(--tc, var(--border));
+    background: color-mix(in srgb, var(--tc, var(--border)) 16%, transparent);
+    border-radius: 999px; padding: 3px 9px; cursor: pointer; outline: none;
+    appearance: none; -webkit-appearance: none;
+  }
+  .fcontact { display: flex; gap: 8px; margin-top: -8px; }
+  .fc-in {
+    font-family: inherit; font-size: 13px; color: var(--text); flex: 1 1 0; min-width: 0;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 4px; padding: 7px 10px; outline: none;
+  }
+  .fc-in:focus { border-color: var(--accent); }
+  .fpri {
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11px; font-weight: 600;
+    border-radius: 999px; padding: 4px 0; margin-top: 5px; width: 28px;
+    text-align: center; text-align-last: center; cursor: pointer; outline: none;
+    appearance: none; -webkit-appearance: none; background: none;
+    border: 1px solid var(--rc, var(--border)); color: var(--rc, var(--text-tertiary));
+  }
+  .fpri.p1, .fpri.p2, .fpri.p3 { background: color-mix(in srgb, var(--rc) 15%, transparent); }
 
   /* The dominant target on the screen: this is the thing you press. */
   .focus-tel {
@@ -157,9 +184,7 @@
     border-radius: 4px; text-decoration: none; color: var(--accent);
     font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 21px; letter-spacing: .02em;
   }
-  .focus-tel.none { border-style: dashed; border-color: var(--border); color: var(--text-tertiary); font-size: 14px; }
-  .focus-mail { font-size: 13px; color: var(--text-secondary); text-decoration: none; margin-top: -12px; }
-  .focus-mail:hover { color: var(--accent); }
+  .focus-tel[hidden] { display: none; }
 
   .fblock { display: flex; flex-direction: column; gap: 6px; }
   .flabel {
@@ -191,7 +216,6 @@
   .fatt-note { font-size: 13px; color: var(--text-tertiary); margin-left: 4px; }
 
   .fouts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px; }
-  .fouts.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .fout {
     min-height: 44px; border: 1px solid var(--border); border-radius: 3px;
     background: var(--surface); cursor: pointer;
@@ -199,16 +223,6 @@
   }
   .fout:hover { border-color: var(--accent); }
   .fout.on { border-color: var(--priority-low); background: var(--priority-low); color: #FFF; font-weight: 500; }
-  .fstage { display: flex; flex-direction: column; gap: 9px;
-            border-left: 2px solid var(--priority-low); padding: 4px 0 2px 14px; margin-top: 10px; }
-  .fstage[hidden] { display: none; }
-  .famt { display: flex; align-items: center; gap: 2px; border: 1px solid var(--priority-low);
-          background: var(--surface); border-radius: 3px; min-height: 46px; padding: 0 14px;
-          width: 140px; font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 20px; }
-  .famt[hidden] { display: none; }
-  .famt span { color: var(--text-secondary); }
-  .famt input { font-family: inherit; font-size: 20px; color: var(--text); background: none;
-                border: none; outline: none; width: 100%; }
 
   .focus-foot { display: flex; align-items: center; justify-content: space-between;
                 gap: 12px; border-top: 1px solid var(--border-light); padding-top: 12px; }
@@ -466,6 +480,7 @@
   .del:hover { color: var(--priority-high); }
 
   .add-row { padding: 14px 0; }
+
   .add-btn {
     font-family: inherit; font-size: 13px; color: var(--text-tertiary);
     background: none; border: none; cursor: pointer; padding: 4px 0;
@@ -554,15 +569,23 @@
     </div>
 
     <div class="focus-name">
-      <span class="fpri" id="fPri"></span>
-      <div>
-        <div class="fname" id="fName"></div>
-        <span class="tag-chip" id="fTag"></span>
+      <select class="fpri" id="fRound">
+        <option value="">&ndash;</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+      <div class="fident">
+        <input class="fname" id="fName" placeholder="Name" autocomplete="off">
+        <select class="fcat" id="fCat"></select>
       </div>
     </div>
 
     <a class="focus-tel" id="fTel"></a>
-    <a class="focus-mail" id="fMail"></a>
+    <div class="fcontact">
+      <input class="fc-in" id="fPhone" type="tel" placeholder="Phone" autocomplete="off">
+      <input class="fc-in" id="fEmail" type="email" placeholder="Email" autocomplete="off">
+    </div>
 
     <div class="fgrid">
       <div class="fblock">
@@ -583,18 +606,11 @@
     <div class="fblock">
       <div class="flabel">How did it go</div>
       <div class="fouts" id="fOut1"></div>
-      <div class="fstage" id="fStage" hidden>
-        <div class="flabel">And the outcome</div>
-        <div class="fouts four" id="fOut2"></div>
-        <div class="famt" id="fAmt" hidden>
-          <span>$</span><input id="fAmtIn" type="number" min="0" max="60" step="1" inputmode="numeric">
-        </div>
-      </div>
     </div>
 
     <div class="fblock">
       <div class="flabel">Notes</div>
-      <textarea class="fnotes" id="fNote" rows="2" placeholder="What did they say?"></textarea>
+      <textarea class="fnotes" id="fNote" rows="3" placeholder="What did they say? How did it land?"></textarea>
     </div>
 
     <div class="focus-foot">
@@ -868,9 +884,11 @@
   // there rather than adding to it. Picking the one already set clears it, which
   // is the only way to get back to untagged. Still stored as an array so the
   // column and the backfill SQL do not need to change.
-  async function setTag(c, key) {
+  async function setTag(c, key, exact) {
     var prev = tagsOf(c).slice();
-    var next = (prev.length === 1 && prev[0] === key) ? [] : [key];
+    // From the row picker a second click on the current tag clears it; from the
+    // card's dropdown the pick is taken literally.
+    var next = (!exact && prev.length === 1 && prev[0] === key) ? [] : (key ? [key] : []);
     c.tags = next;
     paint();
     var ok = await patch(c.id, { tags: next });
@@ -1229,49 +1247,43 @@
     await patch(c.id, { gave: c.gave, gave_on: c.gave_on });
   }
 
+  /**
+   * Create a contact and open it. The row lands in the sheet immediately — the
+   * sheet stays the source of truth — and in whichever round is on screen, so
+   * someone added while working round 1 is a round 1 call. Everything else is
+   * filled in on the card that opens.
+   */
   async function addContact() {
-    setSave('saving');
+    if (!SHEET.live) { setSave('error', 'Sheet unreachable — cannot add'); return; }
 
-    if (SHEET.live) {
-      // The id is minted here rather than by the sheet so the new row can be
-      // focused immediately and so a retry cannot append the person twice.
-      var id = (window.crypto && crypto.randomUUID) ? crypto.randomUUID()
-             : 'x' + Date.now() + Math.random().toString(16).slice(2);
-      // New contacts land in whichever list is being worked. Adding someone
-      // while filtered to Endorsement ACD and finding them in Untagged is a
-      // small papercut that costs a drag in the sheet to undo.
-      var tab = 'Untagged';
-      enqueueOp({ action: 'insert', id: id, tab: tab,
-                  fields: { 'Name': '', 'Berkeley': 'FALSE', 'Category': tab } });
-      pendingNote();
-      var fresh = {
-        id: id, name: '', email: '', phone: '', berkeley: false, attempts: [],
-        gave: false, gave_on: null, gave_amount: null,
-        tags: [], notes: '', priority: '',
-        sort_order: contacts.length, _tab: tab
-      };
-      contacts.push(fresh);
-      sb.from('call_contacts').insert({
-        id: id, name: '', email: '', phone: '',
-        tags: fresh.tags, sort_order: fresh.sort_order
-      }).then(function (r) {
-        if (r && r.error) console.warn('mirror insert failed', r.error.message);
-      });
-      paint();
-      var el2 = document.querySelector('.row[data-id="' + id + '"] .nm');
-      if (el2) el2.focus();
-      return;
-    }
+    var id = (window.crypto && crypto.randomUUID) ? crypto.randomUUID()
+           : 'x' + Date.now() + Math.random().toString(16).slice(2);
+    // 'none' is the unassigned view, which means no round rather than a round.
+    var round = (roundFilter && roundFilter !== 'none') ? roundFilter : '';
+    var tab = 'Untagged';
 
-    var row = { name: '', email: '', phone: '', sort_order: contacts.length };
-    var r = await sb.from('call_contacts').insert(row).select().single();
-    if (r.error) { setSave('error'); return; }
-    setSave('saved');
-    r.data.priority = '';
-    contacts.push(r.data);
-    paint();
-    var inp = document.querySelector('.row[data-id="' + r.data.id + '"] .nm');
-    if (inp) inp.focus();
+    enqueueOp({ action: 'insert', id: id, tab: tab, fields: {
+      'Name': '', 'Berkeley': 'FALSE', 'Priority': round, 'Category': tab
+    } });
+    pendingNote();
+
+    var fresh = {
+      id: id, name: '', email: '', phone: '', berkeley: false, attempts: [],
+      gave: false, gave_on: null, gave_amount: null, tags: [], notes: '',
+      status: '', priority: round, sort_order: contacts.length, _tab: tab
+    };
+    contacts.push(fresh);
+    sb.from('call_contacts').insert({
+      id: id, name: '', email: '', phone: '', tags: [], sort_order: fresh.sort_order
+    }).then(function (r) {
+      if (r && r.error) console.warn('mirror insert failed', r.error.message);
+    });
+
+    // A new contact has no attempts, so it belongs in the to-call list.
+    if (filter !== 'todo' && filter !== 'all') filter = 'todo';
+    sortContacts();
+    enterFocus(fresh);
+    document.getElementById('fName').focus();
   }
 
   async function removeContact(c) {
@@ -1498,8 +1510,6 @@
   // A money ask and an endorsement ask are different calls. The card renders
   // whichever the contact's category implies, so nothing about dollars ever
   // appears on a call that is not about dollars.
-  var STATUS_MONEY = ['Gave', 'Will think', 'Not now', 'No'];
-  var STATUS_ENDORSE = ['Committed', 'Leaning yes', 'Undecided', 'No'];
   var focusList = [], focusIdx = -1;
   var expandedId = null;   // at most one row open at a time
   // render() clears #rows wholesale, so once the panel has been moved in there
@@ -1524,6 +1534,25 @@
   function currentList() {
     var f = FILTERS.filter(function (x) { return x.k === filter; })[0];
     return contacts.filter(f.fn).filter(inRound);
+  }
+
+  // Options come from the sheet's own tabs, so a tab added in Drive turns up
+  // here without a code change.
+  function fillCatSelect(sel) {
+    var keys = Object.keys(SHEET.tabByKey);
+    if (!keys.length) keys = [''];
+    keys.sort(function (a, b) { return a === '' ? 1 : b === '' ? -1 : 0; });
+    var want = keys.join('|');
+    if (sel.dataset.keys === want) return;      // rebuild only when the tabs change
+    sel.dataset.keys = want;
+    sel.textContent = '';
+    keys.forEach(function (k) {
+      var op = document.createElement('option');
+      op.value = k;
+      var d = k ? tagDef(k) : null;
+      op.textContent = d ? d.label : (SHEET.tabByKey[k] || 'Untagged');
+      sel.appendChild(op);
+    });
   }
 
   function enterFocus(c) {
@@ -1558,28 +1587,32 @@
 
     var d = tagsOf(c).length ? tagDef(tagsOf(c)[0]) : null;
 
-    var pri = el2('fPri');
-    pri.textContent = c.priority || '\u2013';
-    pri.className = 'fpri' + (c.priority === '1' ? ' p1' : '');
-    el2('fName').textContent = c.name || 'Unnamed';
+    // Nothing with focus is overwritten, so a repaint cannot interrupt typing.
+    function set(el, value) { if (document.activeElement !== el) el.value = value; }
 
-    var tag = el2('fTag');
-    if (d) { tag.textContent = d.label; tag.style.setProperty('--tc', d.color); tag.hidden = false; }
-    else { tag.hidden = true; }
+    var pri = el2('fRound');
+    set(pri, c.priority || '');
+    pri.className = 'fpri' + (c.priority ? ' p' + c.priority : '');
 
+    set(el2('fName'), c.name || '');
+    set(el2('fPhone'), c.phone || '');
+    set(el2('fEmail'), c.email || '');
+
+    var cat = el2('fCat');
+    fillCatSelect(cat);
+    set(cat, tagsOf(c)[0] || '');
+    cat.style.setProperty('--tc', d ? d.color : 'var(--border)');
+
+    // The dial button is the call action, so it appears only once there is
+    // something to dial; the number itself is edited in the field below.
     var tel = el2('fTel');
     if (c.phone) {
+      tel.hidden = false;
       tel.textContent = fmtPhone(c.phone);
       tel.href = 'tel:' + String(c.phone).replace(/[^\d+]/g, '');
-      tel.className = 'focus-tel';
     } else {
-      tel.textContent = 'No phone number'; tel.removeAttribute('href');
-      tel.className = 'focus-tel none';
+      tel.hidden = true;
     }
-    var mail = el2('fMail');
-    mail.textContent = c.email || '';
-    mail.href = c.email ? 'mailto:' + c.email : '';
-    mail.hidden = !c.email;
 
 
     // The ask, and the one fact worth saying alongside it.
@@ -1628,21 +1661,6 @@
       o1.appendChild(b);
     });
 
-    // second stage — only once the call actually connected
-    var stage = el2('fStage');
-    var reached = attemptsOf(c).some(function (a) { return a && a.reached; });
-    stage.hidden = !reached;
-    var o2 = el2('fOut2');
-    o2.textContent = '';
-    (money ? STATUS_MONEY : STATUS_ENDORSE).forEach(function (label) {
-      var b = el('button', 'fout ' + statusTone(label) + (c.status === label ? ' on' : ''), label);
-      b.addEventListener('click', function () { setStatus(c, label, money); });
-      o2.appendChild(b);
-    });
-    var amt = el2('fAmt');
-    amt.hidden = !(money && c.status === 'Gave');
-    el2('fAmtIn').value = c.gave_amount == null ? '' : c.gave_amount;
-
     var nt = el2('fNote');
     if (document.activeElement !== nt) nt.value = c.notes || '';
   }
@@ -1659,20 +1677,6 @@
     paint();
   }
 
-  function setStatus(c, label, money) {
-    c.status = (c.status === label) ? '' : label;
-    var fields = { status: c.status };
-    if (money) {
-      var gave = c.status === 'Gave';
-      if (gave !== c.gave) {
-        c.gave = gave;
-        c.gave_on = gave ? new Date().toISOString().slice(0, 10) : null;
-        fields.gave = c.gave; fields.gave_on = c.gave_on;
-      }
-    }
-    patch(c.id, fields);
-    paint();
-  }
 
   function setSetupNotice(msg, kind) {
     var box = document.getElementById('setupNotice');
@@ -1746,6 +1750,37 @@
   // Saved as you type, debounced, rather than only on blur. The queue coalesces
   // the keystrokes into one write, and it means a note can no longer be lost by
   // clicking away, repainting, or the tab closing mid-sentence.
+  // Identity fields on the card. Text saves as you type, debounced and
+  // coalesced by the queue; selects save on pick.
+  var fieldTimer = null;
+  [['fName', 'name'], ['fPhone', 'phone'], ['fEmail', 'email']].forEach(function (pair) {
+    var box = document.getElementById(pair[0]);
+    function commit() {
+      var c = focusList[focusIdx];
+      if (!c) return;
+      var v = box.value.trim();
+      if (c[pair[1]] === v) return;
+      c[pair[1]] = v;
+      var f = {}; f[pair[1]] = v;
+      patch(c.id, f);
+      paint();
+    }
+    box.addEventListener('input', function () {
+      clearTimeout(fieldTimer);
+      fieldTimer = setTimeout(commit, 600);
+    });
+    box.addEventListener('change', function () { clearTimeout(fieldTimer); commit(); });
+  });
+
+  document.getElementById('fRound').addEventListener('change', function () {
+    var c = focusList[focusIdx];
+    if (c) setPriority(c, this.value);
+  });
+  document.getElementById('fCat').addEventListener('change', function () {
+    var c = focusList[focusIdx];
+    if (c) setTag(c, this.value, true);
+  });
+
   var noteTimer = null;
   (function () {
     var box = document.getElementById('fNote');
@@ -1761,15 +1796,6 @@
     });
     box.addEventListener('change', function () { clearTimeout(noteTimer); commit(); });
   })();
-  document.getElementById('fAmtIn').addEventListener('change', function () {
-    var c = focusList[focusIdx];
-    if (!c) return;
-    var v = this.value === '' ? null : Math.max(0, Math.min(60, Number(this.value)));
-    this.value = v == null ? '' : v;
-    c.gave_amount = v;
-    patch(c.id, { gave_amount: v });
-  });
-
   var startBtn = document.getElementById('startBtn');
   startBtn.addEventListener('click', function () {
     var list = currentList();
