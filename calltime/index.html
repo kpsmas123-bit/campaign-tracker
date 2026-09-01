@@ -131,7 +131,7 @@
   /* Centred rather than left-hugging: the panel spans the list, so a card
      pinned to the left edge left a lone gap down the right of it. */
   .focus-card { max-width: 560px; margin: 0 auto; display: flex; flex-direction: column; gap: 13px; }
-  .focus-top { display: flex; align-items: baseline; justify-content: flex-end; }
+  .focus-top { display: flex; align-items: baseline; justify-content: flex-end; gap: 8px; }
   .focus-x {
     font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 10px;
     letter-spacing: 0.07em; text-transform: uppercase; color: var(--text-secondary);
@@ -141,6 +141,23 @@
   .focus-x:hover { color: var(--text); border-color: var(--text-tertiary); background: var(--hover); }
 
   .focus-name { display: flex; align-items: flex-start; gap: 12px; }
+  /* Two looks, one set of fields. Reading is the common case during a call, so
+     the card is quiet until Edit is pressed rather than always wearing boxes. */
+  .focus:not(.editing) .fname { pointer-events: none; border-bottom-color: transparent; }
+  .focus:not(.editing) .fc-in {
+    border-color: transparent; background: none; padding: 2px 0;
+    pointer-events: none; color: var(--text-secondary); font-size: 13px;
+  }
+  .focus:not(.editing) .fc-in:placeholder-shown { display: none; }
+  /* The dial button already shows the number, formatted; the raw field would
+     just repeat it underneath. */
+  .focus:not(.editing) #fPhone { display: none; }
+  .focus:not(.editing) .fcat, .focus:not(.editing) .fpri { pointer-events: none; }
+  .focus:not(.editing) .fcontact { gap: 14px; }
+  .focus.editing .focus-tel { display: none; }
+  .focus-x.on { color: var(--accent); border-color: var(--accent);
+                background: color-mix(in srgb, var(--accent) 10%, transparent); }
+
   .fident { display: flex; flex-direction: column; gap: 5px; align-items: flex-start; flex: 1 1 auto; min-width: 0; }
   /* An input that reads as the heading it replaces — the card doubles as the
      place a new contact is filled in, so identity has to be editable. */
@@ -565,6 +582,7 @@
 <div class="focus" id="focus" hidden>
   <div class="focus-card">
     <div class="focus-top">
+      <button class="focus-x" id="fEdit" title="Edit name, number, category">Edit</button>
       <button class="focus-x" id="fClose" title="Back to the list (Esc)">Close</button>
     </div>
 
@@ -1512,6 +1530,7 @@
   // appears on a call that is not about dollars.
   var focusList = [], focusIdx = -1;
   var expandedId = null;   // at most one row open at a time
+  var editing = false;     // whether the open card is showing its fields
   // render() clears #rows wholesale, so once the panel has been moved in there
   // a repaint would destroy it and every listener on it. Hold the node.
   var focusEl = null;
@@ -1560,6 +1579,8 @@
     focusIdx = focusList.indexOf(c);
     if (focusIdx < 0) { focusList = [c]; focusIdx = 0; }
     expandedId = c.id;
+    // Nothing to read on a contact with no name yet, so it opens in edit mode.
+    editing = !String(c.name || '').trim();
     paint();
     // Bring the opened card into view without yanking the page around.
     var card = focusCard();
@@ -1568,6 +1589,7 @@
   function exitFocus() {
     expandedId = null;
     focusIdx = -1;
+    editing = false;
     paint();
   }
   function toggleExpand(c) {
@@ -1586,6 +1608,12 @@
     var money = isMoneyCall(c);
 
     var d = tagsOf(c).length ? tagDef(tagsOf(c)[0]) : null;
+
+    var card = focusCard();
+    if (card) card.classList.toggle('editing', editing);
+    var eb = el2('fEdit');
+    eb.textContent = editing ? 'Done' : 'Edit';
+    eb.className = 'focus-x' + (editing ? ' on' : '');
 
     // Nothing with focus is overwritten, so a repaint cannot interrupt typing.
     function set(el, value) { if (document.activeElement !== el) el.value = value; }
@@ -1736,6 +1764,11 @@
   });
 
   // --- focus wiring ---
+  document.getElementById('fEdit').addEventListener('click', function () {
+    editing = !editing;
+    renderFocus();
+    if (editing) document.getElementById('fName').focus();
+  });
   document.getElementById('fClose').addEventListener('click', exitFocus);
   document.getElementById('fNext').addEventListener('click', focusNext);
   document.getElementById('fSkip').addEventListener('click', focusNext);
