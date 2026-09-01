@@ -1,0 +1,357 @@
+{
+  "slug": "seamless",
+  "org": "Seamless Bay Area",
+  "cycle": "2026",
+  "candidate": "Daria Wrubel — Berkeley City Council D1",
+  "generated": "2026-09-01",
+  "last_factcheck": "",
+  "contact_fields": [
+    {
+      "k": "name",
+      "label": "Name",
+      "v": "Daria Wrubel"
+    },
+    {
+      "k": "seat",
+      "label": "What specific seat/district are you running for?",
+      "v": "Berkeley City Council, District 1"
+    }
+  ],
+  "questions": [
+    {
+      "id": "seamless_q1",
+      "section": "Candidate",
+      "topic": "general",
+      "status": "todo",
+      "question": "Which type of position are you running for?",
+      "choice_type": "single",
+      "choices": [
+        {
+          "label": "City/Town Council"
+        },
+        {
+          "label": "Mayor"
+        },
+        {
+          "label": "County Supervisor"
+        },
+        {
+          "label": "State Assembly Member"
+        },
+        {
+          "label": "State Senator"
+        },
+        {
+          "label": "House of Representatives"
+        },
+        {
+          "label": "Governor"
+        },
+        {
+          "label": "BART or AC Transit Board"
+        }
+      ]
+    },
+    {
+      "id": "seamless_q2",
+      "section": "Candidate",
+      "topic": "general",
+      "status": "todo",
+      "question": "Which county or counties does that jurisdiction cover?",
+      "choice_type": "multi",
+      "choices": [
+        {
+          "label": "Alameda"
+        },
+        {
+          "label": "Contra Costa"
+        },
+        {
+          "label": "Marin"
+        },
+        {
+          "label": "Napa"
+        },
+        {
+          "label": "San Francisco"
+        },
+        {
+          "label": "San Mateo"
+        },
+        {
+          "label": "Santa Clara"
+        },
+        {
+          "label": "Solano"
+        },
+        {
+          "label": "Sonoma"
+        }
+      ]
+    },
+    {
+      "id": "seamless_q3",
+      "section": "Questions for City/Town Council, Mayors, and County Supervisors Candidates",
+      "topic": "general",
+      "status": "todo",
+      "question": "Which forms of transit and active transportation (bicycling, walking, scooters, wheelchair) do you use on a regular basis? For what types of trips and why transit?"
+    },
+    {
+      "id": "seamless_q4",
+      "section": "Questions for City/Town Council, Mayors, and County Supervisors Candidates",
+      "topic": "general",
+      "status": "todo",
+      "question": "Transportation is the largest single source of carbon emissions in California and in the Bay Area. The largest share of transportation emissions come from single occupancy vehicles. If elected, what will you do to help substantially reduce transportation-related greenhouse gas emissions via shifting trips from being done via car to being done via transit, biking and walking?"
+    },
+    {
+      "id": "seamless_q5",
+      "section": "Questions for City/Town Council, Mayors, and County Supervisors Candidates",
+      "topic": "general",
+      "status": "todo",
+      "question": "What do you think are the biggest mobility barriers and unmet needs for disadvantaged populations in your district, especially people with disabilities, seniors, and people with low incomes, and how would you propose to solve them?"
+    },
+    {
+      "id": "seamless_q6",
+      "section": "Questions for City/Town Council, Mayors, and County Supervisors Candidates",
+      "topic": "general",
+      "status": "todo",
+      "question": "In 2023, car crashes killed 4,061 people and seriously injured at least 16,760 in California. If elected, what will you do to reduce traffic fatalities, increase street safety, save lives and reduce injuries in our community? What policies or specific projects would make the greatest impact?"
+    },
+    {
+      "id": "seamless_q7",
+      "section": "Questions for City/Town Council, Mayors, and County Supervisors Candidates",
+      "topic": "general",
+      "status": "todo",
+      "question": "What do you think are the most important actions that can be taken to make public transit comfortable, safe and accessible for all communities? E.g. more bus shelters & benches; lighting; community resource agents, armed police, etc."
+    },
+    {
+      "id": "seamless_q8",
+      "section": "Questions for City/Town Council, Mayors, and County Supervisors Candidates",
+      "topic": "general",
+      "status": "todo",
+      "question": "Public transit in the Bay Area is run by 27 transit agencies – that historically have had separate fares, schedules, branding, and customer information – which creates barriers for riders. Polling indicates that 89% of the public supports legislation to create ‘“one seamless, multimodal transit system.” As an elected leader, how would you support efforts that advance a more integrated, high-ridership network that meets the needs of riders?"
+    },
+    {
+      "id": "seamless_q9",
+      "section": "Questions for City/Town Council, Mayors, and County Supervisors Candidates",
+      "topic": "general",
+      "status": "todo",
+      "question": "Do you support changes that make transit faster, more reliable, with lower operating costs? E.g. bus-only lanes, bus bulb outs, and signal prioritization. Most transit agencies don't have authority over what happens on streets and roads and need approval by local governments, and often counties and the state (CalTrans). What policies would you support to make street-running transit faster and more reliable?"
+    },
+    {
+      "id": "seamless_q10",
+      "section": "Questions for City/Town Council, Mayors, and County Supervisors Candidates",
+      "topic": "general",
+      "status": "todo",
+      "question": "Occasionally, changes that make roads safer and more convenient for pedestrians, people on bikes and transit riders require repurposing vehicle travel lanes or parking spots. What are situations in which you would support such changes and when would you not support such changes?"
+    },
+    {
+      "id": "seamless_q11",
+      "section": "Questions for City/Town Council, Mayors, and County Supervisors Candidates",
+      "topic": "general",
+      "status": "todo",
+      "question": "How would you support transit-oriented development in your community that promotes sustainable and equitable mobility? Are there any specific planned TOD projects in your community/district that you have opinions about?"
+    },
+    {
+      "id": "seamless_q12",
+      "section": "Questions for City/Town Council, Mayors, and County Supervisors Candidates",
+      "topic": "general",
+      "status": "todo",
+      "question": "Bonus Question! Are you a candidate representing:",
+      "choice_type": "single",
+      "choices": [
+        {
+          "label": "Alameda, Contra Costa, San Mateo, San Francisco, or Santa Clara County"
+        },
+        {
+          "label": "None of the above"
+        }
+      ]
+    },
+    {
+      "id": "seamless_q13",
+      "section": "Questions for State Assembly, State Senate, US House of Representatives, and Governor",
+      "topic": "general",
+      "status": "todo",
+      "question": "Which forms of transit and active transportation (bicycling, walking, scooters, wheelchair) do you use on a regular basis? For what types of trips and why transit?"
+    },
+    {
+      "id": "seamless_q14",
+      "section": "Questions for State Assembly, State Senate, US House of Representatives, and Governor",
+      "topic": "general",
+      "status": "todo",
+      "question": "Transportation is the largest single source of carbon emissions in California and in the Bay Area. The largest share of transportation emissions come from single occupancy vehicles. If elected, what will you do to help substantially reduce transportation-related greenhouse gas emissions via shifting trips from being done via car to being done via transit, biking and walking?"
+    },
+    {
+      "id": "seamless_q15",
+      "section": "Questions for State Assembly, State Senate, US House of Representatives, and Governor",
+      "topic": "general",
+      "status": "todo",
+      "question": "What do you think are the biggest mobility barriers and unmet needs for disadvantaged populations in your district, especially people with disabilities, seniors, and people with low incomes, and how would you propose to solve them?"
+    },
+    {
+      "id": "seamless_q16",
+      "section": "Questions for State Assembly, State Senate, US House of Representatives, and Governor",
+      "topic": "general",
+      "status": "todo",
+      "question": "In 2023, car crashes killed 4,061 people and seriously injured at least 16,760 in California. If elected, what will you do to reduce traffic fatalities, increase street safety, save lives and reduce injuries in our community? What policies or specific projects would make the greatest impact?"
+    },
+    {
+      "id": "seamless_q17",
+      "section": "Questions for State Assembly, State Senate, US House of Representatives, and Governor",
+      "topic": "general",
+      "status": "todo",
+      "question": "What do you think are the most important actions that can be taken to make public transit comfortable, safe and accessible for all communities? E.g. more bus shelters & benches; lighting; community resource agents, armed police, etc."
+    },
+    {
+      "id": "seamless_q18",
+      "section": "Questions for State Assembly, State Senate, US House of Representatives, and Governor",
+      "topic": "general",
+      "status": "todo",
+      "question": "Public transit in the Bay Area is run by 27 transit agencies – that historically have had separate fares, schedules, branding, and customer information – which creates barriers for riders. Polling indicates that 89% of the public supports legislation to create ‘“one seamless, multimodal transit system.” As an elected leader, how would you support efforts that advance a more integrated, high-ridership network that meets the needs of riders?"
+    },
+    {
+      "id": "seamless_q19",
+      "section": "Questions for State Assembly, State Senate, US House of Representatives, and Governor",
+      "topic": "general",
+      "status": "todo",
+      "question": "Do you support changes that make transit faster, more reliable, with lower operating costs? E.g. bus-only lanes, bus bulb outs, and signal prioritization. Most transit agencies don't have authority over what happens on streets and roads and need approval by local governments, and often counties and the state (CalTrans). What policies would you support to make street-running transit faster and more reliable?"
+    },
+    {
+      "id": "seamless_q20",
+      "section": "Questions for State Assembly, State Senate, US House of Representatives, and Governor",
+      "topic": "general",
+      "status": "todo",
+      "question": "California underfunds public transit service compared to other states with major transit systems. Would you support additional funding to expand and improve transit service? If so, what actions or revenue mechanisms would you support?"
+    },
+    {
+      "id": "seamless_q21",
+      "section": "Questions for State Assembly, State Senate, US House of Representatives, and Governor",
+      "topic": "general",
+      "status": "todo",
+      "question": "Building new transit projects in California and the United States is often expensive and takes several years or decades. Do you support increasing state capacity, permitting reforms, and network planning so we can deliver transit projects in a quicker and more cost-effective manner?"
+    },
+    {
+      "id": "seamless_q22",
+      "section": "Questions for State Assembly, State Senate, US House of Representatives, and Governor",
+      "topic": "general",
+      "status": "todo",
+      "question": "How would you support transit-oriented development in your community that promotes sustainable and equitable mobility? Are there any specific planned TOD projects in your community/district that you have opinions about?"
+    },
+    {
+      "id": "seamless_q23",
+      "section": "Questions for State Assembly, State Senate, US House of Representatives, and Governor",
+      "topic": "general",
+      "status": "todo",
+      "question": "Bonus Question! Are you a candidate representing:",
+      "choice_type": "single",
+      "choices": [
+        {
+          "label": "Alameda, Contra Costa, San Mateo, San Francisco, or Santa Clara County"
+        },
+        {
+          "label": "None of the above"
+        }
+      ]
+    },
+    {
+      "id": "seamless_q24",
+      "section": "Questions for AC Transit and BART Board of Director Candidates",
+      "topic": "general",
+      "status": "todo",
+      "question": "Why are you running for this board seat and what are your qualifications?"
+    },
+    {
+      "id": "seamless_q25",
+      "section": "Questions for AC Transit and BART Board of Director Candidates",
+      "topic": "general",
+      "status": "todo",
+      "question": "What Bay Area transit services do you typically use? How often and for what purposes?"
+    },
+    {
+      "id": "seamless_q26",
+      "section": "Questions for AC Transit and BART Board of Director Candidates",
+      "topic": "general",
+      "status": "todo",
+      "question": "What do you see as the role of the AC Transit/BART Board in delivering better service, and what are your priorities within the main roles the Board plays?"
+    },
+    {
+      "id": "seamless_q27",
+      "section": "Questions for AC Transit and BART Board of Director Candidates",
+      "topic": "general",
+      "status": "todo",
+      "question": "What improvements and strategies do you support to increase ridership and improve rider satisfaction?"
+    },
+    {
+      "id": "seamless_q28",
+      "section": "Questions for AC Transit and BART Board of Director Candidates",
+      "topic": "general",
+      "status": "todo",
+      "question": "Public transit in the Bay Area is run by 27 transit agencies. In recent years, the region has made progress on coordinating fares, schedules, planning and other initiatives with a Network Management structure. As an elected leader, how would you support efforts that advance a more integrated, high-ridership network that meets the needs of riders, with relationships, policy, legislation, and funding? What do you see as the primary tradeoffs for the agency, if any, involved with increased coordination?"
+    },
+    {
+      "id": "seamless_q29",
+      "section": "Questions for AC Transit and BART Board of Director Candidates",
+      "topic": "general",
+      "status": "todo",
+      "question": "FOR BART CANDIDATES: How do you weigh the trade-offs in pursuing major capital projects vs. prioritizing operations & maintenance? What strategies do you support to improve major capital projects – delivering useful improvements on time and on budget – and how might you pursue implementing these strategies? Elements Include planning, contracting, community outreach, and more."
+    },
+    {
+      "id": "seamless_q30",
+      "section": "Questions for AC Transit and BART Board of Director Candidates",
+      "topic": "general",
+      "status": "todo",
+      "question": "FOR AC TRANSIT CANDIDATES: Realign, in 2025, promised greater reliability in part by rebalancing routes, and in part by reducing planned service by 15% overall. Yet the agency continues to struggle with delivering a sufficient level of reliable service. What else, beyond passing the Regional Transit Measure, do you feel AC Transit must do to boost both reliability and overall level of service?"
+    },
+    {
+      "id": "seamless_q31",
+      "section": "Questions for AC Transit and BART Board of Director Candidates",
+      "topic": "general",
+      "status": "todo",
+      "question": "What are the most important safety, comfort, and convenience issues affecting transit riders and workers? What would you do to address these issues? How would you work with surrounding cities and counties to achieve these goals?"
+    },
+    {
+      "id": "seamless_q32",
+      "section": "Questions for AC Transit and BART Board of Director Candidates",
+      "topic": "general",
+      "status": "todo",
+      "question": "What do you think are the biggest mobility barriers and unmet needs for disadvantaged populations in your district, especially people with disabilities, seniors, and people with low incomes, and how would you propose to solve them?"
+    },
+    {
+      "id": "seamless_q33",
+      "section": "Questions for AC Transit and BART Board of Director Candidates",
+      "topic": "general",
+      "status": "todo",
+      "question": "What sort of land use would you like to see near transit, and what are the most effective things the transit agency can do to encourage this land use?"
+    },
+    {
+      "id": "seamless_q34",
+      "section": "Questions for AC Transit and BART Board of Director Candidates",
+      "topic": "general",
+      "status": "todo",
+      "question": "What would you do to ensure that the agency has the workforce needed to operate, maintain and potentially expand service?"
+    },
+    {
+      "id": "seamless_q35",
+      "section": "Questions for AC Transit and BART Board of Director Candidates",
+      "topic": "general",
+      "status": "todo",
+      "question": "Do you support Connect Bay Area Regional Transit Measure, the 5-county regional transit funding ballot measure that will raise $1 billion per year for public transit over 14 years through a 0.5% sales tax (1% in San Francisco) to prevent service cuts to BART, Muni, Caltrain, and AC Transit and fund rider-improvements to make taking transit easier, faster, and more reliable? How have you supported it? What do you see as the consequences if the Connect Bay Area Regional Transit Measure does not pass?"
+    },
+    {
+      "id": "seamless_q36",
+      "section": "Transit Funding Ballot Initiatives",
+      "topic": "general",
+      "status": "todo",
+      "question": "For candidates representing Alameda, Contra Costa, San Mateo, San Francisco, and/or Santa Clara County: Do you support Connect Bay Area, the 5-county regional transit funding ballot measure that will raise $1 billion per year for public transit over 14 years through a 0.5% sales tax (1% in San Francisco) to prevent service cuts to BART, Muni, Caltrain, and AC Transit and fund rider-improvements to make taking transit easier, faster, and more reliable? How have you supported it?"
+    },
+    {
+      "id": "seamless_q37",
+      "section": "Transit Funding Ballot Initiatives",
+      "topic": "general",
+      "status": "todo",
+      "question": "For candidates representing San Francisco: Do you support Stronger Muni for All, the local San Francisco ballot measure to prevent Muni service cuts by raising $160 million annually for 15 years through a tiered parcel tax on commercial and residential properties? How have you supported it?"
+    }
+  ],
+  "org_research": "If you are a candidate for local, state, or federal office, please fill out this questionnaire before September 22nd at 11:59pm. Candidate responses will be published in early October in order to help educate voters for the November 2026 Election. Once you submit the form, you will not be able to change your responses. If you would like a PDF version of the Questionnaire, please email info@seamlessbayarea.org The groups cosponsoring this questionnaire are: Seamless Bay Area, Transbay Coalition, Bike East Bay, Bike Hayward, BikeWalk Castro Valley, Community Resources for Independent Living, East Bay for Everyone, East Bay Transit Riders, El Cerrito/Richmond Annex Walk & Roll, Friend of Caltrain, Housing Leadership Council of San Mateo County, Move California, Move San Mateo, North Bay Transit Riders, Palo Alto Forward, San Antonio Station Alliance, San Francisco Bicycle Coalition, San Francisco Transit Riders, Santa Clara County for Transit, Senior and Disability Action, Silicon Valley Bicycle Coalition, Sustainable Marin, Traffic Violence Rapid Response, Transform, Walk Bike Berkeley, Walk Bike Walnut Creek, and Walk Oakland Bike Oakland. Contact info@seamlessbayarea.org with questions about the survey."
+}
