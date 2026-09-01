@@ -226,45 +226,72 @@
   }
 
   /* Priority drives the sort, so it has to be visible in the list — and
-     editable here, since the sheet is not open during a call session. */
+     editable here, since the sheet is not open during a call session. It wears
+     the same hue as its round pill. */
   .pri-chip {
-    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 10px;
-    border: 1px solid var(--border-light); border-radius: 2px;
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11px; font-weight: 600;
+    border: 1px solid var(--border-light); border-radius: 999px;
     color: var(--text-tertiary); background: none; cursor: pointer;
-    padding: 2px 0; width: 20px; text-align: center; line-height: 1.3;
+    padding: 3px 0; width: 24px; text-align: center; line-height: 1.2;
+    transition: color .12s, border-color .12s, background .12s;
   }
   .pri-chip:hover { border-color: var(--text-tertiary); color: var(--text-secondary); }
-  .pri-chip.p1 { color: var(--priority-medium); border-color: var(--priority-medium);
-                 background: color-mix(in srgb, var(--priority-medium) 12%, transparent); }
-  .pri-chip.p2 { color: var(--text-secondary); border-color: var(--border); }
-  .pri-chip.p3 { color: var(--text-tertiary); border-color: var(--border-light); }
+  .pri-chip.p1, .pri-chip.p2, .pri-chip.p3 {
+    color: var(--rc); border-color: var(--rc);
+    background: color-mix(in srgb, var(--rc) 15%, transparent);
+  }
   .c-pri { text-align: center; }
   .row.dim { opacity: .6; }
   .status-chip {
     font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 9px;
-    letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-secondary);
-    border: 1px solid var(--border); border-radius: 2px; padding: 1px 4px;
-    white-space: nowrap;
+    letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600;
+    border-radius: 999px; padding: 2px 7px; white-space: nowrap;
+    color: var(--sc, var(--text-secondary)); border: 1px solid var(--sc, var(--border));
+    background: color-mix(in srgb, var(--sc, var(--border)) 14%, transparent);
   }
+  /* Good news green, a maybe amber, a no red, an open question grey. */
+  .s-yes   { --sc: var(--priority-low); }
+  .s-maybe { --sc: var(--priority-medium); }
+  .s-no    { --sc: var(--priority-high); }
+  .s-open  { --sc: var(--text-tertiary); }
+
+  /* Round hues. Defined once; the pill and the chip both read --rc. */
+  .r1 { --rc: var(--priority-medium); }
+  .r2 { --rc: var(--accent); }
+  .r3 { --rc: #8B6BA5; }
+  .rnone { --rc: var(--text-tertiary); }
+  .p1 { --rc: var(--priority-medium); }
+  .p2 { --rc: var(--accent); }
+  .p3 { --rc: #8B6BA5; }
+  @media (prefers-color-scheme: dark) { .r3, .p3 { --rc: #A98BC4; } }
 
   .row.open { background: var(--hover); }
   .row-open.on { color: var(--accent); transform: rotate(90deg); }
   .row-open { transition: transform .12s, color .12s; }
 
-  /* Rounds are how the calling is actually planned, so the selector sits with
-     the other filters rather than being buried in a column. */
-  .roundfilters { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; margin: -8px 0 14px; }
+  /* One hue per round, used by the pill and the row chip alike, so the colour
+     carries the meaning rather than decorating it: 1 first, 2 next, 3 last. */
+  .roundfilters { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: -4px 0 18px; }
   .rfbtn {
     font-family: "IBM Plex Mono", ui-monospace, monospace;
-    font-size: 9px; letter-spacing: 0.06em; text-transform: uppercase;
-    color: var(--text-secondary); border: 1px solid var(--border); background: none;
-    border-radius: 2px; padding: 3px 8px; cursor: pointer; opacity: .55;
+    font-size: 10px; letter-spacing: 0.07em; text-transform: uppercase; font-weight: 500;
+    border-radius: 999px; padding: 6px 14px; cursor: pointer; background: var(--surface);
+    /* Tinted even when unselected, so the colour code can be read at rest
+       rather than only confirming a choice already made. */
+    color: color-mix(in srgb, var(--rc, var(--text-secondary)) 72%, var(--text-secondary));
+    border: 1px solid color-mix(in srgb, var(--rc, var(--border)) 38%, var(--border));
+    transition: color .12s, border-color .12s, background .12s;
   }
-  .rfbtn:hover { opacity: .85; }
-  .rfbtn.on { opacity: 1; color: var(--priority-medium); border-color: var(--priority-medium);
-              background: color-mix(in srgb, var(--priority-medium) 12%, transparent); }
-  .rfbtn.on.all { color: var(--text); border-color: var(--text-tertiary); background: none; }
-  .rfbtn .cnt { margin-left: 5px; opacity: .65; font-variant-numeric: tabular-nums; }
+  .rfbtn:hover { border-color: var(--rc, var(--text-tertiary)); }
+  .rfbtn.on {
+    color: var(--rc, var(--text)); border-color: var(--rc, var(--text-tertiary));
+    background: color-mix(in srgb, var(--rc, var(--text)) 15%, var(--surface));
+    font-weight: 600;
+  }
+  .rfbtn .cnt {
+    margin-left: 7px; font-variant-numeric: tabular-nums; font-weight: 400;
+    opacity: .75;
+  }
 
   .start-btn {
     font-family: inherit; font-size: 11px; font-weight: 500; color: #FFF;
@@ -298,7 +325,7 @@
   }
   .fbtn:hover { color: var(--text-secondary); }
   .fbtn.active { color: var(--text); font-weight: 600; border-bottom-color: var(--accent); }
-  .fbtn .cnt { color: var(--text-tertiary); margin-left: 5px; font-weight: 400; font-variant-numeric: tabular-nums; }
+  .fbtn .cnt { color: var(--text-secondary); margin-left: 6px; font-weight: 500; font-variant-numeric: tabular-nums; }
 
   /* Collapsed by default: after the first day nobody needs to be told what a
      green box means, so this is a reference to reopen, not a banner to read. */
@@ -331,10 +358,10 @@
   }
   .tag-chip {
     font-family: "IBM Plex Mono", ui-monospace, monospace;
-    font-size: 9px; letter-spacing: 0.04em; text-transform: uppercase;
+    font-size: 9.5px; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600;
     color: var(--tc); border: 1px solid var(--tc);
-    background: color-mix(in srgb, var(--tc) 12%, transparent);
-    border-radius: 2px; padding: 1px 4px; white-space: nowrap;
+    background: color-mix(in srgb, var(--tc) 16%, transparent);
+    border-radius: 999px; padding: 2px 7px; white-space: nowrap;
     /* A long tag name truncates inside its own column rather than running
        under the attempt boxes. */
     display: inline-block; max-width: 100%;
@@ -369,8 +396,8 @@
   .thead {
     padding: 8px 0; border-bottom: 1px solid var(--border);
     font-family: "IBM Plex Mono", ui-monospace, monospace;
-    font-size: 10px; letter-spacing: 0.07em; text-transform: uppercase;
-    color: var(--text-tertiary);
+    font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500;
+    color: var(--text-secondary);
   }
   .row { padding: 9px 0; border-bottom: 1px solid var(--border-light); }
   .row:hover { background: var(--hover); }
@@ -397,15 +424,15 @@
     white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
   .contact a:hover { color: var(--accent); text-decoration: underline; }
-  .contact .tel { font-variant-numeric: tabular-nums; }
+  .contact .tel { font-variant-numeric: tabular-nums; color: var(--accent); font-size: 12.5px; }
 
   /* One click logs the attempt as not-reached, which is the common outcome.
      A second click flips it to reached. */
   .att {
     height: 26px; border-radius: 3px; cursor: pointer;
-    border: 1px dashed var(--border); background: none;
+    border: 1px dashed var(--text-tertiary); background: none;
     font-family: "IBM Plex Mono", ui-monospace, monospace;
-    font-size: 9px; color: var(--text-tertiary); padding: 0;
+    font-size: 10px; font-weight: 500; color: var(--text-secondary); padding: 0;
   }
   .att:hover { border-color: var(--accent); color: var(--accent); }
   /* Logged but not reached reads as unfinished business, so it carries the
@@ -894,7 +921,7 @@
     var base = contacts.filter(f.fn);
 
     ['1', '2', '3'].forEach(function (r) {
-      var b = el('button', 'rfbtn' + (roundFilter === r ? ' on' : ''), 'Round ' + r);
+      var b = el('button', 'rfbtn r' + r + (roundFilter === r ? ' on' : ''), 'Round ' + r);
       b.appendChild(el('span', 'cnt', String(base.filter(function (c) {
         return (c.priority || '') === r;
       }).length)));
@@ -906,7 +933,7 @@
     });
 
     var un = base.filter(function (c) { return !c.priority; }).length;
-    var u = el('button', 'rfbtn' + (roundFilter === 'none' ? ' on' : ''), 'Unassigned');
+    var u = el('button', 'rfbtn rnone' + (roundFilter === 'none' ? ' on' : ''), 'Unassigned');
     u.appendChild(el('span', 'cnt', String(un)));
     u.addEventListener('click', function () {
       roundFilter = (roundFilter === 'none') ? '' : 'none';
@@ -1182,6 +1209,16 @@
 
   // "Gave" is wrong above an endorsement list. The header follows whichever
   // list is on screen; the master list keeps the neutral word.
+  // Good news green, a maybe amber, a no red, an open question grey — so a
+  // column of outcomes reads at a glance without being read word by word.
+  var STATUS_TONE = {
+    'Gave': 's-yes', 'Committed': 's-yes',
+    'Will think': 's-maybe', 'Leaning yes': 's-maybe',
+    'Not now': 's-open', 'Undecided': 's-open',
+    'No': 's-no'
+  };
+  function statusTone(v) { return STATUS_TONE[v] || 's-open'; }
+
   function outcomeHeader() {
     var th = document.getElementById('thOutcome');
     if (!th) return;
@@ -1390,7 +1427,7 @@
       // money list or an endorsement list.
       var g = el('div', 'gave-cell');
       if (c.status) {
-        g.appendChild(el('span', 'status-chip', c.status));
+        g.appendChild(el('span', 'status-chip ' + statusTone(c.status), c.status));
         row.appendChild(g);
       } else {
       var gb = el('button', 'gave-box' + (c.gave ? ' on' : ''), c.gave ? '\u2713' : '');
@@ -1589,7 +1626,7 @@
     var o2 = el2('fOut2');
     o2.textContent = '';
     (money ? STATUS_MONEY : STATUS_ENDORSE).forEach(function (label) {
-      var b = el('button', 'fout' + (c.status === label ? ' on' : ''), label);
+      var b = el('button', 'fout ' + statusTone(label) + (c.status === label ? ' on' : ''), label);
       b.addEventListener('click', function () { setStatus(c, label, money); });
       o2.appendChild(b);
     });
