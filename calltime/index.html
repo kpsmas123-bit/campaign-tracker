@@ -128,7 +128,9 @@
     max-height: calc(100vh - 90px); overflow-y: auto;
   }
   .focus[hidden] { display: none; }
-  .focus-card { max-width: 560px; display: flex; flex-direction: column; gap: 13px; }
+  /* Centred rather than left-hugging: the panel spans the list, so a card
+     pinned to the left edge left a lone gap down the right of it. */
+  .focus-card { max-width: 560px; margin: 0 auto; display: flex; flex-direction: column; gap: 13px; }
   .focus-top { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
   .focus-prog {
     font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 10px;
