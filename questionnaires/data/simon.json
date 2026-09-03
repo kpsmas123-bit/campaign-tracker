@@ -1,0 +1,226 @@
+{
+  "slug": "simon",
+  "org": "Congresswoman Lateefah Simon",
+  "cycle": "2026",
+  "candidate": "Daria Wrubel — Berkeley City Council D1",
+  "generated": "2026-09-01",
+  "last_factcheck": "",
+  "contact_fields": [
+    {
+      "k": "f0",
+      "label": "Candidate Name (as it will appear on the ballot)",
+      "v": "Daria Wrubel"
+    },
+    {
+      "k": "f1",
+      "label": "Office Sought",
+      "v": "Berkeley City Council"
+    },
+    {
+      "k": "f2",
+      "label": "District / Jurisdiction",
+      "v": "District 1"
+    },
+    {
+      "k": "f3",
+      "label": "Party Affiliation",
+      "v": ""
+    },
+    {
+      "k": "f4",
+      "label": "Incumbent, Challenger, or Open Seat?",
+      "v": ""
+    },
+    {
+      "k": "f5",
+      "label": "Known Opponents",
+      "v": ""
+    },
+    {
+      "k": "f6",
+      "label": "Election Date",
+      "v": "November 3, 2026"
+    },
+    {
+      "k": "f7",
+      "label": "Campaign Manager's Name",
+      "v": ""
+    },
+    {
+      "k": "f8",
+      "label": "Campaign Manager's Contact Phone",
+      "v": ""
+    },
+    {
+      "k": "f9",
+      "label": "Campaign Manager's Contact Email",
+      "v": ""
+    },
+    {
+      "k": "f10",
+      "label": "Campaign Website",
+      "v": ""
+    },
+    {
+      "k": "f11",
+      "label": "Campaign Social Media Handles",
+      "v": ""
+    },
+    {
+      "k": "f12",
+      "label": "Candidate Email",
+      "v": ""
+    },
+    {
+      "k": "f13",
+      "label": "Candidate Phone",
+      "v": ""
+    },
+    {
+      "k": "f14",
+      "label": "Total Raised to Date",
+      "v": ""
+    },
+    {
+      "k": "f15",
+      "label": "Cash on Hand",
+      "v": ""
+    }
+  ],
+  "questions": [
+    {
+      "id": "simon_q1",
+      "section": "Vision & Record",
+      "topic": "general",
+      "status": "todo",
+      "question": "Why are you running for office? Tell us what drives this decision and what you hope to achieve that you cannot accomplish in another role."
+    },
+    {
+      "id": "simon_q2",
+      "section": "Vision & Record",
+      "topic": "general",
+      "status": "todo",
+      "question": "What is your record of work in the communities you seek to represent? Describe your history of organizing, advocacy, or service in this jurisdiction. What relationships have you built and what trust have you earned."
+    },
+    {
+      "id": "simon_q3",
+      "section": "Vision & Record",
+      "topic": "general",
+      "status": "todo",
+      "question": "What makes you the right person for this moment? What specific experiences, skills, or perspective do you bring that your jurisdiction needs right now."
+    },
+    {
+      "id": "simon_q4",
+      "section": "Priorities",
+      "topic": "general",
+      "status": "todo",
+      "question": "What do you expect to realistically accomplish in your term in office? Be specific about legislative goals, coalition building, or constituent impact you can deliver."
+    },
+    {
+      "id": "simon_q5",
+      "section": "Priorities",
+      "topic": "general",
+      "status": "todo",
+      "question": "Describe the impact you want to have over your career in public office. What do you want your legacy to be? What specific policy areas will you champion?"
+    },
+    {
+      "id": "simon_q6",
+      "section": "Values & Policy Positions",
+      "topic": "general",
+      "status": "todo",
+      "question": "How will you fight for workers and economic justice?"
+    },
+    {
+      "id": "simon_q7",
+      "section": "Values & Policy Positions",
+      "topic": "general",
+      "status": "todo",
+      "question": "What is your plan to address the affordable housing crisis and cost of living in your jurisdiction?"
+    },
+    {
+      "id": "simon_q8",
+      "section": "Values & Policy Positions",
+      "topic": "general",
+      "status": "todo",
+      "question": "What is your vision for public education, and what will you do to strengthen it?"
+    },
+    {
+      "id": "simon_q9",
+      "section": "Values & Policy Positions",
+      "topic": "general",
+      "status": "todo",
+      "question": "What is your policy position on immigration, and what approaches would you take in responding to immigration enforcement?"
+    },
+    {
+      "id": "simon_q10",
+      "section": "Values & Policy Positions",
+      "topic": "general",
+      "status": "todo",
+      "question": "What is your vision for public safety and police reform?"
+    },
+    {
+      "id": "simon_q11",
+      "section": "Values & Policy Positions",
+      "topic": "general",
+      "status": "todo",
+      "question": "What is your position on the Connect Bay Area regional transit measure, and what is your vision for transit investment in your district? Connect Bay Area Act (authorized by SB 63) is the five-county sales tax measure on the November 2026 ballot to fund BART, Muni, Caltrain, AC Transit, and other regional transit operators and prevent service cuts. Address your position on the measure itself, transit-oriented development, and rider safety."
+    },
+    {
+      "id": "simon_q12",
+      "section": "Values & Policy Positions",
+      "topic": "general",
+      "status": "todo",
+      "question": "If you had unlimited federal funding to achieve one major priority for your constituents, what issue would you tackle and what outcome would you hope to accomplish?"
+    },
+    {
+      "id": "simon_q13",
+      "section": "Values & Policy Positions",
+      "topic": "general",
+      "status": "todo",
+      "question": "Do you take corporate PAC money, AIPAC money, or fossil fuel money? Explain your fundraising principles and any lines you will not cross."
+    },
+    {
+      "id": "simon_q14",
+      "section": "Values & Policy Positions",
+      "topic": "general",
+      "status": "todo",
+      "question": "How do you define environmental justice, and what concrete policies will you fight for to achieve it?"
+    },
+    {
+      "id": "simon_q15",
+      "section": "Values & Policy Positions",
+      "topic": "general",
+      "status": "todo",
+      "question": "How do you define racial justice and what concrete policies will you fight for to achieve it?"
+    },
+    {
+      "id": "simon_q16",
+      "section": "Endorsements & Support",
+      "topic": "general",
+      "status": "todo",
+      "question": "List all endorsements you have received to date. Include elected officials, organizations, unions, and community leaders."
+    },
+    {
+      "id": "simon_q17",
+      "section": "Endorsements & Support",
+      "topic": "general",
+      "status": "todo",
+      "question": "Are there organizations or individuals whose endorsements you will decline or not pursue. If so, explain why."
+    },
+    {
+      "id": "simon_q18",
+      "section": "Endorsements & Support",
+      "topic": "general",
+      "status": "todo",
+      "question": "What organizations are actively supporting your campaign? Describe the nature of these partnerships and your coalition."
+    },
+    {
+      "id": "simon_q19",
+      "section": "Closing",
+      "topic": "general",
+      "status": "todo",
+      "question": "Why do you want my endorsement and what do you think it signals to voters?"
+    }
+  ],
+  "org_research": "Congresswoman Lateefah Simon (CA-12) — 2026 Endorsement Questionnaire, pulled from the form’s own data payload. Six sections: campaign details, vision and record, priorities, values and policy positions, endorsements and support, and a closing question. Simon also holds the CA-12 ex-officio seat on the ACDCC."
+}
