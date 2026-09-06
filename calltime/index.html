@@ -325,6 +325,30 @@
     background-size: 5px 5px, 5px 5px;
     background-repeat: no-repeat;
   }
+  /* A reached call is finished business, so it sinks. The switch is on by
+     default because that is how the list is worked; off restores plain round
+     order for reviewing who has already been spoken to. */
+  .sw { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; margin-left: 6px; }
+  .sw input { position: absolute; opacity: 0; width: 0; height: 0; }
+  .sw-track {
+    width: 30px; height: 17px; border-radius: 999px; background: var(--border);
+    border: 1px solid var(--border); position: relative; transition: background .14s, border-color .14s;
+  }
+  .sw-knob {
+    position: absolute; top: 1px; left: 1px; width: 13px; height: 13px;
+    border-radius: 50%; background: var(--surface); transition: transform .14s;
+    box-shadow: 0 1px 2px rgba(0,0,0,.18);
+  }
+  .sw input:checked + .sw-track { background: var(--priority-low); border-color: var(--priority-low); }
+  .sw input:checked + .sw-track .sw-knob { transform: translateX(13px); }
+  .sw input:focus-visible + .sw-track { box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent); }
+  .sw-label {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 10px; letter-spacing: 0.07em; text-transform: uppercase;
+    color: var(--text-secondary);
+  }
+  .sw input:checked ~ .sw-label { color: var(--text); }
+
   .rselect:focus-visible { box-shadow: 0 0 0 3px color-mix(in srgb, var(--rc, var(--accent)) 25%, transparent); }
 
   .start-btn {
@@ -549,6 +573,11 @@
   <div class="roundfilters">
     <label class="rlabel" for="roundSelect">Round</label>
     <select class="rselect" id="roundSelect"></select>
+    <label class="sw" title="Move contacts you have spoken to below the ones you have not">
+      <input type="checkbox" id="talkedSort" checked>
+      <span class="sw-track"><span class="sw-knob"></span></span>
+      <span class="sw-label">Un-talked first</span>
+    </label>
   </div>
   <details class="legend" id="legend">
     <summary>Key</summary>
@@ -883,6 +912,8 @@
   // The page opens on round 1 every time: that is the list being worked, and
   // deciding where to start should not be the first task of a call session.
   var roundFilter = '1';
+  // On by default: the point of the list is who is left to call.
+  var sortTalked = true;
   var openPop = null;
 
   function tagDef(k) {
@@ -1064,8 +1095,19 @@
   // Priority is set in the sheet and is the whole point of the sheet round
   // trip, so it drives the order here. Blank sorts last rather than first: an
   // unranked contact is not a top priority.
+  // A green date means the call connected. That contact is finished business
+  // for this pass, so they sink below everyone still to be reached — the top of
+  // the list stays the work left rather than a history of what has been done.
+  function hasTalked(c) {
+    return attemptsOf(c).some(function (a) { return a && a.reached; });
+  }
+
   function sortContacts() {
     contacts.sort(function (a, b) {
+      if (sortTalked) {
+        var ta = hasTalked(a) ? 1 : 0, tb = hasTalked(b) ? 1 : 0;
+        if (ta !== tb) return ta - tb;
+      }
       var pa = parseInt(a.priority, 10), pb = parseInt(b.priority, 10);
       if (isNaN(pa)) pa = 99;
       if (isNaN(pb)) pb = 99;
@@ -1221,7 +1263,10 @@
       while (a.length && a[a.length - 1] == null) a.pop();
     }
     c.attempts = a;
-    render();
+    // Re-sorted here so marking someone reached moves them immediately, rather
+    // than sitting in place until something else triggers a sort.
+    sortContacts();
+    paint();
     await patch(c.id, { attempts: a });
   }
 
@@ -1700,8 +1745,8 @@
     if (idx > 2) idx = 2;
     a[idx] = { at: new Date().toISOString(), reached: !!reached };
     c.attempts = a;
-    if (!reached && label === 'Left message') c.notes = c.notes;   // no note change
     patch(c.id, { attempts: a });
+    sortContacts();
     paint();
   }
 
@@ -1840,6 +1885,12 @@
 
   // The sheet is edited elsewhere — in Drive, by someone reprioritising — so the
   // page needs a way to pick that up without a full reload and re-auth.
+  document.getElementById('talkedSort').addEventListener('change', function () {
+    sortTalked = this.checked;
+    sortContacts();
+    paint();
+  });
+
   document.getElementById('roundSelect').addEventListener('change', function () {
     roundFilter = this.value;
     paint();
