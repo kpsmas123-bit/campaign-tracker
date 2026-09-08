@@ -1,0 +1,278 @@
+{
+  "slug": "ballotpedia",
+  "org": "Ballotpedia Candidate Connection",
+  "cycle": "2026",
+  "candidate": "Daria Wrubel — Berkeley City Council D1",
+  "generated": "2026-09-08",
+  "last_factcheck": "",
+  "contact_fields": [
+    {
+      "k": "name",
+      "label": "Name",
+      "v": "Daria Wrubel"
+    },
+    {
+      "k": "email",
+      "label": "Email",
+      "v": ""
+    },
+    {
+      "k": "party",
+      "label": "Party affiliation",
+      "v": ""
+    },
+    {
+      "k": "office_type",
+      "label": "What type of office are you running for?",
+      "v": "Other Local office"
+    },
+    {
+      "k": "state",
+      "label": "Which state or territory are you running in?",
+      "v": "California"
+    },
+    {
+      "k": "office",
+      "label": "What office are you seeking election to?",
+      "v": "Berkeley City Council, District 1"
+    },
+    {
+      "k": "seat",
+      "label": "Seat number",
+      "v": "District 1"
+    },
+    {
+      "k": "year",
+      "label": "What year is the election being held?",
+      "v": "2026"
+    },
+    {
+      "k": "date",
+      "label": "What is the date of the election?",
+      "v": "11-03-2026"
+    },
+    {
+      "k": "incumbent",
+      "label": "Are you the current officeholder seeking re-election?",
+      "v": "No"
+    },
+    {
+      "k": "writein",
+      "label": "Are you running as a write-in candidate?",
+      "v": "No"
+    },
+    {
+      "k": "website",
+      "label": "Campaign website",
+      "v": ""
+    },
+    {
+      "k": "facebook",
+      "label": "Campaign Facebook",
+      "v": ""
+    },
+    {
+      "k": "linkedin",
+      "label": "Personal LinkedIn",
+      "v": ""
+    },
+    {
+      "k": "college",
+      "label": "What college or university did you attend?",
+      "v": ""
+    },
+    {
+      "k": "highschool",
+      "label": "What high school did you attend?",
+      "v": ""
+    },
+    {
+      "k": "profession",
+      "label": "What would you say is your profession?",
+      "v": ""
+    },
+    {
+      "k": "military",
+      "label": "Have you ever served in the military?",
+      "v": ""
+    }
+  ],
+  "questions": [
+    {
+      "id": "ballotpedia_q1",
+      "section": "Key messages",
+      "topic": "general",
+      "status": "todo",
+      "question": "Who are you? Tell us about yourself."
+    },
+    {
+      "id": "ballotpedia_q2",
+      "section": "Key messages",
+      "topic": "general",
+      "status": "todo",
+      "question": "First key message"
+    },
+    {
+      "id": "ballotpedia_q3",
+      "section": "Key messages",
+      "topic": "general",
+      "status": "todo",
+      "question": "Second key message"
+    },
+    {
+      "id": "ballotpedia_q4",
+      "section": "Key messages",
+      "topic": "general",
+      "status": "todo",
+      "question": "Third key message"
+    },
+    {
+      "id": "ballotpedia_q5",
+      "section": "Key messages",
+      "topic": "general",
+      "status": "todo",
+      "question": "What areas of public policy are you personally passionate about?"
+    },
+    {
+      "id": "ballotpedia_q6",
+      "section": "Campaign",
+      "topic": "general",
+      "status": "todo",
+      "question": "What organizations or individuals have endorsed your campaign?"
+    },
+    {
+      "id": "ballotpedia_q7",
+      "section": "Campaign",
+      "topic": "general",
+      "status": "todo",
+      "question": "If available, please provide a link to your campaign website's list of endorsements you've received."
+    },
+    {
+      "id": "ballotpedia_q8",
+      "section": "Campaign",
+      "topic": "general",
+      "status": "todo",
+      "question": "Enter the link for your ratings by an independent organization who rates candidates."
+    },
+    {
+      "id": "ballotpedia_q9",
+      "section": "Campaign",
+      "topic": "general",
+      "status": "todo",
+      "question": "Enter the link to a pledge you have made at the request of a separate organization."
+    },
+    {
+      "id": "ballotpedia_q10",
+      "section": "More about you",
+      "topic": "general",
+      "status": "todo",
+      "question": "What characteristics or principles are most important for an elected official?"
+    },
+    {
+      "id": "ballotpedia_q11",
+      "section": "More about you",
+      "topic": "general",
+      "status": "todo",
+      "question": "What do you believe are the core responsibilities for someone elected to this office?"
+    },
+    {
+      "id": "ballotpedia_q12",
+      "section": "More about you",
+      "topic": "general",
+      "status": "todo",
+      "question": "Who do you look up to? Whose example would you like to follow, and why?"
+    },
+    {
+      "id": "ballotpedia_q13",
+      "section": "More about you",
+      "topic": "general",
+      "status": "todo",
+      "question": "What legacy would you like to leave?"
+    },
+    {
+      "id": "ballotpedia_q14",
+      "section": "More about you",
+      "topic": "general",
+      "status": "todo",
+      "question": "What was the first historical event that happened in your lifetime that you remember?"
+    },
+    {
+      "id": "ballotpedia_q15",
+      "section": "More about you",
+      "topic": "general",
+      "status": "todo",
+      "question": "What was your very first job? How long did you have it?"
+    },
+    {
+      "id": "ballotpedia_q16",
+      "section": "More about you",
+      "topic": "general",
+      "status": "todo",
+      "question": "What is something that has been a struggle in your life?"
+    },
+    {
+      "id": "ballotpedia_q17",
+      "section": "More about you",
+      "topic": "general",
+      "status": "todo",
+      "question": "What is the most important policy issue none of your competitors are talking about?"
+    },
+    {
+      "id": "ballotpedia_q18",
+      "section": "More about you",
+      "topic": "general",
+      "status": "todo",
+      "question": "What is a policy you have changed your position on over time? Why did it change?"
+    },
+    {
+      "id": "ballotpedia_q19",
+      "section": "More about you",
+      "topic": "general",
+      "status": "todo",
+      "question": "Currently, there are 27 constitutional amendments. What should a 28th Amendment to the Constitution say?"
+    },
+    {
+      "id": "ballotpedia_q20",
+      "section": "More about you",
+      "topic": "general",
+      "status": "todo",
+      "question": "What do you perceive to be the United States' greatest challenges as a nation over the next decade?"
+    },
+    {
+      "id": "ballotpedia_q21",
+      "section": "More about you",
+      "topic": "general",
+      "status": "todo",
+      "question": "Do you believe that compromise is necessary or desirable for policymaking?"
+    },
+    {
+      "id": "ballotpedia_q22",
+      "section": "More about you",
+      "topic": "general",
+      "status": "todo",
+      "question": "What responsibilities of this office do you personally consider the most important?"
+    },
+    {
+      "id": "ballotpedia_q23",
+      "section": "More about you",
+      "topic": "general",
+      "status": "todo",
+      "question": "Are there any little-known powers or responsibilities held by this office that you believe more people should be aware of?"
+    },
+    {
+      "id": "ballotpedia_q24",
+      "section": "More about you",
+      "topic": "general",
+      "status": "todo",
+      "question": "What do you perceive to be your city's greatest challenges over the next decade?"
+    },
+    {
+      "id": "ballotpedia_q25",
+      "section": "More about you",
+      "topic": "general",
+      "status": "todo",
+      "question": "What qualities does this office possess that makes it a unique and important part of the local government?"
+    }
+  ],
+  "org_research": "Ballotpedia's Candidate Connection survey, read from the live LimeSurvey form at form.ballotpedia.org. This is a public profile rather than an endorsement: answers are published verbatim on the candidate's Ballotpedia page and in the Sample Ballot Lookup Tool, and Ballotpedia states that once submitted the answers are final, with only small grammatical corrections on request. Submission requires identity verification by TruePic photo ID or a confirmation email to the address on the official candidacy filing. Ballotpedia shows each candidate only the questions for their office; the Senate, House, Governor, Attorney General, judicial, mayoral and school board blocks are omitted here because an 'Other Local office' candidate is never asked them."
+}
