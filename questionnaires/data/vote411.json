@@ -1,6 +1,6 @@
 {
-  "slug": "lwv",
-  "org": "League of Women Voters — VOTE411",
+  "slug": "vote411",
+  "org": "VOTE411",
   "cycle": "2026",
   "candidate": "Daria Wrubel — Berkeley City Council D1",
   "generated": "2026-09-08",
@@ -19,7 +19,7 @@
   ],
   "questions": [
     {
-      "id": "lwv_q1",
+      "id": "vote411_q1",
       "section": "Candidate responses",
       "topic": "general",
       "status": "todo",
@@ -27,7 +27,7 @@
       "section_note": "VOTE411 caps this response at 2,000 characters."
     },
     {
-      "id": "lwv_q2",
+      "id": "vote411_q2",
       "section": "Candidate responses",
       "topic": "general",
       "status": "todo",
@@ -35,5 +35,5 @@
       "section_note": "VOTE411 caps this response at 2,000 characters. The candidate statement filed with the city can be reused here."
     }
   ],
-  "org_research": "VOTE411 is the League of Women Voters' voter guide. Answers publish on the VOTE411 ballot lookup, so they are read by voters directly rather than by an endorsement committee. Two questions carried here at the campaign's direction as the ones that matter; both are capped at 2,000 characters by the form."
+  "org_research": "VOTE411 is the voter guide run by the League of Women Voters. Answers publish on the VOTE411 ballot lookup, so they are read by voters directly rather than by an endorsement committee. Two questions carried here at the campaign's direction as the ones that matter; both are capped at 2,000 characters by the form."
 }
