@@ -136,6 +136,275 @@ def delta_html(now, before, as_money=True):
     return f'<span class="delta {cls}">{arrow} {val} this week</span>'
 
 
+def _nice_scale(v, target=4):
+    """A clean tick step and the axis top it implies.
+
+    Chosen step-first: rounding the top and then dividing it into equal parts
+    is how a $1,500 axis ends up with ticks every $375. Picking the step from
+    1/2/2.5/5 first guarantees every gridline lands on a round number, and the
+    top is simply the first multiple of that step at or above the data.
+    """
+    if v <= 0:
+        return 1000, 250
+    raw = v / target
+    mag = 10 ** int(math.floor(math.log10(raw)))
+    step = next(m * mag for m in (1, 2, 2.5, 5, 10) if m * mag >= raw)
+    top = step * math.ceil(v / step)
+    return top, step
+
+
+TIMELINE_JS = """
+<script>
+(function () {
+  var pts = __SERIES__;
+  var wrap = document.getElementById('tlLine');
+  if (!wrap) return;
+  var svg = wrap.querySelector('svg'), tip = document.getElementById('tlTip');
+  var cross = document.getElementById('tlCross'), hit = document.getElementById('tlHit');
+  var W = __W__;
+  function fmt(v) { return '$' + Math.round(v).toLocaleString(); }
+  function show(evt) {
+    var r = svg.getBoundingClientRect();
+    var sx = (evt.clientX - r.left) * (W / r.width), best = pts[0];
+    for (var i = 1; i < pts.length; i++)
+      if (Math.abs(pts[i].x - sx) < Math.abs(best.x - sx)) best = pts[i];
+    cross.setAttribute('x1', best.x); cross.setAttribute('x2', best.x);
+    cross.setAttribute('visibility', 'visible');
+    tip.innerHTML = '<div class="d">' + best.d + '</div>' +
+      '<div><span class="k" style="background:var(--series-total)"></span>' + fmt(best.t) + ' raised</div>' +
+      '<div><span class="k" style="background:var(--series-bky)"></span>' + fmt(best.b) + ' matchable</div>' +
+      '<div class="d">' + best.n + ' donors</div>';
+    tip.hidden = false;
+    var wr = wrap.getBoundingClientRect(), px = best.x / W * wr.width;
+    var left = px + 12;
+    if (left + tip.offsetWidth > wr.width) left = px - tip.offsetWidth - 12;
+    tip.style.left = Math.max(0, left) + 'px';
+    tip.style.top = '8px';
+  }
+  function hide() { cross.setAttribute('visibility', 'hidden'); tip.hidden = true; }
+  hit.addEventListener('mousemove', show);
+  hit.addEventListener('mouseleave', hide);
+  hit.addEventListener('touchstart', function (e) { show(e.touches[0]); }, { passive: true });
+
+  var bw = document.getElementById('tlBars');
+  if (!bw) return;
+  var btip = document.getElementById('tlBarTip');
+  bw.querySelectorAll('.tl-col').forEach(function (c) {
+    c.addEventListener('mouseenter', function () {
+      btip.textContent = c.getAttribute('data-tip');
+      btip.hidden = false;
+      var br = bw.getBoundingClientRect(), cr = c.getBoundingClientRect();
+      var left = cr.left - br.left + cr.width / 2 - btip.offsetWidth / 2;
+      btip.style.left = Math.max(0, Math.min(left, br.width - btip.offsetWidth)) + 'px';
+      btip.style.top = (cr.top - br.top - btip.offsetHeight - 8) + 'px';
+    });
+    c.addEventListener('mouseleave', function () { btip.hidden = true; });
+  });
+})();
+</script>"""
+
+
+def timeline_html(history):
+    """Cumulative raised over time, and new money by week.
+
+    Built from the History tab's daily snapshots -- aggregates only, no donor
+    names, which matters because this file is committed to a public repo.
+
+    Two charts rather than one, because the running total and a week's new
+    money differ by an order of magnitude: on a shared axis the weekly bars
+    would be a flat line along the bottom, and a second y-axis would invite
+    reading the two against each other in a way that means nothing.
+    """
+    from datetime import date, timedelta
+
+    pts = []
+    for h in history or []:
+        try:
+            dd = date.fromisoformat(str(h['date'])[:10])
+            pts.append({'d': dd, 'total': float(h['total_raised']),
+                        'bky': float(h.get('qualifying') or 0),
+                        'donors': int(float(h.get('unique_donors') or 0))})
+        except (KeyError, TypeError, ValueError):
+            continue
+    pts.sort(key=lambda p: p['d'])
+    if len(pts) < 2:
+        return ''
+
+    # --- cumulative chart ------------------------------------------------
+    W, H = 640, 240
+    L, R, T, B = 56, 16, 22, 26
+    pw, ph = W - L - R, H - T - B
+    d0, d1 = pts[0]['d'], pts[-1]['d']
+    span = max((d1 - d0).days, 1)
+    top, step = _nice_scale(max(p['total'] for p in pts), 4)
+
+    # A true time axis, not evenly spaced points: the snapshot feed skipped a
+    # couple of days, and index spacing would quietly stretch those weeks.
+    def X(dd):
+        return L + pw * (dd - d0).days / span
+
+    def Y(v):
+        return T + ph * (1 - v / top)
+
+    out = []
+    for i in range(int(round(top / step)) + 1):
+        v = step * i
+        y = Y(v)
+        out.append('<line class="%s" x1="%d" x2="%d" y1="%.1f" y2="%.1f"/>'
+                   % ('tl-base' if i == 0 else 'tl-grid', L, W - R, y, y))
+        out.append('<text class="tl-tick" x="%d" y="%.1f" text-anchor="end" dy="3">%s</text>'
+                   % (L - 8, y, money(v)))
+
+    # A label at the first of each month in range. The start date lives in the
+    # note beneath instead of on the axis, where it crowded out August.
+    m = date(d0.year, d0.month, 1)
+    while m <= d1:
+        if m >= d0:
+            out.append('<text class="tl-tick" x="%.1f" y="%d" text-anchor="middle">%s</text>'
+                       % (X(m), H - 8, m.strftime('%b')))
+        m = date(m.year + (m.month // 12), m.month % 12 + 1, 1)
+
+    def path(key):
+        return 'M' + ' L'.join('%.1f,%.1f' % (X(p['d']), Y(p[key])) for p in pts)
+
+    area = path('total') + ' L%.1f,%.1f L%.1f,%.1f Z' % (X(d1), Y(0), X(d0), Y(0))
+    out.append('<path d="%s" fill="var(--series-total)" fill-opacity="0.10" stroke="none"/>' % area)
+    out.append('<path class="tl-line" d="%s" stroke="var(--series-bky)"/>' % path('bky'))
+    out.append('<path class="tl-line" d="%s" stroke="var(--series-total)"/>' % path('total'))
+
+    last = pts[-1]
+    # Endpoint values only -- the headline figures -- with the axis and the
+    # hover tooltip carrying everything in between.
+    for key, var, dy, base in (('bky', '--series-bky', 10, 'hanging'),
+                               ('total', '--series-total', -10, 'auto')):
+        out.append('<circle class="tl-dot" cx="%.1f" cy="%.1f" r="4" fill="var(%s)"/>'
+                   % (X(last['d']), Y(last[key]), var))
+        # "hanging" puts the text below its anchor whatever its size, so the
+        # lower label clears its own line at phone scale as well as desktop.
+        out.append('<text class="tl-end" x="%.1f" y="%.1f" text-anchor="end" dx="-8" dy="%d" '
+                   'dominant-baseline="%s">%s</text>'
+                   % (X(last['d']), Y(last[key]), dy, base, money(last[key])))
+
+    out.append('<line class="tl-cross" id="tlCross" x1="0" x2="0" y1="%d" y2="%d" visibility="hidden"/>'
+               % (T, H - B))
+    out.append('<rect id="tlHit" x="%d" y="%d" width="%d" height="%d" fill="transparent"/>'
+               % (L, T, pw, ph))
+
+    series_json = json.dumps([{'x': round(X(p['d']), 1),
+                               'd': p['d'].strftime('%b ') + str(p['d'].day),
+                               't': p['total'], 'b': p['bky'], 'n': p['donors']} for p in pts])
+
+    # --- weekly new money ------------------------------------------------
+    # The last snapshot in each Monday-start week, differenced against the week
+    # before. The first week has no prior figure and so no bar: its balance is
+    # money raised before tracking began, not money raised that week.
+    weeks = {}
+    for p in pts:
+        wk = p['d'] - timedelta(days=p['d'].weekday())
+        weeks[wk] = p
+    wk_keys = sorted(weeks)
+    bars = []
+    for prev, cur in zip(wk_keys, wk_keys[1:]):
+        bars.append({'wk': cur, 'amt': weeks[cur]['total'] - weeks[prev]['total'],
+                     'donors': weeks[cur]['donors'] - weeks[prev]['donors'],
+                     'partial': False})
+    # Only the final week can be in progress. Testing each week for a Sunday
+    # snapshot instead wrongly flags finished weeks whose Sunday the feed
+    # happened to skip — the week of Aug 10 was marked unfinished that way.
+    # Left unmarked, the real in-progress week reads as money drying up.
+    if bars:
+        bars[-1]['partial'] = pts[-1]['d'] < bars[-1]['wk'] + timedelta(days=6)
+
+    def wk_label(dd):
+        return dd.strftime('%b ') + str(dd.day)
+
+    bars_html = ''
+    if bars:
+        BW, BH = 640, 150
+        bL, bR, bT, bB = 56, 16, 22, 24
+        bpw, bph = BW - bL - bR, BH - bT - bB
+        btop, bstep = _nice_scale(max(max(b['amt'] for b in bars), 1), 3)
+        band = bpw / len(bars)
+        colw = min(24, band * 0.6)
+
+        def BY(v):
+            return bT + bph * (1 - max(v, 0) / btop)
+
+        b_out = []
+        n_ticks = int(round(btop / bstep))
+        for i in range(n_ticks + 1):
+            v = bstep * i
+            y = BY(v)
+            b_out.append('<line class="%s" x1="%d" x2="%d" y1="%.1f" y2="%.1f"/>'
+                         % ('tl-base' if i == 0 else 'tl-grid', bL, BW - bR, y, y))
+            mid = ' tl-mid' if 0 < i < n_ticks else ''
+            b_out.append('<text class="tl-tick%s" x="%d" y="%.1f" text-anchor="end" dy="3">%s</text>'
+                         % (mid, bL - 8, y, money(v)))
+        for i, b in enumerate(bars):
+            cx = bL + band * i + (band - colw) / 2
+            yt, yb = BY(b['amt']), BY(0)
+            r = max(0, min(4, yb - yt, colw / 2))
+            # rounded data-end, square at the baseline
+            d = ('M%.1f,%.1f L%.1f,%.1f Q%.1f,%.1f %.1f,%.1f L%.1f,%.1f '
+                 'Q%.1f,%.1f %.1f,%.1f L%.1f,%.1f Z'
+                 % (cx, yb, cx, yt + r, cx, yt, cx + r, yt, cx + colw - r, yt,
+                    cx + colw, yt, cx + colw, yt + r, cx + colw, yb))
+            tip = 'Week of %s: %s from %d new donor%s%s' % (
+                wk_label(b['wk']), money(b['amt']), b['donors'], '' if b['donors'] == 1 else 's',
+                ' (week in progress)' if b['partial'] else '')
+            b_out.append('<path class="tl-col%s" d="%s" data-tip="%s"><title>%s</title></path>'
+                         % (' partial' if b['partial'] else '', d, html.escape(tip), html.escape(tip)))
+            b_out.append('<text class="tl-tick" x="%.1f" y="%d" text-anchor="middle">%s</text>'
+                         % (cx + colw / 2, BH - 6, '%d/%d' % (b['wk'].month, b['wk'].day)))
+        # value on the cap of the latest week only -- the one being asked about
+        lb = bars[-1]
+        # Right-aligned to the plot edge: centred on the last column, a longer
+        # label like "$340 so far" ran off the side of the chart.
+        b_out.append('<text class="tl-end" x="%d" y="%.1f" text-anchor="end" dy="-7">%s%s</text>'
+                     % (BW - bR, BY(lb['amt']), money(lb['amt']), ' so far' if lb['partial'] else ''))
+        bar_aria = 'New money by week; most recently %s in the week of %s' % (
+            money(lb['amt']), wk_label(lb['wk']))
+        bars_html = ('<div class="tl-sub">New money by week</div>'
+                     '<div class="tl-chart" id="tlBars">'
+                     '<svg viewBox="0 0 %d %d" role="img" aria-label="%s">%s</svg>'
+                     '<div class="tl-tip" id="tlBarTip" hidden></div></div>'
+                     % (BW, BH, html.escape(bar_aria), ''.join(b_out)))
+
+    rows = ''.join('<tr><td>%s%s</td><td>%s</td><td>%s</td><td>%d</td></tr>'
+                   % (wk_label(b['wk']), ' (so far)' if b['partial'] else '', money(b['amt']),
+                      money(weeks[b['wk']]['total']), b['donors']) for b in reversed(bars))
+
+    aria = ('Total raised rose from %s on %s to %s on %s; Berkeley matchable contributions reached %s.'
+            % (money(pts[0]['total']), wk_label(d0), money(last['total']),
+               wk_label(d1), money(last['bky'])))
+
+    card = (
+        '\n  <div class="card">'
+        '\n    <div class="tl-head">'
+        '\n      <div class="card-title" style="margin-bottom:0">Donation timeline</div>'
+        '\n      <div class="tl-legend">'
+        '\n        <span class="tl-key"><span class="tl-swatch" style="background:var(--series-total)"></span>Total raised</span>'
+        '\n        <span class="tl-key"><span class="tl-swatch" style="background:var(--series-bky)"></span>Berkeley matchable</span>'
+        '\n      </div>'
+        '\n    </div>'
+        '\n    <div class="tl-chart" id="tlLine">'
+        '\n      <svg viewBox="0 0 %d %d" role="img" aria-label="%s">%s</svg>'
+        '\n      <div class="tl-tip" id="tlTip" hidden></div>'
+        '\n    </div>'
+        '\n    %s'
+        '\n    <div class="tl-note">Tracking began %s with %s already raised, so that opening balance is not attributed to any week.</div>'
+        '\n    <details class="tl-table">'
+        '\n      <summary>Show weekly figures as a table</summary>'
+        '\n      <table><thead><tr><th>Week of</th><th>New money</th><th>Running total</th><th>New donors</th></tr></thead>'
+        '\n      <tbody>%s</tbody></table>'
+        '\n    </details>'
+        '\n  </div>'
+    ) % (W, H, html.escape(aria), ''.join(out), bars_html,
+         wk_label(d0), money(pts[0]['total']), rows)
+
+    return card + TIMELINE_JS.replace('__SERIES__', series_json).replace('__W__', str(W))
+
+
 def generate(data_path, out_path):
     with open(data_path) as f:
         d = json.load(f)
@@ -172,6 +441,7 @@ def generate(data_path, out_path):
     match_cap  = d.get('match_cap', 52000)
     ratio      = d.get('match_ratio', 6)
     projected  = d.get('projected_total', total + match)
+    timeline   = timeline_html(d.get('history', []))
 
     week_total  = d.get('week_ago_total', '')
     week_donors = d.get('week_ago_donors', '')
@@ -267,6 +537,13 @@ def generate(data_path, out_path):
     --priority-low: #6B956B;
     --team-bg: #F2F2EE;
     --hover: #F4F4F0;
+    /* Chart series. Validated against the card surface in each theme for
+       lightness band, chroma floor, colour-blind separation and contrast —
+       the app accent is too desaturated to read as a data mark, so these are
+       the same hues pushed just far enough to pass. Status colours (the gold,
+       green and red above) are never used for a series. */
+    --series-total: #3868B0;
+    --series-bky: #C57542;
   }}
 
   @media (prefers-color-scheme: dark) {{
@@ -286,6 +563,8 @@ def generate(data_path, out_path):
       --priority-low: #7DAF7D;
       --team-bg: #222226;
       --hover: #24242A;
+      --series-total: #6293DB;
+      --series-bky: #C97D4C;
     }}
   }}
 
@@ -368,6 +647,54 @@ def generate(data_path, out_path):
     font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
     color: var(--text-tertiary); margin-bottom: 16px;
   }}
+
+  /* --- timeline ---------------------------------------------------------- */
+  .tl-head {{ display: flex; align-items: baseline; justify-content: space-between;
+              gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }}
+  .tl-legend {{ display: flex; gap: 16px; flex-wrap: wrap; font-size: 12px; color: var(--text-secondary); }}
+  .tl-key {{ display: inline-flex; align-items: center; gap: 6px; }}
+  .tl-swatch {{ width: 14px; height: 2px; border-radius: 1px; display: inline-block; }}
+  .tl-chart {{ position: relative; }}
+  .tl-chart svg {{ display: block; width: 100%; height: auto; overflow: visible; }}
+  .tl-grid {{ stroke: var(--border-light); stroke-width: 1; }}
+  .tl-base {{ stroke: var(--border); stroke-width: 1; }}
+  .tl-tick {{ fill: var(--text-tertiary); font-size: 10px;
+              font-family: "IBM Plex Mono", ui-monospace, monospace; font-variant-numeric: tabular-nums; }}
+  .tl-end {{ fill: var(--text); font-size: 12px; font-weight: 600; }}
+  .tl-line {{ fill: none; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }}
+  .tl-dot {{ stroke: var(--surface); stroke-width: 2; }}
+  .tl-cross {{ stroke: var(--text-tertiary); stroke-width: 1; }}
+  .tl-col {{ fill: var(--series-total); }}
+  .tl-col.partial {{ fill-opacity: .4; }}
+  .tl-col:hover, .tl-col.on {{ opacity: .78; }}
+  .tl-tip {{
+    position: absolute; pointer-events: none; z-index: 2; white-space: nowrap;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 3px;
+    padding: 7px 9px; font-size: 12px; color: var(--text); line-height: 1.5;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  }}
+  .tl-tip[hidden] {{ display: none; }}
+  .tl-tip .k {{ display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }}
+  .tl-tip .d {{ color: var(--text-secondary); font-size: 11px; }}
+  .tl-sub {{ margin: 22px 0 8px; font-size: 12px; color: var(--text-secondary); }}
+  .tl-note {{ margin-top: 10px; font-size: 12px; color: var(--text-tertiary); }}
+  /* The chart is one viewBox scaled to fit, so its text shrinks with it: at
+     phone width 10-unit ticks render near 4px. SVG type is in viewBox units,
+     so it is enlarged here to land back at a readable size on screen. */
+  @media (max-width: 560px) {{
+    .tl-tick {{ font-size: 19px; }}
+    .tl-end {{ font-size: 21px; }}
+    /* The weekly chart is too short at this width for four labels; the
+       gridlines stay, and the floor and ceiling carry the scale. */
+    .tl-tick.tl-mid {{ display: none; }}
+  }}
+  .tl-table {{ margin-top: 12px; font-size: 12px; }}
+  .tl-table summary {{ cursor: pointer; color: var(--text-secondary); }}
+  .tl-table table {{ border-collapse: collapse; margin-top: 8px; width: 100%;
+                     font-variant-numeric: tabular-nums; }}
+  .tl-table th, .tl-table td {{ text-align: right; padding: 4px 8px; border-bottom: 1px solid var(--border-light); }}
+  .tl-table th:first-child, .tl-table td:first-child {{ text-align: left; }}
+  .tl-table th {{ color: var(--text-tertiary); font-weight: 500; }}
 
   .headline {{
     display: flex; align-items: baseline; gap: 10px;
@@ -508,6 +835,7 @@ def generate(data_path, out_path):
       </div>
     </div>
   </div>
+{timeline}
 
 </div>
 {AUTH_JS}

@@ -22,7 +22,12 @@ jobs:
           SHEET_ID="1put7iH5sMUTDtSZWlF8GRyx36I9UJrGG5hRRv1hrFgM"
           SUMMARY_URL="https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=Summary"
 
+          HISTORY_URL="https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=History"
+
           curl -sfL "$SUMMARY_URL" -o /tmp/summary.csv
+          # The timeline is optional: a missing History tab leaves it off the
+          # page rather than failing the whole build.
+          curl -sfL "$HISTORY_URL" -o /tmp/history.csv || : > /tmp/history.csv
 
           # Fail loudly rather than publishing a dashboard of zeros
           if ! grep -q 'total_raised' /tmp/summary.csv; then
@@ -82,6 +87,15 @@ jobs:
               'data_age_days': int(num('data_age_days', -1)),
               'newest_report_date': summary.get('newest_report_date', ''),
           }
+
+          # Daily totals only (no names), one row per snapshot, for the timeline.
+          history = []
+          with open('/tmp/history.csv', newline='', encoding='utf-8-sig') as f:
+              for row in csv.DictReader(f):
+                  if row.get('date') and row.get('total_raised'):
+                      history.append({k: row.get(k, '') for k in
+                          ('date', 'total_raised', 'donation_count', 'unique_donors', 'qualifying')})
+          data['history'] = history
 
           with open('/tmp/dashboard_data.json', 'w') as f:
               json.dump(data, f)
