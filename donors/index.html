@@ -217,6 +217,17 @@
     font-size: 32px; line-height: 1.05;
   }
   .figure-label { font-size: 13px; margin-top: 6px; }
+  .figures.three { grid-template-columns: 1fr 1fr 1fr; margin-top: 4px; }
+  .pace-status {
+    margin-top: 14px; padding: 10px 14px; border-radius: 3px;
+    font-size: 13px; line-height: 1.5; border: 1px solid var(--border);
+  }
+  .pace-status b { font-weight: 600; }
+  .pace-icon { margin-right: 6px; font-weight: 700; }
+  .pace-status.good .pace-icon, .pace-status.good b { color: var(--priority-low); }
+  .pace-status.good { border-color: var(--priority-low); }
+  .pace-status.behind .pace-icon, .pace-status.behind b { color: var(--priority-high); }
+  .pace-status.behind { border-color: var(--priority-high); }
   .figure-note {
     font-size: 12px; color: var(--text-secondary);
     margin-top: 4px; line-height: 1.5;
@@ -248,7 +259,7 @@
     .headline-value { font-size: 28px; }
     /* Stack rather than squeeze into two narrow columns */
     .meter-foot { flex-direction: column; gap: 2px; }
-    .figures { grid-template-columns: 1fr; }
+    .figures, .figures.three { grid-template-columns: 1fr; }
   }
 
   .auth-gate {
@@ -362,6 +373,58 @@
       </div>
     </div>
   </div>
+
+  <div class="card">
+    <div class="card-title">Daily goal &mdash; max the match by Nov 3</div>
+    <div class="figures three">
+      <div class="figure">
+        <div class="figure-value" id="paceDays">48</div>
+        <div class="figure-label">days until Election Day</div>
+        <div class="figure-note">counting today</div>
+      </div>
+      <div class="figure">
+        <div class="figure-value" id="paceDollars">$86</div>
+        <div class="figure-label">in qualifying gifts a day</div>
+        <div class="figure-note">$4,117 still to go</div>
+      </div>
+      <div class="figure">
+        <div class="figure-value" id="paceGifts">1.6</div>
+        <div class="figure-label">qualifying gifts a day</div>
+        <div class="figure-note">at the $54.82 Berkeley average &middot; <span id="paceWeek">11</span> a week</div>
+      </div>
+    </div>
+    <div class="pace-status behind" id="paceStatus"><span class="pace-icon" aria-hidden="true">&#9888;</span><b id="paceWord">Behind pace</b> &mdash; the last 7 days brought in $78 a day from Berkeley residents<span id="paceGap"> ($8 a day short)</span>.</div>
+  </div>
+
+<script>
+(function () {
+  var D = {"election": "2026-11-03", "left": 4116.68, "avg": 54.82, "max": 60, "pace": 77.86};
+  function money(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
+  // Today's date in Berkeley, whatever the viewer's clock zone
+  var parts = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Los_Angeles',
+    year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
+  var today = Date.UTC(+parts.slice(0, 4), +parts.slice(5, 7) - 1, +parts.slice(8, 10));
+  var e = D.election.split('-');
+  var days = Math.max(0, Math.round((Date.UTC(+e[0], +e[1] - 1, +e[2]) - today) / 864e5));
+  var perDay = days > 0 ? D.left / days : D.left;
+  var gifts = perDay / D.avg;
+  function set(id, t) { var n = document.getElementById(id); if (n) n.textContent = t; }
+  set('paceDays', days);
+  set('paceDollars', money(perDay));
+  set('paceGifts', gifts.toFixed(1));
+  set('paceWeek', Math.round(gifts * 7));
+  if (D.pace !== null) {
+    var ok = D.pace >= perDay, box = document.getElementById('paceStatus');
+    if (box) {
+      box.className = 'pace-status ' + (ok ? 'good' : 'behind');
+      box.querySelector('.pace-icon').innerHTML = ok ? '&#10003;' : '&#9888;';
+      set('paceWord', ok ? 'On pace' : 'Behind pace');
+      set('paceGap', ok ? '' : ' (' + money(perDay - D.pace) + ' a day short)');
+    }
+  }
+})();
+</script>
+
 
   <div class="card">
     <div class="tl-head">

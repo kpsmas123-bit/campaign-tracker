@@ -111,6 +111,135 @@ AUTH_JS = """
 """
 
 
+ELECTION_DAY = '2026-11-03'
+
+
+def pace_html(qual_left, bky_avg, history, max_gift=60):
+    """What it takes per day, from today until Election Day, to max the match.
+
+    Days are counted from today (inclusive) up to Election Day (exclusive), so
+    on Nov 2 there is one day left. The page is built once a day, so a small
+    script re-counts the days from the viewer's Pacific date and re-divides —
+    the remaining dollars only change when the sheet does.
+
+    Recent pace comes from the History tab: qualifying dollars gained over the
+    last seven days of snapshots, as a daily rate.
+    """
+    from datetime import date, datetime, timedelta, timezone
+
+    election = date.fromisoformat(ELECTION_DAY)
+    # Pacific date at build time (UTC-7 through Nov 1; close enough for a count)
+    today = (datetime.now(timezone.utc) - timedelta(hours=7)).date()
+    days = max(0, (election - today).days)
+
+    if qual_left <= 0:
+        return ''
+
+    # Last-7-days pace from the daily snapshots
+    pace = None
+    pts = []
+    for h in history or []:
+        try:
+            pts.append((date.fromisoformat(str(h['date'])[:10]), float(h.get('qualifying') or 0)))
+        except (KeyError, TypeError, ValueError):
+            continue
+    pts.sort()
+    if len(pts) >= 2:
+        end_d, end_q = pts[-1]
+        base = [p for p in pts if p[0] <= end_d - timedelta(days=7)]
+        if base:
+            b_d, b_q = base[-1]
+            span = (end_d - b_d).days
+            if span > 0:
+                pace = max(0.0, (end_q - b_q) / span)
+
+    avg = bky_avg if bky_avg else max_gift
+
+    if days <= 0:
+        per_day = qual_left
+    else:
+        per_day = qual_left / days
+    gifts_avg = per_day / avg
+    gifts_max = per_day / max_gift
+
+    if pace is None:
+        pace_line = ''
+    else:
+        on_pace = pace >= per_day
+        cls = 'good' if on_pace else 'behind'
+        icon = '&#10003;' if on_pace else '&#9888;'
+        word = 'On pace' if on_pace else 'Behind pace'
+        pace_line = (
+            f'<div class="pace-status {cls}" id="paceStatus">'
+            f'<span class="pace-icon" aria-hidden="true">{icon}</span>'
+            f'<b id="paceWord">{word}</b> &mdash; the last 7 days brought in '
+            f'{money(pace)} a day from Berkeley residents'
+            f'<span id="paceGap">{"" if on_pace else " (" + money(per_day - pace) + " a day short)"}</span>.'
+            '</div>'
+        )
+
+    js = PACE_JS.replace('__DATA__', json.dumps({
+        'election': ELECTION_DAY, 'left': round(qual_left, 2), 'avg': round(avg, 2),
+        'max': max_gift, 'pace': None if pace is None else round(pace, 2),
+    }))
+
+    return f"""
+  <div class="card">
+    <div class="card-title">Daily goal &mdash; max the match by Nov 3</div>
+    <div class="figures three">
+      <div class="figure">
+        <div class="figure-value" id="paceDays">{days}</div>
+        <div class="figure-label">days until Election Day</div>
+        <div class="figure-note">counting today</div>
+      </div>
+      <div class="figure">
+        <div class="figure-value" id="paceDollars">{money(per_day)}</div>
+        <div class="figure-label">in qualifying gifts a day</div>
+        <div class="figure-note">{money(qual_left)} still to go</div>
+      </div>
+      <div class="figure">
+        <div class="figure-value" id="paceGifts">{gifts_avg:.1f}</div>
+        <div class="figure-label">qualifying gifts a day</div>
+        <div class="figure-note">at the {money(avg, cents=True)} Berkeley average &middot; <span id="paceWeek">{gifts_avg * 7:.0f}</span> a week</div>
+      </div>
+    </div>
+    {pace_line}
+  </div>
+{js}"""
+
+
+PACE_JS = """
+<script>
+(function () {
+  var D = __DATA__;
+  function money(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
+  // Today's date in Berkeley, whatever the viewer's clock zone
+  var parts = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Los_Angeles',
+    year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
+  var today = Date.UTC(+parts.slice(0, 4), +parts.slice(5, 7) - 1, +parts.slice(8, 10));
+  var e = D.election.split('-');
+  var days = Math.max(0, Math.round((Date.UTC(+e[0], +e[1] - 1, +e[2]) - today) / 864e5));
+  var perDay = days > 0 ? D.left / days : D.left;
+  var gifts = perDay / D.avg;
+  function set(id, t) { var n = document.getElementById(id); if (n) n.textContent = t; }
+  set('paceDays', days);
+  set('paceDollars', money(perDay));
+  set('paceGifts', gifts.toFixed(1));
+  set('paceWeek', Math.round(gifts * 7));
+  if (D.pace !== null) {
+    var ok = D.pace >= perDay, box = document.getElementById('paceStatus');
+    if (box) {
+      box.className = 'pace-status ' + (ok ? 'good' : 'behind');
+      box.querySelector('.pace-icon').innerHTML = ok ? '&#10003;' : '&#9888;';
+      set('paceWord', ok ? 'On pace' : 'Behind pace');
+      set('paceGap', ok ? '' : ' (' + money(perDay - D.pace) + ' a day short)');
+    }
+  }
+})();
+</script>
+"""
+
+
 def money(n, cents=False):
     return f"${n:,.2f}" if cents else f"${n:,.0f}"
 
@@ -510,6 +639,8 @@ def generate(data_path, out_path):
         else:
             countdown_note = f'{money(qual_left)} still needed from Berkeley residents'
 
+    pace = pace_html(qual_left, bky_avg, d.get('history', []), max_gift)
+
     page = f'''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -729,6 +860,17 @@ def generate(data_path, out_path):
     font-size: 32px; line-height: 1.05;
   }}
   .figure-label {{ font-size: 13px; margin-top: 6px; }}
+  .figures.three {{ grid-template-columns: 1fr 1fr 1fr; margin-top: 4px; }}
+  .pace-status {{
+    margin-top: 14px; padding: 10px 14px; border-radius: 3px;
+    font-size: 13px; line-height: 1.5; border: 1px solid var(--border);
+  }}
+  .pace-status b {{ font-weight: 600; }}
+  .pace-icon {{ margin-right: 6px; font-weight: 700; }}
+  .pace-status.good .pace-icon, .pace-status.good b {{ color: var(--priority-low); }}
+  .pace-status.good {{ border-color: var(--priority-low); }}
+  .pace-status.behind .pace-icon, .pace-status.behind b {{ color: var(--priority-high); }}
+  .pace-status.behind {{ border-color: var(--priority-high); }}
   .figure-note {{
     font-size: 12px; color: var(--text-secondary);
     margin-top: 4px; line-height: 1.5;
@@ -760,7 +902,7 @@ def generate(data_path, out_path):
     .headline-value {{ font-size: 28px; }}
     /* Stack rather than squeeze into two narrow columns */
     .meter-foot {{ flex-direction: column; gap: 2px; }}
-    .figures {{ grid-template-columns: 1fr; }}
+    .figures, .figures.three {{ grid-template-columns: 1fr; }}
   }}
 {AUTH_CSS}</style>
 </head>
@@ -835,6 +977,7 @@ def generate(data_path, out_path):
       </div>
     </div>
   </div>
+{pace}
 {timeline}
 
 </div>
