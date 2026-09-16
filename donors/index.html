@@ -224,6 +224,19 @@
   }
   .pace-status b { font-weight: 600; }
   .pace-icon { margin-right: 6px; font-weight: 700; }
+  .pace-sub { font-size: 13px; color: var(--text-secondary); margin-top: 24px; }
+  .pace-table { font-size: 13px; overflow-x: auto; }
+  .pace-table table { border-collapse: collapse; margin-top: 8px; width: 100%;
+                      font-variant-numeric: tabular-nums; }
+  .pace-table th, .pace-table td { text-align: right; padding: 6px 8px;
+                                    border-bottom: 1px solid var(--border-light); white-space: nowrap; }
+  .pace-table th:first-child, .pace-table td:first-child { text-align: left; }
+  .pace-table th { color: var(--text-tertiary); font-weight: 500; font-size: 12px; }
+  .pace-table b { font-weight: 600; }
+  .pace-table tr.pace-total td { font-weight: 600; border-bottom: none; border-top: 1px solid var(--border); }
+  .pace-table tr.future td { color: var(--text-tertiary); }
+  .pace-table td.gap { text-align: center; color: var(--text-tertiary); }
+  .pace-sub + .meter { margin-top: 10px; }
   .pace-status.good .pace-icon, .pace-status.good b { color: var(--priority-low); }
   .pace-status.good { border-color: var(--priority-low); }
   .pace-status.behind .pace-icon, .pace-status.behind b { color: var(--priority-high); }
@@ -260,6 +273,8 @@
     /* Stack rather than squeeze into two narrow columns */
     .meter-foot { flex-direction: column; gap: 2px; }
     .figures, .figures.three { grid-template-columns: 1fr; }
+    .pace-table th, .pace-table td { padding: 6px 4px; }
+    .pace-table.week th { font-size: 11px; }
   }
 
   .auth-gate {
@@ -394,6 +409,41 @@
       </div>
     </div>
     <div class="pace-status behind" id="paceStatus"><span class="pace-icon" aria-hidden="true">&#9888;</span><b id="paceWord">Behind pace</b> &mdash; the last 7 days brought in $78 a day from Berkeley residents<span id="paceGap"> ($8 a day short)</span>.</div>
+
+    <div class="pace-sub">Qualifying gifts needed to stay on track</div>
+    <div class="pace-table"><table>
+      <thead><tr><th>Assuming each gift is</th><th>Per day</th><th>Per week</th></tr></thead>
+      <tbody>
+        <tr><td>Maxed ($60)</td>
+            <td><span id="nMaxDay">1.4</span> gifts</td>
+            <td><b id="nMaxWeek">10</b> gifts</td></tr>
+        <tr><td>Average ($54.82)</td>
+            <td><span id="nAvgDay">1.6</span> gifts</td>
+            <td><b id="nAvgWeek">11</b> gifts</td></tr>
+        <tr class="pace-total"><td>Dollars</td>
+            <td id="nDolDay">$86</td>
+            <td id="nDolWeek">$600</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="pace-sub">This week &middot; Sep 14 &ndash; Sep 20</div>
+    <div class="meter">
+      <div class="meter-head">
+        <span class="label">Berkeley $ vs weekly goal</span>
+        <span class="meter-pct">72%</span>
+      </div>
+      <div class="meter-track"><div class="meter-fill" style="width:71.8%"></div></div>
+      <div class="meter-foot">
+        <span><b>$460</b> of $641</span>
+        <span>about 11 maxed or 12 average gifts for the week</span>
+      </div>
+    </div>
+    <div class="pace-status good"><span class="pace-icon" aria-hidden="true">&#10003;</span><b>On track this week</b> &mdash; 3 of 7 days in, the week should be at $275 by now.</div>
+    <div class="pace-table week"><table>
+      <thead><tr><th>Day</th><th>Donations</th><th>Berkeley</th><th>Outside</th></tr></thead>
+      <tbody><tr><td>Mon Sep 14</td><td>3</td><td>$135</td><td>$0</td></tr><tr><td>Tue Sep 15</td><td>4</td><td>$205</td><td>$0</td></tr><tr><td>Wed Sep 16</td><td>4</td><td>$120</td><td>$120</td></tr><tr class="future"><td>Thu Sep 17</td><td></td><td></td><td></td></tr><tr class="future"><td>Fri Sep 18</td><td></td><td></td><td></td></tr><tr class="future"><td>Sat Sep 19</td><td></td><td></td><td></td></tr><tr class="future"><td>Sun Sep 20</td><td></td><td></td><td></td></tr><tr class="pace-total"><td>Week so far</td><td>11</td><td>$460</td><td>$120</td></tr></tbody>
+    </table></div>
+    <div class="tl-note">Goal set Monday from what was left going into the week. A gift counts on the day it first appears in an ActBlue report.</div>
   </div>
 
 <script>
@@ -407,12 +457,17 @@
   var e = D.election.split('-');
   var days = Math.max(0, Math.round((Date.UTC(+e[0], +e[1] - 1, +e[2]) - today) / 864e5));
   var perDay = days > 0 ? D.left / days : D.left;
-  var gifts = perDay / D.avg;
   function set(id, t) { var n = document.getElementById(id); if (n) n.textContent = t; }
   set('paceDays', days);
   set('paceDollars', money(perDay));
-  set('paceGifts', gifts.toFixed(1));
-  set('paceWeek', Math.round(gifts * 7));
+  set('paceGifts', (perDay / D.avg).toFixed(1));
+  set('paceWeek', Math.round(perDay * 7 / D.avg));
+  set('nMaxDay', (perDay / D.max).toFixed(1));
+  set('nMaxWeek', Math.round(perDay * 7 / D.max));
+  set('nAvgDay', (perDay / D.avg).toFixed(1));
+  set('nAvgWeek', Math.round(perDay * 7 / D.avg));
+  set('nDolDay', money(perDay));
+  set('nDolWeek', money(perDay * 7));
   if (D.pace !== null) {
     var ok = D.pace >= perDay, box = document.getElementById('paceStatus');
     if (box) {

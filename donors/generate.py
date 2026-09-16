@@ -115,68 +115,155 @@ ELECTION_DAY = '2026-11-03'
 
 
 def pace_html(qual_left, bky_avg, history, max_gift=60):
-    """What it takes per day, from today until Election Day, to max the match.
+    """What it takes, from today until Election Day, to max the match.
 
-    Days are counted from today (inclusive) up to Election Day (exclusive), so
-    on Nov 2 there is one day left. The page is built once a day, so a small
-    script re-counts the days from the viewer's Pacific date and re-divides —
-    the remaining dollars only change when the sheet does.
+    Three parts: the headline daily need, the same need as gifts a day and a
+    week (at the $60 ceiling and at the Berkeley average), and a Monday-Sunday
+    tracker for the current week.
 
-    Recent pace comes from the History tab: qualifying dollars gained over the
-    last seven days of snapshots, as a daily rate.
+    Days are counted from today (inclusive) up to Election Day (exclusive). The
+    page is built once a day, so a small script re-counts the days from the
+    viewer's Pacific date and re-divides; remaining dollars only change when
+    the sheet does.
+
+    Per-day figures are differences between consecutive daily snapshots in the
+    History tab, so a gift lands on the day it first appeared in a report.
+    The snapshots record Berkeley dollars but not Berkeley gift counts, so the
+    week table shows dollars by origin and a single donation count.
     """
     from datetime import date, datetime, timedelta, timezone
+
+    if qual_left <= 0:
+        return ''
 
     election = date.fromisoformat(ELECTION_DAY)
     # Pacific date at build time (UTC-7 through Nov 1; close enough for a count)
     today = (datetime.now(timezone.utc) - timedelta(hours=7)).date()
     days = max(0, (election - today).days)
 
-    if qual_left <= 0:
-        return ''
-
-    # Last-7-days pace from the daily snapshots
-    pace = None
-    pts = []
+    snaps = {}
     for h in history or []:
         try:
-            pts.append((date.fromisoformat(str(h['date'])[:10]), float(h.get('qualifying') or 0)))
+            dd = date.fromisoformat(str(h['date'])[:10])
+            snaps[dd] = (float(h.get('total_raised') or 0),
+                         float(h.get('qualifying') or 0),
+                         int(float(h.get('donation_count') or 0)))
         except (KeyError, TypeError, ValueError):
             continue
-    pts.sort()
-    if len(pts) >= 2:
-        end_d, end_q = pts[-1]
-        base = [p for p in pts if p[0] <= end_d - timedelta(days=7)]
+    ordered = sorted(snaps)
+
+    # Last-7-days pace
+    pace = None
+    if len(ordered) >= 2:
+        end_d = ordered[-1]
+        base = [x for x in ordered if x <= end_d - timedelta(days=7)]
         if base:
-            b_d, b_q = base[-1]
-            span = (end_d - b_d).days
-            if span > 0:
-                pace = max(0.0, (end_q - b_q) / span)
+            span = (end_d - base[-1]).days
+            pace = max(0.0, (snaps[end_d][1] - snaps[base[-1]][1]) / span)
 
     avg = bky_avg if bky_avg else max_gift
-
-    if days <= 0:
-        per_day = qual_left
-    else:
-        per_day = qual_left / days
-    gifts_avg = per_day / avg
-    gifts_max = per_day / max_gift
+    per_day = qual_left / days if days > 0 else qual_left
 
     if pace is None:
         pace_line = ''
     else:
         on_pace = pace >= per_day
-        cls = 'good' if on_pace else 'behind'
-        icon = '&#10003;' if on_pace else '&#9888;'
-        word = 'On pace' if on_pace else 'Behind pace'
         pace_line = (
-            f'<div class="pace-status {cls}" id="paceStatus">'
-            f'<span class="pace-icon" aria-hidden="true">{icon}</span>'
-            f'<b id="paceWord">{word}</b> &mdash; the last 7 days brought in '
+            f'<div class="pace-status {"good" if on_pace else "behind"}" id="paceStatus">'
+            f'<span class="pace-icon" aria-hidden="true">{"&#10003;" if on_pace else "&#9888;"}</span>'
+            f'<b id="paceWord">{"On pace" if on_pace else "Behind pace"}</b> &mdash; the last 7 days brought in '
             f'{money(pace)} a day from Berkeley residents'
             f'<span id="paceGap">{"" if on_pace else " (" + money(per_day - pace) + " a day short)"}</span>.'
             '</div>'
         )
+
+    # --- gifts a day / week, maxed vs average ---------------------------
+    need_table = f"""
+    <div class="pace-sub">Qualifying gifts needed to stay on track</div>
+    <div class="pace-table"><table>
+      <thead><tr><th>Assuming each gift is</th><th>Per day</th><th>Per week</th></tr></thead>
+      <tbody>
+        <tr><td>Maxed ({money(max_gift)})</td>
+            <td><span id="nMaxDay">{per_day / max_gift:.1f}</span> gifts</td>
+            <td><b id="nMaxWeek">{per_day * 7 / max_gift:.0f}</b> gifts</td></tr>
+        <tr><td>Average ({money(avg, cents=True)})</td>
+            <td><span id="nAvgDay">{per_day / avg:.1f}</span> gifts</td>
+            <td><b id="nAvgWeek">{per_day * 7 / avg:.0f}</b> gifts</td></tr>
+        <tr class="pace-total"><td>Dollars</td>
+            <td id="nDolDay">{money(per_day)}</td>
+            <td id="nDolWeek">{money(per_day * 7)}</td></tr>
+      </tbody>
+    </table></div>"""
+
+    # --- this week, Monday to Sunday ------------------------------------
+    week_html = ''
+    if ordered:
+        latest = ordered[-1]
+        monday = latest - timedelta(days=latest.weekday())
+        sunday = monday + timedelta(days=6)
+        prev = snaps.get(monday - timedelta(days=1))
+        if prev is None:
+            before = [x for x in ordered if x < monday]
+            prev = snaps[before[-1]] if before else None
+
+        if prev is not None:
+            # The week's goal is fixed on Monday, from what was left going into
+            # the week, so it does not drift as the week's own gifts come in.
+            left_mon = max(0.0, (qual_left + snaps[latest][1]) - prev[1])
+            days_mon = max(1, (election - monday).days)
+            week_goal = left_mon / days_mon * min(7, days_mon)
+
+            rows, wk_tot, wk_bky, wk_n = [], 0.0, 0.0, 0
+            last = prev
+            for i in range(7):
+                dd = monday + timedelta(days=i)
+                label = dd.strftime('%a %b ') + str(dd.day)
+                if dd > latest:
+                    rows.append(f'<tr class="future"><td>{label}</td><td></td><td></td><td></td></tr>')
+                    continue
+                cur = snaps.get(dd)
+                if cur is None:
+                    rows.append(f'<tr><td>{label}</td><td colspan="3" class="gap">no snapshot</td></tr>')
+                    continue
+                n = cur[2] - last[2]
+                bky = cur[1] - last[1]
+                out = (cur[0] - last[0]) - bky
+                wk_tot += cur[0] - last[0]; wk_bky += bky; wk_n += n
+                rows.append(f'<tr><td>{label}</td><td>{n}</td><td>{money(bky)}</td><td>{money(max(0.0, out))}</td></tr>')
+                last = cur
+            rows.append(f'<tr class="pace-total"><td>Week so far</td><td>{wk_n}</td>'
+                        f'<td>{money(wk_bky)}</td><td>{money(max(0.0, wk_tot - wk_bky))}</td></tr>')
+
+            days_in = (latest - monday).days + 1
+            fill = pct(wk_bky, week_goal)
+            expected = week_goal * days_in / 7
+            ok = wk_bky >= expected
+            status = (
+                f'<div class="pace-status {"good" if ok else "behind"}">'
+                f'<span class="pace-icon" aria-hidden="true">{"&#10003;" if ok else "&#9888;"}</span>'
+                f'<b>{"On track this week" if ok else "Behind this week"}</b> &mdash; '
+                f'{days_in} of 7 days in, the week should be at {money(expected)} by now.'
+                '</div>'
+            )
+            week_html = f"""
+    <div class="pace-sub">This week &middot; {monday.strftime('%b')} {monday.day} &ndash; {sunday.strftime('%b')} {sunday.day}</div>
+    <div class="meter">
+      <div class="meter-head">
+        <span class="label">Berkeley $ vs weekly goal</span>
+        <span class="meter-pct">{fill:.0f}%</span>
+      </div>
+      <div class="meter-track"><div class="meter-fill" style="width:{fill:.1f}%"></div></div>
+      <div class="meter-foot">
+        <span><b>{money(wk_bky)}</b> of {money(week_goal)}</span>
+        <span>about {week_goal / max_gift:.0f} maxed or {week_goal / avg:.0f} average gifts for the week</span>
+      </div>
+    </div>
+    {status}
+    <div class="pace-table week"><table>
+      <thead><tr><th>Day</th><th>Donations</th><th>Berkeley</th><th>Outside</th></tr></thead>
+      <tbody>{''.join(rows)}</tbody>
+    </table></div>
+    <div class="tl-note">Goal set Monday from what was left going into the week. A gift counts on the day it first appears in an ActBlue report.</div>"""
 
     js = PACE_JS.replace('__DATA__', json.dumps({
         'election': ELECTION_DAY, 'left': round(qual_left, 2), 'avg': round(avg, 2),
@@ -198,12 +285,14 @@ def pace_html(qual_left, bky_avg, history, max_gift=60):
         <div class="figure-note">{money(qual_left)} still to go</div>
       </div>
       <div class="figure">
-        <div class="figure-value" id="paceGifts">{gifts_avg:.1f}</div>
+        <div class="figure-value" id="paceGifts">{per_day / avg:.1f}</div>
         <div class="figure-label">qualifying gifts a day</div>
-        <div class="figure-note">at the {money(avg, cents=True)} Berkeley average &middot; <span id="paceWeek">{gifts_avg * 7:.0f}</span> a week</div>
+        <div class="figure-note">at the {money(avg, cents=True)} Berkeley average &middot; <span id="paceWeek">{per_day * 7 / avg:.0f}</span> a week</div>
       </div>
     </div>
     {pace_line}
+{need_table}
+{week_html}
   </div>
 {js}"""
 
@@ -220,12 +309,17 @@ PACE_JS = """
   var e = D.election.split('-');
   var days = Math.max(0, Math.round((Date.UTC(+e[0], +e[1] - 1, +e[2]) - today) / 864e5));
   var perDay = days > 0 ? D.left / days : D.left;
-  var gifts = perDay / D.avg;
   function set(id, t) { var n = document.getElementById(id); if (n) n.textContent = t; }
   set('paceDays', days);
   set('paceDollars', money(perDay));
-  set('paceGifts', gifts.toFixed(1));
-  set('paceWeek', Math.round(gifts * 7));
+  set('paceGifts', (perDay / D.avg).toFixed(1));
+  set('paceWeek', Math.round(perDay * 7 / D.avg));
+  set('nMaxDay', (perDay / D.max).toFixed(1));
+  set('nMaxWeek', Math.round(perDay * 7 / D.max));
+  set('nAvgDay', (perDay / D.avg).toFixed(1));
+  set('nAvgWeek', Math.round(perDay * 7 / D.avg));
+  set('nDolDay', money(perDay));
+  set('nDolWeek', money(perDay * 7));
   if (D.pace !== null) {
     var ok = D.pace >= perDay, box = document.getElementById('paceStatus');
     if (box) {
@@ -867,6 +961,19 @@ def generate(data_path, out_path):
   }}
   .pace-status b {{ font-weight: 600; }}
   .pace-icon {{ margin-right: 6px; font-weight: 700; }}
+  .pace-sub {{ font-size: 13px; color: var(--text-secondary); margin-top: 24px; }}
+  .pace-table {{ font-size: 13px; overflow-x: auto; }}
+  .pace-table table {{ border-collapse: collapse; margin-top: 8px; width: 100%;
+                      font-variant-numeric: tabular-nums; }}
+  .pace-table th, .pace-table td {{ text-align: right; padding: 6px 8px;
+                                    border-bottom: 1px solid var(--border-light); white-space: nowrap; }}
+  .pace-table th:first-child, .pace-table td:first-child {{ text-align: left; }}
+  .pace-table th {{ color: var(--text-tertiary); font-weight: 500; font-size: 12px; }}
+  .pace-table b {{ font-weight: 600; }}
+  .pace-table tr.pace-total td {{ font-weight: 600; border-bottom: none; border-top: 1px solid var(--border); }}
+  .pace-table tr.future td {{ color: var(--text-tertiary); }}
+  .pace-table td.gap {{ text-align: center; color: var(--text-tertiary); }}
+  .pace-sub + .meter {{ margin-top: 10px; }}
   .pace-status.good .pace-icon, .pace-status.good b {{ color: var(--priority-low); }}
   .pace-status.good {{ border-color: var(--priority-low); }}
   .pace-status.behind .pace-icon, .pace-status.behind b {{ color: var(--priority-high); }}
@@ -903,6 +1010,8 @@ def generate(data_path, out_path):
     /* Stack rather than squeeze into two narrow columns */
     .meter-foot {{ flex-direction: column; gap: 2px; }}
     .figures, .figures.three {{ grid-template-columns: 1fr; }}
+    .pace-table th, .pace-table td {{ padding: 6px 4px; }}
+    .pace-table.week th {{ font-size: 11px; }}
   }}
 {AUTH_CSS}</style>
 </head>
