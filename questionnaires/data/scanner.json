@@ -1,0 +1,145 @@
+{
+  "slug": "scanner",
+  "org": "The Berkeley Scanner",
+  "cycle": "2026",
+  "candidate": "Daria Wrubel — Berkeley City Council D1",
+  "generated": "2026-09-17",
+  "last_factcheck": "",
+  "contact_fields": [
+    {
+      "k": "name",
+      "label": "Name",
+      "v": "Daria Wrubel"
+    },
+    {
+      "k": "age",
+      "label": "Age",
+      "v": ""
+    },
+    {
+      "k": "occupation",
+      "label": "Occupation (if retired, former profession)",
+      "v": ""
+    },
+    {
+      "k": "office",
+      "label": "What office are you running for?",
+      "v": "Berkeley City Council, District 1"
+    },
+    {
+      "k": "photos",
+      "label": "Photos emailed to emilie@berkeleyscanner.com (one 4:3 landscape featured photo, one headshot)",
+      "v": ""
+    },
+    {
+      "k": "confidential",
+      "label": "CONFIDENTIAL, not for publication: best cell and email for a time crunch",
+      "v": ""
+    }
+  ],
+  "questions": [
+    {
+      "id": "scanner_q1",
+      "section": "Vision",
+      "topic": "general",
+      "status": "todo",
+      "question": "What is the main reason you are running?",
+      "section_note": "The Scanner caps this response at 500 characters."
+    },
+    {
+      "id": "scanner_q2",
+      "section": "Vision",
+      "topic": "general",
+      "status": "todo",
+      "question": "Why are you qualified?",
+      "section_note": "The Scanner caps this response at 600 characters."
+    },
+    {
+      "id": "scanner_q3",
+      "section": "Vision",
+      "topic": "general",
+      "status": "todo",
+      "question": "What sets you apart from other candidates?",
+      "section_note": "The Scanner caps this response at 600 characters."
+    },
+    {
+      "id": "scanner_q4",
+      "section": "Berkeley",
+      "topic": "general",
+      "status": "todo",
+      "question": "How and when did you end up in Berkeley?",
+      "section_note": "The Scanner caps this response at 500 characters."
+    },
+    {
+      "id": "scanner_q5",
+      "section": "Berkeley",
+      "topic": "general",
+      "status": "todo",
+      "question": "What are the three biggest challenges for Berkeley in the next five years?",
+      "section_note": "The Scanner caps this response at 600 characters."
+    },
+    {
+      "id": "scanner_q6",
+      "section": "Berkeley",
+      "topic": "general",
+      "status": "todo",
+      "question": "How would you begin to address them?",
+      "section_note": "The Scanner caps this response at 800 characters."
+    },
+    {
+      "id": "scanner_q7",
+      "section": "Berkeley",
+      "topic": "general",
+      "status": "todo",
+      "question": "What is one new idea you'd like to bring to Berkeley?",
+      "section_note": "The Scanner caps this response at 500 characters."
+    },
+    {
+      "id": "scanner_q8",
+      "section": "Berkeley",
+      "topic": "general",
+      "status": "todo",
+      "question": "How will you be accessible to constituents?",
+      "section_note": "The Scanner caps this response at 500 characters."
+    },
+    {
+      "id": "scanner_q9",
+      "section": "Campaign",
+      "topic": "general",
+      "status": "todo",
+      "question": "Are you using public financing?",
+      "choice_type": "single",
+      "choices": [
+        {
+          "label": "Yes"
+        },
+        {
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "id": "scanner_q10",
+      "section": "Campaign",
+      "topic": "general",
+      "status": "todo",
+      "question": "How much money do you expect to spend on your campaign?"
+    },
+    {
+      "id": "scanner_q11",
+      "section": "Closing",
+      "topic": "general",
+      "status": "todo",
+      "question": "A final thought?",
+      "section_note": "The Scanner caps this response at 400 characters."
+    },
+    {
+      "id": "scanner_q12",
+      "section": "Closing",
+      "topic": "general",
+      "status": "todo",
+      "question": "List your website and all campaign social media profiles (URLs)"
+    }
+  ],
+  "org_research": "The Berkeley Scanner is a local news site covering Berkeley, run by Emilie Raguso. It does not endorse candidates; this form builds a candidate profile that publishes to readers ahead of the election, so answers are read by voters rather than by an endorsement committee. The Scanner reports more than 254,000 monthly pageviews and a daily email list of more than 12,000. Every response is published, apart from the last field, which asks for a cell and email for the reporter's own use. Most answers are capped between 400 and 800 characters, so they need to be tight. The form also asks for campaign photos by email: at least one horizontal 4:3 featured photo (e.g. 1200x900px) and one that works as a headshot. Questions go to Emilie Raguso at emilie@berkeleyscanner.com or 510-459-8325."
+}
