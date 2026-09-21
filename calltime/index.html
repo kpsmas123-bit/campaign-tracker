@@ -98,6 +98,8 @@
     transition: color .12s, border-color .12s;
   }
   .sync-btn:hover { color: var(--text); border-color: var(--text-tertiary); }
+  a.sync-btn { text-decoration: none; }
+  .sync-btn + .sync-btn { margin-left: 8px; }
   .sync-btn[disabled] { opacity: .5; cursor: default; }
 
   .save-indicator {
@@ -564,6 +566,7 @@
 
   <div class="header">
     <div class="page-title">Call time</div>
+    <a class="sync-btn" id="openSheet" href="/__hq/open-sheet" target="_blank" rel="noopener" title="Open the spreadsheet in a new tab">Open sheet &#8599;</a>
     <button class="sync-btn" id="syncBtn" title="Re-read the spreadsheet">Refresh from sheet</button>
     <button class="start-btn" id="startBtn" title="Work this list one at a time">Start calling &rarr;</button>
     <div class="save-indicator" id="saveIndicator"><span class="save-dot"></span><span class="save-label"></span></div>
@@ -817,8 +820,25 @@
   // A locked phone or a closed tab should not strand the queue: try once more on
   // the way out, and again as soon as the page is looked at.
   document.addEventListener('visibilitychange', function () {
-    if (document.visibilityState === 'visible') scheduleFlush(0);
+    if (document.visibilityState === 'visible') {
+      scheduleFlush(0);
+      rereadOnReturn();
+    }
   });
+
+  // Coming back to this tab (typically from editing the spreadsheet itself)
+  // re-reads the sheet, so changes made there show up without a manual refresh.
+  // Skipped while anything here is unsent or being typed, so a re-read can
+  // never land on top of an edit in progress.
+  var lastRead = 0;
+  var REREAD_AFTER = 20 * 1000;
+  function rereadOnReturn() {
+    if (!booted || !lastRead || Date.now() - lastRead < REREAD_AFTER) return;
+    if (queue.length || inFlight) return;
+    var a = document.activeElement;
+    if (a && /^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName)) return;
+    refresh();
+  }
   window.addEventListener('beforeunload', function (e) {
     if (queue.length) { e.preventDefault(); e.returnValue = ''; }
   });
@@ -1785,6 +1805,7 @@
       // paint() runs twice on a normal load: once on the mirror so the list is
       // usable immediately, once when the sheet lands and replaces it.
       await load(paint);
+      lastRead = Date.now();
       settleOpeningRound();
     } catch (e) {
       if (e && (e.code === 'PGRST205' || /schema cache/i.test(e.message || ''))) {
