@@ -1,0 +1,73 @@
+{
+  "slug": "bsp",
+  "org": "Beautiful San Pablo",
+  "cycle": "2026",
+  "candidate": "Daria Wrubel — Berkeley City Council D1",
+  "generated": "2026-09-20",
+  "last_factcheck": "",
+  "contact_fields": [
+    {
+      "k": "name",
+      "label": "Candidate Name",
+      "v": "Daria Wrubel"
+    },
+    {
+      "k": "office",
+      "label": "Office Sought",
+      "v": "Berkeley City Council, District 1"
+    }
+  ],
+  "questions": [
+    {
+      "id": "bsp_q1",
+      "section": "Hopkins Street",
+      "topic": "general",
+      "status": "todo",
+      "question": "Should the Class IV Cycle Track plan move forward as proposed passed or should the street simply be repaved with pedestrian and other safety enhancements (including possible Class II or Class III bike lanes), leaving the question of cycle tracks aside until the city has the ability to actually study the need and the alternatives?"
+    },
+    {
+      "id": "bsp_q2",
+      "section": "SPA Plan",
+      "topic": "general",
+      "status": "todo",
+      "question": "a) Do you support a recent notion that buildings on SPA can be up to 10 stories high (without the density bonus) or should they be limited to 7 (without the density bonus) stories?",
+      "section_note": "The group asks for each SPA question to be answered individually."
+    },
+    {
+      "id": "bsp_q3",
+      "section": "SPA Plan",
+      "topic": "general",
+      "status": "todo",
+      "question": "b) Does it make sense to rezone SPA higher from the other CZUs? What is your rationale for your answer?"
+    },
+    {
+      "id": "bsp_q4",
+      "section": "SPA Plan",
+      "topic": "general",
+      "status": "todo",
+      "question": "c) What would you do to ensure that the City Planning Department will use its leverage to achieve community benefits for West Berkeley and nearby neighborhoods, notably creating public plazas, people-friendly sidewalks, and open spaces along the corridor and the surrounding neighborhoods making Berkeley a truly world class city?"
+    },
+    {
+      "id": "bsp_q5",
+      "section": "Harrison Encampment",
+      "topic": "general",
+      "status": "todo",
+      "question": "Do you support the City’s plan that part of Camelia @4th street becomes a new permanently sanctioned homeless camp or do you support the clearance/closure of all homeless encampments in all of West Berkeley and throughout the city?"
+    },
+    {
+      "id": "bsp_q6",
+      "section": "Berkeley Marina",
+      "topic": "general",
+      "status": "todo",
+      "question": "Would you support a new ferry service from the Berkeley Marina to San Francisco despite the fact that the EIR predicted that traffic in the I-80 Berkeley corridor would increase 77% and that parking in the recreational district would be allocated to ferry users (eliminating many lower income outdoor recreational users)? Or would you advocate to keep parking free, and keep the Berkeley Marina a free recreational area for all?"
+    },
+    {
+      "id": "bsp_q7",
+      "section": "Constituents",
+      "topic": "general",
+      "status": "todo",
+      "question": "How will you stay in touch with your constituents?"
+    }
+  ],
+  "org_research": "Beautiful San Pablo is a community group focused on the San Pablo Avenue corridor, founded about four years ago by Meryl and Aimee Baldwin. The questionnaire came by email with no form; answers go back as a reply. The group sent a follow-up saying the due date had arrived and asking for a response as soon as possible, so this is already late. The questions are written from positions the group holds: each one pairs a city plan (the Hopkins Street cycle track, taller SPA zoning, a sanctioned camp at Camelia and 4th, a Marina ferry) with an alternative the framing favors. The SPA questions (2a-2c) are to be answered individually."
+}
