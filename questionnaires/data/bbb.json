@@ -1,0 +1,94 @@
+{
+  "slug": "bbb",
+  "org": "Build a Better Berkeley",
+  "cycle": "2026",
+  "candidate": "Daria Wrubel — Berkeley City Council D1",
+  "generated": "2026-09-21",
+  "last_factcheck": "",
+  "contact_fields": [
+    {
+      "k": "name",
+      "label": "Candidate Name",
+      "v": "Daria Wrubel"
+    },
+    {
+      "k": "office",
+      "label": "Office Sought",
+      "v": "Berkeley City Council, District 1"
+    }
+  ],
+  "questions": [
+    {
+      "id": "bbb_q1",
+      "section": "Zoning & affordability",
+      "topic": "general",
+      "status": "todo",
+      "question": "The City maintains that the sweet spot for developers to build housing in Berkeley is 7 stories. Current zoning requires that buildings of 7 stories include on-site affordable units. Are you in favor of changing the existing zoning in the North Shattuck, Solano, San Pablo and College corridors to allow market rate 7-story buildings so they would not have to include any on-site affordable housing."
+    },
+    {
+      "id": "bbb_q2",
+      "section": "San Pablo Avenue Specific Plan",
+      "topic": "general",
+      "status": "todo",
+      "question": "City staff, along with paid consultants, spent several years formulating the San Pablo Avenue Specific Plan (SPASP), engaging with community members and encouraging them to offer their vision for the transformation of San Pablo Avenue. The resulting ideas and recommendations were entirely ignored by the city council. Would you support revisiting the community’s recommendations and incorporating these into whatever final SPASP the council proposes?"
+    },
+    {
+      "id": "bbb_q3",
+      "section": "Zoning & affordability",
+      "topic": "general",
+      "status": "todo",
+      "question": "We have already rezoned to allow a doubling of the city population. Is it necessary to rezone commercial streets specifically for high-density housing to meet our housing goals? What is the maximum number of stories, including the density bonus, you believe preserves the sense of community and human interactions that currently exists in the North Shattuck, Solano, San Pablo, and College corridors?",
+      "section_note": "Two parts: whether commercial-street rezoning is needed, and a maximum story count including the density bonus."
+    },
+    {
+      "id": "bbb_q4",
+      "section": "Zoning & affordability",
+      "topic": "general",
+      "status": "todo",
+      "question": "Council members assert that building market rate housing invariably will lower rents. Yet, as reported this April by the Emeryville Tattler, despite a massive building boom between 2020 and 2024, Emeryville has had a 16.3% year-over-year increase in one-bedroom rents, the largest in the Bay Area. Despite building a substantial amount of market rate housing, Berkeley’s rents are still far from affordable. How do you propose that Berkeley actually build affordable housing for truly low-income, non-student residents?"
+    },
+    {
+      "id": "bbb_q5",
+      "section": "Zoning & affordability",
+      "topic": "general",
+      "status": "todo",
+      "question": "Do you support proposals allowing developers to buy their way out of the requirement to build on-site affordable units in their developments?"
+    },
+    {
+      "id": "bbb_q6",
+      "section": "Zoning & affordability",
+      "topic": "general",
+      "status": "todo",
+      "question": "In July 2025, the City Council passed a version of middle housing that went far beyond the state requirements and could potentially double the population of Berkeley, which is already one of the densest cities in California. Do you favor or oppose what the City Council has passed? Should the council continue to pass bills far in excess of what the state requires?"
+    },
+    {
+      "id": "bbb_q7",
+      "section": "Historic preservation",
+      "topic": "general",
+      "status": "todo",
+      "question": "The City Council has limited the ability of Berkeley residents to protect and landmark buildings for their historical, artistic and architectural heritage. Do you favor or oppose the changes that were made by the council?"
+    },
+    {
+      "id": "bbb_q8",
+      "section": "Hopkins Street",
+      "topic": "general",
+      "status": "todo",
+      "question": "Will you support a measure to rescind the July 2026 Council vote on Hopkins until a full complete street study, as required by the Bicycle Plan, is concluded? By necessity, it would fully consider budget costs, the possibility of paving with pedestrian improvements only, accessibility issues for all ages and abilities, alternative cycle routes such as Rose and Ada Streets, and include community input meetings."
+    },
+    {
+      "id": "bbb_q9",
+      "section": "Hopkins Street",
+      "topic": "general",
+      "status": "todo",
+      "question": "The biggest safety hazard on Hopkins is its poor pavement condition. Will you support repaving Hopkins now, as originally proposed, with only the pedestrian and other safety improvements, since moving quickly would help avoid further deterioration and the higher costs that come with delay?"
+    },
+    {
+      "id": "bbb_q10",
+      "section": "Livable city",
+      "topic": "general",
+      "status": "todo",
+      "question": "Critics of current developments have suggested that the City Council consider the concept of a “livable city” as one that honors the environment, human scale buildings, personal relationships centered around community gathering places, safety, and embraces all ages. What is your concept of a livable city?"
+    }
+  ],
+  "org_research": "Build a Better Berkeley describes itself as a coalition of Berkeley residents dedicated to maintaining a livable city while expanding genuinely affordable housing. The questionnaire came by email, due September 25. Every question and each candidate's responses will be shared with the group's 1,100 members and posted on its website, so answers are public. The questions are written from positions the group holds: skeptical of upzoning, the July 2025 middle housing ordinance, in-lieu fees and the landmarking changes, and in favor of revisiting the SPASP community recommendations and repaving Hopkins without the cycle track. Factual claims inside the questions (the Emeryville rent figure, the council having ignored the SPASP recommendations, the population-doubling estimates) are the group's framing and have not been checked. Hopkins Street overlaps with the Beautiful San Pablo questionnaire, so the two answers should stay consistent."
+}
